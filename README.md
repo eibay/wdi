@@ -24,6 +24,4 @@ ___
 
 ###Olivia Grosvenor - Course Producer
 * <oliviag@generalassemb.ly>
-___
-
 
