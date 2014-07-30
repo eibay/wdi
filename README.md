@@ -6,8 +6,8 @@ Web Development Immersive
 Congratulations on joining us at General Assembly for the Web Development Immersive course! All your class files can be found here.
 
 
-
-#Instructional Team:
+___
+#Team Rosencrantz
 
 ###Jeff Konowitch
 * <jeff.konowitch@generalassemb.ly>
@@ -18,4 +18,12 @@ Congratulations on joining us at General Assembly for the Web Development Immers
 
 ###Neel Patel 
 * <neel.patel@generalassemb.ly>
+
+###Ben Karl - TA
+* <benrkarl@gmail.com>
+
+###Olivia Grosvenor - Course Producer
+* <oliviag@generalassemb.ly>
+___
+
 
