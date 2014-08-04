@@ -1,0 +1,44 @@
+#!/usr/bin/ruby 
+
+gtf = "#{ENV["HOME"]}/.gastank"
+
+if ARGV.first == '-refill'
+	File.open gtf, 'w' do |f|
+		f.puts 20 
+	end 
+end  
+
+l = ARGV.last.to_sym   
+
+unless File.exist? gtf 
+	File.open gtf, 'w' do |f|
+		f.puts 20 
+	end 
+end
+
+c = File.read gtf   
+
+puts "Tank is at #{c}"
+
+if c.to_i.zero? 
+	abort "Tank is empty. Can't drive"
+end 
+
+puts "The light says"
+
+case l 
+when :red
+	puts "Stop!"
+when :green
+	puts "Go!"
+when :yellow 
+	puts "I'm watching out, but mostly going."
+else 
+	puts "Pull over, sir."
+end
+
+c = c.to_i - 1
+
+File.open gtf, 'w' do |f|
+	f.puts c 
+end 
