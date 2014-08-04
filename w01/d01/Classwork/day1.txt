@@ -1,0 +1,103 @@
+	1.	Get ingredients: Chocolate Ice-cream, Cones, Sprinkles, Scoop
+	2.	Open all containers
+	3.	Take a scooper/spoon and scoop ice cream into spoon
+	4.	Put ice cream from scoop and place into a cone
+	5.	Take sprinkles and put on top of ice cream
+
+
+monkey
+prqnhb
+
+mno key
+pqr 
+
+BANANAS
+edqdqdv
+
+trees
+wuhhv
+
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+                        P Q R
+
+find a series of letters in the original decrypted word
+line up where the characters in the encrypted series match in the original alphabet
+find out how much the encrypted letters are offset by, and its direction, according to the original alphabet
+take that number and move in that direction
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Jeffrey Konowitch, jeff.konowitch@generalassemb.ly
+Neel Patel, neel.patel@generalassemb.ly
+Sean West, sean.west@generalassemb.ly
+Jake Schwartz, j@generalassemb.ly
+Cynthia Guggle, cynthia@google.com
+Brad Winston, brad@google.com
+Summer Sanders, summer.sanders@nickelodeon.com
+Kenan Thompson, kenan.thompson@nickelodeon.com
+
+—
+Predict the email addresses for the following people
+
+PJ Hughes, General Assembly
+Eric Schmidt, Google
+Kel Mitchell, Nickelodeon
+
+———
+
+General Assembly format:
+first name . last name @ domain
+
+Google Format:
+first name @ domain
+
+Nickelodeon format:
+first name . last name @ domain
+
+——
+
+PJ Hughes
+pj.hughes@generalassemb.ly
+
+Eric Schmidt
+eric@google.com
+
+Kel Mitchell
+kel.mitchell@nickelodeon.com
+—
+
+1. Determine patterns in sample data
+
+2. Check place of work against sample formats
+
+3. If place of work is General Assembly, take first name insert a dot, add the last name and append the domain for the company: “@generalassemb.ly”
+
+- if there is a duplicate?, nickname? take shortened version as email + domain “@generalassemb.ly”
+
+4. If place of work is Google, take first name and append “@google.com” domain
+
+5. If place of work is Nickelodeon, take first name, insert a dot, add the last name and append the domain “@nickelodeon.com”
+
+
+
+
+compare the name with email prefix 
+
+lookup classifications with domain name provided
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
