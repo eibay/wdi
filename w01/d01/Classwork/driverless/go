@@ -1,0 +1,9 @@
+#!/usr/bin/ruby 
+
+a = ["New York", "San Franscisco", "Dallas", "Albuquerque", "Toronto"]
+
+p = ARGV.join " "
+
+r = a.include?(p) ? "I can go there" : "I can't go there"
+
+puts r 
