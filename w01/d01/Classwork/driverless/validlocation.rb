@@ -8,3 +8,20 @@ if locations.include?location
 else
 	puts "Sorry, this car does not go there."
 end
+
+#Using case statement to achieve the same functionality
+
+# location = "Dallas"
+# case location
+# when "New York"
+# 	puts "Yes, we go there!"
+# when "San Francisco"
+# 	puts "Yes, there too!"
+# when "Dallas"
+# 	puts "Sure."
+# else
+# 	puts "Umm... try again :("
+# end
+
+# Using while loops 
+# Compare location to each element in the array
