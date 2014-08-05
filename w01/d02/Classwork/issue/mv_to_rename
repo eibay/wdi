@@ -5,3 +5,5 @@ I think this is because we are used to being able to click on the icon for a fil
 I would like to try to explain why this is... 
 
 First try to understand that names are created by something called hard links: hard links are variables that refer to an inode 
+
+<!-- spent time free-associating to things from the homework, such as indexing into the array, ascii characters, generally noticing things we didn't notice about what we were doing -->
