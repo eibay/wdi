@@ -1,0 +1,7 @@
+For some reason when we first learn the command line we expect there to be a dedicated command to rename a file. 
+
+I think this is because we are used to being able to click on the icon for a file & edit the text representing the name under it.
+
+I would like to try to explain why this is... 
+
+First try to understand that names are created by something called hard links: hard links are variables that refer to an inode 
