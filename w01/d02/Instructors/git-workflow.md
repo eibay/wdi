@@ -10,7 +10,7 @@ git pull upstream master                  //pull is sub command of git, means to
           | |
      --Computer--  <== subl .==> editor   //edits/saves the file on local machine
           | |
-      git add -A                          //saves changes to file to git folder on local machine // -A means all
+      git add -A                          //saves changes to file to git folder on local machine // -A means all // should be done in repository
  git commit -m "message"                  //adds message
           | |
     --Git Tracker--                       
