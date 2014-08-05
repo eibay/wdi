@@ -112,7 +112,4 @@ number_array.push( [19, 21, 6, 3, 1] )
 
 number_array.flatten!
 
-
-
-
-
+number_array.each { |current_index| puts get_character(message_string, current_index) }
