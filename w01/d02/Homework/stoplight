@@ -1,0 +1,66 @@
+#!/usr/bin/ruby 
+
+require 'yaml'
+
+gtf = "#{ENV["HOME"]}/.gastank"
+tf = "#{ENV["HOME"]}/.trunk"
+
+unless File.exist? tf  
+	File.open tf, 'w' do |f| 
+		f.puts [].to_yaml
+	end 
+end
+
+if (ARGV.first =~ /--trunk=.+/) == 0 
+	t = File.read tf
+	a = YAML.load t 
+	if a.length < 6 
+		File.open tf, 'w' do |f| 
+			a << ARGV.first.split('=')[1] 
+			f.puts a.to_yaml 
+		end 
+	else 
+		puts "The trunk is full."
+	end
+end 
+
+if ARGV.first == '--refill'
+	File.open gtf, 'w' do |f|
+		f.puts 20 
+	end 
+end  
+
+l = ARGV.last.to_sym   
+
+unless File.exist? gtf 
+	File.open gtf, 'w' do |f|
+		f.puts 20 
+	end 
+end
+
+c = File.read gtf   
+
+puts "Tank is at #{c}"
+
+if c.to_i.zero? 
+	abort "Tank is empty. Can't drive"
+end 
+
+puts "The light says"
+
+case l 
+when :red
+	puts "Stop!"
+when :green
+	puts "Go!"
+when :yellow 
+	puts "I'm watching out, but mostly going."
+else 
+	puts "Pull over, sir."
+end
+
+c = c.to_i - 1
+
+File.open gtf, 'w' do |f|
+	f.puts c 
+end 
