@@ -7,7 +7,7 @@
 - **Spec:**
   - Add items to the trunk
   - Be prevented from adding more than 6 items
-  - Recieve a warning saying "Trunk is full" when a 7th item is attempted to be added
+  - Recieve a warning saying "Trunk is full" when attempting to add a 7th item.
 - **Things to consider:**
 	- How will you represent the trunk in your code?
       - Use the below starter code for guidance
