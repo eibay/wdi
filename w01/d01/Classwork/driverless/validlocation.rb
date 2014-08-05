@@ -1,4 +1,4 @@
-#get straight on iterator/loop/array
+
 
 
 location = "New York"
