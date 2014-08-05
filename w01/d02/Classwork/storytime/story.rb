@@ -9,30 +9,24 @@ story = [
 
 index = 0
 user = 'y'
-fin = false
+
 
 puts "Here is a story:"
 puts
 
-while fin == false || user == 'y' && index < (story.length) 
+while user == 'y' && index < (story.length) 
 	puts story[index]
 
-	if index == (story.length) -1
-		puts "FIN"
-		fin = true
+	if index < story.length - 1
+		puts "Continue? [y] [n]"
+		user = gets.chomp.downcase
 	end
 
-index += 1
-puts "Continue? [y] [n]"
-user = gets.chomp.downcase
+	index += 1
 end
 
-# unless user == 'n' || index > story.length
-# 	puts story[index]
-# 	puts "Continue? [y] [n]"
-# 	user = gets.chomp.downcase
-# index += 1
-# end
+
+
 
 
 
