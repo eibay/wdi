@@ -1,9 +1,11 @@
-For some reason when we first learn the command line we expect there to be a dedicated command to rename a file. 
+<!-- spent time free-associating to things from the homework, such as indexing into the array & ascii characters... generally noticing things we didn't notice about what we were doing last night...
 
-I think this is because we are used to being able to click on the icon for a file & edit the text representing the name under it.
+for instance, it took me a few moments to realize just how long the string number_array indexes into is (22 chars), and I did not know you could index into either a string or an array using a floating point value, so until I worked it out, I assumed some of the values in the array number_array was using would not produce any valid result, and would instead produce nil 
 
-I would like to try to explain why this is... 
+I tried to complete this but did not: -->
 
-First try to understand that names are created by something called hard links: hard links are variables that refer to an inode 
+For some reason when we first learn the command line we expect there to be a dedicated command to rename a file. I think this is because we are used to being able to click on the icon for a file & edit the text representing the name under it.
 
-<!-- spent time free-associating to things from the homework, such as indexing into the array, ascii characters, generally noticing things we didn't notice about what we were doing -->
+I would like to try to do some research right now to understand, and then try explaining, why we have no dedicated rename command & therefore must use `mv`. I understand this much already: 
+
+That the names of files are basically reducible to something called hard links. Think of hard links as variable names, but for files. They are the actual file names you see when you use the `ls` command. They contain an inode pointer refering to a location on the disk. 
