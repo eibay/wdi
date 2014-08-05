@@ -1,2 +1,2 @@
-putz "Lebron James is returning to Cleveland!!"
+puts "Lebron James is returning to Cleveland!!"
 
