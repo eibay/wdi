@@ -8,3 +8,4 @@ elsif location == "San Francisco"
 	puts 
 	puts "Um... try again"
 end
+
