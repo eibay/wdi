@@ -17,5 +17,3 @@
 11) fix exercise2again.rb!!
 12) add and commit changes locally
 13) push and submit_hw
-
-
