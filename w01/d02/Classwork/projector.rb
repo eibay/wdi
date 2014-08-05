@@ -1,0 +1,1 @@
+The projector kept shutting off when the computer went to sleep.
