@@ -15,15 +15,15 @@
 # 	7. Take a screenshot of the output after you paste the final line of code and include in the 'Homework' folder
 
 
-first_ans = 7 / 2
+first_ans = 7 / 2 #rounds to whole number
 
 puts first_ans
 
 print first_ans
 
-float_denominator = 7 / 2.to_f
+float_denominator = 7 / 2.to_f #will show decimials
 
-float_numerator = 7.to_f / 2
+float_numerator = 7.to_f / 2 #when one number is a float in an equation, the answer will be a float
 
 float_literal_denominator = 7 / 2.0
 
@@ -96,9 +96,9 @@ value_float_3 -= 1
 
 number_array = [value_float_1, value_float_2, value_float_3, value_float_4]
 
-number_array.push(first_ans)
+number_array.push(first_ans) #adds to end of array
 
-number_array.unshift(value_integer_1)
+number_array.unshift(value_integer_1) #adds to beginning of array.  
 
 number_array.push(value_integer_1)
 
@@ -108,11 +108,26 @@ number_array.delete_at(5)
 
 
 
-number_array.push( [19, 21, 6, 3, 1] )
+number_array.push( [19, 21, 6, 3, 1] ) # can add enitre array inside of an array. push still adds it to the end.
 
-number_array.flatten!
+number_array.flatten! #puts the array inside of the array into a singular array
 
 
 number_array.each { |current_index| puts get_character(message_string, current_index) }
+
+
+#How to upload homework
+
+=begin
+git pull upstream master (retrieves homework)
+
+
+git add . -A
+git commit -m "fixed"
+git push origin master
+submit_hw
+(submits homework)
+
+=end
 
 
