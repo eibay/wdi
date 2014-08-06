@@ -1,7 +1,16 @@
-valid_location = ["New York", "San Francisco", "Dallas", "Albuquerque", "Toronto"]
+# valid_location = ["New York", "San Francisco", "Dallas", "Albuquerque", "Toronto"]
 
-puts "Where do you want to go?"
-destination = gets.chomp
+# puts "Where do you want to go?"
+# destination = gets.chomp
+
+
+# if valid_location.include?(destination) 
+# 	puts "Let's go then."
+# else 
+# 	puts "No way."
+# end  
+
+#============
 
 #i = valid_location.length
 
@@ -10,28 +19,20 @@ destination = gets.chomp
 # 	i = i - 1
 # end
 
+#======================
 
+location = "San Francisco"
+found_location = false
+valid_location = ["New York", "San Francisco", "Dallas", "Albuquerque", "Toronto"]
 
-if valid_location.include?(destination) 
-	puts "Let's go then."
-else 
-	puts "No way."
-end  
+index = 0
 
-
-=begin
-=========
-
-if location == "New York" || location == "San Francisco" || 
-
-	or
-
-	if location == "New York"
-	elsif location == "San Francisco:
-	elsif 
-
-
-			"
-
-			==============
-=end
+while index < 6 && found_location
+if location == valid_location[index]
+	found_location = true
+	puts "Yes"
+else
+	puts "No"
+end
+	index += 1
+end
