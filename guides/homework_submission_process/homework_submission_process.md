@@ -1,0 +1,39 @@
+## Homework Submission Process
+
+Once you have completed your homework, head into the day's "Homework" directory and stage the files in the directory.
+
+```bash
+cd ~/dev/wdi/rosencrantz/w01/d01/Homework
+git add -A .
+```
+__Note:__ The dot in `git add -A .` stands for the current directory, meaning the entirety of the directory will be staged, including subdirectories. The `git add .` command is a convenient catch-all which you'll use all the time.
+
+Once the files are staged, make a commit with a message in the present tense that describes what the commit accomplishes/fixes/deletes.
+
+```bash
+git commit -m "added conditional statement to check stoplight color"
+```
+
+Great, now you'll want to push this newly committed work up to your remote fork of the class repo.
+
+```bash
+git push origin master
+```
+
+__Note:__ In the line above, `origin` identifies which remote repo you are pushing to (you can have several), and `master` is the branch you wish to add work to. These are both default names provided by Git when we cloned your fork of the class repo, so don't be concerned if you don't remember naming them yourself.
+
+#### submit_hw
+
+Wonderful, your homework now exists up on your forked repo on GitHub. But we're not finished. To submit your homework, you will use a custom command called `submit_hw`, which will prompt you for Completeness and Comfortability ratings, which you'll enter as integers.
+
+![image](./screenshots/submit_hw.png)
+
+And voila: you're finished.
+
+__Further Reading: what does submit_hw do?__
+
+Some background: when we set up your repos, we had you create what's called a GitHub __fork__, which is a personal remote copy of the class repo for you to do what you wish to it. When you use the `git push origin master` command (above), you push all of the local changes to your personal remote fork. But because your fork is your personal copy, the instructors have no way of knowing that you've done your work.
+
+So the `submit_hw` command creates what's called a pull request. A __pull request__ asks another GitHub user to adopt or 'pull' the changes you've made to your forked repo into the original repo.
+
+In doing so, submit_hw formats your pull-request message into an easily digested data format called JSON, with fields for 'completeness' and 'comfortability'. This formatted data allows us to easily track your comfort and progress during the course, and target you for help if necessary.
