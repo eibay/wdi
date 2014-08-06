@@ -9,3 +9,5 @@ elsif location == "Dallas"
 else
   puts "Um...try again"
 end
+
+location == "New York" || location =="San Fransciso" || location =="Dallas"
