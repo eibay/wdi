@@ -34,6 +34,10 @@ puts "Would you like to order anything else?"
 more = gets.chomp.downcase
 if more =="no" 
 	puts "Your order will take #{index} minutes"
+
+# for the extra bonus
+elsif more=="yes"
+	index+=0.50
 end
 end
 
