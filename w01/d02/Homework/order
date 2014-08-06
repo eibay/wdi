@@ -24,7 +24,7 @@ class Array
 	end 
 end 
 
-# undefined global or local variable t for object main 
+# undefined variable or method t for object main 
 t = 0 
 
 ARGV.my_each do |food|
