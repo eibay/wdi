@@ -11,6 +11,7 @@ while space <= 6
 		puts "Nope, trunk is full..."
 	else
 		puts "Surely we can fit more than #{trunk}"
+		# puts "Would you like to add another?"
 	end
 
 end
