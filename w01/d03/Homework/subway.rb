@@ -113,7 +113,7 @@ stop_station = gets.chomp.downcase
 	end
 
 
-
+ 
 
 start = start_line[start_station]
 stop = stop_line[stop_station]
