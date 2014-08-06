@@ -1,3 +1,15 @@
+# location = "Boston"
+
+# if (location == "New York")
+#   puts "Yes we go there!"
+# elsif location == "San Francisco"
+#   puts "Yes we go there!"
+# elsif location == "Dallas"
+#     puts "Yes we go there!"
+# else
+#   puts "Um...try again"
+# end
+
 
 
 
@@ -38,7 +50,10 @@ valid_locations = ["New York", "San Francisco", "Dallas"]
 
 #end
 
-index = 0 
+index = 0
+
+found = false
+
 
 while true
 
@@ -52,7 +67,3 @@ while true
 	puts valid_locations[index]
 	index = index + 1
 end
-
-
-
-
