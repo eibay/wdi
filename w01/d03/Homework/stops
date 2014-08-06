@@ -1,0 +1,33 @@
+#!/usr/bin/ruby 
+
+$system = { n: ["Times Sq.", "34th", "28th", "23rd", "Union Sq.", "8th"],
+l: ["8th", "6th", "Union Sq.", "3rd", "1st"],
+six: ["Grand Central", "33rd", "28th", "23rd", "Union Sq.", "Astor Pl."], 
+q: ["Times Sq.", "Herald Sq.", "Union Sq.", "Canal St."] }
+
+unless ARGV.length == 4 
+	abort "USAGE: stops LINE STATION DESTINATION_LINE DESTINATION_STATION"
+end 
+
+# assign the values, tested w/ 
+# puts "line_at = #{line_at}", "stop_at = #{stop_at}", "where = #{where}"
+line_at, stop_at, where_line, where_stop = ARGV 
+the_road_ahead = 0 
+
+if line_at != where_line 
+	a = $system[line_at.downcase.to_sym].index stop_at
+	b = $system[line_at.downcase.to_sym].index "Union Sq."
+	diff = a - b 
+	the_road_ahead += diff.abs 
+	c = $system[where_line.downcase.to_sym].index "Union Sq." 
+	d = $system[where_line.downcase.to_sym].index where_stop
+	diff = c - d 
+	the_road_ahead += diff.abs 
+else 
+	a = $system[line_at.downcase.to_sym].index stop_at
+	b = $system[where_line.downcase.to_sym].index where_stop 
+	diff = a - b
+	the_road_ahead += diff.abs 
+end 
+
+puts "The road ahead is just #{the_road_ahead} stops"
