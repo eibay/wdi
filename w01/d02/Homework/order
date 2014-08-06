@@ -1,0 +1,42 @@
+#!/usr/bin/ruby 
+
+o = ARGV 
+
+m = { soda: 30, 
+	fries: 3, 
+	milkshake: 0, 
+	chicken_tenders: 15, 
+	hot_dog: 9, 
+	hamburger: 5, 
+	chicken_sandwich: 1, 
+	double_cheeseburger: 10, 
+	pizza: 100 }
+
+
+class Array 
+
+	def my_each 
+		i = 0 
+		while i < self.length 
+			yield self[i]
+			i += 1 
+		end 
+	end 
+end 
+
+# undefined global or local variable t for object main 
+t = 0 
+
+ARGV.my_each do |food|
+	syn = food.gsub(/ /, "_").downcase.to_sym
+	if m.include? syn 
+		puts "#{food} will take #{m[syn]}."
+		t += m[syn] 
+		# "assume a thirty sec delay" 
+		t += 0.5 
+	else 
+		puts "We don't sell #{food}."
+	end 
+end  
+
+puts t 
