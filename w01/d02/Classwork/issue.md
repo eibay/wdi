@@ -1,0 +1,1 @@
+The man command gives detail on the command provided but like it was mentioned in class it can be dense and confusing at times, I would like to learn how to navigate and extract information better using man.
