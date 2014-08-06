@@ -32,6 +32,12 @@ elsif answer.include? items[5]
 elsif answer.include? items[6] 
 	trunk << answer
 	index +=1
+elsif answer.include? items[7] 
+	trunk << answer
+	index +=1
+elsif answer.include? items[8] 
+	trunk << answer
+	index +=1
 else puts "This is not an item, Try again"
 end
 
