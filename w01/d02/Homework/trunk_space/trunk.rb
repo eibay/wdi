@@ -9,18 +9,18 @@ items = ["Soccer Ball", "Suitcase", "Laptop", "Grocery Bag", "Gym Bag", "Jumper 
 index = 0
 
 puts "How many items would you like to add?"
-items = gets.chomp.to_i
+things = gets.chomp.to_i
 
-while trunk != items && index < 7
-	puts trunk[index] 
-	if trunk == 6
-		puts "There is no more room!"
-	else trunk < 6
-		puts "You may add more items!"
-
-index = index + 1
-
+while index < 7
+	things = items.shuffle.sample
+	trunk << items
+	if index < 6
+		puts "You added #{things} in your trunk"
+		items.delete(things)
+	else 
+		puts "Trunk is full!"
 end
+ index = index + 1
 end
 
 
