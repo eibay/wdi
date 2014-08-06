@@ -1,0 +1,3 @@
+Issue was when I was trying to git add -A, it kept giving me an error saying I had other things I needed to push in other directories.
+
+Going back up to the correct directory using "cd .." and pushing it to git helped resolve my issue.
