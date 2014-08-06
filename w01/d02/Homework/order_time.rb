@@ -7,10 +7,13 @@ menu = ["Soda", "Fries", "Milkshake", "Chicken Tenders", "Hot Dog", "Hamburger",
 while menu.length > x 
 	order_time = (menu.index(menu[x]) + 1) 
 	x += 1
-	order_time.push
+	
+	total.push(order_time)
+
+
 end
 puts total
-
+print total
 
 =begin
 can't figure out how to add the order times together
