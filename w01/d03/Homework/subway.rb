@@ -115,11 +115,6 @@ stop_station = gets.chomp.downcase
 
 
 
-	# puts(start_station)
-	# puts(start_line)
-	# puts(stop_station)
-	# puts(stop_line)
-
 start = start_line[start_station]
 stop = stop_line[stop_station]
 
