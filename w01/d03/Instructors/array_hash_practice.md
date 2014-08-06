@@ -15,7 +15,7 @@
 vladimir_putins_brain = { 
   launch_code: "a5Mjp257GHMGH23e5qxE", 
   fav_hobby: "Riding ponies", 
-  "prideful?": true 
+  prideful: true 
 }
 ```
 
@@ -23,7 +23,7 @@ vladimir_putins_brain = {
 2. Use pry to return the string `"a5Mjp257GHMGH23e5qxE"`
 3. Use pry to add the key-value pair `"number_of_wishes" => "three"` to `vladimir_putins_brain`
 4. Use pry to add the key-value pair `4 => "four"`
-5. Use pry to remove the key-value pair `"prideful?" => true`
+5. Use pry to remove the key-value pair `:prideful => true`
 
 **C. Given the following data structure:**
 
