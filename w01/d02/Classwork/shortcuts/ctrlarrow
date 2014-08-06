@@ -1,0 +1,7 @@
+I wanted to learn some shortcuts to jump around the command line and found this article:
+
+http://lifehacker.com/5743814/become-a-command-line-ninja-with-these-time-saving-shortcuts
+
+However I found that their suggestions to use ctrl + left or right arrows to jump between typed arguments was being overridden by my OS's dashboard settings. 
+
+I found holding option instead of ctrl worked with arrow keys to move quickly between arguments in the command line. ctrl + letter shortcuts work as suggested. 
