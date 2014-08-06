@@ -65,8 +65,7 @@ pp $zoo
 
 puts "Now...", "\nWe can do things w/ it!"
 
-doings = %w($zoo["Mr.\ Toby"];\ $zoo["Mrs.\ Susan"]
-	)
+doings = %w($zoo["Mr.\ Toby"];\ $zoo["Mrs.\ Susan"])
 
 p doings 
 
