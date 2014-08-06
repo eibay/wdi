@@ -8,11 +8,11 @@ hash = Hash[menu.map.with_index.to_a] #creates hash to assign a value that can b
 
 cooking_time = 0
 item = " "
-while item != "done" do #i specify a keyword to end the loop
-	puts "what do you want? Type 'done' when done"
-	item = gets.chomp #I tried to add capitalize but then it kept saying nil cannot be coerced into Fixnum
-
-	if item != "done" #if it is done, then we skip over this because 'done' is not in the hash
+while item != "Done" do #i specify a keyword to end the loop
+	puts "what do you want? Type 'Done' when done"
+	item = gets.chomp.capitalize 
+	puts item
+	if item != "Done" #if it is done, then we skip over this because 'done' is not in the hash
 		cooking_time = cooking_time + 1 + hash[item] # this updates the n which is the amt of time.
 	end
 
@@ -31,11 +31,11 @@ hash = Hash[menu.map.with_index.to_a] #creates hash to assign a value that can b
 cooking_time = 0
 downtime = 0
 item = " "
-while item != "done" do #i specify a keyword to end the loop
-	puts "what do you want? Type 'done' when done"
-	item = gets.chomp #I tried to add capitalize but then it kept saying nil cannot be coerced into Fixnum
+while item != "Done" do #i specify a keyword to end the loop
+	puts "what do you want? Type 'Done' when done"
+	item = gets.chomp.capitalize
 
-	if item != "done" #if it is done, then we skip over this because 'done' is not in the hash
+	if item != "Done" #if it is done, then we skip over this because 'done' is not in the hash
 		cooking_time = cooking_time + 1 + hash[item] # this updates the n which is the amt of time.
 		downtime = downtime + 1 #i could have put the change into the cooking time, but i opted to have another variable so that its more transparent what i'm doing and how i'm modelling real life.
 
