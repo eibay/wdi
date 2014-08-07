@@ -1,4 +1,4 @@
-story = [
+story_array = [
   'Fry is born without a delta brainwave',
   'As a result, Fry is cryogenically frozen until 2999',
   'In the future, Fry works on a spaceship',
@@ -9,7 +9,7 @@ line = 0
 desire = "Yes"
 
 while (line <=2) && (desire == "Yes")
-  puts story[line]
+  puts story_array[line]
   puts "Do you want to read more? Yes or No"
   desire = gets.chomp
   line = line + 1
@@ -23,7 +23,7 @@ end
 # end
 
 if (line ==3) && (desire == "Yes")
-	puts story[line]
+	puts story_array[line]
 	puts "The End"
 
 end
