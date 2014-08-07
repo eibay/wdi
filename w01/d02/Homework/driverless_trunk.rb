@@ -14,6 +14,6 @@ while
 		puts "Would you like to add another item?"
 		answer = gets.chomp.downcase
 	else
-		puts "Trunk is full"
+		puts "Trunk is full with #{trunk}"
 	end
 end
