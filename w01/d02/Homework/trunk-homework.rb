@@ -17,10 +17,11 @@ items.delete(item)
 	else
 		
 		puts "You added #{item} to your trunk"
-	puts "trunk is full"
+	puts "The trunk is full and you can not add any more items"
 	items.delete(item)
 end
 i += 1
 end
+
 
 
