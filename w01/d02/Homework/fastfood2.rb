@@ -21,16 +21,21 @@ while (item_i <=7)
   if desire == "Yes"
   	puts "What will you have?"
   	food = gets.chomp
-	puts food
+#	puts food
+                            #on review: need totalcooktime = menu_option_array.index()
+
 
 order_array << food   
-puts order_array
+puts order_array            # On review: I needed to use this in the anything else section too! That's why it wasn't including the extra items.
 
 	puts "Anything else?"
 	more = gets.chomp
   item_i = item_i + 1
 end
 end
+
+                            # On review: had the above worked, would need procedure to add the cooktime
+                            #could be totalcooktime=menuarrayname.index(selecteditemfromuser)
 
 # order_array.push(4).push(5)
 
