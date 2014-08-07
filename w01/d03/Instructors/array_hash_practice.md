@@ -19,7 +19,7 @@ instructors_array[2]
 vladimir_putins_brain = { 
   launch_code: "a5Mjp257GHMGH23e5qxE", 
   fav_hobby: "Riding ponies", 
-  "prideful?": true 
+  prideful: true 
 }
 ```
 
@@ -29,9 +29,13 @@ vladimir_putins_brain[:fav_hobby]
 vladimir_putins_brain[:launch_code]
 3. Use pry to add the key-value pair `"number_of_wishes" => "three"` to `vladimir_putins_brain` vladimir_putins_brain[:number_of_wishes] = "three"                   
 4. Use pry to add the key-value pair `4 => "four"`
+<<<<<<< HEAD
 vladimir_putins_brain[4] = "four"                                    
 5. Use pry to remove the key-value pair `"prideful?" => true`
 vladimir_putins_brain.delete(:prideful)                              
+=======
+5. Use pry to remove the key-value pair `:prideful => true`
+>>>>>>> b21079cecc9531cc764f277580cd1849568c8f20
 
 **C. Given the following data structure:**
 
@@ -82,6 +86,7 @@ users[:trish] = {}
 4. How would you return the array of Sean's favorite numbers?
 users[:sean][:favorite_numbers]  
 5. How would you return the smallest of Neel's favorite numbers?
+<<<<<<< HEAD
 users[:neel][:favorite_numbers].min                                  
 6. How would you return an array of Jeff's favorite numbers that are also even?
 
@@ -96,3 +101,6 @@ while index < users[:jeff][:favorite_numbers].length
 end
 
 print even_nos
+=======
+6. How would you return an array of Jeff's favorite numbers that are also even?
+>>>>>>> b21079cecc9531cc764f277580cd1849568c8f20
