@@ -17,8 +17,8 @@ subway = {
 }
 
 
-puts " "
-puts "The only lines in service today are:"
+
+puts "\nThe only lines in service today are:"
 puts "The N Line: #{subway[:N]}"
 puts "The 6 Line: #{subway[:"#{6}"]}"
 puts "The L Line: #{subway[:L]}"
@@ -44,6 +44,9 @@ endstop = gets.chomp.capitalize
 if begline == endline 
 
 	totalstops = (subway[begline.to_sym].index(begstop) - subway[endline.to_sym].index(endstop)).abs
+   #totalstops = hash[N or L etc, user input].to sym] .index ( user input)
+   # i call a key in the subway hash to find the associated value which is an array
+   # then i .index the array to find the associated index.
 
 else
 	first_leg = (subway[begline.to_sym].index("Union_sq") - subway[begline.to_sym].index(begstop)).abs
@@ -53,32 +56,8 @@ else
 	
 end
 puts "You will ride a total of #{totalstops} stops"
+puts "\nWe are being held indefinitely because of train traffic ahead.."
 
 
-
-##################################
-
-# n - m the indices
-
-# totalstops = 6_line.index["Times_sq"]
-
-# menu = ["Soda", "Fries", "Milkshake", "Chicken Tenders", "Hot Dog", "Hamburger", "Chicken Sandwich", "Double Cheeseburger", "Pizza"]
-
-# order = ["Soda", "Pizza", "Hamburger"]
-
-# total_completion_time = 0
-
-# # This index is used to loop through the order array
-# order_index = 0
-
-# while order_index < order.length
-# 	item = order[order_index]
-# 	item_completion_time = menu.index(item) + 1
-# 	total_completion_time += item_completion_time
-
-# 	puts total_completion_time	
-
-# 	order_index += 1
-# end
 
 #
