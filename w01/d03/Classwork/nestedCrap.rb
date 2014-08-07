@@ -32,4 +32,7 @@
 
   
 # How would you return the smallest of Neel's favorite numbers?
+  users[:neel][:favorite_numbers].sort
+
+
 # How would you return an array of Jeff's favorite numbers that are also even?
