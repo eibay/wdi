@@ -50,3 +50,25 @@ if (location == "New York") || (location == "San Francisco") || (location == "Da
 else 
 	puts "Nope, can't go"
 end
+
+
+
+# diff from location == ('New Nork' || 'dallas' )
+# basically saying: is location = to this abstract equation of truthiness.
+
+def wego
+locations = ["nyc", "sf", "la"]
+where = gets.chomp
+
+locations.each do |x|
+	if x == where
+		puts "we go there"
+	else
+		puts "we don't go there"
+	end
+end
+
+
+
+
+
