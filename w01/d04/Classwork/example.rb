@@ -1,13 +1,23 @@
 # setup the system
 $subway = {
-:N => ["Times_sq", "34th", "28th", "23rd", "Union_sq", "8th"],
-:"#{6}" => ["Grand_central", "33rd", "28th", "23rd", "Union_sq", "Astor_pl"],
-:L => ["8th", "6th", "Union_sq", "3rd", "1st"],
-:Q => ["Times_sq", "34th", "Union_sq", "Canal_st"]
+:N => ["Times Square", "34th", "28th", "23rd", "Union Square", "8th"],
+:"#{6}" => ["Grand Central", "33rd", "28th", "23rd", "Union Square", "Astor Place"],
+:L => ["8th", "6th", "Union Square", "3rd", "1st"],
+:Q => ["Times Square", "34th", "Union Square", "Canal Street"]
 }
 
 # describe the system to the user 
-puts "\nThe only lines in service today are:", "The N Line: #{$subway[:N]}", "The 6 Line: #{$subway[:"#{6}"]}", "The L Line: #{$subway[:L]}", "The Q Line: #{$subway[:Q]}"
+dscry = ["\nThe only lines in service today are:", 
+	"The N Line:", 
+	$subway[:N].join(" "), 
+	"The 6 Line:", 
+	$subway[:"#{6}"].join(" "), 
+	"The L Line:", 
+	$subway[:L].join(" "), 
+	"The Q Line:", 
+	$subway[:Q].join(" ")] 
+
+puts dscry 
 
 # get the user's input 
 puts "\nAre you starting on the N, 6, L, or Q line?"
