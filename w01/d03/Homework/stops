@@ -1,0 +1,51 @@
+#!/usr/bin/ruby 
+
+$system = { n: ["Times Sq.", "34th", "28th", "23rd", "Union Sq.", "8th"],
+l: ["8th", "6th", "Union Sq.", "3rd", "1st"],
+six: ["Grand Central", "33rd", "28th", "23rd", "Union Sq.", "Astor Pl."], 
+q: ["Times Sq.", "Herald Sq.", "Union Sq.", "Canal St."] }
+
+unless ARGV.length == 4 
+	abort "USAGE: stops LINE STATION DESTINATION_LINE DESTINATION_STATION"
+end 
+
+# assign the values, tested w/ 
+# puts "line_at = #{line_at}", "stop_at = #{stop_at}", "where = #{where}"
+line_at, stop_at, where_line, where_stop = ARGV 
+the_road_ahead = 0 
+trnsft = "Union Sq." 
+
+la = line_at.downcase.to_sym 
+wl = where_line.downcase.to_sym 
+
+[la, wl].each do |l|
+	unless $system.has_key? l 
+		abort "Are you sure you're in NYC? There's no such line as #{l}"
+	end 
+end  
+
+unless $system[la].include? stop_at 
+	abort "You're where? There's no such stop as #{stop_at} on the #{line_at}"
+end
+
+unless $system[wl].include? where_stop
+	abort "You want to go where? I've never heard of a #{where_stop} being on the #{where_line}"
+end
+
+if line_at != where_line 
+	a = $system[la].index stop_at
+	b = $system[la].index trnsft
+	diff = a - b 
+	the_road_ahead += diff.abs 
+	c = $system[wl].index trnsft  
+	d = $system[wl].index where_stop
+	diff = c - d 
+	the_road_ahead += diff.abs 
+else 
+	a = $system[la].index stop_at
+	b = $system[wl].index where_stop 
+	diff = a - b
+	the_road_ahead += diff.abs
+end 
+
+puts "The road ahead is just #{the_road_ahead} stops"
