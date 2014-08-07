@@ -1,0 +1,1 @@
+fav_artists = {Radiohead: ["Ok, Computer", "In Rainbows"]}
