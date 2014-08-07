@@ -1,3 +1,5 @@
+require 'pry'
+# use pry for debugging 
 
 inp = [ 
   ["Jeffrey Konowitch", "jeff.konowitch@generalassemb.ly"],
@@ -182,8 +184,46 @@ while i < inp.length-1
 	i += 1 
 end 
 
+input = [
+  ["PJ Hughes", "generalassemb.ly"],
+  ["Eric Schmidt", "google.com"],
+  ["Kel Mitchell", "nickelodeon.com"]
+]
 
-puts output 
+emit = []
 
+input.each do |guesswork|
+	# parse name 
+	guessing = guesswork[0]
+	name_arr = guessing.split " "
+	name_no = name_arr.length 
+	# becoming lazy here
+	unless name_no == 2 
+		abort "Please use first & last name only. Please pardon the inconvience while we work on our logic."
+	end 
+	first, last = name_arr.each(&:downcase!)
 
+	# determine domian 
+	domain = guesswork[1] 
+	bestguess = output[domain].sort_by {|k,v| v}.pop[0]
+	 
+	case bestguess
+	when "first.last"
+		emit << [guessing, "#{first}.#{last}@#{domain}"]
+	when "first"
+		emit << [guessing, "#{first}@#{domain}"]
+	when "firstlast"
+		emit << [guessing, (first + last)]
+	when "first_initiallast"
+		# refractor to make look like above logic 
+		emit << [guessing, "#{first}_?#{last}@#{domain}"]
+	when "unknown"
+		puts "Can't perdict for #{domain}"
+	end 
 
+end 
+
+emit.each do |pair|
+	name, perdicted = pair 
+	puts "For #{name},", "I perdict \033[1;31;43m#{perdicted}\033[0m."
+end  
