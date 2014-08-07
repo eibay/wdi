@@ -8,7 +8,7 @@ while trunk.length <=5
 	unless index == 5
 	index += 1
 	end
-	
+
 end
 puts trunk
 
