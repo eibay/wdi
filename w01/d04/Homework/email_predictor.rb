@@ -14,6 +14,7 @@ inp = [
 
 i = 0
 
+# output a histogram 
 output = {}
 
 while i < inp.length-1 
@@ -192,6 +193,7 @@ input = [
 
 emit = []
 
+
 input.each do |guesswork|
 	# parse name 
 	guessing = guesswork[0]
@@ -203,8 +205,10 @@ input.each do |guesswork|
 	end 
 	first, last = name_arr.each(&:downcase!)
 
-	# determine domian 
+	# parse domian 
 	domain = guesswork[1] 
+
+	# parse histogram 
 	bestguess = output[domain].sort_by {|k,v| v}.pop[0]
 	 
 	case bestguess
