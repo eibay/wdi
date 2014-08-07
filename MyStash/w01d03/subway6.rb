@@ -14,6 +14,10 @@ destination_line = mta[gets.chomp.to_sym]
 puts "What's your final station?"
 destination_station = gets.chomp
 
+def stopdiff(line, start, destination)
+	return (line.index(start) - line.index(destination)).abs
+end
+
 if start_line != destination_line
 	num_stops1 = (start_line.index(start_station) - start_line.index("USQ")).abs
 	num_stops2 = (destination_line.index("USQ") - destination_line.index(destination_station)).abs
@@ -24,7 +28,7 @@ if start_line != destination_line
 	total_num_stops = num_stops1 + num_stops2
 
 else
-	total_num_stops = (start_line.index(start_station) - destination_line.index(destination_station)).abs
+	total_num_stops = stopdiff(start_line, start_station, destination_station)
 
 #	total_num_stops = total_num_stops.abs
 
