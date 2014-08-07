@@ -11,7 +11,9 @@ inp = [
 ]
 
 i = 0
-histogram = {} 
+
+output = {}
+
 while i < inp.length-1 
 
 	# extract the name & addr 
@@ -29,13 +31,32 @@ while i < inp.length-1
 	username = addr_arr[0]
 	domain = addr_arr[1] 	
 
+
 	case name_no  
 	when 1
 		first = name_arr[0]
 		if "#{first}" == username 
-			puts "It's \"first\"" 
+			if output.has_key? domain 
+				if output[domain].has_key? "first"
+					output[domain]["first"] += 1 
+				else 
+					output[domain]["first"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["first"] = 1 
+			end 
 		else 
-			puts "I can't find a pattern"
+			if output.has_key? domain 
+				if output[domain].has_key? "unknown"
+					output[domain]["unknown"] += 1 
+				else 
+					output[domain]["unknown"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["unknown"] = 1 
+			end 
 		end 
 	when 2 
 		first, last = name_arr
@@ -44,34 +65,125 @@ while i < inp.length-1
 		# in the middle of an addr is 
 		# a middle initial 
 		if "#{first}.#{last}" == username
-			puts "It's \"first.last\""
+			if output.has_key? domain 
+				if output[domain].has_key? "first.last"
+					output[domain]["first.last"] += 1 
+				else 
+					output[domain]["first.last"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["first.last"] = 1 
+			end 
 		elsif "#{first}" == username 
-			puts "It's \"first\"" 
+			if output.has_key? domain 
+				if output[domain].has_key? "first"
+					output[domain]["first"] += 1 
+				else 
+					output[domain]["first"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["first"] = 1 
+			end 
 		elsif first + last == username 
-			puts "It's \"firstlast\""
+			if output.has_key? domain 
+				if output[domain].has_key? "firstlast"
+					output[domain]["firstlast"] += 1 
+				else 
+					output[domain]["firstlast"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["firstlast"] = 1 
+			end 
 		elsif ((eval regex) =~ username) == 0 
-			puts "It's \"first_initiallast\"" 
+			if output.has_key? domain 
+				if output[domain].has_key? "first_initiallast"
+					output[domain]["first_initiallast"] += 1 
+				else 
+					output[domain]["first_initiallast"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["first_initiallast"] = 1 
+			end  
 		else 
-			puts "I can't find a pattern"
+			if output.has_key? domain 
+				if output[domain].has_key? "unknown"
+					output[domain]["unknown"] += 1 
+				else 
+					output[domain]["unknown"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["unknown"] = 1 
+			end 
 		end 
 	when 3
 		first, middle, last = name_arr 
 		if "#{first}.#{last}" == username
-			puts "It's \"first.last\""
+			if output.has_key? domain 
+				if output[domain].has_key? "first.last"
+					output[domain]["first.last"] += 1 
+				else 
+					output[domain]["first.last"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["first.last"] = 1 
+			end 
 		elsif "#{first}" == username 
-			puts "It's \"first\"" 
+			if output.has_key? domain 
+				if output[domain].has_key? "first"
+					output[domain]["first"] += 1 
+				else 
+					output[domain]["first"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["first"] = 1 
+			end 
 		elsif first + last == username 
-			puts "It's \"firstlast\""
+			if output.has_key? domain 
+				if output[domain].has_key? "firstlast"
+					output[domain]["firstlast"] += 1 
+				else 
+					output[domain]["firstlast"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["firstlast"] = 1 
+			end 
 		elsif first + middle[0] + last == username  
-			puts "It's \"first_initiallast\"" 
+			if output.has_key? domain 
+				if output[domain].has_key? "first_initiallast"
+					output[domain]["first_initiallast"] += 1 
+				else 
+					output[domain]["first_initiallast"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["first_initiallast"] = 1 
+			end  
 		else 
-			puts "I can't find a pattern"
+			if output.has_key? domain 
+				if output[domain].has_key? "unknown"
+					output[domain]["unknown"] += 1 
+				else 
+					output[domain]["unknown"] = 1 
+				end 
+			else
+				output[domain] = {}
+				output[domain]["unknown"] = 1 
+			end 
 		end 
 	end 
-
-	i += 1  
+	i += 1 
 end 
 
+
+puts output 
 
 
 
