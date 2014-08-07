@@ -1,7 +1,8 @@
 mta = {
 	N: ["Times Sq", "34th", "28th", "23rd", "Union Sq", "8th"],
 	L: ["8th", "6th", "Union Sq", "3rd", "1st"],
-	Six: ["Grand Central", '33', "28", "23", "Union Sq", "Astor Place"]
+	Six: ["Grand Central", '33', "28", "23", "Union Sq", "Astor Place"],
+	Q: ["Times Square", "Herald Square", "Union Sq", "Canal St."]
 }
 
 line_start = :N
@@ -17,17 +18,19 @@ puts
 print "L: #{mta[:L]}"
 puts
 print "Six: #{mta[:Six]}"
+puts  
+print "Q: #{mta[:Q]}"
 
 puts
 puts
-puts "What line are you on? N, L or Six?"
+puts "What line are you on? N, L, Six, or Q?"
 line_start = gets.chomp.to_sym
 puts "What stop on that line are you on?"
 start_stop = gets.chomp
 
 puts "Where would you like to go?"
 end_stop = gets.chomp
-puts "Which Line is that on? N, L or Six?"
+puts "Which Line is that on? N, L, Six or Q?"
 line_end = gets.chomp.to_sym
 
 index = 0
