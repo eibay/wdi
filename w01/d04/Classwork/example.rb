@@ -1,7 +1,7 @@
 # initialize the system
 $subway = {
 :N => ["Times Square", "34th", "28th", "23rd", "Union Square", "8th"],
-:SIX => ["Grand Central", "33rd", "28th", "23rd", "Union Square", "Astor Place"],
+:"#{6}" => ["Grand Central", "33rd", "28th", "23rd", "Union Square", "Astor Place"],
 :L => ["8th", "6th", "Union Square", "3rd", "1st"],
 :Q => ["Times Square", "34th", "Union Square", "Canal Street"]
 }
@@ -11,7 +11,7 @@ dscry = ["\nThe only lines in service today are:",
 	"The N Line:", 
 	$subway[:N].join(" "), 
 	"The 6 Line:", 
-	$subway[:SIX].join(" "), 
+	$subway[:"#{6}"].join(" "), 
 	"The L Line:", 
 	$subway[:L].join(" "), 
 	"The Q Line:", 
