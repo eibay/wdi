@@ -1,0 +1,9 @@
+each subway line is an array
+
+you get the beginning line, beginning stop, ending line, ending stop as inputs
+
+ending location minus beginning location will give you the distance travelled because of the indices associated with each element.
+
+if there is an intersection at union square, then you have to do some math about calculating the two journeys and misusing the overlapped area. 
+
+also, remember to do absolute value to account for both north-south and east-west directions

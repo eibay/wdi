@@ -126,6 +126,68 @@ end
 puts "your order will be done in #{(order-0.5)} minutes"
 
 
+######## 
+######## CLASS ANSWER ##########
+
+menu = ["Soda", "Fries", "Milkshake", "Chicken Tenders", "Hot Dog", "Hamburger", "Chicken Sandwich", "Double Cheeseburger", "Pizza"]
+
+total_completion_time = 0
+
+order = ["Soda", "Pizza", "Hamburger"]
+order_index = 0
+	# variable must be declared outside the loop because if inside loop it will keep being reassigned
+while order_index < order.length do
+	item = order[order_index] # "Pizza" = order[1]  ########### investigate more!~~~~~~~
+		#OHH he uses this to go 0, 1, 2, looping up because there are 3 items in variable order
+		#it doesn't search. its a low-level method.
+
+	item_completion_time = menu.index(item) + 1 # 9 == 8 + 1 == menu.index("Pizza") + 1 
+		# array.index(string) gives the index value of "string" in array 
+
+	total_completion_time += item_completion_time #it updates by 
+	order_index += 1
+end
+
+puts total_completion_time
+
+
+
+
+
+########### CLASS HASH EXERCISE #########
+
+menu = {"Soda" => 1, "Chicken Tenders" => 6, "Fries" => 2, "Cheeseburger" => 7, "Deluxe Triple Hamburger and Bacon Combo" => 18, "Pizza" => 9, "Kale Salad" => 6}
+order = ["Soda", "Kale Salad", "Fries"]
+
+
+order_completion_time = 0
+order_qty = 0
+while order_qty < order.length
+	puts order[order_qty]
+	
+	item = order[order_qty] #item = order[1] = "Kale Salad"
+
+	order_qty += 1
+	order_completion_time = order_completion_time + menu[item] # += menu["Kale Salad"]
+end
+
+
+
+puts order_completion_time 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
