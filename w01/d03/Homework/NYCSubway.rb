@@ -20,12 +20,11 @@ index = "Union Square"
 to_union_square = (MTA[starting_line].index("Union Square")  - MTA[starting_line].index(starting_station)).abs
 
 
-# # puts to_union_square
 
 from_union_square = (MTA[ending_line].index("Union Square") - MTA[ending_line].index(ending_station)).abs
 
 puts (to_union_square.to_i + from_union_square.to_i)
-puts (to_union_square + from_union_square)
+
 
 
 
