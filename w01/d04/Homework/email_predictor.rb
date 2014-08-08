@@ -37,7 +37,7 @@ while i < inp.length-1
 	# puts addr 
 
 	# break them down into component parts 
-	name_arr = name.split(" ").each(&:downcase!) 
+	name_arr = name.downcase!.split " " 
 	name_no = name_arr.length 
 
 	addr_arr = addr.split "@" 
