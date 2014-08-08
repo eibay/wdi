@@ -27,4 +27,29 @@ end
 
 
 
+if user_input == "yes"
+	i = 0
+	while (i < 6 && user_input != "no")
+		trunk << items[i]
+
+		puts "Added #{trunk[i]}"
+		puts "Another item?"
+		
+		user_input = gets.chomp
+		
+		if user_input == "yes" && i == 6
+			puts "Sorry, Trunk is Full!"
+
+		else	
+			puts "OK"
+		end
+
+		i += 1
+	end
+else 
+	puts "Ok"
+end
+
+
+
 

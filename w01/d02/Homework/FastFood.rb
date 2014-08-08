@@ -23,3 +23,10 @@ puts "Your order will take #{sum} minutes"
 
 # Don't know how to take into account spaces in words, so only works for single word items
 # Seems like this worked..then would put in loop
+
+
+
+while customer_order != "no"
+	puts "Anything else?"
+	customer_order = gets.chomp.capitalize
+	order << menu.index(customer_order) + 1 
