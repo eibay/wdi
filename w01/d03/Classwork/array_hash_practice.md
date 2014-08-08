@@ -26,7 +26,8 @@ vladimir_putins_brain = {
 #vladimir_putins_brain[:launch_code]
 
 3. Use pry to add the key-value pair `"number_of_wishes" => "three"` to `vladimir_putins_brain` 
-#vladimir_putins_brain[:number_of_wishes]="three"                                     
+#vladimir_putins_brain[:number_of_wishes]="three"  
+                                   
 4. Use pry to add the key-value pair `4 => "four"`
 #vladimir_putins_brain[4]="four" 
 
