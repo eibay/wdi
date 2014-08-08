@@ -1,5 +1,3 @@
-require 'pry'
-
 modal_patterns = {
   "generalassemb.ly" => [a: 0, b: 0, c: 0, d: 0, e: 0],
   "google.com" => [a: 0, b: 0, c: 0, d: 0, e: 0],
@@ -62,92 +60,96 @@ domain_options = ["generalassemb.ly", "google.com", "nickelodeon.com"]
 x = 0 
 y = 0
 
-pattern_a = "#{first_names[x]}.#{last_names[x]}" && domains[x]
-pattern_b = "#{first_names[x]}" && domains[x]
-pattern_c = "#{first_names[x]}#{last_names[x]}" && domains[x]
-pattern_d = "#{initials[x][0]}#{last_names}[x]" && domains[x]
+pattern_a = "#{first_names[x]}.#{last_names[x]}" 
+pattern_b = "#{first_names[x]}"
+pattern_c = "#{first_names[x]}#{last_names[x]}"
+pattern_d = "#{initials[x][0]}#{last_names}[x]" 
 
 while x < names_emails.length || y < domain_options.length
  	if 
- 		addresses[x] == pattern_a && domains[x] == domain_options[y]
-		modal_patterns[domain_options][y][0][:a] += 1
+ 		(addresses[x] == pattern_a) && (domains[x] == domain_options[y])
+		modal_patterns[domain_options[y]][0][:a] += 1
 	elsif 
-		addresses[x] == pattern_b && domains[x] == domain_options[y]
-		modal_patterns[domain_options][y][0][:b] += 1
+		(addresses[x] == pattern_b) && (domains[x] == domain_options[y])
+		modal_patterns[domain_options[y]][0][:b] += 1
 	elsif 
-		addresses[x] == pattern_c && domains[x] == domain_options[y]
-		modal_patterns[domain_options][y][0][:c] += 1
-	elsif addresses[x] == pattern_d && domains[x] == domain_options[y]
-		modal_patterns[domain_options][y][0][:d] += 1
+		(addresses[x] == pattern_c) && (domains[x] == domain_options[y])
+		modal_patterns[domain_options[y]][0][:c] += 1
+	elsif (addresses[x] == pattern_d) && (domains[x] == domain_options[y])
+		modal_patterns[domain_options[y]][0][:d] += 1
 	else
-		modal_patterns[domain_options][y][0][:e] += 1
+		(addresses[x] != (pattern_a || pattern_b || pattern_c || pattern_d)) && (domains[x] == domain_options[y])
+		modal_patterns[domain_options[y]][0][:e] += 1
 	end
 
 	x += 1
 	y +=1 
 end
 
-#Part Two +++++++++++++++++++++++++++++++++++++++
 
-new_names_domains = [
-  ["PJ Hughes", "generalassemb.ly"],
-  ["Eric Schmidt", "google.com"],
-  ["Kel Mitchell", "nickelodeon.com"]
-]
 
-n = 0 
-new_whole_names =[]
+print modal_patterns
+# #Part Two +++++++++++++++++++++++++++++++++++++++
 
-while n < new_names_domains.length	
-	new_whole_names.push(new_names_domains[n][0].split(" "))
-	n += 1
-end
+# new_names_domains = [
+#   ["PJ Hughes", "generalassemb.ly"],
+#   ["Eric Schmidt", "google.com"],
+#   ["Kel Mitchell", "nickelodeon.com"]
+# ]
 
-n = 0
-while n < new_names_domains.length
-	new_whole_names[n].downcase!
-	n += 1
-end
+# n = 0 
+# new_whole_names =[]
 
-new_first_names = []
-new_last_names = []
-new_addresses = []
-new_domains = []
+# while n < new_names_domains.length	
+# 	new_whole_names.push(new_names_domains[n][0].split(" "))
+# 	n += 1
+# end
 
-n = 0
-while n < new_names_domains.length
-	new_first_names.push(new_whole_names[n][0])
-	new_last_names.push(new_whole_names[n][1])
-	n += 1
-end
+# n = 0
+# while n < new_names_domains.length
+# 	new_whole_names[n].downcase!
+# 	n += 1
+# end
 
-n = 0
-new_initials = []
+# new_first_names = []
+# new_last_names = []
+# new_addresses = []
+# new_domains = []
 
-while n < new_names_domains.length
-	new_initials.push(new_first_names[n].split(""))
-	n += 1
-end
+# n = 0
+# while n < new_names_domains.length
+# 	new_first_names.push(new_whole_names[n][0])
+# 	new_last_names.push(new_whole_names[n][1])
+# 	n += 1
+# end
 
-new_pattern_a = "#{first_names[x]}.#{last_names[x]}" && domains[x]
-pattern_b = "#{first_names[x]}" && domains[x]
-pattern_c = "#{first_names[x]}#{last_names[x]}" && domains[x]
-pattern_d = "#{initials[x][0]}#{last_names}[x]" && domains[x]
-new_names_emails = []
-x = 0
-y = 0
+# n = 0
+# new_initials = []
 
-while x < new_names_domains.length
-	if new_names_domains[x][1] == domain_options[y]
-		new_names_emails.push()
+# while n < new_names_domains.length
+# 	new_initials.push(new_first_names[n].split(""))
+# 	n += 1
+# end
+
+# new_pattern_a = "#{new_first_names[x]}.#{new_last_names[x]}" && new_names_domains[x][1]
+# pattern_b = "#{first_names[x]}" && domains[x]
+# pattern_c = "#{first_names[x]}#{last_names[x]}" && domains[x]
+# pattern_d = "#{initials[x][0]}#{last_names}[x]" && domains[x]
+# new_names_emails = []
+# x = 0
+# y = 0
+
+# while x < new_names_domains.length
+# 	if new_names_domains[x][1] == domain_options[y]
+# 		new_names_emails.push()
 
 		
-	end
+# 	end
 
 
 
-# a. first.last (ie, jeffrey.konowitch)
-# b. first (ie, jeffrey)
-# c. firstlast (ie, jeffreykonowitch)
-# d. first_initiallast (ie, jkonowitch)
-# e. doesn't match any patterns
+# # a. first.last (ie, jeffrey.konowitch)
+# # b. first (ie, jeffrey)
+# # c. firstlast (ie, jeffreykonowitch)
+# # d. first_initiallast (ie, jkonowitch)
+# # e. doesn't match any patterns
