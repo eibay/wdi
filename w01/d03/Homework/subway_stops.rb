@@ -36,31 +36,62 @@ starting_stop = gets.chomp.to_s
 if (subways[:n].include?(starting_stop) || subways[:l].include?(starting_stop) || 
 		subways[:six].include?(starting_stop) || subways[:q].include?(starting_stop))	
 
-puts "Okay,what is your destination?"
-	ending_stop = gets.chomp.to_s
-
+	puts "Okay,what is your destination?"
+	
 else 
-	puts "Sorry, don't know what #{starting_stop} is.  Run again." 
+	puts "Sorry, don't know what #{ending_stop} is.  Run again." 
 	Process.exit(0)
 end
 
-puts "These are your available lines"
+ending_stop = gets.chomp.to_s
 
-if subways[:n].include?(starting_stop)
-	puts "n"
-elsif subways[:l].include?(starting_stop)
-	puts "l"
-elsif subways[:six].include?(starting_stop)
-	puts "six"
-elsif subways[:q].include?(starting_stop)
-	puts "q"
+if (subways[:n].include?(ending_stop) || subways[:l].include?(ending_stop) || 
+	subways[:six].include?(ending_stop) || subways[:q].include?(ending_stop))	
+
+	puts "These are your available lines"
+else
+	puts "Sorry, don't know what #{ending_stop} is.  Run again." 
+	Process.exit(0)	
 end
 
-puts "What train would you like to take?"
-puts "Input as you see it, or shit hits the fan."
-starting_line = gets.chomp.to_sym
 
-ending_line = subways[:n]
+if subways[:n].include?(starting_stop)
+	puts "N"
+elsif subways[:l].include?(starting_stop)
+	puts "L"
+elsif subways[:six].include?(starting_stop)
+	puts "Six"
+elsif subways[:q].include?(starting_stop)
+	puts "Q"
+end
+
+# if subways[:n].include?(ending_stop)
+# 	puts "N"
+# elsif subways[:l].include?(ending_stop)
+# 	puts "L"
+# elsif subways[:six].include?(ending_stop)
+# 	puts "Six"
+# elsif subways[:q].include?(ending_stop)
+# 	puts "Q"
+# end
+
+puts "What train would you like to take?"
+starting_line = gets.chomp.to_sym.downcase
+
+puts "These are your available lines to get to #{ending_stop}."
+
+if subways[:n].include?(ending_stop)
+	puts "N"
+elsif subways[:l].include?(ending_stop)
+	puts "L"
+elsif subways[:six].include?(ending_stop)
+	puts "Six"
+elsif subways[:q].include?(ending_stop)
+	puts "Q"
+end
+
+puts "What line would you like to take?"
+ending_line = gets.chomp.to_sym.downcase
 
 
 # starting_line = subways[:l]
@@ -69,16 +100,15 @@ ending_line = subways[:n]
 # ending_line = subways[:six]
 # ending_stop = subways[:six]["33rd"]
 
-# st_ln = subways[starting_line]
-# en_ln = subways[ending_line]
-# st_st = subways[starting_line][starting_stop]
-# en_st = subways[starting_line][ending_stop]
+st_ln = subways[starting_line]
+en_ln = subways[ending_line]
+st_st = subways[starting_line][starting_stop]
+en_st = subways[ending_line][ending_stop]
 
 if starting_line == ending_line
-
-	stops_total = (ending_stop - starting_stop).abs
+	stops_total = (en_st - st_st).abs
 else 
-	stops_total = (subways[starting_line]["Union Square"] - subways[starting_line][starting_stop]).abs + (subways[ending_line]["Union Square"] - subways[ending_line][ending_stop]).abs
+	stops_total = (st_ln["Union Square"] - st_st).abs + (en_ln["Union Square"] - en_st).abs
 end
 
 if stops_total == 1
