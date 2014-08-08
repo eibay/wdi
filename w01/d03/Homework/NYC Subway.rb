@@ -35,17 +35,13 @@ Q ={
 
 puts "What line at you strating at?"
 start_line = gets.chomp
-if start_line == "Q"
-	start_line = Q
+
 
 puts "What station are you starting at"
 start_station = gets.chomp
 
 puts "What line do you want to end at?"
 end_line = gets.chomp
-f start_line == "Six"
-	start_line = Six
-
 
 puts "what station do you want to end at?"
 end_station = gets.chomp

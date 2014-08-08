@@ -28,7 +28,7 @@ puts "The name/email provided follows pattern a"
 
 Given an array of inputs:
 ```ruby
-names_emails = [ 
+name_email = [ 
   ["Jeffrey Konowitch", "jeff.konowitch@generalassemb.ly"],
   ["Neel Patel", "neel.patel@generalassemb.ly"],
   ["Sean West", "sean.west@generalassemb.ly"],
