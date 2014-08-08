@@ -113,12 +113,23 @@ stop_station = gets.chomp.downcase
 	end
 
 
- 
+
+ if start_line == stop_line
 
 start = start_line[start_station]
 stop = stop_line[stop_station]
 
+
+	distance = start - stop 
+	distance.abs = distance_one_line
+	puts("You will reach your destination in #{distance_one_line} stops.")
+
+else
+start = start_line[start_station]
+stop = stop_line[stop_station]
+
 distance = start + stop
+end
 
 puts("You will reach your destination in #{distance} stops.")
 		
