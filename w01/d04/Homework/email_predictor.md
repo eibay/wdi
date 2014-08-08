@@ -115,9 +115,9 @@ Your code should generate the following hash:
 ```ruby
 
 {
-  "generalassemb.ly" => [a: 2, b: 0, c: 0, d: 0, e: 2],
-  "google.com" => [a: 0, b: 2, c: 0, d: 0, e: 0],
-  "nickelodeon.com" => [a: 2, b: 0, c: 0, d: 0, e: 0],
+  "generalassemb.ly" => {a: 2, b: 0, c: 0, d: 0, e: 2},
+  "google.com" => {a: 0, b: 2, c: 0, d: 0, e: 0},
+  "nickelodeon.com" => {a: 2, b: 0, c: 0, d: 0, e: 0},
 }
 
 ```
