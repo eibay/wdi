@@ -1,0 +1,329 @@
+g  7 07:58:01 on console
+ GA General Assembly  Web Development Immersive
+------------------------------------------
+git version 2.0.3
+Homebrew 0.9.5
+ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-darwin13.0]
+psql (PostgreSQL) 9.3.5
+Rails 4.1.4
+heroku-toolbelt/3.9.6 (x86_64-darwin13.0) ruby/2.1.2
+------------------------------------------
+type unwelcome to remove this message
+alexfong ~
+$ pry
+[1] Pry(main)> instructors_array = ["Sean", "Neel", "Jeff"]
+[
+    [0] "Sean",
+    [1] "Neel",
+    [2] "Jeff"
+]
+[2] Pry(main)> instructors_array[0]
+"Sean"
+[3] Pry(main)> instructors_array[1]
+"Neel"
+[4] Pry(main)> instructors_array.push("alex")
+[
+    [0] "Sean",
+    [1] "Neel",
+    [2] "Jeff",
+    [3] "alex"
+]
+[5] Pry(main)> instructors_array.delete("Jeff")
+"Jeff"
+[6] Pry(main)> instructors_array
+[
+    [0] "Sean",
+    [1] "Neel",
+    [2] "alex"
+]
+[7] Pry(main)> vladimir_putins_brain = {
+[7] Pry(main)*   launch_code: "a5Mjp257GHMGH23e5qxE",
+[7] Pry(main)*   fav_hobby: "Riding ponies",
+[7] Pry(main)*   prideful: true
+[7] Pry(main)* }
+{
+    :launch_code => "a5Mjp257GHMGH23e5qxE",
+      :fav_hobby => "Riding ponies",
+       :prideful => true
+}
+[8] Pry(main)> vladimir_putins_brain[:launch_code]
+"a5Mjp257GHMGH23e5qxE"
+[9] Pry(main)> vladimir_putins_brain[:fav_hobby]
+"Riding ponies"
+[10] Pry(main)> vladimir_putins_brain[:number_of_wishes] = "Three"
+"Three"
+[11] Pry(main)> vladimir_putins_brain
+{
+         :launch_code => "a5Mjp257GHMGH23e5qxE",
+           :fav_hobby => "Riding ponies",
+            :prideful => true,
+    :number_of_wishes => "Three"
+}
+[12] Pry(main)> vladimir_putins_brain[4] = "four"
+"four"
+[13] Pry(main)> vladimir_putins_brain
+{
+         :launch_code => "a5Mjp257GHMGH23e5qxE",
+           :fav_hobby => "Riding ponies",
+            :prideful => true,
+    :number_of_wishes => "Three",
+                    4 => "four"
+}
+[14] Pry(main)> vladimir_putins_brain.delete[:prideful]
+ArgumentError: wrong number of arguments (0 for 1)
+from (pry):18:in `delete'
+[15] Pry(main)> vladimir_putins_brain.delete(:pridefu)
+nil
+[16] Pry(main)> vladimir_putins_brain
+{
+         :launch_code => "a5Mjp257GHMGH23e5qxE",
+           :fav_hobby => "Riding ponies",
+            :prideful => true,
+    :number_of_wishes => "Three",
+                    4 => "four"
+}
+[17] Pry(main)> boolean_hash = { true => "It's true!", false => "It's false" }
+{
+     true => "It's true!",
+    false => "It's false"
+}
+[18] Pry(main)> [2 + 2 == 4]
+[
+    [0] true
+]
+[19] Pry(main)> ["Jeff" == "Neel"]
+[
+    [0] false
+]
+[20] Pry(main)> [9 > 10]
+[
+    [0] false
+]
+[21] Pry(main)> [0]
+[
+    [0] 0
+]
+[22] Pry(main)> ["Neel"]
+[
+    [0] "Neel"
+]
+[23] Pry(main)> [false||true]
+[
+    [0] true
+]
+[24] Pry(main)> [false||"Sean"]
+[
+    [0] "Sean"
+]
+[25] Pry(main)> users = {
+[25] Pry(main)*   jeff: {
+[25] Pry(main)*     github: "jkonowitch",
+[25] Pry(main)*     favorite_numbers: [12, 42, 75]
+[25] Pry(main)*   },
+[25] Pry(main)*   neel: {
+[25] Pry(main)*     github: "darthneel",
+[25] Pry(main)*     favorite_numbers: [11, 99, 24]
+[25] Pry(main)*   },
+[25] Pry(main)*   sean: {
+[25] Pry(main)*     github: "sean-west",
+[25] Pry(main)*     favorite_numbers: [17, 13, 21]
+[25] Pry(main)*   }
+[25] Pry(main)* }
+{
+    :jeff => {
+                  :github => "jkonowitch",
+        :favorite_numbers => [
+            [0] 12,
+            [1] 42,
+            [2] 75
+        ]
+    },
+    :neel => {
+                  :github => "darthneel",
+        :favorite_numbers => [
+            [0] 11,
+            [1] 99,
+            [2] 24
+        ]
+    },
+    :sean => {
+                  :github => "sean-west",
+        :favorite_numbers => [
+            [0] 17,
+            [1] 13,
+            [2] 21
+        ]
+    }
+}
+[26] Pry(main)> users[:jeff][:github]
+"jkonowitch"
+[27] Pry(main)> users[:neel][:favorite_numbers].push(7)
+[
+    [0] 11,
+    [1] 99,
+    [2] 24,
+    [3] 7
+]
+[28] Pry(main)> users = {alex: {github: "wuuk", favorite_numbers: [22, 18, 90]}
+[28] Pry(main)* }
+{
+    :alex => {
+                  :github => "wuuk",
+        :favorite_numbers => [
+            [0] 22,
+            [1] 18,
+            [2] 90
+        ]
+    }
+}
+[29] Pry(main)> users
+{
+    :alex => {
+                  :github => "wuuk",
+        :favorite_numbers => [
+            [0] 22,
+            [1] 18,
+            [2] 90
+        ]
+    }
+}
+[30] Pry(main)> users = {
+[30] Pry(main)*   jeff: {
+[30] Pry(main)*     github: "jkonowitch",
+[30] Pry(main)*     favorite_numbers: [12, 42, 75]
+[30] Pry(main)*   },
+[30] Pry(main)*   neel: {
+[30] Pry(main)*     github: "darthneel",
+[30] Pry(main)*     favorite_numbers: [11, 99, 24]
+[30] Pry(main)*   },
+[30] Pry(main)*   sean: {
+[30] Pry(main)*     github: "sean-west",
+[30] Pry(main)*     favorite_numbers: [17, 13, 21]
+[30] Pry(main)*   }
+[30] Pry(main)* }
+{
+    :jeff => {
+                  :github => "jkonowitch",
+        :favorite_numbers => [
+            [0] 12,
+            [1] 42,
+            [2] 75
+        ]
+    },
+    :neel => {
+                  :github => "darthneel",
+        :favorite_numbers => [
+            [0] 11,
+            [1] 99,
+            [2] 24
+        ]
+    },
+    :sean => {
+                  :github => "sean-west",
+        :favorite_numbers => [
+            [0] 17,
+            [1] 13,
+            [2] 21
+        ]
+    }
+}
+[31] Pry(main)> [:alex]={github: "wuuk", favorite_numbers: [66, 12, 18]}
+SyntaxError: unexpected '=', expecting end-of-input
+[:alex]={github: "wuuk", favorite_numbers: [66, 12, 18]}
+        ^
+[31] Pry(main)> users[:alex] = {}
+{}
+[32] Pry(main)> users
+{
+    :jeff => {
+                  :github => "jkonowitch",
+        :favorite_numbers => [
+            [0] 12,
+            [1] 42,
+            [2] 75
+        ]
+    },
+    :neel => {
+                  :github => "darthneel",
+        :favorite_numbers => [
+            [0] 11,
+            [1] 99,
+            [2] 24
+        ]
+    },
+    :sean => {
+                  :github => "sean-west",
+        :favorite_numbers => [
+            [0] 17,
+            [1] 13,
+            [2] 21
+        ]
+    },
+    :alex => {}
+}
+[33] Pry(main)> [:alex]={github: "wuuk", favorite_numbers: [66, 12, 18]}
+SyntaxError: unexpected '=', expecting end-of-input
+[:alex]={github: "wuuk", favorite_numbers: [66, 12, 18]}
+        ^
+[33] Pry(main)> users[:alex]={github: "wuuk", favorite_numbers: [66, 12, 18]}
+{
+              :github => "wuuk",
+    :favorite_numbers => [
+        [0] 66,
+        [1] 12,
+        [2] 18
+    ]
+}
+[34] Pry(main)> users
+{
+    :jeff => {
+                  :github => "jkonowitch",
+        :favorite_numbers => [
+            [0] 12,
+            [1] 42,
+            [2] 75
+        ]
+    },
+    :neel => {
+                  :github => "darthneel",
+        :favorite_numbers => [
+            [0] 11,
+            [1] 99,
+            [2] 24
+        ]
+    },
+    :sean => {
+                  :github => "sean-west",
+        :favorite_numbers => [
+            [0] 17,
+            [1] 13,
+            [2] 21
+        ]
+    },
+    :alex => {
+                  :github => "wuuk",
+        :favorite_numbers => [
+            [0] 66,
+            [1] 12,
+            [2] 18
+        ]
+    }
+}
+[35] Pry(main)> users[:sean][:favorite_numbers]
+[
+    [0] 17,
+    [1] 13,
+    [2] 21
+]
+[36] Pry(main)> users[:neel][:favorite_numbers][0]
+11
+[37] Pry(main)> users[:jeff][:favorite_numbers].delete[2]
+ArgumentError: wrong number of arguments (0 for 1)
+from (pry):68:in `delete'
+[38] Pry(main)> users[:jeff][:favorite_numbers].delete(75)
+75
+[39] Pry(main)> users[:jeff][:favorite_numbers]
+[
+    [0] 12,
+    [1] 42
+]

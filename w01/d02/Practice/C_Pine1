@@ -3,7 +3,16 @@
 #puts "Your name is " + name + "?  What a lovely name!"
 #puts "Please to meet you, " + name + ".  :)"
 
-puts "What is your full name?"
-name = gets.chomp
-puts "Did you know there are " + name.length.to_s + " characters"
-puts "in your name, " + name + "?"
+#puts "What is your full name?"
+#name = gets.chomp
+#puts "Did you know there are " + name.length.to_s + " characters"
+#puts "in your name, " + name + "?"
+
+input = ''
+
+while input != 'bye'
+	puts input
+	input = gets.chomp
+end
+
+puts 'Come again soon!'
