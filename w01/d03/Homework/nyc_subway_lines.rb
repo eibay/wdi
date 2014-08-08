@@ -9,7 +9,7 @@ starting_line = gets.chomp
 
 puts "Where you at?"
 
-starting_stop = gets.chomp #value #start_stop
+starting_stop = gets.chomp 
 
 puts "Staying on or you outtie to the other train?"
 
@@ -23,16 +23,19 @@ ending_stop = gets.chomp
 #Will refine tomorrow in class to make code pass.
 
 starting_line = subways[:L]
-starting_stop = subways[:L]["8th"]
+starting_stop = subways[:L]
 
 ending_line = subways[:L]
-ending_stop = subways[:L]["3rd"]
+ending_stop = subways[:L]
 
 if starting_line == ending_line
 
 stops_total = (ending_stop - starting_stop).abs
+
 else 
-stops_total = (starting_line["Union Square"] - starting_stop).abs + (ending_line["Union Square"] - ending_stop).abs 
+
+stops_total = (starting_line.index["Union Square"] - starting_stop.index).abs + (ending_line.index["Union Square"] - ending_stop.index).abs 
+
 end
 
 puts stops_total
