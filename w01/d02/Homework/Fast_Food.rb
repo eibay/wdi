@@ -46,7 +46,7 @@ while !done
 			puts x
 			order_time += menu_times[x]
 		end
-		delay = order.length * 0.5 # calculate 30 sec delay between completion of each item
+		delay = (order.length - 1) * 0.5 # calculate 30 sec delay between completion of each item
 		order_time += delay # add delay to order time
 		puts " "
 		puts "Your order will be ready in #{order_time} minutes"
