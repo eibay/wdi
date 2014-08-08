@@ -14,7 +14,6 @@ ___
 - Goal: To create a program that chooses two cards from the deck *at random* and outputs its value in blackjack.
 
 
-
 -----
 
 ###Part 3
