@@ -103,57 +103,107 @@ goo = {a: goa, b: gob, c: goc, d: god, e: goe}
 nick = {a: nia, b: nib, c: nic, d: nid, e: nie}
 
 
-
 email_tallies = {"generalassemb.ly" => ga, "google.com" => goo, "nickelodeon.com" => nick}
 
-best_ga_choice = email_tallies["generalassemb.ly"].each { |k, v| puts k if v == email_tallies["generalassemb.ly"].values.max }
-best_goo_choice = email_tallies["google.com"].each { |k, v| puts k if v == email_tallies["google.com"].values.max } 
-best_nick_choice = email_tallies["nickelodeon.com"].each { |k, v| puts k if v == email_tallies["nickelodeon.com"].values.max } 
-puts(best_ga_choice)
-puts(best_goo_choice)
-puts(best_nick_choice)
+best_ga = email_tallies["generalassemb.ly"].key(email_tallies["generalassemb.ly"].values.max)
+best_goo = email_tallies["google.com"].key(email_tallies["google.com"].values.max)
+best_nick = email_tallies["nickelodeon.com"].key(email_tallies["nickelodeon.com"].values.max)
+
+best_ga_choice = best_ga.to_s
+best_goo_choice = best_goo.to_s
+best_nick_choice = best_nick.to_s
 
 test_emails = [["PJ Hughes", "generalassemb.ly"],
   ["Eric Schmidt", "google.com"],
   ["Kel Mitchell", "nickelodeon.com"]]
 final_email_list = []
 
-
-def email_test_loop(hash_name, best_choice)
- test_looper = 0
+test_looper = 0
 while test_looper < test_emails.length
-if test_emails[test_looper][1] == hash_name
-if best_choice == "a"
+if test_emails[test_looper][1] == "generalassemb.ly"
+if best_ga_choice == "a"
 	first_dot_last = test_emails[test_looper][0].split(" ")
 	email_first_dot_last = first_dot_last[0] + "." + first_dot_last[1] + "@" + test_emails[test_looper][1]
-	return email_first_dot_last
+	final_email_list.push(email_first_dot_last)
 	test_looper += 1	
-elsif best_choice == "b"
+elsif best_ga_choice == "b"
 	first_name = test_emails[test_looper][0].split(" ")
 	email_first_name = first_name[0] + "@" + test_emails[test_looper][1]
-	return email_first_name
+	final_email_list.push(email_first_name)
 	test_looper += 1
-elsif best_choice == "c"
+elsif best_ga_choice == "c"
 	first_last = test_emails[test_looper][0].split(" ")
-	email_first_last = first_name[0] + first_name[1] + "@" + test_emails[test_looper][1]
-	return email_first_last
+	email_first_last = first_last[0] + first_last[1] + "@" + test_emails[test_looper][1]
+	final_email_list.push(email_first_last)
 	test_looper += 1
-elsif best_choice == "d"
+elsif best_ga_choice == "d"
 	first_initial = test_emails[test_looper][0].split(" ")
 	email_first_initial = first_initial[0][0] + first_initial[1] + "@" + test_emails[test_looper][1]
-	return email_first_initial
+	final_email_list.push(email_first_initial)
 	test_looper += 1
-else best_choice == "e"
-	return puts("Cannot predict")
+elsif best_ga_choice == "e"
+	final_email_list.push("Cannot predict")
 	test_looper += 1
-end
-end
+else test_looper += 1
 end
 
-final_email_list.push(email_test_loop("generalassemb.ly", best_ga_choice))
+elsif test_emails[test_looper][1] == "google.com"
+if best_goo_choice == "a"
+	first_dot_last = test_emails[test_looper][0].split(" ")
+	email_first_dot_last = first_dot_last[0] + "." + first_dot_last[1] + "@" + test_emails[test_looper][1]
+	final_email_list.push(email_first_dot_last)
+	test_looper += 1	
+elsif best_goo_choice == "b"
+	first_name = test_emails[test_looper][0].split(" ")
+	email_first_name = first_name[0] + "@" + test_emails[test_looper][1]
+	final_email_list.push(email_first_name)
+	test_looper += 1
+elsif best_goo_choice == "c"
+	first_last = test_emails[test_looper][0].split(" ")
+	email_first_last = first_last[0] + first_last[1] + "@" + test_emails[test_looper][1]
+	final_email_list.push(email_first_last)
+	test_looper += 1
+elsif best_goo_choice == "d"
+	first_initial = test_emails[test_looper][0].split(" ")
+	email_first_initial = first_initial[0][0] + first_initial[1] + "@" + test_emails[test_looper][1]
+	final_email_list.push(email_first_initial)
+	test_looper += 1
+elsif best_goo_choice == "e"
+	final_email_list.push("Cannot predict")
+	test_looper += 1
+else test_looper += 1
+end
 
-final_email_list.push(email_test_loop("google.com", best_goo_choice))
-final_email_list.push(email_test_loop("nickelodeon.com", best_nick_choice))
+elsif test_emails[test_looper][1] == "nickelodeon.com"
+if best_nick_choice == "a"
+	first_dot_last = test_emails[test_looper][0].split(" ")
+	email_first_dot_last = first_dot_last[0] + "." + first_dot_last[1] + "@" + test_emails[test_looper][1]
+	final_email_list.push(email_first_dot_last)
+	test_looper += 1	
+elsif best_nick_choice == "b"
+	first_name = test_emails[test_looper][0].split(" ")
+	email_first_name = first_name[0] + "@" + test_emails[test_looper][1]
+	final_email_list.push(email_first_name)
+	test_looper += 1
+elsif best_nick_choice == "c"
+	first_last = test_emails[test_looper][0].split(" ")
+	email_first_last = first_last[0] + first_last[1] + "@" + test_emails[test_looper][1]
+	final_email_list.push(email_first_last)
+	test_looper += 1
+elsif best_nick_choice == "d"
+	first_initial = test_emails[test_looper][0].split(" ")
+	email_first_initial = first_initial[0][0] + first_initial[1] + "@" + test_emails[test_looper][1]
+	final_email_list.push(email_first_initial)
+	test_looper += 1
+elsif best_nick_choice == "e"
+	final_email_list.push("Cannot predict")
+	test_looper += 1
+else test_looper += 1
+end
+end
+end
+print(final_email_list)
+
 
 
 
