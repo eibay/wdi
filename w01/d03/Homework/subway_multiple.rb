@@ -1,6 +1,8 @@
+
 n = ["Times Square", "34th Street", "W. 28th Street", "W. 23rd Street", "Union Square", "8th Street"]
 six = ["Grand Central", "33rd Street", "E. 28th Street", "E. 23rd Street", "Union Square", "Astor Place"]
 l = ["8th Avenue", "6th Avenue", "Union Square", "3rd Avenue", "1st Avenue"]
+q = ["Times Square", "Herald Square", "Union Square", "Canal Street"]
 
 starting_line = n
 starting_stop = "Times Square"
