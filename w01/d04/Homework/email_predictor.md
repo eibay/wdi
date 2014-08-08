@@ -78,6 +78,6 @@ puts ["pj.hughes@generalassembl.ly"]
 puts [
   "pj.hughes@generalassemb.ly",
   "eric@google.com",
-  "kel.mitchell@generalassemb.ly",
+  "kel.mitchell@nickelodeon.com",
 ]
 ```
