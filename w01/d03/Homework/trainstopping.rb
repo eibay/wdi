@@ -17,13 +17,11 @@ subway = {
 }
 
 
-
 puts "\nThe only lines in service today are:"
 puts "The N Line: #{subway[:N]}"
 puts "The 6 Line: #{subway[:"#{6}"]}"
 puts "The L Line: #{subway[:L]}"
 puts "The Q Line: #{subway[:Q]}"
-
 
 puts "\nAre you starting on the N, 6, L, or Q line?"
 begline = gets.chomp.capitalize
@@ -41,23 +39,39 @@ endstop = gets.chomp.capitalize
 
 
 
-if begline == endline 
 
-	totalstops = (subway[begline.to_sym].index(begstop) - subway[endline.to_sym].index(endstop)).abs
-   #totalstops = hash[N or L etc, user input].to sym] .index ( user input)
-   # i call a key in the subway hash to find the associated value which is an array
-   # then i .index the array to find the associated index.
+# if begline == endline 
 
-else
-	first_leg = (subway[begline.to_sym].index("Union_sq") - subway[begline.to_sym].index(begstop)).abs
-	second_leg = (subway[endline.to_sym].index("Union_sq") - subway[endline.to_sym].index(endstop)).abs
-	totalstops = first_leg + second_leg
+# 	totalstops = (subway[begline.to_sym].index(begstop) - subway[endline.to_sym].index(endstop)).abs
+#    #totalstops = hash[N or L etc, user input].to sym] .index ( user input)
+#    # i call a key in the subway hash to find the associated value which is an array
+#    # then i .index the array to find the associated index.
 
-	
+# else
+# 	first_leg = (subway[begline.to_sym].index("Union_sq") - subway[begline.to_sym].index(begstop)).abs
+# 	second_leg = (subway[endline.to_sym].index("Union_sq") - subway[endline.to_sym].index(endstop)).abs
+# 	totalstops = first_leg + second_leg
+# end
+
+
+# puts "You will ride a total of #{totalstops} stops"
+# puts "\nWe are being held indefinitely because of train traffic ahead.."
+
+def line_length(line, stop1, stop2, subway)
+	return (subway[line.to_sym].index(stop1) - subway[line.to_sym].index(stop2)).abs
 end
-puts "You will ride a total of #{totalstops} stops"
+
+if begline == endline
+	output = line_length(begline, begstop, endstop, subway)
+else
+	output = line_length(begline, begstop, "Union_sq", subway) + line_length(endline, "Union_sq", endstop, subway)
+end
+
+puts "You will ride a total of #{output} stops"
 puts "\nWe are being held indefinitely because of train traffic ahead.."
 
 
 
-#
+
+
+
