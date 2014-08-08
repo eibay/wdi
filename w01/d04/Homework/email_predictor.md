@@ -1,4 +1,4 @@
-# Email Predictor
+<!-- # Email Predictor
 
 Remember the email predictor algorithm we came up with in class? Your task is to implement this.
 
@@ -22,9 +22,79 @@ name_email = ["Sean West", "sean.west@generalassemb.ly"]
 puts "The name/email provided follows pattern a"
 ```
 
-*You may want to test several name/email pairs to make sure your code works.*
+*You may want to test several name/email pairs to make sure your code works.* -->
 
-2) Given an array of name/email combos, count up the total number of times each pattern appears for a given domain name.
+<!-- 
+######
+GOAL = 
+get their info: first, last, email
+
+check to see if their "email_full_name" matches their input full name(first+last)
+
+      break down their email into name and domain
+      combine their first and last input name to full name in email
+
+compare the structure of their email address to pattern email addresses
+
+if their email "full name" is ONLY first name, then matches pattern_b
+###### -->
+
+
+puts "What is your first name?"
+first = gets.chomp
+
+puts "What is your last name?"
+last = gets.chomp
+
+puts "What is your email address?"
+user_email = gets.chomp
+
+email_addy_array = user_email.split(@) 
+<!-- #this gives us an array with totalname and domain
+ -->
+email_full_name = email_addy_array[0]
+<!--     #this gives us values to compare to user first and last
+ -->
+email_domain = email_addy_array[1]
+<!--     #this gives us domain piece to compare to pattern structure
+ -->
+
+pattern_a = "first.last@domain"
+pattern_b = "first@domain"
+pattern_c = "firstlast@domain"
+pattern_d = "first_initial@lastdomain"
+
+
+if user_email == pattern_a
+puts "The name/email combo provided follows pattern a: first.last@domain"
+
+elseif user_email == pattern_b
+puts "The name/email combo provided follows pattern b: first@domain"
+
+elseif user_email == pattern_c
+puts "The name/email combo provided follows pattern c: firstlast@domain"
+
+elseif user_email == pattern_d
+puts "The name/email combo provided follows pattern d: first_initial@lastdomain"
+
+else puts "The name/email combo provided follows pattern e, meaning it does not follow any pattern.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 2) Given an array of name/email combos, count up the total number of times each pattern appears for a given domain name.
 
 Given an array of inputs:
 ```ruby
@@ -81,3 +151,4 @@ puts [
   "kel.mitchell@nickelodeon.com",
 ]
 ```
+ -->
