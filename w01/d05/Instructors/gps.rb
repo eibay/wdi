@@ -1,10 +1,18 @@
-puts "Where do you want to go?"
-requested_location = gets.chomp
+require 'socket'
+server = TCPServer.new 2000
+client = server.accept
+
+puts "Client connected!"
+
+client.puts "Where do you want to go?"
+requested_location = client.gets.chomp
 
 locations = ["New York", "San Francisco", "Dallas"]
 
 if locations.include?(requested_location)
-  puts "YES we go here"
+  client.puts "YES we go here"
 else
-  puts "NOPE"
+  client.puts "NOPE"
 end
+
+client.close
