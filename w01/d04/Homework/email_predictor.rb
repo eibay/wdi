@@ -1,6 +1,16 @@
 require 'pry'
 # use pry for debugging 
 
+=begin 
+# Tess found this 
+
+class String 
+	def initial 
+		self[0,1]
+	end 
+end 
+=end 
+
 inp = [ 
   ["Jeffrey Konowitch", "jeff.konowitch@generalassemb.ly"],
   ["Neel Patel", "neel.patel@generalassemb.ly"],
@@ -46,6 +56,8 @@ while i < inp.length-1
 					output[domain]["first"] = 1 
 				end 
 			else
+				# not too sure there is not a more 
+				# concise way to do this: 
 				output[domain] = {}
 				output[domain]["first"] = 1 
 			end 
