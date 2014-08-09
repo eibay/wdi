@@ -32,30 +32,23 @@ suits = ["♤", "♡", "♢", "♧"] # converting it while pushing into deck cre
 
 deck = make_deck(suits, values)
 
-
-
-def boom_and_bust(deck)
-  qty_deck = deck.length
-
-  while qty_deck / 3 > 0 do # i originally did 3 > 1, but it only did 16 draws = 48 cards, leaving 4 cards, instead of 17 draws. not sure why
-
-    def draw_random(deck_array, qty_to_draw)
+  
+    #random draw method
+    def draw_random(deck_array, qty_drawn)
       cards_chosen = []
-      while qty_to_draw > 0 do
-
+      while qty_drawn > 0 do
+        # puts "\n\n"
         random_card = deck_array[rand(deck_array.length)]
         # puts "You picked #{random_card}."
-        # deck_array = deck_array.delete(random_card)
         deck_array.delete(random_card)
-        qty_to_draw -= 1
+        qty_drawn -= 1
         cards_chosen << random_card
       end
       puts "\nyour random cards are #{cards_chosen}"
       return cards_chosen
     end
 
-    cards_chosen = draw_random(deck, 3) # draw_random(deck, 2) # ["10 of ♤", "4 of ♡"]
-
+    cards_chosen = draw_random(deck, 3)
 
 
     def add_cards(drawn_card_array)
@@ -79,20 +72,14 @@ def boom_and_bust(deck)
     end
 
    # cards_added = add_cards(draw_random(deck, 2)) # "string" and return cards_value # 13
-  cards_added = add_cards(cards_chosen) # "string" and return cards_value # 13
 
 
+    cards_added = add_cards(cards_chosen) # "string" and return cards_value # 13
 
 
-
-
-    # ###Part 3
-    # - Goal: To create a program that chooses 3 cards *at random*,
-    # - Have it output the cards and their blackjack value or
-    #   - Also include whether that value is "bust".
-    # - Loop this program until there are no cards left in the deck.
-
-
+def boom_and_bust(deck, cards_chosen, cards_added)
+  qty_deck = deck.length
+  while qty_deck / 3 > 1 do
 
     if cards_added > 21
       puts "Your card value is #{cards_added}, you went BUST!"
@@ -100,21 +87,13 @@ def boom_and_bust(deck)
       puts "Your card value is #{cards_added}, you are safe... for now.."
     end
 
-    # def boom_or_bust(hand)
-    #   if hand > 21
-    #     puts "Your card value is #{hand}, you went BUST!"
-    #   else
-    #     puts "Your card value is #{hand}, you are safe... for now.."
-    #   end
-    # end
-
-    # boom_or_bust(add_cards(draw_random(deck,3))) # "string"
-
 # binding.pry ################################################################
   qty_deck -= cards_chosen.length  
   end
 end
-boom_and_bust(deck)
+
+
+boom_and_bust(deck, cards_chosen, cards_added)
 
 
 #### random card array of 3
