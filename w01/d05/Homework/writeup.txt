@@ -1,0 +1,37 @@
+##Week01-Day05
+
+###Clayton, can you tell me what an IP address is?
+
+Well, sonny, I'm glad you asked. I'm not so old I can't remember when IP addresses confused me. It was especially confusing that there were no not just one unique IP address for a machine but two of them. This really send me for a loop went I tried to learn myself some internet using my old white Unibody MacBook. Ah, those were the days, when I lived on 319 Malcolm X in apartment---hmmm... What was the apartment number? It's so hard to remember numbers, and that was such a long long time ago now... 
+
+Oh. Excuse me. I was caught up in reminiscence. What was it you were asking? Ah, yes, an IP address. Well, it's quite simple really: an IP address is a numerical adresss for a computer on a network. A computer has two of them, one local, the other public. 
+
+The local network is like all the apartments in a building having identifying numbers: 6A, 1010B, 1C, 2L, 41C, 312, 650, 4G, 4R, 1420, 1421, B5, C6, all those apartments inside one building there can be. That's local IP addresses. 
+
+The public ip addr is like all them buildings having street addresses.  
+
+###And what's a port?
+
+Oh dear! You're getting really advanced real quickly, aren't you? I had to call up Verizon & pay them $45 to turn port forwarding on for my router before I even had the foggest notion *ports* existed at all! And that to turn them on I would need to know which ones I wanted to use. You'd think w/ me calling up a guy I'd never even spoken to before to ask him to turn on *port forwarding* for my router I'd've had the idea *occur to me* something called port forwarding would involve something called a port but no! All I wanted was to see if I could transfer some web pages between my computer in Brooklyn & Cheryl's across the river. 
+
+But enough of me going on & on like this. Let me tell you what a port is. You're getting how a computer can be seen as just a node on a network, well, in that case, a port is any number of "openings" that node has so any of the other nodes can connect w/ it. 
+
+###OK, I get that conceptually, grandpa, but could you be a bit more specific? 
+Alright? Well, if you get that then let me go into a bit more detail. As you've no doubt found out well for yourself, computers are hardly anything at all w/o the hard work developers put in to making software happen on them. Well, as you can guess then, ports are just a feature of the software computers use to connect w/ each other over a network. This software gives these openings for particular kinds of connections to be made & they called 'em ports! 
+
+Some of these ports're 9 times out of 10 used for certain kinds of protocol. Like I've seen port 80 used a lot for HTTP in my time, as well as port 22 for the SSH protocol! But one of my favorite ones is port 5757 for CodeKit, the best dang app I've ever seen! It was really something to be using CodeKit to make webpages happen. 
+
+###Uh, yeah, sure. But what exactly is being sent thru all those ports, across all these--
+
+Strings! Encoded text! UTF-8, UTF-16, all those good things! It makes sense. If you've got text you've got all you need to build up the larger things, as a hash or any object, well, just look at it, it's a bunch of text. You forget that but then you take a step back for a moment and breathe it in and you realize: all this complicated stuff you've been looking at's a bunch of letters, numbers & characters sitting there, right in front of you. Text! Strings! Unicode! ASCII! ANSI! Letters.
+
+###Clayton. Tell us about the time you were at the GA Web Development Immersive and they made you & the developers all create little tiny servers to communicate w/ each other over the local network.  
+
+(*hardy laugh*) Ah ha ha, well... 
+
+Your machine connected up to that other machine & you didn't really know what their machine was going to respond to, not unless it came right up & told you, and darned if that was going to happen 9 times out of 10! Lucky we had that spec w/ us. If we hadn't it would've been complete chaos. 
+ 
+###Wasn't there anything you could've done?
+
+Just keep trying different strings, different things. Strings, things, you might expect might work, you've seen work before. If nothing usual works, you know you got something strange going on. That's all there is to it. 
+
