@@ -13,8 +13,8 @@
 # values = ["A","2","3","4","5","6","7","8","9","10","J", "Q", "K"]
 # values = ["A", *2..10,"J", "Q", "K"]
 
-values = [*1..13,]
-suits = ["♤", "♡", "♢", "♧"]
+values = [*1..13,] # i originally didn't make it all integers, but i decided doing so and 
+suits = ["♤", "♡", "♢", "♧"] # converting it while pushing into deck created less complexity later on
 
 deck = [] 
 
@@ -84,67 +84,152 @@ print "\nYour deck is  #{deck}"
 
 ##### Q2 non-method attempt
 ########## getting random cards
-random_card_array = []
-qty_random_cards = 2
-puts "\n\n"
-while qty_random_cards > 0 do
-  random_card = deck[rand(deck.length)]
-  # puts "You picked #{random_card}."
-  deck.delete(random_card)
 
-  qty_random_cards -= 1 
-  random_card_array << random_card
+#random draw method
+def draw_random(deck_array, qty)
+  chosen_cards = []
+  while qty > 0 do
+    # puts "\n\n"
+    random_card = deck_array[rand(deck_array.length)]
+    # puts "You picked #{random_card}."
+    deck_array.delete(random_card)
+    qty -= 1
+    chosen_cards << random_card
+  end
+  puts "\nyour random cards are #{chosen_cards}"
+  return chosen_cards
 end
 
-print "\nyour random cards are #{random_card_array}"
+draw_random(deck, 2) # ["10 of ♤", "4 of ♡"]
+
+# random_card_array_2 = []
+# qty_random_cards_2 = 2
+# # puts "\n\n"
+# while qty_random_cards_2 > 0 do
+#   random_card = deck[rand(deck.length)]
+#   # puts "You picked #{random_card}."
+#   deck.delete(random_card)
+
+#   qty_random_cards_2 -= 1 
+#   random_card_array_2 << random_card
+# end
+
+# print "\nyour random cards are #{random_card_array_2}"
 
 
-##### adding together
+##### adding together 2 cards
 
+def add_cards(drawn_card_array)
+  cards_value = 0
+  qty = drawn_card_array.length
 
-
-
-####### adding them together
-# cards_value = 0
-# qty_card_adding = random_card_array.length
-
-# while qty_card_adding > 0 do
-#   random_card_array.each do |card|
-#     cards_value += card.split(" ")[0].to_i #"9 of ♤".split > ["9", "of", "♤"] > "9" > 9
-#     qty_card_adding -= 1
-#   end
-# end  ####### CAUTION CAUTION REMEMBER you need to use the deck for the Q
-# puts "your total value is #{cards_value}"
-
-######### using the array[0] to determine the value
-
-
-
-cards_value = 0
-qty_card_adding = random_card_array.length
-
-while qty_card_adding > 0 do
-  random_card_array.each do |card|
-
-    # to account for face cards equalling 10 and ace equalling 1
-    if card.split(" ")[0] == "J" || card.split(" ")[0] == "Q" || card.split(" ")[0] == "K"
-      cards_value += 10
-    elsif card.split(" ")[0] == "A"
-      cards_value += 1
-    else
-      cards_value += card.split(" ")[0].to_i #"9 of ♤".split > ["9", "of", "♤"] > "9" > 9
+  while qty > 0 do
+    drawn_card_array.each do |card_name| 
+      if card_name.split(" ")[0] == "J" || card_name.split(" ")[0] == "Q" || card_name.split(" ")[0] == "K"
+        cards_value += 10
+      elsif card_name.split(" ")[0] == "A"
+        cards_value += 1
+      else
+        cards_value += card_name.split(" ")[0].to_i #"10 of ♤".split(" ") > ["10", "of", "♤"][0] > "10".to_i > 9
+      end
+      qty -= 1
     end
-    qty_card_adding -= 1
   end
-end  ####### CAUTION CAUTION REMEMBER you need to use the deck for the Q
-puts "\nthe total value of your cards is #{cards_value}"
-# -----
+  puts "\nthe total value of your cards is #{cards_value}"
+  return cards_value
+end
+
+add_cards(draw_random(deck, 2)) # "string" and return cards_value # 13
+
+
+
+
+# cards_value_2 = 0
+# qty_card_adding_2 = random_card_array_2.length
+
+# while qty_card_adding_2 > 0 do
+#   random_card_array_2.each do |card|
+
+#     # to account for face cards equalling 10 and ace equalling 1
+#     if card.split(" ")[0] == "J" || card.split(" ")[0] == "Q" || card.split(" ")[0] == "K"
+#       cards_value_2 += 10
+#     elsif card.split(" ")[0] == "A"
+#       cards_value_2 += 1
+#     else
+#       cards_value_2 += card.split(" ")[0].to_i #"10 of ♤".split(" ") > ["10", "of", "♤"][0] > "10".to_i > 9
+#     end
+#     qty_card_adding_2 -= 1
+#   end
+# end  
+# puts "\nthe total value of your cards is #{cards_value_2}"
+# # -----
+
+
+
+
+
+
+
 
 # ###Part 3
 # - Goal: To create a program that chooses 3 cards *at random*,
 # - Have it output the cards and their blackjack value or
 #   - Also include whether that value is "bust".
 # - Loop this program until there are no cards left in the deck.
+
+add_cards(draw_random(deck,3)) # "string" and return cards_value # 13
+
+def boom_or_bust(hand)
+  if hand > 21
+    puts "Your card value is #{hand}, you went BUST!"
+  else
+    puts "Your card value is #{hand}, you are safe... for now.."
+  end
+end
+
+boom_or_bust(add_cards(draw_random(deck,3))) # "string"
+
+
+#### random card array of 3
+# random_card_array_3 = []
+# qty_random_cards_3 = 3
+# # puts "\n\n"
+# while qty_random_cards_3 > 0 do
+#   random_card = deck[rand(deck.length)]
+#   # puts "You picked #{random_card}."
+#   deck.delete(random_card)
+
+#   qty_random_cards_3 -= 1 
+#   random_card_array_3 << random_card
+# end
+
+# print "\nyour random cards are #{random_card_array_3}"
+
+
+
+#### adding them together 3 cards
+# cards_value_3 = 0
+# qty_card_adding_3 = random_card_array_3.length
+
+# while qty_card_adding_3 > 0 do
+#   random_card_array_3.each do |card|
+
+#     # to account for face cards equalling 10 and ace equalling 1
+#     if card.split(" ")[0] == "J" || card.split(" ")[0] == "Q" || card.split(" ")[0] == "K"
+#       cards_value_3 += 10
+#     elsif card.split(" ")[0] == "A"
+#       cards_value_3 += 1
+#     else
+#       cards_value_3 += card.split(" ")[0].to_i #"10 of ♤".split(" ") > ["10", "of", "♤"][0] > "10".to_i > 9
+#     end
+#     qty_card_adding_3 -= 1
+#   end
+# end  
+# puts "\nthe total value of your cards is #{cards_value_3}"
+
+
+
+
 
 
 # -----

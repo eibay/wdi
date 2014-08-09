@@ -10,25 +10,30 @@ ___
 # - Output the array of cards
 # ------
 
-values = [*1..13,]
-suits = ["♤", "♡", "♢", "♧"]
+def make_deck(suits, values) # this doesnt seem to work, deck doesn't get defined
+  deck = []
 
-deck = [] 
-
-suits.each do |suit|
-  values.each do |value|
-    case value
-    when 1
-      value = "A"
-    when 11
-      value = "J"
-    when 12
-      value = "Q"
-    when 13
-      value = "K"
+  suits.each do |suit|
+    values.each do |value|
+      case value
+      when 1
+        value = "A"
+      when 11
+        value = "J"
+      when 12
+        value = "Q"
+      when 13
+        value = "K"
+      end
+      card = "#{value} of #{suit}"
+      deck << card
     end
-    card = "#{value} of #{suit}"
-    deck << card
   end
+  puts "\nYour deck is  #{deck}"
+  return deck # do i need this?
 end
-print "\nYour deck is  #{deck}"
+
+values = [*1..13,] # i originally didn't make it all integers, but i decided doing so and 
+suits = ["♤", "♡", "♢", "♧"] # converting it while pushing into deck created less complexity later on
+
+deck = make_deck(suits, values)
