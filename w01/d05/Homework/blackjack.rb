@@ -14,28 +14,25 @@ class String
 	end 
 end 
 
-deck = [] 
 
-i = 0 
+deck, i = [], 0 
 suits.each do |suit|
 
 	(2..10).each do |no|
-		mk = "#{no} of #{suit}" 
+		dsgn = "#{no} of #{suit}" 
 		if i < 2
-			deck << mk.black_suit
+			deck << dsgn.black_suit
 		else 
-			deck << mk.red_suit
+			deck << dsgn.red_suit
 		end 
 	end 
 	['J', 'Q', 'K', 'A'].each do |face|
-		mk = "#{face} of #{suit}"
+		dsgn = "#{face} of #{suit}"
 		if i < 2
-			deck << mk.black_suit
+			deck << dsgn.black_suit
 		else 
-			deck << mk.red_suit
+			deck << dsgn.red_suit
 		end 
 	end 
 	i += 1 
 end 
-
-puts deck.join " "
