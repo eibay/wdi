@@ -45,6 +45,7 @@ def single_player_blackjack
 
       def draw_random(deck_array, qty_to_draw)
         hand = []
+        puts "\nyou draw #{qty_to_draw} cards!"
         while qty_to_draw > 0 do
 
           random_card = deck_array[rand(deck_array.length)]
@@ -54,7 +55,7 @@ def single_player_blackjack
           qty_to_draw -= 1
           hand << random_card
         end
-        puts "\nyour random cards are #{hand}"
+        puts "your random cards are #{hand}"
         return hand
       end
 
