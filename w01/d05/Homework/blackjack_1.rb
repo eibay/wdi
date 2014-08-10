@@ -16,6 +16,10 @@ while counter_suit < suits.length
 	counter_suit += 1
 end
 
-puts cards
+print cards
+
+
+
+
 
 
