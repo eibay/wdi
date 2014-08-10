@@ -1,52 +1,60 @@
 
+
 array = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
-array1 = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
-array2 = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
-array3 = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
 
-array1 = array1.shuffle
-array = array.shuffle
-array2 = array.shuffle
-array3 = array3.shuffle
+deck = ["Hearts", "Diamonds", "Spades", "Clubs"]
 
-cards = [array1 + array2 + array3 + array]
+
+cards = []
+
+array.each do |a|
+	deck.each do |d|
+	cards << card = a + " " + d
+end
+end
+
+
+cards = cards.shuffle
 play = "yes"
 
-while cards[0].length != 0 && play == "yes"
+while play == "yes" && cards.length > 1
 
-	card1 = cards[0][0]
-	cards[0].delete_at(0)
-	card2 = cards[0][0]
-	cards[0].delete_at(0)
+	card100 = cards[0]
+	cards.delete_at(0)
+	card200 = cards[0]
+	cards.delete_at(0)
 
-	if card1 == "A"
+	card1 = card100.split(" ")
+	card2 = card200.split(" ")
+
+	if card1.include?"A"
 		card3 = 1
-	elsif card1 == "J" 
+	elsif card1.include?"J" 
 		card3 = 10
-	elsif card1 == "Q"
+	elsif card1.include?"Q"
 		card3 = 10
-	elsif card1 == "K"
+	elsif card1.include?"K"
 		card3 = 10
 	else
-		card3 = card1.to_i
+		card3 = card1[0].to_i
 	end
 
-	if card2 == "A"
+	if card2.include?"A"
 		card4 = 1
-	elsif card2 == "J" 
+	elsif card2.include?"J" 
 		card4 = 10
-	elsif card2 == "Q"
+	elsif card2.include?"Q"
 		card4 = 10
-	elsif card2 == "K"
+	elsif card2.include?"K"
 		card4 = 10
 	else
-		card4 = card2.to_i
+		card4 = card2[0].to_i
 	end
 
 	total = card3 + card4
 	counter = 0
 
-	puts "Your cards are #{card1} and #{card2} and your total is #{total}, say hit me or stay?"
+	puts "Your cards are #{card100} and #{card200} and your total is #{total}, say hit me or stay?"
 	answer = gets.chomp.downcase
 
 	if answer == "stay"
@@ -56,45 +64,55 @@ while cards[0].length != 0 && play == "yes"
 	
 
 	while total < 21 && answer == "hit me"	
-		if cards[0].length == 0 then
+		if cards.length == 0 then
 		break
 		end
-		cardx = cards[0][0]
-		cards[0].delete_at(0)
+		
+		cardx00 = cards[0]
+		cards.delete_at(0)
+		cardx = cardx00.split(" ")
 
-		if cardx == "A"
+
+		if cardx.include?"A"
 			cardy = 1
-		elsif cardx == "J" 
+		elsif cardx.include?"J" 
 			cardy = 10
-		elsif cardx == "Q"
+		elsif cardx.include?"Q"
 			cardy = 10
-		elsif cardx == "K"
+		elsif cardx.include? "K"
 			cardy = 10
 		else
-			cardy = cardx.to_i
+			cardy = cardx[0].to_i
 		end
 
 		total = total + cardy
 
 		if total > 21
-			puts "BUST! and your total is #{total} and your added card was #{cardx}"
+			puts "BUST! and your total is #{total} and your added card was #{cardx00}"
+		elsif total == 21
+			puts "BLACKJACK! Card was #{cardx00}"
+			puts "Do you want to play again?"
+			play = gets.chomp.downcase
 		else total < 21 
-			puts "Your total is #{total} and your added card was #{cardx}, say hit me or stay?"
+			puts "Your total is #{total} and your added card was #{cardx00}, say hit me or stay?"
 			answer = gets.chomp
 		end
 
 		if answer == "stay"
 			puts "Your total is #{total}"
+			puts "Do you want to play again?"
+			play = gets.chomp.downcase
+		elsif total > 21
+			puts "Do you want to play again?"
+			play = gets.chomp.downcase
 		end
 
-		puts "Do you want to play again?"
-		play = gets.chomp.downcase
+	
 
 
 		counter += 1
 	end	
-
-
+	
 end
 
 puts "Goodbye"

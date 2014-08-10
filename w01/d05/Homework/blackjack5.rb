@@ -2,90 +2,98 @@ require 'socket'
 server = TCPServer.new 2000
 client = server.accept
 
-client.puts "Welcome to BLACKJACK"
-puts "WELCOME TO BLACKJACK"
-
 array = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
-array1 = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
-array2 = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
-array3 = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"]
 
-array1 = array1.shuffle
-array = array.shuffle
-array2 = array.shuffle
-array3 = array3.shuffle
+deck = ["Hearts", "Diamonds", "Spades", "Clubs"]
 
-cards = [array1 + array2 + array3 + array]
+
+cards = []
+
+array.each do |a|
+	deck.each do |d|
+	cards << card = a + " " + d
+end
+end
+
+
+cards = cards.shuffle
+play = "yes"
 
 new_game = true
 team = 0
 team1 = 0
 
 
-while new_game == true && cards[0].length != 0
+while new_game == true && cards.length != 0
 	total = 0
 	total1 = 0
 	cardx1 = 0
 	cardy1 = 0
 
-	card1 = cards[0][0]
-	cards[0].delete_at(0)
 
-	card2 = cards[0][0]
-	cards[0].delete_at(0)
+	card100 = cards[0]
+	cards.delete_at(0)
 
-	card3 = cards[0][0]
-	cards[0].delete_at(0)
+	card200 = cards[0]
+	cards.delete_at(0)
 
-	card4 = cards[0][0]
-	cards[0].delete_at(0)
+	card300 = cards[0]
+	cards.delete_at(0)
 
-	if card1 == "A"
+	card400 = cards[0]
+	cards.delete_at(0)
+
+	card1 = card100.split(" ")
+	card2 = card200.split(" ")
+	card3 = card300.split(" ")
+	card4 = card400.split(" ")
+
+	if card1.include?"A"
 		card11 = 1
-	elsif card1 == "J" 
+	elsif card1.include?"J" 
 		card11 = 10
-	elsif card1 == "Q"
+	elsif card1.include?"Q"
 		card11 = 10
-	elsif card1 == "K"
+	elsif card1.include?"K"
 		card11 = 10
 	else
-		card11 = card1.to_i
+		card11 = card1[0].to_i
 	end
 
-	if card2 == "A"
+	if card2.include?"A"
 		card21 = 1
-	elsif card2 == "J" 
+	elsif card2.include?"J" 
 		card21 = 10
-	elsif card2 == "Q"
+	elsif card2.include?"Q"
 		card21 = 10
-	elsif card2 == "K"
+	elsif card2.include?"K"
 		card21 = 10
 	else
-		card21 = card2.to_i
+		card21 = card2[0].to_i
 	end
 
-	if card3 == "A"
+	if card3.include?"A"
 		card31 = 1
-	elsif card3 == "J" 
+	elsif card3.include?"J" 
 		card31 = 10
-	elsif card3 == "Q"
+	elsif card3.include?"Q"
 		card31 = 10
-	elsif card3 == "K"
+	elsif card3.include?"K"
 		card31 = 10
 	else
-		card31 = card3.to_i
+		card31 = card3[0].to_i
 	end
 
-	if card4 == "A"
+	if card4.include?"A"
 		card41 = 1
-	elsif card4 == "J" 
+	elsif card4.include?"J" 
 		card41 = 10
-	elsif card4 == "Q"
+	elsif card4.include?"Q"
 		card41 = 10
-	elsif card4 == "K"
+	elsif card4.include?"K"
 		card41 = 10
 	else
-		card41 = card4.to_i
+		card41 = card4[0].to_i
 	end
 
 	total = card11 + card21
@@ -93,42 +101,47 @@ while new_game == true && cards[0].length != 0
 
 	puts "Score is you #{team1} and other person #{team}"
 	client.puts "Score is you #{team} and the other person #{team1}"
-	client.puts "Your cards are #{card1} and #{card2} and the total is #{total}"
-	puts "Your cards are #{card3} and #{card4} and the total is #{total1}"
+	client.puts "Your cards are #{card100} and #{card200} and the total is #{total}"
+	puts "Your cards are #{card300} and #{card400} and the total is #{total1}"
 
 	answer = "hit me"
 	answer1 = "hit me"
+	
 
 	while (answer == "hit me") || (answer1 == "hit me")
 
 		if cards[0].length != 0 && total < 22 && answer == "hit me"
 			client.puts "Say hit me or stay"
 			answer = client.gets.chomp.downcase
+	
 			if answer == "hit me"
-				cardx = cards[0][0]
-				cards[0].delete_at(0)
-				client.puts "Your new card is #{cardx}"
+				cardx00 = cards[0]
+				cards.delete_at(0)
+				cardx = cardx00.split(" ")
+				client.puts "Your new card is #{cardx00}"
+				if cardx.include?"A" 
+				cardx1 = 1
+				elsif cardx.include?"J" 
+				cardx1 = 10
+				elsif cardx.include?"Q" 
+				cardx1 = 10
+				elsif cardx.include?"K" 
+				cardx1 = 10
+				else
+				cardx1 = cardx[0].to_i
+				end
 			else
 				client.puts "YOUR STAYING"
 				answer = "stay"
+
 			end
+				
 
-			if cardx == "A"
-				cardx1 = 1
-			elsif cardx == "J" 
-				cardx1 = 10
-			elsif cardx == "Q"
-				cardx1 = 10
-			elsif cardx == "K"
-				cardx1 = 10
-			else
-				cardx1 = cardx.to_i
-			end	
-
+		
  			if answer == "hit me"
 				total = total + cardx1
 			end
-		end
+		
 
 		if total > 21 
 			client.puts "Your bust with a total of #{total}"
@@ -145,24 +158,24 @@ while new_game == true && cards[0].length != 0
 			puts "Say hit me or stay"
 			answer1 = gets.chomp.downcase
 			if answer1 == "hit me"
-				cardy = cards[0][0]
-				cards[0].delete_at(0)
-				puts "Your new card is #{cardy}"
+				cardy00 = cards[0]
+				cards.delete_at(0)
+				cardy = cardy00.split(" ")
+				puts "Your new card is #{cardy00}"
+				if cardy.include?"A" 
+				cardy1 = 1
+				elsif cardy.include?"J" 
+				cardy1 = 10
+				elsif cardy.include?"Q" 
+				cardy1 = 10
+				elsif cardy.include?"K" 
+				cardy1 = 10
+				else
+				cardy1 = cardy[0].to_i
+			end
 			else
 				puts "YOUR STAYING"
 				answer1 = "stay"
-			end
-
-			if cardy == "A" 
-				cardy1 = 1
-			elsif cardy == "J" 
-				cardy1 = 10
-			elsif cardy == "Q"
-				cardy1 = 10
-			elsif cardy == "K"
-				cardy1 = 10
-			else
-				cardy1 = cardy.to_i
 			end
 
 			if answer1 == "hit me"
@@ -215,13 +228,14 @@ while new_game == true && cards[0].length != 0
 		new_game = true
 	elsif cards[0].length == 0 
 		client.puts "Game over, we are out of cards.  You have #{team} and the other person has #{team1}"
-		puts "Game over, we are out of cards.  You have #{team1} and the other person has #{team}"
+		puts "Game over, we are out of cards. You have #{team1} and the other person has #{team}"
 		new_game = false
 	else 
 		puts "Thanks for playing, someone didn't want to continue.  You have #{team1} and the other person has #{team}"
 		client.puts "Thanks for playing, someone didn't want to continue.  You have #{team} and the other person has #{team1}"
 		new_game = false
 	end
+end
 end
 client.close
 
