@@ -1,0 +1,16 @@
+1. An IP address is a unique number assigned to every computer or device connected to the internet or connected to a network that's connected to the internet.
+
+2. A port is to a computer like an apartment to an address.  Within each (occupied) apartment is a computer "listening", waiting for an incoming signal.
+
+3. As they're unique, they allow us to find, with specificity, a particular computer or device.
+
+4. Strings.
+
+5. I knew that the program on the other computer was listening for certain prompts.  Without them, I'd get no response.
+
+6. Hmmm I suppose I wouldn't know what to do without reading the code- I guess I could enter "help" and see what happened.
+
+12. Learned a lot.  This Blackjack problem made me really plan everything out.  Planning without writing code is a powerful approach.  It's what I'll do if I ever get stuck, which happened this time.  Also, giving variables descriptive names is also something that I "learned" to do, in that if I hadn't, I might have gotten nowhere.  I also feel like there was something else valuable I wanted to note but I can't remember it.  I'll just leave that thought here so that I'm reminded to search for it, or welcome it should it appear.
+
+Thanks guys!
+
