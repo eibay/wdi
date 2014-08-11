@@ -1,0 +1,19 @@
+What is an ip address?
+An ip address is the address that identifies your specific computer on a computer network
+What is a port?
+A port is like a tunnel on your computer that only one thing can run through at a time over networks
+How do IP addresses and ports help us to connect to other computers?
+they help us connect to other computers because they let us know how to find the computer and where to go within that computer once we have found it
+What data type is used for input/output?
+Strings
+How was it helpful to know what your partner's server could respond to?
+So you know when to communicate back and when to wait for info
+Hypothetically, what would you have done if you didn't know (ie, planned it) what your partner's computer responded to?
+Tried different inputs/waited
+Free form reflect on the week; what did you realize? how did the material from the week inform or change what you thought about programming before you got here? what are you excited about? what are you confused about?
+
+It has shown me that I cean I learn faster than I ever realized. I have used
+some similar programming constructs before but I did it so basically and 
+didn't have really know how to apply them. It had made me very excited for 
+the weeks ahead where I'll be able to learn more and apply this programming
+knowledge towards creating things that are really ineresting to me.
