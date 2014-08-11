@@ -1,4 +1,3 @@
-require 'pry'
 
 suits = ["diamond", "heart", "spade", "club"]
 sequence = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
@@ -17,7 +16,7 @@ shuffled_cards = cards.shuffle
 
 puts "shuffled cards------------"
 print shuffled_cards
-
+puts " "
 
 def card_value(dealt_card)
 	if dealt_card.split[0] == "A"
@@ -27,45 +26,52 @@ def card_value(dealt_card)
 		c_value = 10
 
 	else
-		c_value = dealt_card.split[0]
+		c_value = dealt_card.split[0].to_i
 	end
 end
 
-while shuffled_cards.length >= 3
-	puts " "
-	card_1 = shuffled_cards[rand(52)]
-	puts card_1
-	card_1_value = card_value(card_1)
-	puts card_1_value
-	shuffled_cards.delete(card_1)
 
-	puts " "
-	card_2 = shuffled_cards[rand(52)]
-	puts card_2
-	card_2_value = card_value(card_2)
-	puts card_2_value
-	shuffled_cards.delete(card_2)
+puts " "
 
-	puts " "
+card_1 = shuffled_cards[rand(52)]
+puts card_1
+card_1_value = card_value(card_1)
+puts card_1_value
+
+puts " "
+
+card_2 = shuffled_cards[rand(52)]
+puts card_2
+card_2_value = card_value(card_2)
+puts card_2_value
+
+puts " "
+
+puts "Do you want another card? please say hit me or stay."
+answer = gets.chomp
+
+
+until answer = "stay"
+	
+end
+if answer = "hit me"
 	card_3 = shuffled_cards[rand(52)]
 	puts card_3
 	card_3_value = card_value(card_3)
 	puts card_3_value
-	shuffled_cards.delete(card_3)
-
-	puts " "
+elsif answer = "stay"
 	total = card_1_value + card_2_value + card_3_value
 	puts "total"
 	puts total
-
-	if total > 21
-		puts "oops, sorry you lose"
-	end
 end
 
-puts "Sorry, not enough cards left, go home!"
-puts shuffled_cards
+puts " "
 
+total = card_1_value + card_2_value + card_3_value
+puts "total"
+puts total
 
-
+if total > 21
+	puts "oops, sorry you lose"
+end
 
