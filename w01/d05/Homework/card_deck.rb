@@ -18,6 +18,14 @@ def generate_deck()
 	#puts deck.length
 end
 generate_deck()
+
+# Same thing probably would have been better as a hash
+# makes it better 
+# [
+# 	{suit: "hearts", card: "jack"},
+# 	{suit: "hearts", card: "ace"},
+# 	{suit: "hearts", card: "king"},
+# ]
  
 # puts
 # puts deck.length
