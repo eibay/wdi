@@ -145,5 +145,23 @@ end
 
 
 
+# names_emails = [ 
+#   ["Jeffrey Konowitch", "jeff.konowitch@generalassemb.ly"],
+#   ["Neel Patel", "neel.patel@generalassemb.ly"],
+#   ["Sean West", "sean.west@generalassemb.ly"],
+#   ["Jake Schwartz", "j@generalassemb.ly"],
+#   ["Brad Jacobs", "brad@google.com"],
+#   ["Cynthia Silvers", "cynthia@google.com"],
+#   ["Summer Sanders", "summer.sanders@nickelodeon.com"],
+#   ["Kenan Thompson", "kenan.thompson@nickelodeon.com"]
+# ]
+
+#puts name_email[0][0]
+#puts ["Jeffrey Konowitch", "jeff.konowitch@generalassemb.ly"] same
+
+
+
+
+
 
 
