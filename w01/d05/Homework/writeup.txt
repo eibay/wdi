@@ -1,0 +1,15 @@
+Write up the following and save it as a textfile in your w01/d05/Homework folder:
+What is an IP address?
+It's a number each computer has that the internet uses to identify you.
+What is a port?
+A port is an open connection on the internet where users can find each other.
+How do IP addresses and ports help us to connect to other computers?
+Ports set up a place for users to meet and IP addresses help us connect direclty to each other's computers.
+What data type is used for input/output?
+Not sure.
+How was it helpful to know what your partner's server could respond to?
+Yes it was helpful to work together and test the output.
+Hypothetically, what would you have done if you didn't know (ie, planned it) what your partner's computer responded to?
+I would have tried a few different things to test?
+Free form reflect on the week; what did you realize? how did the material from the week inform or change what you thought about programming before you got here? what are you excited about? what are you confused about?
+I still feel a little behind the class as a whole in terms of what I know. Sad I shouldn't be in this position because I have been in the program before. I feel that I need to keep reviewing the basics for example exercises in the Chris Pine book, hopefully we will continue to move at a moderate pace and I will have time to do that.
