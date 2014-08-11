@@ -16,13 +16,13 @@ tally = {
 
 x = 0
 while x < names_emails.length
-namepair = names_emails[x][0].split(" ")
-firstname = namepair[0].downcase
-first_all_letters = firstname.split("")
-firstinit = first_all_letters[0]
-lastname = namepair[1].downcase 
-addresspair = names_emails[x][1].split("@")
-addressname = addresspair[0]
+	namepair = names_emails[x][0].split(" ")
+	firstname = namepair[0].downcase
+	first_all_letters = firstname.split("")
+	firstinit = first_all_letters[0]
+	lastname = namepair[1].downcase 
+	addresspair = names_emails[x][1].split("@")
+	addressname = addresspair[0]
 
 	if addresspair[1] == "generalassemb.ly"
 		if firstname + "." + lastname == addressname
@@ -66,3 +66,4 @@ addressname = addresspair[0]
 x += 1
 end
 puts tally
+
