@@ -34,3 +34,8 @@ if emailname == pattern_a
 	else
 	puts "The name/email does not follow a pattern."
 end
+
+n = 0
+while condition
+	
+end
