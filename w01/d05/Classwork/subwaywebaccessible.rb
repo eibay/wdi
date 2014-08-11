@@ -1,23 +1,25 @@
+require 'socket'
+server = TCPServer.new 2000
+client = server.accept
 
-puts "WELCOME TO MY SUBWAY TRIP CALCULATOR! w00t w00t!"
-puts "Here are your transportation options:"
-puts "The N train stops at: Times Square, 34th, W 28th, W 23rd, Union Square, and 8th St."
-puts "The L train stops at: 8th Ave, 6th, Union Square, 3rd, and 1st."
-puts "The Six train stops at: Grand Central, 33rd, E 28th, E 23rd, Union Square, and Astor Place."
-puts "The Q train stops at: Times Square, Herald Square, Union Square, Canal St."
+client.puts "WELCOME TO MY SUBWAY TRIP CALCULATOR! w00t w00t!"
+client.puts "Here are your transportation options:"
+client.puts "The N train stops at: Times Square, 34th, W 28th, W 23rd, Union Square, and 8th St."
+client.puts "The L train stops at: 8th Ave, 6th, Union Square, 3rd, and 1st."
+client.puts "The Six train stops at: Grand Central, 33rd, E 28th, E 23rd, Union Square, and Astor Place."
+client.puts "The Q train stops at: Times Square, Herald Square, Union Square, Canal St."
 
-puts "Which line are you taking?"
-	origin_line = gets.chomp.downcase.to_sym
-puts "Which station are you starting at?"
-	origin = gets.chomp
-puts "On which line is your destination?"
+client.puts "Which line are you taking?"
+	origin_line = client.gets.chomp.downcase.to_sym
+client.puts "Which station are you starting at?"
+	origin = client.gets.chomp
+client.puts "On which line is your destination?"
 	destination_line = gets.chomp.downcase.to_sym
-puts "What's your final stop?"
-	destination = gets.chomp
+client.puts "What's your final stop?"
+	destination = client.gets.chomp
 
 
 def stop_calculator(line, stop)
-binding.pry	
 	subway_system = {
 	train_lines: {
 	n: ["Times Square", "34th", "W 28th", "W 23rd", "Union Square", "8th St"], 
@@ -36,9 +38,9 @@ number_of_stops_from_union_sq = stop_calculator(destination_line, destination)
 
 total_number_of_stops = (number_of_stops_to_union_sq + number_of_stops_from_union_sq)
 
-puts "The length of your journey is: #{total_number_of_stops} stops." 
+client.puts "The length of your journey is: #{total_number_of_stops} stops." 
 
-
+client.close
 
 # # Jeff's solution: 
 # if origin_line == destination_line

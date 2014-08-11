@@ -1,7 +1,7 @@
 modal_patterns = {
-  "generalassemb.ly" => [a: 0, b: 0, c: 0, d: 0, e: 0],
-  "google.com" => [a: 0, b: 0, c: 0, d: 0, e: 0],
-  "nickelodeon.com" => [a: 0, b: 0, c: 0, d: 0, e: 0],
+  "generalassemb.ly" => {a: 0, b: 0, c: 0, d: 0, e: 0},
+  "google.com" => {a: 0, b: 0, c: 0, d: 0, e: 0},
+  "nickelodeon.com" => {a: 0, b: 0, c: 0, d: 0, e: 0},
 }
 
 
@@ -66,20 +66,16 @@ pattern_c = "#{first_names[x]}#{last_names[x]}"
 pattern_d = "#{initials[x][0]}#{last_names}[x]" 
 
 while x < names_emails.length || y < domain_options.length
- 	if 
- 		(addresses[x] == pattern_a) && (domains[x] == domain_options[y])
-		modal_patterns[domain_options[y]][0][:a] += 1
-	elsif 
-		(addresses[x] == pattern_b) && (domains[x] == domain_options[y])
-		modal_patterns[domain_options[y]][0][:b] += 1
-	elsif 
-		(addresses[x] == pattern_c) && (domains[x] == domain_options[y])
-		modal_patterns[domain_options[y]][0][:c] += 1
+ 	if (addresses[x] == pattern_a) && (domains[x] == domain_options[y])
+		modal_patterns[domain_options[y]][:a] += 1
+	elsif (addresses[x] == pattern_b) && (domains[x] == domain_options[y])
+		modal_patterns[domain_options[y]][:b] += 1
+	elsif (addresses[x] == pattern_c) && (domains[x] == domain_options[y])
+		modal_patterns[domain_options[y]][:c] += 1
 	elsif (addresses[x] == pattern_d) && (domains[x] == domain_options[y])
-		modal_patterns[domain_options[y]][0][:d] += 1
-	else
-		(addresses[x] != (pattern_a || pattern_b || pattern_c || pattern_d)) && (domains[x] == domain_options[y])
-		modal_patterns[domain_options[y]][0][:e] += 1
+		modal_patterns[domain_options[y]][:d] += 1
+	else (addresses[x] != (pattern_a || pattern_b || pattern_c || pattern_d)) && (domains[x] == domain_options[y])
+		modal_patterns[domain_options[y]][:e] += 1
 	end
 
 	x += 1
