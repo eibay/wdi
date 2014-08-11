@@ -6,22 +6,25 @@ server = TCPServer.new 2000
 while true
 client = server.accept
 
-# client.puts "Say something man!"
 
-# courteous_greetings = client.gets.chomp
 
-# greeting = ["Hi", "Hello", "How are you?"]
 
-# if greeting.include?(courteous_greetings)
-#   client.puts "What a pleasant greeting, have a good one man"
-#   # client.puts "Awesome dude!"
-# # elsif
-# #   client.puts "Sweet!"
-# else
-# client.puts "Hey man, that's not cool! That's not how you greet people!"
-# end
+client.puts "Say something man!"
 
-# client.close
+courteous_greetings = client.gets.chomp
+
+greeting = ["Hi", "Hello", "How are you?"]
+
+if greeting.include?(courteous_greetings)
+  client.puts "What a pleasant greeting, have a good one man"
+  # client.puts "Awesome dude!"
+# elsif
+#   client.puts "Sweet!"
+else
+client.puts "Hey man, that's not cool! That's not how you greet people!"
+end
+
+client.close
 
 
 
