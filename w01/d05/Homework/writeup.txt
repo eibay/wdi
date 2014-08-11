@@ -1,0 +1,29 @@
+What is an IP address?
+	
+or (Internet Protocol) address, is the unique numerical code separated by three dots  assigned to each device connected to the internet.
+
+What is a port?
+
+associated with the ip address, the port works on individual applications
+on one computer giving each application a unique identifier. Your
+computer can open many socket connections on different ports.
+  
+How do IP addresses and ports help us to connect to other computers?
+
+they are unique numerical reference codes which can be used for other computers to contact our computer and more specifically and application on our computers. ( like people with telephone books ) 
+
+What data type is used for input/output?
+
+a socket
+
+How was it helpful to know what your partner's server could respond to?
+It could only respond when I put client in front of puts… # not sure i understand this questions
+
+Hypothetically, what would you have done if you didn't know (ie, planned it) what your partner's computer responded to?
+
+#?
+
+
+Free form reflect on the week; what did you realize? how did the material from the week inform or change what you thought about programming before you got here? what are you excited about? what are you confused about?
+
+I started to realize how more about formatting, and how how good formatting helps you keep track of your data and also understand the structure you are building. I am starting to understand how writing programs is connected with front-end design. I am excited to learn how to combine the two. I still feel like i need to master the essentials, i sometimes get caught up in cool-ness factor of learning the details before i master the overall concept… which is a problem. so i need to stop myself from getting caught up in at this point superfluous code. 
