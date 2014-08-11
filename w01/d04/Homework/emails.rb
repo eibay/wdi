@@ -10,6 +10,7 @@ names_emails = [
   ["Kenan Thompson", "kenan.thompson@nickelodeon.com"]
 ]
 
+
 frequency = {
 	"generalassemb.ly" => { a: 0, b: 0, c: 0, d: 0, e: 0 }, 
 	"google.com" => { a: 0, b: 0, c: 0, d: 0, e: 0 }, 
@@ -53,17 +54,14 @@ end
 
 names_emails_index = 0
 
-# first_name = names_emails[names_emails_index][0].split(" ")[0].downcase
-# last_name = names_emails[names_emails_index][0].split(" ")[1].downcase
-# email = names_emails[names_emails_index][1]
-
-
-
 while names_emails_index < names_emails.length
 
+first_name = names_emails[names_emails_index][0].split(" ")[0].downcase
+last_name = names_emails[names_emails_index][0].split(" ")[1].downcase
+email = names_emails[names_emails_index][1]
 
-	#classification(first_name, last_name, email, frequency)
-	classification(names_emails[names_emails_index][0].split(" ")[0].downcase, names_emails[names_emails_index][0].split(" ")[1].downcase, names_emails[names_emails_index][1], frequency)
+
+	classification(first_name, last_name, email, frequency)
 	names_emails_index += 1
 
 end
@@ -89,12 +87,13 @@ def d(first, last, domain)
 end
 
 
-
 names_domains = [
   ["PJ Hughes", "generalassemb.ly"],
   ["Eric Schmidt", "google.com"],
   ["Kel Mitchell", "nickelodeon.com"]
 ]
+
+predictions = []
 
 names_domains_index = 0
 
@@ -107,15 +106,15 @@ last_name = names_domains[names_domains_index][0].split[1].downcase
 	if domain == "generalassemb.ly"
 		
 		max_ga = frequency["generalassemb.ly"].max_by{|k,v| v}[0]  
-		
+
 		if max_ga == :a
-			puts a(first_name, last_name, domain)
+			predictions.push(a(first_name, last_name, domain))
 		elsif max_ga == :b
-			puts b(first_name, last_name, domain)
+			predictions.push(b(first_name, last_name, domain))
 		elsif max_ga == :c
-			puts b(first_name, last_name, domain)
+			predictions.push(b(first_name, last_name, domain))
 		elsif max_ga == :d
-			puts d(first_name, last_name, domain)
+			predictions.push(d(first_name, last_name, domain))
 		else
 			puts "Cannot Predict"	
 		end
@@ -125,13 +124,13 @@ last_name = names_domains[names_domains_index][0].split[1].downcase
 		max_google = frequency["google.com"].max_by{|k,v| v}[0]  
 		
 		if max_google == :a
-			puts a(first_name, last_name, domain)
+			predictions.push(a(first_name, last_name, domain))
 		elsif max_google == :b
-			puts b(first_name, last_name, domain)
+			predictions.push(b(first_name, last_name, domain))
 		elsif max_google == :c
-			puts b(first_name, last_name, domain)
+			predictions.push(b(first_name, last_name, domain))
 		elsif max_google == :d
-			puts d(first_name, last_name, domain)
+			predictions.push(d(first_name, last_name, domain))
 		else
 			puts "Cannot Predict"	
 		end
@@ -141,13 +140,13 @@ last_name = names_domains[names_domains_index][0].split[1].downcase
 		max_nick = frequency["nickelodeon.com"].max_by{|k,v| v}[0] 
 		
 		if max_nick == :a
-			puts a(first_name, last_name, domain)
+			predictions.push(a(first_name, last_name, domain))
 		elsif max_nick == :b
-			puts b(first_name, last_name, domain)
+			predictions.push(b(first_name, last_name, domain))
 		elsif max_nick == :c
-			puts b(first_name, last_name, domain)
+			predictions.push(b(first_name, last_name, domain))
 		elsif max_nick == :d
-			puts d(first_name, last_name, domain)
+			predictions.push(d(first_name, last_name, domain))
 		else
 			puts "Cannot Predict"	
 		end
@@ -159,7 +158,7 @@ last_name = names_domains[names_domains_index][0].split[1].downcase
 end
 
 
-
+print predictions
 
 
 
