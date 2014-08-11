@@ -109,6 +109,20 @@ best_ga = email_tallies["generalassemb.ly"].key(email_tallies["generalassemb.ly"
 best_goo = email_tallies["google.com"].key(email_tallies["google.com"].values.max)
 best_nick = email_tallies["nickelodeon.com"].key(email_tallies["nickelodeon.com"].values.max)
 
+# here's a hint:
+
+
+
+
+# if best_ga == email_tallies["generalassemb.ly"][e:]
+# 	best_ga = e:
+# end
+# if best_goo == e:
+# 	best_goo = e:
+# end
+# if best_nick == e:
+# 	best_nick = e:
+# end
 best_ga_choice = best_ga.to_s
 best_goo_choice = best_goo.to_s
 best_nick_choice = best_nick.to_s
