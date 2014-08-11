@@ -1,0 +1,34 @@
+##Week01-Day05
+
+###Write-up 
+* Write up the following and save it as a textfile in your w01/d05/Homework folder:
+  * What is an IP address?
+  
+  	An IP address is the address of your computer on a network. 
+
+  * What is a port?
+  
+  	A port is the specific channel a program is running on within your computer. 
+
+  * How do IP addresses and ports help us to connect to other computers?
+  
+  	An IP address is like the address of an apartment building and ports are the individual apartments within. 
+  	To connect to another computer, you must specify the IP address to access the computer and the port on which the program is running on that computer.
+
+  * What data type is used for input/output?
+  
+  	Strings are the data type used for input and output between networked computers.
+
+  * How was it helpful to know what your partner's server could respond to?
+  
+  	Knowing allowed that program to run.  
+
+  * Hypothetically, what would you have done if you didn't know (ie, planned it) what your partner's computer responded to?
+  	
+  	Randomly typed things until I got a response or hint at what type of input it was expecting.
+
+  * Free form reflect on the week; what did you realize? how did the material from the week inform or change what you thought about programming before you got here? what are you excited about? what are you confused about?
+  
+  	This week has been really exciting and has opened my brain up in a whole lot of ways. I have felt my logic and analytical skills growing by leaps and bounds. I have also found that planning out my logic before starting to code has really helped my process. I am most excited to strengthen my ability to encapsulate logic into tighter data structures and connect my code to user interfaces on the web and beyond. 
+
+    
