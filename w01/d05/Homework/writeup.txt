@@ -1,0 +1,24 @@
+What is an IP address?
+IP stands for internet protocol. Made up of a series of numbers that serve as a unique identifying address for computers connecting to the internet.
+
+What is a port?
+A port is a location for applications to connect to a computer. 
+
+How do IP addresses and ports help us to connect to other computers?
+IP addresses are similar to postal addresses in that they provide a precise location for computers to find each other. Ports also provide locaion specific information. They are like the apartments in a building where ports reside.
+
+What data type is used for input/output?
+Client.puts and client.gets
+
+How was it helpful to know what your partner's server could respond to?
+It helps me identify gaps and flaws in the programs I had written. If the client closed out unexpectedly, it caused me to reexamine my code and make the necessary corrections.
+
+Hypothetically, what would you have done if you didn't know (ie, planned it) what your partner's computer responded to?
+Connect to self using 127.0.0.1 in a new Terminal window. Run the program locally in one window and through the client in the second window. 
+
+
+Free form reflect on the week; what did you realize? how did the material from the week inform or change what you thought about programming before you got here? what are you excited about? what are you confused about?
+
+I realized that coding is a truly humbling experience and any notions I had of being a natural went completely out the window after Day 1. With that said, I also realized that while it's a bit daunting, I'm also excited about the task ahead of me of absorbing a ton of information and then applying it to larger and more complex problems. 
+
+In terms of what changed, I knew that programmers could have their own styles and methods of doing things but I guess I didn't realize how open-ended writing a program is. Each assignment has been a really difficutl logic puzzle. I like a good puzzle but I'm used to working with more structured ones like crosswords and jigsaws. In those scenarios, the piece or word either fits or it doesn't. Still wrapping my brain around the idea of multiple approaches. It's both cool and a little scary, but mostly cool. :)
