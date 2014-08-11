@@ -9,3 +9,12 @@ deck = []
 end
 
 puts deck.join("\n")
+
+hand = deck.sample(2)
+deck = deck - hand
+
+description = hand.join(" and ")
+value = hand[0].value + hand[1].value
+
+puts "Your hand is: #{description}"
+puts "Value: #{value}" 
