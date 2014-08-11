@@ -1,10 +1,4 @@
-require 'pry'
 #Part 2
-
-# load 'card_deck.rb'
-
-# deck = generate_deck()
-# random_card = deck[(rand() * 52).to_i]
 
 def random_card
 	load 'card_deck.rb'
@@ -36,49 +30,9 @@ while index < cards.length
 	index += 1
 
 end
-#binding.pry
 
 puts
 
 puts "Total value of hand is: #{value}"
 
 
-
-# unless card1[0] == "Ace"
-# 		puts "Value is 1"
-# 	end
-# if card1[0].class == String
-# 	print card1
-# 	puts
-	
-# 	puts "Value is 10"
-# else 
-# 	print card1
-# 	puts
-# 	puts "Value is #{card1[0]}"
-# end
-
-# if card2[0].class == String
-# 	print card2
-# 	puts
-# 	if card2[0] == "Ace"
-# 		puts "Value is 1"
-# 	end
-# 	puts "Value is 10"
-# else 
-# 	print card2
-# 	puts
-# 	puts "Value is #{card2[0]}"
-# end
-
-
-# print card1
-# puts 
-# print card2
-
-# if (2..10).include? card1[0]
-# 	value = card1[0]
-# 	puts value
-# elsif 
-
-#puts "#{card1} "+" #{card2}"
