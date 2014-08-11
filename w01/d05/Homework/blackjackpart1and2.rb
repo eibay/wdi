@@ -11,7 +11,7 @@ fulldeck = []
 
 index = 0
 while index < suits.count
-	card.each {|x| fulldeck.push("#{suits[index]}")}
+	cards.each {|x| fulldeck.push("#{suits[index]}")}
 	index +=1
 end
 puts fulldeck
@@ -29,7 +29,7 @@ cardoneatrandom= fulldeck.sample
 fulldeck.delete(cardoneatrandom)
 cardtwoatrandom = fulldeck.sample
 fulldeck.delete(card2random)
-if(cardoneatrandom.split(" ")[0]=="Q")||(cardoneatrandom(" ")[0]=="J")||(cardoneatrandom(" ")[0]=="K")
+if(cardoneatrandom.split(" ")[0]=="Q")||(cardoneatrandom.split(" ")[0]=="J")||(cardoneatrandom.split(" ")[0]=="K")
 	cardone=10
 elsif (cardoneatrandom.split(" ")[0]=="A")
 	cardone=1
@@ -45,6 +45,6 @@ else
 	cardtwo=cardtwoatrandom.split(" ")[0].to_i
 end
 puts "Your 2 cards are #{cardoneatrandom} and #{cardtwoatrandom}"
-+puts cardone
-+puts cardtwo
-+puts cardone+cardtwo
+puts cardone
+puts cardtwo
+puts cardone+cardtwo
