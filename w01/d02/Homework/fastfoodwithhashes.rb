@@ -40,21 +40,23 @@ order = ["Soda", "Kale Salad", "Fries"]
 
 
 
-total_completion_time = 0
+# total_completion_time = 0
 
-order_index = 0
+# order_index = 0
 
-while order_index < order.length
-	item = order[order_index]
-	item_completion_time = menu[item]
-	total_completion_time += item_completion_time
+# while order_index < order.length
+# 	item = order[order_index]
+# 	item_completion_time = menu[item]
+# 	total_completion_time += item_completion_time
 
-	puts total_completion_time
+# 	puts total_completion_time
 
-	order_index += 1
-end
+# 	order_index += 1
+# end
 
-puts total_completion_time
+# puts total_completion_time
+
+puts menu["Soda"]
 
 
 
