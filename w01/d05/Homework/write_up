@@ -1,0 +1,21 @@
+Write up the following and save it as a textfile in your w01/d05/Homework folder:
+What is an IP address?
+a unique string of numbers separated by periods that identifies each computer using the Internet Protocol to communicate over a network
+
+What is a port?
+an application-specific or process-specific software construct serving as a communications endpoint in a computer's host operating system. A port is associated with an IP address of the host, as well as the type of protocol used for communication
+
+How do IP addresses and ports help us to connect to other computers?
+We can find the IP address of another computer and connect with them and once we have a specific port we can also connect to the specific port... for instance if I want to connect to port 2000 on a certain computerI would need their IP address and the port (which is 2000)
+
+What data type is used for input/output?
+strings
+
+How was it helpful to know what your partner's server could respond to?
+When writing the code, it was helpful because I was able to infer that my partner could only answer to the strings the code allowed them to answer.
+
+Hypothetically, what would you have done if you didn't know (ie, planned it) what your partner's computer responded to?
+I would have used trial and error until finally I would receive the input/output that I wanted. Pribably would have used binding pry
+
+Free form reflect on the week; what did you realize? how did the material from the week inform or change what you thought about programming before you got here? what are you excited about? what are you confused about?
+I realized that programming is a lot like mathematics. However, I found it more difficult than I thought it would be and have a hard time coming up with methods on solving problems with codes (could not do the blackjack homework to save my life.) I am excited to try and do codes by myself and am confused about certain terminolgy in ruby that when I looked up online could not understand. 

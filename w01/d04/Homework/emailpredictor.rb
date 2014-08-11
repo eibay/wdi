@@ -1,9 +1,28 @@
 
 require'pry'
 
+name_email = [ 
+  ["Jeff Konowitch", "jeffkonowitch@generalassemb.ly"],
+  ["Neel Patel", "neel.patel@generalassemb.ly"],
+  ["Sean West", "sean.west@generalassemb.ly"],
+  ["Jake Schwartz", "j@generalassemb.ly"],
+  ["Brad Jacobs", "brad@google.com"],
+  ["Cynthia Silvers", "cynthia@google.com"],
+  ["Summer Sanders", "summer.sanders@nickelodeon.com"],
+  ["Kenan Thompson", "kenan.thompson@nickelodeon.com"]
+]
 
-name_email = ["Sean West", "sean.west@generalassemb.ly"]
+x = 0 
+while x < name_email.length 
+	name = name_email[x][0] 
+	email = name_email[x][1] 
+	firstpart = (email[x][1].split("@"))[0]
+	firstlower = email[x][0].downcase
+	x+= 1
+end
+print name_email
 
+	binding.pry
 # given the FIRST NAME, LAST NAME, and EMAIL; we want to predict what pattern the email belongs to
 
 #These are the patterns:
@@ -13,8 +32,9 @@ name_email = ["Sean West", "sean.west@generalassemb.ly"]
 # d. first_initiallast (ie, jkonowitch)
 # e. doesn't match any patterns
 
-firstpart = (name_email[1].split("@"))[0]
-firstlower = name_email[0].downcase
+firstpart = (email[x][1].split("@"))[0]
+firstlower = email[x][0].downcase
+
 
 if firstpart.include?(".")
 	puts("Follows pattern a. first.last (ie, jeffrey.konowitch)")
@@ -37,25 +57,6 @@ end
 # Given: an array of email combos
 # must code a way such that it counts the total number of times each pattern appaears for a given domain
 
-names_emails = [ 
-  ["Jeffrey Konowitch", "jeff.konowitch@generalassemb.ly"],
-  ["Neel Patel", "neel.patel@generalassemb.ly"],
-  ["Sean West", "sean.west@generalassemb.ly"],
-  ["Jake Schwartz", "j@generalassemb.ly"],
-  ["Brad Jacobs", "brad@google.com"],
-  ["Cynthia Silvers", "cynthia@google.com"],
-  ["Summer Sanders", "summer.sanders@nickelodeon.com"],
-  ["Kenan Thompson", "kenan.thompson@nickelodeon.com"]
-]
-
-firstpart1 = (names_emails[1].split("@"))[0]
-"generalassemb.ly" = []
-
-{
-  "generalassemb.ly" => [a: 2, b: 0, c: 0, d: 0, e: 2],
-  "google.com" => [a: 0, b: 2, c: 0, d: 0, e: 0],
-  "nickelodeon.com" => [a: 2, b: 0, c: 0, d: 0, e: 0],
-}
 
 
 
