@@ -25,26 +25,26 @@ puts fulldeck
 # Ace is 1
 
 
-card1atrandom= fulldeck.sample
-fulldeck.delete(card1atrandom)
-card2atrandom = fulldeck.sample
+cardoneatrandom= fulldeck.sample
+fulldeck.delete(cardoneatrandom)
+cardtwoatrandom = fulldeck.sample
 fulldeck.delete(card2random)
-if(card1atrandom.split(" ")[0]=="Q")||(card1atrandom(" ")[0]=="J")||(card1atrandom(" ")[0]=="K")
-	card1=10
-elsif (card1atrandom.split(" ")[0]=="A")
-	card1=1
+if(cardoneatrandom.split(" ")[0]=="Q")||(cardoneatrandom(" ")[0]=="J")||(cardoneatrandom(" ")[0]=="K")
+	cardone=10
+elsif (cardoneatrandom.split(" ")[0]=="A")
+	cardone=1
 else
-	card1=card1atrandom.split(" ")[0].to_i
+	cardone=cardoneatrandom.split(" ")[0].to_i
 
 end
-if(card2atrandom.split(" ")[0]=="Q")||(card2atrandom.split(" ")[0]=="J")||(card2atrandom.split(" ")[0]=="K")
-	card2=10
-elsif (card2atrandom.split(" ")[0]=="A")
-	card2=1
+if(cardtwoatrandom.split(" ")[0]=="Q")||(cardtwoatrandom.split(" ")[0]=="J")||(cardtwoatrandom.split(" ")[0]=="K")
+	cardtwo=10
+elsif (cardtwoatrandom.split(" ")[0]=="A")
+	cardtwo=1
 else
-	card2=card2atrandom.split(" ")[0].to_i
+	cardtwo=cardtwoatrandom.split(" ")[0].to_i
 end
-puts "Your 2 cards are #{card1atrandom} and #{card2atrandom}"
-+puts card1
-+puts card2
-+puts card1+card2
+puts "Your 2 cards are #{cardoneatrandom} and #{cardtwoatrandom}"
++puts cardone
++puts cardtwo
++puts cardone+cardtwo
