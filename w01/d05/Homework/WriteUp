@@ -1,0 +1,27 @@
+What is an IP address?
+	IP address or internet protocol address, is a unique address assigned to your computer. 
+
+What is a port?
+	Ports are ways in which your IP address can connect to the internet/other computers. Only 1 program can use a single port at a time. 
+
+How do IP addresses and ports help us to connect to other computers?
+	IP addresses are unique to each computer and ports only allow 1 user at a time to connect. Knowing someone's IP address and port connection, there is a specific path a user can type in to connect to a host. 
+
+If you know someone's IP address and the port they are "listening" to, two users can connect. The host can run a program on the connecting client's computer. 
+
+
+What data type is used for input/output?
+	variable
+
+How was it helpful to know what your partner's server could respond to?
+
+	Knowing what my partner's server could respond allowed me to sucessfully run their program on my computer. 
+
+Hypothetically, what would you have done if you didn't know (ie, planned it) what your partner's computer responded to?
+
+	I would connect and wait for a prompt. If nothing happened I would type in something. If still nothing happened, I would disconnect.
+
+
+Free form reflect on the week; what did you realize? how did the material from the week inform or change what you thought about programming before you got here? what are you excited about? what are you confused about?
+
+	The materials we have learned so far are easy in theory, but difficult in practice. There are infinite amount of ways to apply these conecpts. Thinking out the steps to solving a problem and implementing a program takes much more time that I thought it would. I find myself writing my code out the long way then needing to revise. That's where I have the most trouble- writing succint code. 
