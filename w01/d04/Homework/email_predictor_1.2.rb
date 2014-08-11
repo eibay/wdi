@@ -36,6 +36,7 @@ def categorize(name_email) ########
 
 
   taxonomy = [["a", a, count_a], ["b", b, count_b], ["c", c, count_c], ["d", d, count_d], ["e", e, count_e]]
+
   
  
 
