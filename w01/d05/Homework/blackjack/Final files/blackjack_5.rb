@@ -31,9 +31,10 @@ client = server.accept
 
 ############################
 #### BEGIN DEFINITIONS #####
-def two_player_blackjack 
+def two_player_blackjack(client)
 
-  def make_deck(suits, values) # this doesnt seem to work, deck doesn't get defined
+
+  def make_deck(suits, values) 
     deck = []
 
     suits.each do |suit|
@@ -52,8 +53,8 @@ def two_player_blackjack
         deck << card
       end
     end
-    puts "\nYour deck is  #{deck}"
-    return deck # do i need this?
+    puts "\nThe deck is  #{deck}"
+    return deck 
   end
 
   values = [*1..13,] # i originally didn't make it all integers, but i decided doing so and 
@@ -63,8 +64,9 @@ def two_player_blackjack
 
 
 
-  def boom_and_bust(deck)
+  def boom_and_bust(deck, client)
     qty_deck = deck.length
+
 
     while qty_deck > 5 do # i originally did 3 > 1, but it only did 16 draws = 48 cards, leaving 4 cards, instead of 17 draws. not sure why
 
@@ -80,7 +82,7 @@ def two_player_blackjack
           hand << random_card
         end
 
-        puts "you drew #{hand}"
+        # puts "you drew #{hand}"
         return hand
       end
 
@@ -135,14 +137,15 @@ def two_player_blackjack
 
       if choice_S == "H"
         extra_card_S = draw_random(deck, 1)
-        value_S = add_cards(hand) + add_cards(extra_card)
-        puts "The total value of your cards is #{value}"
-        if value > 21
+        puts "You drew a #{extra_card_S}"
+        value_S = add_cards(hand_S) + add_cards(extra_card_S)
+        puts "The total value of your cards is #{value_S}"
+        if value_S > 21
           puts "<<<<<<< BUST! >>>>>>>>" 
         end
       elsif choice_S == "S"
-        value_S = add_cards(hand)
-        puts "The total value of your cards is #{value}"
+        value_S = add_cards(hand_S)
+        puts "The total value of your cards is #{value_S}"
         puts "Phewf..."
       end
 
@@ -162,27 +165,28 @@ def two_player_blackjack
 
       if choice_C == "H"
         extra_card_C = draw_random(deck, 1)
-        value_C = add_cards(hand) + add_cards(extra_card)
-        client.puts "The total value of your cards is #{value}"
+        client.puts "You drew a #{extra_card_C}"
+        value_C = add_cards(hand_C) + add_cards(extra_card_C)
+        client.puts "The total value of your cards is #{value_C}"
         if value_C > 21
           client.puts "<<<<<<< BUST! >>>>>>>>" 
         end
       elsif choice_C == "S"
-        value_C = add_cards(hand)
-        client.puts "The total value of your cards is #{value}"
+        value_C = add_cards(hand_C)
+        client.puts "The total value of your cards is #{value_C}"
         client.puts "Phewf..."
       end
 
 
   
 
-
-    qty_deck -= hand.length  
+    cards_to_subtract = hand_C << hand_S
+    qty_deck -= cards_to_subtract.length
     end
   end
-  boom_and_bust(deck)
+  boom_and_bust(deck, client)
 end
-two_player_blackjack
+two_player_blackjack(client)
 
 client.close
 
