@@ -12,6 +12,7 @@ loop do
 	
 	a = path.split '/'
 	name = a[2] # WARNING: will be nil for /hello 
+	# so have the tests be in the right place 
 
 	puts "\tThey want #{path}!"
 
