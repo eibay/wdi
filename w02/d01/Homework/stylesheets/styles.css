@@ -1,0 +1,114 @@
+* {
+	
+font-family: 'Loved by the King', cursive;
+}
+
+p {font-family: Verdana, serif;}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #FFDC90;
+}
+
+/* Header and Navigational links */
+header {
+	position: relative;
+	width: auto;
+	margin: 10px;
+	height: 150px;
+	border-radius: 25px;
+	color: white;
+	background-color: #FA5F28;
+}
+
+header h1 {
+	float: left;
+	margin: 15px;
+}
+
+.nav {
+	position: absolute; 
+	left:0; 
+	right:0;
+	width: auto;
+	margin-top: 65px;
+	/* float: left; */
+	background-color: white;
+	list-style: none;
+}
+
+.nav li {
+	float: left;
+	font-size: 24px;
+}
+
+.nav li a {
+	display: block;
+	padding: 8px 15px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #FA5F28;
+}
+
+.nav li a:hover {
+	text-decoration: underline;
+}
+
+.nav li a:visited {
+	color: #FA5F28;
+}
+
+
+/* Main content/the middle of the page */
+div {
+	max-width: 800px;
+	margin: 50px auto;
+	padding: 15px;
+	border-radius: 25px;
+	background-color: #5FA689; 
+	font-size: 20px;
+}
+div img {
+	float: left;
+	margin: 0 5px 5px 0;
+	border-radius: 5px;
+}
+
+div li {
+	padding-top: 7px;
+	list-style: none;
+}
+
+div li a {
+	text-decoration: none;
+}
+
+div li a:hover {
+	text-decoration: underline;
+}
+img {
+	height: 100%;
+	width: 150px;
+}
+h1 {
+	font-family: 'Loved by the King', cursive;
+}
+h3 {
+	font-family: 'Loved by the King', cursive;
+}
+/* The footer */
+footer {
+	max-width: 200px;
+	margin: auto;
+	margin-bottom: 10px;
+	padding: 2px 5px 2px 5px;
+	border-radius:10px;
+	background-color: #FA5F28;
+	font-style: italic;
+}
+
+ footer p {
+ 	width: auto;
+ 	margin: 5px;
+ }
+
