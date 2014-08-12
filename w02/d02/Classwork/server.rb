@@ -11,9 +11,13 @@ loop do
 	puts "\tThey want #{path}!"
 
 	if path == "/hello"
-		t = Time.new.strftime "%I:%M%p"
+		t = Time.new.strftime "%l:%M%p"
  		client.puts "<h1>Hello! The time is #{t}!</h1>"
  		puts "sent them the hello page!"
+ 	elsif (path =~ /\/hello\/\w+/) == 0 
+ 		# this is what was wanted? 
+ 		name = path.split('/')[2]
+ 		client.puts "<h1>Hello, #{name}!</h1>" 
 	elsif (path =~ /\/\w+/) == 0 
 		# when requests, say, favicon.ico 
 		# problem 
