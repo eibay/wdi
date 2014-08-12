@@ -43,8 +43,6 @@ while true
     client.puts File.read("./views/harrypotter.html")
     puts "Sent 'harrypotter.html' to #{client_ip}"
 
-     #works up to here
-
   elsif path == "/hermoinegranger.html"
     client.puts File.read("./views/hermoinegranger.html")
     puts "Sent 'hermoinegranger.html' to #{client_ip}"
@@ -58,7 +56,7 @@ while true
     puts "Sent 'severussnape.html' to #{client_ip}"
 
   else
-    "Error!"
+    client.puts "Error!"
 
   end
 
