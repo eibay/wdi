@@ -1,0 +1,44 @@
+body {
+      text-align: center;
+      background: url(http://upload.wikimedia.org/wikipedia/en/c/c4/Hog2warts.jpg);
+      background-repeat: no-repeat;
+      background-position: 420px 220px; 
+      color: black;
+      font-family: helvetica;
+    }
+    a {
+      color: white;
+    }
+    p {
+      font-size: 20px;
+      width: 1000px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: 'Londrina Shadow', cursive;
+      text-align: center;
+      font-size: 70px;
+      color: #aaaaaa;
+      margin: 10px 0 -10px 0;
+}
+    img {
+      margin: 40px 0px 0px 0px;
+      border: 7px solid white;
+    }
+    ul {
+      padding: 10px;
+      background: green;
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+    }
+    input {
+      border: 0;
+      padding: 10px;
+      font-size: 18px;
+    }
+    input[type="submit"] {
+      background: green;
+      color: white;
+    }
