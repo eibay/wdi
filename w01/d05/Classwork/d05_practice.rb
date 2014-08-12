@@ -1,6 +1,6 @@
 require 'socket'
 
-server = TCPServer.new 9999
+server = TCPServer.new 2000
 client = server.accept
 
 client.puts "Hi!"
