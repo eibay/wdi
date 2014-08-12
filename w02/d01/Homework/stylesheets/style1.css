@@ -1,0 +1,20 @@
+h1 
+	{color: green;
+		font: cursive;
+}
+h3
+	{color: green;
+		font: cursive;
+	}
+ul {color: green;
+	text-align: center
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+body {
+	text-align: center;
+	}
