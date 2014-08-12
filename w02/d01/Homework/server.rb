@@ -17,7 +17,7 @@ loop do
 
 	puts "Client #{client_ip} is attempting to reach #{path}."
 
-	
+
 	if path == "/"
 		client.puts File.read('./views/index.html')
 		puts "Sent 'index.html' to #{client_ip}."
