@@ -1,0 +1,14 @@
+require 'socket'
+server = TCPServer.new 2000
+
+while true
+  client = server.accept
+
+  puts "Client connected!"
+
+  client.puts "Hello World"
+  request = client.gets.chomp
+  puts request
+
+  client.close
+end
