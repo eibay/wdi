@@ -1,5 +1,7 @@
 ##Week2-Day1
 ---
+###Please work only in today's Homework folder. If you are going to use the in-class example as a starting point, simply copy it into the Homework folder.
+--- 
 ###FaceWarts
 - So far we have established a root page and an about us page for the Hogwarts School of Witchcraft and Wizardry
 - The problem is that at the moment, it doesn't include any info on its students
