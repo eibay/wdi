@@ -1,0 +1,10 @@
+h1{
+	color: red;
+}
+h1, h3, h5 {
+	font-family: 'Knewave', cursive;
+}
+p{
+	font-family: 'Bilbo', cursive;
+	font-weight: bold;
+}
