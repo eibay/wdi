@@ -27,9 +27,11 @@ def deal(hand, shuffled_deck)
 end
 
 while shuffled_deck.length > 1 
-	x = 1
+#	x = 1
 	hand, shuffled_deck = deal(hand, shuffled_deck)
-	this_hand = hand(x)
+	print hand
+	puts
 	puts shuffled_deck.length
-	x += 1
+	hand = []
+#	x += 1
 end
