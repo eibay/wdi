@@ -13,7 +13,7 @@ suits.each do |symbol|
 end
 
 
-game = 0
+game = -26
 
 
 while game < deck.length

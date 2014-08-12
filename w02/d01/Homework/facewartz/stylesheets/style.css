@@ -1,0 +1,33 @@
+#main_head {
+	text-align: center;
+	background: url('http://img4.wikia.nocookie.net/__cb20111201200306/theleakycauldron/images/2/29/Hogwarts_Logo.jpg');
+	background-size: cover;
+}
+
+
+#gryffindor {
+	color: red;
+	font-family: 'Playball', cursive;
+	text-decoration: none;
+}
+
+#slytherin {
+	color: green;
+	font-family: 'Playball', cursive;
+	text-decoration: none;
+}
+
+#about {
+	color: black;
+	font-family: : 'Playball', cursive;
+	text-decoration: none;
+}
+
+.center {
+	text-align: center;
+	font-family: 'Playball', cursive;
+}
+
+.style {
+	font-family :'Playball', cursive;
+}
