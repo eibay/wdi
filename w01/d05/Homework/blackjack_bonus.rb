@@ -7,7 +7,7 @@ player1 = server1.accept
 player2 = server2.accept
 
 suits = ["D", "C", "H", "S"]
-ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+ranks = [ "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 deck = []
 
 #creates the deck
