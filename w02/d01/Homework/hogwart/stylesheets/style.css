@@ -1,3 +1,52 @@
 h1 {
 	color: red;
 }
+
+/*Add your CSS below!*/
+p {
+    color: 00E5EE;
+    font-family: Garamond;
+}
+
+div p {
+    color: #CC0000;
+}
+
+* {
+    border: solid #3A5FCD;
+}
+
+
+/*div directly to p only*/
+div > p {
+color: #7AC5CD;
+}
+
+
+div {
+	display: inline-block;
+	margin-left: 5px;
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+	border: 2px solid black;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    background-color: #b0e0e6;
+}
+
+
+/*pseudo-class selectors*/
+a:hover {
+	color: #cc0000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
+
+
