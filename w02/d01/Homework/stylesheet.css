@@ -1,0 +1,56 @@
+
+h1 {
+	text-align: center;
+	color: White;
+	font-size: 100px;
+	font-family: Britannic bold;
+
+}
+h3 { 
+	text-align: center;
+	color: #FFFAF0;
+	font-size: 20px;
+	font-family: Oswald Normal 400;
+}
+h4 {
+	color:#FFFAF0;
+	font-family: Helvetica;
+}
+h5 {
+	color: #FFFAF0;
+}
+ul { padding: 20px;
+	font-size: 10px;
+	font-family: Helvetica;
+	background: rgba(0,0,0,0.2)}
+li {
+	display: block;
+	padding: 0px 5px 0px 5px;
+	font-size: 10px;
+	font-family: Helvetica;
+}
+
+body { text-align: center;
+	 	font-family: sans-serif;
+	 	background: url("http://images.fandango.com/images/fandangoblog/hogwartsschoolpotter.jpg");
+	 	background-size: cover;
+	 	background-position: center;
+
+	 }
+img {
+	max-height: 150px;
+	max-width: 100px;
+	width: 100px;
+	height: 150px;
+}
+article {
+	 width: 500px;
+	 padding: 20px;
+	 margin: 0;
+}
+p {
+	font-family: Microsoft Sans Serif;
+	font-size: 10px;
+	background: rgba(0,0,0,0.3);
+	color:#FFFAF0;
+}
