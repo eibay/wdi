@@ -8,17 +8,24 @@ loop do
 
 	request = client.gets.chomp 
 	path = request.split(' ')[1]
-	puts "\tThey want #{request}!"
+	puts "\tThey want #{path}!"
 
 	if path == "/hello"
-		t = Time.new.strftime "%I:%M %p"
- 		client.puts "<h1>Hello! It's #{t}</h1>"
+		t = Time.new.strftime "%I:%M%p"
+ 		client.puts "<h1>Hello! The time is #{t}!</h1>"
+ 		puts "sent them the hello page!"
 	elsif (path =~ /\/\w+/) == 0 
-		client.puts "<h1>#{path.delete('/')}</h1>"
-	elsif path == "/"
+		# when requests, say, favicon.ico 
+		# problem 
+		str = "<h1>#{path.delete '/'}</h1>"
+		client.puts str 
+		puts "sent them #{str}"
+	elsif path == '/'
 		client.puts "<h1>Homepage</h1>"
+		puts "sent them the home page!"
 	else 
 		client.puts "404 Not Found"
+		puts "\tcouldn't send them stuff!"
 	end 
 
 	client.close 
