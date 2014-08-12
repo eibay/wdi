@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title><%= movie[:name] %></title>
+</head>
+<body>
+	<h1><%= movie[:name] %></h1>
+	<p>This movie has been rated <%= movie[:rating] %> by the IMDB community. It is, therefore, ranked <%= movie[:rank] %> out of all movies known to IMDB. Either the previous sentence is true, or Clayton is making things up again. <a href=<%= movie[:link] %>>IMDB's information about it</a> can also be found by using one-way hyperlinks, which may or may not be underlined in blue. Understand: this movie was released in the year <%= movie[:year] %>. This is an amazing thing.</p>
+</body>
+</html>
