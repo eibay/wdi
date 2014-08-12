@@ -28,26 +28,42 @@
 ######
 
 # GOAL = 
-# get their info: first, last, email
-
-# check to see if their "email_full_name" matches their input full name(first+last)
-
-#       break down their email into name and domain
-#       combine their first and last input name to full name in email
+# get their info from the array: first, last, email
+  
+# break down their email into first name and last name and domain
+      # check to see if their "email_full_name" matches their full name(first+last)
+      # combine their first and last input name to full name in email
 
 # compare the structure of their email address to pattern email addresses
 
-#assignment didnt ask for email so we can cancel this out!
-puts "What is your first name?"
-first = gets.chomp.downcase
 
-puts "What is your last name?"
-last = gets.chomp.downcase
+#assignment didnt ask for email so we can comment this out!
+# puts "What is your first name?"
+# first = gets.chomp.downcase
 
-puts "What is your email address?"
-user_email = gets.chomp.downcase
+# puts "What is your last name?"
+# last = gets.chomp.downcase
 
-			#######  To get    ######
+# puts "What is your email address?"
+# user_email = gets.chomp.downcase
+
+#To get the different elements out of the email address:
+
+
+names_emails = [ 
+  ["Jeffrey Konowitch", "jeff.konowitch@generalassemb.ly"],
+#   ["Neel Patel", "neel.patel@generalassemb.ly"],
+#   ["Sean West", "sean.west@generalassemb.ly"],
+#   ["Jake Schwartz", "j@generalassemb.ly"],
+#   ["Brad Jacobs", "brad@google.com"],
+#   ["Cynthia Silvers", "cynthia@google.com"],
+#   ["Summer Sanders", "summer.sanders@nickelodeon.com"],
+#   ["Kenan Thompson", "kenan.thompson@nickelodeon.com"]
+# ]
+
+
+
+#update this to use the array vs. user input
 
 email_addy_array = user_email.split('@') 
         #this gives us an array with totalname and domain

@@ -46,7 +46,6 @@ single_deck = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
 
 				#Array.new(3) - to create a new array with 3 placeholders 
 
-				# single_suit_deck = Array.new
 				# Array.new(10) {"hi"}
 				# ["hi", "hi", "hi", "hi", "hi", "hi", "hi", "hi", "hi", "hi"]
 
@@ -68,7 +67,7 @@ single_deck = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"]
 the_four_suits = ["hearts", "diamonds", "clubs", "spades"]
 
 
-goal = use a counter to populate single_suit_deck 
+goal = use a counter to populate single_suit_deck with the number of items in single_deck
 		then, use another counter to populate a new variable with all cards in the 4 decks
 single_suit_deck = [the_four_suits[y]+single_deck[x]]
 
@@ -79,7 +78,7 @@ single_suit_deck = [the_four_suits[y]+single_deck[x]]
 
 		# x=0 
 		#  	single_suit_deck = Array.new(single_deck.length) {the_four_suits[1]+"_"+single_deck[x]} 
-		# because 2 is in the 0 position, this gives us
+		# because x = 0 and 2 is in the 0 position, this gives us
 		# => ["diamonds_2", "diamonds_2"]
 
 

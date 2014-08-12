@@ -8,6 +8,7 @@ ___
   - **Don't** explicitly just write out an array with 52 cards
     - You can write out a smaller array and then generate the rest
     - Output the array of cards
+    
 ------
 
 ###Part 2

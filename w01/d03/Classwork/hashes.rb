@@ -34,3 +34,5 @@ zoo.key("monkey")
 
 zoo.delete("Leo")
 
+zoo
+
