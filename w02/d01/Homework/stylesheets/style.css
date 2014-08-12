@@ -1,0 +1,35 @@
+body {
+	color: #FFCC00;
+	font-family: 'Miltonian Tattoo', cursive;
+	background-color: #7A297A;
+}
+
+h1 a {
+	color: red;
+	font-size: 50px;
+	text-decoration: none;
+}
+h2 {
+	font-size: 35px;
+}
+p {
+	color: #FFCC00;
+}
+
+li {
+	display: inline;
+	margin: auto;
+}
+
+a{
+	color: #009900;
+}
+
+td {
+	color: #FFCC00;
+}
+
+td img {
+	width: 100px;
+	height: 100px;
+}
