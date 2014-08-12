@@ -17,17 +17,17 @@ while true
 	puts "Client #{client_ip} is attempting to reach #{path}"
 
 	if path == "/"
-		client.puts File.read('./views/index.html') 
+		client.puts File.read('./views/index.html')
 		puts "Sent 'index.html' to #{client_ip}"
 	elsif path == "/stylesheets/style.css"
 		client.puts File.read('./stylesheets/style.css')
-		puts "Sent 'style.css' to #{client_ip}" 
+		puts "Sent 'style.css' to #{client_ip}"
 	elsif path == "/about"
 		client.puts File.read("./views/about.html")
 		puts "Sent 'about.html' to #{client_ip}"
 		else
 		client.puts "ERROR! Try again."
-		puts "Send ERROR to #{client_ip}"			
+		puts "Send ERROR to #{cliecdnt_ip}"
 	end
 
 	puts "Client #{client_ip} has disconnected"
