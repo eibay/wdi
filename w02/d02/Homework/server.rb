@@ -66,13 +66,15 @@ if path == "/movies"
 		end
 	client.puts "</html> </body> </ol>"
  elsif path.split('/')[1]=="movies" && path.split('/')[2]
+   client.puts "<html><body>"
  	name = URI.decode(path.split('/')[2])
- 		while counter1 < movie_db[0].length
+ 		while counter1 < movie_db.length
  			if movie_db[counter1].values.include?(name)
- 		client.puts "<p>#{movie_db[counter1][:name]} has a rating of #{movie_db[counter1][:rating]} and was made in #{movie_db[counter1][:year]} and the link is #{movie_db[counter1][:link]}</p>"
+ 		client.puts "<p>#{movie_db[counter1][:name]} has a rating of #{movie_db[counter1][:rating]} and was made in #{movie_db[counter1][:year]} and the link is <a href '#{movie_db[counter1][:link]}'> imbd </a></p>"
  	end
  		counter1 += 1
  	end
+   client.puts "</html></body>"
 else
 	client.puts "ERROR"
 end 	
