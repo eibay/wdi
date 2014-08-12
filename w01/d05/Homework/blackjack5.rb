@@ -30,7 +30,6 @@ while new_game == true && cards.length != 0
 	cardx1 = 0
 	cardy1 = 0
 
-
 	card100 = cards[0]
 	cards.delete_at(0)
 
@@ -47,6 +46,7 @@ while new_game == true && cards.length != 0
 	card2 = card200.split(" ")
 	card3 = card300.split(" ")
 	card4 = card400.split(" ")
+
 
 	if card1.include?"A"
 		card11 = 1
@@ -119,6 +119,8 @@ while new_game == true && cards.length != 0
 				cards.delete_at(0)
 				cardx = cardx00.split(" ")
 				client.puts "Your new card is #{cardx00}"
+		
+		
 				if cardx.include?"A" 
 				cardx1 = 1
 				elsif cardx.include?"J" 
@@ -162,6 +164,7 @@ while new_game == true && cards.length != 0
 				cards.delete_at(0)
 				cardy = cardy00.split(" ")
 				puts "Your new card is #{cardy00}"
+				cardvalue(cardy,cardy1)
 				if cardy.include?"A" 
 				cardy1 = 1
 				elsif cardy.include?"J" 
