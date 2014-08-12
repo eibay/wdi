@@ -4,7 +4,7 @@ require 'pry'
 server = TCPServer.new 2000
 client = server.accept
 client.puts "Welcome to Atlantic City!  Let's play some Blackjack!"
-
+puts "OK, we have a player!  You're the dealer, by the way."
 unshuffled_deck = []
 deck = []
 royals = ["J", "Q", "K", "A"]
@@ -141,8 +141,8 @@ loop do
 		if deck_exhausted
 			puts "Here's the win tally.  Dealer: #{score[0]} and Player: #{score[1]}"
 			client.puts "Here's the win tally.  Dealer: #{score[0]} and Player: #{score[1]}"
-			puts "The deck reshuffles and the game resumes."
-			client.puts "The deck reshuffles and the game resumes."
+			puts "The deck reshuffles and the play resumes."
+			client.puts "The deck reshuffles and the play resumes."
 		else
 			puts "A new game commences."
 			client.puts "A new game commences."
@@ -150,28 +150,3 @@ loop do
 		binding.pry
 	end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
