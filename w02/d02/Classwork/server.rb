@@ -20,8 +20,10 @@ loop do
  		client.puts "<h1>Hello! The time is #{t}!</h1>"
  		puts "sent them the hello page!"
  	elsif a[1] == "hello" && users.include?(name) 
+ 		name.capitalize! 
  		client.puts "<h1>Hello, #{name}!</h1>" 
  	elsif a[1] == "hello" && !users.include?(name)
+ 		name.capitalize! 
  		client.puts "<h1>You aren't included in the users array, #{name}. Feel free to sign up.</h1>" 
 	elsif (path =~ /\/\w+/) == 0 
 		# when requests, say, favicon.ico 
