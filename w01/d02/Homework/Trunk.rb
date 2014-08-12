@@ -15,7 +15,7 @@ items = gets.chomp.to_i
 while trunk != items 
    puts trunk
    trunk += 1
-   if trunk == 6 
+   if trunk >= 6 
    	   	puts "The trunk is full!!"
    else trunk <= 6
    		puts "There's plenty of room!"

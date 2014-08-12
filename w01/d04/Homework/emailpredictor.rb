@@ -7,6 +7,7 @@
 ## HOMEWORK incomplete! code still in beta! line 65 interrupt error.##
 
 #PART 1
+
 name_email = ["Sean West", "sean.west@generalassemb.ly"]
 name_split = name_email[0].split(" ") #Sean, West
 email_split = name_email[1].split(" ") #sean.west@generalassemb.ly
@@ -62,6 +63,8 @@ while index< names_emails.count
 
   email_second = name_email[1].split("@")[1] 
 
+email_domains =+1
+
 if email_second=="generalassemb.ly"
 
   if "#{first_name}.#{last_name}" == domain[0]
@@ -115,6 +118,6 @@ elsif email_second=="nickelodeon.com"
 end
 end
 
-puts names_emails.count
+puts email_domains.count
 
 

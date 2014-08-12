@@ -1,0 +1,27 @@
+body {
+	text-align: center;
+}
+}
+h1 {
+	color: black;
+	text-align: center;
+	font-family: 'Lato', arial, sans-serif;
+}
+h3 {
+	text-align: center;
+	color: red;
+	font-family: 'Lato', arial, sans-serif;
+}
+li {
+	display: inline;
+	padding: 10px 10px 10px 10px;
+	text-align: center;
+}
+a {
+	color: black;
+input[type="submit"] {
+	background: red;
+    color: white;
+    text-align: center;
+}
+
