@@ -51,28 +51,29 @@ def black_jack(card_value)
 end
 
 
-sum = []
 
 
 i = 0
-
+#binding.pry
 card = cards_array[rand(0..cards_array.length-1)]
-card_value = card.split(" ")[0]
 	puts card
 	cards_array.delete(card)
 
-sum_value = black_jack(card_value)
-#sum.push(sum_value)
+first_card = black_jack(card[0])
 
 i += 1
 
 card = cards_array[rand(0..cards_array.length-1)]
-card_value = card.split(" ")[0]
 	puts card
 	cards_array.delete(card)
 
-sum_value = black_jack(card_value)
-#sum.push(sum_value)
+hand_value = first_card + black_jack(card[0])
+
+puts hand_value
+
+until cards_array.length == 1
+	
+
 
 
 
