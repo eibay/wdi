@@ -60,3 +60,5 @@ end
 
 total_value = card_1 + card_2
 puts "Your cards are #{hand_1} and #{hand_2}. Your total is #{total_value}."
+
+binding.pry

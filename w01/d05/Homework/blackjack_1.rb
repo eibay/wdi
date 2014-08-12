@@ -5,8 +5,8 @@ full_deck = []
 all_cards.each { |c|
 suits.each { |s|
 individual_card = c + " of " + s 
-deck.push(individual_card) 
+full_deck.push(individual_card) 
 }
 }
 
-print deck
+print full_deck
