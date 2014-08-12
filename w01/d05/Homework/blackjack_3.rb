@@ -14,6 +14,7 @@ deck = all_cards.flatten
 hand = []
 
 randoms = deck.shuffle
+
 3.times {hand.push randoms.delete_at(0)}
 
 hand_1 = hand[0]

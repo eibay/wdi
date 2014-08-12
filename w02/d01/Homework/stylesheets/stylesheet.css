@@ -1,0 +1,74 @@
+body {
+	background-color: #E8E8E8;
+}
+
+h1 {
+	font-family: 'Bangers', cursive;
+	font-size: 75px;
+	color: #fff;
+	background-color: #003366;
+	padding: 15 0 15 15px;
+	margin: 10 0 10 0px;
+}
+
+h1 a {
+	text-decoration: none;
+	color: #fff;
+}
+
+h4 {
+font-family: 'Open Sans', sans-serif;
+font-size: 36px;
+margin: 0px;
+}
+
+h3 {
+	font-family: 'Open Sans', sans-serif;
+	color: black;
+}
+
+img {
+	float: right;
+	border-radius: 25px;
+	padding: 10px;
+}
+
+p {
+	font-family: 'Open Sans', sans-serif;
+	padding: 0 5 5 5px;
+}
+
+p a {
+	color: black;
+	text-decoration: underline;
+}
+
+p a:hover { 
+color: red;
+text-decoration: underline;
+}
+
+.house {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+}
+
+.house li a {
+	color: black;
+}
+
+.house li a:hover { 
+color: red;
+}
+
+.social img {
+	float: left;
+}
+
+.footer {
+	padding: 25px;
+	font-family: 'Tahoma', sans-serif;
+	font-size: 12px;
+	clear: both;
+	text-align: center;
+}
