@@ -1,10 +1,13 @@
 require 'socket'
 require 'erb'
 # require 'pry'
+
 server = TCPServer.new 5757
 students = {harry: {name: "Harry Potter", bio: "He is the boy who lived but he doesn't like to talk about it that much partly because he just learned about it five seconds ago and it's not what he knows.", house: "Giffindoor"}, 
   ron: {name: "Ron Weasley", bio: "He has red hair. He is rather ornery. He is married to Hermione.", house: "Giffindoor"}, 
   hermione: {name: "Hermione Granger", bio: "She is woah smart. Her name is from Hermes because, like, some reason.", house: "Giffindoor"}}
+
+# have half a mind to shovel students into arrays, let there be a reference to them, etc  
 good_students = []
 evil_students = []
 houses = {griffindoor: good_students, slitherand: evil_students} 
