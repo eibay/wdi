@@ -25,7 +25,13 @@ while true
 	elsif path == "/about"
 		client.puts File.read("./views/about.html")
 		puts "Sent 'about.html' to #{client_ip}"
-		else
+	elsif path == "/gryffindor"
+		client.puts File.read("./views/gryffindor.html")
+		puts "Sent 'gryffindor.html' to #{client_ip}"
+	elsif path == "/slytherin"
+		client.puts File.read("./views/slytherin.html")
+		puts "Sent 'slytherin.html' to #{client_ip}"
+	else
 		client.puts "ERROR! Try again."
 		puts "Send ERROR to #{client_ip}"			
 	end

@@ -1,0 +1,44 @@
+body {
+	background-color: rgb(255, 255, 0);
+	max-width: 900px;
+}
+
+h1 {
+	color: red;
+	font-size: 50px;
+	margin: 0 10px;
+	float: left;
+}
+
+h1, h3 {
+	font-family: 'Playball', cursive;
+}
+
+h3 {
+	float: left;
+	margin: 0px 10px;
+}
+
+img {
+	margin: 10px;
+	clear: left;
+	float: left;
+}
+
+ul {
+	list-style-type: none;
+	clear: both;
+	
+	margin: 0 10px;
+}
+
+li {
+	font-family: cursive;
+	margin-left: 10px;
+	display: inline;
+}
+
+p {
+	font-family: cursive;
+	margin: 10px;
+}
