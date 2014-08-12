@@ -1,0 +1,22 @@
+#header {
+	width: 1000px;
+	height 200px;
+	background: grey;
+}
+
+#dp {
+	height: 100px;
+	width: 100px;
+	background: red;
+
+}
+
+h3 {
+	color: red;
+	
+}
+
+a {
+	text-decoration: none;
+	color: yellow;
+}
