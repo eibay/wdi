@@ -2,17 +2,20 @@
 <html>
 <head>
 	<meta charset=utf-8>
-	<title></title>
-	<link rel=stylesheet type=text/css href={{ stylesheet }}>
+	<title>The Rosencrancers</title>
+	<link rel=stylesheet type=text/css href=/styles>
 
 </head>
 <body>
-	<ul>
-		{% for student in students %}
-		<li>
-			<a href=/{{student.login}}>{{student.login}}</a>
-		</li>
-		{% endfor %}
-	</ul>
+	<section class="index">
+		<h1>Showing you all the Rosencrancers:</h1>
+		<ul>
+			{% for student in students %}
+			<li>
+				<a href=/{{student.login}}>{{student.login}}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
 </body> 
 </html>

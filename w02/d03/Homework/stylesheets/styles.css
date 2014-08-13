@@ -1,0 +1,52 @@
+/* poor man's reset */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* index view */
+
+.index {
+	text-align: center;
+	font-size: 3em; 
+}
+
+.index h1 {
+
+	margin-bottom: .25em;
+
+}
+
+.index ul li {
+	list-style-type: none;
+}
+
+.index ul li a { 
+	font-family: impact; 
+	text-decoration: none; 
+}
+
+.index ul li a:hover {
+	background-color: green;
+
+}
+
+
+/* students view */ 
+
+.student .wrapper {
+	padding-top: 1em;
+	margin: auto; 
+	width: 75%;
+}
+
+.student .wrapper img {
+	height: 6em;
+
+} 
+
+.student .wrapper p {
+	display: inline;
+}
+

@@ -2,14 +2,16 @@
 <html>
 <head>
 	<meta charset=utf-8>
-	<title></title>
-	<link rel=stylesheet type=text/css href={{ stylesheet }}>
+	<title>The Rosencrancers | {{ student.login }}</title>
+	<link rel=stylesheet type=text/css href=/styles>
 
 </head>
 <body>
-
-	<img src={{ student.avatar_url }} alt="{{ student.login }}'s GitHub avatar">
-	<p>{{ student.login }} is a student in yr class. Which one? Guess! Their <a href={{ student.html_url }}>Github profile</a> is totally awesome. They currently have {{ student.public_repos }} public git repositories on Github's servers, but that number'll prolly increase soon.</p>
-
+	<section class="student">
+		<div class="wrapper">
+			<img src={{ student.avatar_url }} alt="{{ student.login }}'s GitHub avatar">
+			<p>{{ student.login }} is a student in yr class. Which one? Guess! 	Their <a href={{ student.html_url }}>Github profile</a> is totally awesome. They currently have {{ student.public_repos }} public git repositories on Github's servers, but that number'll prolly increase soon.</p>
+		</div>
+	</section>
 </body> 
 </html>
