@@ -106,19 +106,39 @@
 # puts end7 + end8 + end9 + end10 + end11 + end12
 
 
-#Exercise 8
+#ruby Ex 8
 
-formatter = "%{first} %{second} %{third} %{fourth}"
+# formatter = "%{first} %{second} %{third} %{fourth}"
 
 
-puts formatter % {first: 1, second: 2, third: 3, fourth: 4}
-puts formatter % {first: "one", second: "two", third: "three", fourth: "four"}
-puts formatter % {first: true, second: false, third: true, fourth: false}
-puts formatter % {first: formatter, second: formatter, third: formatter, fourth: formatter}
+# puts formatter % {first: 1, second: 2, third: 3, fourth: 4}
+# puts formatter % {first: "one", second: "two", third: "three", fourth: "four"}
+# puts formatter % {first: true, second: false, third: true, fourth: false}
+# puts formatter % {first: formatter, second: formatter, third: formatter, fourth: formatter}
 
-puts formatter % {
-	first: "I had this thing.",
-	second: "That you could type up right.",
-	third: "But it didn't sing",
-	fourth: "So I said goodnight."
-}
+# puts formatter % {
+# 	first: "I had this thing.",
+# 	second: "That you could type up right.",
+# 	third: "But it didn't sing.",
+# 	fourth: "So I said goodnight."
+# }
+
+# ruby ex9.
+
+# days = "Mon Tue Wed Thu Fri Sat Sun"
+# months = "Jan\nFeb\nMar\nApr\nJun\nJul\nAug"
+
+# puts "Here are the days: #{days}"
+# puts "Here are the months: #{months}"
+
+# puts """
+# There's something going on here.
+# With the three double-quotes.
+# We'll be able to type as much as we like.
+# Even 4 lines if we want, or 5, or 6.
+# """
+
+# ruby Ex 9
+
+tabby_cat = "\tI'm tabbed in."
+persian_cat = "I'm split\non a line."
