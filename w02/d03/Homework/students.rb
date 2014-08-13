@@ -1,4 +1,4 @@
-[
+$students = [
   {
     "login"=>"theerickramer",
     "html_url"=>"https://github.com/theerickramer",
