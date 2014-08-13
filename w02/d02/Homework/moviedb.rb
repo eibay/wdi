@@ -77,12 +77,12 @@ if path == "/movie"
       client.puts "</ol></html>"
    end
 
-elsif path.split('/')[1] == "movie" && path.split('/').length == 3
+elsif path.split('/')[1] == "movie" && path.split('/').length == 3   
    movie = URI.decode(path.split("/")[2])
    # binding.pry
    movie_name = movie
-
-   client.puts "<!doctype html>#{movie_name}"
+   binding.pry
+   client.puts "<!doctype html>#{movie}"
    client.puts "<hr />"
    client.puts "#{movie_db[movie_db.index(movie)]}"
    puts "Serving the movie page to #{client_ip}"
