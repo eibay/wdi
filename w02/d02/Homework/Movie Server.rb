@@ -68,18 +68,23 @@ server = TCPServer.new 2000
 		client.puts "<!doctype html> #{movie_titles.index(t)+1}. "
 		client.puts "<a href='#{path}/#{t}'>#{t}</a><br>" 
 	}
+		puts "client requested /movies page"
 	
 	elsif path.split('/')[1] == "movies" && path.split('/').length == 3
 		specific_movie = URI.decode(path.split('/')[2])
 		
 		if movie_titles.include?(specific_movie) == true
 		number = movie_titles.index(specific_movie)
-
 		client.puts "<h1>#{specific_movie}</h1> <br>#{specific_movie} was made in #{movie_db[number.to_i][:year]} and is rated #{movie_db[number.to_i][:rating]} out of 10. Here is a <a href = '#{movie_db[number.to_i][:link]}'>link</a> for more information on #{specific_movie}   "
+		puts "client requested #{specific_movie}"
+		else
+		client.puts "Sorry, I don't know that movie <!doctype html><a href='/movies'>click here</a> to see the movies I do know."
+		puts "client requested bad path with /movies"
 		end
 
 	else
-		client.puts "Sorry, I can only tell you about these movies: #{movie_titles}"
+		client.puts "Sorry, I don't know that movie <!doctype html><a href='/movies'>click here</a> to see the movies I do know."
+		puts "client requested bad path"
 	end
 	client.close
 end
