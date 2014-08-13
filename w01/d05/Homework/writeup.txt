@@ -17,7 +17,7 @@ What data type is used for input/output?
 a socket
 
 How was it helpful to know what your partner's server could respond to?
-It could only respond when I put client in front of puts… # not sure i understand this questions
+so we can be speaking the same language?
 
 Hypothetically, what would you have done if you didn't know (ie, planned it) what your partner's computer responded to?
 
