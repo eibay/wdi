@@ -9,18 +9,28 @@
 	color: red;
 	font-family: 'Playball', cursive;
 	text-decoration: none;
+	text-align: center;
+}
+li {
+	list-style: none;
+}
+
+ul {
+	margin-right: 40px;
 }
 
 #slytherin {
 	color: green;
 	font-family: 'Playball', cursive;
 	text-decoration: none;
+	text-align: center;
 }
 
 #about {
 	color: black;
 	font-family: : 'Playball', cursive;
 	text-decoration: none;
+	text-align: center;
 }
 
 .center {
@@ -30,4 +40,15 @@
 
 .style {
 	font-family :'Playball', cursive;
+	text-align: center;
 }
+
+header {
+	text-align: center;
+	display: center;
+}
+
+
+
+
+
