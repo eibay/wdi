@@ -26,15 +26,14 @@ people = {
 }
 
 while true
-  # connect
   client = server.accept
 
-  # listen - or get input
+  
   request = client.gets.chomp
   path = request.split(' ')[1]
   puts "Client said: #{request}"
 
-  # talk
+  
   if path == "/hello"
     current_time = Time.now.strftime("%I:%M%P")
     client.puts "<h1>HELLO! #{current_time}</h1>"
