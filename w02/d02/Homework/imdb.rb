@@ -83,6 +83,7 @@ while true
 
       name = URI.decode(path.split('/')[2])
        find=movie_db.find {|x| x[:name] == name}
+       
        index=movie_db.index(find)
       page_html(movie_db[index], client, server)
          puts "Client connected"
