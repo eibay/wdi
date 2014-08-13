@@ -1,15 +1,23 @@
 body {
 	font-family: 'Open Sans Condensed', sans-serif;
+	text-align: center;
 }
 
 h1 {
 	color: red;
+	font-size: 1.5em;
 }
 
 h2 {
 	color: green;
+	font-size: 1.5em;
 }
 
 p {
 	color: purple;
+	font-size: 1.5em;
+}
+
+ul li {
+	list-style: none;
 }
