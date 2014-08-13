@@ -51,13 +51,13 @@ elsif path == "/gryffindor/HARRY_POTTER"
 
 	client.puts File.read('./views/gryffindor/harry_potter.html')
 
-	puts "Sent 'slytherin.html' to #{client_ip}"
+	puts "Sent 'gryffindor.html' to #{client_ip}"
 
 elsif path == "/gryffindor/HERMIONE_GRANGER"
 
 	client.puts File.read('./views/gryffindor/hermione_granger.html')
 
-	puts "Sent 'slytherin.html' to #{client_ip}"
+	puts "Sent 'gryffindor.html' to #{client_ip}"
 
 elsif path == "/slytherin/DRACO_MALFOY"
 
