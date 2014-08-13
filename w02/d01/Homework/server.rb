@@ -18,6 +18,9 @@ while true
 		client.puts File.read('./views/index.html')
 		puts path
 		puts "Sent index.html page to #{client_ip}"
+	elsif path == "/favico.ico"
+		puts path
+		puts "No Favicon!"
 	elsif path == "/stylesheets/style.css"
 		client.puts File.read('./stylesheets/style.css')
 		puts path
