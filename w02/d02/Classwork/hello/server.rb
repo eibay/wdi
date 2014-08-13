@@ -11,9 +11,19 @@ client = server.accept
 
   # Listen
 request = client.gets.chomp
-path = request.split(" ")[1]
+path = request.split(" ")[1] #127.0.0.1:2000/hello/monkey, bascially ans is hello
+#result =
+# / = 0
+# hello = 1,
+# / = 2,
+#monkey = 3
+
+#127.0.0.1:2000/hello
+#127.0.0.1:2000/monkey
+#127.0.0.1:2000/peter parker
+
 puts "Client said: #{request}"
-name = path.split("/")[2]
+name = path.split("/")[2] #monkey, severus, peter parker
 # acceptable_names = ["monkey", "severus", "peter parker"]
 
 people = {
