@@ -1,5 +1,5 @@
 ##Week2-Day03
----
+
 - **Goal**: To continue exploring how to use templates to dynamically generate our html
 - **Spec**:
   - Create a TCP server in Ruby
@@ -15,3 +15,6 @@
 - **Data**:
   - [Student Github Hash](https://gist.github.com/jkonowitch/67d63351948f838b089d)
   - Follow the link and copy the entire hash into your Ruby file
+- **Bonus**
+  - Add stylesheets
+  - Use RUBY to add your stylesheets. (ie, can you not type the <link> tag into every html file)
