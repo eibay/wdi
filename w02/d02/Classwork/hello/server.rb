@@ -46,8 +46,9 @@ while true
 		name = URI.decode(name)
 		cap_name = name.capitalize
 		if people.keys.include?(name)
-			client.puts "<h1>Hello, #{name.capitalize}. How is the weather in #{people[name][:location]}?</h1>"
-			client.puts "<h2>Have any #{people[name][:flavor]} lately?</h2>"
+			client.puts "<h1>Hello, #{name.capitalize}.</h1>" 
+			client.puts "<p>How is the weather in #{people[name][:location]}?</p>"
+			client.puts "<p>Have any #{people[name][:flavor]} lately?</p>"
 			# html += "<p>Who lives in #{people[name][:location]}</p>"
 		else
 			client.puts "<h1>WHOA!! Who are you??</h1>"
