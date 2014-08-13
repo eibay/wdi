@@ -28,6 +28,7 @@ while true
 	elsif path == "/gryffindor"
 		client.puts File.read("./views/gryffindor.html")
 		puts "Sent 'gryffindor.html' to #{client_ip}"
+
 	else
 		client.puts "ERROR! Try again."
 		puts "Send ERROR to #{client_ip}"			
