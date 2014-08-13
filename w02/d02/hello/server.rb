@@ -1,6 +1,6 @@
 require 'socket'
 
-server = TCPServer.new 2000
+server = TCPServer.new 3000
 
 people = {
   "monkey" => {
@@ -53,6 +53,7 @@ while true
 	# # end
 
 ##################################################
+
 # 	if any_name == "monkey" || any_name == "jeff" || any_name == "severus"
 # 		client.puts  "<h1> Hello #{any_name}! </h1>"
 # 	else 
@@ -61,6 +62,7 @@ while true
 # end
 # client.close
 # end
+
 ##################################################
 # #CLEANER WAY OF DOING IT.
 
