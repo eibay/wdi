@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>The Best Damn Movies the IMDB Community Ever Saw</title>
+</head>
+<body>
+	<h1>The Best Damn Movies the IMDB Community Ever Saw</h1>
+	<h2>And Some Movies Which Are the Best Damn Movies Clayton Ever Saw</h2>
+	<ol>
+	<% $movie_db.each do |movie| %>
+	<%= "<li> <a href=/movies/#{movie[:name].gsub(' ', "%20")}>#{movie[:name]}</a> (#{movie[:year]})</li>" %>
+	<% end %>
+	</ol>
+</body>
+</html>
