@@ -1,29 +1,68 @@
+#with sean
 
-blkjk_value = 0
+base = %w( 2 3 4 5 6 7 8 9 10 J Q K A)
+cards = []
+index = 0
+while index<base.length
+	cards << base[index] + '♥'
+	cards << base[index] + '♣'
+	cards << base[index] + '♠'
+	cards << base[index] + '♦'
+	index += 1
+end
 
-rank = %w[ A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K]
-suit = %w[hearts, diamonds, clubs, spades]
+print cards
+puts ""
 
-deck = []
-hand = []
 
-#create deck
-rank.each {|rank| suit.each {|suit|
-card = "#{rank + suit}"
-deck.push(card)
-}
-}
 
-#chooses two cards from the deck at random
-deck = deck.shuffle
-2.times {hand.push deck.delete_at(0)}
-puts hand
 
-#create blackjack values
-#still stuck on part 2. i know i need to define my values for each string in the array, but im sure how to do that. 
-def blkjk_value 
 
-puts "This hand has the blackjack value of #{blkjk_value}"
+
+
+# blkjk_value = 0
+
+# rank = %w[ A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K]
+# suit = %w[hearts, diamonds, clubs, spades]
+
+# deck = []
+# hand = []
+
+# #create deck
+# rank.each {|rank| 
+# 	suit.each {|suit|
+# 		card = { rank: rank, suit: suit }
+# 		deck.push(card)
+# 	}
+# }
+
+
+
+
+# #chooses two cards from the deck at random
+# deck = deck.shuffle
+
+# some_card = deck.pop
+
+# if some_card[:rank]
+
+
+# 2.times {hand.push deck.delete_at(0)}
+# puts hand
+
+# #create blackjack values
+# if rank == "J" || rank == "K" || rank == "Q"    
+# 	total = 10
+# if rank == "A"
+# 	total = 1
+
+
+
+
+# def blkjk_value 
+
+
+# puts "This hand has the blackjack value of #{blkjk_value}"
 
 
 
