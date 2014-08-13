@@ -12,26 +12,45 @@
 	font-size: 3em; 
 }
 
-.index h1 {
+.index .wrapper {
+	margin: auto;
+	width: 75%;
+}
+
+.index .wrapper h1 {
 
 	margin-bottom: .25em;
 
 }
 
-.index ul li {
+.index .wrapper ul li {
 	list-style-type: none;
 }
 
-.index ul li a { 
+.index .wrapper ul li a {
+	display: block; 
+	width: 100%;
 	font-family: impact; 
 	text-decoration: none; 
 }
 
-.index ul li a:hover {
+.index .wrapper ul li a:link {
+
+}
+
+.index .wrapper ul li a:visited {
+
+}
+
+.index .wrapper ul li a:hover {
 	background-color: green;
 
 }
 
+
+.index .wrapper ul li a:active {
+
+}
 
 /* students view */ 
 
@@ -48,5 +67,10 @@
 
 .student .wrapper p {
 	display: inline;
+}
+
+.student .wrapper p span.special_name {
+	font-weight: 600; 
+
 }
 
