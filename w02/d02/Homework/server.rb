@@ -50,7 +50,7 @@ movie_db = [
 while true
 	client = server.accept
 	request = client.gets.chomp
-	puts "Client said: #{client.gets}"
+	puts "Client said: #{client.gets}" #to put stuff in terminal to see whats going on
 	path = request.split(" ")[1]
 	path1 = path.split("/")[1]
 
@@ -70,7 +70,7 @@ if path == "/movies"
  	name = URI.decode(path.split('/')[2])
  		while counter1 < movie_db.length
  			if movie_db[counter1].values.include?(name)
- 		client.puts "<p>#{movie_db[counter1][:name]} has a rating of #{movie_db[counter1][:rating]} and was made in #{movie_db[counter1][:year]} and the link is <a href '#{movie_db[counter1][:link]}'> imbd </a></p>"
+ 		client.puts "<p>#{movie_db[counter1][:name]} has a rating of #{movie_db[counter1][:rating]} and was made in #{movie_db[counter1][:year]} and the link is <a href='#{movie_db[counter1][:link]}'> imbd </a></p>"
  	end
  		counter1 += 1
  	end
