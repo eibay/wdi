@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>The Rosencrancers</title>
+	<link rel=stylesheet type=text/css href=/styles>
+
+</head>
+<body>
+	<section class="index">
+		<div class="wrapper">
+			<h1>The Rosencrancers</h1> 
+			<p>  
+				{% for student in students %}
+				
+					&bull; <a href=/{{student.login}}>{{student.login}}</a>
+				{% endfor %} 
+			</p>
+		</div>
+	</section>
+</body> 
+</html>

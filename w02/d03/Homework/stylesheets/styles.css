@@ -1,0 +1,104 @@
+/* poor man's reset */
+
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 1em; 
+}
+
+/* index view */ 
+
+.index {
+
+}
+
+.index .wrapper {
+	margin: auto;
+	width: 90%;
+	position: absolute;
+	height: 3em;
+	top: -10em;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+}
+
+.index .wrapper h1 {
+	display: inline-block;
+	float: left;
+	margin-right: .25em; 
+	font-weight: normal; 
+	font-size: 2em;
+}
+
+.index .wrapper p {
+	font-size: 2em;
+	
+}
+
+.index .wrapper p a {
+	text-decoration: none; 
+}
+.index .wrapper p a:link {
+	color: black;
+}
+
+.index .wrapper p a:visited {
+	color: black;
+} 
+
+.index .wrapper p a:hover {
+	color: black;
+}
+
+
+.index .wrapper p a:active {
+	color: black;
+}
+
+/* students view */ 
+
+.student {
+	font-size: 3em; 
+}
+
+.student .wrapper {
+	margin: auto;
+	width: 90%;
+	margin-top: 1em; 
+}
+
+.student .wrapper img {
+	height: 6em;
+	float: left;
+	margin-right: .5em;
+}
+
+.student .wrapper p {
+
+}
+
+.student .wrapper p a {
+	text-decoration: none; 
+}
+
+.student .wrapper p a:link {
+	color: black;
+}
+
+.student .wrapper p a:visited {
+	color: black;
+}
+
+.student .wrapper p a:hover {
+	color: black;
+}
+
+.student .wrapper p a:active {
+	color: black;
+}
+
+.student .wrapper p {
+
+}
