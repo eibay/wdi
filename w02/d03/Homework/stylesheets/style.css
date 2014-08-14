@@ -1,0 +1,45 @@
+body {
+	font-family: 'PT Sans Narrow', sans-serif;
+	margin: 3%;
+	background: black;
+	color: white;
+}
+
+h1 {
+	/*color: red;*/
+	font-size: 3em;
+}
+
+img {
+	height: 200px;
+	width: 200px;
+}
+
+ol {
+	padding-left: 0;
+}
+
+li {
+	list-style: none;
+	font-size: 1.5em;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	/*color: black;*/
+
+}
+
+a:hover {
+	color: pink;
+}
+
+footer {
+	text-align: center;
+}
+
+footer a {
+	font-size: 1.5em;
+}
