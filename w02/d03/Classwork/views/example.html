@@ -1,0 +1,15 @@
+in HTML:
+
+asdf {{name}}  (NOTE: curly brackets are not required but are conventional)
+
+in ruby:
+name = "Crawf"
+
+html = File.read(HTML FILE PATH)
+
+html.gsub('{{name}}', name)
+
+ => asdf Crawf
+
+ html.gsub('#{name}', 345.to_s)
+  => asdf "345"
