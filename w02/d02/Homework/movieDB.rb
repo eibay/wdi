@@ -54,19 +54,20 @@ while true
 	client = server.accept
  	request = client.gets.chomp
   path = request.split(' ')[1]
-  puts "Client said: #{request}"
+  puts "Client said: #{path}"
  
   if path == "/movies"
   	client.puts "<h1>Movies</h1>"
     client.puts "<!DOCTYPE html><ol>"
+    # binding.pry
 	    while n < movie_db.length
-	    	data_entry = "<a href=#{movie_db[n][:link]}>#{movie_db[n][:name]}</a>"
+	    	data_entry = "<a href='/movies/#{movie_db[n][:name]}'>#{movie_db[n][:name]}</a>"
 			client.puts "<li>#{data_entry}</li>"
   			n += 1
   		end
   	client.puts "</ol>"
 
-  elsif path.split('/').length == 3 && path.split('/')[1] == "movies"
+  elsif path.split('/')[1] == "movies" && path.split('/').length == 3
     name = URI.decode(path.split('/')[2])
       while n < movie_db.length
         if movie_db[n][:name] == name
@@ -78,7 +79,6 @@ while true
         end
       n += 1
       end
-
   
   else
       client.puts "<h1>This is a movie database, dammit! Don't bother me with your irrelevant inquiries.</h1>"

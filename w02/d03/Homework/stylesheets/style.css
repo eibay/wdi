@@ -1,0 +1,50 @@
+body {
+	background-color: #85E0FF;
+}
+
+h1 {
+	color: black;
+	font-family: 'Monofett', cursive;
+	font-size: 80px;
+	text-shadow: 3px 3px rgb(225, 255, 150);
+	margin-left: auto;
+ 	margin-right: auto;
+}
+
+h2 {
+	color: #1F7A99;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size: ; 30px;
+	margin-left: auto;
+ 	margin-right: auto;
+}
+
+h3 {
+	color: ;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size: 50px;
+	margin-left: auto;
+ 	margin-right: auto;
+}
+
+span {
+	color: #CC0066;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+img {
+	border: 7px ridge black;
+		width: 200px;
+ 		height: 200px;
+ 		border-radius: 195px;
+}
+
+p{
+	 color: black;
+	 font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+li {
+	color: black;
+	 font-family: 'Yanone Kaffeesatz', sans-serif;
+}
