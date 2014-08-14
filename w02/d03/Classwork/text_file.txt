@@ -1,0 +1,14 @@
+.gsubbing, G!
+
+In Ruby, if you pull in html from an outside file, Ruby will not allow you to interpolate ruby objects into the html string
+
+so you can use the .gsub method to make your html dynamic
+
+.gsub finds the sequence within the imported html string, and substitutes it with the ruby element you desire (either a variable that you named earlier, or any string you desire)
+	item = "this is a variable"
+	html.gsub('{{item}}', item) 
+
+Within the html file, you wrap the item you want to .gsub in {{}}, which makes it easier for the .gsub program to distinguish what you want replaced with other occurances of the buzzword.
+
+You can .gsub multiple items in the html file by creating a chain 
+	html.gsub('{{something}}', something).gsub('{{something_else}}', something_else)
