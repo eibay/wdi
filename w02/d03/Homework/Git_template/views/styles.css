@@ -1,0 +1,51 @@
+.header {
+	height: 250px;
+	margin-bottom: 10px;
+	color: black;
+}
+	img {
+		height: 250px;
+		float: left;
+		border-radius: 30px;
+		border: red solid 12px;
+		margin: 10px;
+
+	}
+
+	.name {
+/*		float: left;*/
+		font-family: impact;
+		background-color: black;
+		text-align: center;
+		padding-top: 1px;
+
+	}
+		.name h1 {
+			color: white;
+		}
+
+.main {
+	text-align: center;
+	color: white;
+	font-family: verdana;
+
+}
+	.info {cd 
+		height: 190px;
+		width: 250px;
+		background-color: red;
+		border-radius: 30px;
+		margin-right: 10px;
+		margin-left: 10px;
+		margin-bottom: 10px;
+		float: left;
+		font-family: helvetica;
+
+
+	}
+		h4 {
+			padding-top: 20px;
+
+
+		}
+

@@ -51,19 +51,20 @@ movie_db = [
    }
 ]
 
-   def details(db, index, client)
-      db[index]
-      client.puts [:name]
-      client.puts [:rating]
-      client.puts [:rank]
-      client.puts [:link]
-      client.puts [:year]
-   end
+   # def details(db, index, client)
+   #    db[index]
+   #    client.puts [:name]
+   #    client.puts [:rating]
+   #    client.puts [:rank]
+   #    client.puts [:link]
+   #    client.puts [:year]
+   # end
 
 
    while true
       client = server.accept
       request = client.gets
+   binding.pry
       path = request.split(" ")[1]
       puts "hello"
 
