@@ -245,7 +245,7 @@ while true
 			<li>{{public_repos}}</li> \
 			<li><img src=#{info['avatar_url']} /></li>"
 
-		#one by one put in each property of the students info hash
+		#one by one put in each value of the students info hash
 		template = template.gsub("{{login}}", info["login"])
 		template = template.gsub("{{created_at}}", info["created_at"])
 		template = template.gsub("{{html_url}}", info["html_url"])
