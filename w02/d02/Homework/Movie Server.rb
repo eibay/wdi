@@ -64,10 +64,20 @@ server = TCPServer.new 2000
 	end
 
 	if path == "/movies"
-	movie_titles.each { |t|
-		client.puts "<!doctype html> #{movie_titles.index(t)+1}. "
-		client.puts "<a href='#{path}/#{t}'>#{t}</a><br>" 
-	}
+
+	
+	y=0
+	client.puts "<!doctype html><ol>"
+	while y<movie_db.length
+		client.puts "<li>#{movie_titles[y]}</li>"
+		
+		y+=1
+	end
+	client.puts "</ol>"
+	# movie_titles.each { |t|
+	# 	client.puts "<!doctype html> #{movie_titles.index(t)+1}. "
+	# 	client.puts "<a href='#{path}/#{t}'>#{t}</a><br>" 
+	# }
 		puts "client requested /movies page"
 	
 	elsif path.split('/')[1] == "movies" && path.split('/').length == 3

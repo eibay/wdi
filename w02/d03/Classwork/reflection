@@ -1,0 +1,7 @@
+we are using ruby to generate HTML 
+
+1. gsub is a search and replace method for HTML. 
+2. Syntax is everything. 
+3. when passing a variable through a method like gsub, we are not reassigning it's value, we are changing certain parts of it. 
+4. If you put "variable += variable.gsub" and change it multiple times, it will 
+5. interspersing dynamic information into HTML
