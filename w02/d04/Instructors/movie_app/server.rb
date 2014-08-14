@@ -15,9 +15,11 @@ while true
 	path = request.split(' ')[1]
 	puts "#{Time.now} - Client #{client_ip} is attempting to reach #{path}"
 
-	if path == '/inception'
+	if path.split('/')[1] == "movies"
+		movie_title = path.split('/')[2]
+
 		omdb_api = TCPSocket.new 'www.omdbapi.com', 80
-		omdb_api.puts 'GET /?t=inception'
+		omdb_api.puts "GET /?t=#{movie_title}"
 
 		puts "#{Time.now} - Connecting to OMBD"
 
@@ -30,7 +32,7 @@ while true
 		client.puts parsed_response
 		puts "#{Time.now} - Sent movie info to client #{client_ip}"
 
-	end 
+	end
 
 	client.close
 	puts "#{Time.now} - Client #{client_ip} has disconnected"
