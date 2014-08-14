@@ -240,17 +240,17 @@ while true
 
 		response += "<ol>"
 		template = 
-			"<li><a href='{{html_url}}'>{{login}}</a></li> \
+			"<li><a href='{{url}}'>{{login}}</a></li> \
 			<li>{{created_at}}</li> \
-			<li>{{public_repos}}</li> \
-			<li><img src=#{info['avatar_url']} /></li>"
+			<li>{{repos}}</li> \
+			<li><img src={{avatar}} /></li>"
 
 		#one by one put in each value of the students info hash
 		template = template.gsub("{{login}}", info["login"])
 		template = template.gsub("{{created_at}}", info["created_at"])
-		template = template.gsub("{{html_url}}", info["html_url"])
-		template = template.gsub("{{public_repos}}", info["public_repos"].to_s)
-		template = template.gsub("{{avatar_url}}", info["avatar_url"])
+		template = template.gsub("{{url}}", info["html_url"])
+		template = template.gsub("{{repos}}", info["public_repos"].to_s)
+		template = template.gsub("{{avatar}}", info["avatar_url"])
 		
 		#add that whole template that we just formed
 		#to the reponse string that we have been building up
