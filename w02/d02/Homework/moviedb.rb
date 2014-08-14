@@ -66,26 +66,20 @@ movie_db = [
 
 		counter1 = 0
 		#starts a counter of the movie at 0 from the array
-		client.puts <!Doctype html>
+		client.puts "<!Doctype html>"
 		#tells browser to start html
 		client.puts "<ol>"
 		#order list (i.e., 1, 2, 3, 4, a,b,c)
 		while counter1 < movie_db.length
 		#starts while loop.  While counter1 is less than the whole movie_db
-			client.puts "<li><a ref>'/movies/#{movie_db[counter1][:name]}'>#{movie_db[counter1][:name]}</a></li>"
+			client.puts "<li><a href ='/movies/#{movie_db[counter1][:name]}'>#{movie_db[counter1][:name]}</a></li>"
 			#puts counting down a list of /movies/"name of movie" - anchored by the link to the page
 			Counter1 += 1
 			#adds 1 each time it loops until it's less than the movie_db
 		end
-	client.puts </ol>
+	client.puts "</ol>"
 	#Closed ordered list tag
 
+end
 
-
-
-	end
-	
-
-
-
-	
+end
