@@ -72,12 +72,14 @@ while true
     while counter < movie_db.length
       movie_title = movie_db[counter][:name]
       client.puts 
-      <ol>
-        <li><a href="/movies/#{movie_title}">"#{movie_title}"</a></li>
-  
-      </ol>
+      "<ol>
+        <li><a href='/movies/#{movie_title}'>#{movie_title}</a></li></ol>"
+
       # counter += 1
     end
+  end
+
+  # binding.pry
 
   # client.puts "<a href="/movies/movie_db[0][:name]">#{movie_title}</a>"
   # elsif path == "/"

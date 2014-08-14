@@ -1,0 +1,57 @@
+
+
+<!-- if path == "/movies"
+    html = "<h1>The Movies!</h1>"
+    html += "<ol>" + titles.join('') + "</ol>"
+    client.puts(html)
+  elsif path.split("/")[1] == "movies" && path.split("/").length == 3
+    title = URI.decode(path.split('/')[2])
+
+    # find movie in array
+    i = 0
+    while i < movie_db.length
+      if movie_db[i][:name] == title
+        movie = movie_db[i]
+      end
+
+      i += 1
+    end
+
+    html = "<h1>#{movie[:name]}</h1>"
+    html += "<p>Released in #{movie[:year]}, is ranked #{movie[:rank]} on IMDB</p>"
+    html += "<a href='#{movie[:link]}'>Learn more here!</a>"
+
+    client.puts(html)
+  end -->
+
+  <!DOCTYPE html>
+<html>
+
+  <head>
+    <title>
+    Film-{{Title}}
+    </title>
+    <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+    <style>
+      p {
+        font-size: 1em;
+      }
+    </style>
+  </head>
+
+<body>
+    <p>
+        This is my first paragraph.
+    </p>
+
+
+    <h1>#{movie[:name]}</h1>"
+    <p>Released in #{movie[:year]}, is ranked #{movie[:rank]} on IMDB</p>"
+    <a href='#{movie[:link]}'>Learn more here!</a>"
+
+ 
+
+        
+</body>
+  
+</html>
