@@ -52,7 +52,7 @@ movie_db = [
 while true
 	client = server.accept
 	request = client.gets.chomp
-	puts "Client: #{request}"
+	puts "Client: #{request} #{Time.now}"
 	path = request.split(" ")[1]
 	movie = path.split("/")[2]
 	
