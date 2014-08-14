@@ -1,5 +1,6 @@
 require 'socket'
 require 'uri'
+require 'pry'
 
 movie_db = [
   {
@@ -64,10 +65,22 @@ while true
   path = request.split(" ")[1]
   puts "Requesting #{path}"
 
+
+
   if path == "/movies"
-    html = "<h1>The Movies!</h1>"
-    html += "<ol>" + titles.join('') + "</ol>"
-    client.puts(html)
+    html = File.read('./views/movie.html')
+    html2 = html.gsub('{{movie}}', titles.join(''))
+
+    client.puts html2
+
+
+
+  elsif path == "/stylesheets/style.css"
+    css = File.read('./stylesheets/style.css')    
+    client.puts css
+
+
+
   elsif path.split("/")[1] == "movies" && path.split("/").length == 3
     title = URI.decode(path.split('/')[2])
 
@@ -81,11 +94,20 @@ while true
       i += 1
     end
 
-    html = "<h1>#{movie[:name]}</h1>"
-    html += "<p>Released in #{movie[:year]}, is ranked #{movie[:rank]} on IMDB</p>"
-    html += "<a href='#{movie[:link]}'>Learn more here!</a>"
+    html = File.read('./views/individual-page.html')
 
-    client.puts(html)
+    html = html.gsub('{{title}}', movie[:name])
+    html = html.gsub('{{year}}', movie[:year])
+    html = html.gsub('{{rank}}', movie[:rank])
+    html = html.gsub('{{link}}', movie[:link])
+    client.puts html
+
+
+    # html = "<h1>#{movie[:name]}</h1>"
+    # html += "<p>Released in #{movie[:year]}, is ranked #{movie[:rank]} on IMDB</p>"
+    # html += "<a href='#{movie[:link]}'>Learn more here!</a>"
+    # client.puts(html)
+
   end
 
   client.close
