@@ -10,11 +10,11 @@ while true
 	client = server.accept
 	client_ip = client.remote_address.ip_address
 
-	puts "#{Time.now} - Client has connected from #{client_ip}"
+	# puts "#{Time.now} - Client has connected from #{client_ip}"
 
 	request = client.gets.chomp
 	path = request.split(' ')[1]
-	puts "#{Time.now} - Client #{client_ip} is attempting to reach #{path}"
+	# puts "#{Time.now} - Client #{client_ip} is attempting to reach #{path}"
 
 	if path[0] == '/'
 		if path[1,path.length] != '' # is there anything after '/'?
@@ -30,12 +30,12 @@ while true
 			parsed_response = JSON.parse(json_response)
 			results = parsed_response["Search"] 
 
-			puts results 
+			# puts results 
 			omdb_api.close
 			# puts "#{Time.now} - Disconnected from OMBD"
 
-			if parsed_response.include? "Error" # if the film does not exist 
-				client.puts "<h1>No movie by that name.</h1>" # tell them so 
+			if parsed_response.include? "Error" 
+				client.puts "<h1>Nope.</h1>" 
 			else 
 				f = File.read "./views/index.html.erb"
 				e = ERB.new f 
@@ -45,12 +45,12 @@ while true
 			end 
 			# puts "#{Time.now} - Sent movie info to client #{client_ip}"
 		else 
-			
+
 			client.puts File.read("./views/index.html") 
 		end 
 	end 
 
 	client.close
-	puts "#{Time.now} - Client #{client_ip} has disconnected"
+	# puts "#{Time.now} - Client #{client_ip} has disconnected"
 
 end
