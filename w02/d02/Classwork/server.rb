@@ -46,10 +46,11 @@ people = {
 # end
 
 	if people.keys.include?(name)
-		html= "<h1> Hello, #{name.capitalize}</h1>"
+		html = "<h1> Hello, #{name.capitalize}</h1>"
 		html += "<p> Who lives in #{people[name][:location]}</p>"
 		html += "<p> Who likes #{people[name][:flavor]} flavored ice cream</p>"
 		client.puts html
+	
 	else 
 		client.puts "woah- we do not know you!"
 	end
