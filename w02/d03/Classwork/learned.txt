@@ -1,0 +1,6 @@
+1.  When interpolating between file, we use {{}} instead of #{} to relate data.
+
+2.  Learned how to generate html files using ruby.
+
+3.  Learned how to use gsub to substitute one element for another, which allowed us to more readily
+    generate html files within ruby.

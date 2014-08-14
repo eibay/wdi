@@ -71,7 +71,7 @@ while true
       uri_title = URI.encode(title)
       
       if path == "/movies"
-         client.puts "<html><h2>##{num}</h2></html>"
+         client.puts "<h2>##{num}</h2>"
          client.puts "<ol>"
          client.puts "<ul><li><a href=/movies/#{uri_title}>#{title}</a></li> <li><a href=#{link}>IMDb link</a></li></ul>" 
          client.puts"</ol>"

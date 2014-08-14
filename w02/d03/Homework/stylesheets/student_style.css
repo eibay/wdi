@@ -1,0 +1,39 @@
+header {
+	background-color: #FF3300;
+	margin: 20px 5px 0px 5px;
+	border: 10px;
+	border-radius: 50px;
+	text-align: center;
+	display: center;
+}
+
+img {
+	border: 5px solid #FF3300;
+	border-radius: 30px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+body {
+	background-color: #FFEBCD;
+}
+
+h1 {
+	text-align: center;
+}
+
+a:hover {
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	padding-left: 295px;
+}
+
+p {
+	text-align: center;
+	margin-top: 20px
+}
