@@ -46,7 +46,7 @@ movie_db = [
    },
 ]
 titles = []
-
+#build titles array
 i = 0
 while i < movie_db.length
   movie = movie_db[i]
@@ -65,9 +65,10 @@ while true
   puts "Requesting #{path}"
 
   if path == "/movies"
-    html = "<h1>The Movies!</h1>"
-    html += "<ol>" + titles.join('') + "</ol>"
-    client.puts(html)
+    titlesubbed = titles.join('')
+    html = File.read('./views/movie_list.html')
+    movielist = html.gsub('{{titles}}', titlesubbed)    
+    client.puts movielist
   elsif path.split("/")[1] == "movies" && path.split("/").length == 3
     title = URI.decode(path.split('/')[2])
 
@@ -81,11 +82,14 @@ while true
       i += 1
     end
 
-    html = "<h1>#{movie[:name]}</h1>"
-    html += "<p>Released in #{movie[:year]}, is ranked #{movie[:rank]} on IMDB</p>"
-    html += "<a href='#{movie[:link]}'>Learn more here!</a>"
+    html2 = File.read('./views/indiv_movies.html')
+    moviepage = html2.gsub('{{name}}', movie[:name]).gsub('{{year}}', movie[:year]).gsub('{{rank}}', movie[:rank])
 
-    client.puts(html)
+    # html = "<h1>#{movie[:name]}</h1>"
+    # html += "<p>Released in #{movie[:year]}, is ranked #{movie[:rank]} on IMDB</p>"
+    # html += "<a href='#{movie[:link]}'>Learn more here!</a>"
+
+    client.puts(moviepage)
   end
 
   client.close
