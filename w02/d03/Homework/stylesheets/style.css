@@ -1,0 +1,43 @@
+body {
+	background-color: gray;
+	color: white;
+}
+
+#top {
+	text-align: center;
+	font-size: 150px;
+	padding-bottom: 30px;
+}
+
+ul {
+	margin: 0 20%;
+	font-size: 40px;
+	background-color: white;
+	color: gray;
+	border-radius: 20px;
+}
+
+#avatar {
+	margin: -25px auto 30px auto;
+	height: 200px;
+	width: auto;
+}
+
+a:link {
+    text-decoration: none;
+    color: #D6C7E8;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #FF8B63;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #FF8B63;
+}
+
+a:active {
+    text-decoration: underline;
+}

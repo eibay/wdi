@@ -42,12 +42,11 @@ while true
     client.puts "<h1>index</h1>"
   elsif path.split('/')[1] == "hello" && path.split('/').length == 3
     name = URI.decode(path.split('/')[2])
-
+    binding.pry
     if people.keys.include?(name)
       our_output =  "<h1>Hello, #{name.capitalize}</h1>"
-      our_output = our_output + "WEEEEEEEEEEEEE"
-      #html += "<p>Who lives in #{people[name][:location]}</p>"
-
+      our_output = our_output + "<p>You live in #{people[name][:location]}</p>"
+      our_output = our_output + "<p>You really enjoy #{people[name][:flavor]} flavored ice cream!</p>"
       client.puts our_output
     else
       client.puts "<h1>WOAH! We don't know you...</h1>"
