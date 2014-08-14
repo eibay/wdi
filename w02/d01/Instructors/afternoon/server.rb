@@ -4,7 +4,11 @@ require 'pry'
 server = TCPServer.new 2000
 
 while true
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> b44a8e59e87c3efd22507583545fef8d8ef071f4
 	client = server.accept
 	client_ip = client.remote_address.ip_address
 
@@ -12,6 +16,7 @@ while true
 
 	request = client.gets.chomp
 
+<<<<<<< HEAD
 	path = request.split(" ")[1] 
 
 	puts "Client #{client_ip} is attempting to reach #{path}"    
@@ -54,10 +59,34 @@ while true
 	else
 		client.puts "ERROR! try again."
 		puts "Send ERROR to #{client_ip}"
+=======
+	path = request.split(" ")[1]
+
+	puts "Client #{client_ip} is attempting to reach #{path}"
+
+	if path == "/"
+		client.puts File.read('./views/index.html') 
+		puts "Sent 'index.html' to #{client_ip}"
+	elsif path == "/stylesheets/style.css"
+		client.puts File.read('./stylesheets/style.css')
+		puts "Sent 'style.css' to #{client_ip}" 
+	elsif path == "/about"
+		client.puts File.read("./views/about.html")
+		puts "Sent 'about.html' to #{client_ip}"
+		else
+		client.puts "ERROR! Try again."
+		puts "Send ERROR to #{client_ip}"			
+>>>>>>> b44a8e59e87c3efd22507583545fef8d8ef071f4
 	end
 
 	puts "Client #{client_ip} has disconnected"
 
+<<<<<<< HEAD
 
 	client.close
+=======
+	client.close
+
+
+>>>>>>> b44a8e59e87c3efd22507583545fef8d8ef071f4
 end
