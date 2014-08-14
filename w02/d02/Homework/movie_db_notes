@@ -1,0 +1,9 @@
+movie_db.index "The Matrix"
+
+x = 0
+
+while x < movie_db.length
+  if movie_db[x][:name] == "name"
+  rating = movie_db[x][:rating]
+  x += 1
+ end

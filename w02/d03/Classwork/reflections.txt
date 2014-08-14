@@ -1,0 +1,5 @@
+Today we learned how to programmatically pull in html from an html file into our ruby code.
+
+When our ruby code runs, html is rendered while our code runs and this process is interpreted by the browser into the sites we normally see.
+
+We're learning how to essentially link separate concepts and tools so that we can accomplish an end goal, specifically a web application.
