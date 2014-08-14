@@ -228,7 +228,7 @@ puts "Requesting #{path}"
     client.puts html
 
   elsif path == "/styles"
-    client.puts File.read("./views/styles.css")
+    client.puts File.read("./views/main.css")
     
 	end
 
