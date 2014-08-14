@@ -1,0 +1,32 @@
+header {
+	background-color: #FF3300;
+	margin: 20px 5px 0px 5px;
+	border: 10px;
+	border-radius: 50px;
+}
+
+body {
+	background-color: #FFEBCD
+}
+
+h1 {
+	text-align: center;
+}
+
+ul {
+	text-align: center;
+	margin-right: 40px;
+}
+
+li { 
+	text-align: center;
+	list-style: none;
+}
+
+a:hover {
+	color: white;
+}
+
+a {
+	text-decoration: none;
+}
