@@ -13,7 +13,7 @@ index=0
 
 puts "Would you like to order?"
 
-more =gets.chomp.downcase
+more = gets.chomp.downcase
 
 
 while more=="yes"

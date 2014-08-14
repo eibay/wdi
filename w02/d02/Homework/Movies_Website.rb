@@ -2,7 +2,7 @@
 
 require 'socket'
 require 'uri'
-# require 'pry'
+require 'pry'
 
 server = TCPServer.new 2000
 
@@ -81,7 +81,6 @@ movie_db = [
    #this line above is basically just a server log of this point in the connection
    path = request.split(' ')[1] #this is to get the array of subpieces that make up the path
    #[1] is the main path of the page browser wants to load
-
 
 ## talk
   if path == "/movies"
