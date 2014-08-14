@@ -1,0 +1,3 @@
+First, we were having Ruby write the webpage on the fly.  That was a process I had never imagined or heard of.  Today, we had Ruby edit the code as it 'spoke' it to the browser.  Again, I was surprised.
+
+In addition, I've added styling in CSS to the head of the HTML document from another source.
