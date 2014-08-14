@@ -29,6 +29,20 @@ while true
         client.puts "ERROR! Try again."
         puts "Send ERROR to #{client_ip}"           
     end
+    elsif path == "/gryffindor"
+        client.puts File.read("./views/gryffindor.html")
+        puts "Sent 'gryffindor.html' to #{client_ip}"
+        else
+        client.puts "ERROR! Try again."
+        puts "Send ERROR to #{client_ip}"           
+    end
+    elsif path == "/slytherin"
+        client.puts File.read("./views/slytherin.html")
+        puts "Sent 'slytherin.html' to #{client_ip}"
+        else
+        client.puts "ERROR! Try again."
+        puts "Send ERROR to #{client_ip}"           
+    end
 
     puts "Client #{client_ip} has disconnected"
 
