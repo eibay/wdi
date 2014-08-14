@@ -1,0 +1,3 @@
+ruby can dynamically create html, css, ruby code, anything.  
+
+.gsub is just a method that substitutes one data structure for another.  because it's a method it doesn't destructively change the variable on which it is called (unless banged). It also can be used in succession and with other methods, such as .length (in case you need to know how many characters are in your dynamically created HTML document).

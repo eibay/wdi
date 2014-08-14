@@ -1,0 +1,18 @@
+body {
+	background-image: url({{avatar}});
+	font-size: 18px;
+	text-align: center;
+}
+div {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	background-color: {{avatar2}};
+	border: 20px orange;
+	border-radius: 10px;
+	padding: 10px;
+	display: inline-block;
+}
+p {
+	text-align: left;
+}
