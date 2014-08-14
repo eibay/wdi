@@ -1,0 +1,29 @@
+h1{
+	color: black;
+	text-align: center;
+	text-decoration: bold
+	font-family: 'Lato', arial, sans-serif;
+}
+h2{
+	color: black;
+	text-align: center;
+	text-decoration: bold
+	font-family: 'Lato', arial, sans-serif;
+}
+ol{
+	color: black;
+}
+a{
+	text-decoration: none;
+	color: black;
+
+}
+body{
+  	background: url("http://www.comparecourses.com.au/images/InstitutionLogo/ga_logo_1021.jpg");
+	background-size: cover;
+	background-position: center;
+	font-family: 'Lato', arial, sans-serif;
+}
+div p{
+	background-color: red;
+}

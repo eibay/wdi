@@ -1,0 +1,12 @@
+h1 {
+	color: blue;
+	text-align: center;
+	text-decoration: underline;
+}
+p {
+	color: red;
+}
+a {
+	color: green;
+	text-decoration: none;
+}

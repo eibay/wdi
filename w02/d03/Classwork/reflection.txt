@@ -1,0 +1,4 @@
+### Reflection ###
+I learned the interpolization of HTML- Ruby actually is possible.(I am sure I spelled that word wrong ) It actually makes things better and dynamic when coding as it makes the code look a lot cleaner and concise as opposed to have a lot of HTML tags left and right within the ruby code. 
+
+There were subtle things I learned to keep in mind when using this method such as not having '#' and the right amount of {}'s.
