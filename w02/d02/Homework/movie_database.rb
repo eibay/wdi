@@ -66,7 +66,7 @@ if path == "/movies"
 
 client.puts "<html><ol>"  
   while x < movie_db.length
-    movie_name = URI.decode(movie_db[x][:name])
+    # movie_name = URI.decode(movie_db[x][:name])
     client.puts "<li><a href='/movies/#{movie_db[x][:name]}'>#{movie_db[x][:name]}</a></li>"
     x += 1
     end
@@ -77,7 +77,7 @@ client.puts "</ol></html>"
   name = URI.decode(path.split('/')[2])
     while y < movie_db.length
       if movie_db[y][:name] == name
-    client.puts "<html>#{movie_db[y][:name]}<br>Rating: #{movie_db[y][:rating]}<br>Rank: #{movie_db[y][:rank]}<br>IMDB: #{movie_db[y][:link]}<br>Year: #{movie_db[y][:year]}</html>"
+    client.puts "<html>#{movie_db[y][:name]}<br>Rating: #{movie_db[y][:rating]}<br>Rank: #{movie_db[y][:rank]}<br><a href = '#{movie_db[y][:link]}''>IMDB link</a><br>Year: #{movie_db[y][:year]}</html>"
   end
     y += 1
   end
