@@ -1,0 +1,6 @@
+Today's lesson answered a question for me that started brewing last week -- how do Ruby and HTML work together? I mistakenly assumed that Ruby was pulled into an HTML file, maybe via an iframe or include file. Today's lesson showed that it doesn't work that way since HTML files are static.
+
+Setting up a Ruby server allows us to crank out a bunch of HTML files instead of coding them manually. A Ruby server is sort of like a stylesheet in that you can make a change in one place and it affects many.
+
+Questions
+How does Ruby add unique images on each page?
