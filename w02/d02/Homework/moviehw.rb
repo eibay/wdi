@@ -47,13 +47,16 @@ movie_db = {
       year:"2008"
    },
 }
+
+
 while true
 	client = server.accept
 
 	request = client.gets.chomp
 
 	path = request.split(' ')[1]
-	binding.pry
+	
+   binding.pry
 	movie = URI.decode(path.split('s/')[1])
 
 	puts "Client said: #{request}"

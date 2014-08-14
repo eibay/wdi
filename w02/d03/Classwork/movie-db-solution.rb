@@ -66,10 +66,10 @@ while true
 
   if path == "/movies"
     html= File.read('./html.html')
-    html.gsub('{{title}}', + titles.join('') +)
+    html = html.gsub('{{title}}', titles.join(''))
     # html = "<h1>The Movies!</h1>"
     # html += "<ol>" + titles.join('') + "</ol>"
-    # client.puts(html)
+    client.puts(html)
   elsif path.split("/")[1] == "movies" && path.split("/").length == 3
     title = URI.decode(path.split('/')[2])
 
@@ -83,13 +83,37 @@ while true
       i += 1
     end
 
-    html = "<h1>#{movie[:name]}</h1>"
-    html += "<p>Released in #{movie[:year]}, is ranked #{movie[:rank]} on IMDB</p>"
-    html += "<a href='#{movie[:link]}'>Learn more here!</a>"
+    html2 = File.read('./movieshtml.html')
+    html2 = html2.gsub('{{movie name}}', movie[:name])
+    html2 = html2.gsub('{{movie year}}', movie[:year])
+    html2 = html2.gsub('{{movie rank}}', movie[:rank])
+    html2 = html2.gsub('{{movie link}}', movie[:link])
+    # html = "<h1>#{movie[:name]}</h1>"
+    # html += "<p>Released in #{movie[:year]}, is ranked #{movie[:rank]} on IMDB</p>"
+    # html += "<a href='#{movie[:link]}'>Learn more here!</a>"
 
-    client.puts(html)
+    client.puts(html2)
   end
 
   client.close
   puts "Client disconnected"
 end
+
+# ANOTHER WAY 
+# subs = [
+#       ['{{movie name}}', movie[:name]],
+#       ['{{movie year}}', movie[:year]],
+#       ['{{movie rank}}', movie[:rank]],
+#       ['{{movie link}}', movie[:link]]
+#     ]
+
+
+#     html2 = File.read('./views/movie_title.html')
+#     # html2 = html2.gsub('{{movie name}}', movie[:name])
+#     # binding.pry
+#     html2 = File.read('./views/movie_title.html')
+#     j = 0
+#     while j < subs.length
+#       html2 = html2.gsub(subs[j][0], subs[j][1])
+#       j += 1
+#     end
