@@ -1,4 +1,4 @@
-require 'socket'
+telrequire 'socket'
 require 'pry'
 require 'json'
 
@@ -11,13 +11,19 @@ while true
 
 	puts "#{Time.now} - Client has connected from #{client_ip}"
 
+
 	request = client.gets.chomp
 	path = request.split(' ')[1]
-	puts "#{Time.now} - Client #{client_ip} is attempting to reach #{path}"
+	path1 = path.split('/')
 
-	if path == '/inception'
+	puts "#{Time.now} - Client #{client_ip} is attempting to reach #{path}"
+	
+
+	 if path1[1] == "movies" 
+	 	title = path1[2]
 		omdb_api = TCPSocket.new 'www.omdbapi.com', 80
-		omdb_api.puts 'GET /?t=inception'
+		
+		omdb_api.puts "GET /?t=#{title}"
 
 		puts "#{Time.now} - Connecting to OMBD"
 
