@@ -1,6 +1,6 @@
 require 'socket'
 require 'uri'
-
+require 'pry'
 movie_db = [
   {
       name:"The Shawshank Redemption",
@@ -44,6 +44,12 @@ movie_db = [
       link:"http://www.imdb.com/title/tt0468569/",
       year:"2008"
    },
+   {  name:"Rocky IV",
+      rating:"9.0",
+      rank:"7",
+      link:"http://www.imdb.com/title/tt0089927/",
+      year:"1985"
+    },
 ]
 titles = []
 
@@ -65,9 +71,21 @@ while true
   puts "Requesting #{path}"
 
   if path == "/movies"
-    html = "<h1>The Movies!</h1>"
-    html += "<ol>" + titles.join('') + "</ol>"
-    client.puts(html)
+   
+    html = File.read('./views/example.html')     
+    # html = "<h1>The Movies!</h1>"
+    # html += "<ol>" + titles.join('') + "</ol>"
+
+  client.puts html.gsub('{{student_git_array}}', student_git_array.join(''))   
+
+  elsif path == "/"
+    client.puts "use /movies stupid" 
+
+
+  elsif path == "/style.css"
+  client.puts File.read('./stylesheets/style.css')
+
+
   elsif path.split("/")[1] == "movies" && path.split("/").length == 3
     title = URI.decode(path.split('/')[2])
 
@@ -81,11 +99,16 @@ while true
       i += 1
     end
 
-    html = "<h1>#{movie[:name]}</h1>"
-    html += "<p>Released in #{movie[:year]}, is ranked #{movie[:rank]} on IMDB</p>"
-    html += "<a href='#{movie[:link]}'>Learn more here!</a>"
+    html = File.read('./views/example2.html')
+    # html += "<p>Released in #{movie[:year]}, is ranked #{movie[:rank]} on IMDB</p>"
+    # html += "<a href='#{movie[:link]}'>Learn more here!</a>"
+   
+    html = html.gsub("{{movie[:name]}}", movie[:name])
+    html = html.gsub("{{movie[:year]}}", movie[:year])
+    html = html.gsub("{{movie[:rank]}}", movie[:rank])
+    html = html.gsub("{{movie[:link]}}", movie[:link])
 
-    client.puts(html)
+client.puts html
   end
 
   client.close

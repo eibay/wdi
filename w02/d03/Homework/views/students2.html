@@ -1,0 +1,22 @@
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
+
+<!-- <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+ -->
+</head>
+
+<body>
+<h2> WDI Students-August 2014 </h2>
+
+<img src= '{{name[avatar_url]}}'> 
+<div>
+<p> <b> Name: </b> {{name[:login]}} </p>
+<p> <b> site: </b> <a href= '{{name[:html_url]}}'> view </a> </p>
+<p> <b> Joined on: </b> {{name[created_at]}} </p>
+<p> <b> Number of public repos: </b> {{name[public_repos]}} </p>
+</div>
+
+</html>
