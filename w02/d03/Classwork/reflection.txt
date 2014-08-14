@@ -1,0 +1,17 @@
+Some new concepts I learned and am still learning is using ruby to generate HTML files.
+I have always used HTML in the past locally, having the server and ruby's power involved
+makes the use of HTML more dynamic in my opinion.
+
+Using {{}} to connect the HTML files to Ruby instead of the #{} style that is used for
+string interpolation in Ruby.
+
+Having HTML tags in a Ruby file, at first seemed really counterintuitive, because I saw tags
+next to while loops and stuff, but eventually made sense.
+
+Building a basic section of a web application.
+
+Learning what and how we will be adding stuff to our views folder in our future awesome kick ass
+Rails Applications.
+
+Learn the structuring of what goes where better which for me is fundamental because if you don't know
+how to arrange the data to be used later you cant use it.
