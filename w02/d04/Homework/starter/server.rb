@@ -35,18 +35,28 @@ loop do
     movie_list = response["Search"]
 
     movie_list.each do |x|
-      
-      client.puts "<h1>#{x["Title"]}</h1>"
-      client.puts "<html><ul>"
-      client.puts "<li><h2>Released in #{x["Year"]}</h2></li>"
-      client.puts "<li><h2><a href='#{x["imdbID"]}'>IMDb Page</a></h2></li>"
-      client.puts "</ul></html>"
+
+      movie_html = File.read("./views/movie_list.html")
+      movie_html = movie_html.gsub('{{x["Title"]}}', x["Title"])
+      movie_html = movie_html.gsub('{{x["Year"]}}', x["Year"])
+      movie_html = movie_html.gsub('{{x["imdbID"]}}', x["imdbID"])
+
+      client.puts movie_html
+
+      # client.puts "<h1>#{x["Title"]}</h1>"
+      # client.puts "<html><ul>"
+      # client.puts "<li><h2>Released in #{x["Year"]}</h2></li>"
+      # client.puts "<li><h2><a href='#{x["imdbID"]}'>IMDb Page</a></h2></li>"
+      # client.puts "</ul></html>"
     end
 
     puts "At #{Time.now.strftime("%I:%M:%S%P")} - Sent title search to client"
 
   elsif path == "/styles.css"
     css = File.read('./stylesheets/styles.css')
+    client.puts(css)
+  elsif path == "/movie_list.css"
+    css = File.read('./stylesheets/movie_list.css')
     client.puts(css)
   else
     html = File.read('./views/404.html')
