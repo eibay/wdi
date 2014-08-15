@@ -1,0 +1,23 @@
+body {
+	background-image: url('http://ridley-thomas.lacounty.gov/communitydevelopment/wp-content/uploads/2012/08/spotlight.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-color: black;
+}
+
+h1 {
+	text-align: center;
+	color: white;
+}
+
+div {
+	text-align: center;
+	margin: 0 auto;
+	color: white;
+	padding-right: 40px;
+}
+
+li {
+	list-style: none
+}
