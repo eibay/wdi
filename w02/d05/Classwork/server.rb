@@ -1,6 +1,5 @@
 require 'json'
 require 'socket'
-require 'pry'
 
 server = TCPServer.new 2000
 
@@ -24,29 +23,25 @@ loop do
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
     response = omdbapi.gets
+    omdbapi.close
     parsed = JSON.parse(response)
 
+    html = File.read('./views/movies.html')
+    html = html.gsub('{{search_word}}', word)
+
     movies = []
+    
+    parsed["Search"].each do |movie|
+      individual_movie = File.read('./views/individual_movie.html')
+      individual_movie = individual_movie.gsub('{{title}}', movie["Title"])
+      individual_movie = individual_movie.gsub('{{year}}', movie["Year"])
+      individual_movie = individual_movie.gsub('{{imdb_id}}', movie["imdbID"])
+      movies.push(individual_movie)
+    end
 
-    parsed["Search"].each { |movie|
-      movies << "<li><a href ='#{movie["imdb_id"]}'>#{movie["Title"]}</a>- (#{movie["Year"]})</li>"
-    }
+    html = html.gsub('{{movies}}', movies.join(''))
 
-    # binding.pry
-
-    movie = movies.join(' ')
-
-      html = File.read('./views/movies.html')
-      html = html.gsub('{{word}}', word)
-      html = html.gsub('{{movie}}', movie)
-      # html = html.gsub('{{title}}', 
-      # html = html.gsub('{{title}}', movie["Title"])
-      # html = html.gsub('{{year}}', movie["Year"])
-      # html = html.gsub('{{imdb_id}}', movie["imdbID"])
-      binding.pry
-
-      client.puts(html)
-
+    client.puts(html)
   else
     html = File.read('./views/404.html')
     client.puts(html)
