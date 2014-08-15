@@ -113,7 +113,11 @@ s = TCPServer.new 2000
 loop do 
 	client = s.accept 
 	request = client.gets 
-	puts request 
-	client.puts "<h1>It works!</h1>"
+	arr = request.split ' '
+	r = arr[1]
+	if r == '/'
+		client.puts "<h1>It so works!</h1>"
+	end 
+
 	client.close 
 end 
