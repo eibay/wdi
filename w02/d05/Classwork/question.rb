@@ -1,4 +1,6 @@
 path = "/the_forest?animal=monkeys&food=bananas"
+test = "/doogle?spinach=fred&doodle=green&relinquish=food&spanish=dot"
+oops = "/field"
 
 # convert path into the following hash: 
 
@@ -10,13 +12,19 @@ h = {
 	}
 }
 
-{:path=>"the_forest", 
-	:query_params=>
-	{:animal=>"monkeys", 
-		:food=>"bananas"
+isotope = {
+	path: "doogle",
+	query_params: {
+		spinach: "fred",
+		doodle: "green",
+		relinquish: "food",
+		spanish: "dot"
 	}
 }
 
+ow = {
+	path: "field"
+}
 
 
 class String 
@@ -63,8 +71,22 @@ end
  
 
 if path.magic == h  
-	puts "Magic is really working!"
+	puts "The String\#magic is really working!"
 else 
 	puts path.magic  
 	puts h 
 end 
+
+if test.magic == isotope
+	puts "It even works for longer urls"
+else 
+	puts test.magic 
+	puts isotope 
+end 
+
+if oops.magic == ow
+	puts "Works if there are no query_params"
+else 
+	puts oops.magic 
+	puts ow 
+end  
