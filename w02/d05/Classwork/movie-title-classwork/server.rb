@@ -1,3 +1,4 @@
+require 'pry'
 require 'json'
 require 'socket'
 require 'pry'
@@ -5,12 +6,39 @@ require 'pry'
 server = TCPServer.new 2000
 
 # equivalent to while true
+def parse_url(url)
+  path = url.split("?")[0]
+  query_string = url.split("?")[1]
+
+  params = {}
+  params[:path] = path
+
+  pairs = query_string.split("&")
+
+  key_values = []
+
+  pairs.each do |pair|
+    key_values.push(pair.split("="))
+  end
+
+  query_params = {}
+
+  key_values.each do |key_value|
+    query_params[key_value[0].to_sym] = key_value[1]
+  end
+
+  params[:query_params] = query_params
+
+  return params
+end
+
 loop do
 
   client = server.accept
 
-  request = client.gets.chomp
+  request = client.gets
   path = request.split(" ")[1]
+  params = parse_url(path)
 
   if path == "/"
     html = File.read('./views/index.html')
