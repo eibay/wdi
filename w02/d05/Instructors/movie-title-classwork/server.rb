@@ -1,7 +1,7 @@
 require 'pry'
 require 'json'
 require 'socket'
-require 'pry'
+
 
 server = TCPServer.new 2000
 
@@ -51,9 +51,9 @@ loop do
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
   
+  elsif path.split('/')[1].include?("words?")
 
-  elsif path.split('/')[1] == "words"
-    word = path.split('/')[2]
+    word = path.split('=')[1]
 
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
@@ -72,6 +72,27 @@ loop do
     html = html.gsub('{{movies}}', movies.join(''))
 
     client.puts html
+
+  # elsif path.split('/')[1] == "words"
+  #   word = path.split('/')[2]
+
+  #   omdbapi = TCPSocket.new 'www.omdbapi.com', 80
+  #   omdbapi.puts "GET /?s=#{word}"
+  #   response = omdbapi.gets
+  #   omdbapi.close
+  #   parsed = JSON.parse(response)
+    
+  #   movies = []
+
+  #     parsed["Search"].each do |movie|
+
+  #     movies.push("<li>#{movie["Title"]} (#{movie["Year"]}) - <a href='http://www.imdb.com/title/#{movie["imdbID"]}'>Visit IMDb to learn more</a></li>")
+  #     end
+  #   html = File.read('./views/movies.html')
+  #   html = html.gsub('{{search_word}}', "#{word}")
+  #   html = html.gsub('{{movies}}', movies.join(''))
+
+  #   client.puts html
 
 
   else
