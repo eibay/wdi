@@ -47,6 +47,7 @@ class String
 			end   
 			i += 1 
 		end 
+		return 0 
 	end 
 
 	def smash_brooms
@@ -84,9 +85,12 @@ else
 	puts isotope 
 end 
 
+# no method errors, undefined method for blah class
+=begin 
 if oops.magic == ow
 	puts "Works if there are no query_params"
 else 
 	puts oops.magic 
 	puts ow 
 end  
+=end 
