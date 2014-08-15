@@ -31,11 +31,15 @@ loop do
 
     json_response = omdb_api.gets.chomp
     parsed_json_response = JSON.parse(json_response)
+    search = parsed_json_response["Search"] #the entire thing is a hash containing a single array.
+      # title = search.
 
     omdb_api.close # close it
     puts "disconnecting from omdbapi.com"
 
-    client.puts parsed_json_response
+    search.each do |x|
+      client.puts x
+    end
     puts "sent data to client"
 
   else
