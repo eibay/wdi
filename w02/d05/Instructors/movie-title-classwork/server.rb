@@ -36,30 +36,22 @@ def parse_url(url)
 end
 
 
-
-
 loop do
 
   client = server.accept
 
   request = client.gets
-  path = request.split(" ")[1]
-  params = parse_url(path)
+  url = request.split(" ")[1]
+  params = parse_url(url)
 
-  if path == "/"
+  if params[:path] == "/"
     html = File.read('./views/index.html')
     client.puts(html)
-  elsif path == "/styles.css"
+  elsif params[:path] == "/styles.css"
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
-  elsif path.split('/')[1].split("?")[0] == "words"
-    # word = path.split('/')[2]
-
-  # elsif path.split('/')[1] == "words" && path
-
+  elsif params[:path] == "/words"
     word = params[:query_params][:specific_word]
-
-
 
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
