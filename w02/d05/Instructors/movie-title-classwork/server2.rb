@@ -42,7 +42,6 @@ loop do
   request = client.gets
   path = request.split(" ")[1]
   params = parse_url(path)
-binding.pry
 
 
   if path == "/"
@@ -51,8 +50,9 @@ binding.pry
   elsif path == "/styles.css"
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
-  elsif path.split('/')[1] == "words"
-    word = path.split('/')[2]
+  elsif params[:path] == "/words"
+    word = params[:query_params][:specific_word]
+    binding.pry
 
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
