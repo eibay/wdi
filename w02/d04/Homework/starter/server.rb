@@ -44,6 +44,9 @@ loop do
     omdb_api.puts "GET /?s=#{search_word}" #we had this is one example today, but not in another
     #I still don't get why we still need it
 
+    #alt from Ben if above doesnt work
+    # omdb_api.puts "GET /?s=" + search_word
+
     puts "#{Time.now} - Connecting to OMBD"
 
     json_response = omdb_api.gets #Neel says we cld leave chomp off
@@ -59,37 +62,61 @@ loop do
         # client.puts parsed_response
         # puts "#{Time.now} - Sent movie info to client #{client_ip}"
 
-    #I know we have to pull the info out of the parsed_response array, 
-    #but since i'm hanging when connecting to OMDB, I can't get a visual of
-    #the data structure that the response comes back in. I'm guessing it's an array with hashes, 
-    #since 1 movie result comes in hash form
-    #i tried 12 Angry Men b/c it was made twice, but a direct OMDB search only returned one of them
-
     # not really sure what to call the individual arrays - movie_entries?
     #do we have to initialize movie_entry? oh, we do in the .each
 
+    # html = File.read('./views/search_word_detail.html')
+     
+    # html = html.gsub("{{search-word}}", search_word)
+
+
+# SOLUTION = 
+# original content = a hash with a key "Search", and a value that is an array
+
+# parsed.keys would show key "Search"
+
+movie_entries = [] #this unwraps the real content (the inner array, from the outer hash) 
+    parsed_response["Search"].each do
+      |x| movie_entries << x 
+    end
+  
+#now movie_entries is an array of hashes
+
+# to pull out each movie's hash of unique details
+    movie = []
+    movie_entries.each do |x| 
+      movie<<"<li>#{(x["Title"])} was released in #{(x["Year"])}. <a href='http://www.imdb.com/title/#{(x["imdbID"])}/'>Click here for more info</a></li>"
+    end
+
+#have to join each array item, movie, into one long string
+
+    movie_list = movie.join(" ")
 
     html = File.read('./views/search_word_detail.html')
      
     html = html.gsub("{{search-word}}", search_word)
 
-    parsed_response.each do|movie_entry|
-    #assuming my parsed_response is the same thing as the "Search" hash from the results of the page
+    html = html.gsub("{{movie}}", movie_list)
 
-    title = movie_entry["Title"]
-    html = html.gsub("{{title}}", title)
-    year = movie_entry["Year"]
-    html = html.gsub("{{year}}", year)
-    imdb = "http://www.imdb.com/title/#{x["imdbID"]}"
-    #how i got - put the imdb id in imdb search and saw the path of the movie that came up
-    html = html.gsub("{{imdb_id}}", imdb)
+    #we could also nest a smaller html page for each individual movie into the larger movie
+#see Jeff's new solution
+
+
+    # parsed_response.each do|movie_entry|
+    # #assuming my parsed_response is the same thing as the "Search" hash from the results of the page
+
+    # title = movie_entry["Title"]
+    # html = html.gsub("{{title}}", title)
+    # year = movie_entry["Year"]
+    # html = html.gsub("{{year}}", year)
+    # imdb = "http://www.imdb.com/title/#{x["imdbID"]}"
+    # #how i got - put the imdb id in imdb search and saw the path of the movie that came up
+    # html = html.gsub("{{imdb_id}}", imdb)
     
     client.puts html
-#BIG QUESTION = HOW TO MAKE SURE THIS CREATES NEW ENTRIES USING THE HTML FORMAT?
+
      
      puts "#{Time.now} - Sent movie info to client #{client_ip}"
-
-    end
 
   else
     html = File.read('./views/404.html')

@@ -1,12 +1,12 @@
 names = ["Jeff", "Sean", "Neel"]
 newnames = []
 
-method.each do |x|
+names.each do |x|
 	newnames << n.upcase
 end
 
 #other way to code it
-method.each {|x| newnames << n.upcase}
+names.each {|x| newnames << n.upcase}
 
 
 class_data = [

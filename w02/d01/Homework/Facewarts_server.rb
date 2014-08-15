@@ -50,7 +50,7 @@ path = request.split(" ")[1] #pulls the specific path they selected (which is af
 puts "Client #{client_ip} is attempting to reach #{path}"
 
 if path == '/' #means if the path == root
-	File.read('./views/index.html') #this tells it what file to read
+	client.puts File.read('./views/index.html') #this tells it what file to read
 	puts "Sent 'index.html' to #{client_ip}"#we sent this to the client  
 elsif path == '/stylesheets/style.css' #you always have a / on a URL, it's just to separate/show subfolder
 #means if the path is to the stylesheet - for browser / means folder where your website is index.html
