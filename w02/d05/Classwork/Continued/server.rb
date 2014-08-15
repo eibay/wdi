@@ -40,6 +40,7 @@ loop do
   client = server.accept
 
   request = client.gets
+<<<<<<< HEAD:w02/d05/Classwork/Continued/server.rb
  url = request.split(" ")[1]
   params = parse_url(path)
 
@@ -51,6 +52,18 @@ loop do
     client.puts(css)
   # elsif path.split('/')[1] == 'words'
 elsif params[:path] = "/words"
+=======
+  url = request.split(" ")[1]
+  params = parse_url(url)
+
+  if params[:path] == "/"
+    html = File.read('./views/index.html')
+    client.puts(html)
+  elsif params[:path] == "/styles.css"
+    css = File.read('./stylesheets/styles.css')
+    client.puts(css)
+  elsif params[:path] == "/words"
+>>>>>>> f0714efab2da1e0cd76d50548aa3b79b369417e3:w02/d05/Instructors/movie-title-classwork/server.rb
     word = params[:query_params][:specific_word]
 
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
