@@ -47,6 +47,7 @@ loop do
       movie_each << "<li>#{title}<br>#{year}<br>#{imdb_link}</li>"
     end
     word_movie = File.read('./views/word_movie.html')
+    word_movie = word_movie.gsub("{{word}}", word)
     word_movie = word_movie.gsub("{{title}}", title)
     word_movie = word_movie.gsub("{{year}}", year)
     word_movie = word_movie.gsub("{{imdb_link}}", imdb_link)
