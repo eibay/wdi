@@ -40,20 +40,25 @@ loop do
   client = server.accept
 
   request = client.gets
-  path = request.split(" ")[1]
-  params = parse_url(path)
+  url = request.split(" ")[1]
+  params = parse_url(url)
 
-  if path == "/"
+  if params[:path] == "/"
     html = File.read('./views/index.html')
     client.puts(html)
-  elsif path == "/styles.css"
+  elsif params[:path] == "/styles.css"
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
+<<<<<<< HEAD:w02/d05/Instructors/movie-title-classwork/server.rb
   
   elsif path.split('/')[1].split('?')[0] == "words"
     word = params[:query_params][:specific_word]
     #word is the variable, needs to be consistant
     
+=======
+  elsif params[:path] == "/words"
+    word = params[:query_params][:specific_word]
+>>>>>>> f0714efab2da1e0cd76d50548aa3b79b369417e3:w02/d05/Instructors/movie-title-classwork/server.rb
 
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
