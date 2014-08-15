@@ -32,14 +32,37 @@ loop do
     json_response = omdb_api.gets.chomp
     parsed_json_response = JSON.parse(json_response)
     search = parsed_json_response["Search"] #the entire thing is a hash containing a single array.
-      # title = search.
+
 
     omdb_api.close # close it
     puts "disconnecting from omdbapi.com"
 
-    search.each do |x|
-      client.puts x
-    end
+    # search.each do |x|
+    #   x.each do |y|
+    #     title = y["Title"]
+    #     year = y["Year"]
+    #     imdbID = y["imdbID"]
+    #     type = y["Type"]
+
+    #     client.puts title
+    #     client.puts year
+    #     client.puts imdbID
+    #     client.puts type
+    #   end
+    #   client.puts x
+    # end
+    # client.puts " "
+    # client.puts search
+    # client.puts " "
+    # client.puts parsed_json_response
+
+    html = File.read("./views/search.html")
+    html = html.gsub("{{SEARCH_WORD}}", word)
+    html = html.gsub("{{TITLE}}", search[0]["Title"])
+    html = html.gsub("{{YEAR}}", search[0]["Year"])
+    html = html.gsub("{{LINK}}", search[0]["imdbID"])
+    client.puts html
+
     puts "sent data to client"
 
   else
