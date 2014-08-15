@@ -1,5 +1,6 @@
 require 'json'
 require 'socket'
+require 'pry'
 
 server = TCPServer.new 2000
 
@@ -23,7 +24,11 @@ loop do
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
     response = omdbapi.gets
+    omdbapi.close
     parsed = JSON.parse(response)
+
+    movies_html = []
+    #binding.pry
 
     parsed["Search"].each do |movie|
       html = File.read('./views/movies.html')
@@ -31,14 +36,17 @@ loop do
       html = html.gsub('{{title}}', movie["Title"])
       html = html.gsub('{{year}}', movie["Year"])
       html = html.gsub('{{imdb_id}}', movie["imdbID"])
+      movies_html.push(html)
 
-      client.puts(html)
-    end
+  end
+    client.puts(html)
   else
     html = File.read('./views/404.html')
-    client.puts(html)
   end
 
+
+
   client.close
+
 
 end
