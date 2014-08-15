@@ -24,16 +24,20 @@ loop do
     omdbapi.puts "GET /?s=#{word}"
     response = omdbapi.gets
     parsed = JSON.parse(response)
-
+    the_movies=[]
+    html = File.read('./views/movies.html')
     parsed["Search"].each do |movie|
-      html = File.read('./views/movies.html')
+     the_movies.push("<li>#{movie['Title']} (#{movie['Year']} - <a href='http://imdb.com/title/#{movie['imdbID']}'>See on imdb</a></li>")
+    
       html = html.gsub('{{search_word}}', word)
       html = html.gsub('{{title}}', movie["Title"])
       html = html.gsub('{{year}}', movie["Year"])
       html = html.gsub('{{imdb_id}}', movie["imdbID"])
 
-      client.puts(html)
+      
     end
+    html=html.gsub('{{search_word' , word).gsub('{{movie_info}}' , the_movies.join(''))
+    client.puts(html)
   else
     html = File.read('./views/404.html')
     client.puts(html)
