@@ -24,7 +24,7 @@ elsif path == '/words/word/friend'
 	friend_title = path.split('/')[3]
 	
 	omdb_api = TCPSocket.new 'www.omdbapi.com', 80
-	omdb_api.puts "GET /?s=#{friend_title}"
+	omdb_api.puts "GET /?s=#{title}"
 
 	json_response = omdb_api.gets.chomp
 	parsed_response = JSON.parse(json_response)
