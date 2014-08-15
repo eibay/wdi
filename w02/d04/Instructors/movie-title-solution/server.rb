@@ -23,17 +23,19 @@ loop do
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
     response = omdbapi.gets
+    omdbapi.close
     parsed = JSON.parse(response)
 
+  client.puts "<h1>#{word}</h1>"
+    client.puts "<ol>"
     parsed["Search"].each do |movie|
       html = File.read('./views/movies.html')
-      html = html.gsub('{{search_word}}', word)
       html = html.gsub('{{title}}', movie["Title"])
       html = html.gsub('{{year}}', movie["Year"])
       html = html.gsub('{{imdb_id}}', movie["imdbID"])
-
-      client.puts(html)
+    client.puts(html)
     end
+    client.puts "</ol>"
   else
     html = File.read('./views/404.html')
     client.puts(html)

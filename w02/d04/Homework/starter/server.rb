@@ -21,6 +21,10 @@ loop do
   if path == "/words"
     words1.each do |x|
       words2 << "<li><a href='/words/#{x}'>#{x}</li>"
+      #can make a new html with just above html
+      #and then File.read and gsub
+      #dont need html tags in this because it will be outputted in the
+      #new one
     end
 
     html = File.read('./views/index.html')
