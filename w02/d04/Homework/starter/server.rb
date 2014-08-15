@@ -24,6 +24,7 @@ loop do
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
 
+
   elsif path.split("/")[1] == "words"
     movie_search = path.split("/")[2]
 
@@ -41,7 +42,18 @@ loop do
     parsed_search["Search"].each do |a|
       search_results << "<li>" + a["Title"] + " (the " + a["Type"] + ') was released in ' + a["Year"] + " You can check out more info " + "<a href='http://www.imdb.com/title/" + a["imdbID"] + "/?ref_=nv_sr_1>here</a></li>"
     end
+    
+=begin
+    parsed_search["Search"].each do |a|
+      individual_movie = File.read(individual_movie.html)
+      individual_movie = individual_movie.gsub('{{title}}', a["movie"]).gsub('{{year}}', a["year"]).gsub('{{imdb_id}}', a["imdbID"])
 
+
+
+      gsub('{{title}}', movie_search)
+
+
+=end
     replace = search_results.join('')
     search = File.read('./views/search_page.html')
     search = search.gsub('{{everything}}', replace).gsub('{{title}}', movie_search)

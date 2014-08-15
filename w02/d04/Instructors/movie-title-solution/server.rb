@@ -25,15 +25,18 @@ loop do
     response = omdbapi.gets
     parsed = JSON.parse(response)
 
-    parsed["Search"].each do |movie|
-      html = File.read('./views/movies.html')
-      html = html.gsub('{{search_word}}', word)
-      html = html.gsub('{{title}}', movie["Title"])
-      html = html.gsub('{{year}}', movie["Year"])
-      html = html.gsub('{{imdb_id}}', movie["imdbID"])
+    # parsed["Search"].each do |movie|
+    #   html1 = File.read('./views/movies.html')
+    #   html1 = html.gsub('{{search_word}}', word)
+    #   end
 
-      client.puts(html)
-    end
+    # parsed["Search"].each do |movie|
+    #   html2 = File.read('./views/movies.html')
+    #   html2 = html.gsub('{{title}}', movie["Title"])
+    #   html2 = html.gsub('{{year}}', movie["Year"])
+    #   html2 = html.gsub('{{imdb_id}}', movie["imdbID"])
+    #   client.puts(html)
+    # end
   else
     html = File.read('./views/404.html')
     client.puts(html)
