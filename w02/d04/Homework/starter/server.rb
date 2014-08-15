@@ -27,7 +27,7 @@ loop do
   
   
   elsif path == "/words/friend"
-
+  
 
     omdb_api = TCPSocket.new 'www.omdbapi.com', 80
     omdb_api.puts "GET /?s=friend"
@@ -41,11 +41,10 @@ loop do
     movies = []
 
     parsed_response["Search"].each do |n|
-      url = 'http://www.imdb.com/title/'
-      url = url + n["imdbID"]
+      url = 'http://www.imdb.com/title/' + n["imdbID"]
       link = "<a href='#{url}'>"
       
-      movies.push("<li>#{n["Title"]} was released in #{n["Year"]}. Visit #{link}IMDb</a> to learn more.</li>")
+      movies.push("<li>#{n["Title"]} was released in #{n["Year"]}. #{link}Visit IMDb to learn more.</a></li>")
     
     end
 
@@ -69,11 +68,10 @@ loop do
     movies = []
 
     parsed_response["Search"].each do |n|
-      url = 'http://www.imdb.com/title/'
-      url = url + n["imdbID"]
+      url = 'http://www.imdb.com/title/' + n["imdbID"]
       link = "<a href='#{url}'>"
       
-      movies.push("<li>#{n["Title"]} was released in #{n["Year"]}. Visit #{link}IMDb</a> to learn more.</li>")
+      movies.push("<li>#{n["Title"]} was released in #{n["Year"]}. #{link}Visit IMDb to learn more.</a></li>")
     
     end
 
@@ -99,11 +97,10 @@ loop do
     movies = []
 
     parsed_response["Search"].each do |n|
-      url = 'http://www.imdb.com/title/'
-      url = url + n["imdbID"]
+      url = 'http://www.imdb.com/title/' + n["imdbID"]
       link = "<a href='#{url}'>"
       
-      movies.push("<li>#{n["Title"]} was released in #{n["Year"]}. Visit #{link}IMDb</a> to learn more.</li>")
+      movies.push("<li>#{n["Title"]} was released in #{n["Year"]}. #{link}Visit IMDb to learn more.</a></li>")
     
     end
 
