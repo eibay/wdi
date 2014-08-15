@@ -23,21 +23,25 @@ loop do
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
     response = omdbapi.gets
+    omdbapi.close
     parsed = JSON.parse(response)
 
-    ind_movie = File.read('./views/ind_movie.html')
     html = File.read('./views/movies.html')
-    search_result = []
+    html = html.gsub('{{search_word}}', word)
 
-    parsed["Search"].each do |movie|
-      ind_movie = ind_movie.gsub('{{search_word}}', word)
-      ind_movie = ind_movie.gsub('{{title}}', movie["Title"])
-      ind_movie = ind_movie.gsub('{{year}}', movie["Year"])
-      ind_movie = ind_movie.gsub('{{imdb_id}}', movie["imdbID"])
-      search_result << ind_movie
-    end
-      client.puts(html.gsub('{{ind_movie}}', search_result.join('')))
+    movies = []
     
+    parsed["Search"].each do |movie|
+      individual_movie = File.read('./views/individual_movie.html')
+      individual_movie = individual_movie.gsub('{{title}}', movie["Title"])
+      individual_movie = individual_movie.gsub('{{year}}', movie["Year"])
+      individual_movie = individual_movie.gsub('{{imdb_id}}', movie["imdbID"])
+      movies.push(individual_movie)
+    end
+
+    html = html.gsub('{{movies}}', movies.join(''))
+
+    client.puts(html)
   else
     html = File.read('./views/404.html')
     client.puts(html)
