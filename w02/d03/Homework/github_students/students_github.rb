@@ -149,7 +149,7 @@ github_students =[
     avatar_url: "https: //avatars.githubusercontent.com/u/8257713?v=2",
     public_repos: 0
   },
-  {
+    {
     login: "HeidiW",
     html_url: "https: //github.com/HeidiW",
     created_at: "2014-04-03T02: 11: 29Z",
@@ -164,4 +164,8 @@ github_students =[
     public_repos: 0
   }
 ]
+
+github_students.each do |hash|
+  puts "#{:login}'s login was created at #{:created_at}."
+end
 
