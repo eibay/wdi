@@ -11,6 +11,7 @@ while true
 
 	puts "#{Time.now} - Client has connected from #{client_ip}"
 
+	# http://127.0.0.1:2000/movies/inception
 	request = client.gets.chomp
 	path = request.split(' ')[1]
 	puts "#{Time.now} - Client #{client_ip} is attempting to reach #{path}"
@@ -19,6 +20,10 @@ while true
 		movie_title = path.split('/')[2]
 
 		omdb_api = TCPSocket.new 'www.omdbapi.com', 80
+# <<<<<<< HEAD
+# =======
+		# binding.pry
+# >>>>>>> 1c3aab4efa3384cea4614773bffc5bf5d838e972
 		omdb_api.puts "GET /?t=#{movie_title}"
 
 		puts "#{Time.now} - Connecting to OMBD"
