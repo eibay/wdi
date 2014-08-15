@@ -1,7 +1,7 @@
 require 'socket'
 require 'pry'
 require 'json'
-require 'uri'
+
 
 server = TCPServer.new 2000
 
@@ -14,11 +14,26 @@ loop do
   path = request.split(" ")[1]
 
   if path == "/"
-    html = File.read('./views/index.html')
+    trending_words_api = TCPSocket.new 'https://api.twitter.com/1.1/trends/place.json', 80
+    trending_words_api.puts "GET https://api.twitter.com/1.1/trends/place.json?id=1"
+    trending_words_output = trending_words_api.gets
+
+    #if trending_words actually retreived data
+    parsed_trending = JSON.parse(trending_words_output)
+    
+    trending_search=[]
+
+    #would have to unpeel array (0)/ hash "trends" pointing to array of hashes
+    
+    parsed_trending[0]["trends"].each do |b|
+      trending_search << "<li>" + b["name"] + "</li>"
+    end
+    trending_search_joined = trending_search,join('')
+    html = File.read('./views/index_bonus.html')
+    html = html.gsub('{{search}}', trending_search_joined)
+
     client.puts(html)
     puts "Client has connected to our database"
-
-
 
   elsif path == "/styles.css"
     css = File.read('./stylesheets/styles.css')
