@@ -45,7 +45,7 @@ loop do
 
     movies = []
     parsed_response["Search"].each do |x|
-      movies.push("<li>#{x['Title']}, #{x['Year']}, <a href='http://www.imdb.com/title/#{x['imdb_ID']}'>#{x['Title']} IMDB</a></li>")
+      movies.push("<li>#{x['Title']}, #{x['Year']}, <a href='http://www.imdb.com/title/#{x['imdbID']}'>#{x['Title']} IMDB</a></li>")
     end
 
     html = File.read('./views/movies.html')
