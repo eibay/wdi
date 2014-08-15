@@ -42,7 +42,7 @@ loop do
     client.puts(css)
   elsif(path.split("/").length==3)&&(path.split("/")[1]=="words")
       api=TCPSocket.new 'www.omdbapi.com', 80
-      api.puts "GET /?&s=#{path.split('/')[2]}"
+      api.puts "GET /?&s=#{path.split('/')[2]}&type=movie"
       puts"#{Time.now} :Connecting to OMDB".color(:magenta)
 
       response=api.gets
