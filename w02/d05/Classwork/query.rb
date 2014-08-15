@@ -1,8 +1,8 @@
 path = "/the_forest?animal=monkey&food=bananas&drink=coca_cola&drug=cocaine&accessories=hat"   
 
-parsedpath = {path: path.split('/')[1].split('?')[0], 
-	query_params: {path.split('?')[1].split('=')[0].to_sym => path.split('&')[0].split('=')[1], 
-		path.split('&')[1].split('=')[0].to_sym => path.split('&')[1].split('=')[1]}}
+# parsedpath = {path: path.split('/')[1].split('?')[0], 
+# 	query_params: {path.split('?')[1].split('=')[0].to_sym => path.split('&')[0].split('=')[1], 
+# 		path.split('&')[1].split('=')[0].to_sym => path.split('&')[1].split('=')[1]}}
 
 def parse_query(url)
 	path = url.split('?')[0]

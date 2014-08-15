@@ -12,10 +12,10 @@ loop do
   path = request.split(" ")[1]
 
   if path == "/"
-    html = File.read('./views/index.html')
+    html = File.read('./movie-title-classwork/views/index.html')
     client.puts(html)
   elsif path == "/styles.css"
-    css = File.read('./stylesheets/styles.css')
+    css = File.read('./movie-title-classwork/stylesheets/styles.css')
     client.puts(css)
   elsif path.split('/')[1] == "words"
     query = path.split('/')[2]
@@ -27,13 +27,13 @@ loop do
     omdbapi.close
     parsed = JSON.parse(response)
 
-    html = File.read('./views/movies.html')
+    html = File.read('./movie-title-classwork/views/movies.html')
     html = html.gsub('{{search_word}}', word)
 
     movies = []
     
     parsed["Search"].each do |movie|
-      individual_movie = File.read('./views/individual_movie.html')
+      individual_movie = File.read('./movie-title-classwork/views/individual_movie.html')
       individual_movie = individual_movie.gsub('{{title}}', movie["Title"])
       individual_movie = individual_movie.gsub('{{year}}', movie["Year"])
       individual_movie = individual_movie.gsub('{{imdb_id}}', movie["imdbID"])
@@ -44,7 +44,7 @@ loop do
 
     client.puts(html)
   else
-    html = File.read('./views/404.html')
+    html = File.read('./movie-title-classwork/views/404.html')
     client.puts(html)
   end
 
