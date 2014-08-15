@@ -1,5 +1,6 @@
 require 'json'
 require 'socket'
+require 'pry'
 
 server = TCPServer.new 2000
 
@@ -10,6 +11,27 @@ loop do
 
   request = client.gets.chomp
   path = request.split(" ")[1]
+binding.pry
+query = path.split('/')[1]
+hash = {}
+if query.include?("&")
+  elements = query.split("?")
+  hash[:path] = elements[0]
+  hash[:query_params] = {}
+  hasher = []
+  hasher << elements[1].split("&")
+  hasher.each do |x|
+    hash[:query_params] = Hash[*x]
+    end 
+end
+
+hash[:path] = elements[0]
+elements[1].split('&')
+elements << elements[1].split('&')
+elements[2].each do |x| elements << x.split('=') end
+hash[(elements[3][0].to_sym)] = elements[3][1]
+hash[(elements[4][0].to_sym)] = elements[4][1]
+
 
   if path == "/"
     html = File.read('./views/index.html')
@@ -30,7 +52,7 @@ loop do
     html = html.gsub('{{search_word}}', word)
 
     movies = []
-    
+
     parsed["Search"].each do |movie|
       individual_movie = File.read('./views/individual_movie.html')
       individual_movie = individual_movie.gsub('{{title}}', movie["Title"])
