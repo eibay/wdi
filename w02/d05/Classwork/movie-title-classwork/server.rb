@@ -13,6 +13,10 @@ def parse_url(url)
   params = {}
   params[:path] = path
 
+  if query_string == nil
+    return params
+  end
+
   pairs = query_string.split("&")
 
   key_values = []
