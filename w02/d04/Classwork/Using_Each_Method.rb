@@ -1,7 +1,15 @@
-require 'socket'
-require 'pry'
+names = ["Jeff", "Sean", "Neel"]
+newnames = []
 
-student_db = [
+method.each do |x|
+	newnames << n.upcase
+end
+
+#other way to code it
+method.each {|x| newnames << n.upcase}
+
+
+class_data = [
   {
     "login"=>"theerickramer",
     "html_url"=>"https://github.com/theerickramer",
@@ -165,121 +173,42 @@ student_db = [
   }
 ]
 
-server = TCPServer.new 2000
+for each element in the array ==> so for each hash class_data[x]
 
-#lets create an array of just the logins
-#from the student_db array of hashes
+x = 0
 
-logins = []
-i = 0
-while i < student_db.length
-	student_info = student_db[i]
-	login = student_info["login"]
-	logins << login
+	while x < class_data.length
 
-	i+=1
-end
+	class_data[x].each do |login, created_at|
 
-#we want a while true loop so that
-#after we get a request from a browser and
-#send a response we then start over and
-#listen for a new request to come to us (the server)
-#from the browser
-while true
-	#the server will wait at this line
-	#until a browser sends a request to it
-	#(waiting for the phone to ring)
-	client = server.accept
+		login = class_data[x]["login"]
+		created at = class_data[x]["created_at"]
+#this is wrong because class_data[x] IS the enumerator |item| 
+#that we would have used. for example [x] would be the |item|
 
-	#pick up the phone and see what they want
-	request_first_line = client.gets.chomp
-	path = request_first_line.split(' ')[1]
+	"Log-in: #{login} was created at #{created_at}"
 
-	#print to the server log the path from the request
-	puts path
-
-	#this reponse string will be used to build up
-	#our html line by line. we will finally
-	#client.puts it at the end once it is all built up
-	response = ""
-	response += '<html><body>'
-
-	if (path == "/")
-		i = 0
-		response += '<ol>'
-		#output a link for each login
-		while i < logins.length
-			login = logins[i]
-			template = "<li><a href='{{login}}'>{{login}}</a></li>"
-			response += template.gsub('{{login}}', login)
-			i+=1
-		end
-		response += "</ol>"
-	elsif logins.include? path.split('/')[1]
-		#on a specific students page
-
-		#grab their login from the path variable
-		login = path.split('/')[1]
-
-
-		#first find the student info using the login
-		i=0
-		info = {}
-		#loop through each students info
-		while i< student_db.length
-			#is this the student info with the
-			#login that we are looking for?
-
-
-#######
-#I DONT UNDERSTAND WHY WE DO THE IF LOOP BELOW IF WE HAVE THE ELSIF LOOP ABOVE
-#OH BECAUSE THAT FIRST ELSIF LOOP JUST GIVES US A NAME TO CALL THE BROWSER PATH
-#SECOND LOOP LETS US SEE IF THAT PATH ACTUALLY MATCHES THE NAME OF AN ITEM IN OUR 
-#HASH
-
-			if student_db[i]["login"] == login
-				#yes it is! lets grab the hash corresponding to this student
-				info = student_db[i]
-			end
-			i+=1
-		end
-		#ok now that we are out of that while loop
-		#the info hash should be properly set
-
-
-		response += "<ol>"
-		template = 
-			"<li><a href='{{url}}'>{{login}}</a></li> \
-			<li>{{created_at}}</li> \
-			<li>{{repos}}</li> \
-			<li><img src={{avatar}} /></li>"
-
-		#one by one put in each value of the students info hash
-		template = template.gsub("{{login}}", info["login"])
-		template = template.gsub("{{created_at}}", info["created_at"])
-		template = template.gsub("{{url}}", info["html_url"])
-		template = template.gsub("{{repos}}", info["public_repos"].to_s)
-		template = template.gsub("{{avatar}}", info["avatar_url"])
-		
-		#add that whole template that we just formed
-		#to the reponse string that we have been building up
-		response += template
-		response += "</ol>"
-	else
-		response += "wat?"
 	end
 
-	response += '</body></html>'
+x+=1
 
-	#send the response string back to the client
-	client.puts response
-
-	#close the connection (hang up the phone)
-	client.close
-
-	#this is the end of the while loop, after reaching this
-	#the code will return to the line right after
-	#while true and once again listen for a new connection
 end
+
+
+CORRECT WAY
+
+# x is still the index 
+class_data.each do |n|
+#i dont need to say class_data, 
+#because each element in the array is n
+
+puts "#{n["login"]} was created at #{n["created_at"]}"
+end
+
+
+
+
+
+
 
 

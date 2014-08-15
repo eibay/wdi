@@ -270,11 +270,14 @@ while true
     #elsif path.split("/")[1] == "movies" 
     #this split might not work if first path we're looking for is '/'
 
-    elsif path.split("/").length == 2
+#first elsif approach
+     # elsif path.split("/").length == 2
   
-      login_name = path.split('/')[1]
+     #  login_name = path.split('/')[1]
       # to find login name match in array
 
+    elsif path.split('/')[1] = login_name && path.split("/").length == 2
+  #(what about the quotes that will be around the login_name?)
       i = 0
       while i < class_data.length
           if class_data[i]["login"] == login_name
