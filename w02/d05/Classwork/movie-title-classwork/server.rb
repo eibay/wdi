@@ -1,6 +1,7 @@
 require 'pry'
 require 'json'
 require 'socket'
+require 'httparty'
 
 server = TCPServer.new 2000
 
@@ -42,20 +43,21 @@ loop do
   request = client.gets
   path = request.split(" ")[1]
   params = parse_url(path)
-
-  if path == "/"
+#binding.pry
+  if params[:path]  == "/"
     html = File.read('./views/index.html')
     client.puts(html)
-  elsif path == "/styles.css"
+  elsif params[:path]  == "/styles.css"
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
-  elsif path.split('/')[1] == "words"
-    word = path.split('/')[2]
+  elsif params[:path] == "/words"
+    word = params[:query_params][:specific_word]
 
-    omdbapi = TCPSocket.new 'www.omdbapi.com', 80
-    omdbapi.puts "GET /?s=#{word}"
-    response = omdbapi.gets
-    omdbapi.close
+    response = HTTParty.get("http://www.omdbapi.com/?s=#{word}")
+    # omdbapi = TCPSocket.new 'www.omdbapi.com', 80
+    # omdbapi.puts "GET /?s=#{word}"
+    # response = omdbapi.gets
+    # omdbapi.close
     parsed = JSON.parse(response)
 
     html = File.read('./views/movies.html')
