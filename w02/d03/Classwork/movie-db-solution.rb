@@ -88,7 +88,7 @@ while true
 
   elsif path.split("/")[1] == "movies" && path.split("/").length == 3
     title = URI.decode(path.split('/')[2])
-
+binding.pry
     # find movie in array
     i = 0
     while i < movie_db.length

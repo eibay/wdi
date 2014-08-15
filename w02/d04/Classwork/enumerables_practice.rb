@@ -1,6 +1,3 @@
-require 'socket'
-server = TCPServer.new 2000
-require 'uri'
 require 'pry'
 
 student_git = [
@@ -167,66 +164,4 @@ student_git = [
   }
 ]
 
-student_git_array =[] #empty array that we will use to refer to for gsub
-index = 0
-
-while index < student_git.length
-  name = student_git[index]
-  student_git_array <<("<li> <a href='/students/#{URI.encode(name[:login])}'> #{name[:login]} </a></li>")
-  index += 1
-end
-
-while true
-	client = server.accept
-	request = client.gets.chomp
-	puts = "Client said: #{request}."
-	path = request.split(" ")[1]
-
-  if path == "/"
-  client.puts "DON'T FREAK OUT, USE /students STUPID!"
-
-  elsif path == "/students"
-  html = File.read('./views/students.html')
-  client.puts html.gsub('{{student_git_array}}', student_git_array.join('')) #displaying list of users   
-
-
-  elsif path == "/style.css"
-    css = File.read('./stylesheets/style.css')
-    client.puts(css)
-  
-  elsif path == "/style2.css"
-    css = File.read('./stylesheets/style2.css')
-    client.puts(css)
-    
-  #path.split("/") = [0] " ", [1] "students"
-  #path.split("/")[1] = "students"
-  #path.split("/").length == 3, length of the URL/domain
-
-  elsif path.split("/")[1] == "students" && path.split("/").length == 3
-  nameurl = URI.decode(path.split('/')[2])
-
-  index = 0
-
-  #student_git[index][:login] = "TimoorKurdi"
-  #TimoorKurdi = name
-  #student_git[index] = login, html_url, created_at, avatar_url, public_repos
-while index < student_git.length
-  if student_git[index][:login] == nameurl
-  name = student_git[index]
-end
-  index += 1
-end
-
-student_info = File.read('./views/students2.html')
-
-student_info = student_info.gsub("{{name[:login]}}", name[:login])
-student_info = student_info.gsub("{{name[:html_url]}}", name[:html_url])
-student_info = student_info.gsub("{{name[created_at]}}", name[:created_at])
-student_info = student_info.gsub("{{name[avatar_url]}}", name[:avatar_url])
-student_info = student_info.gsub("{{name[public_repos]}}", name[:public_repos])
-
-
-client.puts student_info
-end
-client.close
-end
+binding.pry
