@@ -1,5 +1,6 @@
 require 'json'
 require 'socket'
+require 'pry'
 
 server = TCPServer.new 2000
 
@@ -25,15 +26,27 @@ loop do
     response = omdbapi.gets
     parsed = JSON.parse(response)
 
-    parsed["Search"].each do |movie|
+    movies = []
+
+    parsed["Search"].each { |movie|
+      movies << "<li><a href ='#{movie["imdb_id"]}'>#{movie["Title"]}</a>- (#{movie["Year"]})</li>"
+    }
+
+    # binding.pry
+
+    movie = movies.join(' ')
+
       html = File.read('./views/movies.html')
-      html = html.gsub('{{search_word}}', word)
-      html = html.gsub('{{title}}', movie["Title"])
-      html = html.gsub('{{year}}', movie["Year"])
-      html = html.gsub('{{imdb_id}}', movie["imdbID"])
+      html = html.gsub('{{word}}', word)
+      html = html.gsub('{{movie}}', movie)
+      # html = html.gsub('{{title}}', 
+      # html = html.gsub('{{title}}', movie["Title"])
+      # html = html.gsub('{{year}}', movie["Year"])
+      # html = html.gsub('{{imdb_id}}', movie["imdbID"])
+      binding.pry
 
       client.puts(html)
-    end
+
   else
     html = File.read('./views/404.html')
     client.puts(html)
