@@ -19,9 +19,10 @@ loop do
     client.puts(html)
   elsif path == "/styles.css"
     css = File.read('./stylesheets/styles.css')
-    client.puts(css)
-  elsif path.split('/')[1][0,7] == "words?s"
-    word = path.split('/')[1][8,path.length-1] 
+    client.puts(css) 
+  elsif path.split('/')[1][0,8] == "movies?s"
+    word = path.split('/')[1][9,path.length-1]
+    puts word  
 
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
