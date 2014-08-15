@@ -1,3 +1,4 @@
+require 'pry'
 require 'json'
 require 'socket'
 
@@ -10,7 +11,7 @@ loop do
 
   request = client.gets.chomp
   path = request.split(" ")[1]
-
+  binding.pry
   if path == "/"
     html = File.read('./views/index.html')
     client.puts(html)
