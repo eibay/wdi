@@ -13,7 +13,7 @@ loop do
   client = server.accept
   puts "client connected"
 
-  request = client.gets.chomp
+  request = client.gets
   path = request.split(" ")[1]
   path1 = path.split("/")
   puts "Attempting to reach path"
