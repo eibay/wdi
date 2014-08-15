@@ -1,6 +1,5 @@
 require 'socket'
 require 'pry'
-require 'json'
 
 server = TCPServer.new 2000
 
@@ -24,14 +23,13 @@ while true
 
 		puts "#{Time.now} - Connecting to Jeff's Weather Server"
 		binding.pry 
-
-		json_response = jeffs_api.gets
-		parsed_response = JSON.parse(json_response)
+		
+		response = jeffs_api.gets
 
 		jeffs_api.close
 		puts "#{Time.now} - Disconnected to Jeff's Weather Server"
 
-		client.puts "The temperature outside is #{parsed_response["weather"]}, while humidity is #{parsed_response["humidity"]}. And also, hash crape is #{parsed_response["hash_crap"]}"
+		client.puts response
 
 	end
 

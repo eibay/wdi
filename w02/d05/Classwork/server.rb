@@ -1,5 +1,6 @@
 require 'json'
 require 'socket'
+require 'pry'
 
 server = TCPServer.new 2000
 
@@ -10,6 +11,7 @@ loop do
 
   request = client.gets.chomp
   path = request.split(" ")[1]
+  parse = parse_url(path)
 
   if path == "/"
     html = File.read('./views/index.html')
