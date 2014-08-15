@@ -24,16 +24,27 @@ loop do
     omdbapi.puts "GET /?s=#{word}"
     response = omdbapi.gets
     parsed = JSON.parse(response)
-
-    parsed["Search"].each do |movie|
+    unless  parsed["Search"][0] == true
+      html = File.read('./views/movie_items.html')
       html = File.read('./views/movies.html')
-      html = html.gsub('{{search_word}}', word)
-      html = html.gsub('{{title}}', movie["Title"])
-      html = html.gsub('{{year}}', movie["Year"])
-      html = html.gsub('{{imdb_id}}', movie["imdbID"])
+      parsed["Search"].each do |movie|
+        html = html.gsub('{{search_word}}', word)
+        html = html.gsub('{{title}}', movie["Title"])
+        html = html.gsub('{{year}}', movie["Year"])
+        html = html.gsub('{{imdb_id}}', movie["imdbID"])
+      end
+    else
+          parsed["Search"].each do |movie|
+            html = File.read('./views/movies.html')
+            # html = html.gsub('{{movie}}', )
+            html = html.gsub('{{search_word}}', word)
+            html = html.gsub('{{title}}', movie["Title"])
+            html = html.gsub('{{year}}', movie["Year"])
+            html = html.gsub('{{imdb_id}}', movie["imdbID"])
+          end
 
-      client.puts(html)
     end
+    client.puts(html)
   else
     html = File.read('./views/404.html')
     client.puts(html)

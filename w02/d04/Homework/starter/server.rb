@@ -30,21 +30,20 @@ loop do
 
     omdb_response = JSON.parse(omdb_api.gets)
 
-    j = 0
-    movies = 0
-      while movies < omdb_response["Search"].length
-        while j < omdb_response["Search"].length
+    # j = 0
+    # movies = 0
+    #   while movies < omdb_response["Search"].length
+        omdb_response["Search"].each do |movie|
           # client.puts omdb_response["Search"][j]["Title"]
-          # client.puts omdb_response["Search"][j]["Year"]
-          # client.puts omdb_response["Search"][j]["imdbID"]
+          # client.puts omdb_response["Search"]["Year"]
+          # client.puts omdb_response["Search"][["imdbID"]
           html = html.gsub('{{{word}}}', word)
-          html = html.gsub('{{{title}}}', omdb_response["Search"][j]["Title"] )
-          html = html.gsub('{{{year}}}', omdb_response["Search"][j]["Year"])
-          html = html.gsub('{{{imdbID}}}', omdb_response["Search"][j]["imdbID"])
-          # client.puts(html)
-          j += 1
+          html = html.gsub('{{{title}}}', movie["Search"]["Title"] )
+          html = html.gsub('{{{year}}}', movie["Search"]["Year"])
+          html = html.gsub('{{{imdbID}}}', movie["Search"]["imdbID"])
+          client.puts(html)
         end
-        movies += 1
+        # movies += 1
         client.puts(html)
       end
     omdb_api.close
