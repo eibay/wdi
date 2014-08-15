@@ -91,6 +91,7 @@ class Array
 	end 
 end 
 
+=begin TESTING PURPOSES 
 artists = looking_for("love").gather_up_artists 
 
 # print 
@@ -104,4 +105,15 @@ artists.each do |artist|
 	puts name.in_green unless name.nil? 
 	info = artist["disambiguation"]
 	puts info.in_blue unless info.nil? 
+end 
+=end
+
+s = TCPServer.new 2000
+
+loop do 
+	client = s.accept 
+	request = client.gets 
+	puts request 
+	client.puts "<h1>It works!</h1>"
+	client.close 
 end 
