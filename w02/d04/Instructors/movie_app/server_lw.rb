@@ -1,6 +1,7 @@
 require 'socket'
 require 'pry'
 require 'json'
+require 'uri'
 
 server = TCPServer.new 2000
 
@@ -15,9 +16,17 @@ while true
 	path = request.split(' ')[1]
 	puts "#{Time.now} - Client #{client_ip} is attempting to reach #{path}"
 
-	if path == '/inception'
+	if path == '/'
+	client.puts "What movie would you like information on?"
+#	which_movie = gets.chomp
+binding.pry
+
+#	elsif path.split("/")[1] == "movies" && path.split("/")[2]
+	elsif path.split('/')[1] == "movies"
+		which_movie = path.split("/")[2]
+
 		omdb_api = TCPSocket.new 'www.omdbapi.com', 80
-		omdb_api.puts 'GET /?t=inception'
+		omdb_api.puts "GET /?t=#{which_movie}"
 
 		puts "#{Time.now} - Connecting to OMBD"
 
