@@ -1,0 +1,24 @@
+body {
+	background-color: lightblue;
+	font-family: Courier;
+	font-size: 18px;
+	color: navy;
+}
+
+
+li {
+	padding: 5px;
+	border-left: navy 1px solid;
+	border-bottom: navy 3px solid;
+	border-top: navy 1px solid;
+	border-right: navy 3px solid;
+	list-style-type: none;
+	margin: 10px 10px 0px auto;
+	border-radius: 7px;
+}
+h1 {
+	text-align: center;
+}
+a {
+	text-decoration: none;
+}
