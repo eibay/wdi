@@ -1,28 +1,13 @@
-##Week2-Day03
+names = ["Jeff", "Sean", "Neel"]
+newnames = []
 
-# - **Goal**: To continue exploring how to use templates to dynamically generate our html
-# - **Spec**:
-#   - Create a TCP server in Ruby
-#   - There should be a route to `/` that displays a list of all the students in our class
-#   - If you click on a students name, you should be shown Github information about that student
-#     - Use the provided data to fill in this information
-#       - Include login, created_at, html_url, public_repos and avatar image
-#   - You **must** use templates and `.gsub` to limit the amount of html pages that you have to create
+names.each do |x|
+	newnames << n.upcase
+end
 
-# - **Things to Consider**:
-#   - It is a really good idea to initially start with creating a template to view the Github information of just one student.
-#   - Once you have a good idea of how that is working, you can build the rest of the assignment around it
-# - **Data**:
-#   - [Student Github Hash](https://gist.github.com/jkonowitch/67d63351948f838b089d)
-#   - Follow the link and copy the entire hash into your Ruby file
-# - **Bonus**
-#   - Add stylesheets
-#   - Use RUBY to add your stylesheets to the `<head>` of your html. (ie, can you not type the `<link>` tag into every html file)
+#other way to code it
+names.each {|x| newnames << n.upcase}
 
-
-require 'socket'
-# require 'uri'
-require 'pry'
 
 class_data = [
   {
@@ -188,155 +173,37 @@ class_data = [
   }
 ]
 
-#to test
-# class_data = [{
-#     "login"=>"HeidiW",
-#     "html_url"=>"https://github.com/HeidiW",
-#     "created_at"=>"2014-04-03T02:11:29Z",
-#     "avatar_url"=>"https://avatars.githubusercontent.com/u/7145267?v=2",
-#     "public_repos"=>2
-#   },
-#   {
-#     "login"=>"pateltejal9500",
-#     "html_url"=>"https://github.com/pateltejal9500",
-#     "created_at"=>"2014-07-09T20:15:56Z",
-#     "avatar_url"=>"https://avatars.githubusercontent.com/u/8117970?v=2",
-#     "public_repos"=>0
-#   }
-# ]
+for each element in the array ==> so for each hash class_data[x]
 
+x = 0
 
-#titles = []
-all_students_for_index = []
+	while x < class_data.length
 
-# i = 0
-# while i < movie_db.length
-#   movie = movie_db[i]
-#   titles.push("<li><a href='/movies/#{URI.encode(movie[:name])}'>#{movie[:name]}</a></li>")
-#   i += 1
-# end
+	class_data[x].each do |login, created_at|
 
-i = 0
-while i < class_data.length
-  person = class_data[i] #this is to access the hash that is that person's record
-  all_students_for_index.push("<li><a href='/#{person["login"]}'>#{person["login"]}</a></li>")
-  i += 1
-end
+		login = class_data[x]["login"]
+		created at = class_data[x]["created_at"]
+#this is wrong because class_data[x] IS the enumerator |item| 
+#that we would have used. for example [x] would be the |item|
 
-server = TCPServer.new 2000
+	"Log-in: #{login} was created at #{created_at}"
 
-while true
-  client = server.accept
-  puts "Client connected"
+	end
 
-  request = client.gets.chomp
-  path = request.split(" ")[1]
-  puts "Requesting #{path}"
-
-
-    if path == '/' #means if the path == root
-      html = File.read('./views/student_index.html') #this tells it what file to read and stores it to variable 'html'
-      puts "Sent 'student_index.html' to viewer." #we sent this to the client 
-      #try it first without this, then see if it works
-
-
-      html = html.gsub("{{stylesheet}}", "<link rel='stylesheet' type='text/css' href='../stylesheets/style.css'>")
-#see if this is correct path for the stylesheet to be read
-
-
-      html = html.gsub('{{students}}', all_students_for_index.join(''))
-            # array.join(''))
-            # .join joins all the elements in the array into a string
-            # item in the () tells you what to separate the values with
-            # here they will be separated with a space
-      client.puts(html)
-
-#do i need to add this here? or does it work above
-#i needed 
-
-    elsif path == '/stylesheets/style.css' 
-      html = File.read('./stylesheets/style.css') 
-
-
-#HOW TO CHECK WHAT 'REQUEST' IS HERE?
-# request = "GET /movies HTTP/1.1"
-# path = request.split(" ")[1]
-# path = "/movies"
-# path.split("/")[1] = movies 
-#our path.split("/")[1] = the login name
-# from browser http://127.0.0.1:2000/theerickramer
-
-
-    #elsif path.split("/")[1] == "movies" 
-    #this split might not work if first path we're looking for is '/'
-
-#first elsif approach
-     # elsif path.split("/").length == 2
-  
-     #  login_name = path.split('/')[1]
-      # to find login name match in array
-
-    elsif path.split('/')[1] = login_name && path.split("/").length == 2
-  #(what about the quotes that will be around the login_name?)
-      i = 0
-      while i < class_data.length
-          if class_data[i]["login"] == login_name
-            login_name = class_data[i] 
-          end
-      i += 1
-      end
-
-#where this came from - but now i don't get the logic of it? 
-#if it ==, then we assign it to the value that it's equal to?
-
-# i = 0
-#     while i < movie_db.length
-#       if movie_db[i][:name] == title
-#         movie = movie_db[i] 
-#       end
-
-#       i += 1
-#     end
-
-      html = File.read('./views/student_details.html')
-
-      html = html.gsub('{{user}}', login_name["login"])
-      #ERROR
-      #Class_List_Database.rb:300:in `gsub': no implicit conversion of nil into String (TypeError)
-      html = html.gsub('{{html}}', login_name["html_url"])
-      html = html.gsub('{{create_date}}', login_name["created_at"])
-      html = html.gsub('{{link}}', login_name["public_repos"].to_s)
-      html = html.gsub('{{avatar}}', login_name["avatar_url"])
-      # html = html.gsub('{{link}}', login_name["public_repos"])
-      #do we need to convert the integer value output as a string or leave as is
-
-      client.puts(html)
-
-    else 
-      client.puts "Error"
-
-  end
-
-client.close
-  puts "Client disconnected"
+x+=1
 
 end
 
 
+CORRECT WAY
 
+# x is still the index 
+class_data.each do |n|
+#i dont need to say class_data, 
+#because each element in the array is n
 
-
-
-
-
-
-
-
-
-
-
-
-
+puts "#{n["login"]} was created at #{n["created_at"]}"
+end
 
 
 

@@ -101,7 +101,7 @@ binding.pry
       end
 
       i += 1
-    end
+    endn
 
     html = File.read('./views/movie_detail_page.html')
 

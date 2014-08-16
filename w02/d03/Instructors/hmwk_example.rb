@@ -1,30 +1,7 @@
-##Week2-Day03
-
-# - **Goal**: To continue exploring how to use templates to dynamically generate our html
-# - **Spec**:
-#   - Create a TCP server in Ruby
-#   - There should be a route to `/` that displays a list of all the students in our class
-#   - If you click on a students name, you should be shown Github information about that student
-#     - Use the provided data to fill in this information
-#       - Include login, created_at, html_url, public_repos and avatar image
-#   - You **must** use templates and `.gsub` to limit the amount of html pages that you have to create
-
-# - **Things to Consider**:
-#   - It is a really good idea to initially start with creating a template to view the Github information of just one student.
-#   - Once you have a good idea of how that is working, you can build the rest of the assignment around it
-# - **Data**:
-#   - [Student Github Hash](https://gist.github.com/jkonowitch/67d63351948f838b089d)
-#   - Follow the link and copy the entire hash into your Ruby file
-# - **Bonus**
-#   - Add stylesheets
-#   - Use RUBY to add your stylesheets to the `<head>` of your html. (ie, can you not type the `<link>` tag into every html file)
-
-
 require 'socket'
-# require 'uri'
 require 'pry'
 
-class_data = [
+student_db = [
   {
     "login"=>"theerickramer",
     "html_url"=>"https://github.com/theerickramer",
@@ -188,160 +165,121 @@ class_data = [
   }
 ]
 
-#to test
-# class_data = [{
-#     "login"=>"HeidiW",
-#     "html_url"=>"https://github.com/HeidiW",
-#     "created_at"=>"2014-04-03T02:11:29Z",
-#     "avatar_url"=>"https://avatars.githubusercontent.com/u/7145267?v=2",
-#     "public_repos"=>2
-#   },
-#   {
-#     "login"=>"pateltejal9500",
-#     "html_url"=>"https://github.com/pateltejal9500",
-#     "created_at"=>"2014-07-09T20:15:56Z",
-#     "avatar_url"=>"https://avatars.githubusercontent.com/u/8117970?v=2",
-#     "public_repos"=>0
-#   }
-# ]
-
-
-#titles = []
-all_students_for_index = []
-
-# i = 0
-# while i < movie_db.length
-#   movie = movie_db[i]
-#   titles.push("<li><a href='/movies/#{URI.encode(movie[:name])}'>#{movie[:name]}</a></li>")
-#   i += 1
-# end
-
-i = 0
-while i < class_data.length
-  person = class_data[i] #this is to access the hash that is that person's record
-  all_students_for_index.push("<li><a href='/#{person["login"]}'>#{person["login"]}</a></li>")
-  i += 1
-end
-
 server = TCPServer.new 2000
 
-while true
-  client = server.accept
-  puts "Client connected"
+#lets create an array of just the logins
+#from the student_db array of hashes
 
-  request = client.gets.chomp
-  path = request.split(" ")[1]
-  puts "Requesting #{path}"
+logins = []
+i = 0
+while i < student_db.length
+	student_info = student_db[i]
+	login = student_info["login"]
+	logins << login
 
-
-    if path == '/' #means if the path == root
-      html = File.read('./views/student_index.html') #this tells it what file to read and stores it to variable 'html'
-      puts "Sent 'student_index.html' to viewer." #we sent this to the client 
-      #try it first without this, then see if it works
-
-
-      html = html.gsub("{{stylesheet}}", "<link rel='stylesheet' type='text/css' href='../stylesheets/style.css'>")
-#see if this is correct path for the stylesheet to be read
-
-
-      html = html.gsub('{{students}}', all_students_for_index.join(''))
-            # array.join(''))
-            # .join joins all the elements in the array into a string
-            # item in the () tells you what to separate the values with
-            # here they will be separated with a space
-      client.puts(html)
-
-#do i need to add this here? or does it work above
-#i needed 
-
-    elsif path == '/stylesheets/style.css' 
-      html = File.read('./stylesheets/style.css') 
-
-
-#HOW TO CHECK WHAT 'REQUEST' IS HERE?
-# request = "GET /movies HTTP/1.1"
-# path = request.split(" ")[1]
-# path = "/movies"
-# path.split("/")[1] = movies 
-#our path.split("/")[1] = the login name
-# from browser http://127.0.0.1:2000/theerickramer
-
-
-    #elsif path.split("/")[1] == "movies" 
-    #this split might not work if first path we're looking for is '/'
-
-#first elsif approach
-     # elsif path.split("/").length == 2
-  
-     #  login_name = path.split('/')[1]
-      # to find login name match in array
-
-    elsif path.split('/')[1] = login_name && path.split("/").length == 2
-  #(what about the quotes that will be around the login_name?)
-      i = 0
-      while i < class_data.length
-          if class_data[i]["login"] == login_name
-            login_name = class_data[i] 
-          end
-      i += 1
-      end
-
-#where this came from - but now i don't get the logic of it? 
-#if it ==, then we assign it to the value that it's equal to?
-
-# i = 0
-#     while i < movie_db.length
-#       if movie_db[i][:name] == title
-#         movie = movie_db[i] 
-#       end
-
-#       i += 1
-#     end
-
-      html = File.read('./views/student_details.html')
-
-      html = html.gsub('{{user}}', login_name["login"])
-      #ERROR
-      #Class_List_Database.rb:300:in `gsub': no implicit conversion of nil into String (TypeError)
-      html = html.gsub('{{html}}', login_name["html_url"])
-      html = html.gsub('{{create_date}}', login_name["created_at"])
-      html = html.gsub('{{link}}', login_name["public_repos"].to_s)
-      html = html.gsub('{{avatar}}', login_name["avatar_url"])
-      # html = html.gsub('{{link}}', login_name["public_repos"])
-      #do we need to convert the integer value output as a string or leave as is
-
-      client.puts(html)
-
-    else 
-      client.puts "Error"
-
-  end
-
-client.close
-  puts "Client disconnected"
-
+	i+=1
 end
 
+#we want a while true loop so that
+#after we get a request from a browser and
+#send a response we then start over and
+#listen for a new request to come to us (the server)
+#from the browser
+while true
+	#the server will wait at this line
+	#until a browser sends a request to it
+	#(waiting for the phone to ring)
+	client = server.accept
+
+	#pick up the phone and see what they want
+	request_first_line = client.gets.chomp
+	path = request_first_line.split(' ')[1]
+
+	#print to the server log the path from the request
+	puts path
+
+	#this reponse string will be used to build up
+	#our html line by line. we will finally
+	#client.puts it at the end once it is all built up
+	response = ""
+	response += '<html><body>'
+
+	if (path == "/")
+		i = 0
+		response += '<ol>'
+		#output a link for each login
+		while i < logins.length
+			login = logins[i]
+			template = "<li><a href='{{login}}'>{{login}}</a></li>"
+			response += template.gsub('{{login}}', login)
+			i+=1
+		end
+		response += "</ol>"
+	elsif logins.include? path.split('/')[1]
+		#on a specific students page
+
+		#grab their login from the path variable
+		login = path.split('/')[1]
 
 
+		#first find the student info using the login
+		i=0
+		info = {}
+		#loop through each students info
+		while i< student_db.length
+			#is this the student info with the
+			#login that we are looking for?
 
 
+#######
+#I DONT UNDERSTAND WHY WE DO THE IF LOOP BELOW IF WE HAVE THE ELSIF LOOP ABOVE
+#OH BECAUSE THAT FIRST ELSIF LOOP JUST GIVES US A NAME TO CALL THE BROWSER PATH
+#SECOND LOOP LETS US SEE IF THAT PATH ACTUALLY MATCHES THE NAME OF AN ITEM IN OUR 
+#HASH
+
+			if student_db[i]["login"] == login
+				#yes it is! lets grab the hash corresponding to this student
+				info = student_db[i]
+			end
+			i+=1
+		end
+		#ok now that we are out of that while loop
+		#the info hash should be properly set
 
 
+		response += "<ol>"
+		template = 
+			"<li><a href='{{url}}'>{{login}}</a></li> \
+			<li>{{created_at}}</li> \
+			<li>{{repos}}</li> \
+			<li><img src={{avatar}} /></li>"
 
+		#one by one put in each value of the students info hash
+		template = template.gsub("{{login}}", info["login"])
+		template = template.gsub("{{created_at}}", info["created_at"])
+		template = template.gsub("{{url}}", info["html_url"])
+		template = template.gsub("{{repos}}", info["public_repos"].to_s)
+		template = template.gsub("{{avatar}}", info["avatar_url"])
+		
+		#add that whole template that we just formed
+		#to the reponse string that we have been building up
+		response += template
+		response += "</ol>"
+	else
+		response += "wat?"
+	end
 
+	response += '</body></html>'
 
+	#send the response string back to the client
+	client.puts response
 
+	#close the connection (hang up the phone)
+	client.close
 
-
-
-
-
-
-
-
-
-
-
+	#this is the end of the while loop, after reaching this
+	#the code will return to the line right after
+	#while true and once again listen for a new connection
+end
 
 
