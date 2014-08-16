@@ -1,7 +1,3 @@
-require 'socket'
-require 'pry'
-server = TCPServer.new 2000
-
 
 students = [
   {
@@ -167,74 +163,11 @@ students = [
   }
 ]
 
-names=[]
-i = 0
-while i < students.length
-	names << "<li><a href='/login/#{students[i]["login"]}'>#{students[i]["login"]}</a></li>"
-
-	i += 1
-end
-while true
-	client = server.accept
-	puts "client is linked"
-	request = client.gets.chomp
-	path = request.split(' ')[1]
-	path1 = path.split("/")
-
-counter = 0
-counter1 = 0
-
-	if path == "/login"
-			html2 = File.read("./Views/index.html")
-			html2 = html2.gsub("{{login_name}}", names.join(''))
-			html2 = html2.gsub("{{style}}", '<link rel ="stylesheet" type=text/css href="/style">')
-			client.puts html2
-
-# another way to do it finding the student name first and then gsub it
-#       while counter1 < students.length
-#   if path1[2] == students[counter1]["login"]
-#     student = students[counter]
-#   end
-#   counter1 += 1
-# end
-
-# html1 = File.read("./Views/index1.html")
-# html1 = html1.gsub("{{login_name}}", student["login"])
-# html1 = html1.gsub("{{html_url}}", student["html_url"])
-# html1 = html1.gsub("{{created_at}}", student["created_at"])
-# html1 = html1.gsub("{{avatar}}", student["avatar_url"])
-# html1 = html1.gsub("{{public}}", (student["public_repos"]).to_s)
-# html1 = html1.gsub("{{style}}", '<link rel ="stylesheet" type=text/css href="/style">')
-
-# client.puts html1
-			
-	elsif path1[1] == "login" && path1[2]
-		while counter1 < students.length
-			if path1[2] == students[counter1]["login"]
-			html1 = File.read("./Views/index1.html")
-			html1 = html1.gsub("{{login_name}}", students[counter1]["login"])
-			html1 = html1.gsub("{{html_url}}", students[counter1]["html_url"])
-			html1 = html1.gsub("{{created_at}}", students[counter1]["created_at"])
-			html1 = html1.gsub("{{avatar}}", students[counter1]["avatar_url"])
-			html1 = html1.gsub("{{public}}", (students[counter1]["public_repos"]).to_s)
-			html1 = html1.gsub("{{style}}", '<link rel ="stylesheet" type=text/css href="/style">')
-			client.puts html1
-			end
-			counter1 += 1
-		end
-	elsif path == "/style" #just need a / and has to be the same as href
-		client.puts File.read("./stylesheet/style.css")
-		puts "got stylesheet"
- 	else 
-		client.puts "ERROR"
-
-	end
 
 
-client.close
 
+students.each do |x|
+  puts "#{x["login"]} was created at #{x["created_at"]}"
 end
 
-
-
-
+  
