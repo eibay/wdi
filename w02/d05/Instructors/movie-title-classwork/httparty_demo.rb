@@ -13,3 +13,4 @@ require 'httparty'
 
 response = HTTParty.get("http://www.omdbapi.com/?s=#{word}")
 puts JSON.parse(response)
+

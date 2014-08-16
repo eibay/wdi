@@ -54,6 +54,17 @@ def parse_url(url)
  
   return params
 end
+
+
+params
+
+{
+            :path => "/the_forest",
+    :query_params => {
+        :animal => "monkeys",
+          :food => "bananas"
+    }
+}
  
 puts parse_url(url)
  
