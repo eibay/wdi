@@ -1,6 +1,3 @@
-require 'socket'
-require 'uri'
-require 'pry'
 students= [
   {
     "login"=>"theerickramer",
@@ -165,55 +162,16 @@ students= [
   }
  ]
 
-x=0
-logins=[] #array of student logins
-while x < students.length
-  login_ = students[x]
-  logins.push ("#{login_['login']}")
-  x +=1
-end 
 
-server = TCPServer.new 2000
 
-while true
-client = server.accept
-puts "Client is connected"
 
-request = client.gets.chomp
-path = request.split(" ")[1]
-puts "Client is requesting #{path}"
-# student_profile = path.split("/")[1] 
 
-  if path == "/"
-    y=0
-    while y < students.length
-      links = File.read('./views/links.html')
-      links = links.gsub('{{student_url}}', logins[y])
-      links = links.gsub('{{student_username}}', logins[y])
-      client.puts links
-      y+=1
-    end
-    puts "Client sent root page"
-
-  elsif logins.include?(path.split("/")[1]) == true
-    z=0
-    while z < students.length
-      if path.split("/")[1] == "#{logins[z]}"
-        profiles = File.read('./views/profiles.html')
-        profiles = profiles.gsub('{{username}}', logins[z])
-        profiles = profiles.gsub('{{created}}', students[z]['created_at'])
-        profiles = profiles.gsub('{{repos}}', students[z]['public_repos'].to_s)
-        profiles = profiles.gsub('{{link}}', students[z]['html_url'])
-        client.puts profiles
-        puts "Client sent #{logins[z]} github page."
-        end
-      z+=1
-    end
-
-  else
-    client.puts "Sorry, I do not recgonize that user!"
-    puts "Client requested bad path"
-  end
-client.close
+students.each do |a|
+  print a["login"] + " was created at " + a["created_at"] + "\n"
 end
+
+
+
+
+
 

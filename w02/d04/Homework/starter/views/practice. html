@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="UTF--8">
+ <link rel="stylesheet" type="text/css" href="./stylesheets/styles.css">
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+
+<title> </title> 
+</head>
+<body> 
+<div>
+<h1>Error! 404</h1>
+</div>
+<p>Page not found. <br>
+
+
+</p>
+<a href="/"> Back to home page</a>
+</body>
+</html>
+
+
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>404</title>
+</head>
+<body>
+  <h1>You must be lost!</h1>
+  <a href="/">Go back home.</a>
+</body>
+</html>
