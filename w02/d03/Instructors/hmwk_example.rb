@@ -1,8 +1,7 @@
 require 'socket'
 require 'pry'
-require 'uri'
 
-student_data = [
+student_db = [
   {
     "login"=>"theerickramer",
     "html_url"=>"https://github.com/theerickramer",
@@ -166,85 +165,112 @@ student_data = [
   }
 ]
 
-username = []
-
-i = 0
-    while i < student_data.length
-    username.push(student_data[i]["login"])
-    i +=1
-    end
-
 server = TCPServer.new 2000
 
+#lets create an array of just the logins
+#from the student_db array of hashes
+logins = []
+i = 0
+while i < student_db.length
+	student_info = student_db[i]
+	login = student_info["login"]
+	logins << login
 
-
-while true
-  client = server.accept
-  puts "Client connected"
-
-  request = client.gets.chomp
-  path = request.split(" ")[1]
-  puts "Requesting #{path}"
-
-
-
-  if path == "/" 
-    
-    username = []
-    
-    i = 0
-    while i < student_data.length
-    username.push("<li><a href = /#{student_data[i]["login"]}>#{student_data[i]["login"]}</a></li>")
-    i +=1
-    end
-
-    html = File.read('./views/index.html')	
-  	html = html.gsub('{{usernames}}', username.join(''))
-  	client.puts html
-
-
-  # elsif path == "/stylesheet/style.css"
-  #   css = File.read('./stylesheet/style.css')    
-  #   client.puts css
-
-
-########!!!!! FIX THIS CONDITIONAL!!!!!!!!!!#######
-  # elsif path.split('/').length == 2 && 
-   #else #path.split('/')[1] == "yoshiemuranaka"
- # elsif username == "yoshiemuranaka" 
- # elsif path.split("/")[1] == "" && path.split("/").length == 2
-  
-  elsif username.include? path.split('/')[1]
-    	
-      i = 0
-    	while i < student_data.length
-    		if student_data[i]["login"] == username
-    			student = student_data[i]
-        end
-    		i += 1
-    	end
-  	
-    html = File.read('./views/student-page.html')
-
-    html = html.gsub('{{student}}', student["login"]) 
-    html = html.gsub('{{url}}', student["html_url"])
-    html = html.gsub('{{created}}', student["created_at"])
-    html = html.gsub('{{repos}}', student["public_repos"].to_s)
-    html = html.gsub('{{avatar}}', student["avatar_url"])
-
-  	client.puts html
-
-  else
-    client.puts "We Don't go there"
-
-  end
-
-client.close
-puts "Client disconnected"
-
-
+	i+=1
 end
 
+#we want a while true loop so that
+#after we get a request from a browser and
+#send a response we then start over and
+#listen for a new request to come to us (the server)
+#from the browser
+while true
+	#the server will wait at this line
+	#until a browser sends a request to it
+	#(waiting for the phone to ring)
+	client = server.accept
 
+	#pick up the phone and see what they want
+	request_first_line = client.gets.chomp
+	path = request_first_line.split(' ')[1]
+
+	#print to the server log the path from the request
+	puts path
+
+	#this reponse string will be used to build up
+	#our html line by line. we will finally
+	#client.puts it at the end once it is all built up
+	response = ""
+	response += '<html><body>'
+
+	if (path == "/")
+		i = 0
+		response += '<ol>'
+		#output a link for each login
+		while i < logins.length
+			login = logins[i]
+			template = "<li><a href='{{login}}'>{{login}}</a></li>"
+			response += template.gsub('{{login}}', login)
+			i+=1
+		end
+		response += "</ol>"
+	elsif logins.include? path.split('/')[1]
+		#on a specific students page
+
+		#grab their login from the path variable
+		login = path.split('/')[1]
+
+
+		#first find the student info using the login
+		i=0
+		info = {}
+		#loop through each students info
+		while i< student_db.length
+			#is this the student info with the
+			#login that we are looking for?
+			if student_db[i]["login"] == login
+				#yes it is! lets grab the hash corresponding to this student
+				info = student_db[i]
+			end
+			i+=1
+		end
+		#ok now that we are out of that while loop
+		#the info hash should be properly set
+
+
+		response += "<ol>"
+		template = 
+			"<li><a href='{{url}}'>{{login}}</a></li> \
+			<li>{{created_at}}</li> \
+			<li>{{repos}}</li> \
+			<li><img src={{avatar}} /></li>"
+
+		#one by one put in each value of the students info hash
+		template = template.gsub("{{login}}", info["login"])
+		template = template.gsub("{{created_at}}", info["created_at"])
+		template = template.gsub("{{url}}", info["html_url"])
+		template = template.gsub("{{repos}}", info["public_repos"].to_s)
+		template = template.gsub("{{avatar}}", info["avatar_url"])
+		
+		#add that whole template that we just formed
+		#to the reponse string that we have been building up
+		response += template
+		response += "</ol>"
+	else
+		response += "wat?"
+	end
+
+	response += '</body></html>'
+
+	#send the response string back to the client
+	client.puts response
+
+	#close the connection (hang up the phone)
+	client.close
+
+	#this is the end of the while loop, after reaching this
+	#the code will return to the line right after
+	#while true and once again listen for a new connection
+end
 
 

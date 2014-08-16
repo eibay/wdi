@@ -1,8 +1,4 @@
-require 'socket'
-require 'pry'
-require 'uri'
-
-student_data = [
+student_db = [
   {
     "login"=>"theerickramer",
     "html_url"=>"https://github.com/theerickramer",
@@ -166,84 +162,19 @@ student_data = [
   }
 ]
 
-username = []
 
-i = 0
-    while i < student_data.length
-    username.push(student_data[i]["login"])
-    i +=1
-    end
-
-server = TCPServer.new 2000
-
-
-
-while true
-  client = server.accept
-  puts "Client connected"
-
-  request = client.gets.chomp
-  path = request.split(" ")[1]
-  puts "Requesting #{path}"
-
-
-
-  if path == "/" 
-    
-    username = []
-    
-    i = 0
-    while i < student_data.length
-    username.push("<li><a href = /#{student_data[i]["login"]}>#{student_data[i]["login"]}</a></li>")
-    i +=1
-    end
-
-    html = File.read('./views/index.html')	
-  	html = html.gsub('{{usernames}}', username.join(''))
-  	client.puts html
-
-
-  # elsif path == "/stylesheet/style.css"
-  #   css = File.read('./stylesheet/style.css')    
-  #   client.puts css
-
-
-########!!!!! FIX THIS CONDITIONAL!!!!!!!!!!#######
-  # elsif path.split('/').length == 2 && 
-   #else #path.split('/')[1] == "yoshiemuranaka"
- # elsif username == "yoshiemuranaka" 
- # elsif path.split("/")[1] == "" && path.split("/").length == 2
-  
-  elsif username.include? path.split('/')[1]
-    	
-      i = 0
-    	while i < student_data.length
-    		if student_data[i]["login"] == username
-    			student = student_data[i]
-        end
-    		i += 1
-    	end
-  	
-    html = File.read('./views/student-page.html')
-
-    html = html.gsub('{{student}}', student["login"]) 
-    html = html.gsub('{{url}}', student["html_url"])
-    html = html.gsub('{{created}}', student["created_at"])
-    html = html.gsub('{{repos}}', student["public_repos"].to_s)
-    html = html.gsub('{{avatar}}', student["avatar_url"])
-
-  	client.puts html
-
-  else
-    client.puts "We Don't go there"
-
-  end
-
-client.close
-puts "Client disconnected"
-
-
+student_db.each do |n|
+ 
+  #puts "#{n["login"]} was created at #{n["created_at"]}"
+ puts n["login"] + " " + "was created at" + n["created_at"] + "."
 end
+
+
+
+
+
+
+
 
 
 
