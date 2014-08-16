@@ -8,7 +8,7 @@
 ```ruby
 response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:elvis&fmt=json", headers: {"User-Agent" => "HTTParty"})
 ```
-  This call is different than what we were showing you in classs because it has an additional argument sent to HTTParty ```headers: {"User-Agent" => "HTTParty"}```
+  This call is different than what we were showing you in class because it has an additional argument sent to HTTParty ```headers: {"User-Agent" => "HTTParty"}```
 
   If you do not include this second argument you may get an error that looks like this:
 ```ruby
