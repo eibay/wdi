@@ -220,6 +220,10 @@ while true
 		css = File.read('./stylesheets/student_style.css')
 		client.puts css
 
+  elsif path.split("/")[2] == "JBiggs91" && path == "/jbstyle"
+    css = File.read('./stylesheets/jbstyle.css')
+    client.puts css
+
 
 	end
 
