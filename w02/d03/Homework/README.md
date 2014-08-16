@@ -17,4 +17,4 @@
   - Follow the link and copy the entire hash into your Ruby file
 - **Bonus**
   - Add stylesheets
-  - Use RUBY to add your stylesheets. (ie, can you not type the <link> tag into every html file)
+  - Use RUBY to add your stylesheets to the `<head>` of your html. (ie, can you not type the `<link>` tag into every html file)
