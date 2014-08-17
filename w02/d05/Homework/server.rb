@@ -36,25 +36,34 @@ s = TCPServer.new 2000
 
 loop do 
 	client = s.accept 
-	request = client.gets.chomp 
+	request = client.gets
 
-	
-	arr = request.split ' '
-	r = arr[1]
-	puts r 
-	if r == '/'
-		client.puts send_view("home")
-	elsif r[0,7] == "/search"
-		arr = r.split '?'
-		str = arr[1]
-		arr = str.split '='
-		huh = arr[1]
-		art_arr = looking_for(huh)
-		puts art_arr
-		$artists = art_arr.gather_up_artists
-		client.puts send_view("search")
+	if request.nil? # still getting nil requests 
+		# do nothing  
 	else 
-		client.puts "<h1>404 Not Found</h1>" 
+		request.chomp! 
+		arr = request.split ' '
+		r = arr[1]
+
+		if r == '/'
+			client.puts send_view("home")
+		elsif r[0,7] == "/search"
+			arr = r.split '?'
+			str = arr[1]
+			arr = str.split '='
+			huh = arr[1]
+			art_arr = looking_for(huh)
+			puts art_arr
+			$artists = art_arr.gather_up_artists
+			client.puts send_view("search")
+		elsif r[0,7] == "/artist"
+			arr = r.split '?'
+			str = arr[1]
+			$artist = str.get_artist
+			client.puts send_view("artist")
+		else 
+			client.puts "<h1>404 Not Found</h1>" # fake 404 not found header 
+		end 
 	end 
 
 	client.close 
