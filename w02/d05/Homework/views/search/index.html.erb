@@ -10,7 +10,7 @@
 	<ul>
 		<% $artists.each do |artist| %>
 		<% unless artist["name"].nil? %> 
-			<a href=<%= "/artist?#{artist["id"]}" %>><li>
+			<a href=<%= "/artist?id=#{artist["id"]}" %>><li>
 
 				<% unless artist["country"].nil? %> 
 					<p> They are from <%= artist["country"] %> and </p> 

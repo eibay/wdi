@@ -3,6 +3,42 @@ require 'httparty'
 require 'pry'
 require 'erb'
 
+def parse url
+  arr = url.split '?'
+  path = arr[0]
+  query = arr[1]
+
+  params = {}
+  params[:path] = path
+
+  if query.nil? 
+  	params = {
+  		path: path 
+  	}
+  else 
+  	pairs = query.split '&'
+
+  	key_values = []
+
+  	pairs.each do |pair|
+    	key_values.push(pair.split("="))
+  	end
+
+  	query_params = {}
+
+  	key_values.each do |key_value|
+    	query_params[key_value[0].to_sym] = key_value[1]
+  	end
+
+  	params = {
+    	path: path,
+    	query_params: query_params
+  	}
+  end 
+  params
+end
+
+
 def looking_for artist 
 	# returns an array of Hashes 
 	str = "http://musicbrainz.org/ws/2/artist/?query=artist:#{artist}&fmt=json"
@@ -38,27 +74,19 @@ loop do
 	client = s.accept 
 	request = client.gets
 
-	if request.nil? # still getting nil requests 
-		# do nothing  
-	else 
-		request.chomp! 
-		arr = request.split ' '
-		r = arr[1]
+	unless request.nil?  # sometimes request will be nil 
+		request = request.split ' '
+		request = request[1]
+		qu = parse request 
 
-		if r == '/'
+		if qu[:path] == '/'
 			client.puts send_view("home")
-		elsif r[0,7] == "/search"
-			arr = r.split '?'
-			str = arr[1]
-			arr = str.split '='
-			huh = arr[1]
-			art_arr = looking_for(huh)
-			puts art_arr
+		elsif qu[:path] == "/search"
+			art_arr = looking_for qu[:query_params][:s] 
 			$artists = art_arr.gather_up_artists
 			client.puts send_view("search")
-		elsif r[0,7] == "/artist"
-			arr = r.split '?'
-			str = arr[1]
+		elsif qu[:path] == "/artist"
+			str = qu[:query_params][:id]
 			$artist = str.get_artist
 			client.puts send_view("artist")
 		else 
