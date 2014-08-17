@@ -1,7 +1,6 @@
 require 'pry'
 require 'json'
 require 'socket'
-require 'pry'
 
 server = TCPServer.new 2000
 
@@ -41,25 +40,17 @@ loop do
   client = server.accept
 
   request = client.gets
-  path = request.split(" ")[1]
-  params = parse_url(path)
+  url = request.split(" ")[1]
+  params = parse_url(url)
 
-hash[:path] = elements[0]
-elements[1].split('&')
-elements << elements[1].split('&')
-elements[2].each do |x| elements << x.split('=') end
-hash[(elements[3][0].to_sym)] = elements[3][1]
-hash[(elements[4][0].to_sym)] = elements[4][1]
-
-
-  if path == "/"
+  if params[:path] == "/"
     html = File.read('./views/index.html')
     client.puts(html)
-  elsif path == "/styles.css"
+  elsif params[:path] == "/styles.css"
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
-  elsif path.split('/')[1] == "words"
-    word = path.split('/')[2]
+  elsif params[:path] == "/words"
+    word = params[:query_params][:specific_word]
 
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
