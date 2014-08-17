@@ -26,7 +26,6 @@ class Array
 	end 
 end 
 
-
 def send_view which   
 	f = File.read "./views/#{which}/index.html.erb" 
 	e = ERB.new f 
@@ -38,6 +37,8 @@ s = TCPServer.new 2000
 loop do 
 	client = s.accept 
 	request = client.gets.chomp 
+
+	
 	arr = request.split ' '
 	r = arr[1]
 	puts r 
@@ -51,7 +52,9 @@ loop do
 		art_arr = looking_for(huh)
 		puts art_arr
 		$artists = art_arr.gather_up_artists
-		client.puts send_view("search") 
+		client.puts send_view("search")
+	else 
+		client.puts "<h1>404 Not Found</h1>" 
 	end 
 
 	client.close 

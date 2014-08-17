@@ -10,7 +10,7 @@
 	<ul>
 		<% $artists.each do |artist| %>
 		<% unless artist["name"].nil? %> 
-			<li>
+			<a href=<%= "/artist?#{artist["id"]}" %>><li>
 
 				<% unless artist["country"].nil? %> 
 					<p> They are from <%= artist["country"] %> and </p> 
@@ -23,7 +23,7 @@
 					<p> What kind of band are they? Let's just say: <%= artist["disambiguation"] %> </p>
 				<% end %>  
 
-			</li>
+			</li></a>
 			<% end %> 
 		<% end %> 
 	</ul>
