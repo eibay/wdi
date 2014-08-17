@@ -1,6 +1,7 @@
 require 'socket'
 require 'httparty'
 require 'pry'
+require 'erb'
 
 class String 
 	def in_red 
@@ -91,7 +92,14 @@ class Array
 	end 
 end 
 
-=begin TESTING PURPOSES 
+
+def send_view which   
+	f = File.read "./views/#{which}/index.html.erb" 
+	e = ERB.new f 
+	v = e.result binding 
+end 
+
+=begin 
 artists = looking_for("love").gather_up_artists 
 
 # print 
@@ -106,7 +114,7 @@ artists.each do |artist|
 	info = artist["disambiguation"]
 	puts info.in_blue unless info.nil? 
 end 
-=end
+=end 
 
 s = TCPServer.new 2000
 
@@ -115,8 +123,12 @@ loop do
 	request = client.gets 
 	arr = request.split ' '
 	r = arr[1]
+	puts r 
 	if r == '/'
-		client.puts "<h1>It so works!</h1>"
+		client.puts send_view("home")
+	elsif r[0,7] == "/search"
+		puts "A search was made."
+		client.puts "<h1>You made a search.</h1>"
 	end 
 
 	client.close 
