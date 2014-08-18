@@ -1,0 +1,19 @@
+body {
+	text-align: center;
+}
+
+h1 {
+	color: red;
+}
+
+p, li {
+	font-style: italic;
+}
+
+span {
+	font-weight: bold;
+}
+
+ul {
+	list-style-type: none;
+}
