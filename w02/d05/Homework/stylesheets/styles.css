@@ -1,0 +1,16 @@
+body {
+	background-image: url("/concert.jpg");
+}
+
+h1 {
+  color: white;
+  font-family: 'Audiowide', cursive;
+  font-size: 80px;
+  padding: 0;
+}
+
+h3 {
+	color: white;
+	font-family: 'Helvetica', sans-serif;
+	font-size: 24px;
+}
