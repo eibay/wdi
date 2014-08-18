@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang=en>
+<head>
+	<meta charset=utf-8>
+	<title>Musical People | the Search for Music People</title>
+</head>
+<body>
+	<h1>Musical People | the Search for Music People</h1>
+	<p>You searched for stuff:</p>
+	<ul>
+		<% $artists.each do |artist| %>
+		<% unless artist["name"].nil? %> 
+			<a href=<%= "/artist?id=#{artist["id"]}" %>><li>
+
+				<% unless artist["country"].nil? %> 
+					<p> They are from <%= artist["country"] %> and </p> 
+				<% end %> 
+
+				<p> Their name is <%= artist["name"] %> </p>
+
+				<% # would sometimes print a seemingly empty string %> 
+				<% unless artist["disambiguation"].nil? || artist["disambiguation"].length.zero? %> 
+					<p> What kind of band are they? Let's just say: <%= artist["disambiguation"] %> </p>
+				<% end %>  
+
+			</li></a>
+			<% end %> 
+		<% end %> 
+	</ul>
+</body>
+</html>
