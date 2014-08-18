@@ -37,7 +37,7 @@ loop do
     end
 
     html = File.read("./views/movie.html")
-    html = html.gsub("{{list}}", list.join(""))
+    html = html.gsub("{{list}}", list.join("\n"))
     html = html.gsub("{{word}}", terms[2].downcase.capitalize)
 
     client.puts html

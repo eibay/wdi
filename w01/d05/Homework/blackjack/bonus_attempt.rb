@@ -125,9 +125,18 @@ loop do
 				$players[client_play_ind][:player].puts "Ok, you stand with #{$players[client_play_ind][:total]}."
 				$players[client_play_ind][:playing] = false
 			end
-			client_play_ind += 1
+		end
+		client_play_ind += 1
+	end
+
+	
+	$players.each_with_index do |player, ind|
+		if !player[:busted]
+			tell_everyone "Player #{ind + 1} had #{player[:total]}."
+			player[:player].puts "That's you."
 		end
 	end
+
 
 
 	binding.pry
