@@ -1,0 +1,36 @@
+1. SERVER is waiting for requests at port 2000 
+	1. CLIENT sends an HTTP GET request to the SERVER w/ its BROWSER for `/`
+		1. CLIENT requests the IP address for the SERVER's DOMAIN NAME from the DNS server 
+		2. The DNS server searches thru its database for the IP address of the SERVER's DOMAIN NAME. When it finds it, the DNS sever sends the IP address to the CLIENT 
+		3. The CLIENT recives the IP address 
+		4. The CLIENT uses the IP address to send requests to the SERVER
+		5. Oh yeah, and the packets are routed.   
+	2. SERVER recieves an HTTP GET request from CLIENT's BROWSER for `/`, the root document 
+	3. SERVER decides to send the HOME VIEW 
+		1. SERVER reads file in `./views/home/index.html.erb` 
+		2. SERVER executes Embedded RuBy in `index.html.erb` 
+		3. SERVER renders Embedded RuBy for the HTML DATA 
+		4. SERVER sends the HTML DATA to CLIENT
+		5. SEVER closes the connection & returns to step 1. 
+	4. CLIENT recieves the HTML DATA 
+	5. CLIENT's BROWSER renders the HTML DATA as a webpage 
+		1. CLIENT's BROWSER sends an HTTP GET request for `/favicon.ico`
+		2. SERVER recieves an HTTP GET request from CLIENT's BROWSER for `/favicon.ico`, a small image file to put in the nav bar, or to use when saving "favorite webpages"
+		3. SERVER decides to send the `/favicon.ico`
+			1. SERVER loads the file `/favicon.ico` 
+			2. SERVER sends the favicon icon to the CLIENT 
+			3. SERVER closes the connection & returns to step 1. 
+		4. CLIENT recieves the favicon icon  
+		5. CLIENT's BROWSER puts the favicon icon in the nav bar 
+	6. CLIENT's BROWSER reads the HTML, searching for linked files 
+		+ CLIENT's BROWSER sends an HTTP GET request for `/styles.css`
+			1. SERVER recieves an HTTP GET request from CLIENT's BROWSER for `/styles.css`
+			2. SERVER decides to send the stylesheet 
+			3. SERVER reads file in `./stylesheets/styles.css`
+			4. SERVER sends the CSS data to the CLIENT 
+			5. SERVER closes the connection & returns to step 1. 
+			6. CLIENT recieves the CSS data 
+			7. CLIENT sends CSS data to its BROWSER 
+			8. Browser renders style 
+	7. USER types "`thing`" a search inside the form element & presses enter 
+	8. The CLIENT's BROWSER sends an HTTP GET request for `/search?s=thing`  
