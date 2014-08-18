@@ -50,14 +50,18 @@ loop do
       client.puts html
     elsif params[:path] == "/artists"
       artist_result = params[:query_params][:artist_name]
+      # binding.pry
 
   response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:#{artist_result}&fmt=json", headers: {"User-Agent" => "HTTParty"})
+
   html = File.read("./views/artists.html")
   html = html.gsub("{{artist_result}}", artist_result)
 
+
       artist_list = []
 
-      response.each do |a|
+      response["artist"].each do |a|
+
         artist = File.read("./views/artist.html")
         artist = artist.gsub("{{name}}", a["name"])
         artist = artist.gsub("{{id}}", a["id"])
@@ -69,6 +73,9 @@ loop do
 
 
 
+
 end
+
+ client.close
 
 end #end statement for loop do
