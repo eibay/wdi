@@ -1,0 +1,66 @@
+h1 {color: white;
+	font: italic bold 90px sans-serif;
+	text-align: center;
+
+}
+
+h2 {color:white;
+	font: italic bold 75px sans-serif;
+	text-align: center;
+}
+
+p {color: white;
+font: italic 50px sans-serif;
+	text-align: center;}
+
+body {
+background: url("http://image.shutterstock.com/display_pic_with_logo/266482/99096278/stock-photo-art-urban-graffiti-raster-background-99096278.jpg");
+background-size: cover;
+background-position: center;
+opacity: 0.9;
+}
+
+form {
+	text-align: center;
+
+}
+
+input {color: #734600;
+	font: italic bold 30px sans-serif;
+	border-radius: 20px;
+	border: 5px solid #734600;
+
+}
+button {color: #734600;
+	font: italic bold 25px sans-serif;
+		padding: 10px;
+      border-radius: 20px;
+      border: 5px solid #734600;
+  }
+ img { 
+ 	  height: 250px;
+ 	  width: 2000px;
+    	position: fixed;
+    	right: 0px;
+ 	  border-radius: 20px;
+ 	  border: 7px solid black;
+ 	  top: 250px;
+ 	  opacity: 0.7;
+ 	}
+ 	a:hover {
+ 		color:#734600;
+ 	}
+
+ 	a:link {
+ 		color:white;
+ 	}
+
+ 	a:visited {
+ 	color:white;
+ }
+
+ li {font: italic bold 35px sans-serif;
+ 	border: 20px;
+ 	color: white;
+
+ }
