@@ -92,8 +92,9 @@ loop do #can be while true as well
 		#httparty already doe json so no json.parse
 		country = response["country"]
 		type = response["type"]
-		
-		
+		# picture = HTTParty.get("http://www.last.fm/music/#{specificartistid}") 
+		# response = JSON.parse(picture)
+		# first steps to getting picture
 		#taking into account nil
 		
 		if country == nil && type != nil
