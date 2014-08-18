@@ -57,8 +57,6 @@ loop do
 			html = html.gsub("{{search_artist}}", search_artist)
 
 			artist_array = []
-
-# binding.pry
 			
 			response["artist"].each do |x|
 				the_artist = File.read("./views/the_artist.html")
@@ -70,34 +68,35 @@ loop do
 			html = html.gsub("{{artist_array}}", artist_array.join(''))
 			client.puts(html)
 
-			
+		elsif params[:path] == "/id"
+			id = url.split("?")[1]			
+			response = HTTParty.get("http://musicbrainz.org/ws/2/artist/#{id}?inc=aliases&fmt=json", headers: {"User-Agent" => "HTTParty"})
+# binding.pry
+				artist_info = File.read("./views/artist_info.html")
+				artist_info = artist_info.gsub("{{name}}", response["name"].to_s)
 
-		# elsif url.split("/").length > 4
-		# 	artist_info = respone["artist"]
-			
-		# 	response["artist"].each do |y|
-		# 		artist_info = File.read("./views/artist_info.html")
-		# 		artist_info = artist_info.gsub("{{name}}", y["name"])
-		# 		if y["country"] != nil
-		# 		artist_info = artist_info.gsub("{{country}}", y["country"])
-		# 		end
-		# 		if y["disambiguation"] != nil
-		# 		artist_info = artist_info.gsub("{{disambiguation}}", y["disambiguation"])
-		# 		end
-		# 		if y["life-span"]["begin"] != nil
-		# 		artist_info = artist_info.gsub("{{life_begin}}", y["life-span"]["begin"])
-		# 		end
-		# 		if y["life-span"]["end"] != nil
-		# 		artist_info = artist_info.gsub("{{life_end}}", y["life-span"]["end"])
-		# 		end
-				
-		# 	end
+				if response["country"].to_s != "" 
+					artist_info = artist_info.gsub("{{country}}", response["country"].to_s)
+				else 
+					artist_info = artist_info.gsub("{{country}}", "N/A")
+				end
 
-		# 	client.puts(artist_info)
+				if response["disambiguation"].to_s != "" 
+					artist_info = artist_info.gsub("{{disambiguation}}", response["disambiguation"].to_s)
+				else 
+					artist_info = artist_info.gsub("{{disambiguation}}", "N/A")
+				end
 
+				if response["life-span"]["life_begin"] != ""
+					artist_info = artist_info.gsub("{{life_begin}}", response["life-span"]["begin"].to_s)
+				else	
+					artist_info = artist_info.gsub("{{life_begin}}", "N/A")
+				end
 
+			client.puts(artist_info)
 
 		end
+		client.close
 
 end
 
