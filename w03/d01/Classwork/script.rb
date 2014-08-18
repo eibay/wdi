@@ -35,7 +35,7 @@ else
 	$recent_media = get_recent_media $search 
 	$recent_media = get_standard_images $recent_media
 
-	s = TCPServer.new "#{port}" 
+	s = TCPServer.new port 
 	puts "Get yr browser out & go to localhost:#{port}"
 	loop do 
 		c = s.accept 
