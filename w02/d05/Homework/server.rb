@@ -28,7 +28,7 @@ loop do
     mb_response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:'#{query}'&fmt=json", headers: {"User-Agent" => "HTTParty"})
     # binding.pry
 
-    # mb_response["artist"].each do |x| client.puts x["name"] end
+    # mb_response["artist"].each do |x| client.puts x["name"] x
     html = html.gsub('{{query}}', params[:query_params][:artist])
 # binding.pry
 
