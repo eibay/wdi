@@ -8,14 +8,11 @@
 </head>
 <body>
   <div id="wrapper">
-    <h1>MusicBrainz Artist Search</h1>
-  <h3>Search for an artist here:</h3>
-
-  <form action="/artists" method="GET">
-    <input type="text" name="artist" placeholder="Enter an artist..." />
-    <button>Submit</button>
-  </form>
-
+  <h1>Here are the artists matching the search term: {{query}}</h1>
+  <hr />
+  <ol>
+    {{artist_result}}
+  </ol>
 </div>
 </body>
 </html>
