@@ -1,5 +1,8 @@
-path = "/the_forest?animal=monkey&food=bananas" 
+url = "/the_forest?animal=monkey&food=bananas" 
+
+
 def parse_url(url)
+	
 	path= url.split("?")[0]
 	query_string= url.split("?")[1]
 
@@ -13,8 +16,8 @@ def parse_url(url)
 
 	query_params = {}
 
-	key_values.each do |key_values|
-		query_params[key_values[0].to_sym] = key_values[1]
+	key_values.each do |key_value|
+		query_params[key_value[0].to_sym] = key_value[1]
 	end
 
 	params = {
