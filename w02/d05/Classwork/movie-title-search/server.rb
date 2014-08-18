@@ -40,22 +40,24 @@ loop do
   client = server.accept
 
   request = client.gets
-  url = request.split(" ")[1]
-  params = parse_url(url)
+  path = request.split(" ")[1]
+  params = parse_url(path)
+  
+  binding.pry
 
-  if params[:path] == "/"
+  if path == "/"
     html = File.read('./views/index.html')
     client.puts(html)
-  elsif params[:path] == "/styles.css"
+  elsif path == "/styles.css"
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
-  elsif params[:path] == "/words"
-    word = params[:query_params][:specific_word]
+  elsif path.split('/')[1] == "words"
+    word = path.split('/')[2]
 
-    omdbapi = TCPSocket.new 'www.omdb.com', 80
+    omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
     response = omdbapi.gets
-    omdb.close
+    omdbapi.close
     parsed = JSON.parse(response)
 
     html = File.read('./views/movies.html')
