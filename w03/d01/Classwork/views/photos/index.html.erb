@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<meta chaset=utf-8>
+	<title> <%= $search %> </title>
+	<style>
+		img {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<% $recent_media.each do |photo| %>
+		<img src=<%= photo %> >
+	<% end %>
+</body>
+</html>
