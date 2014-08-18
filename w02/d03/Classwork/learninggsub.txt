@@ -1,0 +1,5 @@
+What have i just learned?
+
+I learned how to create a dynamic webpages, aka, a page that i can always add new information to without repeating every step for each new piece of information. With .gsub i am able to change my html all i want but still maintain the structure of a dynamic website. This is valuable for websites with constantly refreshing information and websites with alot of date, or both.
+
+html is at our command, and we are able to intersperse dynamic information and send to a client.
