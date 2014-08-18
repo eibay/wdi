@@ -53,19 +53,32 @@ if  path == "/"
 elsif params[:path] == "/artists"
 	response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:#{artistname}&fmt=json", headers: {"User-Agent" => "HTTParty"})
 
+binding.pry
+
 artists = []
+id = []
 
 
     response["artist"].each do |name|
+    	artists.push(name["name"])
+    	# individual_artists = File.read('./html/artists.html')
+   	 #    individual_artists= individual_artists.gsub('{{name}}', name["name"])
+   	 #    artists.push(html)
+    end
+    response["artist"].each do |id|
+    	id.push(id["id"])
+    end
+
+
     individual_artists = File.read('./html/artists.html')
    	individual_artists= individual_artists.gsub('{{name}}', name["name"])
-    # individual_artists = individual_artists.gsub('{{id}}', name["id"])
+    individual_artists = individual_artists.gsub('{{id}}', name["id"])
 	artists.push(html)
 	end
 
  else
     client.puts("<h1> i need help </h1>")
-
+end
 
  client.close
 	# html = html.gsub('{{names}}', artists.join(''))
