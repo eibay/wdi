@@ -14,7 +14,6 @@ loop do
 
   path = request.split(" ")[1]
   params = parse_url(path)
-
   if params[:path] == "/"
     html = File.read('./views/index.html')
     client.puts(html)
@@ -38,18 +37,18 @@ loop do
       artist_list = artist_list.gsub('{{id}}', x["id"])
       artist_list = artist_list.gsub('{{artist}}', x["name"])
       artists << artist_list
-      binding.pry
+      #binding.pry
 
     end
         html = html.gsub('{{artist_result}}', artists.join(' '))
         client.puts (html)
 
-    elsif path.split('/')[1] == "/artist"
+    elsif params[:path] == "/artist"
         artist_info = File.read('./views/artist_detail.html')
-        id = params[:query_params]
-        # binding.pry
-        mb_artist = HTTParty.get("http://musicbrainz.org/ws/2/artist/'#{id}'?inc=aliases&fmt=json", headers: {"User-Agent" => "HTTParty"})
-        # artist_info = artist_info.gsub('{{artist_result}}', mb_artist["artist"][])
+        id = params[:query_params][:id]
+        
+        mb_artist = HTTParty.get("http://musicbrainz.org/ws/2/artist/#{id}?inc=aliases&fmt=json", headers: {"User-Agent" => "HTTParty"})
+        artist_info = artist_info.gsub('{{artist_result}}', mb_artist.to_json)
         client.puts (artist_info)
 
 
