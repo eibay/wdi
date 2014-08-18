@@ -29,7 +29,7 @@ loop do
 
   elsif path.split('/')[1] == "words"
     word = path.split("/")[2]
-
+#binding.pry
     omdb_api = TCPSocket.new 'www.omdbapi.com', 80
     omdb_api.puts "GET /?s=#{word}"
     puts "#{Time.now} - Connecting to OMBD"
@@ -45,6 +45,7 @@ loop do
       year = x["Year"]
       imdb_link = x["http://www.imdb.com/title/#{x["imdbID"]}"]
       movie_each << "<li>#{title}<br>#{year}<br>#{imdb_link}</li>"
+  binding.pry
     end
     word_movie = File.read('./views/word_movie.html')
     word_movie = word_movie.gsub("{{word}}", word)
