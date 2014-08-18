@@ -1,0 +1,21 @@
+
+body {
+	background-color: orange;
+	color: maroon;
+	font-size: 22px;
+	border-top: maroon 3px solid;
+	border-bottom: maroon 3px solid;
+}
+
+h1 {
+	text-align: center;
+	font-family: Helvetica;
+}
+div {
+
+	width: 275px;
+	margin: auto;
+}
+p {
+	text-align: center;
+}
