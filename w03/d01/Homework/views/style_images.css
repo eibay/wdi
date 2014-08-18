@@ -1,0 +1,22 @@
+.top {
+  height: 200px;
+  background-color: black;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  margin-bottom: 10px; }
+  .top h1 {
+    font-family: impact;
+    display: center; }
+  .top h3 {
+    font-family: verdana; }
+
+.images img {
+  float: left;
+  height: 150px;
+  width: 150px;
+  border-radius: 15px;
+  margin: 7px; }
+
+li {
+  list-style: none; }
