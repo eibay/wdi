@@ -56,6 +56,7 @@ loop do
 
     artists = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:#{artist}&fmt=json",
       headers: {"User-Agent" => "HTTParty"})["artist"]
+    binding.pry
 
     html = "<html><body><ol>"
     artists.each do |artist|
@@ -64,6 +65,7 @@ loop do
       artist_li = artist_li.gsub('{{artist_id}}', artist["id"])
       html += artist_li
     end
+
     html += "</ol></body></html>"
     client.puts(html)
 
