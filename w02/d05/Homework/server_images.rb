@@ -109,7 +109,6 @@ loop do
 		end
 
 		if lastfm_response['artist']['bandmembers'] != nil
-
 			lastfm_members = []
 			lastfm_response['artist']['bandmembers']['member'].each {|mem| lastfm_members.push("<li>#{mem['name']}</li>")} 
 			html = html.gsub("{{members}}", lastfm_members.join(''))
@@ -118,7 +117,6 @@ loop do
 		end
 
 		if lastfm_response['artist']['tags'] != nil
-			binding.pry
 			lastfm_tags = []
 			lastfm_response['artist']['tags']['tag'].each {|tag| lastfm_tags.push("<li>#{tag['name']}</li>")} 
 			html = html.gsub("{{tags}}", lastfm_tags.join(''))
