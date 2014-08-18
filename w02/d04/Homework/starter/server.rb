@@ -41,13 +41,13 @@ loop do
 
     puts "#{Time.now} - Sent search info to client #{client_ip}"
 
-    searchArr = []
-    parsed_response["Search"].each do
-      |x| searchArr << x 
-    end
+    # searchArr = []
+    # parsed_response["Search"].each do
+    #   |x| searchArr << x 
+    # end
     
     titleArr = []
-    searchArr.each do |x| titleArr<<"<li>#{(x["Title"])} was released in #{(x["Year"])}. <a href='http://www.imdb.com/title/#{(x["imdbID"])}/'>Click here for more info</a></li>"
+    parsed_response["Search"].each do |x| titleArr<<"<li>#{(x["Title"])} was released in #{(x["Year"])}. <a href='http://www.imdb.com/title/#{(x["imdbID"])}/'>Click here for more info</a></li>"
     end
     list = titleArr.join('')
     html = File.read('./views/search_results.html')
