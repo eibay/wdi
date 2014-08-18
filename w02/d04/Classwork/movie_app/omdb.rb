@@ -11,19 +11,19 @@ while true
 
 	puts "#{Time.now} - Client has connected from #{client_ip}"
 
-	# http://127.0.0.1:2000/movies/inception
+	#http://127.0.0.1:2000/movies/inception
 	request = client.gets.chomp
 	path = request.split(' ')[1]
 	puts "#{Time.now} - Client #{client_ip} is attempting to reach #{path}"
 
 	if path.split('/')[1] == "movies"
-		movie_title = path.split('/')[2]
+     movie_title = path.split('/')[2]
 
 		omdb_api = TCPSocket.new 'www.omdbapi.com', 80
-		# binding.pry
-		omdb_api.puts "GET /?t=#{movie_title}"
+		binding.pry
+		omdb_api.puts "GET /?t=#(movie_title)"
 
-		puts "#{Time.now} - Connecting to OMBD"
+		puts "#{Time.now} - Connecting to OMDB"
 
 		json_response = omdb_api.gets.chomp
 		parsed_response = JSON.parse(json_response)
