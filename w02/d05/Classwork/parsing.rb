@@ -1,6 +1,31 @@
 require 'pry'
 
+url = '/artist?search_word=hot'
+def parse_url(url)
+  path = url.split("?")[0]
+  query_string = url.split("?")[1]
+
+  params = {}
+  params[:path] = path
+
+    search_word = query_string.split("=")[0]
+    search_value = query_string.split("=")[1]
+
+  query_params = {}
+  query_params[search_word.to_sym] = search_value
+
+  params[:query_params] = query_params
+
+  return params
+end
+
+
+puts parse_url(url)
+
+
+
 url = "/the_forest?animal=monkeys&food=bananas"
+
 
 def parse_url(url)
   path = url.split("?")[0]
