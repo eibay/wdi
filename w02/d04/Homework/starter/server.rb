@@ -6,15 +6,41 @@ require 'csv'
 server = TCPServer.new 2000
 
 # equivalent to while true
+def parsepath(url)
+queryparams={}
+parsedpath=url.split("?")
+path=parsedpath[0]
+parsedpath=parsedpath[1].split("&")
+parsedpath.each do |n|
+  variables=n.split("=")
+  param=variables[0].to_sym
+  value=variables[1]
+  queryparams[param]=value
+end
+  params = {
+    path: path,
+    query_params: queryparams
+  }
+ return params
+
+end
+
 loop do
+
+
+
 
   client = server.accept
   client_ip=client.remote_address.ip_address
   puts "#{Time.now} has connected from #{client_ip}".color(:red)
   request = client.gets.chomp
   path = request.split(" ")[1]
+  puts path
   puts "#{Time.now}: Client #{client_ip} is attempting to connect from #{path}".color(:green)
-
+  # if(path.include? "?")
+  #   params=parsepath(path)
+  # end
+   
 
   if path == "/"
     html = File.read('./views/index.html')
@@ -31,7 +57,7 @@ loop do
       if(1 >= word.length)
         #do nothing
       else
-      random_words.push("<li><a href='./words/#{word}'>#{word}</a></li>")
+      random_words.push("<li><a href='./words/?movie=#{word}'>#{word}</a></li>")
       i+=1
     end
   end
@@ -40,9 +66,13 @@ loop do
   elsif path == "/styles.css"
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
-  elsif(path.split("/").length==3)&&(path.split("/")[1]=="words")
+  elsif(path.split("/")[1]=="words")&&(path.include? "?")
+
+        params=parsepath(path)
+
+     
       api=TCPSocket.new 'www.omdbapi.com', 80
-      api.puts "GET /?&s=#{path.split('/')[2]}&type=movie"
+      api.puts "GET /?&s=#{params[:query_params][:movie]}"
       puts"#{Time.now} :Connecting to OMDB".color(:magenta)
 
       response=api.gets
@@ -56,11 +86,12 @@ loop do
 
 
       end
-      client.puts html_file.gsub("{{movie}}" , URI.decode(path.split("/")[2]).split.map(&:capitalize)*' ').gsub("{{list_of_movies}}" , movies.join(''))
+      client.puts html_file.gsub("{{movie}}" , params[:query_params][:movie].capitalize).gsub("{{list_of_movies}}" , movies.join(''))
 
   else
     html = File.read('./views/404.html')
     client.puts(html)
+    
   end
 
   client.close
