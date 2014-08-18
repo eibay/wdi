@@ -138,7 +138,158 @@
 # Even 4 lines if we want, or 5, or 6.
 # """
 
-# ruby Ex 9
+# ruby Ex 10
 
-tabby_cat = "\tI'm tabbed in."
-persian_cat = "I'm split\non a line."
+# tabby_cat = "\tI'm tabbed in."
+# persian_cat = "I'm split\non a line."
+# backslash_cat = "I'm \\ a \\ cat."
+
+# fat_cat = """
+# I'll do a list:
+# \t* Cat food
+# \t* Fishies
+# \t* Catnip\n\t* Grass
+# """
+
+# puts tabby_cat
+# puts persian_cat
+# puts backslash_cat
+# puts fat_cat
+
+#ruby Ex 11
+
+# print "How old are you?"
+# age = gets.chomp
+# print "How tall are you?"
+# height = gets.chomp
+# print "How much do you weigh?"
+# weight = gets.chomp
+
+# puts "So, you're #{age} old, #{height} tall and #{weight} heavy."
+
+# Ruby Ex 12
+
+# print "Give me a number "
+# number = gets.chomp.to_i
+
+# bigger = number * 100
+# puts "A bigger number is #{bigger}."
+
+# print "Give me another number:"
+# another = gets.chomp
+# number = another.to_i
+
+# smaller = number / 100
+# puts "A smaller number is #{smaller}."
+
+# Drills:
+
+# 1. the .to_f operation turns the number to a float
+# *****2, make a script that ask for money and gives back 10%.*****
+
+# print "The Bank is promoting something great today."
+# print "Deposit something today and get back 10% in 6 months."
+# print "How much would you like to deposit? "
+# deposit =  gets.chomp.to_f
+# dep_interest = deposit * 10% + deposit
+
+# print "You will recieve #{interest}"
+
+#Ruby Ex 13*******
+
+# Drill 2
+
+# puts "Give me three names: "
+# names = gets.chomp
+
+# first, second, third = ARGV
+
+# puts "Your first variable is: #{first}"
+# puts "Your second variable is: #{second}"
+# puts "YOur third variable is: #{third}"
+
+#Ruby Ex 14
+
+# user_name = ARGV.first
+# prompt = ':: '
+
+# puts "Hi #{user_name}"
+# puts "I'd like to ask you a few questions."
+# puts "Do you like me #{user_name}? ", prompt
+# likes = $stdin.gets.chomp
+
+# puts "Where do you live #{user_name}? ", prompt
+# lives = $stdin.gets.chomp
+
+# puts "What kind of computer do you have? ", prompt
+# computer = $stdin.gets.chomp
+
+# puts """
+# Alright, so you said #{likes} about liking me.
+# You live in #{lives}.  Not sure where that is.
+# And you have #{computer} computer.  Nice.
+# """
+ 
+#Ruby Ex 18
+
+# this one is like your scripts with ARGV
+# def print_two(*args)
+# 	arg1, arg2, = args
+# 	puts "arg1: #{arg1}, arg2: #{arg2}"
+# end
+
+# # ok, that *args is actually pointless, we can just do this
+# def print_two_again(arg1, arg2)
+# 	puts "arg1: #{arg1}, arg2: #{arg2}"
+# end
+
+# # this just takes one argument
+# def print_one(arg1)
+# 	puts "arg1: #{arg1}"
+# end
+
+# # this one takes no arguments
+# def print_none()
+# 	puts "I got nothin'."
+# end
+
+# print_two("Zed", "Shaw")
+# print_two_again("Zed", "Shaw")
+# print_one("First!")
+# print_none()
+
+
+# ****** Do the Drills for 18*******
+
+#Ruby Ex 19
+
+def cheese_and_crackers(cheese_count, boxes_of_crackers)
+	puts "You have #{cheese_count} cheeses!"
+	puts "You have #{boxes_of_crackers} boxes of crackers!"
+	puts "Man that's enough for a party!"
+	puts "Get a blanket. \n"
+end
+
+puts "We can just give the function numbers directly:"
+cheese_and_crackers(20, 30)
+
+puts "OR, we can use variables from our script:"
+amount_of_cheese = 10
+amount_of_crackers = 50
+
+puts "We can even do math inside too:"
+cheese_and_crackers(10 + 20, 5 + 6)
+
+puts "And we can combine the two, variables and math:"
+cheese_and_crackers(amount_of_cheese + 100, amount_of_crackers +1000)
+	
+
+
+
+
+
+
+
+
+
+
