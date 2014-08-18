@@ -3,7 +3,8 @@ require 'json'
 require 'socket'
 
 server = TCPServer.new 2000
-
+# url = "/the_forest?animal=monkeys&food=bananas"
+# {:path=>"/the_forest", :query_params=>{:animal=>"monkeys", :food=>"bananas"}}
 # equivalent to while true
 def parse_url(url)
   path = url.split("?")[0]
@@ -50,7 +51,7 @@ loop do
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
   elsif params[:path] == "/words"
-    word = params[:query_params][:specific_word]
+    word = params[:query_params][:specific_word] #this line confuses me
 
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
@@ -58,21 +59,22 @@ loop do
     omdbapi.close
     parsed = JSON.parse(response)
 
+
     html = File.read('./views/movies.html')
     html = html.gsub('{{search_word}}', word)
 
     movies = []
     
-    parsed["Search"].each do |movie|
+    parsed["Search"].each do |movie| #this line confuses me specifically "Search"
       individual_movie = File.read('./views/individual_movie.html')
       individual_movie = individual_movie.gsub('{{title}}', movie["Title"])
       individual_movie = individual_movie.gsub('{{year}}', movie["Year"])
       individual_movie = individual_movie.gsub('{{imdb_id}}', movie["imdbID"])
       movies.push(individual_movie)
     end
-
+#how do I put a binding.pry here and check the value of movies
     html = html.gsub('{{movies}}', movies.join(''))
-
+#how do I put a binding.pry here and check the value of movies
     client.puts(html)
   else
     html = File.read('./views/404.html')

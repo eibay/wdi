@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Musical Artists</title>
+</head>
+<body>
+  <h1>What musical artists do you like?</h1>
+
+  <form action="/words" method="GET">
+    <input type="text" name="artists_name" placeholder="Enter a word..." />
+    <button>Submit</button>
+  </form>
+
+  <ul>
+    <li><a href="/words/friend">friend</a></li>
+    <li><a href="/words/true">true</a></li>
+    <li><a href="/words/monkey">monkey</a></li>
+  </ul>
+</body>
+</html>
+
+<!-- http://127.0.0.1:2000/words?artist_name=Nirvana -->
