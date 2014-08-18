@@ -27,12 +27,14 @@ loop do
     puts "api sent"
     responsejson = JSON.parse(response)
     api.close
+ 
       responsejson["Search"].each do|x|
         title = x["Title"]
         year = x["Year"]
         imdb = "http://www.imdb.com/title/#{x["imdbID"]}"
         movienames << "<li>#{title} made in #{year} and imbd link of <a href = '#{imdb}'>IMDB</a></li>"
       end
+
     html = File.read('./views/index1.html')
     html = html.gsub("{{Searchword}}", searchword)
     html = html.gsub("{{movie_name}}", movienames.join(''))
