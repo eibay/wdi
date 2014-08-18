@@ -87,12 +87,12 @@ loop do
 					artist_info = artist_info.gsub("{{disambiguation}}", "N/A")
 				end
 
-				if response["life-span"]["life_begin"] != ""
+				if response["life-span"].include?("begin") && response["life-span"]["begin"] != nil
 					artist_info = artist_info.gsub("{{life_begin}}", response["life-span"]["begin"].to_s)
 				else	
 					artist_info = artist_info.gsub("{{life_begin}}", "N/A")
 				end
-
+# binding.pry
 			client.puts(artist_info)
 
 		end
