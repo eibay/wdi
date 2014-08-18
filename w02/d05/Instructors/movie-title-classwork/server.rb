@@ -9,6 +9,8 @@ def parse_url(url)
   path = url.split("?")[0]
   query_string = url.split("?")[1]
 
+  binding.pry
+
   params = {}
   params[:path] = path
 
@@ -40,15 +42,13 @@ loop do
   client = server.accept
 
   request = client.gets
-<<<<<<< HEAD
+
   path = request.split(" ")[1]
   params = parse_url(path)
 binding.pry
 
-=======
   url = request.split(" ")[1]
   params = parse_url(url)
->>>>>>> f0714efab2da1e0cd76d50548aa3b79b369417e3
 
   if params[:path] == "/"
     html = File.read('./views/index.html')

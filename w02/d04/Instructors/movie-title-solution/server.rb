@@ -27,7 +27,7 @@ loop do
     omdbapi.close
     parsed = JSON.parse(response)
 
-<<<<<<< HEAD
+
    movies_html = []
 
     parsed["Search"].each do |movie|
@@ -40,7 +40,7 @@ loop do
     end
 
 
-=======
+
     html = File.read('./views/movies.html')
     html = html.gsub('{{search_word}}', word)
 
@@ -57,7 +57,7 @@ loop do
     html = html.gsub('{{movies}}', movies.join(''))
 
     client.puts(html)
->>>>>>> 67d5ff5e9daa6c49b5b5e5973034bfffe45aaea7
+
   else
     html = File.read('./views/404.html')
     client.puts(html)

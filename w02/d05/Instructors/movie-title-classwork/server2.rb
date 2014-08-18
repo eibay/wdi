@@ -52,7 +52,6 @@ loop do
     client.puts(css)
   elsif params[:path] == "/words"
     word = params[:query_params][:specific_word]
-    binding.pry
 
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"
