@@ -92,4 +92,10 @@ client.close
 end
 
 
+4ad7cc36c172434588afd340aa74cd01
+puts "Tag?"
+tag = gets.chomp
+response = HTTParty.get("https://api.instagram.com/v1/tags/search?q=#{tag}&client_id=4ad7cc36c172434588afd340aa74cd01")
+
+
 
