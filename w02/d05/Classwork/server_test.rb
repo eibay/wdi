@@ -1,3 +1,6 @@
+#this program/server was for us to explore ways to add the search box path
+# to our server.rb program
+
 path = "/the_forest?animal=monkey&food=bananas"
 
 goal = to get to this:
