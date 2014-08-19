@@ -56,6 +56,7 @@ loop do
 			image_str += image_html
 		end
 
+
 		image_page = File.read("./views/image_page.html")
 		image_page = image_page.gsub("{{search_tag}}", tag)
 		image_page = image_page.gsub("{{image_str}}", image_str)
