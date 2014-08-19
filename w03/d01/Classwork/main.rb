@@ -1,7 +1,11 @@
-require 'httparty'
+require 'socket'
 require 'pry'
 
+server = TCPServer.new 2000
 
-request = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:#{artist_result}&fmt=json", headers: {"User-Agent" => "HTTParty"})
-
-request = JSON.parse(request)
+loop do
+  client = server.accept
+  client.gets
+  client.puts "hello"
+  client.close
+end
