@@ -1,0 +1,16 @@
+-- What is the difference between a GET and a POST request?
+
+A GET request sends a request to the server. The full request (query parameters) is contained in the URL. GET request doesn't change information.
+
+A POST sends information to the server. The parameters of the request are in the body of the header. POST request changes information.
+
+-- When to use GET
+
+Use GET when the client is requesting a page or information from the server.
+
+-- When to use POST
+
+Use when security is a concern since information won't be in the URL and hence won't be visible or saved in the browser history. 
+
+Use to provide information (such as from forms) that the server will subsequently store. 
+
