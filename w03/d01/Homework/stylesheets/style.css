@@ -17,6 +17,10 @@ input {
 }
 
 
+li {
+	list-style-type: none;
+}
+
 ol {
 	background-image: url('../assets/camera.jpg');
 	background-size: 108px 76px;
@@ -28,5 +32,7 @@ ol {
 	font-size: 200px;
 }
 
-
+.top {
+	background-color: transparent;
+}
 

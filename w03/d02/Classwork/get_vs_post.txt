@@ -1,0 +1,19 @@
+What is the difference between a GET and a POST request?
+
+	A GET request directs the server what to send the client.  The client supplies a path and, perhaps, some query parameters and the server is to reply with the corresponding content.
+
+	The POST request is a request that supplies the server with something that it is supposed to write to it's data.
+
+	Another distinction is that a POST request makes a change to the server's data in some way and the GET request doesn't.
+
+	GET - Query params hold info.
+
+	POST - Request body holds info.
+
+Give an example of when you would use a GET request
+
+	Your browser's initial request to a website is typically a GET request.  You're requesting that the home page be sent to your browser.  Most of the time, whenever you click on a link, your browser is making a GET request.
+
+Give an example of when you would use a POST request
+
+	The first thing that springs to mind is a Facebook or Twitter post- why, it's right there in the name!  You're giving the server some content that you are requesting be added to their data.

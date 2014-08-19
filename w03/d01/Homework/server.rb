@@ -41,13 +41,14 @@ loop do
 		puts "#{Time.now} - sent 'style.css' to Client #{client_ip}"
 
 	elsif path.split("/")[1] == "assets"
-		client.puts File.read("assets/camera.jpg")
+		client.puts File.read("#{path[1..-1]}")
 		puts "#{Time.now} - sent '#{path.split("/")[2]}' to Client #{client_ip}"
 
 	elsif query
 
 		if query[:path] == "search"
-			response = HTTParty.get("https://api.instagram.com/v1/tags/#{query[:query_params][:tag]}/media/recent?client_id=4ad7cc36c172434588afd340aa74cd01")
+			response = HTTParty.get("https://api.instagram.com/v1/tags/#{query[:query_params][:tag]}/media/recent?client_id=f36cce4cc31d4041bb2a387d7c015939")
+			puts "#{Time.now} -- Instagram has returned search results"
 			list = []
 			response["data"].each do |hsh|
 				list << File.read("views/list_item.html").gsub("{{img}}", hsh["images"]["standard_resolution"]["url"])
