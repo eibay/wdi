@@ -1,6 +1,25 @@
 #Week2-Day05
 ---
+
+#Homework Update
+  **MusicBrainz has been returning errors to some students. We have a fix that we would like you to use in the homework.**
+
+  All calls to MusicBrainz through HTTParty should look like this:
+```ruby
+response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:elvis&fmt=json", headers: {"User-Agent" => "HTTParty"})
+```
+  This call is different than what we were showing you in class because it has an additional argument sent to HTTParty ```headers: {"User-Agent" => "HTTParty"}```
+
+  If you do not include this second argument you may get an error that looks like this:
+```ruby
+{
+  "error" => "Your requests are being throttled by MusicBrainz because the application you are using has not identified itself.  Please update your application, and see http://musicbrainz.org/doc/XML_Web_Service/Rate_Limiting for more information." 
+}
+```
+---
+
 ##Friday Lab - MusicBrainz
+
 - **Goal**: Create a program that allows for artist searches and through the browser. Data will be pulled from the MusicBrainz API.
 
 ###Part 1

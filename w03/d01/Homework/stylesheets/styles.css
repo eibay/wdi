@@ -1,0 +1,32 @@
+body{
+	background-color: #6CFFAE;
+
+
+}
+p{
+
+	font-size: 20px;
+	text-align: center
+}
+form {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+label, input {
+    
+    display: inline-block;
+}
+
+label {
+    width: 30%;
+
+    text-align: right;
+}
+
+label + input {
+    width: 30%;
+    
+    margin: 0 30% 0 4%;
+}
