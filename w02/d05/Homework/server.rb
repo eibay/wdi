@@ -50,12 +50,11 @@ end
  	html=File.read("./artists.html")
  	client.puts html.gsub("{{artists}}" , artists_array.join('')).gsub("{{artist}}" , params[:query_params][:artist])
  
- elsif(path.split("/")[1]=="artist")&&(path.include? "?")
- 	params=parsepath(path)
 	response=HTTParty.get("http://musicbrainz.org/ws/2/artist/#{params[:query_params][:id]}?inc=aliases&fmt=json", headers: {"User-Agent" => "HTTParty"})
-	response2=HTTParty.get("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=#{params[:query_params][:artist]}&api_key=58a9d7cf360a35b1d4d77d1b8ea2477d&format=json")
-	image_url= response2["artist"]["image"][3]["#text"]  
-  puts image_url
+ elsif(path.split("/")[1]=="artist")&&(path.include? "?")
+  params=parsepath(path)
+  response2=HTTParty.get("http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=#{params[:query_params][:artist]}&api_key=58a9d7cf360a35b1d4d77d1b8ea2477d&format=json&autocorrect=1")
+  image_url= response2["artist"]["image"][3]["#text"]  
  	html=File.read("./indvidual_artist.html")
 
  	client.puts html.gsub("{{artist}}" , response["name"]).gsub("{{image}}", image_url)
