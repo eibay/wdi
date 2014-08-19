@@ -38,9 +38,9 @@ loop do
 	puts "At #{Time.now.strftime("%I:%M:%S%P")} - Client connected"
 
 	request = client.gets
-	url = request.split(" ")[1]
-	puts "At #{Time.now.strftime("%I:%M:%S%P")} - Client attempting to reach r#{url}"
-	params = parse_url(url)
+	path = request.split(" ")[1]
+	puts "At #{Time.now.strftime("%I:%M:%S%P")} - Client attempting to reach r#{path}"
+	params = parse_url(path)
 
 	if params[:path] == "/"
 		html = File.read("./views/main.html")
@@ -62,10 +62,10 @@ loop do
 		image_page = image_page.gsub("{{image_str}}", image_str)
 		client.puts image_page
 
-	elsif url == "/style.css"
+	elsif path == "/style.css"
 		css = File.read("./stylesheets/style.css")
 		client.puts(css)
-	elsif url == "/tag_page.css"
+	elsif path == "/tag_page.css"
 		css = File.read("./stylesheets/image_page.css")
 		client.puts(css)
 	else
