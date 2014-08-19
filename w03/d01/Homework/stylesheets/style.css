@@ -1,0 +1,32 @@
+
+#form {
+	height: 500px;
+	width: 500px;
+	margin-top: 15%;
+	background-image: url('../assets/camera.jpg');
+	background-size: 432px 304px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+input {
+	border-width: 8px solid gray;
+	border-radius: 5px;
+	height: 15px;
+
+}
+
+
+ol {
+	background-image: url('../assets/camera.jpg');
+	background-size: 108px 76px;
+	background-repeat: repeat;
+	background-attachment: fixed;
+}
+
+#not_found {
+	font-size: 200px;
+}
+
+
+

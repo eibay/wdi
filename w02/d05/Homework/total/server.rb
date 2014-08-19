@@ -34,7 +34,7 @@ loop do
 	query = convert(path) if path.include?("?")
 
 	if path == "/"
-		client.puts File.read("./views/index.html")
+		client.puts File.read("views/index.html")
 		puts "#{Time.now} - Sent Client index.html"
 
 	elsif path == "/style.css"
