@@ -58,7 +58,12 @@ loop do #can be while true as well
  #    response = omdbapi.gets
  #    omdbapi.close
  #replacing this with httparty! cause it analyzes API and reads what we need
+ 
  	 artistnamesearch = params[:query_params][:searchword]
+
+ 	 #getting artist name from the searchword from html!!!
+ 	 #under query_word will be the search word after we split
+
  	
  	response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:#{artistnamesearch}&fmt=json", headers: {"User-Agent" => "HTTParty"})
  #this gets the api from musicbrainz
@@ -78,13 +83,17 @@ loop do #can be while true as well
 	
 	html = File.read("./views/index1.html")
 	
-	html = html.gsub("{{names}}", names.join('')) #give us a string
+	html = html.gsub("{{names}}", names.join('')) #give us a string-can put into another html file if u wanted to
 	html = html.gsub("{{css}}", '<link rel ="stylesheet" type=text/css href="/style">')
 	client.puts html
 	#to make a list of all the artists with that name
 	
 	elsif params[:path].split("/")[2]#getting second part of word
 		specificartistid = params[:path].split("/")[2] 
+
+		
+	# name = URI.decode(params[:path].split("/")[2]) #taking out the %20 - another way to get the artist name if used artist name in the url
+
 		 #getting id from hash of the artist
 		name = ids["#{specificartistid}"]
 		#getting artist name out using id
@@ -92,8 +101,9 @@ loop do #can be while true as well
 		#httparty already doe json so no json.parse
 		country = response["country"]
 		type = response["type"]
-		
-		
+		# picture = HTTParty.get("http://www.last.fm/music/#{specificartistid}") 
+		# response = JSON.parse(picture)
+		# first steps to getting picture
 		#taking into account nil
 		
 		if country == nil && type != nil
@@ -148,7 +158,7 @@ end
 
 
 
-
+ #response = HTTParty.get("https://api.instagram.com/v1/media/popular?client_id=59f1ac61f0b547e4a6961cdf8b921cfe") after id is instragram key
 
 
 
