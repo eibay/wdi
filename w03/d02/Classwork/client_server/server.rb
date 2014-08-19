@@ -6,6 +6,6 @@ client = server.accept
 
 client.gets
 
-client.puts "hello world"
+client.puts File.read('./index.html')
 
 client.close
