@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<meta charset=utf-8>
+	<title>The eye darts forth &amp; down</title>
+	<link type=text/css rel=stylesheet href=/styles>
+</head>
+<body>
+	<section>
+		<h1>The eye darts forth &amp; down</h1>
+		
+		<ul>
+			<% $images.each do |img| %>
+			<% src, usrname = img[0], img[1] %> 
+				<li>
+					<img src=<%=src%>>
+					<p><%= usrname %></p>
+
+				</li>
+			<% end %>
+		</ul>
+
+	</section>
+</body>
+</html> 
