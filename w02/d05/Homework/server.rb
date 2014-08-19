@@ -72,6 +72,8 @@ if params [:path] == '/'
 ######################################################################
 
 #displaying artists on page
+
+binding.pry
 elsif params [:path] == "/artist"
   artist_name = params[:query_params][:specific_artist]
   response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:#{artist_name}&fmt=json")
