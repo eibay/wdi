@@ -83,6 +83,8 @@ loop do
 	html = File.read("./views/search_results.html")
 	
 	html = html.gsub("{{names}}", names.join(''))
+	html = html.gsub("{{css}}", '<link rel ="stylesheet" type=text/css href="/stylesheets/styles.css">')
+
 	client.puts html
 	
 	elsif params[:path].split("/")[2]
