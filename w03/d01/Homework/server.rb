@@ -32,7 +32,7 @@ loop do
 	puts "Client is connected"
 	request = client.gets
 	puts "request sent"
-	url = request.split(" ")[1]
+	url = request.split(" ")[1] #everything past the domain name
 	params = parse_url(url)
 
 
@@ -51,7 +51,8 @@ loop do
 
 			response["data"].each do |x|
 			image = x["images"]["standard_resolution"]["url"]
-			pictures << " <img src = '#{image}'> "
+			pictures << "<a href='#{image}'><img src='#{image}'/></a>"
+			#makes picture to another bigger to the link
 			end
 
 		tagword = tagword.upcase
