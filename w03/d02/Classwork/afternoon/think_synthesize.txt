@@ -1,0 +1,21 @@
+Difference between GET and POST:
+
+For a GET request parameters are stored in the URL
+
+For POST parameters are not stored in the browser history.
+
+A GET request can be bookmarked.
+
+A POST request can be bookmarked.
+
+For a GET request, requests are re-executed but may not be resubmitted to the server.
+
+For a POST request, the data will need to be resubmitted.
+
+GET is less secure, data is sent as part of the URL.
+
+POST is more secure because data is not stored in the cache.
+
+GET request = Wikipedia search
+
+POST request = Logging in to my bank account site
