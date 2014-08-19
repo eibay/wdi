@@ -8,6 +8,27 @@ require 'yaml'
 s = TCPServer.new 2000
 @app_name = "Hash of Hearts"  
 @cloud = {}
+@nav_bar_links = [{link: "about", href: "/about"}, {link: "home", href: '/'}, {link: "the cloud", href: "/cloud" }]
+
+@header_partial = <<HEADER_PARTIAL 
+<header>
+	<h1><%= @app_name %></h1> 
+	<nav>
+		<ul>
+			<% #perhaps this is silly %>
+			<% @nav_bar_links.each do |l| %>
+				<li>
+					<a href=<%= l[:href] %>><%= l[:link] %></a>
+				</li> 
+			<% end %> 
+		</ul>
+	</nav> 
+</header> 
+HEADER_PARTIAL
+
+# transform the header partial 
+@header_partial = ERB.new @header_partial
+@header_partial = @header_partial.result binding 
 
 def send_erb_view which  
 	f = "./views/#{which}/index.html.erb" 
@@ -46,8 +67,8 @@ def transform results
 	end
 end 
 
-
 loop do 
+
 
 	c = s.accept 
 
@@ -61,6 +82,7 @@ loop do
 	elsif r.path == "/see" && r.request_method == "GET" 
 		@view_name = "see"
 
+		# MAKE A Hash OF Hearts 
 		@t = r.query["tag"]
 		@imgs = tagged @t
 		@imgs = transform @imgs
@@ -69,18 +91,33 @@ loop do
 		v = send_erb_view @view_name
 		c.puts v 
 
-	elsif r.path == "/cloud" && r.request_method == "POST"
-		@view_name = "cloud"
-
-		@t = r.query["t"] 
-		@imgs = tagged @t 
-		@imgs = transform @imgs 
-		@imgs.slice! 0, 9 
-
-		@cloud[@t] = @imgs  
+	elsif r.path == "/about" && r.request_method == "GET"
+		@view_name = "info"
 
 		v = send_erb_view @view_name
 		c.puts v 
+
+
+	elsif r.path == "/cloud" 
+		@view_name = "cloud"
+
+		if r.request_method == "POST"
+			
+			# MAKE A Hash OF Hearts 
+			@t = r.query["t"] 
+			@imgs = tagged @t 
+			@imgs = transform @imgs 
+			@imgs.slice! 0, 9 
+
+			@cloud[@t] = @imgs  
+
+			v = send_erb_view @view_name
+			c.puts v 
+		else
+
+			v = send_erb_view @view_name
+			c.puts v  
+		end 
 
 	end 
 
