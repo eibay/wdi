@@ -45,6 +45,7 @@ loop do
 
 	elsif url.split("?")[0] == "/words"
 		search_results = parse_url(url)
+		puts search_results
 		word = search_results[:query_params][:artist_search]
 		response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:#{word}&fmt=json", headers: {"User-Agent" => "Httparty"})
 
@@ -66,9 +67,10 @@ loop do
 	 	
 	 	id = url.split("?")[0].split("/")[2]
 	 	response = HTTParty.get("http://musicbrainz.org/ws/2/artist/#{id}?inc=aliases&fmt=json", headers: {"User-Agent" => "Httparty"})
+		
 		artist_info = "You searched for #{response["name"]}. From #{response["country"]} <br> Come back later when I find an API with more information to share."
 	 	artist = response["name"]
-	 	# pictures = HTTParty.get("/release/#{id}", headers: {"User-Agent" => "Httparty"})
+	 	# pictures = HTTParty.get("http://musicbrainz.org/release/#{id}", headers: {"User-Agent" => "Httparty"})
 	 	puts response
 
 
@@ -80,14 +82,13 @@ loop do
 	    puts "Client has accessed #{response["name"]}"
 
 
-	elsif url.split("?")[0] = "../stylesheet/styles.css"
+	elsif url.split("?")[0] == "../stylesheet/styles.css"
 		css = File.read('./stylesheet/styles.css')
 		client.puts css
 	else
 		html = File.read('./views/404.html')
-		html = html.gsub('{{}}', "")
-		client.puts url
-		puts "Client has "
+		client.puts html
+		puts "Client has requested a bad path"
 	end 
 client.close
 end
