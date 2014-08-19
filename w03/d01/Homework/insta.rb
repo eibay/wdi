@@ -71,7 +71,10 @@ p "client searched for #{searched_tag}"
 		client.puts html
 
 
-	elsif url == "/style_images"
+		
+
+
+	elsif url == "/style"
 		client.puts File.read("./views/style_images.css")
 p "sent /style_images"
 

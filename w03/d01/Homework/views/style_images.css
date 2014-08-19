@@ -8,8 +8,13 @@
   .top h1 {
     font-family: impact;
     display: center; }
-  .top h3 {
+  .top h4 {
     font-family: verdana; }
+  .top .search {
+    font-style: italic; }
+
+.sentence_you_searched {
+  padding-top: 35px; }
 
 .images img {
   float: left;

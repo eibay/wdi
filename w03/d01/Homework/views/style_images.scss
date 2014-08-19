@@ -12,11 +12,18 @@
 	display: center;
 	}
 
-	h3 {
+	h4 {
 	font-family: verdana;
+	}
+
+	.search {
+		font-style: italic;
 	}
 }
 
+.sentence_you_searched {
+	padding-top: 35px;
+}
 
 .images img {
 	float: left;
