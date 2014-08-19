@@ -44,6 +44,7 @@ loop do
 	params = parse_url(url)
 	artistname = url.split("=")[1]
 
+
 if  path == "/"
     html = File.read('./html/index_artist.html')
     client.puts(html)
@@ -52,38 +53,51 @@ if  path == "/"
 #     client.puts(css)
 elsif params[:path] == "/artists"
 	response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:#{artistname}&fmt=json", headers: {"User-Agent" => "HTTParty"})
+	puts response
 
-binding.pry
 
-artists = []
+	html = File.read('./html/artists.html')
+    html = html.gsub('{{name}}', artistname)
+
 id = []
+artists =[]
 
+		response["artist"].each do |a|
+		id.push "<li><a href=/artists/" + a["id"]+ ">" + a["name"] + "</a></li>"
+		end
 
-    response["artist"].each do |name|
-    	artists.push(name["name"])
-    	# individual_artists = File.read('./html/artists.html')
-   	 #    individual_artists= individual_artists.gsub('{{name}}', name["name"])
-   	 #    artists.push(html)
-    end
-    response["artist"].each do |id|
-    	id.push(id["id"])
-    end
-
-
-    individual_artists = File.read('./html/artists.html')
-   	individual_artists= individual_artists.gsub('{{name}}', name["name"])
-    individual_artists = individual_artists.gsub('{{id}}', name["id"])
-	artists.push(html)
-	end
-
- else
-    client.puts("<h1> i need help </h1>")
+	  	id2 = id.join('').to_s
+	  	individual_artists = File.read('./html/individual_artists.html')
+   	    individual_artists= individual_artists.gsub('{{name}}', id2)
+   	    individual_artists = individual_artists.gsub('{{id}}', id2 )
+   	    individual_artists = individual_artists.gsub('{{artistname}}', artistname )
+   	    artists.push(individual_artists)
+   	    client.puts(individual_artists)
 end
 
- client.close
-	# html = html.gsub('{{names}}', artists.join(''))
-	# client.puts(html)
-end
 
 end
+
+#     end
+#     response["artist"].each do |id|
+#     	id.push(id["id"])
+#     end
+
+
+#     individual_artists = File.read('./html/artists.html')
+#    	individual_artists= individual_artists.gsub('{{name}}', name["name"])
+#     individual_artists = individual_artists.gsub('{{id}}', name["id"])
+# 	artists.push(html)
+# 	end
+
+#  else
+#     client.puts("<h1> i need help </h1>")
+
+
+#  client.close
+# 	# html = html.gsub('{{names}}', artists.join(''))
+# 	# client.puts(html)
 # end
+
+# end
+# # end
