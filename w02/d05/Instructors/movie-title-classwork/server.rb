@@ -8,17 +8,23 @@ loop do
 
   client = server.accept
 
+<<<<<<< HEAD
   request = client.gets.chomp
   path = request.split(" ")[1]
+=======
+  request = client.gets
+  url = request.split(" ")[1]
+  params = parse_url(url)
+>>>>>>> 5c92996b17a72ec9a90a9d6700b18f3a76cbc434
 
-  if path == "/"
+  if params[:path] == "/"
     html = File.read('./views/index.html')
     client.puts(html)
-  elsif path == "/styles.css"
+  elsif params[:path] == "/styles.css"
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
-  elsif path.split('/')[1] == "words"
-    word = path.split('/')[2]
+  elsif params[:path] == "/words"
+    word = params[:query_params][:specific_word]
 
     omdbapi = TCPSocket.new 'www.omdbapi.com', 80
     omdbapi.puts "GET /?s=#{word}"

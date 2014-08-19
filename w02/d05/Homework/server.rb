@@ -26,10 +26,8 @@ require 'uri'
 # musicbrainz.close
 
 # response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:elvis&fmt=json", headers: {"User-Agent" => "HTTParty"})
-
-# parsed = JSON.parse(response.to_s)
-
 # binding.pry
+# parsed = JSON.parse(response.to_s)
 
 # client.puts parsed
 
@@ -99,8 +97,10 @@ loop do
 
 	i = 0
 
+# binding.pry
+
 	while i < artist_names.length
-		artists <<  "<li><a href='http://musicbrainz.org/ws/2/artist/{{artist_id}}?inc=aliases&fmt=json'>#{artist_names[i]["name"]}</a></li>"
+		artists <<  "<li><a href='http://musicbrainz.org/artist/#{artist_names[i]["id"]}'>#{artist_names[i]["name"]}</a><br /></li>"
 		i += 1
 	end
 
