@@ -1,6 +1,7 @@
 require 'pry'
 require 'socket'
 require 'httparty'
+require 'uri'
 
 server = TCPServer.new 2000
 
@@ -37,29 +38,29 @@ end
 loop do
 
   client = server.accept
-
+  
   request = client.gets
   url = request.split(" ")[1]
   params = parse_url(url)
-
+  
+  
   if params[:path] == "/"
     html = File.read('./views/index.html')
     client.puts(html)
+  
   elsif params[:path] == "/styles.css"
     css = File.read('./stylesheets/styles.css')
     client.puts(css)
+  
   elsif params[:path] == "/artist"
     artist = params[:query_params][:artist]
     musicbrainz_results = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:#{artist}&fmt=json")
-
     returned_artists = []
-
     musicbrainz_results["artist"].each do |result|
     returned_artists << result["name"]
     end
 
     artist_lis = []
-    
     returned_artists.each do |artist_name|
       individual_artist = File.read('./views/individual_artists.html')
       individual_artist = individual_artist.gsub('{{artist}}', artist_name)
@@ -70,6 +71,19 @@ loop do
     results_page = results_page.gsub('{{artist}}', artist.capitalize).gsub('{{artist_lis}}', artist_lis.join(''))
 
     client.puts(results_page)
+  
+  elsif params[:path] == "/artistpage"
+    specific_artist = params[:query_params][:artist]
+
+    musicbrainz_results["artist"].each do |result|
+      if result["name"] == specific_artist
+      artist_id = result["id"]
+      end
+    end
+    musicbrainz_specific_artist = HTTParty.get("http://musicbrainz.org/ws/2/artist/#{artist_id}?inc=aliases&fmt=json")
+    artist_details = {}
+    artist_details[]
+
 
   else
     html = File.read('./views/404.html')
