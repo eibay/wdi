@@ -36,7 +36,10 @@ return params
 #     
 # }
 end
+
+# don't know why we need ids - prob just cruft from Tejal's program
 ids = {}
+
 loop do #can be while true as well
 	client = server.accept #waiting for client to accept our call
 	request = client.gets #after the server picks up, this is the information we get, the first line
