@@ -1,6 +1,6 @@
-require 'erb'
-require 'socket'
-require 'httparty'
+require "erb"
+require "socket"
+require "httparty" 
 
 # set up variables # 
 
@@ -43,7 +43,7 @@ def parse url
   	key_values = []
 
   	pairs.each do |pair|
-    	key_values.push(pair.split("="))
+    	key_values.push(pair.split('='))
   	end
 
   	query_params = {}
@@ -78,7 +78,7 @@ def transform results
 			unless image["caption"].nil?  
 				username = image["caption"]["from"]["username"]
 			else 
-				username = ""
+				username = ''
 			end 
 		
 			[img, username]
