@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang=en>
+	<head>
+		<meta charset=utf-8>
+		<title> <%= @app_name %> | <%= @view_name %> </title>
+	</head>
+	<body>
+		<section>
+		<% @cloud.each do |t, imgs| %>
+			<section> 
+				<h3><%= t %> </h3>
+				<ul> 
+					<% imgs.each do |img| %> 
+					<% src, usrname = img %> 
+
+					<li>
+						<img src=<%=src%> >
+						<p><%= usrname %></p>
+					</li>
+					<% end %>
+				</ul> 
+			</section>
+			<% end %>
+		
+
+
+
+		</section>
+	</body> 
+</html> 

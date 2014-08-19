@@ -2,12 +2,12 @@
 <html lang=en>
 	<head>
 		<meta charset=utf-8>
-		<title> <%= $app_name %> | <%= $view_name %> </title>
+		<title> <%= @app_name %> | <%= @view_name %> </title>
 	</head>
 	<body>
 		<section>
 		<ul>
-			<% $imgs.each do |img| %>
+			<% @imgs.each do |img| %>
 			<% src, usrname = img %> 
 			<li>
 				<img src=<%=src%> >
@@ -16,7 +16,10 @@
 			<% end %>  
 		</ul>
 		<form action=/cloud method=POST>
-			<button>SAVE THIS HASH OF HEARTS</button>
+			<input type=hidden name=t value=<%= @t %>></input>
+			<button>
+				SAVE THEE THIS <span class=fancy>Hash</span> OF <span class=fancy>Hearts</span>
+			</button>
 		</form>
 		</section>
 	</body> 
