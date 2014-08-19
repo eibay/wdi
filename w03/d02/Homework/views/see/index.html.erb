@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang=en>
+	<head>
+		<meta charset=utf-8>
+		<title> <%= $app_name %> | <%= $view_name %> </title>
+	</head>
+	<body>
+		<section>
+		<ul>
+			<% $imgs.each do |img| %>
+			<% src, usrname = img %> 
+			<li>
+				<img src=<%=src%> >
+				<p><%= usrname %></p>
+			</li>
+			<% end %>  
+		</ul>
+		<form action=/cloud method=POST>
+			<button>SAVE THIS HASH OF HEARTS</button>
+		</form>
+		</section>
+	</body> 
+</html> 
