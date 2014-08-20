@@ -1,0 +1,19 @@
+<html>
+<head>
+<link rel ="stylesheet" type=text/css href="/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<a href="/"><h1>Pictures</h1></a>
+
+<% response1["data"].each do |pic|
+	%>
+
+<a href="<%= pic["images"]["standard_resolution"]["url"] %>"><img src='<%=pic["images"]["standard_resolution"]["url"] %>' /></a>
+<% end %>
+
+</body>
+
+	
+
+</html>

@@ -1,0 +1,40 @@
+h1 {
+	font-family: 'Audiowide', cursive;
+	font-size: 50px;
+}
+
+body {
+	background: url("http://themagiccamera.files.wordpress.com/2013/06/100-followers-thank-you-1-of-1-2.jpg");
+		background-size: cover;
+background-position: center;
+}
+
+li { 
+	font-family: 'Audiowide', cursive;
+	font-size: 30px;
+}
+img {
+	width: 150px;
+	height: auto;
+}
+
+input {
+	font-family: 'Audiowide', cursive;
+	font-size: 20px;
+	border-radius: 20px;
+	border: 5px solid black;
+}
+
+button {
+	font-family: 'Audiowide', cursive;
+		padding: 10px;
+      border-radius: 20px;
+      border: 5px solid black;
+      font-size: 15px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+
+}
