@@ -32,8 +32,7 @@ loop do
 	puts "Client is connected"
 	request = client.gets
 	puts "request sent"
-	url = request.split(" ")[1] #everything past the domain name
-	params = parse_url(url)
+	url = request.split(" ")[1] #everything past the domain name	params = parse_url(url)
 
 
 	if params[:path] == "/"
@@ -49,7 +48,7 @@ loop do
 		response = HTTParty.get("https://api.instagram.com/v1/tags/#{tagword}/media/recent?client_id=59f1ac61f0b547e4a6961cdf8b921cfe")
 		puts "connected to instagram, got information and closed"
 
-			response["data"].each do |x|
+			response["data"].each do|x|
 			image = x["images"]["standard_resolution"]["url"]
 			pictures << "<a href='#{image}'><img src='#{image}'/></a>"
 			#makes picture to another bigger to the link
