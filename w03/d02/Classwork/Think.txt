@@ -1,0 +1,5 @@
+a GET request embeds form data from the client in the URL request, while POST encloses data in the header so that it is not revealed in the URL.  
+
+a GET request would be used for search queries
+
+a POST request would be used for password info.

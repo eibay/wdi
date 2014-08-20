@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+	<h1>Recent Images Tagged "{{tag}}"</h1>
+	<form action="/saved/tags" method="POST">
+		<input type="hidden" name="tag" value="{{tag}}">
+		<input type="submit" value="Save Search">
+	</form>
+	<br>
+	{{images}}
+</body>
+</html>
