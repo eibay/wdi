@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>MOAR Insta-tag!</title>
+</head>
+<body>
+  <div id="wrapper">
+    <!-- <div id="box"> -->
+      <h1>Insta-tag v2</h1>
+
+      <form action="/images" method="POST">
+        <input type="text" name="query" placeholder="Enter a tag..." />
+        <button>Submit</button>
+      </form>
+      <h5>Current searched tag: {{query}}</h5>
+      <form action="/tags" input type="hidden" name = "tag" value = "{{query}}" method="POST">
+        <button>Save tag</button>
+      </form>
+      <hr />
+
+
+        {{images}}
+
+    <!-- </div> -->
+  </div>
+</body>
+</html>

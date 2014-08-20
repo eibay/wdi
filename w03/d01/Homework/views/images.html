@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+  <div id="wrapper">
+    <div id="images">
+  <h2>Images for: {{query}}</h2>
+  <h4>Search again: </h4>
+    <form action="/images" method="GET">
+      <input type="text" name="query" placeholder="Enter a tag..." />
+      <button>Submit</button>
+    </form>
+
+  <hr />
+
+  {{images}}
+
+  </div>
+</div>
+</body>
+</html>
