@@ -16,10 +16,16 @@
 			<button>#Search</button>
 		</form>
 
-		<form action="/photos" method="POST">
-			<input type="hidden" name="{{search_tag}}">
+		<form action="/saved_tags" method="POST">
+			<input type="hidden" name="search_tag" value="{{search_tag}}">
 			<button>#SaveSearch</button>
 		</form>
+
+	<!-- 	<form action="/saved_photos" method="POST">
+			<input type="hidden" name="photo" value="{{images}}">
+			<button>#SavePhoto</button>
+		</form> -->
+
 		<h2>Search results for:"{{search_tag}}"</h2>
 	</header>
 	<div>
