@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+			<title>Instagram Tag Search Results</title>
+	</head>
+		<body>
+				<a href="/"><h1>Instagram Tag Search</h1></a>
+				<h3>Photos tagged "{{tags}}"</h3>
+				{{url}}
+
+			<form action="/saved" method="POST">
+				<input type="hidden" name="saved_searches" value="{{tags}}" />
+					<button>Save This Search</button>
+			</form>
+
+			<form action="/" method="GET">
+				<input type="hidden" name="search" placeholder="Search for a tag..." />
+					<button>Search Again</button>
+			</form>
+		</body>
+
+</html>
