@@ -41,7 +41,7 @@ loop do
 
 elsif request.path == "/favorites.html"
   favorites_html = File.read("./views/favorites.html")
-  favorites_html = favorites_html.gsub("{{images03}}", search_result)
+  # favorites_html = favorites_html.gsub("{{images03}}", search_result)
   client.puts favorites_html
 
 
