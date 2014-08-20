@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <!-- could replace this with {{css}} -->
+  <title>Instagram Tag Search</title>
+</head>
+<body>
+  <h1>What Instagram pics have your tag?</h1>
+
+<!-- because we're using POST now instead of GET, we change the method in the form tag -->
+<!--   <form action="/tags" method="GET"> -->
+
+  <form action="/tags" method="POST">
+    <input type="text" name="specific_tag" placeholder="Enter a tag..." />
+    <button>Submit</button>
+  </form>
+
+<!-- thought - it might be cool later to have this text and search box inside a picture of a tag -->
+
+</body>
+</html>

@@ -56,17 +56,17 @@ loop do #can be while true as well
 		names = []
 	
 	
-# 	omdbapi = TCPSocket.new 'www.omdbapi.com', 80
- #    omdbapi.puts "GET /?s=#{word}"
- #    response = omdbapi.gets
- #    omdbapi.close
- #replacing this with httparty! cause it analyzes API and reads what we need
- 	 artistnamesearch = params[:query_params][:searchword]
+artistnamesearch = params[:query_params][:searchword]
  	
  	response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:#{artistnamesearch}&fmt=json", headers: {"User-Agent" => "HTTParty"})
  #this gets the api from musicbrainz
  	# afterjson = JSON.parse(response) dont need because already json
 #converting to JSON
+
+this is the structure that our request needs to follow. tag-name is the thing we have to tell it
+GET/tags/tag-name/media/recent
+
+
 
 	response["artist"].each do|x|
 		id = x["id"]
