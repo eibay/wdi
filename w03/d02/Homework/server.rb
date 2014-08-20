@@ -42,7 +42,7 @@ loop do
 
 	elsif request.path == "/tag" && request.request_method == "POST"
 
-		search_word = request.query["search_word"] #this needs to be NOT QUERY ---MAYBE request.body["search_word"]
+		search_word = request.body.split("=")[1]
 		search_keepers.push(search_word)
 
 	end
