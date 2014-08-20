@@ -24,7 +24,7 @@ puts parse_url(url)
 
 
 
-url = "/the_forest?animal=monkeys&food=bananas"
+url = "/the_forest?animal=monkeys&food=bananas" #url = response.split(' ')[1]
 
 
 def parse_url(url)

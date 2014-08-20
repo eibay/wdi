@@ -16,13 +16,15 @@ loop do
 		client.puts html
 
 	elsif url == '/styles.css'
-		css = File.read('./stylesheets/style.css')
+		css = File.read('./stylesheets/styles.css')
 		client.puts css
 
 	elsif url.include?('/search?') 
 		tag = url.split('?')[1]
 		tag = tag.split('=')[1]
+		html = File.read('./views/search_page.html')
 
+		images = []
 
 		if tag.include?('+')
 			
@@ -32,7 +34,7 @@ loop do
 			response = HTTParty.get("https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=6e4453d0a1e84159a1b28c13d09916cb")
 			i = 0
 			while i < response["data"].length
-			client.puts "<html><body><img src='#{response["data"][i]["images"]["thumbnail"]["url"]}'></body>"
+			images.push("<img src='#{response["data"][i]["images"]["thumbnail"]["url"]}'>")
 			i +=1
 			end
 
@@ -41,11 +43,19 @@ loop do
 			response = HTTParty.get("https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=6e4453d0a1e84159a1b28c13d09916cb")
 			i = 0
 			while i < response["data"].length
-			client.puts "<html><body><img src='#{response["data"][i]["images"]["thumbnail"]["url"]}'></body>"
+			images.push("<img src='#{response["data"][i]["images"]["thumbnail"]["url"]}'>")
 			i +=1
 			end
 		end
 		
+		html = html.gsub("{{tag}}", tag)
+		html = html.gsub("{{images}}", images.join(""))
+
+
+	#elsif request.path == '/' && request.request_method == 'POST'
+
+
+
 	else 
 		client.puts "error"
 
