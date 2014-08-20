@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="UTF-8">
+	<title>Insta-Search</title>
+	<link rel="stylesheet" type="text/css" href="/save_page_style">
+</head>
+
+<body>
+	<header>
+
+		<h1>Insta-Search</h1>
+		<form action="/photos" method="GET">
+			<input type="text" name="tag_search" placeholder="Type tag here">
+			<button>#Search</button>
+		</form>
+
+<!-- 		<form action="/photos" method="POST">
+			<button>#SaveSearch</button>
+		</form> -->
+		<h2>Saved Searches</h2>
+	</header>
+	<div>
+		<h3>Your saved searches: {{saved_data}}</h3>
+	</div>
+</body>
+</html>

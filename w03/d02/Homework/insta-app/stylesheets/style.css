@@ -1,0 +1,31 @@
+h1 {
+	text-align: center;
+	color: white;
+	background: black;
+	border: 2px solid black;
+	border-radius: 15px;
+	margin: 0px 550px 0px 550px;
+}
+
+h2 {
+	text-align: center;
+	color: white
+}
+
+div {
+	text-align: center
+}
+
+img {
+	height: 200px;
+	width: 200px;
+	margin-top: 20px
+}
+
+body {
+	background-image: url('http://www.wallpaperban.com/wallpapers/2013/03/Space-Star-Constellation-Planet-2048x2048.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: 1600px 1000px;
+}
