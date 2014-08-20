@@ -54,7 +54,7 @@ loop do
 		list = list.gsub("{{list}}", newarray.join(''))
 
 		client.puts list
-
+#should have another page with the list items so user can get to it from browser
 	elsif request.path == "/style"
 		css = File.read("./stylesheets/style.css")
 		client.puts css
