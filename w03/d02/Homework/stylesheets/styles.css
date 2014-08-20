@@ -1,0 +1,129 @@
+/* yo, reset the styles, yo */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* yo, make header partial happen, yo */ 
+
+
+header {
+	margin: auto;
+	width: 30em;
+	margin-top: 1em;
+}
+
+header h1 {
+	color: DarkTurquoise;
+	text-align: center; 
+	background-color: purple;
+}
+
+header nav {
+	display: inline-block;
+	width: 100%;
+
+}
+
+header nav ul {
+	width: 100%;
+
+}
+
+header nav ul li {
+	text-align: center; 
+	list-style-type: none; 
+	float: left;
+	background-color: pink;
+	color: purple;
+	width: 33%;
+}
+
+header nav ul li a {
+	text-decoration: none; 
+}
+
+header nav ul li a:link {
+	color: purple;
+
+}
+
+header nav ul li a:visited {
+	color: purple;
+
+}
+
+header nav ul li a:hover {
+	color: DarkTurquoise;
+
+}
+
+header nav ul li a:active {
+	color: purple;
+
+}
+
+/* yo, style the info page, yo */
+
+section.info {
+	width: 40em;
+	margin: auto; 
+
+}
+
+section.info h1 {
+	margin-top: 1em;
+
+}
+
+section.info p {
+	margin-top: 1em; 
+
+}
+
+/* yo, style the search input field, yo */
+
+section.land form input {
+	display: block;
+	width: 20em;
+	height: 2em;
+	margin: auto;
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+
+/* yo, THE Hash OF Hearts, yo*/ 
+
+section.hash_of_hearts {
+	margin: auto;
+	width: 80%; 
+}
+
+section.hash_of_hearts ul {
+	display: inline-block;
+}
+
+section.hash_of_hearts ul li {
+	list-style-type: none; 
+	width: 30%;
+	margin: 1em;
+	float: left;
+}
+
+section.hash_of_hearts ul li img {
+	max-width: 100%; 
+}
+
+section.hash_of_hearts ul li p {
+
+} 
+
+section.hash_of_hearts form {
+	
+
+}
+
+section.hash_of_hearts form button {
+	
+}

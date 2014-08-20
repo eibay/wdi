@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title><%= @app_name %> | <%= @view_name %> </title>
+	<link type="text/css" rel="stylesheet" href="/styles">
+</head>
+<body>
+	<%= @header_partial %> 
+	<section>
+		<h3>All the Favorite Things There Are</h3>
+		<ul>
+			<% @things.each do |thing| %>
+				<% unless thing["thing"].nil? %>
+					<li>
+						<% if thing["uname"].nil? %>	
+							Somebody loves <%= thing["thing"] %>
+						<% else %>
+							<%= thing["uname"] %> loves <%= thing["thing"] %>
+						<% end %>			
+					</li>
+				<% end %>
+			<% end %> 
+		<ul>
+	</section>
+</body>
+</html>

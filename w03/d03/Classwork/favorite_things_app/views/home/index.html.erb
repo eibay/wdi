@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title><%= @app_name %> | <%= @view_name %> </title>
+	<link type="text/css" rel="stylesheet" href="/styles">
+</head>
+<body>
+	<%= @header_partial %> 
+	<section>
+		<h3>Tell me all about you</h3>
+		<form action="/things" method="POST">
+			<input type="text" name="uname">
+			<p>&amp; yr favorite things</p>
+			<input type="text" name="thing">
+			<button class="affirm">Yes, tell me</button>
+		</form>
+	</section>
+</body>
+</html>
