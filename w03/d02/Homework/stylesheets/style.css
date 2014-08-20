@@ -1,0 +1,46 @@
+body {
+	margin: 0 auto;
+	text-align: center;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 1%;
+	margin: 0;
+}
+
+h3 {
+	display: inline;
+}
+
+li {
+	list-style: none;
+	font-size: 1.5em;
+}
+
+form {
+	display: inline;
+}
+
+input {
+	padding: 1%;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+button {
+	padding: 1%;
+	font-weight: bold;
+	font-size: 1.5em;
+
+}
+
+.abc {
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.wrapper {
+	margin-top: 1%;
+}
