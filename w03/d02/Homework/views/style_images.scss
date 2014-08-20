@@ -1,0 +1,48 @@
+.top {
+	height: 200px;
+	
+	background-color: black;
+	color: white;
+	padding: 30px;
+	text-align: center;
+	margin-bottom: 10px;
+
+	h1 {
+	font-family: impact;
+	display: center;
+	}
+
+	h4 {
+	font-family: verdana;
+	}
+
+	.search {
+		font-style: italic;
+	}
+}
+
+.sentence_you_searched {
+	padding-top: 35px;
+}
+
+.images img {
+	float: left;
+	height: 150px;
+	width: 150px;
+	border-radius: 15px;
+	margin: 7px;
+}
+
+li {
+	list-style: none;
+}
+
+.tagbar {
+	height: 50px;
+	background-color: grey;
+	float: left;
+	margin-top: 1px;
+
+	font-family: verdana;
+	padding: 10px;
+}
