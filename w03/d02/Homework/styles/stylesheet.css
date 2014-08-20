@@ -16,6 +16,7 @@ div {
 	border-radius: 10px;
 	padding: 25px;
 	border: inset brown 5px;
+	text-align: center;
 }
 img {
 	margin: 5px;
@@ -36,7 +37,4 @@ input {
 	font-size: 12px;
 	width: 144px;
 	text-align: center;
-}
-br {
-	background-color: silver;
 }

@@ -1,4 +1,4 @@
-POST /words HTTP/1.1
+header = "POST /words HTTP/1.1
 Host: 127.0.0.1:2000
 Connection: keep-alive
 Content-Length: 19
@@ -11,7 +11,27 @@ Referer: http://127.0.0.1:2000/
 Accept-Encoding: gzip,deflate,sdch
 Accept-Language: en-US,en;q=0.8
 
-specific_word=hello
+specific_word=hello"
 
 
+header = header.split("\n")
 
+hash = {}
+
+hash[:request] = header[0]
+
+hash[:header] = {}
+
+hash[:body] = {}
+
+hash[:body][header.last.split("=")[0]] = header.last.split("=")[1]
+
+header.each do |line|
+ 	if line.include?(": ")
+ 		hash[:header][line.split(": ")[0]] = line.split(": ")[1]
+ 	end
+end
+
+
+puts hash
+ 
