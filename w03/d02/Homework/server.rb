@@ -4,6 +4,7 @@ require 'httparty'
 require 'pry'
 
 server = TCPServer.new 2000
+tags = []
 
 loop do
   client = server.accept
@@ -30,14 +31,13 @@ loop do
     html = html.gsub('{{query}}', query)
     html = html.gsub("{{images}}", images.join(" "))
 
-    tags = []
-    tags << query
-    puts query
     #
-    if request.path == "/tags" 
-      binding.pry
+    # tags << query
+    # puts query
+    # #
+    if request.path == "/tags"
 
-      s_tags = []
+
       s_tags << query
       puts s_tags
       client.puts "Saved #{query}"

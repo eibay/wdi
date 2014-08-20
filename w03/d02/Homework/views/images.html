@@ -15,8 +15,8 @@
         <button>Submit</button>
       </form>
       <h5>Current searched tag: {{query}}</h5>
-      <form action="/tags" method="POST">
-        <button value="{{query}}">Save tag</button>
+      <form action="/tags" input type="hidden" name = "tag" value = "{{query}}" method="POST">
+        <button>Save tag</button>
       </form>
       <hr />
 
