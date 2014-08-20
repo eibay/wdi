@@ -6,13 +6,16 @@
   <title></title>
 </head>
 <body>
-  <h2> You've searched for: <u> {{specific_tag}} </u> 
-  	<br>
+  <h2>
   	Here are your results!
   </h2>
 
-  <ul>
+  <div class = "button2">
+	<form action="/save" method="POST">
+	<input type="hidden" name="category_name" />
+	<button> Save </button>
+	</form>
+</div>
 
-  </ul>
 </body>
 </html>

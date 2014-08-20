@@ -37,7 +37,6 @@ def parse_url(url)
 
 while true
   client = server.accept
-
   request = client.gets 
   url = request.split(" ")[1]
   params = parse_url(url)
@@ -52,17 +51,17 @@ elsif params[:path] == "/styles.css"
   css = File.read('./stylesheets/style.css')
   client.puts(css)
 
-# binding.pry
+# # binding.pry
 elsif params [:path] == "/tag"
-  tag = params[:query_params][:specific_photo]
-  response = HTTParty.get("https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=3bbdd8399e754e5b8e24bd968905298f")
+  tag = params[:query_params][:specific_tag]
+  response = HTTParty.get("https://api.instagram.com/v1/tags/#{query}/media/recent?client_id=3bbdd8399e754e5b8e24bd968905298f")
 
   html = File.read("./views/photo.html")
-  html = html.gsub("{{specific_photo}}", tag)
+  html = html.gsub("{{specific_tag}}", tag)
 
 instagram_array = []
 
-  response["image"].each do |x| 
+["data"].each do |x|
     individual_photo = File.read ("./views/instagram_photo.html")
     individual_photo = individual_photo.gsub("{{images}}", x["images"])
     instagram_array.push(individual_photo)
