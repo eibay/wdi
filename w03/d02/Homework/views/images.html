@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+	<title>Images</title>
+</head>
+<body>
+	<header>
+	<h1>Instagram Search</h1>
+	<h2>Images searched by {{tag}}</h2>
+	</header>
+	<h3>Thumbs up to store your favorite tag</h3> 
+	<form action="/tag" method="POST">
+		<input class="abc" type="submit" value="Like" name="{{tag}}">
+	</form>
+	<h3>Go to your <a href="favorite.html">favorite page</a></h3>
+	<div class="wrapper">
+		{{images}}
+	</div>
+	<p><a href="/">Go back home...</a></p>
+</body>	
+</html>

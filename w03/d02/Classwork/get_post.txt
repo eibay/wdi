@@ -1,0 +1,5 @@
+Part 1 - Think and Synthesize
+- What is the difference between a GET and a POST request?
+	Basically those two get data 
+- Give an example of when you would use a GET request
+- Give an example of whenn you rwould use a POST requset

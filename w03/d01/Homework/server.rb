@@ -35,7 +35,7 @@ loop  do
 
 		while i < response.length
 			url = response[i]['images']['standard_resolution']['url']
-			images << "<li><img src='#{url}'></li>"
+			images << "<li><a href='#{url}'><img src='#{url}'></a></li>"
 			i += 1
 		end
 	
