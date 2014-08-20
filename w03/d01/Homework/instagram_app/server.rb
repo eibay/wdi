@@ -1,42 +1,39 @@
 require 'pry'
-require 'json'
-require 'socket'
-require 'HTTParty'
+require 'httparty'
 
-server = TCPServer.new 2000
+TCPServer.new 2000
 
-# equivalent to while true
 def parse_url(url)
-  path = url.split("?")[0]
-  query_string = url.split("?")[1]
+	path = url.split("?")[0]
+	query_string = url.split("?")[1]
 
-  puts path, query_string
+	puts path, query_string
 
-  params = {}
-  params[:path] = path
+	params = {}
+	params[:path] = path
 
-  if query_string == nil
+	if query_string == nil
+		return params
+	end
+
+	pairs = query_string.split("&")
+
+	key_values = []
+
+	pairs.each do |pair|
+		key_values.push(pair.split("="))
+	end
+
+	query_params = {}
+
+	key_values.each do |key_values|
+		query_params[key_value[0].to_sym] = key_value[1]
+    end
+
+    params[:] = query_params
+
     return params
-  end
-
-  pairs = query_string.split("&")
-
-  key_values = []
-
-  pairs.each do |pair|
-    key_values.push(pair.split("="))
-  end
-
-  query_params = {}
-
-  key_values.each do |key_value|
-    query_params[key_value[0].to_sym] = key_value[1]
-  end
-
-  params[:artist] = query_params[:artist]
-
-  return params
-end
+    end
 
 loop do
 
@@ -90,4 +87,16 @@ loop do
   client.close
 
 end
+
+
+
+    
+
+
+
+instagram_things = HTTParty.get("https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=4c08eb6f8fb948d581437e9315b48fb2")
+
+puts instagram_things["data"][0]["images"]["standard_resolution"]["url"]
+
+
 
