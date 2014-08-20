@@ -17,6 +17,7 @@ loop do
 		client.puts html
 	elsif request.path == "/" && request.request_method == "POST"
 		puppy_name = request.body.split("=")[1]
+		binding.pry
 		puppies.push(puppy_name)
 		client.puts puppies.join(", ")
 	elsif request.path == "/tag"
