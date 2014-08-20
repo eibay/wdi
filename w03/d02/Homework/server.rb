@@ -6,6 +6,7 @@ require 'uri'
 
 server = TCPServer.new 2000
 savedarray = []
+newarray = []
 loop do
 	client = server.accept
 	request = WEBrick::HTTPRequest.new(WEBrick::Config::HTTP) #does the parsing for us
@@ -40,14 +41,13 @@ loop do
  
 
 	elsif request.path == "/list" && request.request_method == "POST"
-		newarray = []
+		
 		
 
 	listitems = request.body.split("=")[1]
-	unless newarray.include?request.body.split("=")[1]
-					newarray << "<li><a href='/tag?tagwords=#{listitems}'>#{listitems}</a></li>"
+	newarray << "<li><a href='/tag?tagwords=#{listitems}'>#{listitems}</a></li>"
 					#because gets saves in the browser
-				end
+				
 
 		list = File.read("./views/list.html")
 
