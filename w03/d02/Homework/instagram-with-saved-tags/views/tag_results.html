@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<!-- do i need to update the link to stylesheet? -->
+<!--   <link rel="stylesheet" type="text/css" href=".views/styles.css">
+
+  <link rel="stylesheet" type="text/css" href="/styles.css"> -->
+
+<!-- do i need to add the {{css}} tag too? -->
+{{css}}
+
+  <title>Instagram Tag Search Results</title>
+</head>
+<body>
+  <h1>The tag you searched for is: {{search_tag}}</h1>
+<!-- want to figure out how to just make a button without the placeholder/typing box -->
+  <form action="/saved_searches" method="POST">
+    <!-- this tag is if you have a text box you want people to type in -->
+    <!-- <input type="text" name="specific_tag" placeholder="re-type your tag name to save it!" /> -->
+    <input type="hidden" name="specific_tag" value="{{search_tag}}"/>
+    <button>Save Tag</button>
+  </form>
+
+<h2>Here are the pics with your search tag:</h2>
+  <ul>
+    {{all_instagram_images}}
+  </ul>
+</body>
+</html>
