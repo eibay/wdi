@@ -13,14 +13,25 @@
 	    	<input type="text" name="tag" placeholder="Search a hashtag!" />
 	    	<button>Submit</button>
 	  	</form>
+
+	  	<form action="/save" method="POST">
+	    	<button>Save</button>
+	  	</form>
+
 		<div class="sentence_you_searched">
 			<h4> You searched: <span class="search">"{{TAG}}"</span> --  These are the photos tagged with <span class="search">"#{{TAG}}"</span> !</h4>
 		</div>
-		
 	</div>
 
+
+<!-- 	<div class="tagbar">
+		{{SAVED_TAGS}}
+	</div> -->
+
+
+
 	<div class="images">
-		<a href='{{IMAGES}}'> {{IMAGES}} </a>
+		{{IMAGES}}
 	</div>
 	
 
