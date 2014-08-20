@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+</head>
+<body>
+	<div><center><a href="/">HOME</a><center></div>
+	<form action="save_tag" method="POST">
+		<center><button name="tag" value="{{tag}}" {{tag_active}}>Save This Tag!</button></center>
+	</form>
+	<center><ul>
+		{{list}}
+	</ul></center>
+</body>
+</html>
