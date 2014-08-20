@@ -34,7 +34,7 @@ loop do
 			images.push("<img src='#{image}'>
 				<form action='/saved/images' method='POST'>
 				<input type='hidden' name='image' value='#{image}'>
-				<input type='submit' value='Save Image'><br>")
+				<input type='submit' value='Save Image'></form><br>")
 		end
 
 		html = File.read("./views/results.html")
