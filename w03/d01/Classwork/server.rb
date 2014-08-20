@@ -144,7 +144,8 @@ loop do
  				
  			end
  			if(images_array.empty?)
- 					client.puts "Found no images with that tag in this city"
+ 					client.puts "Found no images with that tag in this city, here are all of the most recent images from that city"
+
  				end
  				client.puts "</body></html>"
 		else
@@ -154,21 +155,53 @@ loop do
 
 
 
- 		response=HTTParty.get("https://api.instagram.com/v1/tags/#{params[:query_params][:tag_search]}/media/recent?client_id=8fe4db31e3a940068664c1e7e3c5c061")
- 		client.puts "<html><body>"
- 		# puts response["data"][0]["images"]["standard_resolution"]["url"]
- 		images_array=[]
- 		response["data"].each do |tag|
+ 			response=HTTParty.get("https://api.instagram.com/v1/tags/#{params[:query_params][:tag_search]}/media/recent?client_id=8fe4db31e3a940068664c1e7e3c5c061")
+ 				client.puts "<html><body>"
+ 			# puts response["data"][0]["images"]["standard_resolution"]["url"]
+ 			images_array=[]
+ 			response["data"].each do |tag|
  			puts tag["images"]["standard_resolution"]["url"]
  			image_url=tag["images"]["standard_resolution"]["url"]
 
  			client.puts "<img src='#{image_url}' /><br />"
- 		end
+ 			end
 
-		client.puts "</body></html>"
-		client.close
+			client.puts "</body></html>"
 		end
 	end
+				client.close
+
 end
+
+# def parse_url(url)
+#   path = url.split("?")[0]
+#   query_string = url.split("?")[1]
+
+#   params = {}
+#   params[:path] = path
+
+#   if query_string == nil
+#     return params
+#   end
+
+#   pairs = query_string.split("&")
+
+#   key_values = []
+
+#   pairs.each do |pair|
+#     key_values.push(pair.split("="))
+#   end
+
+#   query_params = {}
+
+#   key_values.each do |key_value|
+#     query_params[key_value[0].to_sym] = key_value[1]
+#   end
+
+#   params[:query_params] = query_params
+
+#   return params
+# end
+
 
 
