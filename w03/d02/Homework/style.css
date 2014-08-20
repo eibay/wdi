@@ -7,7 +7,7 @@ body{
 	display:table;
      margin: auto;
   position: absolute;
-  top: 0; left: 25%; bottom: 0; right: 0;
+  top: 0; left: 40%; bottom: 20%; right: 0;
 }
 
 form input[type=text]
