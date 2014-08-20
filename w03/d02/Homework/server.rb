@@ -49,7 +49,7 @@ loop do
 				unless searches.include?request.body.split("=")[1]
 					searches << "<li><a href='/tag?search=#{saved}'>#{saved}</a></li>"
 				end
-
+#Create another page of saved searches using GET so user can navigate there directly without having to search again to access list
 			searches_html = File.read('./views/searches.html')
 			searches_html = searches_html.gsub('{{value}}', searches.join(''))
 			client.puts searches_html
