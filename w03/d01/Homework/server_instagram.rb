@@ -37,7 +37,9 @@ loop do
   client = server.accept
   request = client.gets
   url = request.split(" ")[1]
-  params = parse_url(url)
+  params = parse_url(url) #The thing in the () shld b named path bc it is not actually
+  # the url since whats being passed is not a url but a path since the domain name is not part
+  # of it.
 
   if params[:path] == "/"
     html = File.read("./views/index.html")
