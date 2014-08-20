@@ -1,0 +1,5 @@
+GET is for retrieving info from a server while not changing the content of the server.  POST is for sending information to a server.
+
+GET sends info to server (in the header - it appears in the URL), but is good for pulling files (HTML, media, data, etc) from a server.
+
+POST sends info in the request line and is good for submitting information (email addresses, survey answers, etc) or files (media, etc) to a server so it can be manipulated by the server or accessed by other clients.
