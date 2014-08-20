@@ -53,8 +53,8 @@ puts "Client has connected from #{client_ip}"
 	elsif params[:path] == "/stylesheets/styles.css"
 	client.puts File.read('./stylesheets/styles.css')
 
-	elsif params[:path] == "/images/instagram.jpg"
-	client.puts File.read('./images/instagram.jpg')
+	# elsif params[:path] == "/images/instagram.jpg"
+	# client.puts File.read('./images/instagram.jpg')
 
 	elsif params[:path] == "/images/polaroid.jpg"
 	client.puts File.read('./images/polaroid.jpg')

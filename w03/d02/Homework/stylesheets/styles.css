@@ -40,15 +40,23 @@ img {
 	padding: 2px;
 }
 
-/*button {
+li {
+	font-family: 'Raleway', sans-serif;
+	font-size: 14px;
+}
+
+li a {
+	text-decoration: underline;
+}
+
+button {
 font-family: Arial, sans-serif;
-font-size: 25px;
-border-radius: 10px;
-background-color: #E617A4;	
+font-size: 15px;
+border-radius: 10px;	
 }
 
 input {
 	border-radius: 10px;
-	font-size: 25px;
-}*/
+	font-size: 15px;
+}
 
