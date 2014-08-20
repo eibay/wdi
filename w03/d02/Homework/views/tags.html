@@ -1,0 +1,22 @@
+<html>
+
+<body>
+
+  <h1>You searched for {{stuff}}</h1>
+
+  <form action = "/tags" method = "GET">
+    <input type = "text" name = "category_name" placeholder = "Search here for pictures..."/>
+    <button>Search</button>
+  </form>
+
+
+  <form action = "/tags" method = "POST">
+  <input type="button" value="Save Search" onclick="window.location.href='favorites.html';"/>
+  </form>
+
+  <ul>
+    {{images02}}
+  </ul>
+
+</body>
+</html>
