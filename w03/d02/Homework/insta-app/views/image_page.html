@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="UTF-8">
+	<title>Insta-Search</title>
+	<link rel="stylesheet" type="text/css" href="/image_page_style">
+</head>
+
+<body>
+	<header>
+
+		<h1>Insta-Search</h1>
+		
+		<form action="/photos" method="GET">
+			<input type="text" name="tag_search" placeholder="Type tag here">
+			<button>#Search</button>
+		</form>
+
+		<form action="/photos" method="POST">
+			<input type="hidden" name="{{search_tag}}">
+			<button>#SaveSearch</button>
+		</form>
+		<h2>Search results for:"{{search_tag}}"</h2>
+	</header>
+	<div>
+		<ul>
+			{{image_str}}
+		</ul>
+	</div>
+</body>
+</html>
