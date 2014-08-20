@@ -69,12 +69,7 @@ loop do
 
 	else
 		puts url
-
+	
+	client.close
 	end
-client.close
 
-
-
-
-
-end
