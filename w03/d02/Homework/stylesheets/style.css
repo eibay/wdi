@@ -1,0 +1,26 @@
+h1{
+
+	color: red;
+	font-family: arial;
+	text-align: center;
+	margin: 0 auto;
+	padding: 10px;
+}
+p{
+	color: red;
+	font-family: arial;
+	text-align: center;
+}
+
+body{
+
+	width: 700px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+
+form{
+	text-align: center;
+	padding-bottom: 20px;
+	margin: 0 auto;
+}

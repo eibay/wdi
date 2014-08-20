@@ -1,0 +1,5 @@
+GET will return information that will eventually visible in the path, while POST will return user input information without changing the path (which would be visible).
+
+you would want to use GET when directing users to public pages with readable public information. 
+
+you would want to use POST to direct users to...set pages with specified information. 
