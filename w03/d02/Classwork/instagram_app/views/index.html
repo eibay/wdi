@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+	<title>Instagram Tag Search</title>
+	<link href='http://fonts.googleapis.com/css?family=Montez' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/style">
+</head>
+
+<body>
+	<h1><span>Instagram Tag Search</span></h1>
+	<div>
+	<h3>Which tag are you searching for?</h3>
+	<form action="tag" method="GET">
+		<input type="text" name="tag" placeholder="Enter tag here." />
+		<button>Search</button>
+	</form>
+	</div>
+	<div>
+	<h3>Saved Searches</h3>
+	<ol>
+		{{saved_search_lis}}
+	</ol>
+	</div>
+</body>
