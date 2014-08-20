@@ -8,12 +8,21 @@
 
 <body>
 	<h1>Pictures of {{search_term}}</h1>
-		<button type="button">Save this search term!</button>
+		
+<!--I have no idea how to make this button
+ -->
+
+<form action="/save_me" method="POST">
+	<input type="hidden" name="save_this" value="{{search_term}}"/>
+	<button>Save this search</button>
+</form>
+
+
 	<div>{{photos}}</div>
 
 
 
-<footer><a href="./query_form.html">Back to Search</a></footer>
+<footer><a href="/">Back to Search</a></footer>
 
 </body>
 </html>
