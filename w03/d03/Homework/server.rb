@@ -1,8 +1,9 @@
 require 'sinatra'
-require 'pry'
+# require 'pry'
 require 'httparty'
+require 'geocoder'
 
-# define variables # 
+# vars & methods for the Instagram API # 
 
 $access_token = "4ad7cc36c172434588afd340aa74cd01"  
 
@@ -13,6 +14,23 @@ def tagged so
 		result["images"]["standard_resolution"]["url"]
 	end 
 end
+
+def located *so
+	imgs = []
+	lat, lng = so  
+	url_f = "https://api.instagram.com/v1/locations/search?lat=#{lat}&lng=#{lng}&distance=100&client_id=#{$access_token}"
+	results = HTTParty.get url_f  
+	lids = results["data"].map do |result|
+		result["id"] 
+	end 
+	lids.each do |lid|
+		url_s = "https://api.instagram.com/v1/locations/#{lid}/media/recent?client_id=#{$access_token}"
+		results = HTTParty.get(url_s)["data"].each do |result|
+			imgs << result["images"]["standard_resolution"]["url"]
+		end 
+	end 
+	imgs 
+end 
 
 # main app # 
  
@@ -28,5 +46,8 @@ end
 
 get "/cities" do 
 	c = request.params["city"]
-	erb :cities  
+	ll = Geocoder.search(c)[0].data["geometry"]["location"]
+	lat, lng = ll["lat"], ll["lng"]
+	imgs = located lat, lng
+	erb :cities, {locals: {imgs: imgs }} 
 end
