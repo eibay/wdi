@@ -26,7 +26,7 @@ s = TCPServer.new 2000
 </header> 
 HEADER_PARTIAL
 
-# transform the header partial 
+# transform the header partial # 
 @header_partial = ERB.new @header_partial
 @header_partial = @header_partial.result binding 
 
@@ -82,11 +82,11 @@ loop do
 	elsif r.path == "/see" && r.request_method == "GET" 
 		@view_name = "see"
 
-		# MAKE A Hash OF Hearts 
+		# MAKE A Hash OF Hearts # 
 		@t = r.query["tag"]
 		@imgs = tagged @t
 		@imgs = transform @imgs
-		@imgs.slice! 0, 9
+		@imgs.slice! 0, 8
 
 		v = send_erb_view @view_name
 		c.puts v 
@@ -103,11 +103,11 @@ loop do
 
 		if r.request_method == "POST"
 			
-			# MAKE A Hash OF Hearts 
-			@t = r.query["t"] 
+			# MAKE A Hash OF Hearts # 
+			@t = r.query['t'] 
 			@imgs = tagged @t 
 			@imgs = transform @imgs 
-			@imgs.slice! 0, 9 
+			@imgs.slice! 0, 8 
 
 			@cloud[@t] = @imgs  
 
@@ -119,6 +119,9 @@ loop do
 			c.puts v  
 		end 
 
+	elsif r.path == "/styles"
+		css = File.read "./stylesheets/styles.css"
+		c.puts css
 	end 
 
 	c.close 
