@@ -1,0 +1,24 @@
+what is the difference between a GET request and a POST request
+
+POST requests are never cached
+POST requests do not remain in the browser history
+POST requests cannot be bookmarked
+POST requests have no restrictions on data length
+POST requests data is not displayed in the URL
+
+GET requests can be cached
+GET requests remain in the browser history
+GET requests can be bookmarked
+GET requests should never be used when dealing with sensitive data
+GET requests have length restrictions
+GET requests should be used only to retrieve data
+GET requests data is visible to everyone in the URL
+GET is less secure compared to POST because data sent is part of the URL
+
+
+Give an example of when you would use a GET request
+	retrieving files off a server. see a students in the class
+
+Give an example of when you would use a POST request
+	sign up for something
+	twitter - new tweet. Send button add something.
