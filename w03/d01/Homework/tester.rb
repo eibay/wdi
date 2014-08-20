@@ -3,4 +3,4 @@
 		#get images of dynamic from instagram api
 
 url = "/tag?search_word=tesla"
-url.split(?)[0]
+url.split("?")[0]
