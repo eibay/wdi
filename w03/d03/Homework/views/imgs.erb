@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  	<title>Search results</title>
+</head>
+<body>
+	<h1>Search Sinatragram!</h1>
+	<h2>You searched for: <%= tag%></h2>
+	<ul>
+		<% image_array.each do |src| %> 
+		<li><img src="<%= src %>"></li>
+		<% end %>
+	</ul>
+    
+</body>
+</html>
