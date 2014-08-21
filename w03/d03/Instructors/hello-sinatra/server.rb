@@ -15,3 +15,9 @@ get("/colors/:color") do
   html = html.gsub("{{color}}", params[:color])
   html
 end
+
+get '/' do
+
+	redirect to('/hello/World')
+
+end

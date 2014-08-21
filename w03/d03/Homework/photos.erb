@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+			<title>Picture</title>
+	</head>
+		<body>
+			<h1>Instagram Pix</h1>
+			<div>
+			<% photos["data"].each do |pic| %>
+			binding.pry
+			<img src="<%= pic["images"]["low_resolution"]["url"] %>" >
+			<% end %>
+		</div>
+
+		</body>
+		
+
+			
+</html>
+
