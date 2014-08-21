@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title><%= school_name %> | <%= view_name %></title>
+</head>
+<body>
+	<section class="apply">
+	<h1><%= school_name %></h1>
+	<h2><%= view_name %></h2>
+	<p>Are you ready to study at Hogwarts school of Witchcraft &amp; Wizardry? Please fill out the following form.</p>
+	<form action="/students/new" method="POST">
+		<label>What's your name?<input type="text" name="student_name"></label>
+		<label>What's your owl's name?<input type="text" name="owl_name"></label>
+		<label>What year were you born?<input type="month" name="year_born"></label>
+		<label>Tell us about yourself: <textarea name="favorite_spell">What is your favorite spell &amp; why?</textarea></label>
+		<button>I'm ready to study at Hogwarts school of Witchcraft &amp; Wizardry!</button> 
+	</form>
+	</section>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title><%= school_name %> | <%= view_name %></title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<section class="students">
+	<header> 
+		<h1><%= school_name %></h1>
+		<h2><%= view_name %></h2>
+		<nav><a href="/students/new">Apply!</a>
+		<a href="/">See All Current Students</a></nav>
+	</header>
+	<ul>
+		<% students.each do |student|%>
+			<% name = student[:student_name] %>
+			<% owl = student[:owl_name] %>
+			<% born = student[:year_born] %> 
+			<% fav = student[:favorite_spell] %> 
+			<% house = student[:house] %> 
+			<li> <p><a href=<%= "/students/show/" + name.downcase.gsub(' ', '_') %>>
+			<%= name %></a> is a student at <a href=<%= "/houses/" + house %>><%= house %></a> house. You can reach them via their owl, <%= owl %>. They were born <%= born %>. Here is what they had to say about their favorite spell:</p>
+
+			<p><%= fav %></p>
+			</li>
+		<% end %> 
+	</ul>
+	</form>
+	</section>
+</body>
+</html>
