@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Instagram Images</title>
+</head>
+<body>
+  <h1>Hello, here is your image search for <%= thing %></h1>
+
+ <div>
+ <% array = [] %>
+ <% instagram_images["data"].each do |image| %>
+     <img src= <% array.push[image['images']['low_resolution']['url']] %> />
+ <% end %>
+ </div>
+
+  <a href="/">Home</a>
+</body>
+</html>
+
+
+
+
+
