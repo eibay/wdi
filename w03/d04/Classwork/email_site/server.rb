@@ -2,14 +2,13 @@ require 'sinatra'
 require 'pry'
 # load 'emails.rb'
 
-people = {}
+people = []
 
 get "/" do
   erb(:index)
 end
 
 post "/emails" do
-  binding.pry
   people[params["email"]] = [params["first"], params["last"]]
 
   erb(:emails, { locals: {people: people} })

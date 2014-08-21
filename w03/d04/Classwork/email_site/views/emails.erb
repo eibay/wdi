@@ -10,9 +10,9 @@
     <!-- <div id="box"> -->
     <h2>Emails</h2>
     <ul>
-      <% binding.pry %>
-    <% people["email"] do |x| %>
-    <li><%= people["email"] %>:<%= x[0] " " x[1] %></li>
+      
+    <% people[params["email"] do |x| %>
+    <li><%= params["email"] %>:<%= x[0] " " x[1] %></li>
     <% end %>
   </ul>
   <a href="/">Home</a>

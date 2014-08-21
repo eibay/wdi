@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+
+  <title>Hogwarts Registrar</title>
+</head>
+<body>
+  <div id="wrapper">
+    <h2> Registered Hogwarts Students </h2>
+    <hr />
+
+  <ul>
+    <% students.each do |student| %>
+    <li><a href="/students/<%= student['first'] %>"><%= "#{student['first']} #{student['last']}" %></a></li>
+    <% end %>
+  </ul>
+    <a href="/">Home</a>
+
+  </div>
+</body>
+</html>

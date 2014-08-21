@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+
+  <title>Hogwarts Registrar</title>
+</head>
+<body>
+  <div id="wrapper">
+    <h2> Registered Hogwarts Student </h2>
+    <hr />
+
+
+    <% students.each do |student| %>
+
+    <% if params[:query] == student["first"] %>
+      <%= student['first'] + ' ' + student['last'] %><br />
+      <%= "Age: #{student['age']}" %><br />
+      <%= "Favorite Spell: #{student['spell']}" %><br />
+      <%= "Familiar? #{student['familiar']}" %><br />
+    <% end %>
+
+    <% end %>
+  <a href="/">Home</a>
+  </div>
+</body>
+</html>
