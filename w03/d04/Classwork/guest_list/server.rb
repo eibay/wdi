@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'yaml'
 
+# load the guest book or create it # 
 if File.exists? "./guest_book.yml"
 	f = File.read "./guest_book.yml"
 	book = YAML.load f 
@@ -8,19 +9,21 @@ else
 	book = []
 end 
 
+# main app # 
+
 get '/' do 
-	erb :index
+	erb :index, { locals: {book: book}}
 end 
 
-post "/guest_list" do 
+post "/emails" do 
 	*i = request.params["name"], request.params["email"], request.params["said"] 
 	book << i
 	File.open "./guest_book.yml", 'w' do |f|
 		f << book.to_yaml 
 	end 
-	erb(:guests, { locals: {book: book}})
+	redirect '/'
 end 
 
-get "/guest_list" do 
-	erb(:guests, { locals: {book: book}})
+get "/emails" do 
+	erb :emails
 end 
