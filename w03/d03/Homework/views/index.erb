@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<h1> Search Instagram by tags</h1>
+ <form action="/pic_search" method="GET">
+      <input type="text" name="picture" placeholder="Search instagram!">
+    <button>Search</button></form>
+<h1>Search Instagram by location</h1>
+
+    <form action="/lat_long_photos" method="GET">
+    <input type="text" name="lat" placeholder="Insert latitude">
+    <input type="text" name ="long" placeholder="Insert longitude">
+    <button>Search by Location</button></form>
+
+    <h1> Don't know your cords? Search by city (beta)</h1>
+       <form action="/city_photos" method="GET">
+    <input type="text" name="city" placeholder="Search by city">
+    <button>Search by city</button></form>
+</html>
