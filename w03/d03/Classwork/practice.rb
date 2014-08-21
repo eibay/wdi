@@ -1,6 +1,4 @@
 require 'sinatra'
+erb(:index)
 
-get('/') do
-	erb(:index)
-end
 	
