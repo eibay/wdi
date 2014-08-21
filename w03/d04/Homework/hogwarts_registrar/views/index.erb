@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Welcome to Hogwarts</title>
+</head>
+<body>
+  <h1>Welcome to Hogwarts</h1>
+  <h2>Please complete your registration here</h2>
+  <form action="/email" method="POST">
+    <label>
+      First name:
+      <input type="text" name="first_name" placeholder="first name">
+    </label> <label>
+      Last name:
+      <input type="text" name="last_name" placeholder="last name">
+    </label>
+     <label>
+      Age:
+      <input type="text" name="age" placeholder="what are are you?">
+    </label>
+     <label>
+      Favorite Spell:
+      <input type="text" name="favorite_spell" placeholder="favorite spell">
+    </label>
+    <button>Submit</button>
+     </form>
+     <% student.each do |data| %>
+     <li><%= data[:first] + data[:last] + data[:age] + data[:favorite_spell] %></li> 
+     <% end %>
+   
+  <a href="/">Home page</a>
+</body>
+</html>

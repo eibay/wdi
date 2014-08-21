@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Tell Us About Yourself</title>
+</head>
+<body>
+  <h1></h1>
+  <form action="/email" method="POST">
+    <label>
+      First name:
+      <input type="text" name="first_name" placeholder="first name">
+    </label> <label>
+      Last name:
+      <input type="text" name="last_name" placeholder="last name">
+    </label>
+     <label>
+      Email:
+      <input type="text" name="email_address" placeholder="type your email address">
+    </label>
+     <label>
+      Website:
+      <input type="text" web name="website_address" placeholder="your web address">
+    </label>
+     <label>
+      Email:
+      <input type="text" name="email_address" placeholder="type your email address">
+    </label>
+    <button>Submit</button>
+     </form>
+     <% information.each do |info| %>
+     <li><%= info[:first] + info[:last] + info[:email] %></li> 
+     <% end %>
+   
+  <a href="/">Home page</a>
+</body>
+</html>
