@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1>Say hello!</h1>
-  <form action="/name" method="POST">
+  <form action="/name" method="GET">
     <label>
       Name:
       <input type="text" name="first_name" placeholder="Jeffrey">
@@ -15,8 +15,10 @@
     <button>Say Hello</button>
   </form>
 
-  <a href="/fun">See some fun things!</a>
-
-  <a href="/">Home</a>
+  <p>Colors are fun!</p>
+  <ul>
+    <li><a href="/colors/red">Red!</a></li>
+    <li><a href="/colors/green">Green!</a></li>
+  </ul>
 </body>
 </html>

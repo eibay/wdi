@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Hello!</title>
+</head>
+<body>
+  <h1>Search a tag</h1>
+  <form action="/images" method="POST">
+      <input type="text" name="tag" placeholder="Enter a tag">
+    <button>Search</button>
+  </form>
+  <hr />
+
+  <% latlong["data"].each do |locPic| %>
+  <img src="<%= locPic["images"]["low_resolution"]["url"] %>" alt=" " />
+  <% end %>
+
+
+
+  <a href="/">Home</a>
+</body>
+</html>
