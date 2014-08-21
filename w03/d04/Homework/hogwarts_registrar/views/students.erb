@@ -1,27 +1,18 @@
-<h1>Hogwarts Students 2014-1015 School Year</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+  <ul>
+    <% information.each do |person| %>
+      <li><%= data[:first] %> <%= data[:last] %> - <%= data[:age] %> - <%= data[:spell] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
 
-<form action='/students' method='POST'>
-	<% 5.times do %>
-	<fieldset>
-		<li>
-			<label>First Name</label>
-			<input ... name="student[] [first_name]"/>
-		</li>
-		<li>
-			<label>Last Name</label>
-			<input ... name="student[] [last_name]" />
-		</li>
-		<li>
-			<label>Age</label>
-			<input ... name="student[] [age]" />
-		</li>
-		<li>
-			<label>Favorite Spell</label>
-			<input ... name="student[] [favorite_spell]"/>
-		</li>
 
-	</fieldset>
-	<% end %>
 
-	<input type="submit"/>
-</form>
+

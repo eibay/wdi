@@ -1,9 +1,7 @@
 require 'sinatra'
 require 'pry'
 
-students = []
-
-student = {:first_name first_name, :last_name last_name, :age age, :favorite_spell favorite_spell}
+data = []
 
 get ('/') do
 	erb(:index)
@@ -26,12 +24,14 @@ post("/students") do
   age = params["age"]
   favorite_spell = params["favorite_spell"]
 
-  # add the hash to the array
- info.push(person)
 
-  erb(:info, { locals: { information: info } })
+student = { first: first_name, last: last_name, age: age, spell: favorite_spell }
+
+  # add the hash to the array
+data.push(student)
+  erb(:data, { locals: { students: data } })
 end
 
 get("/info") do
-  erb(:info, { locals: { information: info } })
+  erb(:data, { locals: { students: data } })
 end

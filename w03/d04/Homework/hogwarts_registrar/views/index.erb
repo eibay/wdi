@@ -11,10 +11,10 @@
   <form action="/email" method="POST">
     <label>
       First name:
-      <input type="text" name="first_name" placeholder="first name">
+      <input type="text" name="first" placeholder="first name">
     </label> <label>
       Last name:
-      <input type="text" name="last_name" placeholder="last name">
+      <input type="text" name="last" placeholder="last name">
     </label>
      <label>
       Age:
@@ -22,12 +22,12 @@
     </label>
      <label>
       Favorite Spell:
-      <input type="text" name="favorite_spell" placeholder="favorite spell">
+      <input type="text" name="spell" placeholder="favorite spell">
     </label>
     <button>Submit</button>
      </form>
-     <% student.each do |data| %>
-     <li><%= data[:first] + data[:last] + data[:age] + data[:favorite_spell] %></li> 
+     <% students.each do |data| %>
+     <li><%= data[:first] + data[:last] + data[:age] + data[:spell] %></li> 
      <% end %>
    
   <a href="/">Home page</a>
