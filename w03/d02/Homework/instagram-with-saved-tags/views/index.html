@@ -12,10 +12,19 @@
 <!-- because we're using POST now instead of GET, we change the method in the form tag -->
 <!--   <form action="/tags" method="GET"> -->
 
-  <form action="/tags" method="POST">
+<!-- this is the original line i had with method = "POST" and the whole program worked with the exception that i didn't have links on the saved search items-->
+ 
+<!--   <form action="/tags" method="POST">
+ -->
+<!-- To make the links work on the saved search page, I'm going to try changing the method to "GET" ALSO REALIZING THAT THE PATH IS GOING TO HAVE TO BE UPDATED TO READ THE QUERY AND NOT THE BODY OF THE REQUEST-->
+  <form action="/tags" method="GET">
+
     <input type="text" name="specific_tag" placeholder="Enter a tag..." />
     <button>Submit</button>
   </form>
+
+<!-- WE NEED THE 'NAME' TAG BECAUSE LATER IT WILL BE A KEY FOR THE VALUE THE USER ENTERS-->
+<!-- YOU CAN CREATE A LONGER FORM BY JUST ADDING DIFFERENT INPUT TYPES AND NAMES TO THE FORM TAG -->
 
 <!-- thought - it might be cool later to have this text and search box inside a picture of a tag -->
 

@@ -1,0 +1,45 @@
+<!-- this location page was  -->
+
+<html>
+<head>
+<link rel ="stylesheet" type=text/css href="/styles.css">
+</head>
+<body>
+<!-- 
+<a href="/"><h1>Pictures</h1></a> -->
+
+<!-- what classmate had which looked like a mistake - b/c it's the same as the tag results page
+<% response1["data"].each do |pic|
+	%>
+
+<a href="<%= pic["images"]["standard_resolution"]["url"] %>"><img src='<%=pic["images"]["standard_resolution"]["url"] %>' /></a>
+<% end %> -->
+
+
+step 1 - figure out how to access latitude and longitude
+
+<!-- this is the location hash inside data
+so it would be data[location][latitude] = 52.37934043 
+
+"location" => {
+                 "latitude" => 52.37934043,
+                "longitude" => 17.231635011
+            }, -->
+
+<% response1["data"].each do |pic|
+	%>
+
+<a href="<%= pic["location"]["standard_resolution"]["url"] %>"><img src='<%=pic["images"]["standard_resolution"]["url"] %>' /></a>
+<% end %> -->
+
+
+</body>
+
+</html>
+
+
+location = {
+                 "latitude" => 52.37934043,
+                "longitude" => 17.231635011
+            }
+

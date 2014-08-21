@@ -1,2 +1,18 @@
 
-<li>{{unique_tag}}</li>
+<!-- my old code worked and now it's broken and new code doens't work either?-->
+<li>{{unique_tag}}</li> -->
+
+<!-- code from Trish: adding the path '/tag' routes us back down the path we took to send the api to Instagram and pull all those pics
+
+the part after the initial /tag and after the question mark tag={{saved_search_item}} is the query params: query_item
+
+<li><a href="/tag?tag={{saved_search_item}}">{{saved_search_item}}</a></li> -->
+
+<!-- my updated code with my specific variables for these things-->
+<!-- doing this change to make the unique tag a link created an issue with my code,
+ -->
+<!-- <li><a href="/tags?specific_tag={{unique_tag}}">{{unique_tag}}</a></li>
+ -->
+<!-- i got an error with this above. maybe the issue is because the original action on that was a POST instead of a GET?
+
+I'm going to go the index page and change it to a get... did that and still got an error
