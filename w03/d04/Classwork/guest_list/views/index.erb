@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>My Guest List</title>
+	<title>Sign My Guest List</title>
 </head>
 <body>
 	<section>
-		<h1>My Guest List</h1>
-		<% book.each do |sign| %>
-		<% name, email, said = sign %>
-			<p><a href=<%= "mailto:" + email %>><%= name %></a> said: <%= said %>.</p>
-		<% end %>
+		<h1>Please sign my guest list</h1>
+		<form action="/emails" method="POST">
+			<label>Full name:<input type="name" name="name" placeholder="Jane Smith"></label>
+			<label>Email:<input type="email" name="email" placeholder="janesmith@example.com"></label>
+			<label>Comments:<textarea name="said" cols=40 rows=6>Everything is awesome!</textarea></label>
+			<button>Sign</button>
+		</form>
 	</section>
-	<footer>
-		Sign <a href="/emails">guest list</a>.
-	</footer>
 </body>
 </html>

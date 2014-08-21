@@ -12,7 +12,7 @@ end
 # main app # 
 
 get '/' do 
-	erb :index, { locals: {book: book}}
+	erb :index 
 end 
 
 post "/emails" do 
@@ -21,9 +21,9 @@ post "/emails" do
 	File.open "./guest_book.yml", 'w' do |f|
 		f << book.to_yaml 
 	end 
-	redirect '/'
+	redirect "/emails"
 end 
 
 get "/emails" do 
-	erb :emails
+	erb :emails, { locals: {book: book}}
 end 
