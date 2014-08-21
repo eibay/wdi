@@ -1,7 +1,7 @@
 ##Week03-Day04
 ---
 ###Hogwarts Registrar
-- **Objectives**:
+- **OBJECTIVES**:
   - Increase familiarity with Sinatra
   - Work with sending multiple parameters in our POST requests and being able to handle them on the server
   - Writing more and more complex Ruby logic on our server
