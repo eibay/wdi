@@ -1,12 +1,26 @@
 h1{
 	color: blue;
+	text-align: center;
 
 }
 
 body{
 	margin: 0 auto;
+	width: 500px;
 }
 
 form{
 	text-align: center;
+}
+
+p {
+	color:blue;
+}
+
+a{
+	text-decoration: none;
+	color:black;
+	text-align: center;
+	font-family: arial;
+	margin: 0 auto;
 }
