@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'httparty'
 require 'pry'
+require 'geocoder'
 
 get("/") do
 	erb(:main)
@@ -25,7 +26,7 @@ get("/lat_long_photos") do
 	tag = "Latitude - #{lat}° | Longitude - #{long}°"
 
 	response = HTTParty.get("https://api.instagram.com/v1/media/search?lat=#{lat}&lng=#{long}&client_id=4ad7cc36c172434588afd340aa74cd01")
-binding.pry
+
 	image_array = []
 	response["data"].each do |x|
 		image = x["images"]["standard_resolution"]["url"]
@@ -35,28 +36,20 @@ binding.pry
 	erb(:image_page, {locals: { tag: tag, image_array: image_array } } )
 end
 
-# get("/city_state_photos") do 
-# 	city = request.params["city_search"]
-# 	state = request.params["state_search"]
+get("/city_state_photos") do 
+	city = request.params["city_search"]
+	state = request.params["state_search"]
 
-# 	tag = "#{city}, #{state}"
+	tag = "#{city}, #{state}"
 
-# 	response = 
+	response = HTTParty.get("https://api.instagram.com/v1/media/search?lat=#{lat}&lng=#{long}&client_id=4ad7cc36c172434588afd340aa74cd01")
 
-# 	require 'geocoder'
-# 	 a = "Honolulu, HI
-# 	  Boston, MA
-#  	New York, NY".split("\n")
-# 	["Honolulu, HI", "Boston, MA", "New York, NY"] 
+	city_state = "#{city}, #{state}"
 
-# 	a.map do |city| 
-#     d = Geocoder.search(city)
-#     ll = d[0].data["geometry"]["location"]
-#     puts "#{city}\t#{ll['lat']}\t#{ll['lng']}" 
-# 	end
+   coder = Geocoder.search(city_state)
 
 
-# end
+end
 
 
 
