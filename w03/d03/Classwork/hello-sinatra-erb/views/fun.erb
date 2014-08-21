@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Fun!</title>
+</head>
+<body>
+  <h3>Today's date is <%= time.strftime("%m/%d/%Y") %></h3>
+  <p>My favorite numbers are:</p>
+  <ul>
+    <% favorite_numbers.each do |number| %>
+      <li><%= number %></li>
+    <% end %>
+  </ul>
+<<<<<<< HEAD
+  <p>Oh, and 1 + 1 = <%= 1 + 1 %></p> #ruby evaluating 1+1
+=======
+  <p>Oh, and 1 + 1 = <%= 1 + 1 %></p>
+>>>>>>> 88e81ff9b8647f42a49d8fc797d43bfe911f3de5
+  <a href="/">Home</a>
+</body>
+</html>
