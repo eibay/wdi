@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sinastragram</title>
+</head>
+<body>
+	<h1>Sinastragram</h1>
+
+	<h2>SinastraSearch by tag</h2>
+	<form action="/photos" method="GET">
+		<input type="text" name="tag_search" placeholder="Type tag here.">
+		<button>#Search</button>
+	</form>
+	<h2>SinastraSearch by coordinates</h2>
+	<form action="/lat_long_photos" method="GET">
+		<input type="text" name="lat_search" placeholder="Type latitude here.">
+		<input type="text" name="long_search" placeholder="Type longitude here.">
+		<button>#GeoSearch</button>
+	</form>
+	
+</body>
+</html>
