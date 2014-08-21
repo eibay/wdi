@@ -22,7 +22,8 @@ post("/images") do
 end
 
 get("/image_loc") do
-
+  zip = request.params["zip"]
+  goog = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?postal_code=#{zip}&key=AIzaSyC3tZ4MX9DwDFMtTofwdwiGST7OXNdUj4Q")
   lat = request.params["lat"].to_f
   lng = request.params["lng"].to_f
   latlong = HTTParty.get("https://api.instagram.com/v1/media/search?lat=#{lat}&lng=#{lng}&client_id=e13705fe74364dfc8f6fc9c5f562c549")

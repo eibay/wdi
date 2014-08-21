@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Email Signup</title>
+</head>
+<body>
+  <div id="wrapper">
+    <!-- <div id="box"> -->
+    <h2>Emails</h2>
+    <ul>
+      <% binding.pry %>
+    <% people["email"] do |x| %>
+    <li><%= people["email"] %>:<%= x[0] " " x[1] %></li>
+    <% end %>
+  </ul>
+  <a href="/">Home</a>
+    <!-- </div> -->
+  </div>
+</body>
+</html>
