@@ -9,7 +9,7 @@ get("/name") do
   erb(:name, { locals: { name: name } })
 end
 
-numbers = [3, 23, 7, 57]
+numbers = [3, 23, 9, 57]
 
 get("/fun") do
   erb(:fun, { locals: { favorite_numbers: numbers, time: Time.now } })
