@@ -28,7 +28,7 @@ get("/lat") do
 	response = HTTParty.get("https://api.instagram.com/v1/media/search?lat=#{lat}&lng=#{long}&client_id=8fe4db31e3a940068664c1e7e3c5c061")
 	picArr = []
 	
-	response["data"].each do |x| picArr<<"<li><img src='#{x["images"]["standard_resolution"]["url"]}'></li>" end
+	response["data"].each do |x| picArr<<"<li><img src='#{x["images"]["thumbnail"]["url"]}'></li>" end
 	pics = "<div><ul>" + picArr.join('') + "</ul></div>"
 	
 	erb(:results, {locals: {tag: "stuff near #{lat}, #{long}!", pics: pics}})
