@@ -47,6 +47,7 @@ get("/city_state_photos") do
 	city_state = "#{city}, #{state}"
 
    coder = Geocoder.search(city_state)
+   binding.pry
 
 
 end
