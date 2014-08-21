@@ -1,0 +1,18 @@
+<html>
+<body>
+	<ul>
+		<% students.each do |info|
+			
+			if(info.include? name)%>
+			<li><%=info[0]%></li>
+			<li><%=info[1]%></li>
+			<li><%=info[2]%></li>
+			
+			<%end%>
+			<%end%>
+			
+		</ul>
+		<a href="/">View all students</a>
+	</body>
+	</html>
+
