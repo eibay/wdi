@@ -1,0 +1,20 @@
+<!doctype html>
+	<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<title>Sinatragram</title>
+</head>
+<body>
+	<header>
+		<h1>Sinatragram</h1>
+		<h2>Searched by latitude: <%= lat %> and longitude: <%= lng %></h2>
+	</header>
+	<ul>
+		<% images.each do |image| %>
+			<li><%= image%></li>
+		<% end %>	
+	</ul>
+	<a href="/">Go home</a>
+</body>
+</html>
