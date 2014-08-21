@@ -1,0 +1,11 @@
+Things I could do to make the Instagram tag search better
+
+-make it so the page only refreshes when you save an image or tag.
+
+-add a "save search" button so the whole page with all the images gets saved
+
+-better organize all the html files
+
+-remove the button html from the list items and make it two files: one for enabled and one for already saved
+
+-improve the server log
