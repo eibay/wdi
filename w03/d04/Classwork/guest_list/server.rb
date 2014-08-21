@@ -16,7 +16,7 @@ get '/' do
 end 
 
 post "/emails" do 
-	*i = request.params["name"], request.params["email"], request.params["said"] 
+	*i = params["name"], params["email"], params["said"] 
 	book << i
 	File.open "./guest_book.yml", 'w' do |f|
 		f << book.to_yaml 
