@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h1>Images tagged with "<%= tag %>"</h1>
+	<ul>
+	<% images['data'].each do |i| %>
+ 		<li><div><img src="<%= i['images']['standard_resolution']['url'] %>"></div></li>
+	<% end %>
+	</ul>
+</body>
+</html>
