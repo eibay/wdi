@@ -1,0 +1,4 @@
+1) If the path is the main page, display the html contents of that page.
+2) Now you are on that page so you put content into the search box which depending on what the action attribute is pointing too will take you to another path.
+3)Now u r back in the server file and there the conditional for that new path from the form attribute is being hit and set up variable to point to name attribute from index.html file.
+4)

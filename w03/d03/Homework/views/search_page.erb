@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello Again!</title>
+</head>
+<body>
+  <h1>Search Results for <%= tags %></h1>
+  <ul>
+    <% images_insta.each do |x| %>
+    <li><img src="<%= x %>"></li>
+    <%end%>
+  </ul>
+
+  <br>
+  <a href="/">Home</a>
+
+</body>
+</html>
