@@ -7,6 +7,16 @@ saved_searches = []
 
 loop do 
 
+# GET '/' === home page
+# GET 'styles.css' === 
+# GET 'search' === photo_page, with button form
+# GET '/saved_searches' === list of saved searches
+# form 1 has method GET? because it makes a new HTTP request for action, info, and page
+# form 2 is meant to save the information, so POST (path /save_me)
+# when user pushes button, it's a http request at that time
+# href is always a GET
+# request.query
+
 	client = server.accept
 
 	request = WEBrick::HTTPRequest.new(WEBrick::Config::HTTP)
@@ -49,7 +59,7 @@ loop do
 		# there should be an unless test here so we don't save the same term twice
 # ******** these list items need to be links to {search_term} photo_page
 # ******** or they need to be links that cause the whole instagram search thing to happen again
-		saved_searches << "<li><a href='#'>#{search_term}</a></li>"
+		saved_searches << "<li><a href='/save_me/#{search_term}'>#{search_term}</a></li>"
 		puts "added to saved_searches array"
 		# construct and display list of saved links
 		html = File.read("./views/show_saved.html")
@@ -57,6 +67,10 @@ loop do
 		client.puts html
 		puts "Sent show_saved to client"
 
+#if POST is result of click of link in list
+	elsif request.path == "/save_me/#{search_term}" && request.request_method == "POST"
+		search_term = request.body.split("=")[1]
+client.puts "You're on the right track"
 
 	else
 		client.puts "I'm lost...or you are."

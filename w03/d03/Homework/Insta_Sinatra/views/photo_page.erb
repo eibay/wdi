@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+	<title>Here you go</title>
+</head>
+<body>
+
+	<h1>Photos of <%= tag %></h1>
+
+	<div>
+		<% photos["data"].each do |pic| %>
+		<img src="<%= pic["images"]["low_resolution"]["url"] %>" >
+		<% end %>
+	</div>
+
+	<!-- photos["data"][0]["images"]["low_resolution"]["url"] -->
+
+<a href="/">Home</a>
+</body>
+</html>
