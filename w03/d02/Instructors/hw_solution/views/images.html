@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+	<h1>Images tagged with {{tag}}</h1>
+	<form action="/saved/tags" method="POST">
+		<input type="hidden" name="tag" value={{tag}}>
+		<input type="submit" value="Save Search">
+	</form>
+	<hr>
+	{{images}}
+</body>
+</html>
