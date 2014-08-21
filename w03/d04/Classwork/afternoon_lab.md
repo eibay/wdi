@@ -1,6 +1,10 @@
 ##Week03-Day04
 ---
 ###Hogwarts Registrar
+- **Objectives**:
+  - Increase familiarity with Sinatra
+  - Work with sending multiple parameters in our POST requests and being able to handle them on the server
+  - Writing more and more complex Ruby logic on our server
 - **GOAL**: To create a student registration application for the Hogwarts Registrar's Office
 - **SPEC**:
   - Create a page at the route `/students/new` with a form so students can register
@@ -19,4 +23,4 @@
   - There should be a page for each house at `/houses/[HOUSE NAME]` that will display a list of every student currently assigned to that house
     - Clicking on a student's name should take you to the `/students/show` route for that specific student
 - **BONUS 2**:
-  - Have all of the student and house data ***not*** disappear when you restart the server 
+  - Have all of the student and house data ***not*** disappear when you restart the server
