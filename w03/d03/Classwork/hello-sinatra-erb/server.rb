@@ -6,7 +6,6 @@ get("/") do
 end
 
 get("/name") do
-	binding.pry
   name = request.params["first_name"]
   erb(:name, { locals: { name: name } })
   #name key in hash linked to <h1>Hello <%= name %></h1> in name.erb

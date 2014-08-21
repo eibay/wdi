@@ -1,0 +1,64 @@
+
+body {
+	text-align: center;
+	}
+
+
+.home_page img {
+	width: auto;
+	height: auto;
+	margin-top: 30px;
+}
+
+form {
+    margin: 30px 0 0 0;
+}
+
+h1 {
+  color: black;
+  font-family: 'Oleo Script', cursive;
+  font-size: 125px;
+  text-align: center;
+  margin: -10px 0 -10px 0;
+	
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+  margin: 20px 0 30px 0;
+}
+
+img {
+	width: 180px;
+	height: auto;
+	border-radius: 10px;
+	padding: 2px;
+}
+
+li {
+	font-family: 'Raleway', sans-serif;
+	font-size: 14px;
+}
+
+li a {
+	text-decoration: underline;
+}
+
+button {
+ font-family: 'Raleway', sans-serif;
+font-size: 10px;
+border-radius: 15px;	
+color: white;
+background-color: black;
+}
+
+input {
+	border-radius: 10px;
+	font-size: 15px;
+}
+
