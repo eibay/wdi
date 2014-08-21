@@ -46,14 +46,17 @@ loop do
 		tag_str = tag2.join(", ")
 		tags2html = File.read('./views/tags2.html')
 		tags2html = tags2html.gsub('{{tag2}}', tag_str)
+		
 
 		tag3 = []
-		tag2.each do |c|
-			tag3.push c'<li><a href = "http://127.0.0.1:2000/tags?tag=#{tag}" + tag + " "">"</li>'
+		x = 0
+		while x < tag2.length
+			tag3.push '<li><a href = "http://127.0.0.1:2000/tags?tag='+ "#{tag}" + (' ') "#{tag}" + '>''</li>'
+			x += 1
 		end
 
-		binding.pry
-		tags2html = tags2html.gsub('{{tag3}}', tag3)
+
+		tags2html = tags2html.gsub('{{tag3}}', tag3.join(' '))
 		client.puts tags2html
 
 	end
