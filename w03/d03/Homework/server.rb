@@ -18,7 +18,7 @@ end
 def located *so
 	imgs = []
 	lat, lng = so  
-	url_f = "https://api.instagram.com/v1/locations/search?lat=#{lat}&lng=#{lng}&distance=100&client_id=#{$access_token}"
+	url_f = "https://api.instagram.com/v1/locations/search?lat=#{lat}&lng=#{lng}&distance=75&client_id=#{$access_token}"
 	results = HTTParty.get url_f  
 	lids = results["data"].map do |result|
 		result["id"] 
@@ -41,13 +41,16 @@ end
 get "/tags" do 
 	t = request.params["tag"]
 	imgs = tagged t
-	erb :tags, {locals: {imgs: imgs }} 
+	erb :search, {locals: {imgs: imgs }} 
 end 
 
 get "/cities" do 
 	c = request.params["city"]
-	ll = Geocoder.search(c)[0].data["geometry"]["location"]
+
+	# takes the first result of the Geocoder search # 
+	ll = Geocoder.search(c)[0].data["geometry"]["location"] 
 	lat, lng = ll["lat"], ll["lng"]
+
 	imgs = located lat, lng
-	erb :cities, {locals: {imgs: imgs }} 
+	erb :search, {locals: {imgs: imgs }} 
 end
