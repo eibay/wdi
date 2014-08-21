@@ -10,10 +10,9 @@ get("/search") do
 	hashtag = request.params["tag"]
 	response = HTTParty.get("https://api.instagram.com/v1/tags/#{request.params["tag"]}/media/recent?client_id=3bbdd8399e754e5b8e24bd968905298f
 ")
+# binding.pry
 
 	image_array = []
-binding.pry
-
 	response["data"].each do |x|
 	image = x["images"]["standard_resolution"]["url"]
 	image_array.push(image)
@@ -35,9 +34,8 @@ get("/lat_long") do
 	image_array.push(image)
 
 end
-erb(:lat_long , { locals: { tag: " Coordinates: #{lat}, #{long}", image_array: image_array } })
+erb(:lat_long , { locals: { tag: request.params["lat"]["long"], image_array: image_array } })
 end
-
 
 
 
