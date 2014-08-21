@@ -1,4 +1,4 @@
-/*
+
 <h1>Hogwarts Students 2014-1015 School Year</h1>
 
 <form action='/students' method='POST'>
@@ -26,3 +26,7 @@
 
 	<input type="submit"/>
 </form>
+
+ <% students.each do |student| %>
+     <li><%= data[:first] + data[:last] + data[:age] + data[:spell] %></li> 
+     <% end %>

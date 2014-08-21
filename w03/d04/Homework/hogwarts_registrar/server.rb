@@ -3,8 +3,8 @@ require 'pry'
 
 data = []
 
-get ('/') do
-	erb(:index)
+get ('/students/new') do
+	erb(:register)
 end
 
 #In Sinatra how do I create an array of hashes of data for each student, then display every student (each do in the index) to display those students, 
@@ -29,9 +29,9 @@ student = { first: first_name, last: last_name, age: age, spell: favorite_spell 
 
   # add the hash to the array
 data.push(student)
-  erb(:data, { locals: { students: data } })
+  erb(:data, { locals: { students: student } })
 end
 
 get("/info") do
-  erb(:data, { locals: { students: data } })
+  erb(:data, { locals: { students: student } })
 end
