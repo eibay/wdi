@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Stuff You Like On Instagram</title>
+</head>
+<body>
+  <p>Search results</p>
+  <ul>
+    <% search_results.each do |result| %>
+      <li><%= result %></li>
+    <% end %>
+  </ul>
+  <a href="/">Home</a>
+</body>
+</html>
+

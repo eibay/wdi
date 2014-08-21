@@ -1,4 +1,5 @@
 require 'socket'
+require 'webrick'
 require 'json'
 require 'pry'
 require 'HTTParty'
@@ -25,7 +26,10 @@ end
 loop do
 
   client = server.accept
-  request = client.gets.chomp
+  request = WEBrick::HTTPRequest.new(WEBrick::Config::HTTP)
+  request.parse(client)
+
+
   path = request.split(' ')[1]
   params = parse_url(path)
 
