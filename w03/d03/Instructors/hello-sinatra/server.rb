@@ -1,3 +1,4 @@
+require 'pry'
 require 'sinatra'
 
 get("/") do
@@ -7,11 +8,13 @@ end
 get("/name") do
   html = File.read("./views/name.html")
   html = html.gsub("{{name}}", request.params["first_name"])
+    binding.pry
   html
 end
 
 get("/colors/:color") do
   html = File.read("./views/color.html")
   html = html.gsub("{{color}}", params[:color])
+
   html
 end

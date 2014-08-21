@@ -1,0 +1,27 @@
+<!doctype html>
+	<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<title>Sinatragram</title>
+</head>
+<body>
+	<header>
+		<h1>Sinatragram</h1>
+	</header>
+	<form action="/word" method="GET">
+		<input type="text" name="specific_word" placeholder="Enter a word here...">
+		<button>Submit</button>
+	</form>	
+	<form action="/location" method="GET">
+		<input type="text" name="specific_latitude" placeholder="Enter latitude here...">
+		<input type="text" name="specific_longitude" placeholder="Enter longitude here...">
+		<button>Submit</button>
+	</form>	
+	<form action="/city_state" method="GET">
+		<input type="text" name="specific_city" placeholder="Enter city/state here...">
+		<button>Submit</button>
+	</form>	
+	<a href="/favorite?">Go to youe favorite page!</a>
+</body>
+</html>	
