@@ -4,7 +4,12 @@
 
   <h1>These are your favorite categories!</h1>
 
-  <ul>
+<form action = "/favorites" method = "GET">
+    <input type = "text" name = "category_name" placeholder = "Search here for pictures..."/>
+    <button>Search</button>
+  </form>
+
+    <ul>
     {{images03}}
   </ul>
 

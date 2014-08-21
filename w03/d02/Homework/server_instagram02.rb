@@ -39,9 +39,11 @@ loop do
   image_html = image_html.gsub("{{stuff}}", search_result)
   client.puts image_html
 
-elsif request.path == "/favorites.html"
+elsif request.path == "/favorites"
+  tag = request.body.split("=")[1]
+  favorites.push(tag)
   favorites_html = File.read("./views/favorites.html")
-  # favorites_html = favorites_html.gsub("{{images03}}", search_result)
+  favorites_html = favorites_html.gsub("{{images03}}", favorites)
   client.puts favorites_html
 
 
