@@ -1,0 +1,48 @@
+body {
+	background-image: url("maroon.jpg");
+	background-position: center;
+	background-attachment: fixed;
+	color: white;
+}
+
+.header {
+	height: 50px;
+	margin: -22px -10px 0 -10px;
+}
+
+h1 {
+	
+}
+
+ul {
+	list-style: none;
+	margin-left: -40px;
+}
+
+li {
+	display: inline-block;
+	width: 30%;
+}
+
+img {
+	height: 300px;
+}
+
+/* how to vertically & horizontally center w/ css */
+
+section {
+	width: 75%
+}
+
+section .horizontal_center {
+	width: some declared value, I usually use percents, because mobile-responsive, or ems;
+	margin: auto;
+}
+
+.vertical_center {
+	width: some declared value, I usually use percents, because mobile-responsive, or ems;
+	height: some declared value, I usually use percents, because mobile-responsive, or ems;
+	margin: auto;
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+}

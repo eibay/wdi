@@ -3,11 +3,13 @@
 	<link rel="stylesheet" type="text/css" href="/style.css" />
 </head>
 <body>
+	<center>
 	<h2>Image Search: <%= request.params["tag"] %></h2>
 	<ul>
 		<% img_urls.each do |url| %>
 		<li><img src="<%= url %>"></li>
 		<% end %>
 	</ul>
+	</center>
 </body>
 </html>
