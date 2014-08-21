@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+	<title>Tag Search Results</title>
+	<link href='http://fonts.googleapis.com/css?family=Montez' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+	<h1>Results for <%= tag %>:</h1>
+	<% images.each do |pic| %>
+	<img src="<%= pic %>" /> 
+	<% end %>
+</body>
