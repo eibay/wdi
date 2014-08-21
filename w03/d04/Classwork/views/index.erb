@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<ul>Emails
+		<% emails.each do |e| 
+			pairs = e.split(":") %>
+		<li><%= pairs[0] + ": " %><a href="mailto: <%= pairs[1] %>"><%= pairs[1] %></a></li> 
+		<% end %>
+	</ul>
+	<a href="/emails">Add email</a>
+</body>
+</html>

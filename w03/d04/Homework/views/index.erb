@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>Hogwarts Students</h1>
+	<ul>
+		<% list = students.split(",") %>
+		<% list.each do |student| %>
+			<% name = "#{student.split(" ")[0].capitalize} #{student.split(" ")[1].capitalize}" %>
+		<li><a href="<%= "/student?student=#{student.split(" ")[0]}+#{student.split(" ")[1]}" %>"><%= name %></a></li>
+		<% end %>
+	</ul>
+	<a href="/search">Search Student</a>
+	<a href="/students/new">Add Student</a>
+</body>
+</html>
