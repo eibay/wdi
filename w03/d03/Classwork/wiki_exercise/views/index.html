@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello</title>
+</head>
+<body>
+	<form action='/search' method='GET'>
+	    <input type="text" name="topic" placeholder="Search a topic!" />
+	   	<button>Submit</button>
+	</form>
+
+	<form action='/search' method='POST'>
+	    <input type="hidden" name="topic" value="{{TOPIC}}" />
+	   	<button>Save</button>
+	</form>
+
+	<p>
+		{{CONTENT}}
+	</p>
+</body>
+</html>

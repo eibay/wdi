@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Searched Stuff!</title>
+</head>
+<body>
+	<div class="top">
+		
+	</div>
+	
+
+	<div class="location_s">
+	
+		<% locate_this["data"].each do |x|
+			images = x["images"]["low_resolution"]["url"] %>
+			<img src="<%=images%>"/>
+		<% end %>
+
+	</div>
+
+</body>
+</html>

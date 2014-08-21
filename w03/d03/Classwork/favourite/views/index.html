@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="/things" method="POST">
+		<input type="text" name="thing" placeholder="save your favourite things!">
+		<button>save</button>
+	</form>
+
+
+
+	<form action="/things" method="GET">
+		<input type="hidden" name="thing" value="{{SAVED_THINGS}}">
+		<button>see saved items!</button>
+	</form>
+
+	<div class="favourite">
+		<ul>
+			{{FAVOURITE_THINGS}}
+		</ul>
+	</div>
+</body>
+</html>

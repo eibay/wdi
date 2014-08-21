@@ -5,8 +5,8 @@ get("/") do
 end
 
 get("/name") do
-  name = request.params["first_name"]
-  erb(:name, { locals: { name: name } })
+  octopus = request.params["first_name"]
+  erb(:name, { locals: { anything: octopus } })
 end
 
 numbers = [3, 23, 7, 57]

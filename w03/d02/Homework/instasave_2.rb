@@ -23,7 +23,7 @@ while true
 		p "client is requesting #{request.path}" ######################################################
 		client.puts File.read('./views/index.html')
 
-	elsif request.path == "/photo"
+	elsif request.path == "/photo" && request.request_method == "GET"
 		searched_tag = request.query["tag"]
 		p "client searched for searched_tag: #{searched_tag}" #####################################################
 		ig_stuff = HTTParty.get("https://api.instagram.com/v1/tags/#{searched_tag}/media/recent?access_token=23131423.f59def8.a6672ba008ba4698bf9255c69b886261")
@@ -34,7 +34,7 @@ while true
 			image_link = x["images"]["low_resolution"]["url"]
 			image = "<a href='/picture_big/#{x["images"]["standard_resolution"]}'><img src='#{image_link}'/></a> "
 			# image = "<li><img src='#{x["images"]["low_resolution"]["url"]}'/></li> "
-			image = image + "<form action='/save_image?#{image_link}' method='POST'><button>Save</button></form>"
+			image = image + "<form action='/save_image?#{image_link}' method='POST'><input type='hidden' name='tag' value='{{searched_tag}}'/><button>Save</button></form>"
 			images_html += image
 		end
 
@@ -57,9 +57,8 @@ while true
 		html_saved_images = html_saved_images.gsub("{{SAVED_TAGS}}", saved_image_gallery.join(" "))
 		client.puts html_saved_images
 
-	elsif request.path == "/save" 
+	elsif request.path == "/photo"  && request.request_method == "POST"
 		searched_tag = "<a href='/photo?tag=#{searched_tag}'>#{searched_tag}</a>"
-		# searched_tag = "<a href= 'request.body.split("=")[1]'>
 
 		saved_tags << searched_tag 
 		p "saved the searched_tag #{searched_tag} into saved_tags: #{saved_tags}" ####################################################
