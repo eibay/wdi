@@ -1,0 +1,24 @@
+<html>
+<head>
+<link rel ="stylesheet" type=text/css href="/styles.css">
+</head>
+<body>
+<h1>Type a tag to search for pictures with that tag:</h1>
+<form action="/tags" method="GET">
+<input type="text" name="specific_word" placeholder="enter a tag"/>
+<button>SEARCH</button>
+</form>
+
+<!-- i think this is wrong, but not sure. weren't we supposed to get the lat and long related to the pictures? if so woulnd't that look similar to how we're pulling out the values for the picture, like URL?-->
+
+<h1>Type a latitude/longitude pair to see that location on a map:</h1>
+<form action="/location" method="GET">
+<input type="text" name="latitude" placeholder="enter a latitude"/>
+<input type="text" name="longitude"
+placeholder="enter a longitude"/>
+<button>SEARCH</button>
+</form>
+
+
+</body>
+</html>
