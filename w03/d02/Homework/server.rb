@@ -5,6 +5,8 @@ require 'HTTParty'
 
 server = TCPServer.new 2000
 
+array_hashtag = []
+
 loop do
   client = server.accept
   request = WEBrick::HTTPRequest.new(WEBrick::Config::HTTP)
@@ -22,11 +24,11 @@ elsif request.path =="/tags"
   html = File.read('./views/button.html')
   client.puts html
 
-  search_result = request.query["category_name"] #user input of hashtag
+  search_result = request.query["tag"] 
   response = HTTParty.get("https://api.instagram.com/v1/tags/#{search_result}/media/recent?client_id=3bbdd8399e754e5b8e24bd968905298f
 ")
 
-  html = html.gsub('{{search_tag}}', search_result)
+  html = html.gsub('{{hashtag_search}}', search_result)
 
 client.puts "<html><body>"
 
@@ -40,22 +42,22 @@ client.puts"</body></html>"
 #########################################################
 
 
-# elsif request.path == "/" && request.request_method == "POST"
-#   saved_hashtags = request.body.split("=")[1]
-#   array_hashtag.push(saved_hashtags)
-#   client.puts array_hashtag.join(", ")
+elsif request.path == "/" && request.request_method == "POST"
+  saved_hashtags = request.body.split("=")[1]
+  array_hashtag.push(saved_hashtags)
+  client.puts array_hashtag.join(", ")
 
 #########################################################
 
-elsif request.path == "/save" && request.request_method == "POST"
-  hashtag_array = []
+# elsif request.path == "/save" && request.request_method == "POST"
+#   hashtag_array = []
 
-  saved_hashtags = request.body.split("=")[0]
-  response = HTTParty.get("https://api.instagram.com/v1/tags/#{search_result}/media/recent?client_id=3bbdd8399e754e5b8e24bd968905298f
-")
-  # binding.pry
-  saved_hashtags.push(hashtag_array)
-  client.puts hashtag_array.join(", ")
+#   saved_hashtags = request.body.split("=")[1]
+#   response = HTTParty.get("https://api.instagram.com/v1/tags/#{search_result}/media/recent?client_id=3bbdd8399e754e5b8e24bd968905298f
+# ")
+#   # binding.pry
+#   array_hashtag.push(saved_hashtags)
+#   client.puts array_hashtag.join(", ")
 
 #error page
 else

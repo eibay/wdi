@@ -10,7 +10,7 @@ get("/name") do
   html
 end
 
-get("/colors/:color") do
+get("/colors/:color/:monkey") do
   html = File.read("./views/color.html")
   html = html.gsub("{{color}}", params[:color])
   html
