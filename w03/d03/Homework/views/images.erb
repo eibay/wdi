@@ -1,0 +1,11 @@
+<html>
+<head>
+	<title>Images of <%= tag %></title>
+</head>
+<body>
+	<% images.each do |image|
+		image_url=image["images"]["standard_resolution"]["url"]%>
+		<img src="<%= image_url %>" />
+	  <% end %>
+</body>
+	</html>
