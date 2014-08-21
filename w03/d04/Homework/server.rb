@@ -32,10 +32,12 @@ post ("/students/show") do
 end
 
 get "/search" do
+
   erb(:search, {locals: {students: students}, query: params[:query]} )
 end
 
 post "/search" do
-  binding.pry
+  students.each do |student|
+    if params["search"] == student["first"]
   erb(:search, {locals: {students: students}, query: params[:query]} )
 end
