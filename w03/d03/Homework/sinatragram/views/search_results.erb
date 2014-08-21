@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Stuff You Like On Instagram</title>
+</head>
+<body>
+  <p>Search results</p>
+  <ul>
+    <% search_results.each do |result| %>
+      <li><%= result %></li>
+    <% end %>
+  </ul>
+  <a href="/">Instagram Tag Search</a>
+  <h3>Photos tagged "<%= tag %>"</h3>
+  <% sinstagram_api["data"].each do |x| %>
+  <a href='<%= x["images"]["standard_resolution"]["url"] %>'><img src='<%= x["images"]["standard_resolution"]["url"] %>'/></a>
+<% end %>
+
+</body>
+</html>
+
+
+
+
+
+
