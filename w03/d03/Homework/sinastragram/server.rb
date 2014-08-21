@@ -19,8 +19,7 @@ get("/photos") do
 	erb(:image_page, {locals: { tag: tag, image_array: image_array } } )
 end
 
-get("/lat_long_photos") do 
-	
+get("/lat_long_photos") do 	
 	lat = request.params["lat_search"]
 	long = request.params["long_search"]
 	tag = "Latitude - #{lat}° | Longitude - #{long}°"
@@ -35,3 +34,33 @@ binding.pry
 
 	erb(:image_page, {locals: { tag: tag, image_array: image_array } } )
 end
+
+# get("/city_state_photos") do 
+# 	city = request.params["city_search"]
+# 	state = request.params["state_search"]
+
+# 	tag = "#{city}, #{state}"
+
+# 	response = 
+
+# 	require 'geocoder'
+# 	 a = "Honolulu, HI
+# 	  Boston, MA
+#  	New York, NY".split("\n")
+# 	["Honolulu, HI", "Boston, MA", "New York, NY"] 
+
+# 	a.map do |city| 
+#     d = Geocoder.search(city)
+#     ll = d[0].data["geometry"]["location"]
+#     puts "#{city}\t#{ll['lat']}\t#{ll['lng']}" 
+# 	end
+
+
+# end
+
+
+
+
+
+
+
