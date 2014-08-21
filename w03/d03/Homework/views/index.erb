@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Instatag 3</title>
+</head>
+<body>
+  <h1>Search a tag</h1>
+
+<label>
+  <h3>Search by name:</h3>
+  <form action="/images" method="GET">
+      <input type="text" name="tag" placeholder="Enter a tag">
+    <button>Search</button>
+  </form>
+</label>
+
+<label>
+  <h3>Search for pictures by location:</h3>
+  <form action="/image_loc" method="GET">
+    <input type="text" name="lat" placeholder="Enter lat">
+    <input type="text" name="lng" placeholder="Enter long">
+    <button>Search</button>
+  </form>
+</label>
+
+
+
+
+
+  <a href="/">Home</a>
+</body>
+</html>
