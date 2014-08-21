@@ -1,0 +1,4 @@
+require 'sinatra'
+erb(:index)
+
+	

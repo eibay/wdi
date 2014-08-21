@@ -6,10 +6,26 @@ h1{
 	margin: 0 auto;
 	padding: 10px;
 }
-p{
+
+h3{
+
 	color: red;
 	font-family: arial;
 	text-align: center;
+	margin: 0 auto;
+	padding: 10px;
+}
+p{
+	font-family: arial;
+	text-align: center;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+	text-align: center;
+	margin:0 auto;
+	font-family: arial;
 }
 
 body{
@@ -20,20 +36,6 @@ body{
 }
 
 form{
-	text-align: center;
-	padding-bottom: 20px;
-	margin: 0 auto;
-}
-
-
-div{
-	text-align: center;
-	padding-bottom: 20px;
-	margin: 0 auto;
-}
-a{
-	text-decoration: none;
-	color: black;
 	text-align: center;
 	padding-bottom: 20px;
 	margin: 0 auto;
