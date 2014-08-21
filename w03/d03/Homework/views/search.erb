@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Searched Stuff!</title>
+</head>
+<body>
+	<div class="top">
+		
+	</div>
+	
+
+	<div class="image_gallery">
+
+		<% image_gallery["data"].each do |image|
+			images=image["images"]["low_resolution"]["url"] %>
+			<img src="<%=images %>">
+		<% end %>
+		
+	</div>
+
+</body>
+</html>
