@@ -41,11 +41,12 @@ get("/locate") do
 	long = request.params["long"]
 	# p "request.param['long'] = #{lat}"
 	searched_lat_long = HTTParty.get("https://api.instagram.com/v1/media/search?lat=#{lat}&lng=#{long}&client_id=f9f86dbac5d7478c8e325fb20ea506b1")
+	search_info = "results for coordinates #{lat} Latitude & #{long} Longtitude"
 	# searched_lat_long = HTTParty.get("https://api.instagram.com/v1/media/search?lat=40&lng=74&client_id=f9f86dbac5d7478c8e325fb20ea506b1")
 	# location_data = searched_lat_long["data"]
 	# searched_lat_long
 	# p 'STUFF = searched_lat_long["data"][0][images"]["low_resolution"]["url"]'
-	erb(:locate, { locals: { locate_this: searched_lat_long }})
+	erb(:locate, { locals: { locate_this: searched_lat_long, show_search_info: search_info }})
 
 end
  

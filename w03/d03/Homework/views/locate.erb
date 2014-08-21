@@ -11,7 +11,7 @@
 	
 
 	<div class="location_s">
-	
+		<h1> <%= show_search_info %> </h1>
 		<% locate_this["data"].each do |x|
 			images = x["images"]["low_resolution"]["url"] %>
 			<img src="<%=images%>"/>
