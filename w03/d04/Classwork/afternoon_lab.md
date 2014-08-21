@@ -1,0 +1,22 @@
+##Week03-Day04
+---
+###Hogwarts Registrar
+- **GOAL**: To create a student registration application for the Hogwarts Registrar's Office
+- **SPEC**:
+  - Create a page at the route `/students/new` with a form so students can register
+  - The sign up form should ask for the following student information:
+    - Name
+    - Age
+    - Favorite Spell
+  - Create a page at the route `/` that displays all the names of currently registered Hogwarts students
+  - Clicking on a student's name should take me to the `/students/show` route and display that specific student's information - Name, Age, Favorite Spell
+  - There should be a page at the `/search` route which has a form that allows me to search for a specific student by name to find out if they are registered or not
+    - i.e. I should be able to type in "Harry Potter" and find out whether or not he is a currently registered student
+- **BONUS**: Sorting Hat
+  - Place a button saying "Sorting Hat" next to each student's name on the page for the `/` route
+  - Clicking the button will randomly assign the student to one of the Hogwarts houses
+  - After a student has been assigned to a house, their name on the page for the `/` route will no longer have the "Sorting Hat" button next to it
+  - There should be a page for each house at `/houses/[HOUSE NAME]` that will display a list of every student currently assigned to that house
+    - Clicking on a student's name should take you to the `/students/show` route for that specific student
+- **BONUS 2**:
+  - Have all of the student and house data ***not*** disappear when you restart the server 
