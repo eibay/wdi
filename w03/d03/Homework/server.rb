@@ -7,7 +7,7 @@ get("/") do
 end
 
 get("/search_tag") do
-	tag = request.params["tag"]
+	tag = request.params["tag"].split(" ").join("")
 	insta = HTTParty.get("https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=6e4453d0a1e84159a1b28c13d09916cb")
 	erb(:search_tag, { locals: { tag: tag, images: insta } })
 end
