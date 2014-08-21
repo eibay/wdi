@@ -1,7 +1,9 @@
 require 'sinatra'
+require 'pry'
 
 get("/") do
   erb(:index)
+binding.pry
 end
 
 get("/name") do
