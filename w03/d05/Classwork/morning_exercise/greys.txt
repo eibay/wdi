@@ -925,8 +925,6 @@ Newell Alexander,Ed Beckert,1 episode,2011
 Shelli Boone,Paula Glass,1 episode,2011
 Laura Breckenridge,Julia,1 episode,2011
 Anthony Keyvan,Miguel Aranda,1 episode,2011
-Jayden Lund
-(1 episode,2011
 Caroline Macey,Dana,1 episode,2011
 Sabrina Perez,Marlene,1 episode,2011
 Carolyn Power,Victoria,1 episode,2011
@@ -1021,8 +1019,6 @@ Peggy Dunne,Louise,1 episode,2011
 Patricia Forte,Mrs. Glass,1 episode,2011
 Anthony S. Johnson,Transplant Surgeon,1 episode,2011
 Frank Kopyc,John Driscoll,1 episode,2011
-Katie Lowes
-(1 episode,2011
 Frank Maharajh,Paramedic Driver,1 episode,2011
 Patrick Mapel,Ricky,1 episode,2011
 Sharon Muthu,Fran,1 episode,2011
@@ -1235,8 +1231,6 @@ Joey Luthman,Michael,1 episode,2013
 Melanie McComb,Reese Woods,1 episode,2013
 Lili Mirojnick,Talia,1 episode,2013
 David Naughton,Nick Parker,1 episode,2013
-Jonathan Nichols
-(1 episode,2013
 Michael-James Olsen,Brock,1 episode,2013
 Victoria Park,Sales Person,1 episode,2013
 Marcanthonee Reis,Tuck,1 episode,2013
