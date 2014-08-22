@@ -1,0 +1,4 @@
+Fixing my data display problem using sessions:
+
+The error itself occurred because the array's data was not being preserved across page requests. I would create a student on the registration page, it would be added to the data array, and then as soon as the next page loaded the array would be empty again. Enabling sessions fixed this by providing a place to store data that persists for an entire browsing session.
+

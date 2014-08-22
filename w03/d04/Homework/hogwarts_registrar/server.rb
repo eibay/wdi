@@ -2,6 +2,8 @@ require 'sinatra'
 require 'pry'
 require "sinatra/reloader" if development?
 
+#Sorry I used instance variables I hope that is ok.
+
 #Sessions is a simple way to carry around all the student data as long as we don't close our browser window.
 #http://www.sinatrarb.com/configuration.html
 enable :sessions
@@ -40,6 +42,8 @@ post("/students") do
 
 end
 
+#Students will starting at index 1, but we need to pull from the beginning of the array, so 
+#I used .to_i and need to -1 in order to start at index 0.
 get("/students/show/:id") do
 	@student = session[:data][params[:id].to_i - 1]
 	erb(:student)
