@@ -13,7 +13,7 @@ end
 patient = { "first_name" => first,
 	"last_name" => last,
 	"birth_year" => birth_year.to_i,
-	"date_admitted" => Date.now, 
+	"date_admitted" => Date.today, 
 	"condition" => cond }
 
 # load the database & 
