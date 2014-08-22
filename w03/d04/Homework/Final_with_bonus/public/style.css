@@ -1,0 +1,32 @@
+.top {
+  height: 200px;
+  background-color: grey; }
+  .top h1 {
+    font-color: white; }
+
+form {
+  display: inline; }
+
+#Gryffindor {
+  background: maroon;
+  font-color: darkgrey; }
+  #Gryffindor h3 {
+    font-family: impact; }
+
+#Ravenclaw {
+  background: navy;
+  font-color: darkgrey; }
+  #Ravenclaw h3 {
+    font-family: impact; }
+
+#Hufflepuff {
+  background: yellow;
+  font-color: darkgrey; }
+  #Hufflepuff h3 {
+    font-family: impact; }
+
+#Slytherin {
+  background: mediumaquamarine;
+  font-color: darkgrey; }
+  #Slytherin h3 {
+    font-family: impact; }

@@ -1,0 +1,39 @@
+.top {
+	height: 200px;
+	background-color: grey;
+	h1 {
+		font-color: white;
+	}
+	
+}
+
+
+
+form {
+	display: inline;
+}
+
+
+@mixin house($bg_colour) {
+	background: $bg_colour;
+	font-color: darkgrey;
+	h3 {
+		font-family: impact;
+	}
+}
+#Gryffindor {
+	@include house(maroon);
+}
+
+
+#Ravenclaw {
+	@include house(navy);
+}
+
+#Hufflepuff {
+	@include house(yellow);
+}
+
+#Slytherin {
+	@include house(mediumaquamarine);
+}
