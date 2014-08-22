@@ -5,13 +5,16 @@
 	<title>Search Results</title>
 </head>
 <body>
-	<h1>Student Status of <%= result %>:</h1>
+	<h1>Status of <%= result %>:</h1>
 	
-		<% if students.last[:name] == result.upcase %>
-			<h2> Registered </h2>
-		<% elsif students.last[:name] != result %>
-			<h2> NOT Registered </h2>
+		<% students.each do |x| %>
+			<% if  x[:name].include?(result) %>
+				<h2>Registered</h2>
+				
+			<% else %>
+				<h2> Not Registered </h2>
+			<% end %>
+			<% break %>
 		<% end %>
-
 </body>
 </html>
