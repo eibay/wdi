@@ -1,0 +1,19 @@
+body {
+  background-color: #FFFDC7;
+  font-family: 'times new roman';
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 600px;
+}
+
+.hogwarts_header {
+  display: inline;
+  padding-left: 10px;
+  font-size: 4em;
+}
+
+.hogwarts_crest {
+  display: inline;
+}

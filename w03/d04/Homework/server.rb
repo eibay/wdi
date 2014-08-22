@@ -5,6 +5,7 @@ require 'uri'
 students = []
 index = 0
 
+houses = ["Slytherin", "Gryffindor", "Ravenclaw", "Hufflepuff"]
 
 
 get "/" do
@@ -37,7 +38,6 @@ get "/search" do
 end
 
 post "/search" do
-  students.each do |student|
-    if params["search"] == student["first"]
+
   erb(:search, {locals: {students: students}, query: params[:query]} )
 end
