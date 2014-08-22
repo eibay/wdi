@@ -6,21 +6,28 @@ i = CSV.read "./greys.txt"
 
 $db = []
 
-i.each do |l|
-	char = {}
-	char[:actor] = l[0]
-	char[:name] = l[1]
-	char[:episodes] = l[2].to_i 
-	if l[3].nil? 
-		char[:run] = nil 
-	elsif l[3].include? '-' 
-		range = l[3].split '-'
-		char[:run] = (range[0].to_i..range[1].to_i).to_a  
-	else 
-		char[:run] =  [l[3].to_i] 
-	end  
-	puts char 
-	$db << char
+if File.exists? "./chars.yaml"
+	f = File.read "./chars.yaml"
+	$db = YAML.load f
+else 
+	i.each do |l|
+		char = {}
+		char[:actor] = l[0]
+		char[:name] = l[1]
+		char[:episodes] = l[2].to_i 
+		if l[3].nil? 
+			char[:run] = nil 
+		elsif l[3].include? '-' 
+			range = l[3].split '-'
+			char[:run] = (range[0].to_i..range[1].to_i).to_a  
+		else 
+			char[:run] =  [l[3].to_i] 
+		end  
+		$db << char
+	end
+	File.open("./chars.yaml", 'w') do |f|
+		f << $db.to_yaml 
+	end 
 end 
 
 get '/' do 
