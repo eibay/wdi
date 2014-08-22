@@ -1,0 +1,53 @@
+* {
+	color: lightblue;
+}
+body{
+	background-color: lightblue;
+	margin: 0;
+}
+
+h1 {
+	padding: 10px;
+	margin: auto;
+	background-color: sienna;
+	color: lightblue;
+}
+
+div {
+	padding: 10px;
+	
+	margin: auto;
+	background-color: sienna;
+	
+}
+
+ul {
+	float: left;
+	clear: both;
+}
+
+li {
+	padding: 10px;
+	margin: auto;
+	list-style-type: none;
+	
+
+}
+form {
+	padding: 10px;
+	margin: auto;
+}
+button {
+	padding: 10px;
+	margin: auto;
+}
+
+a {
+	width: 100%;
+	padding: 10px;
+	margin: auto;
+	background-color: sienna;
+	color: lightblue;
+	display: inline-block;
+	
+}
