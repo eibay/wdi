@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+  <ul>
+    <% information.each do |person| %>
+      <li><%= person[:first] %> <%= person[:last] %> - <%= person[:email] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
