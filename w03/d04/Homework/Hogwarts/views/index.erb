@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Hogwart Students</title>
+</head>
+<body>
+  <h1>Names of currently registered Hogwarts students</h1>
+
+  <% registered_students.each do |reg_stud| %>
+    <form name="student" action="/students/show" method="GET">
+  	  <a href="/students/show"> <%= reg_stud["firstname"] + " " + reg_stud["lastname"] %> </a><br>
+	  <input type="submit" value=<%= reg_stud["lastname"] %>>
+  </form>
+  <% end %>
+
+</body>
+</html>
+
+
+
+
+    
