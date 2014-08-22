@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Hogwarts</title>
+	<h1> Welcome Wizard!</h1>
+</head>
+<body>
+
+	<ul>
+		<% info_array.each do |x| %>
+			<%= x[:name] %>
+			<li>Age: <%= x[:age] %></li>
+			<li>Favorite Spell: <%= x[:favorite_spell] %></li>
+		<% end %>
+	</ul>
+
+<a href="/students/new"> Go back to registrar page </a>
+<br>
+<a href="/"> Go back to search page </a>
+
+
+</body>
+</html>

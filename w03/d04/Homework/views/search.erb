@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Hogwarts</title>
+	<h1> Hogwartzzzz Student Search Page </h1>
+</head>
+<body>
+	
+<label> Search for students:
+	<form action = "/search" method="GET">
+		<input type="text" name="search" placeholder="Search for Students!">
+</label>
+		<button> Search </button>
+</form>
+
+<br>
+<a href="/students/new"> Go back to registrar page </a>
+
+
+		<% if info_array.last[:name] == search_result %>
+			<h2> Student is registered </h2>
+		<% elsif info_array.last[:name] != search_result %>
+			<h2> Student is not registered </h2>
+	<% end %>
+
+</body>
+</html>

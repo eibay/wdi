@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Hogwarts</title>
+	<h1> Student List </h1>
+</head>
+<body>
+	
+		<% info_array.each do |x| %>
+		<li> <a href="/students/show/<%= x[:name] %>"> <%= x[:name] %> </a> </li>
+		<% end %>
+<br>
+<br>
+	<a href="/students/new"> Go back to registrar page </a>
+<br>
+	<a href="/"> Go back to search page </a>
+
+
+</body>
+</html>
+
+

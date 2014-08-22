@@ -12,13 +12,13 @@ get("/search") do
 ")
 # binding.pry
 
-	image_array = []
+	images_array = []
 	response["data"].each do |x|
 	image = x["images"]["standard_resolution"]["url"]
-	image_array.push(image)
+	images_array.push(image)
 
 end
-erb(:search, { locals: { tag: request.params["tag"], image_array: image_array } })
+erb(:search, { locals: { tag: request.params["tag"], images_array: image_array } })
 end
 
 #bonus, using instagram api for location
