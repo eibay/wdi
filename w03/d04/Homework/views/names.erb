@@ -1,0 +1,15 @@
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset= "UTF-8">
+	<title> Names</title>
+</head>
+<body>
+	<h1> Names of all the students registered at Hogwarts </h1>
+	<% name.each do |name| %>
+		<li><ol><a href= "/students/show/<%= name["name"] %>"> <%= name["name"] %> </a></ol></li>
+	<% end %>
+</body>
+</html>

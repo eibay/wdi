@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset= "UTF-8">
+	<title> Student Information</title>
+</head>
+<body>
+
+	<h1> Student Information </h1>
+	<p>
+	<% name.each do |name| %>
+	<%if name["name"] == params[:name] %>
+	<%= specificstudent = name["name"] + (", ") + name["age"]+ (", ") + name ["spell"] %>
+	<% puts specificstudent %>
+	<% end %>
+	<% end %>
+</p>
+</body>
+</html>
+
+
+

@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset= "UTF-8">
+	<title> Student's Information</title>
+</head>
+<body>
+	<h1> All students registered at Hogwarts </h1>
+	<% student_information.each do |info| %>
+		<ol><li><%= info["name"]+ (", ") + info["age"]+ (", ") + info["spell"] %><ol></li>
+	<% end %>
+</body>
+</html>
