@@ -26,7 +26,7 @@ class Student
 		@owl_name = o 
 		@year_born = b  
 		@favorite_spell = f
-		@hous
+		@house
 		e = hat_sort  
 	end 
 
@@ -96,8 +96,7 @@ end
 
 get "/students/show/:student_name" do
 	profile = $students 
-	profile.select! do |student|
-		binding.pry 
+	profile = profile.select do |student| 
 		student[:student_name].downcase.gsub(' ', '_') == params[:student_name]
 	end 
 
@@ -111,7 +110,7 @@ end
 get "/houses/:house_name" do 
 	h = $students  
 
-	h.select! do |student|
+	h = h.select do |student|
 		student[:house] == params[:house_name].capitalize 
 	end 
 
