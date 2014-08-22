@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Seattle Grace Hospital</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<section>
+		<header>
+			<h1>Seattle Grace Hospital</h1>
+			<h1>All Patients</h1>
+			<nav>
+				<ul>		
+					<li><a href='/'>All Patients</a></li>
+					<li><a href="/appointments">Make an Appointment</a></li>
+				</ul>
+			</nav>
+		</header>
+		<form action="/appointments" method="POST">
+			<label>First name:<input type="text" name="first_name"></label>
+			<label>Last name:<input type="text" name="last_name"></label>
+			<label>Full birth Year:<input type="text" name="birth_year"></label>
+			<label>Please Select a Condition<select name="condition">
+				<option value="hungry">hunger</option>
+				<option value="angry">anger</option>
+				<option value="insane">mentally ill</option>
+				<option value="thirsty">thirst</option>
+				<option value="rabies">rabies</option>
+				<option value="flu">the flu</option>
+			</select></label>
+			<button>Submit</button>
+		</form>
+	</section>
+</body>
+</html>
