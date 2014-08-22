@@ -18,16 +18,16 @@ array = []
  		hash[:start_year] = year.split('-')[0].to_i
  		hash[:end_year] = year.split('-')[1].to_i
  	end
- 	
+
  	array << hash
  end
 
 # Stars
 # 
-onefifty_array = []
+stars = []
 array.each do |y|
 	if y[:episodes] > 150
-		onefifty_array << y
+		stars << y[:actor]
 	end
 end
 
@@ -53,16 +53,11 @@ end
 # 2007
 # 
 oseven_array = []
-oseven_characters = []
 
 array.each do |a|
 	if a[:start_year] <= 2007 && a[:end_year] >= 2007
-		oseven_array << a	
+		oseven_array << a[:actor]	
 	end
-end
-
-oseven_array.each do |b|
-		oseven_characters << b[:character]
 end
 
 
