@@ -6,3 +6,6 @@ John, Wayne, 54, Drawdioso, Slytherin
 Sam, Spade, 39, Pourificate, Hufflepuff
 Philip, Marlowe, 34, Payupicate, Hufflepuff
 Dashiell, Hammett, 51, Drinkupicor, Ravenclaw
+Captain, Yossarian, 31, Hookerificate, Hufflepuff
+Milo, Minderbinder, 28, Backscratchify, Slytherin
+Indiana, Jones, 32, Museumicate, Hufflepuff

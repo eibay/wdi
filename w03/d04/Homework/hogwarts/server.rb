@@ -106,20 +106,3 @@ post ("/sorting_hat") do
 	File.write(kids, roster)
 	redirect("/students/show/?first=#{params["first"]}&last=#{params["last"]}")
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
