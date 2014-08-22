@@ -43,7 +43,7 @@
 ###Bonus
 1. Modify the server in Part 3 to enable the user to add a randomly generated patient. Generate a random patient by using the API at ```http://api.randomuser.me```. You can find more info [here](http://randomuser.me).
 2. Change your data file and applications so that each patient has a doctor assigned to them.
-  - All doctors should be actual characters from the Grey's Anatomy television show (**Hint**: use the greys.txt file that we gave you in Friday's morning exercise).
+  - All doctors should be actual characters from the Grey's Anatomy television show (**Hint**: use the [greys.txt](https://github.com/ga-students/rosencrantz/blob/master/w03/d05/Classwork/morning_exercise/greys.txt) file that we gave you in Friday's morning exercise).
   - Feel free to choose how to implement this in your applications. Should users type in a doctor's name? Should you randomly assign a doctor for them?
 3. Create the method ```find_by(key, value)``` to simplify your code that searches for patients by condition or name.
   - Example calls might look something like ```patients = find_by("condition", "flu")``` or ```patients = find_by("first", "John")```.
