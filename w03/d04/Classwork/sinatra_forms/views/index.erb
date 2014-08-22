@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="/styles.css" />
+</head>
+<body>
+	<h3><%= new_subscriber ? "Thanks for subscribing!" : "Meet our subscribers!" %></h3>
+	<%= "<h4><a href='/subscribe'>Click here to become a subscriber, too!</a></h4>" unless new_subscriber %>
+	<ul>
+		<% list.each do |person| %>
+		<li><%= "#{person[0]} #{person[1]}: #{person[2]}" %></li>
+		<% end %>
+	</ul>	
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<h2>Students matching your search:
+	<% if list.empty? %>
+	<%= "<h2>There are no students at Hogwarts by that name.</h2>" %>
+	<% else %>
+	<%= "<ul>" %>
+		<% list.each_key do |kid| %>
+		<%= "<li><a href='/students/show/?first=#{list[kid][:first]}&last=#{list[kid][:last]}'>#{kid}</a></li>" %>
+	<%= "</ul>" %>
+	<% end %>
+	<% end %>
+</body>
+</html>

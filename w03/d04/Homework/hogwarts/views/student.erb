@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="style.css" /></head>
+<body>
+	<h1><center><%= kid %></center></h1>
+	<ul>
+		<li>Student: <%= kid %></li>
+		<li>Age: <%= list[kid][:age] %></li>
+		<li>Favorite Spell: <%= list[kid][:spell] %></li>
+		<%= "<li>House: #{list[kid][:house]}</li>" unless list[kid][:house] == "none" %>
+</body>
+</html>
