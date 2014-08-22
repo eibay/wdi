@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1>Welcome to Seattle Grace Hospital</h1>
+	<ul>Current Patient List:<ul>
+	<% patients.each do |patient| %>
+		<li> <%= "NAME: #{patient['first']} #{patient['last']} CONDITION: #{patient['condition']}"%> </li>
+		<% end %>
+	</ul>
+		<br>
+	<a href="/add-patient">Add Patient</a><br>
+	<a href="/search-name">Search Patients By Name</a><br>
+	<a href="/search-condition">Search Patients By Condition</a>
+</body>
+</html>

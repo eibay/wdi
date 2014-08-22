@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1> <%= header %> </h1>
+	<ul> 
+	<% patients.each do |patient| %>
+		<% if condition != nil && patient["condition"].downcase == condition.downcase %>
+			<li> <%= "#{patient["first"]} #{patient["last"]} admitted #{patient["date"]}" %> </li>
+		<% elsif name != nil && patient["first"].downcase == name.downcase %>
+			<li> <%= "#{patient["first"]} #{patient["last"]} admitted #{patient["date"]}" %> </li>
+		<% end %>
+	<% end %>
+</body>
+</html>
