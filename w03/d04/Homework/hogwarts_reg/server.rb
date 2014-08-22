@@ -37,5 +37,15 @@ end
 
 get('/search') do 
 	result = params["search"].upcase
+
+
 	erb(:search_results, {locals: { students: students, result: result}})
 end
+
+
+
+
+
+
+
+
