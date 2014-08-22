@@ -2,7 +2,9 @@
 ---
 
 ##Friday Lab - Seattle Grace Hospital
+
 ###Goal: Create web and command line applications to keep track of patients at the Seattle Grace Hospital
+
 ###Spec:
     - All parts to this lab will use the **same** file to store patients data in JSON.
     - The data file will store patient's First name, Last Name, Date of Admittance, and Condition (e.g. Flu, Rabies)
