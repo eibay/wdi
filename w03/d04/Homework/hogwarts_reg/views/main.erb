@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome to Hogwarts</title>
+</head>
+<body>
+	<h1>Welcome To Hogwarts</h1>
+	<h3>Search our students here</h3>
+	<form action="/search" method="GET">
+		<input type="text" name="search" placeholder="Name">
+		<button>Search</button>
+	</form>
+	<h3>Sign up here</h3>
+	<form action="/students/new" method="GET">
+		<input type="hidden" name="name" placeholder="Name">
+		<button>Sign Up Now</button>
+	</form>
+	<h2>Here are some of our current students</h2>
+	<ul>
+		<% students.each do |x| %>
+		<li><h3><a href="/students/show/<%= x[:name] %>"><%= x[:name] %></a></h3></li>
+		<% end %>
+
+	</ul>
+	
+</body>
+</html>
