@@ -1,5 +1,6 @@
 require 'pry'
 
+
 str = File.read('greys.txt')
 
 cast = []
