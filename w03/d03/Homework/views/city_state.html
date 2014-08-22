@@ -8,17 +8,13 @@
 <body>
 	<header>
 		<h1>Sinatragram</h1>
-		<h2>Searched by <%= tag %></h2>
+		<h2>Searched by <%= city %></h2>
 	</header>
-		<form method="POST" action="/favorite?tag=<%= tag %>">
-			<!-- <input value="Like" type="submit" name="<%= tag %>" > --><!--  Didnt work for me... -->
-			<button type="submit">Like</button>
-		</form>	
 	<ul>
 		<% images.each do |image| %>
 			<li><%= image%></li>
 		<% end %>	
 	</ul>
 	<a href="/">Go home</a>
-</body
+</body>
 </html>
