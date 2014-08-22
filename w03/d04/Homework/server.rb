@@ -2,7 +2,7 @@ require 'sinatra'
 require 'pry'
 
 regstudents =[]
-names =[]
+
 
 post("/")do 
   newstudent = {}
@@ -22,8 +22,10 @@ get("/students/new") do
   erb(:newstudents)
 end
 
-get("/students/show") do
-  erb(:studentinformation, {locals: {regstudents: regstudents, names: names}})
+get("/students/show/:name") do
+
+  name = params[:name]
+  erb(:studentinformation, {locals: {regstudents: regstudents, name: name}})
 end
 
 get("/search") do 

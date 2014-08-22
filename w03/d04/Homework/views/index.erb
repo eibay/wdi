@@ -7,10 +7,13 @@
   <ol>
 
 
-<% regstudents.each do |stu| %>
-<li><a href="/students/show">
-  <%=stu["firstname"] %>
-  <%=stu["lastname"] %></li></a>
+<% regstudents.each do|stu| %>
+<li>
+ 
+  <a href="/students/show/<%= stu["firstname"]%>"> <%=stu["firstname"]%></a></li>
+  
+
+
 
   <% end %>
 

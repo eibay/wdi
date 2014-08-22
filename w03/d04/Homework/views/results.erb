@@ -3,8 +3,8 @@
 <body>
 
 
-<% if defined?(named) %>
-<a href="/students/show"><%= named %></a>
+<% if named %>
+<a href="/students/show/<%=named%>"> <%=named%></a>
 <%end%>
 
 <a href ="/search"><h5> SEARCH AGAIN </h5></a>
