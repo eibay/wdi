@@ -3,13 +3,27 @@
 <body>
 	<h1>Hogwarts Students</h1>
 	<ul>
-		<% list = students.split(",") %>
-		<% list.each do |student| %>
-			<% name = "#{student.split(" ")[0].capitalize} #{student.split(" ")[1].capitalize}" %>
-		<li><a href="<%= "/student?student=#{student.split(" ")[0]}+#{student.split(" ")[1]}" %>"><%= name %></a></li>
+		<% list = students.split(",")
+			list.each do |student|
+			name = "#{student.split(" ")[0].capitalize} #{student.split(" ")[1].capitalize}" %>
+		<li><a href="<%= "/students/show?student=#{student.split(" ")[0]}+#{student.split(" ")[1]}" %>"><%= name %></a>
+		<% if student.split(" ")[4] == "unsorted"	
+		house = houses.sample %>
+			<%= "<form action='/houses/#{house}' method='POST'>
+			<input type='hidden' name='name' value='#{name}' 
+			<input type='hidden' name='house' value='#{house}'>
+			<input type='submit' value ='Sorting Hat'>
+			</form>" %>
+			<% end %></li>
 		<% end %>
 	</ul>
-	<a href="/search">Search Student</a>
+	<a href="/search">Search Student</a><br>
 	<a href="/students/new">Add Student</a>
+	<h2>Hogwarts Houses</h2>
+	<ul>
+		<% houses.each do |house| %>
+			<li><a href="<%= "/houses/#{house}" %>"><%= house %></a></li>
+		<% end %>
+	</ul>
 </body>
 </html>

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<h1><%= found %></h1>
+	<% found = found.split(" ") %>
+	<h1><%= "#{found[0].capitalize} #{found[1].capitalize}" %></h1>
+	<h3>Age: <%= found[2] %></h3>
+	<h3>Favorite Spell: <%= found[3] %></h3>
+	<h3>House: <%= found[4] %></h3>
 </body>
 </html>
