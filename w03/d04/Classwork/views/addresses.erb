@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Submitted Email Addresses</title>
+</head>
+
+<body>
+	<h1>Submitted Email Addresses</h1>
+
+	<ol>
+		<% email_address.each do |x| %>
+		<%= x %>
+		<% end %>
+	</ol>
+
+	<p><a href="/">Add another email address</a></p>
+
+</body>
+
+</html>

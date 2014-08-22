@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Hogwarts Registered Students</title>
+	</head>
+
+<body>
+	<h1>Registered Students</h1>
+	<ol>
+		<% registrant_names.each do |name| %>
+		<%= "<li><a href='/students/show/'>#{name}</a></li>" %>
+		<% end %>
+
+				<p><a href="students/new">Back to Registration Form</a></p>
+
+
+</body>
+</html>
