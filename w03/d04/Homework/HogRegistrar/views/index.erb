@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head><title>Registered Student</title></head>
+
+<body>
+<h1>All the Registered Students</h1>
+
+<ul>
+
+<% # this hidden form is an unfinished version of Ben's idea for getting parameters into the server
+# it replaced a "working" <ul> with list items with anchors, but those all showed on the /students/show page the student info for the last entered student, no matter which link was clicked
+# # too late, I realized the expected solution probably has more to do with giving a query string to the path on the server, something like:
+# get('/students/show?name=name') do
+# or something
+
+
+<%  student_info.each do |x| %>
+	 <li>
+	 	<form method='post' action='/students/show'>
+	 		<input type='hidden' name='clicked_student' value='<% x[:name] %>'>
+	 		<input type='submit' value='<% x[:name] %>'>
+	 	</form>
+	 </li>
+<% end %>
+
+</ul>
+
+
+
+<a href="/students/new">New Student Registration</a>
+
+
+</body>
+</html>
