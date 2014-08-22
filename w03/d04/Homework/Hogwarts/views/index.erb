@@ -9,9 +9,9 @@
   <h1>Names of currently registered Hogwarts students</h1>
 
   <% registered_students.each do |reg_stud| %>
-    <form name="student" action="/students/show" method="GET">
-  	  <a href="/students/show"> <%= reg_stud["firstname"] + " " + reg_stud["lastname"] %> </a><br>
-	  <input type="submit" value=<%= reg_stud["lastname"] %>>
+   
+  	  <a href="/students/show/<%=reg_stud["lastname"]%>"> <%= reg_stud["firstname"] + " " + reg_stud["lastname"] %> </a><br>
+
   </form>
   <% end %>
 

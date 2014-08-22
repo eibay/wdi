@@ -14,7 +14,7 @@ post("/") do
 	erb(:index, { locals: { registered_students: registered_students } })
 end
 
-get("/students/show") do
+get("/students/show/:") do
 	specific_stud = params
 	erb(:specific_student, { locals: { specific_stud: specific_stud } })
 end
