@@ -15,8 +15,8 @@ ary_split_comma.each do |character|
 	hash_character[:actor] = character[0] unless character[0] == nil
 	hash_character[:character] = character[1] unless character[1] == nil
 	hash_character[:episodes] = character[2].split(" ")[0].to_i unless character[2] == nil
-	hash_character[:start_year] = character[3] unless character[3] == nil
-	hash_character[:end_year] = character[4] unless character[4] == nil
+	hash_character[:start_year] = character[3].split("-")[0] unless character[3] == nil
+	hash_character[:end_year] = character[3].split("-")[1] unless character[3] == nil
 	array_cast << hash_character
 end
 
@@ -30,7 +30,9 @@ puts array_cast
 
 stars = []
 array_cast.each do |character|
-	stars << character[:actor] if character[:episodes] > 150
+	unless character[:episodes] == nil #not sure if i need this, does it run despite error?
+		stars << character[:actor] if character[:episodes] > 150
+	end
 end
 puts stars
 
@@ -40,7 +42,9 @@ puts stars
 
 minor_peeps = []
 array_cast.each do |character|
-	minor_peeps << character[:actor] if character[:episodes] < 10
+	unless character[:episodes] == nil
+		minor_peeps << character[:actor] if character[:episodes] < 10
+	end
 end
 puts minor_peeps.length
 
@@ -50,7 +54,9 @@ puts minor_peeps.length
 
 doctors = []
 array_cast.each do |character|
-	doctors << character[:character] if character[:character].split(" ")[0] == "Dr."
+	unless character[:character] == nil
+		doctors << character[:character] if character[:character].split(" ")[0] == "Dr."
+	end
 end
 puts doctors
 
