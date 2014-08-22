@@ -2,6 +2,8 @@ require 'sinatra'
 require 'pry'
 
 students=""
+# students_split =students.gsub("</li>", "</li> ")
+# students_array = students.split(" ")
 student_profile={}
 
 get '/' do
@@ -19,10 +21,8 @@ post '/students/new' do
 	age = params["age"]
 	spell= params["spell"]
 
-	students += "<li><a href='/students/show/#{name}'>#{name}</a></li>"
-
-	
-	student_profile["#{name.downcase}"] = "Name: #{name}; Age: #{age}; Favorite Spell: #{spell}"
+	students += "<li><a href='/students/show/#{name}'>#{name}</a></li>" 
+	student_profile["#{name}"] = "Name: #{name}; Age: #{age}; Favorite Spell: #{spell}"
 	erb(:index, {locals: {students: students} })
 
 end
