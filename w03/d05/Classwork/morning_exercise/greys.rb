@@ -10,7 +10,9 @@ char_file.each do |x|
   char_hash["character"] = character[1]
   char_hash["actor"] = character[0]
   char_hash["episodes"] = character[2]
-  char_hash["end_year"] = character[3]
+  char_hash["years"] = character[3]
+  char_hash["start_year"] = char_hash["years"].split("-")[0]
+  char_hash["end_year"] = char_hash["years"].split("-")[1]
   characters << char_hash
 end
 
@@ -30,7 +32,6 @@ characters.each do |x|
     minor << x
   end
 end
-binding.pry
 puts
 puts "Stars"
 puts "-------"
