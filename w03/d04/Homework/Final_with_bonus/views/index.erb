@@ -59,7 +59,9 @@
 				<li> <a href='/students/show/<%=hash["名"]%>'><%= hash["名"] %> </a> </li> 
 				<form action="/sort" method="POST">
 					<input type="hidden" name="sorted_student" value="<%=hash["名"]%>">
-					<button>Sort!</button>
+					<% if hash["House"] == nil || hash["House"] == "not sorted yet" %>
+						<button>Sort!</button> 
+					<%end%>
 				</form>
 			<%end%>
 		</ul>
