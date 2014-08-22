@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hogwarts Students</title>
+</head>
+<body>
+
+  <h1>Here are the currently Registered Hogwarts Students <%= info.join(" , ") %> </h1>
+
+  <ol>
+    <% info.each do |students| %>
+    <li><a href="/students/show/<%= students %>"><%= students %></a></li>
+    <%end%>
+  </ol>
+
+
+
+</body>
+</html>

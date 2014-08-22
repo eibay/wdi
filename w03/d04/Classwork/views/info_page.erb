@@ -1,0 +1,19 @@
+<!DOCTYPE html
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Info List</title>
+</head>
+<body>
+
+  <h1>Database of information for <%= info.join(" , ") %></h1>
+
+  <ol>
+    <% info.each do |e| %>
+    <li> <%= e %></li>
+    <%end%>
+  </ol>
+
+</body>
+
+</html>
