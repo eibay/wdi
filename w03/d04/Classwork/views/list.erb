@@ -1,0 +1,17 @@
+<html>
+<body>
+  <a href ="/"><h1>List</h1></a>
+
+  <% if defined?(email_error) %>
+    <h3><%= email_error %></h3>
+  <% end %>
+    <% if not defined?(email_error) %>  <h5> Thanks for your information </h5>
+  <% end %>
+<ol>
+ <% email.each do|x| %>
+ <li> <%= x  %> </li>
+ <% end %>
+
+</ol>
+</body>
+</html>
