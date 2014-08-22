@@ -3,8 +3,8 @@
 
 ##Friday Lab - Seattle Grace Hospital
 
-- **Goal**: Create web and command line applications to keep track of patients at the Seattle Grace Hospital
-- **Spec**:
+- ###Goal: Create web and command line applications to keep track of patients at the Seattle Grace Hospital
+- ###Spec:
     - All parts to this lab will use the **same** file to store patients data in JSON.
     - The data file will store patient's First name, Last Name, Date of Admittance, and Condition (e.g. Flu, Rabies)
     - **Tip**: Make a backup of this data file in case your code clobbers it
@@ -12,7 +12,6 @@
 ###Part 1
 
 - **Objective**: Create a command line application to add one patient to the hospital
-
 - **Spec**:
     - Your command line app should ask the user for a first name, last name, date of admittance, and Condition
     - The application should not loop, it should grab the user's input only once:
@@ -31,7 +30,6 @@
 - This should be a separate application written in a different ruby file from Parts 1 and 2, but should use the same file with the patients data.
 
 - **Objective**: Create a **server** to add and view patients
-
 - **Spec**:
   - Create a root page that lists all patients, including their First Name, Last Name, and Condition.
   - Create a page to add a patient
