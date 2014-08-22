@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>List</title>
+  <title>Hogwarts Student Roster</title>
 </head>
 <body>
+	<h1>Hogwarts Student Roster</h1>
   <ul>
-    <% student.each do || %>
-      <li><%= data[:first] %> <%= data[:last] %> - <%= data[:age] %> - <%= data[:spell] %></li>
+    <% @students.each do |student| %>
+      <li><a href="/students/show/<%= student[:id] %>"><%= student[:first] %> <%= student[:last] %></a> - <%= student[:age] %> - <%= student[:spell] %></li>
     <% end %>
   </ul>
+  <p><a href="/students/new">Register new student</a> | <a href="/search">Search students</a></p>
 </body>
 </html>
 
