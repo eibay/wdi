@@ -12,11 +12,12 @@ array_cast = []
 
 ary_split_comma.each do |character|
 	hash_character = {}
-	hash_character[:actor] = character[0] unless character[0] == nil
-	hash_character[:character] = character[1] unless character[1] == nil
-	hash_character[:episodes] = character[2].split(" ")[0].to_i unless character[2] == nil
-	hash_character[:start_year] = character[3].split("-")[0] unless character[3] == nil
-	hash_character[:end_year] = character[3].split("-")[1] unless character[3] == nil
+	hash_character[:actor] = character[0] 
+	hash_character[:character] = character[1] 
+	hash_character[:episodes] = character[2].split(" ")[0].to_i 
+	hash_character[:start_year] = character[3].split("-")[0] 
+	hash_character[:end_year] = character[3].split("-")[1] 
+
 	hash_character[:end_year] = hash_character[:start_year] if hash_character[:end_year] == nil 
 	
 	array_cast << hash_character
