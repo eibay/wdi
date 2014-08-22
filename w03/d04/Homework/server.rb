@@ -31,3 +31,8 @@ get ("/")do
 	search_result = params["search"]
 	erb(:search, {locals: { info_array: info_array }})
 end
+
+get ("/search")do
+	search_result = params["search"]
+	erb(:search_result, {locals: { info_array: info_array }})
+end
