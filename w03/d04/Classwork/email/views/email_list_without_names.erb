@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Emails!</title>
+</head>
+<body>
+
+	<div class="top">
+		<h1> Email Saver</h1>
+	</div>
+
+	<div class="main">	
+		<h3> Saved Emails: </h3>
+		<form action="/register" method="POST">
+	    	<input type="text" name="email" placeholder="Enter email!" />
+	    	<button>Register!</button>
+	  	</form>
+		<ul>
+		<% email_db.each do |x| %>
+			<li><%= x %> </li>
+		<% end %>
+		
+		<% if error %> <!-- control if error message occurs -->
+			<h3> <%= error %> </h3>
+		<% end %>
+
+		</ul>
+
+
+
+	</div>
+
+
+	
+</body>
+</html>

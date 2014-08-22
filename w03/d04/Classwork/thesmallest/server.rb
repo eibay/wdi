@@ -1,1 +1,1 @@
-require 'sinatra'; get('/') {erb(:index)}
+require 'sinatra'; get '/' {erb(:index)}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="top">
+		<h1> Hogwarts Registrar! </h1>
+		<form action="/search" method="GET">
+			<input type="text" name="找名" Placeholder="Search Registrar!">
+			<button>Search</button>
+		</form>
+
+		<form action="/students/new" method="GET">
+			<button>Register!</button>
+		</form>
+
+		<form action="/" method="GET">
+			<button>Home</button>
+		</form>
+		<div class="houses">
+			<form action="/houses/Gryffindor" method="GET">
+			<button>Gryffindor</button>
+			</form>
+			<form action="/houses/Ravenclaw" method="GET">
+				<button>Ravenclaw</button>
+			</form>
+			<form action="/houses/Hufflepuff" method="GET">
+				<button>Hufflepuff</button>
+			</form>
+			<form action="/houses/Slytherin" method="GET">
+				<button>Slytherin</button>
+			</form>
+		</div>
+	</div>
+
+	<br/>
+	<h3> ==================== <h3>
+	<h1> register </h1>
+	<br/>
+
+		<form action="/" method="POST">
+			<input type="text" name="名" placeholder="Name" />
+			<input type="text" name="岁" placeholder="Age" />
+	    	<input type="text" name="咒" placeholder="Spell" />
+	    	<button>Enrol!</button>
+	  	</form>
+		
+
+
+</body>
+</html>
