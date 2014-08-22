@@ -1,0 +1,130 @@
+/* whoah, clayton, is that a poor man's reset? */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* totally, & these are the styles for the header */
+
+section header {
+	overflow: auto; 
+	margin-bottom: 3em;
+
+}
+
+header nav {
+
+
+}
+
+
+header nav ul li {
+	margin-top: 3em;
+	margin-left: 3em; 
+}
+
+header nav ul li {
+	float: left;
+	margin-right: 0.25em; 
+	margin-left: 0.25em;
+	list-style-type: none; 
+
+
+}
+
+header nav ul li a {
+	text-decoration: none; 
+	color: white;
+
+
+
+}
+
+header nav ul li a:link {
+
+
+	
+}
+
+header nav ul li a:visited {
+
+	
+}
+
+header nav ul li a:hover {
+	border-bottom: 4px solid red;
+
+	
+}
+
+header nav ul li a:active {
+
+	
+}
+
+/* okay, but what does the document itself look like? */
+
+body {
+	background-color: black;
+	color: white;
+}
+
+section {
+	
+
+}
+
+section header h1 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 3em;
+
+}
+
+section header h1 span {
+	float: left;
+	display: inline-block;
+}
+
+section header h1 span.not {
+	
+}
+
+section header h1 span.gray {
+	display: inline-block;
+	width: 3em; /* yo, I'm trying in vain to make the logo look good */
+	font-family: 'Oswald', sans-serif;
+	border-bottom: 4px solid red;
+
+}
+
+section header h2 {
+	float: left;
+	margin-top: 1.5em;
+	margin-left: 0.5em;
+	padding-right: 2em;
+	font-family: 'Oswald', sans-serif;
+
+
+}
+
+section ul.chars {
+	
+	clear: both;
+	background-color: white; 
+	color: black;
+	width: 75%;
+	margin: auto;
+
+
+}
+
+section ul.chars li {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+section ul li {
+	font-family: 'Droid Sans', sans-serif;
+
+}

@@ -3,23 +3,25 @@
 <head>	
 	<meta charset="utf-8">
 	<title>Grey's Anatomy | <%= view_name %> </title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Oswald:700|Droid+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<header>
+	<section>
+		<header>
 		<nav>
+			<h1><span class="gray">Grey's</span><span class="not"> Anatomy</span></h1>
+			<h2><%= view_name %></h2>
 			<ul>
-				<li><a href='/'>All Characters</a></li>
-				<li><a href="/2007">2007</a></li>
-				<li><a href="/doctors">Doctors</a></li>
-				<li><a href="/minor_chars">Minor Characters</a></li>
+				<li><a href='/'>All Characters</a> |</li>
+				<li><a href="/2007">2007</a> | </li> 
+				<li><a href="/doctors">Doctors</a> | </li> 
+				<li><a href="/minor_chars">Minor Characters</a> |</li>  
 				<li><a href="/stars">The Stars</a></li>
 			</ul>
 		</nav>
 	</header>
-	<section>
-		<h1>Grey's Anatomy</h1>
-		<h2><%= view_name %></h2>
-		<ul>
+		<ul class="chars">
 			<% chars.each do |char| %>
 				<li> <%= char[:name] %> played by <%= char[:actor] %> was on the show for <%= char[:run].nil? ? "I don't know how many" : char[:run].length %> years, from <%= char[:run].nil? ? "some year" : char[:run].first %> to <%= char[:run].nil? ? "some other year" : char[:run].last  %>. They have appeared in <%= char[:episodes] %> episodes. </li>
 			<% end %>
