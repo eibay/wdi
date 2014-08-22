@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>	
+	<meta charset="utf-8">
+	<title>Grey's Anatomy | <%= view_name %> </title>
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href='/'>All Characters</a></li>
+				<li><a href="/2007">2007</a></li>
+				<li><a href="/doctors">Doctors</a></li>
+				<li><a href="/minor_chars">Minor Characters</a></li>
+				<li><a href="/stars">The Stars</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<h1>Grey's Anatomy</h1>
+		<h2><%= view_name %></h2>
+		<ul>
+			<% chars.each do |char| %>
+				<li> <%= char[:name] %> played by <%= char[:actor] %> was on the show for <%= char[:run].nil? ? "I don't know how many" : char[:run].length %> years, from <%= char[:run].nil? ? "some year" : char[:run].first %> to <%= char[:run].nil? ? "some other year" : char[:run].last  %>. They have appeared in <%= char[:episodes] %> episodes. </li>
+			<% end %>
+		</ul>
+	</section>
+</body>
+</html>
