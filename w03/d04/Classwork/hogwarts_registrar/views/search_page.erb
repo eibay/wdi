@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+	<title>Hogwarts Student Search</title>
+	<link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC|UnifrakturCook:700|Metamorphous|Henny+Penny|UnifrakturMaguntia' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body>
+<nav>
+	<ul>
+		<li><a href="/">Castle</a>
+		<li><a href="/students/new">Add Student</a>
+		<li><a href="/houses/Gryffindor">Gryffindor</a>
+		<li><a href="/houses/Slytherin">Slytherin</a>
+		<li><a href="/houses/Hufflepuff">Hufflepuff</a>
+		<li><a href="/houses/Ravenclaw">Ravenclaw</a>
+	</ul>
+</nav>	
+
+<div>
+<h1>Hogwarts Registrar</h1>
+<h2>Student Search</h2>
+<form action="/search_result" method="GET">
+Full Name:<input type="text" name="query_name" placeholder="Witch/Wizard Name" />
+<button>Accio Search Results</button>
+</form>
+</div>
