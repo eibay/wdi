@@ -1,0 +1,25 @@
+h1{
+
+	text-align: center;
+	color:green;
+}
+
+h2{
+
+	text-align: center;
+	color: green;
+}
+a{
+	text-decoration: none;
+	color:black;
+	padding:10px;
+}
+
+div{
+	margin: 0 auto;
+	text-align: center;
+}
+
+body{
+	width:800px;
+}

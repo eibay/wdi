@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Grey's Anatomy!</title>
+</head>
+<body>
+  <h1>Grey's Anatomy</h1>
+  <h2>In 2007...</h2>
+ <div>
+  <a href='/'>Home</a>
+  <a href='/minor'>Minor Characters</a>
+  <a href='/stars'>Stars</a>
+  <a href='/dr'>Doctors</a>
+  <a href='/year'>2007</a>
+</div>
+
+ <ol>
+ 	<% year.each do |character|%>
+ 	<li><%= character[:actor] %> (<%= character[:character] %>):
+ 		<%= character[:start_year] %>
+ 		<% if character[:end_year] %>
+ 		- <%= character[:end_year] %>
+ 		<% end %>
+ 	</li>
+ 	<% end %>
+ 
+ </ol>
+
+</body>
+</html>
