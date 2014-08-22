@@ -1235,7 +1235,8 @@ Joey Luthman,Michael,1 episode,2013
 Melanie McComb,Reese Woods,1 episode,2013
 Lili Mirojnick,Talia,1 episode,2013
 David Naughton,Nick Parker,1 episode,2013
-Jonathan, Nichols, 1 episode,2013
+Jonathan Nichols
+(1 episode,2013
 Michael-James Olsen,Brock,1 episode,2013
 Victoria Park,Sales Person,1 episode,2013
 Marcanthonee Reis,Tuck,1 episode,2013
