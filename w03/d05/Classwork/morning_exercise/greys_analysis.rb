@@ -59,7 +59,8 @@ puts minor_peeps.length
 doctors = []
 array_cast.each do |character|
 	unless character[:character] == nil
-		doctors << character[:character] if character[:character].split(" ")[0] == "Dr."
+		# doctors << character[:character] if character[:character].split(" ")[0] == "Dr."
+		doctors << character[:character] if character[:character].include?("Dr.")
 	end
 end
 puts doctors
@@ -78,5 +79,6 @@ array_cast.each do |character|
 	end
 end
 puts twothousandandseven
+
 
 
