@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby 
+require 'json'
+
+# determine whether we have usable input data # 
+if ARGV.length != 4 
+	abort "USAGE: first_name last_name date condition"
+else
+	first, last, date, cond = ARGV
+end
+
+# create a patient hash from data #
+patient = { "first_name" => first,
+	"last_name" => last,
+	"date" => date,
+	"condition" => cond }
+
+# load the database & 
+f = File.read "./patients.db"
+patients = JSON.parse f
+
+# add the patient # 
+patients << patient 
+
+# rewrite the database #
+File.write "./patients.db", patients.to_json
+
+# output a friendly confirmation message #
+puts "Please wait until a doctor can tell you what they think."
