@@ -9,7 +9,7 @@ array = []
  	hash[:character] = x.split(',')[1]
  	hash[:episodes] = x.split(',')[2]
  	year = x.split(',')[3]
- 	binding.pry
+ 	puts hash[:actor]
  	if year.length == 4
  		hash[:start_year] = year.to_i
  		hash[:end_year] = year.to_i
