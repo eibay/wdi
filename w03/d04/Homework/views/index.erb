@@ -9,7 +9,7 @@
 	<h1>Registered Students</h1>
 	<ol>
 		<% registrant_names.each do |name| %>
-		<%= "<li><a href='/students/show/'>#{name}</a></li>" %>
+		 <li><a href='/students/show/<%= name[:student_name] %>'><%= name[:student_name] %></a></li>
 		<% end %>
 
 				<p><a href="students/new">Back to Registration Form</a></p>

@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'pry'
 
-registrant_names = []
+registrant_names = {}
 full_profiles = []
 
 get ("/students/new") do 
@@ -23,12 +23,12 @@ post ("/") do
 	erb(:index, { locals: { registrant_names: registrant_names } })
 end
 
-get ("/students/show/") do
+get ("/students/show/:name") do
 
 	# while full_profiles[0][:student_name] == registrant_names[0]
 	# client.puts File.read('./views/profile.erb')
 	# end
-
+	name = params[:name]
 	erb(:profile, { locals: { full_profiles: full_profiles } })
 end
 
