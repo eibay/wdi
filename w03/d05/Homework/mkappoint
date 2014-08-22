@@ -1,17 +1,19 @@
 #!/usr/bin/env ruby 
 require 'json'
+require 'date'
 
 # determine whether we have usable input data # 
 if ARGV.length != 4 
-	abort "USAGE: mkappoint first_name last_name date condition"
+	abort "USAGE: mkappoint first_name last_name birth_year condition"
 else
-	first, last, date, cond = ARGV
+	first, last, birth_year, cond = ARGV
 end
 
 # create a patient hash from data #
 patient = { "first_name" => first,
 	"last_name" => last,
-	"date" => date,
+	"birth_year" => birth_year.to_i,
+	"date_admitted" => Date.now, 
 	"condition" => cond }
 
 # load the database & 

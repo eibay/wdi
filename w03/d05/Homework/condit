@@ -24,14 +24,12 @@ ow.each do |pa|
 	ow_str += "& should see " # is a specialist needed? 
 
 	# calculate age # 
-	d = Date.strptime pa["date"], "%d/%m/%y" 
-	d = d.year 
-	n = Date.today
-	n = n.year 
-	a = n - d 
+	b = pa["birth_year"]
+	n = Date.today.year 
+	a = n - b 
 
 	# pediatrician, general physician, geriatrician #
-	if a < 14  
+	if a < 15   
 		ow_str += "a pediatrician."
 	elsif a > 55 
 		 ow_str += "a geriatrician."
