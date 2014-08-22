@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<header>
+<title>Registered Students</title>
+</header>
+<body>
+<p><ol>
+<% all_students.each do |b| %>
+<li><a href="/students/show/<%=b["name"]%>"> <%= b["name"]%></a></li>
+<%end%>
+</form>
+</ol></p>
+<div>
+<h3>Links</h3><br>
+<a href="/">Hogwards Roster</a><br>
+<a href="/students/new">Register a new student</a><br>
+<a href="/search">Search Hogwarts Roster</a>
+</div>
+
+</body>
+</html>
