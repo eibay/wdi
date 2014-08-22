@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby 
+require 'json'
+require 'date'
+
+# need condition else fail #
+if ARGV.length != 1 
+	abort "USAGE: condit condition"
+else 
+	condition = ARGV.last  
+end 
+
+# read db #
+f = File.read "./patients.db"
+patients = JSON.parse f 
+
+
+# search for patients #
+ow = patients.select do |pa|
+	pa["condition"] == condition 
+end
+
+ow.each do |pa|
+	ow_str = "#{pa["first_name"]} #{pa["last_name"]} has #{condition} " 
+	ow_str += "& should see " # is a specialist needed? 
+
+	# calculate age # 
+	d = Date.strptime pa["date"], "%d/%m/%y" 
+	d = d.year 
+	n = Date.today
+	n = n.year 
+	a = n - d 
+
+	# pediatrician, general physician, geriatrician #
+	if a < 14  
+		ow_str += "a pediatrician."
+	elsif a > 55 
+		 ow_str += "a geriatrician."
+	else 
+		ow_str += "a general physician."
+	end 
+
+	puts ow_str  
+end  

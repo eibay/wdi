@@ -3,7 +3,7 @@ require 'json'
 
 # determine whether we have usable input data # 
 if ARGV.length != 4 
-	abort "USAGE: first_name last_name date condition"
+	abort "USAGE: mkappoint first_name last_name date condition"
 else
 	first, last, date, cond = ARGV
 end
