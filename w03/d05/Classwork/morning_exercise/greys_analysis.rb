@@ -53,7 +53,7 @@ puts minor_peeps.length
 
 #######################
 ##### Dr. please! #####
-#######################
+#####################d##
 
 doctors = []
 array_cast.each do |character|
@@ -67,10 +67,14 @@ puts doctors
 ##### 2007 ############
 #######################
 
-twothousandandseven =[]
+twothousandandseven = []
+
 array_cast.each do |character|
-	twothousandandseven << character[:character] unless character[:start_year].to_i > 2007 
-	twothousandandseven << character[:character] unless character[:end_year].to_i < 2007
+	unless character[:start_year].to_i > 2007 
+		unless character[:end_year].to_i < 2007
+			twothousandandseven << character[:character] 
+		end
+	end
 end
 puts twothousandandseven
 
