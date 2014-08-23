@@ -9,7 +9,7 @@
 	<section>
 		<header>
 			<h1>Seattle Grace Hospital</h1>
-			<h1><%= view_name %></h1>
+			<h1>Search for Patients</h1>
 			<nav>
 				<ul>		
 					<li><a href='/'>All Patients</a></li>
@@ -18,11 +18,14 @@
 				</ul>
 			</nav>
 		</header>
-		<ul>
-			<% patients.each do |pa| %> 
-			<li><%= pa["last_name"] %>, <%= pa["first_name"] %> &mdash; <%= pa["condition"] %> </li>
-			<% end %> 
-		</ul>
+		<form action="/patients" method="GET">
+			<label>Search by first name:<input type="text" name="first_name"></label>
+			<button>Search</button>
+		</form>
+		<form action"/patients" method="GET">
+			<label>Search by condition<input type="text" name="condition"></label>
+			<button>Search</button>
+		</form>
 	</section>
 </body>
 </html>

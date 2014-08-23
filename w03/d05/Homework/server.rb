@@ -6,7 +6,7 @@ get '/' do
 	f = File.read "./patients.db"
 	patients = JSON.parse f
 
-	erb :index, {locals: {patients: patients}}
+	erb :index, {locals: {patients: patients, view_name: "All Patients"}}
 end 
 
 get "/appointments" do 
@@ -30,4 +30,33 @@ post "/appointments" do
 	File.write "./patients.db", patients.to_json 
 
 	redirect '/'
+end 
+
+get "/patients" do
+	if params["first_name"]
+
+		f = File.read "./patients.db"
+		patients = JSON.parse f 
+
+		results = patients.select do |patient|
+			# return partial matches as results #
+			# such searching for Stew will still return Stewie & 
+			# searching for Stewie will still return Stew # 
+			params["first_name"].include?(patient["first_name"]) || patient["first_name"].include?(params["first_name"]) 
+		end 
+
+		erb :index, {locals: {patients: results, view_name: "All patients w/ first name #{params["first_name"]}"}}
+	elsif params["condition"]
+		f = File.read "./patients.db"
+		patients = JSON.parse f 
+
+		results = patients.select do |patient|
+			params["condition"].include?(patient["condition"]) || patient["condition"].include?(params["condition"]) 
+		end
+
+		erb :index, {locals: {patients: results, view_name: "All patients w/ condition #{params["condition"]}"}}
+	else 
+
+		erb :search 
+	end 
 end 
