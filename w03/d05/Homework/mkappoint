@@ -9,12 +9,17 @@ else
 	first, last, birth_year, cond = ARGV
 end
 
+# get the doctors so we can assign them one # 
+f = File.read "./doctors.db"
+doctors = JSON.parse f 
+
 # create a patient hash from data #
 patient = { "first_name" => first,
 	"last_name" => last,
 	"birth_year" => birth_year.to_i,
 	"date_admitted" => Date.today, 
-	"condition" => cond }
+	"condition" => cond,
+	"doctor" => doctors.sample }
 
 # load the database & 
 f = File.read "./patients.db"

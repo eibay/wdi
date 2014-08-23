@@ -15,12 +15,16 @@ end
 
 post "/appointments" do 
 
+	f = File.read "./doctors.db"
+	doctors = JSON.parse f 
+
 	patient = {
 		"first_name" => params["first_name"], 
 		"last_name" => params["last_name"], 
 		"birth_year" => params["birth_year"].to_i, 
 		"condition" => params["condition"],
-		"date_admitted" => Date.today.to_s  
+		"date_admitted" => Date.today.to_s, 
+		"doctor" => doctors.sample 
 	}
 
 	f = File.read "./patients.db"
