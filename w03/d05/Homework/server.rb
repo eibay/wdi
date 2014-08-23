@@ -14,11 +14,11 @@ get "/appointments" do
 end 
 
 post "/appointments" do 
-	
+
 	patient = {
 		"first_name" => params["first_name"], 
 		"last_name" => params["last_name"], 
-		"birth_year" => params["birth_year"], 
+		"birth_year" => params["birth_year"].to_i, 
 		"condition" => params["condition"],
 		"date_admitted" => Date.today.to_s  
 	}

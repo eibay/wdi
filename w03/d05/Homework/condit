@@ -24,7 +24,7 @@ ow.each do |pa|
 	ow_str += "& should see " # is a specialist needed? 
 
 	# calculate age # 
-	b = pa["birth_year"]
+	b = pa["birth_year"].to_i 
 	n = Date.today.year 
 	a = n - b 
 
