@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'json'
 require 'date'
+require "~/dev/wdi/rosencrantz/w03/d05/Homework/search_by.rb"
 
 get '/' do 
 	f = File.read "./patients.db"
@@ -39,24 +40,12 @@ end
 get "/patients" do
 	if params["first_name"]
 
-		f = File.read "./patients.db"
-		patients = JSON.parse f 
-
-		results = patients.select do |patient|
-			# return partial matches as results #
-			# such searching for Stew will still return Stewie & 
-			# searching for Stewie will still return Stew # 
-			params["first_name"].include?(patient["first_name"]) || patient["first_name"].include?(params["first_name"]) 
-		end 
+		results = search_patients_by "first_name", params["first_name"]
 
 		erb :index, {locals: {patients: results, view_name: "All patients w/ first name #{params["first_name"]}"}}
 	elsif params["condition"]
-		f = File.read "./patients.db"
-		patients = JSON.parse f 
-
-		results = patients.select do |patient|
-			params["condition"].include?(patient["condition"]) || patient["condition"].include?(params["condition"]) 
-		end
+		
+		results = search_patients_by "condition", params["condition"]
 
 		erb :index, {locals: {patients: results, view_name: "All patients w/ condition #{params["condition"]}"}}
 	else 

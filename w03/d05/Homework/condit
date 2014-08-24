@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby 
 require 'json'
 require 'date'
+require "~/dev/wdi/rosencrantz/w03/d05/Homework/search_by.rb"
 
 # need condition else fail #
 if ARGV.length != 1 
@@ -9,15 +10,8 @@ else
 	condition = ARGV.last  
 end 
 
-# read db #
-f = File.read "./patients.db"
-patients = JSON.parse f 
-
-
 # search for patients #
-ow = patients.select do |pa|
-	pa["condition"] == condition 
-end
+ow = search_patients_by "condition", condition
 
 ow.each do |pa|
 	ow_str = "#{pa["first_name"]} #{pa["last_name"]} has #{condition} " 
