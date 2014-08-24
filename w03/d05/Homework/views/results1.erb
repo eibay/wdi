@@ -1,7 +1,14 @@
 <html>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Cuprum:700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
 <body>
-<a href="/">Homepage</a>
-<a href="/condition">Search Again</a>
+<a href="/"><h3>Homepage</h3></a>
+
+<a href="/condition"><h3>Search Again</h3></a>
+
 <ol>
 <%results.each do|x| %>
 <%if x["name"].include?name %>
