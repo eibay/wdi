@@ -64,6 +64,14 @@ end
 
 get '/students/show/:name' do
 	name = request.path.split("/")[3]
+	# binding.pry
+
+	# http://127.0.0.1:4567/students/show/adam
+
+	# request.path = /students/show/:name
+	# <a href='/students/show/<%=hash["名"]%>'><%= hash["名"] %> </a> 
+	# params == {"splat" => [],"captures" => [[0] "adam"],"name" => "adam"}
+
 	erb(:students_show, {locals: {student_list: ary_student, name: name}})
 end
 
