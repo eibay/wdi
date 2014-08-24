@@ -1,0 +1,14 @@
+<html>
+<body>
+<a href="/newpatient">Add a Patient </a>
+<a href="/condition">Search a Condition</a>
+<a href="/name">Search a Name</a>
+<ol>
+<%list.each do |x| %>
+<li>
+  <%= x["name"] %> <%= x["last"] %> was admitted on  <%=x["date"]%>  and has <%= x["condition"]%> and will be seen by <%=x["doctorname"]%> </li>
+
+<%end%>
+</ol>
+</body>
+</html>
