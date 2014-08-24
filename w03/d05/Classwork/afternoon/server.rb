@@ -5,7 +5,7 @@ require 'pry'
 
 get("/") do
 	students = JSON.parse(File.read('./students.txt'))
-	erb(:index, locals: { { students: students }})
+	erb(:index, {locals: { students: students }})
 end
 
 post("/students") do
@@ -22,7 +22,7 @@ post("/students") do
   	#take 2 arg -> file to write, and what to write
   	File.write('./students.txt', students.to_json)
 
-  	erb(:index, locals: { { students: students }})
+  	erb(:index, {locals: { students: students }})
 end
 
 get("/students") do
