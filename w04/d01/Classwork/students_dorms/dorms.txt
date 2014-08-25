@@ -1,0 +1,1 @@
+[{"name":"Smith","capacity":"200","address":"The Quad"},{"name":"Fischer hall","capacity":"350","address":"the lawn"},{"name":"as df","capacity":"200","address":"asdf"}]
