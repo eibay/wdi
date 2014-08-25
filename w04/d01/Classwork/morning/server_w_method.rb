@@ -33,5 +33,33 @@ get("/students") do
 	erb(:students)
 end
 
+def search (paramater, input, result, array)
+  result = array.find do |d|
+    d[parameter] == params[input]
+  end
+end 
+
+get("/students/:first_name") do 
+students = JSON.parse(File.read('./students.txt'))
+result = []
+
+ binding.pry
+search("first", :first_name, result, students)
+
+ 
+  # result is the return value of .find
+  # result = students.find do |student|
+  #   student["first"].downcase == params[:first_name].downcase
+  # end
+  # # binding.pry
+
+  erb(:student, { locals: { student: result} })
+end
 
 
+
+=begin 
+places that are redundant: 
+reading/parsing the student file
+reading the erb file
+=end

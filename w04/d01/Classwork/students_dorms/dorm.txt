@@ -1,0 +1,1 @@
+[{"building":"Rosencranz","capicity":"25"},{"building":"evans hall","capicity":"200"}]
