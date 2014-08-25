@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Signika' rel='stylesheet' type='text/css'>
+  <title>Results</title>
+</head>
+<body>
+	<h1> Seattle Grace Hospital </h1>
+	   <div>
+	  	<a href='/'>Home</a>
+  		<a href='/add'>Add Patient</a>
+
+	    <form action='/search/condition' method='GET'>
+	    <label>Search by Condition: <input type='text' name='condition' placeholder='Condition'></input></label>
+	    <button>Search</button>
+	  	</form>
+	   	<form action='/search/name' method='GET'>
+	    <label>Search by First Name: <input type='text' name='name' placeholder='Name'></input></label>
+	    <button>Search</button>
+	  	</form>
+
+	  </div>
+
+	<h2>Search Results</h2>
+	<h3> <%= patient["first"] %> <%= patient["last"] %>'s Profile </h3>
+		<p>First Name: <%= patient["first"] %></p>
+		<p>Last Name: <%= patient["last"] %></p>
+		<p>Condition: <%= patient["condition"] %></p>
+</body>
+</html>

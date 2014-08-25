@@ -1,0 +1,69 @@
+h1{
+	text-align: center;
+	margin: 0 auto;
+	padding: 25px;
+	font-family: 'Droid Serif', serif;
+	color: #0B0D0C;
+}
+
+h2{
+	font-family: 'Droid Serif', serif;
+	color: #0B0D0C;
+	text-align: center;
+}
+
+h3{
+	font-family: 'Droid Serif', serif;
+	color: #0B0D0C;
+}
+
+div{
+	margin: 0 auto;
+	text-align: center;
+	background-color: #859C94;
+	height: 80px;
+	border-radius: 10px;
+	padding: 15px;
+}
+
+body{
+	width:800px;
+	margin: 0 auto;
+	background-color: #C4E5DA;
+}
+
+p{
+	font-family: 'Signika', sans-serif;
+	font-size: 20px;
+
+}
+a {
+	margin: 20px;
+	text-decoration: none;
+	color: #732725;
+	font-family: 'Signika', sans-serif;
+	font-size: 20px;
+
+}
+
+form{
+	padding: 2px;
+}
+
+label{
+
+		font-family: 'Signika', sans-serif;
+	font-size: 15px;
+}
+
+
+button{
+font-family: 'Signika', sans-serif;
+
+}
+
+
+li{
+font-family: 'Signika', sans-serif;
+
+}

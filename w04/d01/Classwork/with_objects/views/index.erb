@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+	<a href = "/students/new">Add New Student</a>
+	<a href = "/dorms/new"> Add Dorm</a>
+
+	<h3>Student Search</h3>
+		<form action='/student' method="GET">
+			<input type='text' name='name' placeholder='First Name'>
+			<button>Search</button>
+		</form>
+
+		<h3>Dorm Search</h3>
+		<form action='/dorm' method="GET">
+			<input type='text' name='name' placeholder='Dorm Name'>
+			<button>Search</button>
+		</form>
+  
+	<h3>Students</h3>
+  <ul>
+    <% students.each do |student| %>
+      <li><%= student["first"] %> <%= student["last"] %> - <%= student["email"] %></li>
+    <% end %>
+  </ul>
+
+    <h3> Dorms</h3>
+  <ul>
+  	<% dorms.each do |dorm| %>
+  <li><%= dorm["name"] %> - <%= dorm["capacity"] %></li>
+	<% end %>
+	</ul>
+
+
+</body>
+</html>
