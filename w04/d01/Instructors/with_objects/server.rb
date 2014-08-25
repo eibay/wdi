@@ -23,7 +23,7 @@ post("/students") do
 end
 
 get("/students/new") do
-	erb(:new)
+	erb(:new_student)
 end
 
 get("/students/:first_name") do 
