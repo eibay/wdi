@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= "#{@student[:first]} #{@student[:last]}" %></title>
+</head>
+<body>
+  <h1><%= @student[:first] %> <%= @student[:last] %></h1>
+  <strong>Age:</strong> <%= @student[:age] %><br>
+  <strong>Favorite Spell:</strong> <%= @student[:spell] %>
+  <p><a href="/students">Back to index</a></p>
+</body>
+</html>

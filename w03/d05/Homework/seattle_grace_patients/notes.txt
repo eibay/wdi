@@ -1,0 +1,10 @@
+while true 
+	puts 'How would you describe your current condition? Please let me know if it is good, fair, poor.'
+	answer = gets.chomp.downcase
+	if (answer == 'good' || answer == 'fair' || answer == 'poor')
+		break
+	else 
+		puts 'Please answer good, fair, or poor'
+	end
+
+	<%= Time.now.strftime("%m/%d/%Y") %>

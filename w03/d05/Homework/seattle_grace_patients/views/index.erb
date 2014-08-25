@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Seattle Grace Hospital - Patient Listing</title>
+</head>
+<body>
+	<h1>Seattle Grace Hospital</h1>
+	<h2><%= @title %></h2>
+	<table>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Condition</th>
+			<th>Date Admitted</th>
+		</tr>
+		<% @patients.each do |patient| %>
+			<%= "
+			<tr>
+				<td>#{patient["first"]}</td>
+				<td>#{patient["last"]}</td>
+				<td>#{patient["condition"]}</td>
+				<td>#{patient["date_time_admittance"]}</td>
+			</tr>
+			" %> 
+		<% end %>
+	</table>
+</body>
+</html>
