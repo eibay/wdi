@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seattle Grace Hospital</title>
+</head>
+<div id="wrapper">
+<body>
+  <a href="/patients">Add a new patient</a>
+  <a href="/name_search">Search for patients by name</a>
+  <a href="/condition_search">Search for patients by condition</a>
+  <ul>
+    <% patients.each do |patient| %>
+      <li><%= patient["first_name"] %> <%= patient["last_name"] %> -- <%= patient["date_admitted"] %>: <%= patient["condition"] %></li>
+    <% end %>
+  </ul>
+</div>
+</body>
+</html>

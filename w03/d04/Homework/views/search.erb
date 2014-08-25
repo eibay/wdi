@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+
+  <title>Hogwarts Registrar</title>
+</head>
+<header>
+  <img class="hogwarts_crest" src="/hogwarts.png" width="150px" height="150px" alt="Hogwarts Crest" /><h1 class="hogwarts_header">Hogwarts Registrar</h1>
+</header>
+<body>
+  <div id="wrapper">
+    <h2> Search the Hogwarts Registrar </h2>
+    <hr />
+    <h3> Search by student first and last name</h3>
+    <form action="/search" method="GET">
+      <input type="text" name="search" placeholder="Search for a student">
+      <button>Submit</button>
+      <% if params["search"] != nil %>
+        <% students.each do |student| %>
+          <% unless params["search"] == student["first"] + ' ' + student["last"] %><br />
+          <%= "Sorry, this student is not registered at Hogwarts." %>
+          <% else %>
+          <%= "Yes, this student is registered here." %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <!-- <%  students.each do |student| %>
+      <% if params["search"] == student["first"] %><br />
+        <%= "Yes, this student is registered here." %>
+        <% break %>
+        <% else %><br />
+        <%= "Sorry, this student is not registered at Hogwarts." %>
+        <% end %>
+      <% end %> -->
+
+
+  <a href="/">Home</a>
+  </div>
+</body>
+</html>

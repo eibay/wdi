@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+
+  <title>Hogwarts Registrar</title>
+</head>
+<header>
+  <img class="hogwarts_crest" src="/hogwarts.png" width="150px" height="150px" alt="Hogwarts Crest" /><h1 class="hogwarts_header">Hogwarts Registrar</h1>
+</header>
+<body>
+  <div id="wrapper">
+    <h2> Registered Hogwarts Student </h2>
+    <hr />
+
+
+    <% students.each do |student| %>
+
+    <% if params[:query] == student["first"] %>
+      <%= student['first'] + ' ' + student['last'] %><br />
+      <%= "Age: #{student['age']}" %><br />
+      <%= "Favorite Spell: #{student['spell']}" %><br />
+      <%= "Familiar? #{student['familiar']}" %><br />
+    <% end %>
+
+    <% end %>
+  <a href="/">Home</a>
+  </div>
+</body>
+</html>
