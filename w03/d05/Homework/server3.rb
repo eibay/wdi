@@ -50,6 +50,7 @@ end
 
 #see the condition search result
 get ("/search_condition_result") do
+
 	patient_condition = params["patient_condition"]
 	patients = JSON.parse(File.read('./patient2.txt'))
 	erb(:search_condition_result, {locals: { patients: patients, patient_condition: patient_condition}})
