@@ -1,0 +1,1 @@
+[{"dorm_name":"Canby Hall","capacity":"250"},{"dorm_name":"Brad Hall","capacity":"350"},{"dorm_name":"Annie Hall","capacity":"450"}]
