@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Patient Search Results</title>
+</head>
+<body>
+	<h1>Seattle Grace Hospital: Patient Search Results</h1>
+
+<h3>Patients admitted with <%= condition %></h3>
+<ol>
+	<% patient_info.each do |search| %>
+      	<% if search["condition"].include?(condition) %> 
+      	<li><%= search["first"] %> 
+      	<%= search["last"] %>
+      	was admitted on <%= search["admittance"] %></li>
+      	<% end %>
+     <% end %>
+   </ol> 
+
+	<p><a href="/">View Patient Registry</a></p>
+	<p><a href="/add">Add a New Patient</a></p>
+	<p><a href="/search">Search Again</a></p>
+</body>
+</html>

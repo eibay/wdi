@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Patient Search</title>
+</head>
+<body>
+	<h1>Seattle Grace Hospital: Patient Search</h1>
+	<h3>Search by condition</h3>
+	<form action="/search" method="POST">
+		<input type="text" name="condition" placeholder="Condition"<br>
+
+		<button>Search</button>
+	</form>
+
+	<h3>Search by first name</h3>
+	<form action="/search_name" method="POST">
+		<input type="text" name="first" placeholder="First Name"<br>
+
+		<button>Search</button>
+	</form>
+
+	<p><a href="/">View Patient Registry</a></p>
+	<p><a href="/add">Add a New Patient</a></p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add a New Patient</title>
+</head>
+<body>
+	<h1>Seattle Grace Hospital Patient Registry</h1>
+	<h3>Add a New Patient</h3>
+
+	<form action="/add" method="POST">
+		First Name: <input type="text" name="first" placeholder="First Name"> Last Name:
+		<input type="text" name="last" placeholder="Last Name"><br>
+		Date of Admittance: <input type="text" name="date" placeholder="--/--/----"><br>
+		Condition: <input type="text" name="condition" placeholder="Condition"><br>
+
+		<button>Register</button>
+	</form>
+
+	<p><a href="/">View Patient Registry</a></p>
+	<p><a href="/search">Search for a Patient</a></p>
+
+</body>
+</html>
