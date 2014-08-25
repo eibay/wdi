@@ -1,0 +1,12 @@
+<html>
+<body>
+	<ol>
+	<%patients.each do |n|%>
+	<li><%="#{n['first']} #{n['last']}/#{n['conditon']}/#{n['admission']}"%></li>
+	<%end%>
+</ol>
+<a href="./addpatient">Add a new patient</a>
+<a href="./search_condition">Search for patients by condition</a>
+<a href="./search_first">Search for patients by first name</a>
+</body>
+</html>

@@ -9,10 +9,12 @@ get "/" do
 end
 
 get "/images" do
-	instagram=HTTParty.get("https://api.instagram.com/v1/tags/#{request.params['tag']}/media/recent?client_id=8fe4db31e3a940068664c1e7e3c5c061")
-erb(:images, { locals: { tag: request.params["tag"] , images: instagram['data'] }})
+	tag=request.params['tag'].split(" ").join('')
+	instagram=HTTParty.get("https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=8fe4db31e3a940068664c1e7e3c5c061")
+erb(:images, { locals: { tag: tag , images: instagram['data'] }})
 end
 get "/location" do
+	
 	city=request.params['city'].split(" ").join("+")
 	state=request.params['state'].split(" ").join("+")
 	google=HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{city}+#{state}&sensor=false&key=AIzaSyBH66qMfXgrihEfE9HIDagtjdxIBn8N_Fc")

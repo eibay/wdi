@@ -1,0 +1,11 @@
+<html>
+<body>
+	<ol>
+		
+		<% students.each do |info|%>
+			<li><a href="/students/show/<%=info[0]%>/"><%=info[0]%></a>
+		<form action="/sortinghat" method="post">
+				<button name="name" value="<%=info[0]%>">Sorting Hat</button></form></li>
+			<%end%>
+		</ol>
+		<a href="/students/new">Add a new student</a>
