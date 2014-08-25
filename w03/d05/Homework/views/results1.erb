@@ -1,0 +1,23 @@
+<html>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Cuprum:700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+<a href="/"><h3>Homepage</h3></a>
+
+<a href="/condition"><h3>Search Again</h3></a>
+
+<ol>
+<%results.each do|x| %>
+<%if x["name"].include?name %>
+  
+  <li>
+  <%= x["name"] %> <%= x["last"] %> was admitted on  <%=x["date"]%>  and has <%= x["condition"]%> and is being seen by <%=x["doctorname"]%></li>
+<%end%>
+<%end%>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Cuprum:700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+
+<body>
+<a href="/"><h3>Homepage<h3></a>
+
+
+<form action="/newpatient" method ="POST">
+
+<input type="text" name="firstname" value=<%=firstname%> READONLY>
+<input type="text" name="lastname" value=<%=lastname%> READONLY>
+<input type="date" name="date">
+<input type="text" name="condition"
+placeholder="condition">
+<input type="text" name="doctorname"
+value= <%=doctorname%> READONLY>
+<button>SUBMIT</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Cuprum:700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+<body>
+<a href="/newpatient"><h3>Add a Patient</h3> </a>
+
+<a href="/condition"><h3>Search a Condition</h3></a>
+
+<a href="/name"><h3>Search a Name</h3></a>
+
+<ol>
+<%list.each do |x| %>
+<li>
+  <%= x["name"] %> <%= x["last"] %> admitted: <%=x["date"]%> with <%= x["condition"]%> seen by <%=x["doctorname"]%> </li>
+
+<%end%>
+</ol>
+</body>
+</html>

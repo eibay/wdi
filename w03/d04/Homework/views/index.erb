@@ -1,0 +1,24 @@
+<html>
+
+<body>
+  <h1>Registered Students </h1>
+  <a href="/students/new"><h5>To Register Click Here</h5></a>
+  <a href="/search"><h5>Click to search</h5></a>
+  <ol>
+
+
+<% regstudents.each do|stu| %>
+<li>
+ 
+  <a href="/students/show/<%= stu["firstname"]%>"> <%=stu["firstname"]%></a></li>
+  
+
+
+
+  <% end %>
+
+</ol>
+</body>
+
+
+</html>
