@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Seattle Grace Hospital</title>
+	<h1> Patient Information Form </h1>
+	<a href= "/"> Back to patient list </a>
+	<br>
+	<br>
+</head>
+<body>
+	<form action="/patients" method="POST">  
+		<label>
+		First Name:
+		<br>
+		<input type="text" name="patient_first_name" placeholder="First Name">
+		<br>
+		<br>
+		Last Name:
+		<br>
+		<input type="text" name="patient_last_name" placeholder="Last Name">
+		<br>
+		<br>
+		Date:
+		<br>
+		<input type="text" name="date" placeholder="Date">
+		<br>
+		<br>
+		Condition(s):
+		<br>
+		<input type="text" name="patient_condition" placerholder= "Condition">
+		</label>
+		<br>
+		<br>
+		<button> Submit </button>
+	</form>
+</body>
+</html>

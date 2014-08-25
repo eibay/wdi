@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Condition search</title>
+	<h2> Condition Search Result: </h2>
+</head>
+<body>
+	
+  <ul>
+    <% patients.each do |x| %>
+      <li> 
+      	<b> Condition: </b> <%= x["patient_condition"]%>  
+      </li>
+    <% end %>
+  </ul>
+
+
+
+</body>
+</html>
