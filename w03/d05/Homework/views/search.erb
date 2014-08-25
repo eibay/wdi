@@ -1,0 +1,25 @@
+<doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- <link rel="stylesheet" type="text/css" href="../stylesheets/styles.css"> -->
+<title>Patient Search</title>
+</head>
+<body>
+
+<h1>Search for a Patient by condition</h1>
+
+  <br><br>
+<form action="/search_results_c" method ="GET">
+Condition of patient you are searching for: <input type="text" name="condition">
+<button>Search</button>
+</form><br>
+
+<h1> Search for a Patient by name</h1>
+  <br><br>
+<form action="/search_results_n" method ="GET">
+Name of patient you are searching for: <input type="text" name="first">
+<button>Search</button>
+</form><br>
+</body>
+</html>

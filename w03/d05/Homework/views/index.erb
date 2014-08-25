@@ -1,0 +1,16 @@
+<doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--   <link rel="stylesheet" type="text/css" href="../stylesheets/styles.css"> -->
+<title>Index</title>
+</head>
+<h1> Patients Admitted to the Hospital</h1>
+<p>
+<% patients.each do |a| %>
+First Name: <%= a["first"] %> <br> Last Name: <%= a["last"]%> <br>Condition: <%=a["condition"]%> <br>Date of Admittance: <%= a["date"]%> <br><br>
+<% end %> 
+
+</p>
+</body>
+</html>

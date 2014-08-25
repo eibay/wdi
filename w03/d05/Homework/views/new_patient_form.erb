@@ -1,0 +1,23 @@
+<doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <!-- <link rel="stylesheet" type="text/css" href="../stylesheets/styles.css"> -->
+<title>New Patient Form</title>
+</head>
+<body>
+
+<h1>Add a Patient</h1>
+
+  <br><br>
+<form action="/new_patient" method ="POST">
+	First name: <input type="text" name="first" placeholder="First name"/><br>
+	Last name: <input type="text" name="last" placeholder="Last name"/><br>
+	Reason for hospital admittance: <input type="text" name="condition" placeholder="condition"/><br>
+	Date: <input type="text" name="date" placeholder="date" value="<%= Time.now %>"/> <br>
+	<button>Add Patient</button>
+</form><br>
+
+
+</body>
+</html>
