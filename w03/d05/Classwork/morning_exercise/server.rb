@@ -28,14 +28,14 @@ html.each do |thing|
 	character = {}
 end
 
-list.each do |thing|
-	episodes_num = thing[:episodes].split(' ')[0].to_i
-	if episodes_num > 150
-		onefivezero << thing
-	elsif episodes_num < 10
-		ten << thing
-	end
-end
+# list.each do |thing|
+# 	episodes_num = thing[:episodes].split(' ')[0].to_i
+# 	if episodes_num > 150
+# 		onefivezero << thing
+# 	elsif episodes_num < 10
+# 		ten << thing
+# 	end
+# end
 
 list.each do |thing|
 	if thing[:character].include?("Dr.")
@@ -43,17 +43,28 @@ list.each do |thing|
 	end
 end
 
-list.each do |thing|
-	if thing[:start_year].to_i == 2007 || (thing[:start_year].to_i < 2007 && thing[:end_year].to_i > 2007)
-		twozerozeroseven << thing
-	end
+doctors = []
+
+dr.each do |thing|
+	doctors << thing[:character]
 end
 
-binding.pry
+
+File.read('dr.txt')
+File.write('dr.txt', doctors)
 
 
-puts onefivezero
-puts ten
-puts dr
-puts twozerozeroseven
+# list.each do |thing|
+# 	if thing[:start_year].to_i == 2007 || (thing[:start_year].to_i < 2007 && thing[:end_year].to_i > 2007)
+# 		twozerozeroseven << thing
+# 	end
+# end
+
+
+
+
+# puts onefivezero
+# puts ten
+# puts dr
+# puts twozerozeroseven
 

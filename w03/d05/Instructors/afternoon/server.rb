@@ -3,10 +3,10 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 
-students = []
-
 get("/") do
-	erb(:index)
+	students = JSON.parse(File.read('./students.txt'))
+
+	erb(:index, { locals: { students: students} })
 end
 
 
@@ -17,19 +17,19 @@ post("/students") do
 
   person = {"first" => first_name, "last" => last_name, "email" => email}
 
-  # sutdent is an array
+  # students is an array
   students = JSON.parse(File.read('./students.txt'))
-  # add hash to perso
-  sutdents.push(person)
+  # add hash to array
+  students.push(person)
   # convert students array to JSON
   students_json = JSON.generate(students)
   # takes 2 args, file to write and what to write
-  File.write('./students.txt', students.to_json)
+  File.write('./students.txt', students_json)
 
   erb(:index, {locals: { students: students } })
 end
 
 get("/students") do
-
+	erb(:students)
 end
 
