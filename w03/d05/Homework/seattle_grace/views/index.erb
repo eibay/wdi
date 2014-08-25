@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+	<h2>Seattle Grace Hospital</h2>
+	<a href="/patient/admit">Admit a new patient</a>
+	<a href="/search?type=firstname">Search for a patient by first name, for some reason</a>
+	<a href="/search?type=condition">Search for a patient by condition</a>
+	<h4>Admitted Patients</h4>
+	<% if roster.empty? %>
+	<h5>The entire city of Seattle is healthy!</h5>
+	<% else %>
+	<ul>
+		<% roster.each do |patient| %>
+		<li><%= "#{patient["first"]} #{patient["last"]}: #{patient["condition"]}" %></li>
+		<% end %>
+		<% end %>
+	</ul>
+
+</body>
+</html>
