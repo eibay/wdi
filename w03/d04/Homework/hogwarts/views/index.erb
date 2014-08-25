@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" type="text/css" href="style.css" /></head>
+<body>
+	<h2>Hogwarts Student Body</h2>
+	<h3><a href="/students/new">Click here to enroll a student!</a></h3>
+	<ul>
+		<% list.each_key do |kid| %>
+		<li>
+		<a href="/students/show/?first=<%= list[kid][:first] %>&last=<%= list[kid][:last] %>"><%= kid %></a>
+		<form action="/sorting_hat" method="POST">
+		<input type="hidden" name="first" value=<%= "#{list[kid][:first]}" %>>
+		<input type="hidden" name="last" value=<%= "#{list[kid][:last]}" %>>		
+		<button <%= "disabled" if list[kid][:house] != "none" %>>Sort</button>
+		</form>
+		</li>
+		<% end %>
+	</ul>
+	<h4>Search for a student</h4>
+	<form action="/search" method="GET">
+		<input type="text" name="search" placeholder="Student's Last Name">
+		<button>Search</button>
+	</form>
+</body>
+</html>

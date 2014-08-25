@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+	<h2>Results by <%= search %>:</h2>
+	<% if list.empty? %>
+	<h4>That search returned no results.</h4>
+	<% else %>
+	<% list.each do |patient| %>
+	<li><%= "#{patient["first"]} #{patient["last"]}: #{patient["condition"]}" %></li>
+	<% end %>
+	<% end %>
+</body>
+</html>

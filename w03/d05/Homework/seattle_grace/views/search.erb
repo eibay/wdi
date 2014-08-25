@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+	<h2>Search by <%= type_proper %></h2>
+	<form action="/search/<%= type %>" method="GET">
+		<input type="text" name="term" placeholder="<%= type_proper %>">
+	</form>
+</body>
+</html>

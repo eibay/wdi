@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+<h2>Members of the Great and Glorious House <%= house %></h2>
+<% if list.empty? %>
+<h3>No one has yet been sorted into House <%= house %>!</h3>
+<% else %>
+<ul>
+<% list.each_key do |kid| %>
+<li><a href="/students/show/?first=<%= list[kid][:first] %>&last=<%= list[kid][:last] %>"><%= kid %></a></li>
+<% end %>
+</ul>
+<% end %>
+</body>
+</html>
