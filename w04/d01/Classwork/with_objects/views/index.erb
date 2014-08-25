@@ -5,15 +5,16 @@
   <title>List</title>
 </head>
 <body>
-	<form action="/student" method="GET">
-		<label>Search Students</label>
-		<input type="text" name="first_name" placeholder="First Name">
-		<button>Search</button>
-	</form>
-	<a href = "/students">Add New Student</a>
+	<a href = "/students/new">Add New Student</a>
   <ul>
     <% students.each do |student| %>
       <li><%= student["first"] %> <%= student["last"] %> - <%= student["email"] %></li>
+    <% end %>
+  </ul>
+	<a href = "/dorms/new">Add New Dorm</a>
+  <ul>
+    <% dorms.each do |dorm| %>
+      <li><%= dorm["name"] %> - Capacity: <%= dorm["capacity"] %> </li>
     <% end %>
   </ul>
 </body>

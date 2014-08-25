@@ -3,6 +3,12 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 
+def find_by(array, key, value)
+  array.find do |student| 
+    student[key] == value
+  end
+end
+
 get("/") do
 	students = JSON.parse(File.read('./students.txt'))
 
@@ -33,3 +39,8 @@ get("/students") do
 	erb(:students)
 end
 
+get("/student") do
+  students = JSON.parse(File.read('./students.txt'))
+  result = find_by(students, "first", params[:first_name])
+  erb(:student, { locals: { result: result} })
+end

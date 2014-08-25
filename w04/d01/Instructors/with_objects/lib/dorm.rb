@@ -5,7 +5,7 @@ class Dorm
     dorms = self.all()
     dorms.push(dorm)
     dorms_json = JSON.generate(dorms)
-    File.write('./dorms.txt', dorms_json)
+    File.write(File.expand_path(File.dirname(__FILE__) + '/../dorms.txt'), dorms_json)
   end
 
   def self.find_by(key, value)
@@ -15,6 +15,6 @@ class Dorm
   end
 
   def self.all()
-    return JSON.parse(File.read('./dorms.txt'))
+    return JSON.parse(File.read(File.expand_path(File.dirname(__FILE__) + '/../dorms.txt')))
   end
 end

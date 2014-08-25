@@ -1,0 +1,11 @@
+<html>
+<body>
+	<h1>Mechanics</h1>
+	<a href="/mechanic/new">Add Mechanic</a>
+	<a href="/mechanics/search">Search Mechanics</a>
+	<ul>
+	<% mechanics.each do |mechanic| %>
+	<li><%= "#{mechanic['name']}, Age: #{mechanic['age']}, Favorite Car: #{mechanic['fave_car']}" %> </li>
+	<% end %>
+</body>
+</html>
