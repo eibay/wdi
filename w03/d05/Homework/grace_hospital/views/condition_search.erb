@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+	<title>Condition Search</title>
+</head>
+<body>
+	<h1>Seattle Grace Hospital Patient Directory</h1>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/new_patient">Add New Patient</a></li>
+			<li><a href="/name_search">Search by Name</a></li>
+		</ul>
+	</nav>
+	<div>
+	<h2>Find patients by the condition from which they <span>SUFFER</span>:</h2>
+	<form action="/search_results" method="GET">
+		<input type="text" name="query_condition" placeholder="condition" />
+		<button>Search for Sufferers</button>
+	</form>
+	</div>
+</body>

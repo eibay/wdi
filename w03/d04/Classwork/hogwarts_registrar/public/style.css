@@ -1,0 +1,48 @@
+body {
+	background-color: #610081;
+}
+
+div {
+	width: 1000px;
+	height: 750px;
+	margin: auto;
+	background-color: #FFCC00;
+	border: 20px solid rgba(29,39,205,0.5);
+}
+
+h1 {
+	font-family: 'Henny Penny', cursive;
+}
+
+h2 {
+	font-family: 'Henny Penny', cursive;
+}
+
+h3 {
+	font-family: 'Henny Penny', cursive;
+}
+
+li {
+	font-family: 'IM Fell DW Pica SC', serif;
+}
+
+p {
+	font-family: 'IM Fell DW Pica SC', serif;
+}
+
+nav {
+	width: 1000px;
+	margin: auto;
+	background-color: #30AC59;
+	border: 10px solid rgba(29,39,205,0.5);
+}
+
+nav ul li {
+	display: inline;
+	font-family: 'Metamorphous', cursive;
+	padding: auto;
+}
+
+form {
+		font-family: 'IM Fell DW Pica SC', serif;
+}
