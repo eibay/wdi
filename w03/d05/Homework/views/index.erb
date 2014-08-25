@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Seattle Grace Hospital</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<section>
+		<header>
+			<h1>Seattle Grace Hospital</h1>
+			<h2><%= view_name %></h2>
+			<nav>
+				<ul>		
+					<li><a href='/'>All Patients</a></li>
+					<li><a href="/appointments">Make an Appointment</a></li>
+					<li><a href="/patients">Search for Patients</a></li>
+				</ul>
+			</nav>
+		</header>
+		<ul>
+			<% patients.each do |pa| %> 
+			<li><%= pa["last_name"] %>, <%= pa["first_name"] %> &mdash; <%= pa["condition"] %> </li>
+			<% end %> 
+		</ul>
+	</section>
+</body>
+</html>

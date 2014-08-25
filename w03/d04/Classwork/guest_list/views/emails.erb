@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>My Guest List</title>
+</head>
+<body>
+	<section>
+		<h1>My Guest List</h1>
+		<% book.each do |sign| %>
+		<% name, email, said = sign %>
+			<p><a href=<%= "mailto:" + email %>><%= name %></a> said: <%= said %>.</p>
+		<% end %>
+	</section>
+	<footer>
+		And you too can sign the <a href='/'>guest list</a>!
+	</footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Seattle Grace Hospital</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<section>
+		<header>
+			<h1>Seattle Grace Hospital</h1>
+			<h2>Search for Patients</h2>
+			<nav>
+				<ul>		
+					<li><a href='/'>All Patients</a></li>
+					<li><a href="/appointments">Make an Appointment</a></li>
+					<li><a href="/patients">Search for Patients</a></li>
+				</ul>
+			</nav>
+		</header>
+		<form action="/patients" method="GET">
+			<label>Search by first name:<input type="text" name="first_name"></label>
+			<button>Search</button>
+		</form>
+		<form action"/patients" method="GET">
+			<label>Search by condition<input type="text" name="condition"></label>
+			<button>Search</button>
+		</form>
+	</section>
+</body>
+</html>

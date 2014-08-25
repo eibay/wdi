@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby 
+require 'json'
+require 'date'
+
+# determine whether we have usable input data # 
+if ARGV.length != 4 
+	abort "USAGE: mkappoint first_name last_name birth_year condition"
+else
+	first, last, birth_year, cond = ARGV
+end
+
+# get the doctors so we can assign them one # 
+f = File.read "./doctors.db"
+doctors = JSON.parse f 
+
+# create a patient hash from data #
+patient = { "first_name" => first,
+	"last_name" => last,
+	"birth_year" => birth_year.to_i,
+	"date_admitted" => Date.today, 
+	"condition" => cond,
+	"doctor" => doctors.sample }
+
+# load the database & 
+f = File.read "./patients.db"
+patients = JSON.parse f
+
+# add the patient # 
+patients << patient 
+
+# rewrite the database #
+File.write "./patients.db", patients.to_json
+
+# output a friendly confirmation message #
+puts "Please wait until a doctor can tell you what they think."

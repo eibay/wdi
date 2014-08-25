@@ -1,0 +1,49 @@
+/* reSET */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+/* guest list form */
+
+section.guest_list {
+	width: 25em;
+	margin: auto;
+	margin-top: 1em; 
+	
+}
+
+section.guest_list h1 {
+	padding-bottom: 0.5em;
+
+}
+
+section.guest_list form {
+	background-color: gray;
+
+}
+
+section.guest_list form label {
+	display: block;
+	padding-bottom: 0.25em;
+	font-weight: 700; 
+}
+
+section.guest_list form label input {
+	display: inline-block;
+	margin-left: 1em;
+}
+
+section.guest_list form label textarea {
+	display: block;
+	padding-left: 1em;
+	padding-top: 0.5em;
+	max-width: 100%;
+}
+
+section.guest_list form button {
+	float: right;
+	display: inline-block;
+
+}

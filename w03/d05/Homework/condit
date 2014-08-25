@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby 
+require 'json'
+require 'date'
+require "~/dev/wdi/rosencrantz/w03/d05/Homework/search_by.rb"
+
+# need condition else fail #
+if ARGV.length != 1 
+	abort "USAGE: condit condition"
+else 
+	condition = ARGV.last  
+end 
+
+# search for patients #
+ow = search_patients_by "condition", condition
+
+ow.each do |pa|
+	ow_str = "#{pa["first_name"]} #{pa["last_name"]} has #{condition} " 
+	ow_str += "& should see " # is a specialist needed? 
+
+	# calculate age # 
+	b = pa["birth_year"].to_i 
+	n = Date.today.year 
+	a = n - b 
+
+	# pediatrician, general physician, geriatrician #
+	if a < 15   
+		ow_str += "a pediatrician."
+	elsif a > 55 
+		 ow_str += "a geriatrician."
+	else 
+		ow_str += "a general physician."
+	end 
+
+	puts ow_str  
+end  
