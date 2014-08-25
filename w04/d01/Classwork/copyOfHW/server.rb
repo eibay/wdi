@@ -38,8 +38,14 @@ end
 post "/name_results" do
   patients = JSON.parse(File.read('./patient_list.txt'))
 
+  patients.each do |p|
+    if params["query"].capitalize == p["first_name"]
+      result = "#{p['first_name']} #{p['last_name']}: #{p['date_admitted']} -- #{p['condition']}"
+    end
+  end
 
-  erb(:name_results, {locals: {patients: patients}})
+
+  erb(:name_results, {locals: {patients: patients}, result: result})
 end
 
 

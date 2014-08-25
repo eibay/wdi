@@ -11,16 +11,12 @@ end
 
 
 post("/students") do
-
-def received_hash(params)
   first_name = params["first"]
   last_name = params["last"]
   email = params["email"]
 
-  {"first" => first_name, "last" => last_name, "email" => email}
-end
+  person = {"first" => first_name, "last" => last_name, "email" => email}
 
-	person = received_hash(params)
   # students is an array
   students = JSON.parse(File.read('./students.txt'))
   # add hash to array
@@ -36,3 +32,26 @@ end
 get("/students") do
 	erb(:students)
 end
+
+get("/students/:first_name") do 
+  students = JSON.parse(File.read('./students.txt'))
+  # result is the return value of .find
+  result = students.find do |student|
+    student["first"].downcase == params[:first_name].downcase
+  end
+  # binding.pry
+
+  erb(:student, { locals: { student: result} })
+end
+
+
+
+
+
+
+
+
+
+
+
+

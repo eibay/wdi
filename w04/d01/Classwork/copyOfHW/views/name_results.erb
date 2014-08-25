@@ -18,11 +18,7 @@
   <hr />
 
   <ul>
-    <% patients.each do |p| %>
-      <% if params["query"].capitalize == p["first_name"]  %>
-      <li><h5><%= "#{p['first_name']} #{p['last_name']}: #{p['date_admitted']} -- #{p['condition']}" %></h5></li>
-      <% end %>
-    <% end %>
+      <li><h5><%= result %></h5></li>
   </ul>
 </div>
 </body>
