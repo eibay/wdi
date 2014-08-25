@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+<title>Name Search</title>
+</head>
+<body>
+<h1>Seattle Grace Hospital Patient Directory</h1>
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/new_patient">Add New Patient</a></li>
+		<li><a href="/condition_search">Search by Condition</a></li>
+	</ul>
+</nav>
+<div>
+	<h2>Find patients by their first name:</h2>
+	<form action="/search_results" method="GET">
+		<input type="text" name="query_first" placeholder="first name" />
+		<button>Search</button>
+	</form>
+	</div>
+
+</body>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+<title>Patient Directory Homepage</title>
+</head>
+<body>
+<h1>Seattle Grace Hospital Patient Directory</h1>
+<nav>
+	<ul>
+		<li><a href="/new_patient">Add New Patient</a></li>
+		<li><a href="/condition_search">Search by Condition</a></li>
+		<li><a href="/name_search">Search by Name</a></li>
+	</ul>
+</nav>
+<div>
+<h2>Patients</h2>
+<ol>
+<% patient_directory.each do |patient| %>
+	<li><%= patient["first"]%> <%= patient["last"]%> - <%= patient["condition"]%></li>
+	<%end%>
+</ol>
+</div>
+</body>
