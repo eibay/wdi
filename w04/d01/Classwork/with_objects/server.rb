@@ -30,11 +30,24 @@ end
 get("/students/:first_name") do 
   student = Student.find_by("first", params[:first_name])
 
-  erb(:student, { locals: { student: result} })
+  erb(:student, { locals: { student: result}})
 end
 
 get "/housing" do 
   dorms = Dormitory.all
 
   erb :dorms, { locals: {dorms: dorms}}  
+end 
+
+get "/build" do 
+  erb :build 
+end 
+
+post "/housing" do 
+  n, l = params["name"], params["location"]
+  dorm = {"name" => n, "location" => l}  
+
+  Dormitory.create dorm 
+
+  redirect "/housing"
 end 
