@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Registered Patients</title>
+</head>
+
+<body>
+	<h2>All Registered Patients</h2>
+
+	<p><a href="./search_condition">search by condition</a></p>
+	<p><a href="./search_firstname">search by first name</a></p>
+
+	<form action="./new_patient">
+    	<input type="submit" value="Add new patient">
+	</form>
+
+	<ul>
+		<% patients.sort_by! { |k| k["last"] } %>
+		<% patients.each do | x | %>
+		<li>Name: <%= x["first"] + " " + x["last"] %> <br>
+		Date of admission: <%=  x["admit_date"] %> <br>
+		Condition: <%= x["condition"] %></li> 
+		<% end %>
+	</ul>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+Ellen Pompeo,Dr. Meredith Grey,220 episodes,2005-2014
+Sandra Oh,Dr. Cristina Yang,220 episodes,2005-2014
+Justin Chambers,Dr. Alex Karev,220 episodes,2005-2014
+Chandra Wilson,Dr. Miranda Bailey,220 episodes,2005-2014
+James Pickens Jr.,Dr. Richard Webber,220 episodes,2005-2014
+Patrick Dempsey,Dr. Derek Shepherd,220 episodes,2005-2014
+Sara Ramirez,Dr. Callie Torres,192 episodes,2006-2014
+Kevin McKidd,Dr. Owen Hunt,140 episodes,2008-2014
+Eric Dane,Dr. Mark Sloan,138 episodes,2006-2012
+Jessica Capshaw,Dr. Arizona Robbins,130 episodes,2009-2014

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Patient Registration</title>
+</head>
+
+<body>
+	<h2>Fill out for all new patients</h2>
+
+	<form action="/" method="POST">
+		<label>
+			first name
+			<input type="text" name="first" placeholder="first name">
+		</label>
+		<label>
+			last name
+			<input type="text" name="last" placeholder="last name">
+		</label>
+		<label>
+			date of admission
+			<input type="text" name="admit_date" value="<%= Time.now.strftime('%m/%d/%Y') %>">
+		</label>
+		</label>
+		<label>
+			condition
+			<input type="text" name="condition" placeholder="condition">
+		</label>
+		<button>Submit</button>
+
+	</form>
+
+
+
+</body>
+
+</html>

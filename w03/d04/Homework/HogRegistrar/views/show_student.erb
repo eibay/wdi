@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>A Single Student</title></head>
+
+<body>
+<h1>The Info on <%= fullname %></h1>
+
+<%  student_info.each do |x| %>
+		<p>Name: <%= x[:name] %></p>
+		<p>Age: <%= x[:age] %></p>
+		<p>Favorite Spell: <%= x[:spell] %></p>
+	<% end %>
+<% end %>
+
+
+<p><a href="/">All Registered Students</a></p>
+<p><a href="/students/new">New Student Registration</a></p>
+
+</body>
+</html>

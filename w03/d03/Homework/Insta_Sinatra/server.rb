@@ -14,6 +14,6 @@ get("/photo_page") do
 	erb(:photo_page, { locals: { tag: tag, photos: photos } })
 #binding.pry
 end
-puts "get photo_page"
+#puts "get photo_page"
 
 
