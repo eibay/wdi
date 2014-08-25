@@ -9,10 +9,15 @@
 	
   <ul>
     <% patients.each do |x| %>
+    <% if x["patient_condition"] == patient_condition %>
+      
       <li> 
-      	<b> Condition: </b> <%= x["patient_condition"]%>  
+      	<b> Condition: </b> <%= x["patient_condition"] %>  
       </li>
     <% end %>
+    <% end %>
+
+
   </ul>
 
 
