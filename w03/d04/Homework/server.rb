@@ -77,7 +77,7 @@ students=CSV.read("public/students.csv")
 
 	erb(:sortinghat, {locals:{your_house: house}})
 
-#### mabye use f.each line?
+#### mabye use f.each_line?
 
 		
 		

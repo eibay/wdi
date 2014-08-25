@@ -1,0 +1,9 @@
+<html>
+<body>
+	<ol>
+	<%patients.each do |n|
+		if(n["first"]==name)%>
+	<li><%="#{n['first']} #{n['last']}/#{n['conditon']}/#{n['admission']}"%></li>
+	<%end%>
+	<%end%>
+</ol>
