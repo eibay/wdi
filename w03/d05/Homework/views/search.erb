@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:700' rel='stylesheet' type='text/css'>
+	<title>Admission</title>
+</head>
+
+<body>
+	
+	<header>
+		<h1><a href="/">Welcome to Seattle Grace Hospital</a></h1>
+		<ul>
+			<li><a href="/admit">Click here for admission!</a></li>
+			
+		<ul>
+	</header>
+	<div>
+		<h1>Search</h1>
+	<form action="/results" method="get">
+		<select name="type">
+			<option value="fName">First Name</option>
+			<option value="lName">Last Name</option>
+			<option value="condition">Condition</option>
+		</select>
+		<input type="text" name="search" placeholder="search here">
+		<button>Let's take a look!</button>
+	</form> 
+	</div>
+</body>
+</html>

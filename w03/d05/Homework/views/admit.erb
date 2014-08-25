@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="styles.css">
+	<meta charset="UTF-8">
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:700' rel='stylesheet' type='text/css'>
+	<title>Admission</title>
+</head>
+<body>
+	<header>
+		<h1><a href="/">Welcome to Seattle Grace Hospital</a></h1>
+		<ul>
+			<!-- <li><a href="/admit">Click here for admission!</a></li> -->
+			<li><a href="/search">Click here to search!</a></li>
+		<ul>
+	</header>
+	<div>
+		<h1>Sign in here</h1>
+		<form action="/" method = "POST">
+			<ul>
+				<li>First name:<input type="text" name="fName" placeholder="first name"></li>
+				<li>Last name:<input type="text" name="lName" placeholder="last name"></li>
+				<li>Date:<input type="text" name="date" placeholder="Y/M/D"></li>
+				<li>Condition:<input type="text" name="condition" placeholder="what ails ya?"></li>
+				
+				<li><button>get in line!</button></li>
+			</ul>
+		</br>
+		<p><a href="/random">Click here to generate a random patient</a></p>
+	</div>
+</body>
+</html>
