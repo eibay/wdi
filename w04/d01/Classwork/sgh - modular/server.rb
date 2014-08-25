@@ -4,34 +4,32 @@ require 'sinatra/reloader'
 require 'pry'
 require 'httparty'
 
+def patients()
+  return JSON.parse(File.read('./patients.txt'))
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
 character_str = File.read("./greys.txt")
 
-array = []
- character_str.split("\n").each do |x|
-  hash = {}
-  hash[:actor] = x.split(',')[0]
-  hash[:character] = x.split(',')[1]
-  hash[:episodes] = x.split(',')[2].split(' ')[0].to_i
-
-  year = x.split(',')[3]
-  puts hash[:actor]
-  if year.length == 4
-    hash[:start_year] = year.to_i
-    hash[:end_year] = year.to_i
-  else
-    hash[:start_year] = year.split('-')[0].to_i
-    hash[:end_year] = year.split('-')[1].to_i
-  end
-
-  array << hash
- end
-
 dr_array = []
-array.each do |d|
-  if d[:character].split(" ")[0] == "Dr."
-    dr_array << d
+character_str.split("\n").each do |x|
+  character = x.split(',')[1]
+  if character.split(' ')[0] == "Dr."
+    dr_array << character
   end
 end
+
 
 get("/") do 
 	patients = JSON.parse(File.read('./patients.txt'))
@@ -44,9 +42,9 @@ post("/add") do
 	last_name = params["last_name"].capitalize
 	date = params["date"]
 	condition = params["condition"].capitalize
-  doctor = dr_array.sample[:character]
+  doctor = dr_array.sample
 
-	patients = JSON.parse(File.read('./patients.txt'))
+	patients = patients()
 	hash = {}
 	hash["first_name"] = first_name
 	hash["last_name"] = last_name
@@ -57,7 +55,7 @@ post("/add") do
 	patients << hash
 
 	File.write('./patients.txt', patients.to_json)
-	patients = JSON.parse(File.read('./patients.txt'))
+	patients = patients()
 
 	erb(:main, {locals: { patients: patients }})
 end
@@ -70,7 +68,7 @@ get("/search") do
   data_type = params["data_type"]
   data = params["data"].capitalize
 
-  patients = JSON.parse(File.read('./patients.txt'))
+  patients = patients()
 
   patient_search = []
 

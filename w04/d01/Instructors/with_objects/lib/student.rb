@@ -5,7 +5,7 @@ class Student
     students = self.all()
     students.push(student)
     students_json = JSON.generate(students)
-    File.write('./students.txt', students_json)
+    File.write('../students.txt', students_json)
   end
 
   def self.find_by(key, value)
@@ -15,6 +15,6 @@ class Student
   end
 
   def self.all()
-    return JSON.parse(File.read('./students.txt'))
+    return JSON.parse(File.read('../students.txt'))
   end
 end
