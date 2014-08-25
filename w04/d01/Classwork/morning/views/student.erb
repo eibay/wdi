@@ -5,7 +5,12 @@
   <title><%= "#{student["first"]} #{student["last"]}" %> </title>
 </head>
 <body>
+	<% if student["last"] == "Nobody" %>
+		<h1>Student Not Found</h1>
+		<p>We don't have any student w/ that information.</p>
+	<% else %> 
 	<h1> <%= "#{student["first"]} #{student["last"]}" %> </h1>
 	<p> <%= student["first"] %> is a student, like, of the world. If you want to talk to a student of the world, by all means, please, talk to a student of the world. Use <a href=<%= "mailto:" + student["email"] %>>the email, the email, the email, the email.</a></p>
+	<% end %>
 </body>
 </html>
