@@ -33,3 +33,17 @@ get("/students") do
 	erb(:students)
 end
 
+
+get "/student/:student" do
+  result = {"first" => "Mr.", "last" => "Nobody", "email" => "nobody@nowhere.net"}
+  students = JSON.parse(File.read("./students.txt"))
+  students.each do |student|
+    student.keys.each do |key| 
+      if student[key] == params[:student]
+        result = student
+      end
+    end
+  end   
+
+  erb :student, {locals: {student: result}}
+end 
