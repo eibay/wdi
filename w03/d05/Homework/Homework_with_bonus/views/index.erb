@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>INDEX</title>
+</head>
+<body>
+	<div class="navbar">
+		<form class="btn_add_patient" action="/add_patient" method="GET">
+			<input type="hidden" name="btn_add_patient" value="">	
+			<button>Register Patient</button>
+		</form>
+		
+		<form class="btn_home" action="/" method="GET">
+			<input type="hidden" name="btn_home" value="">
+			<button>Home</button>
+		</form>
+
+		<form class="btn_condition" action="/search_by_condition" method="GET">
+			<input type="text" name="searched_condition" placeholder="enter condition">
+			<button>Search by condition</button>
+		</form>
+
+		<form class="btn_name" action="/search_by_name" method="GET">
+			<input type="text" name="searched_name" placeholder="enter first name">
+			<button>Search by name</button>
+		</form>
+	</div>
+
+
+
+	<h1> Main Page</h1>
+<!-- 	<%= patient_data %>
+ -->
+ 	<h3> Patient data </h3>
+ 	<ol>
+		<% patient_data.each do |patient| %>
+			<div class="patient">
+				<li> First name: <%=patient["first_name"]%> ::: Last name: <%=patient["last_name"]%> ::: Date of Admission: <%=patient["date_admission"]%> ::: Condition: <%= patient["condition"]%> ::: Doctor: <%=patient["doctor"]%></li>
+			</div>
+		<%end%>
+	</ol>
+</body>
+</html>

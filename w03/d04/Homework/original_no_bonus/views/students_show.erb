@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Student Page</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="top">
+		<h1> Hogwarts Registrar! </h1>
+		<form action="/search" method="GET">
+			<input type="text" name="寻找" Placeholder="Search Registrar!">
+			<button>Search</button>
+		</form>
+
+		<form action="/students/new" method="GET">
+			<button>Register!</button>
+		</form>
+	</div>
+	
+	<br/>
+	<h3> ==================== <h3>
+	<h1> Student Page </h1>
+	<br/>
+
+	<div class="main">
+
+		<% student_list.each do |hash| %>
+			<% if hash["名"] == name %>
+				<h3> Name: <%= hash["名"] %> </h3>
+				<h3> Age: <%= hash["岁"] %>  </h3>
+				<h3> Spell: <%= hash["咒"] %>  </h3> 
+			<% end %>
+		<% end %>
+
+	</div>
+	
+	
+</body>
+</html>
