@@ -1,0 +1,1 @@
+[{"dormname":"Tejal","capacity":"400"},{"dormname":"Patel","capacity":"300"}]

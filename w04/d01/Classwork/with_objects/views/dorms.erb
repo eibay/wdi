@@ -1,0 +1,10 @@
+<html>
+<body>
+<a href="/dorms/new">Adding dorms</a>
+<ol>
+<%dorms.each do |x|%>
+<li><a href="/dorms/<%=x["dormname"]%>"><%=x["dormname"]%></a></li>
+<%end%>
+</ol>
+</body>
+</html>
