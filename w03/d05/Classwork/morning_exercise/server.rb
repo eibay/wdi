@@ -22,11 +22,8 @@ grey_data_split.each do |a|
 	grey_data_array.push actor_hash
 end
 
-grey_data_array.each do |b|
-	episodes_array = []
-	actor_hash["episodes"] = grey[2].split(" ")[0].to_i
-	if actor_hash["episodes"] >150
-		actor_hash["episodes"].push(episodes_array)
-	end
-end
+stars = []
+
+grey_data_array.each do |actor|
+	if actor
 binding.pry

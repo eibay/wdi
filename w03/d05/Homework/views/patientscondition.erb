@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patients</title>
+</head>
+<body>
+  <ul>
+    <% patients.each do |patient| %>
+      <li><%= if |patient|["condition"].include? condition %>
+      <%= puts patient["first"] %> <%= puts patient["last"] %> - <%= puts patient["condition"] %>- <%= puts patient["date"] %></li>
+    <% end %>
+    <a href = "/condition">Find another patient</a>
+  </ul>
+</body>
+</html>
