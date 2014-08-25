@@ -1,0 +1,70 @@
+<html>
+<head>
+	<title>Search by Condition</title>
+</head>
+
+<body>
+	<h2>Search by Condition</h2>
+
+	<!-- to list available conditions to search for -->
+	<% condition_roster = [] %>
+	<p>The hospital currently has patients with the following conditions:</p>
+		<p>
+		<% patients.each do | x | %>
+			<% unless condition_roster.include?(x["condition"]) %>
+			<% condition_roster << x["condition"] %>
+			<% end %>
+		<% end %>
+		<% condition_roster.sort.each do |condition| %>
+<!-- # ****** need to figure out how to ditch the final comma
+ -->		<span><%= condition %>, </span>
+		<% end %>
+		</p>
+
+	<!-- search form -->
+	<form action="/search_condition" method="GET">
+		<label>
+			I'm interested in patients with the following condition:
+			<input type="text" name="condition_search" placeholder="condition">
+		</label>
+		<button>Submit</button>
+	</form>
+
+	<!-- In order not to display the "no matches" message in the case of a page that hasn't even been searched yet-->
+	<% if condition_searched %>
+		<!-- display search results -->
+		<% search_results = [] %>
+		<ul>
+		<!-- construct array of hashes of patients with condition -->
+			<% patients.each do | y | %>
+				<% if y["condition"].downcase == condition_searched.downcase %>
+					<% search_results << y %>
+				<% end %>
+			<% end %>
+		<!-- output information from search results -->
+			<% if search_results.length > 0 %>
+				<p>The following patients suffer from <%= condition_searched %>: </p>
+					<% search_results.each do |z| %>
+							<li>
+							Name: <%= z["first"] + " " + z["last"] %> <br>
+							Date of admission: <%=  z["admit_date"] %> 
+							</li>	
+					<% end %>
+			<% else %>
+				<p>There are no patients with that condition.</p>
+			<% end %>
+		</ul>
+
+	<% end %>
+
+
+<p><a href="/">list of all patients</a></p>
+<p><a href="./search_firstname">search by first name</a></p>
+
+
+</body>
+
+</html>
+
+
+

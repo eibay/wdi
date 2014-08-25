@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Search by First Name</title>
+</head>
+
+<body>
+	<h2>Search by First Name</h2>
+
+
+	<!-- search form -->
+	<form action="/search_firstname" method="GET">
+		<label>
+			What patients have the following first name?
+			<input type="text" name="first_search" placeholder="first name">
+		</label>
+		<button>Submit</button>
+	</form>
+
+	<!-- In order not to display the "no matches" message in the case of a page that hasn't even been searched yet-->
+	<% if firstname_searched %>
+		<!-- display search results -->
+		<% search_results = [] %>
+		<ul>
+		<!-- construct array of hashes of patients with condition -->
+			<% patients.each do | y | %>
+				<% if y["first"].downcase == firstname_searched.downcase %>
+					<% search_results << y %>
+				<% end %>
+			<% end %>
+		<!-- output information from search results -->
+			<% if search_results.length > 0 %>
+				<p>The following patients have the first name <%= firstname_searched %>: </p>
+					<% search_results.each do |z| %>
+							<li>
+							Name: <%= z["first"] + " " + z["last"] %> <br>
+							Date of admission: <%=  z["admit_date"] %> 
+							</li>	
+					<% end %>
+			<% else %>
+				<p>There are no patients with that first name.</p>
+			<% end %>
+		</ul>
+
+	<% end %>
+
+
+<p><a href="/">list of all patients</a></p>
+<p><a href="./search_condition">search by condition</a></p>
+
+
+</body>
+
+</html>
+
+
+

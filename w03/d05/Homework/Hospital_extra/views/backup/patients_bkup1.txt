@@ -1,0 +1,1 @@
+[{"first":"Lisa","last":"Wells","admit_date":"08/22/2014","condition":"Tendonitis"},{"first":"David","last":"Jaffe","admit_date":"08/22/2014","condition":"Thyroid"},{"first":"Pippi","last":"Carney","admit_date":"08/22/2014","condition":"Brain Fog"}]
