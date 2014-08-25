@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<% info_array.each do |x| %>
+<% if info_array x[:name] == search_result %>
+		<h2> Student is registered </h2>
+<% elsif info_array x[:name] != search_result %>
+		<h2> Student is not registered </h2>
+<% end %>
+
+	
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Seattle Grace Hospital</title>
+<h2> Seattle Grance Hospital Active Patient List: </h2>
+</head>
+<body>
+  <h4> <u> Navigation: </u> </h4>
+	<a href= "/patients"> Add new patient </a> <br>
+	<a href = "/search_patient"> Search patient by name </a> <br>
+	<a href = "/search_condition"> Sort patient by condition </a> <br>
+	
+  <br>
+  
+  <ul>
+    <% patients.each do |x| %>
+      <li> <b> First name: </b> <%= x["patient_first_name"]%> 
+      	<br>
+      	<b> Last name: </b> <%= x["patient_last_name"]%>  
+      	<br>
+      	<b> Date: </b> <%= x["date"]%>
+      	<br>
+      	<b> Condition: </b> <%= x["patient_condition"]%>  </li>
+    <% end %>
+  </ul>
+
+
+</body>
+</html>

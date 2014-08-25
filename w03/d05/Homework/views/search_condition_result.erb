@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Condition search</title>
+	<h2> Condition Search Result: </h2>
+</head>
+<body>
+	
+  <ul>
+    <% patients.each do |x| %>
+    <% if x["patient_condition"] == patient_condition %>
+      
+      <li> 
+      	<b> Condition: </b> <%= x["patient_condition"] %>  
+      </li>
+    <% end %>
+    <% end %>
+
+
+  </ul>
+
+
+
+</body>
+</html>
