@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h1><%= house %></h1>
+	<ul>
+		<% list = students.split(",")
+			list.each do |student|
+				if student.split(" ")[4] == house	
+					name = "#{student.split(" ")[0].capitalize} #{student.split(" ")[1].capitalize}" %>
+					<li><a href="<%= "/students/show?student=#{student.split(" ")[0]}+#{student.split(" ")[1]}" %>"><%= name %></a></li>
+				<% end %>
+		<% end %>
+	</ul>
+</body>
+</html>
