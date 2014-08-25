@@ -5,11 +5,19 @@
   <title>List</title>
 </head>
 <body>
-  <a href="/students">Add New Student</a>
+	<a href = "/students/new">Add New Student</a>
   <ul>
     <% students.each do |student| %>
       <li><%= student["first"] %> <%= student["last"] %> - <%= student["email"] %></li>
     <% end %>
+
+  <br>
+
+    <a href = "/dorms/new">Add your Dorm Name</a>
+
+    <%  dorms.each do |dorm| %>
+      <li><%= dorm["name"] %> <%= dorm["capacity"] %></li>
+      <% end %>
   </ul>
 </body>
 </html>
