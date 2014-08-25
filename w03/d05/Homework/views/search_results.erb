@@ -5,9 +5,9 @@
 	<ul> 
 	<% patients.each do |patient| %>
 		<% if condition != nil && patient["condition"].downcase == condition.downcase %>
-			<li> <%= "#{patient["first"]} #{patient["last"]} admitted #{patient["date"]}" %> </li>
+			<li> <%= "NAME: #{patient["first"]} #{patient["last"]} ADMITTED: #{patient["date"]} CONDITION: #{patient["condition"]} DOCTOR: #{patient["doctor"]}" %> </li>
 		<% elsif name != nil && patient["first"].downcase == name.downcase %>
-			<li> <%= "#{patient["first"]} #{patient["last"]} admitted #{patient["date"]}" %> </li>
+			<li> <%= "NAME: #{patient["first"]} #{patient["last"]} ADMITTED: #{patient["date"]} CONDITION: #{patient["condition"]} DOCTOR: #{patient["doctor"]}" %> </li>
 		<% end %>
 	<% end %>
 </body>

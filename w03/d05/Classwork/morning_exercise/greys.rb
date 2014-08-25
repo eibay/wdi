@@ -1,4 +1,5 @@
 require 'pry'
+require 'json'
 
 characters = File.read("greys.txt")
 
@@ -51,6 +52,8 @@ char_arr.each do |char|
 end
 
 puts drs
+
+# File.write("../../Homework/doctors.txt", drs.to_json) 
 
 oh_seven = []
 

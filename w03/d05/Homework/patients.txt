@@ -1,1 +1,1 @@
-[{"first":"Eric","last":"Kramer","date":"8/22/14","condition":"asthma"},{"first":"Lil","last":"Satan","date":"8/22/14","condition":"teething"},{"first":"Dude","last":"Bro","date":"8/22/14","condition":"OD"}]
+[{"first":"Eric","last":"Kramer","date":"8/24/14","condition":"Exploding Head","doctor":"Dr. Russell"},{"first":"Eric","last":"Karmer","date":"8/24/14","condition":"Impersonation Disorder","doctor":"Dr. Hank McKee"},{"first":"Marilyn","last":"Terry","date":"08/24/14","condition":"Pneumonia","doctor":"Dr. Simpson"}]
