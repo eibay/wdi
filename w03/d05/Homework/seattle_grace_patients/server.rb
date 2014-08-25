@@ -1,39 +1,61 @@
-require 'json' #normally use to parse ruby hashes.
+require 'json'
+require 'date'
 require 'sinatra'
-require 'sinatra/reloader'
-require 'pry'
+require 'sinatra/reloader' if development?
 
-time = time.new
-
-puts 'Welcome to Seattle Grace Hospital. What is your name?'
-
-name = gets.chomp
-puts "Welcome to Seattle Grace Hospital, #{name}."
-
-while true 
-	puts 'How would you describe your current condition? Please let me know if it is good, fair, poor.'
-	answer = gets.chomp.downcase
-	if (answer == 'good' || answer == 'fair' || answer == 'poor')
-		break
-	else 
-		puts 'Please answer good, fair, or poor'
-	end
-
-	<%= Time.now.strftime("%m/%d/%Y") %>
-
-
-patients = JSON.parse(File.read('./patients.txt'))
-patients.push(patient)
-patients_json = JSON.generate(patients)
-File.write('./patients.txt' patients.json)
-
-  erb(:index, { locals: { patients: patients }})
+get "/" do
+	@title = "Patient Listing"
+	@patients = JSON.parse(File.read("patients.txt"))
+	erb :index
 end
 
-post("/patients") do
-	first_name = params["first"]
-	last_name = params["last"]
-	day_of_admittance = parmas["date_admitted"]
-	condition = params["condition"]
+get "/new" do
+	erb :new
+end
 
-patient = {"first" => first_name, "last" => last_name, "date of admittance" => date_admitted, "condition" => condition}
+post "/" do
+	patient = {
+		first: params["first"],
+		last: params["last"],
+		condition: params["condition"],
+		date_time_admittance: Date.today
+	}
+	@patients = JSON.parse(File.read("patients.txt"))
+	@patients.push(patient)
+
+	patients_json = JSON.generate(@patients)
+	File.open("patients.txt", "w") do |f|
+		f.puts(patients_json)
+	end
+
+	redirect to "/"
+end
+
+get "/search" do
+	erb :search
+end
+
+get "/results" do
+	patients = JSON.parse(File.read("patients.txt"))
+	if params["first"]
+		patients = patients.select do |p|
+			p["first"].downcase =~ Regexp.new(params["first"].downcase)
+		end
+		@title = "All patients matching first name #{params["first"]}"
+	elsif params["condition"]
+		patients = patients.select do |p|
+			p["condition"].downcase =~ Regexp.new(params["condition"].downcase)
+		end
+		@title = "All patients matching condition #{params["condition"]}"
+	end
+
+	@patients = patients
+	erb :index
+end
+
+
+# post("/students") do 
+# 	first_name = params["first"]
+# 	last_name = params["last"]
+# 	date_time_admittance = parmas["date_admitted"]
+# 	condition = params["condition"]
