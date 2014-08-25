@@ -33,3 +33,12 @@ get("/students") do
 	erb(:students)
 end
 
+get("/students/:first_name") do 
+  students = JSON.parse(File.read("./students.txt"))
+  result = students.find do |n|
+    n["first"].downcase == params[:first_name].downcase
+  end
+
+  erb(:student, {locals: {result: result }})
+end
+

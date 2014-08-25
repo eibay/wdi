@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="textt/css" href="/style.css">
+	<title>SGH Search</title>
+</head>
+<body>
+	<h1>SGH Search</h1>
+	<h2>Results for: <%= data %></h2>
+	<% patient_search.each do |x| %>
+		<ul>
+			<h3><%= x["last_name"] %>, <%= x["first_name"] %>
+			<h4><li>Date Admitted: <%= x["date"] %></li></h4>
+			<h4><li>Condition: <%= x["condition"] %></li></h4>
+			<h4><li>Doctor: <%= x["doctor"] %></li></h4>
+		</ul>
+	<% end %>
+
+</body>
+</html>
