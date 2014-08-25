@@ -3,9 +3,26 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 
-get("/") do
-	students = JSON.parse(File.read('./students.txt'))
+def all()
+  return JSON.parse(File.read('./students.txt'))
+end
 
+def create(student)
+  students = all()
+  students.push(student)
+  File.write('./students.txt', students.to_json)
+end
+
+def find_by(key, value)
+  all().find do |student|
+    student[key] == value
+  end
+end
+
+get("/") do
+  students = JSON.parse(File.read('./students.txt'))
+	students = all()
+  
 	erb(:index, { locals: { students: students} })
 end
 
@@ -33,11 +50,25 @@ get("/students") do
 	erb(:students)
 end
 
-get("/students/:first_name") do
+get("/students/:first_name") do 
   students = JSON.parse(File.read('./students.txt'))
+  # result is the return value of .find
   result = students.find do |student|
-    student ["first"].downcase == params[:first_name].downcase
+    student["first"].downcase == params[:first_name].downcase
   end
+  # binding.pry
 
-  erb(:student, { locals: { result: result } })
+  erb(:student, { locals: { student: result} })
 end
+
+
+
+
+
+
+
+
+
+
+
+
