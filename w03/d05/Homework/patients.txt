@@ -1,0 +1,1 @@
+[{"first":"John","last":"Doe","date_admit":"12/12/12","condition":"stable"},{"first":"Joe","last":"Blow","date_admit":"11/11/11","condition":"critical"},{"first":"Jane","last":"Doe","date_admit":"10/10/10","condition":"stable"},{"first":"Jojo","last":"Ba","date_admit":"09/09/09","condition":"critical"}]
