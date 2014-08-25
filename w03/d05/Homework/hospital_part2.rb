@@ -20,6 +20,9 @@ end
 puts "\nSearch for patient by first name"
 print "First Name: "
 first = gets.chomp
-patient = find_by("first", first)
+patients = find_by("first", first)
 puts "Patients named #{first}:\n"
-puts "NAME: #{patient["first"]} #{patient["last"]} ADMITTED: #{patient["date"]} CONDITION: #{patient["condition"]} DOCTOR: #{patient["doctor"]}"
+
+patients.each do |patient|
+	puts "NAME: #{patient["first"]} #{patient["last"]} ADMITTED: #{patient["date"]} CONDITION: #{patient["condition"]} DOCTOR: #{patient["doctor"]}"
+end

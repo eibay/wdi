@@ -3,7 +3,9 @@
 <body>
 	<h1> <%= header %> </h1>
 	<ul> 
-		<li> <%= "NAME: #{patient["first"]} #{patient["last"]} ADMITTED: #{patient["date"]} CONDITION: #{patient["condition"]} DOCTOR: #{patient["doctor"]}" %> </li>
+		<% patients.each do |patient| %>
+			<li> <%= "NAME: #{patient["first"]} #{patient["last"]} ADMITTED: #{patient["date"]} CONDITION: #{patient["condition"]} DOCTOR: #{patient["doctor"]}" %> </li>
+		<% end %>
 	</ul>
 </body>
 </html>
