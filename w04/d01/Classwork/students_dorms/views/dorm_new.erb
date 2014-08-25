@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Make a dorm!</title>
+</head>
+<body>
+  <form action="/dorms/new" method="POST">
+    <input type="text" name="dorm_name" placeholder="Name your dorm">
+    <input type="text" name="dorm_capacity" placeholder="How much capacity?">
+    <button>Submit</button>
+  </form>
+
+  <ul>
+	<li> <%=dorm%> added </li>
+
+  </ul>
+</body>
+</html>

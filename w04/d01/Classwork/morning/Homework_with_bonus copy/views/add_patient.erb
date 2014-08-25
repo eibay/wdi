@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ADD PATIENT</title>
+</head>
+<body>
+	<div class="navbar">
+		<form class="btn_add_patient" action="/add_patient" method="GET">
+			<input type="hidden" name="btn_add_patient" value="">	
+			<button>Register Patient</button>
+		</form>
+		
+		<form class="btn_home" action="/" method="GET">
+			<input type="hidden" name="btn_home" value="">
+			<button>Home</button>
+		</form>
+
+		<form class="btn_condition" action="/search_by_condition" method="GET">
+			<input type="text" name="searched_condition" placeholder="enter condition">
+			<button>Search by condition</button>
+		</form>
+
+		<form class="btn_name" action="/search_by_name" method="GET">
+			<input type="text" name="searched_name" placeholder="enter first name">
+			<button>Search by name</button>
+		</form>
+	</div>
+
+
+	<!-- INPUT STUFF -->
+	<form action="/add_patient" method="POST">
+		<div style="display:inline-block;">
+			<p>First name </p> <input type="text" name="名" placeholder＝"First name">
+		</div>
+		<div style="display:inline-block;">
+			<p>Last name </p> <input type="text" name="姓" placeholder＝"Last name">
+		</div>
+		<div style="display:inline-block;">
+			<p>Date admission </p> 
+			<input type="text" name="期日" placeholder＝"Day eg. 13">
+			<input type="text" name="期月" placeholder＝"Month eg. 5">
+			<input type="text" name="期年" placeholder＝"Year eg. 2014">
+			<!-- <input type="hidden" name="期" placeholder＝"Year eg. 2014" value="<%=params["期日"]%>-<%=params["期月"]%>-<%=params["期年"]%>"> -->
+		</div>
+		<div style="display:inline-block;">
+			<p>Condition </p> <input type="text" name="病" placeholder＝"Condition">
+		</div>
+		<button>Add patient</button>
+	</form>
+
+	<!-- RANDOM PATIENT BUTTON -->
+	<form action="/add_patient" method="post">
+		<input type="hidden" name="名" value="<%=name_random%>">
+
+		<input type="hidden" name="姓" value="<%=sur_random%>">
+
+		<div style="display:inline-block;">
+			<p>Date admission </p> 
+			<input type="text" name="期日" placeholder＝"Day eg. 13">
+			<input type="text" name="期月" placeholder＝"Month eg. 5">
+			<input type="text" name="期年" placeholder＝"Year eg. 2014">
+			<!-- <input type="hidden" name="期" placeholder＝"Year eg. 2014" value="<%=params["期日"]%>-<%=params["期月"]%>-<%=params["期年"]%>"> -->
+		</div>
+		<div style="display:inline-block;">
+			<p>Condition </p> <input type="text" name="病" placeholder＝"Condition">
+		</div>
+
+		<button>Add Random Patient</button>
+	</form>
+
+</body>
+</html>
