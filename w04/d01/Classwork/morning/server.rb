@@ -3,28 +3,55 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 
+# define methods # 
+
+def all 
+  f = File.read "./students.txt" 
+  JSON.parse f 
+end 
+
+def create student 
+  students_arr = all 
+  students_arr << student 
+  students_json = students.to_json 
+  File.write "./students.txt", students_json  
+end 
+
+# returns any student for whom any of their info 
+# matches the query else returns nil #  
+def find_any_match_for q
+  all.each do |student|
+    student.keys.each do |key| 
+      if student[key] == q  
+        return student
+      end
+    end 
+  end  
+  nil 
+end 
+
+
+# main app #
+
 get("/") do
-	students = JSON.parse(File.read('./students.txt'))
+	students = all 
 
 	erb(:index, { locals: { students: students} })
 end
 
 
 post("/students") do
-  first_name = params["first"]
-  last_name = params["last"]
-  email = params["email"]
 
-  person = {"first" => first_name, "last" => last_name, "email" => email}
+  # create a student &
+  # write them to db #  
+  first_name, last_name, email = params["first"], params["last"], params["email"]
+  person = {"first" => first_name, 
+    "last" => last_name, 
+    "email" => email}
+  create person 
 
-  # students is an array
-  students = JSON.parse(File.read('./students.txt'))
-  # add hash to array
-  students.push(person)
-  # convert students array to JSON
-  students_json = JSON.generate(students)
-  # takes 2 args, file to write and what to write
-  File.write('./students.txt', students_json)
+  # read db # 
+  students = all 
 
   erb(:index, {locals: { students: students } })
 end
@@ -35,15 +62,9 @@ end
 
 
 get "/student/:student" do
-  result = {"first" => "Mr.", "last" => "Nobody", "email" => "nobody@nowhere.net"}
-  students = JSON.parse(File.read("./students.txt"))
-  students.each do |student|
-    student.keys.each do |key| 
-      if student[key] == params[:student]
-        result = student
-      end
-    end
-  end   
 
-  erb :student, {locals: {student: result}}
+  result = find_any_match_for params[:student] 
+
+
+  erb :student, {locals: {student: result }}
 end 
