@@ -3,6 +3,24 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 
+
+
+def all()
+	return JSON.parse(File.read('./students.txt'))
+end
+
+def create(student)
+	students = all()
+	students.push(student)
+	File.write('./studnets.txt', students.to_json)
+end
+
+def find_by(key,value)
+	all().find do |student|
+		student[key] == vlaue
+	end
+end
+
 get("/") do 
 	patients = JSON.parse(File.read('./patientinfo.txt'))
 	erb(:index,{ locals: { patients: patients } })
@@ -29,10 +47,13 @@ get("/condition") do
 	erb(:condition)
 end
 
-get ("/condition") do
-	erb(:conditionpost, {locals: { patients: patients } } )
+get("/condition/:condition") do
+	patients = JSON.parse(File.read('./patientinfo.txt'))
+  	result = patients.find do |patient|
+    patient["condition"].downcase == params[:condition].downcase
+end
+	erb(:conditionpost, {locals: { result: result } } )
 
-	binding.pry
 end
 
 

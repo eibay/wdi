@@ -8,12 +8,13 @@ condition = gets.chomp
 
 patients = JSON.parse(File.read('./patientinfo.txt'))
 
-patients.each do |a|
-	if a["condition"].include? condition
+patients.find do |a|
+	if a["condition"] == condition
 		puts a["first"]
 		puts a["last"]
 		puts a["date"]
 	end
 end
+
 
 puts "Thank you for using our search engine"
