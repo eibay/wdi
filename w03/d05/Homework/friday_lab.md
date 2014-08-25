@@ -33,7 +33,11 @@
 
 - **Objective**: Create a **server** to add and view patients
 - **Spec**:
+<<<<<<< HEAD
   - Create a root page that lists all patients, including their First Name, Last Name, and Condition.
+=======
+  - Create a root page that lists all patients, including their First Name, Last Name, Date of Admittance, and Condition.
+>>>>>>> f927d01f8fce47820904e555364037cc688f6558
   - Create a page to add a patient
   - Create a page to search for patients by condition, handling the case where there are multiple patients in the results
   - Create a page to search for patients by First Name only, handling the case where there are multiple patients in the results
