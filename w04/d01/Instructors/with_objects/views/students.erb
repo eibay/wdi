@@ -2,16 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>List</title>
+  <title>Students</title>
 </head>
 <body>
-
-<a href="/dorms/new">Adding dorms</a>
-<ol>
-<%dorms.each do |x|%>
-<li><a href="/dorms/<%=x["dormname"]%>"><%=x["dormname"]%></a></li>
-<%end%>
-	<a href = "/students/new">Add New Student</a>
+  <a href = "/students/new">Add New Student</a>
   <ul>
     <% students.each do |student| %>
       <li><%= student["first"] %> <%= student["last"] %> - <%= student["email"] %></li>
