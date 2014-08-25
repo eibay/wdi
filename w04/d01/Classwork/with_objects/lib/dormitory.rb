@@ -1,13 +1,15 @@
+require 'json'
+
 class Dormitory 
 	def self.create dorm 
 		dormitories = self.all 
 		dormitories << dorm 
 		dormitories_json = dormitories.to_json  
-		File.write "../students.txt", dormitories_json 
+		File.write "./dormitories.db", dormitories_json 
 	end 
 
 	def self.all 
-		f = File.read "../students.txt" 
+		f = File.read "./dormitories.db" 
 		JSON.parse f 
 	end 
 

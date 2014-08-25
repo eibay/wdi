@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 require_relative './lib/student'
+require_relative './lib/dormitory'
 
 get("/") do
 	students = Student.all()
