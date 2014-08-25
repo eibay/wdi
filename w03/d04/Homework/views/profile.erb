@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Student Profile</title>
+	</head>
+
+<body>
+	<h1>Student Profile</h1>
+		
+		<% full_profiles.each do |profile| %>
+		Name: <%= profile[:student_name] %><br/> 
+		Age: <%= profile[:age] %><br/> 
+		Favorite Spell: <%= profile[:favorite_spell] %>
+		<% end %>	
+		
+</body>
+</html>

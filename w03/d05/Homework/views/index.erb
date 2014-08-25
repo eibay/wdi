@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Seattle Grace Hospital Patient Registry</title>
+	</head>
+		<body>
+<h1>Seattle Grace Hospital Patient Registry</h1>
+  <ol>
+ <% patient_info.each do |patient| %>
+        <li>
+      	<%= patient["first"] %> 
+      	<%= patient["last"] %>
+      	was admitted on <%= patient["admittance"] %>. Condition: 
+      	<%= patient["condition"].capitalize %>
+      </li>
+      <% end %>
+  </ol>
+      <p><a href="/add">Add a New Patient</a></p>
+      <p><a href="/search">Search for a Patient</a></p>
+	</body>
+</html>
