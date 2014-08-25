@@ -1,0 +1,17 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  	<title>Currently Registered Students</title>
+</head>
+<body>
+ <h1>Currently Registered Students:</h1>
+ <ul>
+ 	<% info = students.split(",") %>
+  	<% info.each do |student| %>
+ <li><a href='/students/show?specific_name=#{name}'><%= student[:name] %></li>
+  	<% end %>
+</ul>
+</body>
+</html>
+
