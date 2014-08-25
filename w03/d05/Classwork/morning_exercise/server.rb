@@ -71,7 +71,7 @@ characters.each do |a|
 		on_in_07.push a[:character]
 	end
 end
-puts on_in_07
+# puts on_in_07
 
 
 
