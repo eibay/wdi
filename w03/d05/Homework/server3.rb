@@ -35,6 +35,7 @@ def doctor
      doctor << x[:character]
     end
   end
+  
   doctorshuffle = doctor.shuffle
   return doctorname = doctorshuffle[0].delete(" ")
 end
