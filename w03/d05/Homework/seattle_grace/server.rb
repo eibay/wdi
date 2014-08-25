@@ -5,10 +5,13 @@ require 'pry'
 require 'httparty'
 require './short_cut.rb'
 
+doctors = JSON.parse(File.read("./data/doctors.txt"))
+
+common_condition = ["hepatitis", "chlamydia", "meningitis", "giardiasis", "stroke", "trichomaniasis", "physical trauma", "intestinal polyps"]
 
 get "/" do
 	roster = JSON.parse(File.read("./data/patients.txt"))
-	erb(:index, {locals: { roster: roster } })
+	erb(:index, {locals: { roster: roster, doctors: doctors } })
 end
 
 # This get will use the request param, embedded in the link, to fill the search view.
@@ -55,13 +58,13 @@ post "/patient/random" do
 	roster << {
 		"first" => new_patient["name"]["first"].capitalize,
 		"last" => new_patient["name"]["last"].capitalize,
-		"condition" => new_patient["username"].scan(/^\D+/)[0].downcase,
+		"condition" => common_condition[rand(0..6)],
 		"admitted" => Time.now.strftime("%B %-d, %Y"),
 		"doctor" => "none"
 	}
 	json_roster = JSON.generate(roster)
 	File.write("./data/patients.txt", json_roster)
-	erb(:index, {locals: { roster: roster } })	
+	erb(:index, {locals: { roster: roster, doctors: doctors } })	
 end
 
 post "/patient" do
@@ -75,8 +78,17 @@ post "/patient" do
 	}
 	json_roster = JSON.generate(roster)
 	File.write("./data/patients.txt", json_roster)
-	erb(:index, {locals: { roster: roster } })	
+	erb(:index, {locals: { roster: roster, doctors: doctors } })	
 end
 
 post "/doctor" do
+	roster = JSON.parse(File.read("./data/patients.txt"))
+	roster.each do |patient|
+		if "#{patient["first"]} #{patient["last"]}" == params["patient"]
+			patient["doctor"] = params["doctor"]
+		end
+	end
+	json_roster = JSON.generate(roster)
+	File.write("./data/patients.txt", json_roster)
+	erb(:index, {locals: { roster: roster, doctors: doctors } })
 end

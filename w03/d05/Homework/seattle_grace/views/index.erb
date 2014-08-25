@@ -12,9 +12,18 @@
 	<% if roster.empty? %>
 	<h5>The entire city of Seattle is healthy!</h5>
 	<% else %>
-	<ul>
-		<% roster.each do |patient| %>
-		<li><%= "#{patient["first"]} #{patient["last"]}: #{patient["condition"]}" %></li>
+	<ul><% roster.each do |patient| %>
+		<li><%= "#{patient["first"]} #{patient["last"]}: #{patient["condition"].capitalize}" %>
+			<form action="/doctor" method="POST">
+				<select name="doctor">
+					<% doctors.each do |doctor| %>
+					<option name="<%= doctor %>>" <%= "selected" if patient['doctor']== doctor %>><%= doctor %></option>
+					<% end %>
+				</select>
+				<input type="hidden" name="patient" value="<%=patient['first'] + ' ' + patient['last']%>" />
+				<button>Assign</button>
+			</form>
+		</li>
 		<% end %>
 		<% end %>
 	</ul>
