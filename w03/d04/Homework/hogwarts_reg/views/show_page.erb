@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Student Info</title>
+</head>
+<body>
+	<h1>Student Information</h1>
+	<h2><%= name %></h2>
+	<ul>
+		<% students.each do |x| %>
+			<% if x[:name] == name %>
+				<li>Age: <%= x[:age] %></li>
+				<li>Favorite Spell: <%= x[:spell] %></li>
+			<% end %>
+		<% end %>
+	</ul>
+</body>
+</html>

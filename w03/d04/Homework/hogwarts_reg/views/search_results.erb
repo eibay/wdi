@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Search Results</title>
+</head>
+<body>
+	<h1>Status of <%= result %>:</h1>
+	
+		<% students.each do |x| %>
+			<% if  x[:name].include?(result) %>
+				<h2>Registered</h2>
+				
+			<% else %>
+				<h2> Not Registered </h2>
+			<% end %>
+			<% break %>
+		<% end %>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="textt/css" href="/style.css">
+	<title>SGH Home</title>
+</head>
+<body>
+	<h1>Welcome to SGH</h1>
+
+	<h2>Search patient by condition or first name</h2>
+	<form action="/search" method="GET">
+		<input type="radio" name="data_type" value="condition">Condition <br/>
+		<input type="radio" name="data_type" value="first_name">First Name <br/>
+		<input type="text" name="data">
+	<button>Search</button> <br/>
+	</form>
+
+	<form action="/add" method="GET">
+		<input type="hidden">
+	<button>Add Patient</button>
+	</form>
+
+	<form action="/add_random" method="POST">
+		<input type="hidden">
+	<button>Add Random Patient</button>
+	</form>
+
+
+	<h2>Here is a list of our patients</h2>
+	
+		<% patients.each do |x| %>
+		<ul>
+			<h3><%= x["last_name"] %>, <%= x["first_name"] %>
+			<h4><li>Date Admitted: <%= x["date"] %></li></h4>
+			<h4><li>Condition: <%= x["condition"] %></li></h4>
+			<h4><li>Doctor: <%= x["doctor"] %></li></h4>
+		</ul>	
+		<% end %>
+	
+</body>
+</html>
