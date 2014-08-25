@@ -32,3 +32,9 @@ get("/students/:first_name") do
 
   erb(:student, { locals: { student: result} })
 end
+
+get "/housing" do 
+  dorms = Dormitory.all
+
+  erb :dorms, { locals: {dorms: dorms}}  
+end 

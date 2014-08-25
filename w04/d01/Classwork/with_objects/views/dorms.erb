@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Our Dorms</title>
+</head>
+<body>
+	<h1>Our Dorms</h1>
+	<p>Our dorms are very lovely jovely. We have many of them &amp; are building new ones all the time.</p>
+	<ul>
+		<% dorms.each do |dorm|%>
+			<li><%= dorm["name"] %> | <%= dorm["location"] %></li>
+		<% end %> 
+	</ul>
+</body>
+</html>
