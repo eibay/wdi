@@ -32,4 +32,3 @@ end
 get("/students") do
 	erb(:students)
 end
-
