@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'json'
 require 'pry'
 require 'httparty'
+require './find_by.rb'
 
 get("/") do
 	all_patients = JSON.parse(File.read("patients.txt"))
@@ -10,39 +11,37 @@ get("/") do
 end
 
 get("/search-name") do
-	name = params[:name]
-	all_patients = JSON.parse(File.read("patients.txt"))
+	# name = params[:name]
+	# all_patients = JSON.parse(File.read("patients.txt"))
 
-	erb(:search_name, {locals: { patients: all_patients, name: name} })
+	erb(:search_name) #, {locals: { patients: all_patients, name: name} })
 end
 
 get("/search-condition") do
-	condition = params[:condition]
+	# condition = params[:condition]
+	# all_patients = JSON.parse(File.read("patients.txt"))
 
-	all_patients = JSON.parse(File.read("patients.txt"))
-
-	erb(:search_cond, {locals: { patients: all_patients, condition: condition } })
+	erb(:search_cond) #, {locals: { patients: all_patients, condition: condition } })
 end
 
 get('/search-name-results') do
-	all_patients = JSON.parse(File.read("patients.txt"))
-
+	# all_patients = JSON.parse(File.read("patients.txt"))
+	# condition = nil
 	name = params[:name]
-	condition = nil
-
+	patient = find_by("first", name)
+	binding.pry
 	header = "Patients named #{name}"
 
-	erb(:search_results, { locals: { patients: all_patients, header: header, name: name, condition: condition } }) 
+	erb(:search_results, { locals: { header: header, patient: patient } }) #patients: all_patients, name: name, condition: condition } }) 
 end
 
 get('/search-condition-results') do
-	all_patients = JSON.parse(File.read("patients.txt"))
-
-	name = nil
+	# all_patients = JSON.parse(File.read("patients.txt"))
+	# name = nil
 	condition = params[:condition]
-
+	patient = find_by("condition", condition)
 	header = "Patients with #{condition}"
-	erb(:search_results, { locals: { patients: all_patients, header: header, name: name, condition: condition } }) 
+	erb(:search_results, { locals: { header: header, patient: patient } }) # patients: all_patients, name: name, condition: condition } }) 
 end
 
 get("/add-patient") do
