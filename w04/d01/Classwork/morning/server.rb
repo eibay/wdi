@@ -9,7 +9,6 @@ get("/") do
 	erb(:index, { locals: { students: students} })
 end
 
-
 post("/students") do
   first_name = params["first"]
   last_name = params["last"]
