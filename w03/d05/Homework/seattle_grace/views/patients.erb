@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient List</title>
+</head>
+<body>
+	<a href = "/index">Add New Patient</a>
+  <ul>
+    <% patients.each do |patient| %>
+      <li><%= patient["first"] %> <%= patient["last"] %> - <%= patient["admit_date"] %> - <%= patient["condition"] %> </li>
+    <% end %>
+  </ul>
+</body>
+</html>

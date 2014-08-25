@@ -67,7 +67,7 @@ all_actors.each do |actor|
 	end
 end
 
-binding.pry
+# binding.pry
 
 
 

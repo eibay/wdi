@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patients by Condition</title>
+</head>
+<body>
+	<a href = "/index">Add New Patient</a>
+
+
+<h1>
+	<!-- we need something here that displays the condition that the user searched for and then displays the patients with that condition -->
+	The condition you searched for is: <%=condition_search%>
+</h1>
+  	<h1><%=Patients_with_condition:%></h1>
+  	<ul>
+    <% patients.each do |patient| %>
+		    <%if patient["condition"] == condition_search%>
+		    <%patients_with_condition<<patient%>
+		     <li><%= patient["first"] %> <%= patient["last"] %> - <%= patient["admit_date"] %></li>
+		    <% end %>
+	</ul>
+</body>
+</html>
+
+<!-- instead of putting the conditional and the array push here, could we do that on the server and just output the results array here?
+i think yes, but i think keeping the if statement here allows us to print each one out individually.
+
+see if this would work: output patients_with_condition array and join the array entries with a new line character to separate them out -->
+
+</h1>
+  <ul>
+      <li><%= patients_with_condition.join("\n") %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
+
+
+
