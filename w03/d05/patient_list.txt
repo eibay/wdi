@@ -1,0 +1,1 @@
+[{"first_name":"Mae","last_name":"Phillips","date_admitted":"2014-04-20","condition":"Pneumonia"},{"first_name":"Nicole","last_name":"Rose","date_admitted":"2014-07-24","condition":"Flu"},{"first_name":"Byron","last_name":"Ellis","date_admitted":"2014-07-11","condition":"Broken Leg"},{"first_name":"Cassandra","last_name":"Phillips","date_admitted":"2014-07-22","condition":"Flu"}]

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Seattle Grace Hospital</title>
+</head>
+<body>
+  <div id="wrapper">
+  <a href="/">Home</a>
+  <a href="/patients">Add a new patient</a>
+  <a href="/name_search">Search for patients by name</a>
+  <a href="/condition_search">Search for patients by condition</a>
+  <hr />
+  <form action='/name_results' method='POST'>
+    <input type="text" name="query" placeholder="Search for patient">
+    <button>Submit</button>
+  </form>
+  <hr />
+
+  <ul>
+    <% patients.each do |p| %>
+      <% if params["query"].capitalize == p["first_name"]  %>
+      <li><h5><%= "#{p['first_name']} #{p['last_name']}: #{p['date_admitted']} -- #{p['condition']}" %></h5></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+</body>
+</html>
