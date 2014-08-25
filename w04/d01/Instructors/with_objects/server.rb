@@ -2,24 +2,22 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 require_relative './lib/student'
+require_relative './lib/dorm'
 
-get("/") do
-	students = Student.all()
-  
-	erb(:index, { locals: { students: students} })
+get("/") do  
+	erb(:index)
 end
 
-
 post("/students") do
-  first_name = params["first"]
-  last_name = params["last"]
-  email = params["email"]
+  student = {"first" => params["first"], "last" => params["last"], "email" => params["email"]}
 
-  person = {"first" => first_name, "last" => last_name, "email" => email}
+  Student.create(student)
 
-  Student.create(person)
+  erb(:students, { locals: { students: Student.all() } })
+end
 
-  erb(:index, {locals: { students: Student.all() } })
+get("/students") do
+  erb(:students, { locals: { students: Student.all() } })
 end
 
 get("/students/new") do
@@ -29,5 +27,27 @@ end
 get("/students/:first_name") do 
   student = Student.find_by("first", params[:first_name])
 
-  erb(:student, { locals: { student: result} })
+  erb(:student, { locals: { student: student } })
+end
+
+get("/dorms/new") do
+  erb(:new_dorm)
+end
+
+get("/dorms/:name") do
+  dorm = Dorm.find_by("name", params[:name])
+
+  erb(:dorm, { locals: { dorm: dorm } })
+end
+
+post("/dorms") do
+  dorm = { name: params["name"], capacity: params["capacity"] }
+
+  Dorm.create(dorm)
+
+  erb(:dorms, { locals: { dorms: Dorm.all() } })
+end
+
+get("/dorms") do
+  erb(:dorms, { locals: { dorms: Dorm.all() } })
 end
