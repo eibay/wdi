@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css'>
+  <title>Grey's Anatomy!</title>
+</head>
+<body>
+  <h1>Grey's Anatomy</h1>
+
+
+ <div>
+  <a href='/'>Home</a>
+  <a href='/stars'>Stars</a>
+  <a href='/minor'>Minor Characters</a>
+  <a href='/dr'>Doctors</a>
+  <a href='/year'>2007</a>
+</div>
+  <h2>Doctors</h2>
+ <ul>
+ 	<% doctors.each do |character|%>
+ 	<li><%= character[:actor] %> (<%= character[:character] %>)</li>
+ 	<% end %>
+ 
+ </ul>
+
+</body>
+</html>

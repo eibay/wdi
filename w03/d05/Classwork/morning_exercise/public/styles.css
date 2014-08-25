@@ -1,0 +1,48 @@
+h1{
+
+	text-align: center;
+	color:red;
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 45px;
+}
+
+h2{
+
+	color: navy;
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 30px;
+}
+a{
+	text-decoration: none;
+	color:black;
+	padding:20px;
+	margin: 0 auto;
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 25px;
+
+}
+
+p{
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 25px;
+}
+
+div{
+	margin: 0 auto;
+	text-align: center;
+	background-color: blanchedalmond;
+	height: 25px;
+	border-radius: 5px;
+}
+
+body{
+	width:800px;
+	background-color: lightblue;
+	margin: 0 auto;
+}
+
+li{
+	font-family: 'Reenie Beanie', cursive;
+	font-size: 25px;
+}
+

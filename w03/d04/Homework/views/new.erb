@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+  <title>Hogwarts Registrar</title>
+</head>
+<body>
+  <h1>Hogwarts Registrar</h1>  
+
+    <div>
+    <a href='/'>Home</a>
+    <a href='/students/new'>Register</a>
+    <a href='/students/search'>Search</a>
+  </div>
+
+  <h2>New Student Registration Form</h2>  
+
+ <form action='/students/new' method="POST">
+ 	<label>Name: <input type='text' name='name' placeholder='Full Name'></label>
+ 	<label>Age: <input type='text' name='age' placeholder='Age'></label>
+ 	<label>Favorite Spell: <input type='text' name='spell' placeholder='Spell'></label>
+ 	<button>Register</button>
+ </form>
+
+
+
+</body>
+</html>
+
