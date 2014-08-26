@@ -10,7 +10,7 @@ puts "What is your last name?"
 last_name = gets.chomp
 puts "Welcome to Seattle Grace Hospital, #{first_name} #{last_name}."
 
-puts "Please tell me, what is your condition?"
+puts "Please tell me what is your condition?"
 condition = gets.chomp
 puts "Sorry to hear that you are experiencing #{condition}." 
 puts "We are going to help you get better."

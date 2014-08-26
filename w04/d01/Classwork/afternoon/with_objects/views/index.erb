@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter Dorms and Students</title>
+</head>
+<body>
+	<a href = "/students/new">Add New Student</a>
+  <ul>
+    <% students.each do |student| %>
+      <li><%= student["first"] %> <%= student["last"] %> - <%= student["email"] %></li>
+    <% end %>
+  </ul>
+  <ul>
+  	<% dorms.each do |dorm| %>
+  	<li><%= dorm["name"] %> <%= dorm["capacity"] %></li>
+  	<% end %>
+</body>
+</html>
