@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration of New Patients</title>
+</head>
+<body>
+	<h1> Register a New Patient! </h1>
+  <form action="/patients" method="POST">
+    <input type="text" name="first" placeholder="First Name">
+    <input type="text" name="last" placeholder="Last Name">
+    <input type="text" name="condition" placeholder="conditon">
+    <input type="hidden" name="date" value= <%= Time.now.strftime("%d/%m/%Y %H:%M") %>>
+    <button>Submit</button>
+  </form>
+</body>
+</html>
