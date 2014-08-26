@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add mechanic</title>
+</head>
+<body>
+	<form action="/add/mechanic" method="POST">
+		<input type="text" name="name" placeholder="Name">
+		<input type="text" name="age" placeholder="Age">
+		<input type="text" name="fav_car" placeholder="Favourite car">
+
+		<button>Add mechanic</button>
+	</form>
+
+	<h1> Mechanics </h1>
+
+	<ul>
+		<%data_mechanics.each do |mechanic|%>
+			<li> <%=mechanic["name"]%>, aged <%=mechanic["age"]%>, favourite car: <%=mechanic["fav_car"]%> </li>
+		<%end%> 
+	</ul>
+
+</body>
+</html>

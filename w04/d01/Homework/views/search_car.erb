@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<form action="/search/car" method="GET">
+		<input type="text" name="criteria" placeholder="make or model">
+		<button>Search cars</button>
+	</form>
+
+	<h3> Results </h3>
+		<ul>
+			<%searched_car.each do |car|%>
+				<li> <%=car["make"]%> <%=car["model"]%>, <%=car["colour"]%>
+			<%end%>
+
+		</ul>
+
+</body>
+</html>

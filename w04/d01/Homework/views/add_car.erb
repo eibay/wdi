@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add Car</title>
+</head>
+<body>
+	
+	<form action="/add/car" method="POST">
+		<input type="text" name="make" placeholder="Make">
+		<input type="text" name="model" placeholder="Model">
+		<input type="text" name="colour" placeholder="Colour">
+		<button>Add Car</button>
+	</form>
+
+	<h1> Cars </h1>
+
+	<ul>
+		<%data_cars.each do |car|%>
+			<li> <%=car["make"]%> Model <%=car["model"]%>, <%=car["colour"]%> </li>
+		<%end%> 
+	</ul>
+
+
+</body>
+</html>
