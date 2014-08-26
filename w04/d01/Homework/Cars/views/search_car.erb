@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Search the cars</title>
+</head>
+<body>
+	<h2>Search the cars</h2>
+
+<form action="/search_car" method="GET">
+	<label>
+		Search by Make
+		<input type="text" name="make_search" placeholder="make">
+	</label>
+</form>
+<p>OR</p>
+<form>
+	<label>
+		Search by Model
+		<input type="text" name="model_search" placeholder="model">
+	</label>
+	<button>Find my car</button>
+</form>
+
+<!-- check that a search has taken place -->
+<% if make_search || model_search %>
+
+<!-- build array of hashes of cars found -->
+
+<!-- ************* ran out of time -->
+<!-- 	<ul>
+		<% search_results = cars.find do | c | %>
+			
+		<% end %>
+	</ul>
+
+
+ -->
+
+</body>
+</html>
+
+
+
+

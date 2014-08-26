@@ -10,7 +10,7 @@ class Dorm
 
   def self.find_by(key, value)
     self.all().find do |dorm|
-      dorm[key] == value
+      dorm[key].downcase == value.downcase
     end
   end
 
@@ -18,3 +18,10 @@ class Dorm
     return JSON.parse(File.read('./dorms.txt'))
   end
 end
+
+
+
+
+# -- add dorms
+# -- search by name
+# -- capacity
