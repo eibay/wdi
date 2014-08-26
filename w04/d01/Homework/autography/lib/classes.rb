@@ -49,21 +49,17 @@ class Mechanics
 	def self.add_random
 		response = HTTParty.get("http://api.randomuser.me")
 		possible_cars = ["AMC Gremlin", "Volkswagen Golf", "Mercedes SuperDiesel", "BMW LSomething", "Karmann Ghia", "Subaru Outback", "Toyota Avalon"]
+		dob = Time.at(response["results"][0]["user"]["dob"].to_i)
 		person = {
 			"name" => "#{response['results'][0]['user']['name']['first'].capitalize} #{response["results"][0]["user"]["name"]["last"].capitalize}",
-			"age" => (Time.now.strftime("%Y").to_i - Time.at(116328003).strftime("%Y").to_i).to_s,
+			"age" => (Time.now.strftime("%Y").to_i - dob.strftime("%Y").to_i).to_s,
 			"car" => possible_cars[rand(0..(possible_cars.length - 1))],
 			"image" => response["results"][0]["user"]["picture"],
-			"mechanic" => "none"
 		}
 		self.create(person)
 	end
 
 end
-
-
-
-
 
 
 
