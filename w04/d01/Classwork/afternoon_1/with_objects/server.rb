@@ -5,7 +5,7 @@ require_relative './lib/student'
 require_relative './lib/dorm'
 
 get("/") do  
-	erb(:index) { locals: { students: Student.all() Dorm.all() } })
+	erb(:index)
 end
 
 post("/students") do
