@@ -50,11 +50,12 @@ get("/car_search") do
 	cars = Car.all()
 
 	if data == "make"
-		car = Car.find_by("make", params[:data] )
+		car = Car.find_by("make", data )
 	elsif data == "model"
-		car = Car.find_by("model", params[:data] )
+		car = Car.find_by("model", data )
 	end
-	erb(:car_search, {locals: { cars: Car.all() } })
+	# binding.pry
+	erb(:car_search, {locals: { car: Car.all() } })
 end	
 
 
