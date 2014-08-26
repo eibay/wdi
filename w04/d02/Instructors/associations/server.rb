@@ -4,8 +4,8 @@ require 'pry'
 require_relative './lib/student'
 require_relative './lib/dorm'
 
-get("/") do  
-	erb(:index)
+get("/") do
+  erb(:index)
 end
 
 post("/students") do
