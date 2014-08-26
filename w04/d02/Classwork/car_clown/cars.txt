@@ -1,0 +1,1 @@
+[{"color":"Red","mileage":45000,"capacity":30,"id":"cd04619273c564fdfa879f5692dc81e1"},{"color":"Blue","mileage":40000,"capacity":10,"id":"e372185f77e86162e651824414649475"}]
