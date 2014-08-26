@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title><%= shuttle["name"] %></title>
+</head>
+<body>
+	<h2>Her Regal Overlord's Ship, the <%= shuttle["name"] %></h2>
+	<h4>Country of origin: <%= shuttle["origin_country"] %></h4>
+	<h4>Pointed towards: <%= shuttle["destination"] %></h4>
+	<h4>Passengers:</h4>
+	<% list.each do |passenger| %>
+	<div><%= "#{passenger["rank"]} #{passenger["name"]}" %></div>
+	<% end %>
+</body>
+</html>
