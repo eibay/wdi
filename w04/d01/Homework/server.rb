@@ -40,15 +40,21 @@ erb(:cars, locals: {cars: Car.parse()})
 end
 
 get ("/mechresults") do
-	mechresult = Mech.find_by(params["type"], params["search"])
-	results = "<p>#{mechresult[0]["name"]} is #{mechresult[0]["age"]}, and prefers #{mechresult[0]["car"]}s.</p>"
-erb(:results, locals: {results: results})
+	mechresults = " "
+	results = Mech.find_by(params["type"], params["search"])
+	results.each do |x|
+		mechresults += "<p>#{x["name"]} is #{x["age"]}, and prefers #{x["car"]}s.</p>"
+	end
+erb(:results, locals: {results: mechresults})
 end
 
 get ("/carresults") do
-	carresult = Car.find_by(params["type"], params["search"])
-	results = "<p>It looks like we found a #{carresult[0]["make"]} #{carresult[0]["model"]}; it's #{carresult[0]["color"]}.</p>"
-erb(:results, locals: {results: results})
+	carresults = " "
+	results = Car.find_by(params["type"], params["search"])
+	results.each do |x|
+		carresults += "<p>It looks like we found a #{x["make"]} #{x["model"]}; it's #{x["color"]}.</p>"
+	end
+erb(:results, locals: {results: carresults})
 end
 
 
