@@ -2,13 +2,14 @@ require 'securerandom'
 require 'json'
 
 class Astronaut   
-	attr_accessor :name, :rank
+	attr_accessor :name, :rank, :shuttle_id
 	attr_reader :id
 
-	def initialize name, rank, id=SecureRandom.hex  
+	def initialize name, rank, id=SecureRandom.hex, shuttle_id=false   
 		@name = name  
 		@rank = rank  
-		@id = id 
+		@id = id
+		@shuttle_id = shuttle_id
 	end 
 
 	def self.all  
@@ -22,10 +23,10 @@ class Astronaut
 	end  
 
 	def to_h 
-		{"name" => self.name, "rank" => self.rank, "id" => self.id} 
+		{"name" => self.name, "rank" => self.rank, "id" => self.id, "shuttle_id" => self.shuttle_id} 
 	end 
 
-	def find_by key, value 
+	def self.find_by key, value 
 		astronauts = Astronaut.all.map(&:to_h)
 		results = astronauts.find do |astronaut|
 			astronaut[key] == value 
@@ -33,7 +34,7 @@ class Astronaut
 		results.map(&:to_astronaut)
 	end 
 
-	def find_all_by key, value
+	def self.find_all_by key, value
 		astronauts = Astronaut.all.map(&:to_h)  
 		results = astronauts.select do |astronaut|
 			astronaut[key] == value 

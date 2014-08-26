@@ -37,7 +37,7 @@ class Shuttle
 		{"name" => self.name, "origin_country" => self.origin_country, "destination" => self.destination, "id" => self.id} 
 	end 
 
-	def find_by key, value 
+	def self.find_by key, value 
 		shuttles = Shuttle.all.map(&:to_h)
 		results = shuttles.find do |shuttle|
 			shuttle[key] == value 
@@ -45,7 +45,7 @@ class Shuttle
 		results.map(&:to_shuttle)
 	end 
 
-	def find_all_by key, value
+	def self.find_all_by key, value
 		shuttles = Shuttle.all.map(&:to_h)  
 		results = shuttles.select do |shuttle|
 			shuttle[key] == value 

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Astronauts &amp; Shuttles! | <%= view_name %></title>
+</head>
+<body>
+	<%= erb :header_partial %>
+	<h1><%= shuttle.name %></h1>
+	<h2><%= shuttle.origin_country %></h2>
+	<p>The <%= shuttle.name%> is taking <%= astronauts.length %> lucky astronauts to <%= shuttle.destination %>.</p>
+
+	<h3>Astronauts Aboard:</h3>
+	<ul>
+		<% astronauts.each do |astronaut| %>
+			<li><a href=<%= astronaut.id %>><%= astronaut.name %></a></li>
+		<% end %>
+	</ul>
+</body>
+</html>
