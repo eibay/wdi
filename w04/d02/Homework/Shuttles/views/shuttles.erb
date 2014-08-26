@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>The Shuttles</title>
+	<link href='http://fonts.googleapis.com/css?family=Orbitron:400,900,500,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+	<a href="/shuttles/new">Add a Shuttle</a>
+
+	<ul>
+		<% shuttles.each do |shuttle| %>
+		<li><a href="/shuttles/<%= shuttle["s_id"] %>">
+			<%= shuttle["name"] %></a><br>
+			<strong>Origin:</strong> <%= shuttle["country"] %><br>
+			<strong>Destination:</strong> <%= shuttle["destination"] %></li>
+		<% end %>
+	</ul>
+
+
+	<p><a href="/">Go home</a></p>
+	<p><a href="/astros">See all the astronauts</a></p>
+</body>
+</html>

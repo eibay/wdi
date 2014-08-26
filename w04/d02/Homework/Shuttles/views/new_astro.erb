@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title>Add an astronaut</title>
+		<link href='http://fonts.googleapis.com/css?family=Orbitron:400,900,500,700' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" type="text/css" href="/styles.css">
+
+</head>
+<body>
+	<form action="/astros" method="POST">
+		<input type="text" name="name" placeholder="Full Name">
+		<input type="text" name="rank" placeholder="Rank">
+		<select name="shuttle_id">
+			<% shuttles.each do |shuttle| %>
+			<option value="<%= shuttle["s_id"] %>"><%= shuttle["name"] %></option>
+			<% end %>
+		</select>
+		<button>Submit</button>
+	</form>
+
+</body>
+</html>

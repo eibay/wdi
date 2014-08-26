@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Astronaut</title>
+		<link href='http://fonts.googleapis.com/css?family=Orbitron:400,900,500,700' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" type="text/css" href="/styles.css">
+
+</head>
+<body>
+
+	<h1> <%= astro["name"] %> </h1>
+	<h2>rank: <%= astro["rank"]%> </h1>
+	<h2> Assigned to: <a href="/shuttles/<%= shuttle["s_id"] %>"><%= shuttle["name"] %> </a></h2>
+
+
+	<p><a href="/">Go home</a></p>
+	<p><a href="/astros">See all the astronauts</a></p>
+	<p><a href="/shuttles">See all the shuttles</a></p>
+	<p><a href="/astros/new">Add an Astronaut</a></p>
+
+
+
+
+</body>
+</html>

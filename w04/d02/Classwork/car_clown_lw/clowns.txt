@@ -1,0 +1,1 @@
+[{"name":"Bozo","can_drive":"yes","shoe_size":"14","clown_id":"8aeb164bd14d4d640929d3bed52e9d80"},{"name":"Kermit","can_drive":"no","shoe_size":"18","clown_id":"7abc972e316693643a55bcea2a0ca40a"},{"name":"GeorgeW","can_drive":"no","shoe_size":"20","clown_id":"d4041b30fe698cc7b7ddfaaa27d36115"}]

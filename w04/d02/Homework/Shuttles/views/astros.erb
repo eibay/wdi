@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>All the Astronauts</title>
+		<link href='http://fonts.googleapis.com/css?family=Orbitron:400,900,500,700' rel='stylesheet' type='text/css'>
+
+		<link rel="stylesheet" type="text/css" href="/styles.css">
+
+</head>
+<body>
+	<a href="/astros/new">Add an Astronaut</a>
+	<ul>
+		<% astros.each do |astro| %>
+			<li><a href="/astros/<%= astro['a_id'] %>" ><%= astro["name"] %>: <%= astro["rank"] %></a>
+
+			</li>
+		<% end %>
+	</ul>
+
+	<p><a href="/">Go home</a></p>
+	<p><a href="/shuttles">See all the shuttles</a></p>
+
+
+
+
+
+</body>
+</html>
