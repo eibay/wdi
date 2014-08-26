@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Caramel | <%= list_what %></title>
+</head>
+<body>
+	<ul>
+		<% list.each do |hash| %>
+			<li>
+				<% hash.keys.each do |key| %> 
+					<%= hash[key] %> | 
+				<% end %> 
+			</li>
+		<% end %>
+	</ul>
+</body>
+</html>
