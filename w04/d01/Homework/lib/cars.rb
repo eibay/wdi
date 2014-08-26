@@ -17,17 +17,4 @@ def self.find_by(k,v)
     x[k]==v
   end
 end
-
-def self.if(x,y,word)
-  
-  if params[x] != nil 
-    search= params[x].downcase
-    searchingfor = params[word].downcase
-    self.find_by(search, searchingfor)
-  elsif params[y] != nil
-    search.downcase = params[y].downcase
-    searchingfor = params[word]
-    self.find_by(search, searchingfor)
-  end
-  end
 end

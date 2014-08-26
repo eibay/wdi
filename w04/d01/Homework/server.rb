@@ -17,9 +17,7 @@ end
 
 
 get("/mechanic") do
-  
   mechanics = Mechanic.list()
-
   erb(:mechanic, {locals: {mechanics: mechanics}})
 end
 
@@ -61,11 +59,11 @@ end
 
 get("/results/car") do
   if params["make"] != nil
-    search= params["make"].downcase
+    search = params["make"].downcase
     searchingfor = params["word"].downcase
     results = Cars.find_by(search, searchingfor)
   elsif params["model"] != nil
-    search= params["model"].downcase     
+    search = params["model"].downcase     
     searchingfor = params["word"].downcase
     results = Cars.find_by(search, searchingfor)
   end
@@ -74,11 +72,11 @@ get("/results/car") do
 
 get('/results/mechanic') do
  if params["name"] != nil
-    search= params["name"].downcase
+    search = params["name"].downcase
     searchingfor = params["word"].downcase
     results = Mechanic.find_by(search, searchingfor)
   elsif params["fav"] != nil
-    search= params["fav"].downcase     
+    search = params["fav"].downcase     
     searchingfor = params["word"].downcase
     results = Mechanic.find_by(search, searchingfor)
   end

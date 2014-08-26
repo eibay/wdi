@@ -17,5 +17,4 @@ def self.find_by(k,v)
     x[k]==v
   end
 end
-
 end
