@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Car Search Results</title>
+</head>
+<body>
+
+	<h3>Car Name Search Result</h3>
+
+	<ol>
+		<% cars.each do |search| %>
+			<% if search["make"].include?(make) %>
+			<li><%= search["make"] %></li>
+			<% unless search["model"].include?(model) %>
+			<li><%= search["model"] %></li>
+			<% end %>
+		<% end %>
+	</ol>
+</body>
+</html>
+
+<!-- 		 make_result = find_by("make", params["make"])
+model_result = find_by("model", params["model"]) -->

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Registered Mechanics</title>
+</head>
+<body>
+	<h1>Mechanics Registry</h1>
+		<ul>
+		<% mechanics.each do |x| %>
+			<li>
+				Name: <%= x["name"] %><br>
+				Age: <%= x["age"] %><br>
+				Favorite Car: <%= x["favorite_car"] %>
+			</li>
+			<% end %>
+		</ul>
+<p><a href="/register">Register a Mechanic</a></p>
+<p><a href="/search">Search for a Mechanic</a></p>
+
+	</body>
+	</html>
