@@ -70,12 +70,3 @@ post("/favorite") do
 end
 
 ### Seaching by city/state only works when HTTParty could gets url correctly...###
-
-
-
-
-
-
-
-
-

@@ -7,8 +7,6 @@ name_list = []
 gryffindor_list = []
 slytherin_list = []
 
-
-
 get("/students/new") do
 	erb(:index)
 end
@@ -18,7 +16,6 @@ post("/") do
 	age = params["age"]
 	favorite_spell = params["favorite_spell"]
 
-	# <a href="/students/show?specific_name=#{name}">
 	list["#{name}"] = {"Name" => "#{name}", "Age" => "#{age}", "Favorite Spell" => "#{favorite_spell}"}
 	name_list << "<li style='margin-bottom: 22px'><a href='/students/show?specific_name=#{name}'>#{name}</a><form action='houses?name=#{name}' method='POST'><button type='submit'>Sorting Hat</button></form></li>"
 

@@ -71,7 +71,7 @@ loop do
 
 		html = File.read('./views/favorite.html')
 		html = html.gsub("{{tags}}", tags_string)
-		client.puts html
+		# client.puts html
 	else
 		html = File.read('./views/404.html')
 		client.puts html

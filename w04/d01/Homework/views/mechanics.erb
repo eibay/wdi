@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<title>Mechanics/Cars</title>
+</head>
+<body>
+	<h1>Input Result</h1>
+	<ul>
+	<% info.each do |thing| %>
+		<li><em> Name: <%= thing["name"]%></em>, Age: <%= thing["age"]%>, Favorite Car: <%= thing["favorite_car"]%></li>
+	<% end %>
+	</ul>	
+	<a href="/">Go back</a>
+</body>	

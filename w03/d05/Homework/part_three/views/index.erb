@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<title>Seattle Grace Hospital</title>
+</head>	
+<body>
+	<header>
+		<h1>Resister Here</h2>
+	</header>
+	<form action="/register" method="POST">
+		<input type="text" name="firstname" placeholder="名">
+		</input>
+		<input type="text" name="lastname" placeholder="姓">
+		</input>
+		<input type="date" name="admittance_date" placeholder="Admittance Date">
+		</input>
+		<input type="text" name="condition" placeholder="Condition">
+		</input>
+		<button>Submit</button>
+	</form>
+	<form action="/search" method="GET">
+	<p>
+	Search by
+	<select name="option">　
+		<option value="condition">Condition</option>
+		<option value="firstname">Firstname</option>
+		<option value="lastname">Lastname</option>
+	</select>
+	<input type="text" name="select" placeholder="Enter a word here..."></input><button>Search</button>
+	</p>
+	</form>
+</body>
+</html>	

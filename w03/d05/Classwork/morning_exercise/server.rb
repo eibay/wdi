@@ -3,6 +3,7 @@ require 'pry'
 list = []
 character = {}
 onefivezero = []
+twozerozeroseven = []
 ten = []
 dr = []
 
@@ -15,7 +16,6 @@ html.each do |thing|
 	character[:character] = thing[1]
 	character[:actor] = thing[0]
 	character[:episodes] = thing[2]
-	binding.pry
 	if thing[3].include?("-")
 		year = thing[3].split("-")
 		character[:start_year] = year[0]
@@ -28,20 +28,43 @@ html.each do |thing|
 	character = {}
 end
 
-# binding.pry
-
 # list.each do |thing|
-# 	thing = thing[:episodes].split(' ')[0].to_i
-# 	if thing > 150
+# 	episodes_num = thing[:episodes].split(' ')[0].to_i
+# 	if episodes_num > 150
 # 		onefivezero << thing
-# 	elsif thing < 10
+# 	elsif episodes_num < 10
 # 		ten << thing
 # 	end
 # end
 
 list.each do |thing|
-	if thing[:character].include?("Dr")
+	if thing[:character].include?("Dr.")
 		dr << thing
 	end
 end
+
+doctors = []
+
+dr.each do |thing|
+	doctors << thing[:character]
+end
+
+
+File.read('dr.txt')
+File.write('dr.txt', doctors)
+
+
+# list.each do |thing|
+# 	if thing[:start_year].to_i == 2007 || (thing[:start_year].to_i < 2007 && thing[:end_year].to_i > 2007)
+# 		twozerozeroseven << thing
+# 	end
+# end
+
+
+
+
+# puts onefivezero
+# puts ten
+# puts dr
+# puts twozerozeroseven
 
