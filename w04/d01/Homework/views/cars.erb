@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cars</title>
+	<h2> Carzzzzzzzz </h2>
+</head>
+<body>
+	<a href="/cars/add"> Click here to add new car! </a>
+	<br>
+	<br>
+	<br>
+======================================================
+	<ul>
+		<% cars.each do |x| %>
+		<li> Make of car: <%= x["make"] %> <br>
+			Model of car: <%= x["model"] %> <br>
+			Color of car: <%= x["color"] %> 
+		</li>
+		<% end %>
+	</ul>
+
+</body>
+</html>

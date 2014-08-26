@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mechanics</title>
+	<h2> Rosencrantzzz Garage Mechanics </h2>
+
+</head>
+<body>
+	<a href="/mechanic/add"> Click here to add new mechanic! </a>
+	<br>
+	<br>
+	<br>
+======================================================
+	<ul>
+		<% mechanics.each do |x| %>
+		<li> Mechanic: <%= x["first_name"] %> <%= x["last_name"] %> <br>
+			Age: <%= x["age"] %> <br>
+			Favorite Car: <%= x["favorite_car"] %> 
+		</li>
+		<% end %>
+	</ul>
+
+</body>
+</html>
