@@ -21,7 +21,7 @@ get("/students") do
 end
 
 get("/students/new") do
-	erb(:new_student, { locals: { dorms: Dorm.all() } })
+  erb(:new_student, { locals: { dorms: Dorm.all() } })
 end
 
 get("/students/:id") do 
