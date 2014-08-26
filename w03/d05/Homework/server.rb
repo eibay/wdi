@@ -4,16 +4,11 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'HTTParty'
 require './doc.rb'
-
-admitted = " "
+require './list.rb'
 
 get("/") do
-	admitted = " "
 	patients = " "
-	patients = JSON.parse(File.read('./patients.txt'))
-	patients.each do |x|
-		admitted += "<li>On #{x["date"]} #{x["fName"]} #{x["lName"]} was admitted with #{x["condition"]} and assigned to #{x["doc"]}.</li>"	
-	end
+	admitted = list
 erb(:index, locals: {admitted: admitted})
 end
 
@@ -23,8 +18,7 @@ erb(:admit)
 end
 
 post("/") do
-	patients = " "
-	admitted = " "
+	patients = " "	
 	patients = JSON.parse(File.read('./patients.txt'))
 	fName = params["fName"]
 	lName = params["lName"]
@@ -34,10 +28,8 @@ post("/") do
 	patients<<{fName: fName, lName: lName, date: date, condition: condition, doc: doc}
 
 	File.write('./patients.txt', patients.to_json)
-	patients = JSON.parse(File.read('./patients.txt'))
-	patients.each do |x|
-		admitted += "<li>On #{x["date"]} #{x["fName"]} #{x["lName"]} was admitted with #{x["condition"]} and assigned to #{x["doc"]}.</li>"	
-	end
+	admitted = list
+	
 erb(:index, locals: {admitted: admitted})
 end
 get ("/search") do
@@ -84,11 +76,8 @@ get ("/random") do
 	patients = JSON.parse(File.read('./patients.txt'))
 	patients<<{fName: fName, lName: lName, date: date, condition: condition, doc: doc}
 	File.write('./patients.txt', patients.to_json)
-	admitted = " "
-	patients = JSON.parse(File.read('./patients.txt'))
-	patients.each do |x|
-		admitted += "<li>On #{x["date"]} #{x["fName"]} #{x["lName"]} was admitted with #{x["condition"]} and assigned to #{x["doc"]}.</li>"	
-	end
+	admitted = list
+	
 erb(:index, locals: {admitted: admitted})
 end
 
