@@ -1,0 +1,1 @@
+[{"name":"Clark Gable","age":"112","fav_car":"Edsel"},{"name":"George Peppard","age":"89","fav_car":"Custom Van"},{"name":"Tyron Power","age":"106","fav_car":"Model T Ford"},{"name":"Cesar Romero","age":"98","fav_car":"Joker Mobile"},{"name":"Adam West","age":"75","fav_car":"Batmobile"},{"name":"Burt Ward","age":"67","fav_car":"Sting Ray"}]

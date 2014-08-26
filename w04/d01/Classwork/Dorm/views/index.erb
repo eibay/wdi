@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+	<a href = "/dorms/new">Add New Dorm</a>
+  <ul>
+    <% dorms.each do |dorms| %>
+      <li><%= dorms["name"] %> <%= dorms["capacity"] %> </li>
+    <% end %>
+  </ul>
+</body>
+</html>
