@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+	<title>Search Results</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h1>Search Results</h1>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/all_mechanics">All Mechanics</a></li>
+			<li><a href="/all_cars">All Cars</a></li>
+			<li><a href="/add">Add New Cars and Mechanics</a></li>
+			<li><a href="/search">Search</a></li>
+		</ul>
+	</nav>
+	<ol>
+		<% if results[0].has_key?("make") %>
+			<% results.each do |result| %>
+			<li><%=result["make"]%> <%=result["model"]%> - <%=result["color"]%> </li>
+			<% end %>
+		<% else %>
+			<% results.each do |result| %>
+			<li><%=result["name"]%> - Age: <%=result["age"]%> - Favorite Car <%=result["fave_car"]%> </li>
+			<% end %>
+		<%end%>
+	</ol>	
+</body>

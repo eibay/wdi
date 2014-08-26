@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+	<title><%= mechanic["name"] %></title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h1><%= mechanic["name"] %></h1>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/all_mechanics">All Mechanics</a></li>
+			<li><a href="/all_cars">All Cars</a></li>
+			<li><a href="/add">Add New Cars and Mechanics</a></li>
+			<li><a href="/search">Search</a></li>
+		</ul>
+	</nav>
+	<p><%=mechanic["name"]%> - Age: <%=mechanic["age"]%> - Favorite Car: <%=mechanic["fave_car"]%></p>
+</body>

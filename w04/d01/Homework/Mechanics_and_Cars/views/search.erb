@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+	<title>Search</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h1>Search for a Car or Mechanic</h1>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/all_mechanics">All Mechanics</a></li>
+			<li><a href="/all_cars">All Cars</a></li>
+			<li><a href="/add">Add New Cars and Mechanics</a></li>
+		</ul>
+	</nav>
+	<form action="/search_results" method="GET">
+		<select name="search_type">
+			What are you looking for?
+			<option value="car">Search for Car</option>
+			<option value="mechanic">Search for Mechanic</option>
+		</select>
+		<select name="keyword_type">
+		Search by:
+			<option value="make">Make</option>
+			<option value="model">Model</option>
+			<option value="name">Name</option>
+			<option value="fave_car">Favorite Car</option>
+		</select>
+		<input type="text" name="search_word" placeholder="Keyword" />
+		<button>Search</button>
+	</form>
+</body>

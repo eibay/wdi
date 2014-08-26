@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+<title>Add New Patient</title>
+</head>
+<body>
+<h1>Seattle Grace Hospital Patient Directory</h1>
+<nav>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/search">Search</a></li>
+	</ul>
+</nav>
+<div>
+	<h2>Add New Patient</h2>
+	<form action="/" method="POST">
+		First Name<input type="text" name="first" placeholder="first name" />
+		Last Name<input type="text" name="last" placeholder="last name" />
+		Condition<input type="text" name="condition" placeholder="condition" />
+		<button>Add Patient</button>
+	</form>
+	<h2>Or Put a Random Person in the Hospital</h2>
+	<form action="/" method="POST">
+	<button name="random_patient" type="submit" value="random_patient">Hospitalize 'Em</button>
+	</form>
+</div>
+</body>

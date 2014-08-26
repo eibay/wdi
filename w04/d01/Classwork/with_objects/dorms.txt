@@ -1,0 +1,1 @@
+[{"name":"University Hall","capacity":"365"},{"name":"Palladium","capacity":"2,000"},{"name":"Hayden Hall ","capacity":"650"}]

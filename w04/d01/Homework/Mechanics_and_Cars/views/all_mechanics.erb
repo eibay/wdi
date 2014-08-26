@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+	<title>Mechanics</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h1>Mechanics</h1>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/all_cars">All Cars</a></li>
+			<li><a href="/add">Add New Cars and Mechanics</a></li>
+			<li><a href="/search">Search</a></li>
+		</ul>
+	</nav>
+	<ul>
+		<% mechanics.each do |mechanic| %>
+		<li><a href="/mechanic/<%=mechanic["name"]%>"><%=mechanic["name"]%></a></li>
+		<% end %>
+	</ul>	
+</body>
