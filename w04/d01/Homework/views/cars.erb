@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cars</title>
+</head>
+<body>
+	<h1>The Garage</h1>
+	<a href='/'>Home</a>
+	<a href='/cars'>Add/See Cars</a>
+	<a href='/mechanics'>Add/See Mechanics</a>
+
+	<form action='/cars' method='POST'>
+		<label>Make: <input type='text' name='make' placeholder='Name'></label>
+		<label>Model: <input type='text' name='model' placeholder='Age'></label>
+		<label>Color: <input type='text' name='color' placeholder='Favorite Car'></label>
+		<button>Add Car!</button>
+	</form>
+
+	<h3>Current Cars:</h3>
+	<ul>
+		<% cars.each do |car| %>
+		<li><%= car["make"] %></li>
+		<% end %>
+	</ul>
+
+
+</body>
+</html>

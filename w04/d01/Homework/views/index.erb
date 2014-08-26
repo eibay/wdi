@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+<h1>Welcome to the Garage</h1>
+	<a href='/mechanics'>Add/See Mechanics</a>
+	<a href='/cars'>Add/See Cars</a>
+	
+	<form action='/mechanics/search' method='GET'>
+		<label>Search by Name or Favorite Car: 
+			<input type='text' name='name' placeholder='Name'></label>
+		<button>Find Mechanic!</button>
+	</form>
+
+	<form action='/cars/search' method='GET'>
+		<label>Search by Make or Model: <input type='text' name='make' placeholder='Make/Model'></label>
+		<button>Find Car!</button>
+	</form>
+
+</body>
+</html>
