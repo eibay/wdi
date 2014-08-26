@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+	<a href = "/students/new">Add New Student</a>
+  <ul>
+    <% students.each do |student| %>
+      <li><%= student["first"] %> <%= student["last"] %> - <%= student["email"] %></li>
+    <% end %>
+  </ul>
+	<a href = "/dorms/new">Add New Dorm</a>
+  <ul>
+    <% dorms.each do |dorm| %>
+      <li><%= dorm["name"] %> - Capacity: <%= dorm["capacity"] %> </li>
+    <% end %>
+  </ul>
+</body>
+</html>
