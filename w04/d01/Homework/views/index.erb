@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<h1> Add a mechanic</h1>
+<form method="POST" action="/mechanic">
+Name: <input type="text" name="name"><br>
+Age: <input type="text" name="age"><br>
+Favorite car: <input type="text" name="favorite_car"><br>
+<button>Submit</button></form><br>
+<h3>Mechanics</h3>
+<% mechanic.each do |a| %>
+<%= "Name: #{a["name"]} <br> Age: #{a["age"]} <br> Favorite car: #{a["fav_car"]}" %><br><br>
+<% end %>
+<br><br>
+
+
+<h1>Add a car</h1>
+<form method="POST" action="/car">
+Make: <input type="text" name="make"><br>
+Model: <input type="text" name="model"><br>
+Color: <input type="text" name="color"><br>
+<button>Submit</button>
+
+<h3>Cars</h3>
+<p>
+<% car.each do |a| %>
+<%= "Make: #{a["make"]} <br> Model: #{a["model"]} <br> Color: #{a["color"]}" %>
+<% end %>
+<br>
+
+</p>
+</html>

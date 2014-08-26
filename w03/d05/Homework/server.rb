@@ -38,14 +38,15 @@ get("/search_results_c") do
 end
 
 get("/search_results_n") do 
-
 	first = params["first"]
-	patient_w_condition =""
-	patient_name = ""
+	patient_w_condition = ""
+	patient_name = params["first"]
 	patients.select do |a|
-		if a["first"] == first
+		if a["first"] == patient_name
 			patient_name << a["condition"] + ", " + a["first"] + " " + a["last"] + "<br>"
 		end
 	end
 	erb(:search_results, {locals: { name: patient_name, condition: patient_w_condition}})
 end
+
+
