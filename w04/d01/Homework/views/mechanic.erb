@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Big Shot</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="wrapper">
+    <h1> Big Shot Luxe Garage </h1>
+    <hr />
+    <navigation>
+      <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/cars">Cars</a>
+      </ul>
+    </navigation>
+    <a href="/mechanics/new">Add a new mechanic</a>
+    <h2> Mechanic </h2>
+
+    <h4><%= mechanic["first"] + " " + mechanic["last"] %></h4>
+    <p>Age: <%= mechanic["age"] %><br />
+    Favorite Car: <%= mechanic["fav_car"] %></p>
+
+  </div>
+</body>
+</html>

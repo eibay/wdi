@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Big Shot</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="wrapper">
+    <h1> Big Shot Luxe Garage </h1>
+    <hr />
+    <navigation>
+      <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/cars">Cars</a>
+      </ul>
+    </navigation>
+    <a href="/mechanics/new">Add a new mechanic</a>
+    <h3> Mechanics </h3>
+
+      <% mechanics.each do |m| %>
+      <ul>
+      <a href="/mechanics/<%= m['last'] %>"<li><%= m["first"] + " " + m["last"] %></li></a>
+    </ul>
+      <% end %>
+
+  </div>
+</body>
+</html>
