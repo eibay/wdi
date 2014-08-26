@@ -41,17 +41,39 @@ get ("/search_condition") do
 	erb(:search_condition)
 end
 
-#see the patient search result
-get ("/search_patient_result") do
-	patient_first_name = params["patient_first_name"]
+#making searches more modular practice
+
+get ("/search_patient_result/:patient_first_name") do
 	patients = JSON.parse(File.read('./patient2.txt'))
-	erb(:search_patient_result, {locals: { patients: patients, patient_first_name: patient_first_name}})
+	
+	result = patients.find do |x|
+	x["patient_first_name"].downcase == params["patient_first_name"].downcase
+end
+erb(:search_patient_result, { locals: {result: result }} )
 end
 
-#see the condition search result
-get ("/search_condition_result") do
 
-	patient_condition = params["patient_condition"]
+get ("/search_patient_result/:patient_last_name") do
 	patients = JSON.parse(File.read('./patient2.txt'))
-	erb(:search_condition_result, {locals: { patients: patients, patient_condition: patient_condition}})
+	
+	result = patients.find do |x|
+	x["patient_last_name"].downcase == params["patient_last_name"].downcase
 end
+erb(:search_patient_result, { locals: {result: result }} )
+end
+############################################################################
+
+# #see the patient search result
+# get ("/search_patient_result") do
+# 	patient_first_name = params["patient_first_name"]
+# 	patients = JSON.parse(File.read('./patient2.txt'))
+# 	erb(:search_patient_result, {locals: { patients: patients, patient_first_name: patient_first_name}})
+# end
+
+# #see the condition search result
+# get ("/search_condition_result") do
+
+# 	patient_condition = params["patient_condition"]
+# 	patients = JSON.parse(File.read('./patient2.txt'))
+# 	erb(:search_condition_result, {locals: { patients: patients, patient_condition: patient_condition}})
+# end

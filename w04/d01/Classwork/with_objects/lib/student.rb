@@ -1,11 +1,13 @@
 require 'json'
 
-class Student
+class Student #organizing the methods under a namespace.
+
   def self.create(student)
     students = self.all()
     students.push(student)
     students_json = JSON.generate(students)
-    File.write('./students.txt', students_json)
+    File.write('./students.txt', students_json) 
+    #../students.txt; going up a file in the directory
   end
 
   def self.find_by(key, value)

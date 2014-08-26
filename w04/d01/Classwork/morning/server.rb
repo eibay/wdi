@@ -37,8 +37,9 @@ end
 get("/students/:first_name") do  #<<<<<<<<<< using a dynamic path to see individual students
     students = JSON.parse(File.read('./students.txt'))
 # student is the return value of .find    
-    student = students.find do |x|
-      x["first"] == params["first_name"]
-
+    result = students.find do |x|
+      x["first"].downcase == params["first_name"].downcase #user can type name however they want so it recognizes it
+end
+erb(:student, { locals: {result: result }} )
 end
 
