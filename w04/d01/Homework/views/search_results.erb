@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mechanic Search Results</title>
+</head>
+<body>
+
+	<h3>Mechanics Name Search Result</h3>
+
+	<ol>
+		<% mechanics.each do |search| %>
+		<% if search["name"].include?(name) %>
+		<li><%= search["name"] %></li>
+			<% end %>
+		<% end %>
+	</ol>
+</body>
+</html>
