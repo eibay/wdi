@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"
+<head>
+	<meta charset="UTF-8">
+	<title>Admitting Patients</title>
+</head>
+<body>
+
+	<ul>
+		<% patients.each do |patients|
+			<li><%= patients["first"] %> <%= patients["last"] <%= patients["date"] %> <%= patients["condit"] %></li>
+			<% end %>
+	</ul>
+</body>
+</html>	
+
