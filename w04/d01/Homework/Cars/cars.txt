@@ -1,0 +1,1 @@
+[{"make":"Nash","model":"Rambler","color":"Gray"},{"make":"Chevy","model":"Nova","color":"Dusty Blue"},{"make":"Checker","model":"Marathon","color":"Yellow"},{"make":"Cadillac","model":"DeVille","color":"Pink"},{"make":"Toyota","model":"Camry","color":"Red"},{"make":"International","model":"Pickup","color":"Cherry Red"},{"make":"Chevy","model":"Impala","color":"Royal Blue"}]

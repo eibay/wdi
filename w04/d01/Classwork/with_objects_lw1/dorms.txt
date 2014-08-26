@@ -1,0 +1,1 @@
+[{"dorm_name":"Little Hall","capacity":"50"},{"dorm_name":"Big Hall","capacity":"200"},{"dorm_name":"The Saybrook","capacity":"84"},{"dorm_name":"Free lunch","capacity":"36"},{"dorm_name":"The Griswald","capacity":"82"},{"dorm_name":"Oneword","capacity":"340"}]

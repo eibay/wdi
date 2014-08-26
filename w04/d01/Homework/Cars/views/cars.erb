@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>All the cars</title>
+</head>
+<body>
+	<a href="/car_new">Add a new car</a>
+	<ul>
+		<% cars.each do |car| %>
+			<li><strong>Make:</strong> <%= car["make"] %><br>
+				<strong>Model:</strong> <%= car["model"] %><br>
+				<strong>Color:</strong> <%= car["color"] %>
+			</li>
+		<% end %>
+	</ul>
+
+	<p><a href="./">Go home</a></p>
+
+
+</body>
+</html>
