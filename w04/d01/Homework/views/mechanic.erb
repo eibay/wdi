@@ -1,0 +1,12 @@
+<html>
+<body>
+<a href="/add/mechanic">Add a Mechanic</a>
+<a href="/">Homepage</a>
+<a href="/search/mechanic">Search</a>
+<ol>
+<li><% mechanics.each do|x|%>
+<a href="/mechanic/<%=x["name"]%>"><%=x["name"]%> </a></li>
+<%end%>
+</ol>
+</body>
+</html>

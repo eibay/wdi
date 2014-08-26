@@ -1,0 +1,14 @@
+<html>
+<body>
+<a href="/add/car">Add a Car</a>
+<a href="/">Homepage</a>
+<a href="/search/car">Search</a>
+<ol>
+<li><% cars.each do|x|%>
+<%=x["model"]%></a> is <%=x["make"]%> and likes <%=x["color"]%></li>
+<%end%>
+</ol>
+
+
+</body>
+</html>
