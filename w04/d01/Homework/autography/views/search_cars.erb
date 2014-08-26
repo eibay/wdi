@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+	<h2>Search for a car</h2>
+	<div>
+		<form action="/cars/search/make" method="GET">
+			<input type="text" name="term" placeholder="Subaru, Ford, etc" />
+			<button>By Make</button>
+		</form>
+	</div>
+	<h4>OR</h4>
+	<div>
+		<form action="/cars/search/model" method="GET">
+			<input type="text" name="term" placeholder="Camry, Accord, etc" />
+			<button>By Model</button>
+		</form>
+	</div>
+</body>
+</html>
