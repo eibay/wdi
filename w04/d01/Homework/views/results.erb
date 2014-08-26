@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Results</title>
+</head>
+<body>
+	<h1>The Garage</h1>
+	<a href='/'>Home</a>
+	<a href='/cars'>Add/See Cars</a>
+	<a href='/mechanics'>Add/See Mechanics</a>
+
+	<h3>Mechanics:</h3>
+	<ul><% mechanics.each do |mechanic| %>
+		<li>Name: <%= mechanic["name"] %>, Age: <%= mechanic["age"] %>, Favorite Car: <%= mechanic["favorite"] %></li>
+		<% end %>
+	</ul>
+
+</body>
+</html>
