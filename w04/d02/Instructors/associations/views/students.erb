@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Students</title>
+</head>
+<body>
+  <a href = "/students/new">Add New Student</a>
+  <ul>
+    <% students.each do |student| %>
+      <li><a href="/students/<%= student["id"] %>"><%= student["first"] %> <%= student["last"] %></a> - <%= student["email"] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
