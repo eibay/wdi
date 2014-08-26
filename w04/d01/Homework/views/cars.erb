@@ -1,0 +1,15 @@
+<html>
+<body>
+	<h1>List of Cars</h1>
+	<ul>
+		 <% cars.each do |car| %>
+      <li><a href='<%="./car/#{car['model']}"%>'><%= "#{car['make']} #{car['model']}"%></a></li>
+    <% end %>
+</ul>
+Search for cars by make or model
+<form action="/car_search" method="POST">
+	<input type="text" name="search" placeholder="search">
+	<button>Search</button>
+</form>
+</body>
+</html>

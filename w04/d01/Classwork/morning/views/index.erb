@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+	<a href = "/students">Add New Student</a><br />
+	Search for individual student(by first name, last name, or email)
+	<form action="/" method="POST">
+		<input type="text" name="search">
+		<button>Search</button>
+	</form>
+  <ul>
+    <% students.each do |student| %>
+      <li><a href=<%="./students/#{student['first']}"%>><%= student["first"] %> <%= student["last"] %> - <%= student["email"] %></a></li>
+    <% end %>
+  </ul>
+</body>
+</html>

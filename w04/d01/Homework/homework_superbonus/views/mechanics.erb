@@ -1,0 +1,16 @@
+<html>
+<body>
+	<h1>List of Mechanics</h1>
+	<ul>
+		 <% mechanics.each do |mechanic| %>
+      <li><a href='<%= "./mechanic/#{mechanic['name']}"%>'><%= mechanic["name"] %></a></li>
+    <% end %>
+</ul>
+Search for mechanic by name or favorite car
+<form action="/mechanic_search" method="POST">
+	<input type="text" name="search" placeholder="search">
+	<button>Search</button>
+</form>
+
+</body>
+</html>

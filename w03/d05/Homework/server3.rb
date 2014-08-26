@@ -15,8 +15,7 @@ end
 
 post "/addpatient" do
 	patient={"first" => params[:first], "last" => params[:last], "admission" => params[:admit] , "conditon" => params[:condition]}
-	patients=JSON.parse(File.read("public/patients.txt"))
-
+	
 	patients.push(patient)
 
 	File.write("public/patients.txt", patients.to_json)
