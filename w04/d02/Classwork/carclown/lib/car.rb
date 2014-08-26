@@ -1,7 +1,7 @@
 require 'securerandom'
 require 'json'
 
-class Car 
+class Car  
 	attr_accessor :color, :milage, :capacity
 	attr_reader :id
 
