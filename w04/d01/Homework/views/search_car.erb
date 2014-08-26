@@ -12,9 +12,9 @@
 
 	<h3> Results </h3>
 		<ul>
-			<%searched_car.each do |car|%>
+			<%searched_car.find_all do |car|%>
 				<li> <%=car["make"]%> <%=car["model"]%>, <%=car["colour"]%>
-			<%end%>
+			<%end%>			
 
 		</ul>
 
