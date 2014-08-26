@@ -43,3 +43,8 @@ get '/search/mechanic' do
 	searched_mechanic = Mechanic.search_mechanic(params["criteria"])
 	erb(:search_mechanic, {locals: {searched_mechanic: searched_mechanic}})
 end
+
+get '/profile/mechanic/:name' do
+	data_mechanics = Mechanic.get_data()
+	erb(:profile_mechanic, {locals: {data_mechanics: data_mechanics}})
+end

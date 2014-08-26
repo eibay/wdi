@@ -12,10 +12,13 @@
 
 	<h3> Results </h3>
 		<ul>
-			<%searched_mechanic.each do |mechanic|%>
+<!-- 			<%searched_mechanic.each do |mechanic|%>
 				<li> <%=mechanic["name"]%> <%=mechanic["age"]%>, <%=mechanic["fav_car"]%>
-			<%end%>
+			<%end%> -->
 
+			<%searched_mechanic.each do |mechanic|%>
+				<li> <a href='<%= "/profile/mechanic/#{mechanic['name']}"%>'><%=mechanic["name"]%> </a> </li>
+			<%end%>
 		</ul>
 	
 </body>
