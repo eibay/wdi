@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+	<meta charset="UTF-8">
+	<title>Otto's Mechanics</title>
+</head>
+<body>
+	<header>
+		<h1><a href="/">Otto's Autos</a></h1>
+	</header>
+	<h1>Our inventory</h1>
+	<h3>Use this search form for faster service</h3>
+	<form action="/carresults" method="get">
+		<select name="type">
+			<option value="make">Make</option>
+			<option value="model">Model</option>
+		</select>
+		<input type="text" name="search" placeholder="search here">
+		<button>Search</button>
+	</form>
+	<ul>We currently stock 
+		<% cars.each do |car| %>
+		 <li>A <%= car["color"] %> <%= car["make"] %> <%= car["model"] %></li> <% end %>
+	</ul>
+</body>
+</html>
