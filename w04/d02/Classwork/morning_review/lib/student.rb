@@ -14,6 +14,12 @@ class Student
     end
   end
 
+  def self.select_by(key, value)
+    self.all().select do |student|
+      student[key].downcase == value.downcase
+    end
+  end
+
   def self.all()
     return JSON.parse(File.read('./students.txt'))
   end

@@ -24,11 +24,18 @@ get("/students/new") do
 	erb(:new_student)
 end
 
-get("/students/:first_name") do 
+get("/student/:first_name") do 
   student = Student.find_by("first", params[:first_name])
-
   erb(:student, { locals: { student: student } })
 end
+
+get("/students/search") do
+  erb(:student_search)
+end
+
+get("/students/search_results") do
+end
+
 
 get("/dorms/new") do
   erb(:new_dorm)
