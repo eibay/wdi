@@ -7,8 +7,8 @@
 <body>
 	<a href="/cars/new">Add a new car</a>
 	<ul>
-		<% cars.each do |cars| %>
-			<li><%= car["make"] %>, <%= car["model"] %>, <%= car["color"] %>/li>
+		<% cars.each do |car| %>
+			<li><%= car["make"] %>, <%= car["model"] %>, <%= car["color"] %></li>
 		<% end %>
 	</ul>
 </body>

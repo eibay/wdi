@@ -5,7 +5,7 @@ require_relative './lib/mechanic'
 require_relative './lib/car'
 
 get("/") do 
-	erb(:index, {locals: {mechanics: Mechanics.all(), cars:Cars.all() }})
+	erb(:index)
 end
 
 post("/mechanics") do
@@ -13,7 +13,7 @@ post("/mechanics") do
 
 	Mechanic.create(mechanic)
 
-	erb(:mechanics, { locals: { mechanics: Mechanic.all() }})
+	erb(:mechanics, { locals: { mechanics: Mechanics.all() }})
 end
 
 get("/mechanics") do
@@ -24,10 +24,10 @@ get("/mechanics/new") do
 	erb(:new_mechanic)
 end
 
-get("mechanics/:name, :favorite_car") do
+get("mechanics/:name") do
 	mechanic = Mechanic.find_by("name", params[:name], "favorite_car", params["favorite_car"])
 
-	erb(:mechanic, {locals: { student: student } })
+	erb(:mechanic, {locals: { mechanic: mechanic } })
 end
 
 get("/cars/new") do
@@ -38,12 +38,12 @@ end
 get("/cars/:make") do
 	car = Car.find_by("make", params[:name])
 
-	erb(:car, { locals: { dorm: dorm } })
+	erb(:car, { locals: { car: car } })
 end
 
 post("/cars") do
 end
 
 get("/cars") do
-	erb(:cars, { locals: {cars: cars.all() } })
+	erb(:cars, { locals: {cars: Cars.all() } })
 end
