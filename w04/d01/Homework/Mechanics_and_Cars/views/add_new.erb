@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+	<title>Add New</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h1>Add a Car or Mechanic</h1>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/all_mechanics">All Mechanics</a></li>
+			<li><a href="/all_cars">All Cars</a></li>
+			<li><a href="/add">Add New Cars and Mechanics</a></li>
+			<li><a href="/search">Search</a></li>
+		</ul>
+	</nav>
+	<h3>Add a Car</h3>
+		<form action="/all_cars" method="POST">
+			Make<input type="text" name="make" placeholder="e.g. Mini"/>
+			Model<input typle="text" name="model" placeholder="e.g. Cooper S" />
+			Color<input typle="text" name="color" placeholder="e.g. blanched almond" />
+			<button>Add</button>
+		</form>
+	<h3>Add a Mechanic</h3>
+		<form action="/all_mechanics" method="POST">
+		Name<input type="text" name="name" placeholder="First and Last Name" />
+		Age<input type="text" name="age" placeholder="12.5" />
+		Favorite Car<input typle="text" name="fave_car" placeholder="e.g. Mini Cooper S" />
+		<button>Add</button>
+		</form>
+</body>
