@@ -15,6 +15,12 @@ class Car
     end
   end
 
+   def self.find_all(key, value)
+    self.all().select do |student|
+      student[key] == value
+    end
+  end  
+
   def self.all()
     return JSON.parse(File.read('cars.txt'))
   end

@@ -60,6 +60,7 @@ get("/students") do
 end
 
 get("/students/:first_name") do
+binding.pry
   # students = JSON.parse(File.read('./students.txt'))
   # # result is the return value of .find
   # result = students.find do |student|

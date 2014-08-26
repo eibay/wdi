@@ -2,6 +2,7 @@ require 'json'
 
 class Student
   def self.create(student)
+    student["id"] = SecureRandom
     students = self.all()
     students.push(student)
     students_json = JSON.generate(students)
