@@ -1,0 +1,14 @@
+<html>
+<body>
+
+
+	<%cars.each do |car| %>
+	<ul>
+	<li><h1><%="#{car['make']} #{car['model']}"%></h1></li>
+	<li><h3>Color-<%=car['color']%></h3></li>
+	<li><h3>Mechanic-<%=car['mechanic']%></h3></li>
+	</ul>
+	<%end%>
+	
+</body>
+</html>

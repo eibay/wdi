@@ -1,9 +1,9 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
+require File.expand_path(File.dirname(__FILE__) + "/lib/student")
 
-
-require_relative './lib/student'
+# require_relative './lib/student'
 
 get("/") do
 	students = Student.all()

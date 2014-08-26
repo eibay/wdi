@@ -1,1 +1,1 @@
-[]
+[{"name":"Bostwick","capacity":"400"},{"name":"Babcock","capacity":"300"},{"name":"FakeDorm","capacity":"1000"},{"name":"AnotherDorm","capacity":"100"},{"name":"Rosencrantz","capacity":"2"},{"name":"Stupid","capacity":"12000"},{"name":"DumbDORM","capacity":"10000000"},{"name":"Luter","capacity":"900"}]
