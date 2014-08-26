@@ -1,12 +1,13 @@
-require 'json'
-require 'pry'
 require 'securerandom'
+require 'json'
 
 class Student
   def self.create(student)
-    student["id"] = SecureRandom.hex
     students = self.all()
+
+    student["id"] = SecureRandom.hex
     students.push(student)
+
     students_json = JSON.generate(students)
     File.write('./students.txt', students_json)
   end
@@ -19,7 +20,7 @@ class Student
 
   def self.select_by(key, value)
     self.all().select do |student|
-      student[key].downcase == value.downcase
+      student[key] == value
     end
   end
 
