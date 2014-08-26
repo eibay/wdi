@@ -1,11 +1,13 @@
 <html>
 <body>
 	<h1>Mechanics</h1>
-	<a href="/mechanic/new">Add Mechanic</a>
-	<a href="/mechanics/search">Search Mechanics</a>
+	<a href="/mechanics/search">Search Mechanics</a><br>
+	<a href="/mechanic/new">Add Mechanic</a><br>
+	<form action="/mechanics/auto" method="POST">
+		<button>Add 5 Mechanics</button>
 	<ul>
 	<% mechanics.each do |mechanic| %>
-	<li><%= "#{mechanic['name']}, Age: #{mechanic['age']}, Favorite Car: #{mechanic['fave_car']}" %> </li>
+	<li><a href="/mechanic/info/<%= mechanic['name'] %>"><%= mechanic['name'] %></a></li>
 	<% end %>
 </body>
 </html>

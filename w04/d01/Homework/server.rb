@@ -24,12 +24,24 @@ end
 
 get("/mechanic") do
 	mechanic = Mechanic.find_by("name", params[:search]) || Mechanic.find_by("fave_car", params[:search])
-	erb(:mechanic, { locals: {mechanic: mechanic} })
+	erb(:mechanic_info, { locals: {mechanic: mechanic} })
 end
 
 post("/mechanic") do
 	mechanic = {name: params[:name], age: params[:age], fave_car: params[:fave_car] }
 	Mechanic.create(mechanic)
+	redirect("/mechanics")
+end
+
+get("/mechanic/info/:name") do
+	mechanic = Mechanic.find_by("name", params[:captures][0])
+	erb(:mechanic_info, {locals: { mechanic: mechanic } })
+end
+
+post("/mechanics/auto") do 
+	5.times do |mechanic|
+		Mechanic.auto()
+	end	
 	redirect("/mechanics")
 end
 
@@ -48,7 +60,6 @@ end
 
 get("/car") do
 	cars = Car.find_by("make", params[:search]) || Car.find_by("model", params[:search])
-	binding.pry
 	erb(:car, {locals: {cars: cars} })
 end
 
