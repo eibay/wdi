@@ -1,1 +1,1 @@
-[{"name":"Funky Town","capacity":"400"}]
+[{"name":"Funky Town","capacity":"400"},{"name":"","capacity":""}]

@@ -23,18 +23,18 @@ post("/students") do
   erb(:student_page, {locals: { students: Student.all() } })
 end
 
+get("/students") do
+  erb(:student_page, {local: { students: Student.all() }})
+end
+
 get("/students/new") do
-	erb(:new_student)
+  erb(:new_student)
 end
 
 get("/students/:first_name") do 
   student = Student.find_by("first", params[:first_name])
 
   erb(:student, { locals: { student: result} })
-end
-
-get("/students") do
-  erb(:student_page, {local: { students: Student.all() }})
 end
 
 post("/dorms") do
@@ -48,25 +48,10 @@ post("/dorms") do
   erb(:dorm_page, {locals: { dorms: Dorm.all() } })
 end
 
-get("/dorms/new") do
-  erb(:new_dorm)
-end
-
 get("/dorms") do 
   erb(:dorm_page, {local: { dorms: Dorm.all() }})
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+get("/dorms/new") do
+  erb(:new_dorm)
+end

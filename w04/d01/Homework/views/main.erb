@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome!</title>
+</head>
+<body>
+	<h1>Welcome</h1>
+	<form action="/mech_enter" method="GET">
+		<input type="hidden">
+		<button>Add Mechanic</button>
+	</form>
+
+	<form action="/car_enter" method="GET">
+		<input type="hidden">
+		<button>Add Car</button>
+	</form>
+	
+	<h3>Search mechanics by "name" or "favorite car"</h3>
+	<form action="/mechanic_search" method="GET">
+		<input type="radio" name="data_type" value="name">Name
+		<input type="radio" name="data_type" value="fav_car">Favorite Car<br/>
+		<input type="text" name="data" placeholder="Type here.">
+		<button>RevIt</button>
+	</form>
+	<br/>
+	<h3>Search cars by "make" or "model"</h3>
+	<form action="/car_search" method="GET">
+		<input type="radio" name="data_type" value="make">Make
+		<input type="radio" name="data_type" value="model">Model<br/>
+		<input type="text" name="data" placeholder="Type here.">
+		<button>RevIt</button>
+	</form>
+	<br/>
+	<form action="/mechanics" method="GET">
+		<input type="hidden">
+		<button>All Mechanics</button>
+	</form>
+
+	<form action="/cars" method="GET">
+		<input type="hidden">
+		<button>All Cars</button>
+	</form>
+
+	<h2>Currently Listed Mechanics</h2>
+	<% mechanics.each do |x| %>
+		<h2><%= x["name"] %></h2>
+		<ul>
+			<li>Age: <%= x["age"] %></li>
+			<li>Favorite Car: <%= x["fav_car"] %></li>
+		</ul>
+	<% end %>
+
+	<h2>Currently Listed Cars</h2>
+	<% i = 1 %>
+	<% cars.each do |x| %>
+		<h2>Car #<%= i %></h2>
+		<ul>
+			<li>Make: <%= x["make"] %></li>
+			<li>Model: <%= x["model"] %></li>
+			<li>Color: <%= x["color"] %></li>
+		</ul>
+		<% i += 1 %>
+	<% end %>
+</body>
+</html>
