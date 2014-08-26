@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/style.css">
+	<title>Cars</title>
+</head>
+<body>
+	<h1>Cars</h1>
+	<ul>
+	<% cars.each do |x| %>
+		<li><h2><a href="./car/<%= x["make"] %>"><%= x["make"] %> <%= x["model"] %></a></h2></li>
+	<% end %>
+	</ul>
+	<form action="/" method="GET">
+		<input type="hidden">
+		<button>Home</button>
+	</form>
+</body>
+</html>
