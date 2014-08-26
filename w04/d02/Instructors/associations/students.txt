@@ -1,1 +1,1 @@
-[{"first":"Jeffrey","last":"K","email":"j@k.co","dorm_id":"a08dedde99ec467ecabc7c484e496eae","id":"c92f61a0e3a6b30709d2f84aff6dcb50"}]
+[{"first":"Jeffrey","last":"K","email":"j@k.co","dorm_id":"a08dedde99ec467ecabc7c484e496eae","id":"c92f61a0e3a6b30709d2f84aff6dcb50"},{"first":"Conor","last":"Hastings","email":"hastings.conorm@gmail.com","dorm_id":"0a537327cc26bb1c665665eb80ee0126","id":"a1294750f08dcae4d8fec464fbfdb361"}]

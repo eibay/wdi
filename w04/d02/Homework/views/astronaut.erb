@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Astronauts</title>
+</head>
+<body>
+<a href="/astronauts/new">Add a new astronaut to the team</a>
+<h1>Active Astronauts</h1>
+<ul>
+	<%astronauts.each do |astronaut|%>
+	<li><a href='<%= "/astronauts/#{astronaut['id']}"%>'> <%=astronaut['name']%></a></li>
+	<%end%>
+</ul>
+
+
+
+</body>
+</html>

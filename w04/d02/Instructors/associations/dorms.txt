@@ -1,1 +1,1 @@
-[{"name":"Funky Town","capacity":"400","id":"a08dedde99ec467ecabc7c484e496eae"}]
+[{"name":"Funky Town","capacity":"400","id":"a08dedde99ec467ecabc7c484e496eae"},{"name":"Bostwick","capacity":"1000","id":"0a537327cc26bb1c665665eb80ee0126"}]

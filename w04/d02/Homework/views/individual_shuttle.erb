@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title><%=shuttle['name']%></title>
+</head>
+<body>
+
+<h1><%=shuttle['name']%></h1>
+<h3>Origin Country: <%=shuttle['origin_country']%></h3>
+<h3>Destination <%=shuttle['destination']%></h3>
+<h3>Astronauts on Board</h3>
+<ul>
+	<%astronauts.each do |astronaut|%>
+	<li><a href='<%= "/astronauts/#{astronaut['id']}"%>'><%=astronaut['name']%></a>
+		<%end%>
+	</ul>
+
+
+</body>
+</html>
