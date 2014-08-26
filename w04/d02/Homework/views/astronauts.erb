@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Astronauts</title>
+</head>
+<body>
+	<h1>Astronauts</h1>
+	<a href="/add-astronaut">Add Astronaut</a>
+	<ul>
+	<% astronauts.each do |astronaut| %>
+	<li><a href="/astronaut/<%= astronaut['id'] %>"><%= astronaut['name'] %></a></li>
+	<% end %>
+	</ul>
+</body>
+</html>

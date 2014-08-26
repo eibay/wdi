@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shuttles</title>
+</head>
+<body>
+	<h1>Shuttles</h1>
+	<a href="/add-shuttle">Add Shuttle</a>
+	<ul>
+	<% shuttles.each do |shuttle| %>
+		<li><a href="/shuttles/<%= shuttle['id'] %>"><%= shuttle['name'] %></a></li>
+		<% end %>
+	</ul>
+</body>
+</html>
