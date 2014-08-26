@@ -12,30 +12,25 @@
 		Search by Make
 		<input type="text" name="make_search" placeholder="make">
 	</label>
+	<button>Find my make</button>
 </form>
 <p>OR</p>
-<form>
+<form action="/search_car" method="GET">
 	<label>
 		Search by Model
 		<input type="text" name="model_search" placeholder="model">
 	</label>
-	<button>Find my car</button>
+	<button>Find my model</button>
 </form>
 
 <!-- check that a search has taken place -->
 <% if make_search || model_search %>
 
 <!-- build array of hashes of cars found -->
-
+<% Car.find_by(make, make_search) %>
 <!-- ************* ran out of time -->
-<!-- 	<ul>
-		<% search_results = cars.find do | c | %>
-			
-		<% end %>
-	</ul>
 
 
- -->
 
 </body>
 </html>
