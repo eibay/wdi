@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+	<h2>Cars of the Autography</h2>
+	<% list.each do |car| %>
+	<div>
+		<a href="/cars/<%= car['model'].downcase %>"><%= car["model"] %></a>
+			<form action="/cars/mechanic/" method="POST">
+				<select name="mechanic">
+					<% techs.each do |tech| %>
+					<option value="<%= tech %>" <%="selected" if car["mechanic"] == tech %> ><%= tech %></option>
+					<% end %>
+				</select>
+				<button>Assign Mechanic</button>
+				<input type="hidden" name="model" value="<%= car["model"] %>">
+			</form>
+	</div>
+	<% end %>
+	<% if list.empty? %>
+	<h4>There are no cars in the autography.</h4>
+	<% end %>
+</body>
+</html>

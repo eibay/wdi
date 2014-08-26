@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+	<h2>Add a mechanic to the Autography</h2>
+	<form action="/mechanics/add" method="POST">
+		<div><input type="text" name="name" placeholder="FirstName Lastname">Enter the mechanic's name</input></div>
+		<div><input type="text" name="age" placeholder="Age in Earth years">Enter the mechanic's age</input></div>
+		<div><input type="text" name="car" placeholder="Description">What is the Mechanic's favorite car?</input></div>
+		<button>Submit</button>
+	</form>
+	<h4>Or train up five apprentice mechanics</h4>
+	<form action="/mechanics/add/random" method="POST">
+		<button>Add</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+	<h2>All the mechanics in the Autography</h2>
+	<% list.each do |mechanic| %>
+	<div>
+		<h5><a href="/mechanics/<%= mechanic["name"].downcase %>"><%= mechanic["name"] %></a></h5>
+	</div>
+	<% end %>
+	<% if list.empty? %>
+	<h4>The Autography is currently bare of mechanics.</h4>
+	<% end %>
+</body>
+</html>

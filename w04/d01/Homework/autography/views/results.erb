@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+<head></head>
+<body>
+	<h2>Results of <%= search %> search by <%= strain %></h2>
+	<% list.each do |slugline| %>
+	<div><%= slugline %></div>
+	<% end %>
+	<% if list.empty? %>
+	<h4>Your search returned no hits.</h4>
+	<% end %>
+</body>
+</html>

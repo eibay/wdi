@@ -17,7 +17,7 @@
 			<form action="/doctor" method="POST">
 				<select name="doctor">
 					<% doctors.each do |doctor| %>
-					<option name="<%= doctor %>>" <%= "selected" if patient['doctor']== doctor %>><%= doctor %></option>
+					<option name="<%= doctor %>>" <%= "selected" if patient['doctor'] == doctor %>><%= doctor %></option>
 					<% end %>
 				</select>
 				<input type="hidden" name="patient" value="<%=patient['first'] + ' ' + patient['last']%>" />

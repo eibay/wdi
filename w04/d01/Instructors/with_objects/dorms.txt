@@ -1,1 +1,1 @@
-[{"name":"Funky Town","capacity":"400"}]
+[{"name":"Funky Town","capacity":"400"},{"name":"Trelawney","capacity":"450"},{"name":"Sawmill","capacity":"520"}]
