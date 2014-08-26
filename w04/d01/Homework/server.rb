@@ -37,11 +37,29 @@ get '/mechanics/:mechanic' do
   mechanic = params[:mechanic]
   mechanics = Mechanic.all()
 specified_mech =  mechanics.find do |m| mechanic == m["last"] end
-  
+
   erb(:mechanic, locals: {mechanic: specified_mech})
 end
 
 get '/cars' do
+  cars = Car.all()
 
-  erb(:cars)
+  erb(:cars, locals: {cars: cars})
 end
+
+get '/cars/new' do
+  cars = Car.all()
+
+  erb(:new_car, locals: {cars: cars})
+end
+
+post '/cars/new' do
+  make = params["make"]
+  model = params["model"]
+  color = params["color"]
+
+  new_car = {make: make, model: model, color: color}
+  cars = Car.all()
+  Car.create(new_çar)
+
+  erb(:new_car, locals: {cars: cars}))

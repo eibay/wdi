@@ -7,10 +7,19 @@
 <body>
   <div id="wrapper">
     <h1> Big Shot Luxe Garage </h1>
-    <ul>
-      <li><a href="/mechanics">See Mechanics</a></li>
-      <li><a href="/cars">See current cars being serviced</a></li>
-    </ul>
+    <hr />
+    <navigation>
+      <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/cars">Cars</a>
+      </ul>
+    </navigation>
+    <h3>Current cars being serciced</h3>
+      <% cars.each do |c| %>
+        <ul>
+    >     <li><%= c["make"] + " " + c["model"] %></li>
+        </ul>
+      <% end %>
   </div>
 </body>
 </html>

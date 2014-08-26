@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Big Shot</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="wrapper">
+    <h1> Big Shot Luxe Garage </h1>
+    <hr />
+  <navigation>
+    <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/cars">Mechanics</a>
+    </ul>
+  </navigation>
+    <h4> Add a new car to be serviced </h4>
+
+    <form action="/car/new" method="POST">
+      <input type="text" name="make" placeholder="Car's make"><br />
+      <input type="text" name="model" placeholder="Car's model"><br />
+      <input type="text" name="color" placeholder="Car color"><br />
+      <input type="hidden" name="mechanic" value=" "><br />
+      <button>Submit</button>
+    </form>
+
+  <% cars.each do |c| %>
+  <ul>
+  <a href="/cars/<%= m['model'] %>"<li><%= c["make"] + " " + m["model"] %></li></a>
+</ul>
+  <% end %>
+  </div>
+</body>
+</html>
