@@ -8,13 +8,14 @@
 	<%= erb :header_partial %>
 	<h1><%= shuttle.name %></h1>
 	<h2><%= shuttle.origin_country %></h2>
-	<p>The <%= shuttle.name%> is taking <%= astronauts.length %> lucky astronauts to <%= shuttle.destination %>.</p>
-
-	<h3>Astronauts Aboard:</h3>
-	<ul>
-		<% astronauts.each do |astronaut| %>
-			<li><a href=<%= astronaut.id %>><%= astronaut.name %></a></li>
-		<% end %>
-	</ul>
+		<p>The <%= shuttle.name%> is taking <%= astronauts.length %> lucky astronauts to <%= shuttle.destination %>.</p>
+	<% unless astronauts.length.zero? %> 
+		<h3>Astronauts Aboard:</h3>
+			<ul>
+				<% astronauts.each do |astronaut| %>
+					<li><a href=<%= "/astronauts/" + astronaut.id %>><%= astronaut.name %></a></li>
+				<% end %>
+			</ul>
+	<% end %> 
 </body>
 </html>

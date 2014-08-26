@@ -2,6 +2,7 @@ require 'securerandom'
 require 'json'
 
 # all methods w/ relevant return vals should return objs
+
 # unless the method is used for converting an obj 
 # into another form  
 
@@ -39,10 +40,10 @@ class Shuttle
 
 	def self.find_by key, value 
 		shuttles = Shuttle.all.map(&:to_h)
-		results = shuttles.find do |shuttle|
+		result = shuttles.find do |shuttle|
 			shuttle[key] == value 
 		end 
-		results.map(&:to_shuttle)
+		result.to_shuttle 
 	end 
 
 	def self.find_all_by key, value
@@ -54,8 +55,8 @@ class Shuttle
 	end 
 
 	def create
-		shuttles = Shuttle.all.map do |car|
-			car.to_h 
+		shuttles = Shuttle.all.map do |shuttle|
+			shuttle.to_h 
 		end 
 		shuttles << self.to_h   
 		File.write "./shuttle.db", shuttles.to_json   

@@ -14,18 +14,44 @@ end
 
 get "/astronauts/new" do 
 	# form to create a new astronaut 
+	# needs shuttles for select menu 
 
 	erb :new_astronaut, {locals: {shuttles: Shuttle.all, view_name: "Add Astronauts"}}
 end 
 
 post "/astronauts" do 
 
+	# if values missing, redirect to all astronauts 
+	if params["name"] != '' && params["rank"] != ''
 
-	redirect "/astronauts"
+		# get the definite values 
+		name, rank = params["name"], params["rank"]
+
+		if params["shuttle_id"] 
+
+			shuttle_id = params["shuttle_id"]
+			a = Astronaut.new name, rank, shuttle_id 
+		else
+
+			# create an earth-bound astronaut 
+			a = Astronaut.new name, rank
+		end 
+
+		a.create 
+	end 
+
+	redirect "/astronauts" 
 end 
 
 post "/shuttles" do 
 
+	name, origin_country, destination = params["name"], params["origin_country"], params["destination"]
+
+	# check for empty strs else just redirect to shuttles 
+	if name != '' && origin_country != '' && destination != ''
+		s = Shuttle.new name, origin_country, destination
+		s.create 
+	end 
 
 	redirect "/shuttles" 
 end 
@@ -48,11 +74,15 @@ get "/astronauts/:astronaut_id" do
 	id = params[:astronaut_id]
 	astronaut = Astronaut.find_by "id", id 
 
-	# get the shuttle obj associated w/ them 
-	shuttle = Shuttle.find_by "id", astronaut.shuttle_id  
+	# get the shuttle obj associated w/ them
+	if astronaut.shuttle_id == false 
+		shuttle = false 
+	else 
+		shuttle = Shuttle.find_by "id", astronaut.shuttle_id  
+	end 
 
 	erb :astronaut, {locals: {astronaut: astronaut, shuttle: shuttle, view_name: astronaut.name}} 
-end 
+end  
 
 get "/shuttles/:shuttle_id" do
 	# a shuttle profile
@@ -62,8 +92,7 @@ get "/shuttles/:shuttle_id" do
 	shuttle = Shuttle.find_by "id", id  
 
 	# get the astronauts in it 
-	a = Astronauts.all 
-	astronauts = a.find_all_by "shuttle_id", id 
+	astronauts = Astronaut.find_all_by "shuttle_id", id 
 
 
 	erb :shuttle, {locals: {shuttle: shuttle, astronauts: astronauts, view_name: shuttle.name}} 

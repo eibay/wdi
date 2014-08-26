@@ -8,7 +8,7 @@
 	<%= erb :header_partial %>
 	<h2>Add a Shuttle to Astronauts &amp; Shuttles</h2>
 	<p>Adding a shuttle to Astronauts &amp; Shuttles is super simple...</p>
-	<form action="/shuttles">
+	<form action="/shuttles" method="POST">
 		<label>Just tell us its name:<input type="text" name="name"></label>
 		<label>What country it&rsquo;s from:<input type="text" name="origin_country"></label>
 		<label>&amp; What Starry Body Its Headed To:<input type="text" name="destination"></label>

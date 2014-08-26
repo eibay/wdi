@@ -5,7 +5,7 @@ class Astronaut
 	attr_accessor :name, :rank, :shuttle_id
 	attr_reader :id
 
-	def initialize name, rank, id=SecureRandom.hex, shuttle_id=false   
+	def initialize name, rank, shuttle_id=false, id=SecureRandom.hex    
 		@name = name  
 		@rank = rank  
 		@id = id
@@ -28,10 +28,10 @@ class Astronaut
 
 	def self.find_by key, value 
 		astronauts = Astronaut.all.map(&:to_h)
-		results = astronauts.find do |astronaut|
+		result = astronauts.find do |astronaut|
 			astronaut[key] == value 
 		end 
-		results.map(&:to_astronaut)
+		result.to_astronaut 
 	end 
 
 	def self.find_all_by key, value
@@ -53,6 +53,6 @@ end
 
 class Hash 
 	def to_astronaut 
-		Astronaut.new(self["name"], self["rank"], self["id"]) 
+		Astronaut.new(self["name"], self["rank"], self["shuttle_id"], self["id"]) 
 	end 
-endg
+end
