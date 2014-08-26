@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+	<title>Crew</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="/">Mission Control</a></li>
+			<li><a href="/add">Add Shuttles and Crew</a></li>
+			<li><a href="/fleet">Fleet</a></li>
+		</ul>
+	</nav>
+	<h1>Crew Roster</h1>
+	<ul>
+		<% astronauts.each do |astronaut| %>
+		<li><a href="/crew/<%=astronaut["id"]%>"><%=astronaut["name"]%></a></li>
+		<% end %>
+	</ul>	
+</body>

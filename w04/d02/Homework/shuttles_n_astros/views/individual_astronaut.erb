@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+	<title><%=astronaut["rank"]%> <%=astronaut["name"]%></title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="/">Mission Control</a></li>
+			<li><a href="/fleet">Fleet</a></li>
+			<li><a href="/crew">Crew Roster</a></li>
+			<li><a href="/add">Add Shuttles and Crew</a></li>
+		</ul>
+	</nav>
+	<h1><%=astronaut["rank"]%> <%=astronaut["name"]%></h1>
+	<p><%=astronaut["rank"]%> <%=astronaut["name"]%> is a crewmember on the <%= shuttle["name"] %>.</p>	
+</body>

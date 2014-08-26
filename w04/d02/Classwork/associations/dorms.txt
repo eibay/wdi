@@ -1,0 +1,1 @@
+[{"name":"Funky Town","capacity":"400","id":"a08dedde99ec467ecabc7c484e496eae"},{"name":"Hayden Hall","capacity":"2000","id":"db94914f8762ee7c59c0dbefdd6633c9"},{"name":"University Hall","capacity":"750","id":"7a1e57fdabcf73140944a135b06cfea3"}]

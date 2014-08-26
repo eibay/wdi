@@ -1,0 +1,1 @@
+[{"color":"red","mileage":"1,000km","capacity":14,"id":"8b6a3b15069136303639a3d9a07d6a8f"},{"color":"purple","mileage":"400km","capacity":18,"id":"7fed887d74e6d3663c33456562bfb4db"}]
