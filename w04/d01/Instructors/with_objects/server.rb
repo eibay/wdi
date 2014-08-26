@@ -4,8 +4,8 @@ require 'pry'
 require_relative './lib/student'
 require_relative './lib/dorm'
 
-get("/") do  
-	erb(:index)
+get("/") do
+	 erb(:index) #{locals: {students: Student.all() }})
 end
 
 post("/students") do
@@ -24,7 +24,7 @@ get("/students/new") do
 	erb(:new_student)
 end
 
-get("/students/:first_name") do 
+get("/students/:first_name") do
   student = Student.find_by("first", params[:first_name])
 
   erb(:student, { locals: { student: student } })
