@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dorms</title>
+</head>
+<body>
+  <form action="/dorms/new" method="POST">
+    <input type="text" name="name" placeholder="Dorm Name">
+    <input type="text" name="capacity" placeholder="Dorm Capacity">
+    <button>Submit</button>
+  </form>
+  <ul>
+    <% dorms.each do |dorm| %>
+      <li><%= dorm["name"] %> <%= dorm["capacity"] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Big Shot</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="wrapper">
+    <h1> Big Shot Luxe Garage </h1>
+    <hr />
+    <navigation>
+      <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/cars">Cars</a>
+      </ul>
+    </navigation>
+    <h3>Current cars being serciced</h3>
+      <% cars.each do |c| %>
+        <ul>
+    >     <li><%= c["make"] + " " + c["model"] %></li>
+        </ul>
+      <% end %>
+  </div>
+</body>
+</html>
