@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient List</title>
+</head>
+<body>
+  <h2>Patients in the hospital who have <%= condition_search %></h2>
+  <ul>
+    <% patients_by_condition.each do |patient| %>
+      <li><%= patient["first"] + " " + patient["last"] + " was admitted on " + patient["admit_date"] %></li>
+    <% end %>
+  </ul>
+
+    <% if no_patients_wailment == true %>
+      <p>Nobody in this hospital has <%= condition_search %>.</p>
+    <% end %>
+
+  <a href = "/patient">Add New Patient</a><br>
+  <a href = "/condition">Search For Patients With a Specific Condition</a><br>
+  <a href = "/firstname">Search For Patients With a Specific First Name</a>
+
+</body>
+</html>
+
+
+<!-- Is GET default? How come I don't need this in ahref? -->
+<!-- method="GET" -->

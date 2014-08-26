@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mechanaics</title>
+</head>
+<body>
+  <a href = "/mechanics/new">Add New Mechanic</a>
+  <ul>
+    <% mechanics.each do |mechanic| %>
+      <li><%= mechanic["first"] %> <%= mechanic["last"] %> </li>
+    <% end %>
+  </ul>
+</body>
+</html>

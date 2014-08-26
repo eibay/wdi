@@ -1,0 +1,11 @@
+<html>
+<head>
+	<title>Dorm</title>
+</head>
+<body>
+	<!-- See server.rb - result is the variable we would like to pass, andw e set it to a key of student so it is accesible in teh view. They do not have to be teh same exact variable names for it to work. -->
+	<h1> <%="#{dorm["name"]}" %> </h1>
+	<h3> Capacity: <%= dorm["capacity"] %> <br> 
+	Street Address: <%= dorm["street_address"] %> </h3> 
+</body>
+</html>
