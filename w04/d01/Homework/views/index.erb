@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<title>Mechanics/Cars</title>
+</head>
+<body>
+	<h1>Mechanics</h1>
+	<form action="/mechanic" method="POST">
+		<input type="text" name="name" placeholder="Enter a name...">
+		<input type="text" name="age" placeholder="Enter an age...">
+		<input type="text" name="favorite_car" placeholder="Enter favorite car...">
+		<button>Submit</button>
+	</form>
+	<form action="/search/name" method="GET">
+		<input type="text" name="name" placeholder="Enter a name...">
+		<button>Search</button>
+	</form>
+	<form action="/search/favorite_car" method="GET">
+		<input type="text" name="favorite_car" placeholder="Enter favorite car...">
+		<button>Search</button>
+	</form>
+
+	<h1>Cars</h1>
+	<form action="/car" method="POST">
+		<input type="text" name="make" placeholder="Enter a make...">
+		<input type="text" name="model" placeholder="Enter a model...">
+		<input type="text" name="color" placeholder="Enter a color...">
+		<button>Submit</button>
+	</form>
+	<form action="/search/make" method="GET">
+		<input type="text" name="make" placeholder="Enter a make...">
+		<button>Search</button>
+	</form>
+	<form action="/search/model" method="GET">
+		<input type="text" name="model" placeholder="Enter a model...">
+		<button>Search</button>
+	</form>
+</body>	

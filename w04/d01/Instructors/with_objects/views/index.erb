@@ -6,7 +6,17 @@
 </head>
 <body>
   <a href="/students">See all students</a>
+  <ul>
+    <% students.each do |student| %>
+      <li><%= student["first"] %> <%= student["last"] %> - <%= student["email"] %></li>
+    <% end %>
+  </ul>
 
   <a href="/dorms">See all dorms</a>
+  <ul>
+    <% dorms.each do |dorm| %>
+      <li><%= dorm["name"] %>, <em>capacity: <%= dorm["capacity"] %></em></li>
+    <% end %>
+  </ul>
 </body>
 </html>

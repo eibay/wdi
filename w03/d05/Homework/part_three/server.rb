@@ -10,7 +10,7 @@ info = []
 data = []
 
 patients = JSON.parse(File.read('../patients.txt'))
-	patients_json = JSON.generate(patients)
+patients_json = JSON.generate(patients)
 
 	patients.each do |patient|
 		data = "<ul><h2>#{patient['firstname']} #{patient['lastname']}</h2>
@@ -22,7 +22,7 @@ get("/") do
 	erb(:index)
 end
 
-post("/resister") do
+post("/register") do
 	doctors = JSON.parse(File.read('dr.txt'))
 	doctor = doctors.sample
 	profile = []
@@ -92,8 +92,6 @@ get("/search") do
 
 	find_by(key, value)
 end
-
-
 
 
 
