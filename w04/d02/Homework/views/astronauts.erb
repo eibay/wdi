@@ -1,0 +1,13 @@
+<html>
+<head>
+  <title>Astronauts</title>
+</head>
+<body>
+  <ul>
+<a href="/add/astronaut">Add a Astronaut </a>
+<% astronauts.each do |x| %>
+<li><a href="/astronaut/<%= x["id"]%>"><%=x["name"] %></a> </li>
+<%end%>
+</ul>
+</body>
+</html>
