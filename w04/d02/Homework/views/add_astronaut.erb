@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add Astronaut</title>
+</head>
+<body>
+
+	<label>
+	Add Astronaut info here:
+	<form action="/astronauts" method="POST">
+		Name:<input type="text" name="name" placeholder="Name">
+		<br>
+		Rank:<input type="text" name="rank" placeholder="Rank">
+		<br>
+		Shuttle: <select name="shuttle_id">
+		<% shuttles.each do |x| %>
+			<option value="<%=x["id"] %>"> <%= x["name"] %> </option>
+			<% end %>
+		</select>
+		<br>
+		<button>Submit</button>
+	</label>
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shuttles</title>
+</head>
+<body>
+	<h1>Rosencrantzzz shuttlezzzzzz</h1>
+	<% shuttles.each do |x| %>
+		<ul>
+		<li> <a href="/shuttle/<%= x["id"] %>"><%= x["name"] %></a>
+		</li>
+		</ul>
+	<% end %>
+<br>
+<br>
+<br>
+<a href="/"> Go back home </a>
+</body>
+</html>

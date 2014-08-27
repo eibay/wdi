@@ -31,25 +31,29 @@ get("/students/:id") do
   erb(:student, { locals: { student: student, dorm: dorm } })
 end
 
-get("/dorms/new") do
-  erb(:new_dorm)
-end
 
-get("/dorms/:id") do
-  dorm = Dorm.find_by("id", params[:id])
-  students_in_dorm = Student.select_by("dorm_id", dorm["id"])
 
-  erb(:dorm, { locals: { dorm: dorm, students: students_in_dorm } })
-end
 
-post("/dorms") do
-  dorm = { name: params["name"], capacity: params["capacity"] }
 
-  Dorm.create(dorm)
+# get("/dorms/new") do
+#   erb(:new_dorm)
+# end
 
-  erb(:dorms, { locals: { dorms: Dorm.all() } })
-end
+# get("/dorms/:id") do
+#   dorm = Dorm.find_by("id", params[:id])
+#   students_in_dorm = Student.select_by("dorm_id", dorm["id"])
 
-get("/dorms") do
-  erb(:dorms, { locals: { dorms: Dorm.all() } })
-end
+#   erb(:dorm, { locals: { dorm: dorm, students: students_in_dorm } })
+# end
+
+# post("/dorms") do
+#   dorm = { name: params["name"], capacity: params["capacity"] }
+
+#   Dorm.create(dorm)
+
+#   erb(:dorms, { locals: { dorms: Dorm.all() } })
+# end
+
+# get("/dorms") do
+#   erb(:dorms, { locals: { dorms: Dorm.all() } })
+# end
