@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Astronauts Page</title>
+</head>
+<body>
+	<div class="navbar">
+		<form action="/" method="GET">
+			<button>Home</button>
+		</form>
+		<form action="/shuttles_page" method="GET">
+			<button>Shuttles</button>
+		</form>
+		<form action="/astronauts_page" method="GET">
+			<button>Astronauts</button>
+		</form>		
+	</div>
+
+
+	<div class="main">
+
+		<div class="form">
+			<form action="/astronauts_page/new" method="post">
+				<input type="text" name="name" placeholder="Enter name">
+				<input type="text" name="rank" placeholder="Enter rank">
+
+				<select name="shuttle_id">
+					<%data_shuttle.each do |shuttle|%>
+						<option value="<%=shuttle['id']%>"><%=shuttle["name"]%></option>
+					<%end%>
+				</select>
+				<button> Recruit </button>
+			</form>
+		</div>
+
+
+		<div class="details">
+			<h3> Astronauts </h3>
+			<ul>
+				<%data_astronaut.each do |astronaut|%>
+					<li> <a href='/astronaut/<%=astronaut["id"]%>'><%=astronaut["rank"]%> <%=astronaut["name"]%> </li>
+				<%end%> 
+			</ul>			
+		</div>
+
+
+	</div>
+
+
+
+	
+
+
+
+</body>
+</html>

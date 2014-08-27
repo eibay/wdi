@@ -1,0 +1,1 @@
+[{"first":"Ted","last":"Mosby","email":"me@mosbiuisdesigns.com"},{"first":"Marshall","last":"Erickson","email":"marshall@treehugger.com"},{"first":"Barney","last":"Stinson","email":"barney@theplaybook.com"},{"first":"Joe","last":"Johnson","email":"joe@j.com"},{"first":"bob","last":"bobba","email":"bb@octopus.com","id":"43275903b5b0278b63187083a783c297"}]

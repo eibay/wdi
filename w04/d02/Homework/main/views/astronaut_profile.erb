@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Astronaut Profile</title>
+</head>
+<body>
+	<div class="navbar">
+		<form action="/" method="GET">
+			<button>Home</button>
+		</form>
+		<form action="/shuttles_page" method="GET">
+			<button>Shuttles</button>
+		</form>
+		<form action="/astronauts_page" method="GET">
+			<button>Astronauts</button>
+		</form>		
+	</div>
+	
+
+	
+	<div class="main">
+		<h1> Astronaut Profile: <%=astronaut["name"]%> </h1>
+
+		<h3> Rank: <%=astronaut["rank"]%> </h3>
+		<h3> Shuttle: <a href='/shuttle/<%=shuttle["id"]%>'> <%=shuttle["name"]%> </a> </h3>		
+	</div>
+
+	
+</body>
+</html>

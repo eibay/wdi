@@ -15,9 +15,9 @@ get '/add/car' do
 	erb(:add_car, {locals: {data_cars: data_cars}})
 end
 post '/add/car' do
-	data_cars = Car.get_data()
 	car = {make: params["make"].capitalize, model: params["model"].capitalize, colour: params["colour"].capitalize}
 	Car.add_car(car)
+	data_cars = Car.get_data() #moved this around, so that when the data_cars gets sent, it updates correctly on page
 	erb(:add_car, {locals: {data_cars: data_cars}})
 end
 

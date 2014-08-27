@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title>Dorm</title>
+</head>
+<body>
+  <h1> <%= dorm["name"] %></h1>
+  <h3> Capacity: <%= dorm["capacity"] %> </h3> 
+  <h3>Students:</h3>
+  <ul>
+    <% students.each do |student| %>
+      <li><%= "#{student["first"]} #{student["last"]}" %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
