@@ -12,5 +12,5 @@ comedians = [nas, raj, mike]
 
 
 comedians.each do |comedian|
-  puts "Comedian: #{"@name"} #{comedian.instance_variable_get("@fav_joke")}"
+  puts "Comedian: #{comedian.instance_variable_get("@name")} #{comedian.instance_variable_get("@fav_joke")}"
 end
