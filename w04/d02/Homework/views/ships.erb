@@ -12,7 +12,7 @@
 	<div>
 		<ul>These ships are ready for takeoff:
 			<% ships.each do |ship| %>
-			<li><a href='/ships/<%= ship["id"] %>'><%= ship["name"] %></a> from <%= ship["origin"] %> is heading off to <%= ship["destination"] %></li>
+			<li><a href="/ships/<%= ship['ship_id'] %>"><%= ship["name"] %></a> from <%= ship["origin"] %> is heading off to <%= ship["destination"] %></li>
 			<% end %>
 		</ul>
 	</div>

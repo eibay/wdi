@@ -15,7 +15,7 @@ class Astro
 
 	def self.find_by(key, value)
 		self.all().find do |astro|
-			astro[key] == value
+			astro[key].downcase == value.downcase
 		end
 	end
 
