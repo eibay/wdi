@@ -57,31 +57,18 @@ get("/search/mechanic") do
   erb(:mechanicsearch)
 end
 
+
 get("/results/car") do
-  if params["make"] != nil
-    search = params["make"].downcase
-    searchingfor = params["word"].downcase
-    results = Cars.find_by(search, searchingfor)
-  elsif params["model"] != nil
-    search = params["model"].downcase     
-    searchingfor = params["word"].downcase
-    results = Cars.find_by(search, searchingfor)
-  end
-    erb(:carresults,{locals: {results:results}})
-  end
+  the_results = Cars.search_cars(params)
+
+  
+  erb(:carresults,{locals: {results: the_results}})
+end
 
 get('/results/mechanic') do
- if params["name"] != nil
-    search = params["name"].downcase
-    searchingfor = params["word"].downcase
-    results = Mechanic.find_by(search, searchingfor)
-  elsif params["fav"] != nil
-    search = params["fav"].downcase     
-    searchingfor = params["word"].downcase
-    results = Mechanic.find_by(search, searchingfor)
-  end
+ results = Mechanic.search_mechanic(params)
   erb(:mechanicresults,{locals: {results:results}})
-  end
+end
 
   get('/car/:model') do
     cars = Cars.list

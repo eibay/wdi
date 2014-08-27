@@ -1,11 +1,15 @@
 <html>
 
 <body>
-<ol>
- <li> <%results.each do |x|%>
-  <%=x["make"]%> <%=x["model"]%> <%=x["color"]%></li>
-<%end%>
-</ol>
+  <% if results.length == 0 %>
+    <p>NONE FOUND</p>
+  <% else %>
+    <ol>
+      <%results.each do |x|%>
+      <li><%=x["make"]%> <%=x["model"]%> <%=x["color"]%></li>
+    <%end%>
+    </ol>
+  <% end %>
 </body>
 
 </html>

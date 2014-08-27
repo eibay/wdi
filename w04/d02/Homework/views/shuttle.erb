@@ -1,0 +1,14 @@
+<html>
+<head>
+  <title>Profile</title>
+</head>
+<body>
+<%=shuttle["name"]%> <%=shuttle["origin"]%> going to <%=shuttle["destination"]%> 
+Astronauts:
+<ul>
+  <%astronaut.each do |astro| %>
+  <li> <%= astro["first"] %> <%=astro["rank"]%></li>
+  <%end%>
+</ul>
+</body>
+</html>

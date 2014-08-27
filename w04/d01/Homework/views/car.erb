@@ -4,8 +4,8 @@
 <a href="/">Homepage</a>
 <a href="/search/car">Search</a>
 <ol>
-<li><% cars.each do|x|%>
-<a href ="/car/<%=x["model"]%>"><%=x["model"]%></a></li>
+<% cars.each do|x|%>
+<li><a href ="/car/<%=x["model"]%>"><%=x["model"]%></a></li>
 <%end%>
 </ol>
 

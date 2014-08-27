@@ -13,8 +13,22 @@ end
 
 def self.find_by(k,v)
   cars = self.list()
-  results = cars.find_all do |x|
-    x[k]==v
+  cars.find_all do |x|
+  x[k]==v
   end
+end
+
+def self.search_cars(params) #can pass params!!!!!
+  if params["make"] != nil
+    search = params["make"].downcase
+    searchingfor = params["word"].downcase
+    results = Cars.find_by(search, searchingfor)
+  elsif params["model"] != nil
+    search = params["model"].downcase     
+    searchingfor = params["word"].downcase
+    results = Cars.find_by(search, searchingfor)
+  end
+
+  return results
 end
 end
