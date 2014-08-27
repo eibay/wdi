@@ -1,4 +1,5 @@
 require 'json'
+require 'pry'
 require_relative './students'
 
 
@@ -20,21 +21,28 @@ puts "What is the students email"
 
 email=gets.chomp
 
-file="./students.txt"
-Student.list_all_students(file, first, last, email)
+file=JSON.parse(File.read("./students.txt"))
+student=Student.new({"first"=>first, "last"=>last, "email"=>email})
+student_json=student.json
+file.push(student)
+File.write("./students.txt", file)
+students=JSON.parse(File.read("./students.txt"))
+
+students.each do |n|
+	binding.pry
+
+	x=Student.new(n)
+
+	puts "#{x.first} #{x.last}-#{x.email}"
+end
 
 
-# file.push({"first"=>first, "last"=>last, "email"=>email})
-# File.write("./students.txt" , file.to_json)
-# students=JSON.parse(File.read("./students.txt"))
 
 
-# students.each do |student|
 
-# 	x=Student.new(student["first"],student["last"],student["email"])
 
-# 	x.list_student
-# end
+
+
 
 
 
