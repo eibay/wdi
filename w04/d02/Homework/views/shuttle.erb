@@ -1,0 +1,16 @@
+<html>
+<head>
+  <title>Shuttle</title>
+</head>
+<body>
+  <h1> <%= shuttle["name"] %></h1>
+  <h3> Origin Country: <%= shuttle["origin_country"] %> </h3> 
+  <h3> Destination: <%= shuttle["destination"] %> </h3>
+  <h3>Astronauts:</h3>
+  <ul>
+    <% astronauts.each do |astronaut| %>
+      <li><%= "#{astronaut["name"]}" %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
