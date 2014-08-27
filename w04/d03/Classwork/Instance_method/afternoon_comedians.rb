@@ -1,9 +1,21 @@
-require 'pry'
-require_relative './comedian'
+class Comedians
 
-comedian1 = Comedian.new("Benny Hill", "Q: What gets wetter the more it dries? A: A towel") )
-comedian2 = Comedian.new("George Carlin", "Q: What do lawyers wear to court? A: Lawsuits!")
-comedian3 = Comedian.new("Amy Schumer", "Crap")
+	def initialize(name, age, fav_joke)
+
+		@name = name
+
+		@age = age
+
+		@fav_joke = fav_joke
+
+	end
+
+	def comedian_info
+
+		puts @name, @age, @fav_joke
+		
+	end
+end
 
 
 
