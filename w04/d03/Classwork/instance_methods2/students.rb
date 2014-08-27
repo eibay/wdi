@@ -3,6 +3,7 @@ require 'pry'
 class Student
 
 
+
 	def initialize(first, last, email)
 		@first = first
 		@last = last
@@ -10,19 +11,15 @@ class Student
 
 	end
 
-	def add
-		@students = []
-		@students << @first
-
-	end
 
 	def print
 	
-		puts @ students
+		puts @first
 	end
 
 end
 
+students = []
 
 loop do
 	puts "first?"
@@ -33,8 +30,12 @@ loop do
 	email = gets.chomp
 
 	student = Student.new(first, last, email)
-	student.add
-	student.print
-	binding.pry
+	
+	students.push(student)
+	
+	students.each do |student|
+		student.print
+	end
+	
 
 end
