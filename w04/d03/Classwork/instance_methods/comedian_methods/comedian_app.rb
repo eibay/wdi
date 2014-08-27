@@ -6,12 +6,8 @@ blinky = Comedian.new("Blinky", 35, "Why did the chicken cross the road?")
 pinky = Comedian.new("Pinky", 36, "There are three guys at a bar...")
 clyde = Comedian.new("Clyde", 37, "Wakka Wakka Wakka")
 
-comedians = []
-comedians << inky
-comedians << blinky
-comedians << pinky
-comedians << clyde
-binding.pry
+comedians = [inky, blinky, pinky, clyde]
+
 comedians.each do |x|
 	puts x.tell_joke
 end
