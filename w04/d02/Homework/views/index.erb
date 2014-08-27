@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>Space Shuttles and Astronauts</title>
+</head>
+<body>
+	<h1>Add an Astronaut</h1>
+	<form action="/astronauts" method="POST">
+		<input type="text" name="astronaut_name" placeholder="a name of astronaut">
+		<input type="text" name="astronaut_rank" placeholder="a rank of astronaut">
+		<select name="shuttle_id">
+			<% shuttles.each do |shuttle|%>
+			<option value="<%= shuttle["id"]%>"><%= shuttle["name"]%></option>
+			<% end %>
+		</select>	
+		<button>Submit</button>
+	</form>
+	<h1>Add a Shuttle</h1>
+	<form action="/shuttles" method="POST">
+		<input type="text" name="name" placeholder="a name of shuttle">
+		<input type="text" name="origin_place" placeholder="origin place">
+		<input type="text" name="destination" placeholder="destination">
+		<button>Submit</button>
+	</form>
+	<a href="/shuttles">See all Shuttels</a>
+	<a href="/astronauts">See all Astronauts</a>
+</body>
+</html>
