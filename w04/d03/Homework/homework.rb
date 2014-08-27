@@ -1,5 +1,21 @@
 require 'httparty'
 
+# open string class ASCII color codes *WHAAAHOOO* # 
+class String
+
+	def serious 
+		# black on white, very proper   
+		"\033[47;30m" + self + "\033[0m"
+	end 
+
+	def funny  
+		# yellow on purple, because because 
+		"\033[1;34;45m" + self + "\033[0m"
+	end 
+end 
+
+
+# the taxi class # 
 class Taxi 
 	attr_accessor :driver_name, :city, :color
 
@@ -20,6 +36,7 @@ class Taxi
 
 end 
 
+# the user class # 
 class User 
 
 	attr_accessor :first_name, :last_name, :gender, :city, :state
@@ -34,27 +51,39 @@ class User
 
 	def self.random_user 
 		# query random user db 
-		random_user_url = "http://api.randomuser.me/" 
+		random_user_url = "http://api.randomuser.me/"
 		response = HTTParty.get random_user_url
 
 		# get the relevant results 
-		g = response["results"][0]["user"]["gender"]
-		f = response["results"][0]["user"]["name"]["first"]
-		l = response["results"][0]["user"]["name"]["last"]
-		c = response["results"][0]["user"]["location"]["city"]
-		s = response["results"][0]["user"]["location"]["state"]
+		g = response["results"][0]["user"]["gender"].capitalize
+		f = response["results"][0]["user"]["name"]["first"].capitalize
+		l = response["results"][0]["user"]["name"]["last"].capitalize
+		c = response["results"][0]["user"]["location"]["city"].split.each(&:capitalize!).join ' ' 
+		s = response["results"][0]["user"]["location"]["state"].split.each(&:capitalize!).join ' '
 
 		# return a random user 
 		User.new f, l, g, c, s 
 	end 
-
-	# more cuteness # 
+ 
 	def introduce_the_self 
-		"Hi, I'm #{self.first_name} of the #{self.last_name} clan. We hail from #{self.city}, #{self.state}, where nobody takes themselves very seriously."
+		"Hi, I'm #{self.first_name} of the #{self.last_name} clan. We hail from #{self.city}, #{self.state}, where nobody takes themselves very seriously.".funny 
 	end 
 
 	def greeting 
-		"Hi, I'm #{self.first_name} of the #{self.last_name} clan. We hail from #{self.city}, #{self.state}, where everybody takes themselves incredibly seriously."
+		"Hi, I'm #{self.first_name} of the #{self.last_name} clan. We hail from #{self.city}, #{self.state}, where everybody takes themselves incredibly seriously.".serious 
 	end 
 end 
 
+# the march of the random users # 
+userland = []
+
+150.times do 
+	userland << [User.random_user, User.random_user]
+end 
+
+userland.each do |users_marching_hand_in_hand|
+	left = users_marching_hand_in_hand[0]
+	right = users_marching_hand_in_hand[1]
+	puts left.introduce_the_self 
+	puts right.greeting 
+end 
