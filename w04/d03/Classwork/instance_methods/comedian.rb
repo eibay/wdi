@@ -18,6 +18,6 @@ class Comedian
 	end
 
 	def tell_joke
-		puts "Hi, I'm #{@name}. I'm #{@age} and my favorite joke is '#{@fav_joke}'."
+		puts "Hi, I'm #{@name}. I'm #{@age} and my favorite joke is '#{@fav_joke}'"
 	end
 end
