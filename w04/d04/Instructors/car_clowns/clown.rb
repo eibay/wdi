@@ -1,30 +1,4 @@
-require 'securerandom'
-require 'json'
+require_relative './model'
 
-class Clown
-  def self.create(clown)
-    clowns = self.all()
-
-    clown["id"] = SecureRandom.hex
-    clowns.push(clown)
-
-    clowns_json = JSON.generate(clowns)
-    File.write('./clowns.txt', clowns_json)
-  end
-
-  def self.find_by(key, value)
-    self.all().find do |clown|
-      clown[key] == value
-    end
-  end
-
-  def self.select_by(key, value)
-    self.all().select do |clown|
-      clown[key] == value
-    end
-  end
-
-  def self.all()
-    return JSON.parse(File.read('./clowns.txt'))
-  end
+class Clown < Model
 end
