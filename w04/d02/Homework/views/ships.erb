@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css"
+	<meta charset="UTF-8">
+	<title>Shuttle Bay</title>
+</head>
+<body>
+	<header>
+		<h1><a href="/">GASA HEADQUARTERS</a></h1>
+	</header>
+	<div>
+		<ul>These ships are ready for takeoff:
+			<% ships.each do |ship| %>
+			<li><a href='/ships/<%= ship["id"] %>'><%= ship["name"] %></a> from <%= ship["origin"] %> is heading off to <%= ship["destination"] %></li>
+			<% end %>
+		</ul>
+	</div>
+</body>
+</html>

@@ -30,6 +30,13 @@ get("/students/:first_name") do
   erb(:student, { locals: { student: student } })
 end
 
+get ("/students/search_results")
+  student = Student.select_by(params["search_type"], params["keyword"])
+  erb(:student, {locals: {student: student }})
+
+
+
+
 get("/dorms/new") do
   erb(:new_dorm)
 end

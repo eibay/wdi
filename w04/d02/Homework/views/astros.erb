@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css"
+	<meta charset="UTF-8">
+	<title>All Astronauts</title>
+</head>
+<body>
+	<header>
+		<h1><a href="/">GASA HEADQUARTERS</a></h1>
+	</header>
+	
+	<div>
+		<ul>
+			<% astros.each do |astro| %>
+			<li><a href="/astros/<%= astro["astro_id"] %>"><%= astro["rank"] %> <%= astro["name"] %></a></li>
+			<% end %>
+		</ul>
+	</div>
+</body>
+</html>

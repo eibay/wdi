@@ -1,0 +1,19 @@
+body {
+	background-color: silver;
+}
+
+header {
+	width: 90%;
+	margin: auto;
+	padding: 10px;
+	border: navy solid 3px;
+	border-radius: 3px;
+}
+
+div {
+	
+	margin-top: 30px;
+	padding: 10px;
+	border: navy solid 3px;
+	border-radius: 3px;	
+}
