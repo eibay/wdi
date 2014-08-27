@@ -12,13 +12,11 @@ loop do
 	puts "What is comedians joke"
 	fav_joke = gets.chomp
 
-comedian = Comedian.new(name, age, fav_joke)
-comedian_name = comedian.tell_name
-comedian_age = comedian.tell_age
-comedian_joke= comedian.tell_joke
+= Comedian.new(name, age, fav_joke)
+comedian_info = comedian.getinfo
 
-comedians.push(comedian_name)
-comedians.push(comedian_age)
-comedians.push(comedian_joke)
-puts comedians
+comedians.push(comedian_info)
 end
+
+puts comedians
+puts comedian_info

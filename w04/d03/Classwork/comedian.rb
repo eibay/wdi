@@ -5,15 +5,11 @@ class Comedian
 		@age = age
 		@fav_joke = fav_joke
 	end
-	def tell_name
-		puts @name
+	def getinfo
+		return {"name" => @name, "age" => @age, "joke" => @joke}
 	end
 
-	def tell_joke
-		puts @fav_joke
+	def string_output
+		return "The comedians name is #{@name} his age is #{@age} and his favorite joke is #{@fav_joke}"
 	end
-	def tell_age
-		puts @age
-	end
-
 end
