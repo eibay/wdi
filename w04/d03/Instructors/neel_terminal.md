@@ -1,4 +1,4 @@
-```
+```bash
 Last login: Tue Aug 26 11:44:16 on ttys003
 DarthNeel ~
 $ pry
