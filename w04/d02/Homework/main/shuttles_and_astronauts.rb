@@ -20,6 +20,7 @@ end
 
 post '/shuttles_page' do 
   shuttle = {"name" => params["name"], "origin" => params["origin"], "destination" => params["destination"]}
+  # binding.pry
   Shuttle.create(shuttle)
 
   data_shuttle = Shuttle.get_data
@@ -34,7 +35,6 @@ get '/shuttle/:id' do #Put stuff here
   data_shuttle = Shuttle.get_data; data_astronaut = Astronaut.get_data
   erb(:shuttle_profile, {locals: {data_shuttle: data_shuttle, data_astronaut: data_astronaut, shuttle: shuttle, shuttle_crew: shuttle_crew}})
 end
-
 
 
 #####################
