@@ -1,9 +1,13 @@
+require 'securerandom'
 require 'json'
 
 class Student
   def self.create(student)
     students = self.all()
+
+    student["id"] = SecureRandom.hex
     students.push(student)
+
     students_json = JSON.generate(students)
     File.write('./students.txt', students_json)
   end
