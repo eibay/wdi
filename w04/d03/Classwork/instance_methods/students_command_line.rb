@@ -4,6 +4,8 @@
 
   loop do
 
+
+
       puts "What is your first name?"
 
         first_name = gets.chomp
@@ -20,16 +22,14 @@
 
         joke = gets.chomp
 
-        comedians.each do |comedian|
+        # comedians << {first_name: first_name, joke: joke, age: age} #last_name: last_name,
 
-        comedians << {first_name: first_name, joke: joke, age: age} #last_name: last_name,
+        comedian_new = Comedian.new(first_name, age, joke)
 
-        comedians.tell_joke
+       comedians << comedian_new
 
-        end
+        puts comedians
 
-      comedians_list = Comedian.new("Johnny Bananas", 25, "yo mama so fat that she dont need the internet she's already world wide")
+      end
 
-      puts comedians_list.comedians
 
-  end
