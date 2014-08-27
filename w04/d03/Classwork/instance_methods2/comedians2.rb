@@ -14,13 +14,13 @@ class Comedian
 			@age = comedian["age"]
 			@joke = comedian["joke"]
 			@all.push({"name" => @name, "age" => @age, "joke" => @joke})
-
 		end
 	end
 
 	def getInfo
 		return @all
 	end
+
 end
 
 
@@ -30,3 +30,4 @@ comedian_array = all_comedians.getInfo
 	comedian_array.each do |comedian|
 		puts "#{comedian["name"]}, #{comedian["age"]}, #{comedian["joke"]}"
 	end
+
