@@ -3,10 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Astronauts</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<div class="head">
+		<img src="http://williamgallagher.com/wp-content/uploads/2014/05/astronaut-outer-space-moon-nasa-astronauts-free-208100.jpg">
+	</div>
 	<h1>Astronauts</h1>
-	<a href="/add-astronaut">Add Astronaut</a>
+	<div class="menu">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/shuttles">Shuttles</a></li>
+			<li><a href="/astronauts">Astronauts</a></li>
+			<li><a href="/add-shuttle">Add Shuttle</a></li>
+			<li><a href="/add-astronaut">Add Astronaut</a></li>
+		</ul>
+	</div>
 	<ul>
 	<% astronauts.each do |astronaut| %>
 	<li><a href="/astronaut/<%= astronaut['id'] %>"><%= astronaut['name'] %></a></li>
