@@ -8,38 +8,20 @@ def initialize(attributes)
 	@first=attributes["first"]
 	@last=attributes["last"]
 	@email=attributes["email"]
+	@dorm_id=attributes["dorm_id"]
 end
 
-def json 
-    {:first => @first, :last => @last , :email => @email}.to_json
- end
+
+def self.find_by(file, key , value)
+	student=JSON.parse(File.read(file))
+	student.find do |student|
+		student[key].downcase==value.downcase
+	end
+end
 
 
 
-#  def list_student
-
-	
-# 		puts "#{@first} #{@last}- #{@email}"
-# end
-
-
-
-
-# def self.list_all_students(file, first, last, email)
-# json_parsed_file=JSON.parse(File.read(file))
-
-# json_parsed_file.push({"first"=>first, "last"=>last, "email"=>email})
-# File.write("./students.txt" , json_parsed_file.to_json)
-# students=JSON.parse(File.read(file))
-
-
-# students.each do |student|
-
-# 	x=Student.new(student["first"],student["last"],student["email"])
-
-# 	x.list_student
-# end
-# end
-
-
+def getInfo 
+	return {first: @first , last: @last , email: @email}
+end
 end
