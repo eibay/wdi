@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Shuttles</title>
+</head>
+<body>
+<a href="/shuttles/new">Add a new shuttle to the fleet</a>
+<h1>Active shuttles</h1>
+<ul>
+	<%shuttles.each do |shuttle|%>
+	<li><a href='<%= "/shuttles/#{shuttle['id']}"%>'> <%=shuttle['name']%></a></li>
+	<%end%>
+</ul>
+
+
+
+</body>
+</html>
