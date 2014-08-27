@@ -13,7 +13,7 @@ end
 # open str class to create formatting # 
 
 class String 
-	def entry_header 
+	def entry 
 		# blue text on green 
 		"\033[34;42m" + self + "\033[0m" 
 	end 
@@ -65,7 +65,7 @@ end
 
 def display_db 
 	Student.all.each do |student_obj|
-		print "First Name:".entry_header + " #{student_obj.first}  " + "Last Name:".entry_header + " #{student_obj.last}  " + "Email:".entry_header + " #{student_obj.email}\n"
+		print "First Name:  " + "#{student_obj.first}".entry + " Last Name:  " + "#{student_obj.last}".entry + " Email:  " + "#{student_obj.email}".entry + "\n"
 	end 
 end 
 
