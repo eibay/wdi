@@ -1,1 +1,1 @@
-[{"name":"Funky Town","capacity":"400","id":"a08dedde99ec467ecabc7c484e496eae"}]
+[{"name":"Funky Town","capacity":"400","id":"a08dedde99ec467ecabc7c484e496eae"},{"name":"MorningWood","capacity":"20,000","id":"c9de16cbbcd310d8e31f7af4108355e0"}]

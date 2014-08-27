@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Astronauts</title>
+</head>
+<body>
+	<h1>Our Astronauts</h1>
+	<% astronauts.each do |x| %>
+		<h4><a href="/astronaut/<%= x["id"] %>"><%= x["name"] %></a></h4>
+	<% end %>
+
+	<form action="/" method"GET">
+		<input type="hidden">
+		<button>PhoneHome</button>
+	</form>
+</body>
+</html>

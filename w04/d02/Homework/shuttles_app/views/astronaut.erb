@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Astro Info</title>
+</head>
+<body>
+	<h2><%= astronaut["name"] %></h2>
+	<ul>
+		<li>Rank: <%= astronaut["rank"] %></li>
+		<li>Shuttle: <%= shuttle["name"] %></li>
+	</ul>
+
+	<form action="/" method"GET">
+		<input type="hidden">
+		<button>PhoneHome</button>
+	</form>
+</body>
+</html>

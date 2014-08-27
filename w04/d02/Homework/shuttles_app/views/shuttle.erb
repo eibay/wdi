@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shuttle Info</title>
+</head>
+<body>
+	<h2><%= shuttle["name"] %></h2>
+	<ul>
+		<li>From: <%= shuttle["origin_country"] %></li>
+		<li>Destination: <%= shuttle["destination"] %></li>
+	</ul>
+	<h3>Astronauts</h3>
+	<% astronauts.each do |x| %>
+	<ul>
+		<li><a href="/astronaut/<%= x["id"] %>"><%= x["name"] %></a></li>
+	</ul>
+	<% end %>
+
+	<form action="/" method"GET">
+		<input type="hidden">
+		<button>PhoneHome</button>
+	</form>
+</body>
+</html>
