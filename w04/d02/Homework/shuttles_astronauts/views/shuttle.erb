@@ -1,0 +1,11 @@
+<html>
+<head>
+	<title>Shuttle</title>
+</head>
+<body>
+	<!-- See server.rb - result is the variable we would like to pass, and we set it to a key of shuttle so it is accesible in teh view. They do not have to be teh same exact variable names for it to work. -->
+	<h1> <%="#{shuttle["name"]}" %> </h1>
+	<h3> Destination: <%= shuttle["destination"] %> </h3> 
+  <h3>Astronaut: <%= astronaut["name"] %></h3>
+</body>
+</html>

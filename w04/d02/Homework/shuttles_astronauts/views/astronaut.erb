@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title>Astronauts</title>
+</head>
+<body>
+  <h1> <%= astronaut["name"] %></h1>
+  <h3> Rank: <%= astronaut["rank"] %> </h3> 
+  <h3>Shuttles:</h3>
+  <ul>
+    <% shuttles.each do |shuttle| %>
+      <li><%= "#{shuttle["name"]} #{shuttle["destination"]}" %></li>
+    <% end %>
+  </ul>
+</body>
+</html>

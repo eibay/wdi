@@ -4,12 +4,12 @@ require 'pry'
 require_relative './lib/student'
 require_relative './lib/dorm'
 
-get("/") do  
-	erb(:index)
+get("/") do
+  erb(:index)
 end
 
 post("/students") do
-  student = {"first" => params["first"], "last" => params["last"], "email" => params["email"]}
+  student = {"first" => params["first"], "last" => params["last"], "email" => params["email"], "dorm_id" => params["dorm_id"]}
 
   Student.create(student)
 
@@ -21,32 +21,25 @@ get("/students") do
 end
 
 get("/students/new") do
-	erb(:new_student)
+  erb(:new_student, { locals: { dorms: Dorm.all() } })
 end
 
-#get("/students/:first_name") do 
-  #student = Student.find_by("first", params[:first_name])
+get("/students/:id") do 
+  student = Student.find_by("id", params[:id])
+  dorm = Dorm.find_by("id", student["dorm_id"])
 
-  #erb(:student, { locals: { student: student } })
-#end
-
-get ("/students/search") do
-  erb(:student_search)
+  erb(:student, { locals: { student: student, dorm: dorm } })
 end
-
-get ("/students/search_results") do
-  Student.select_by(params["search_type"], params["keyword"])
-end
-
 
 get("/dorms/new") do
   erb(:new_dorm)
 end
 
-get("/dorms/:name") do
-  dorm = Dorm.find_by("name", params[:name])
+get("/dorms/:id") do
+  dorm = Dorm.find_by("id", params[:id])
+  students_in_dorm = Student.select_by("dorm_id", dorm["id"])
 
-  erb(:dorm, { locals: { dorm: dorm } })
+  erb(:dorm, { locals: { dorm: dorm, students: students_in_dorm } })
 end
 
 post("/dorms") do
