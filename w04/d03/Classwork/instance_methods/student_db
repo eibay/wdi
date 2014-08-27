@@ -1,0 +1,80 @@
+#!/usr/bin/ruby
+require 'json' 
+require 'securerandom'
+
+# get cl args else abort #
+
+if ARGV.length != 3 
+	abort "USAGE: student_db FIRST LAST EMAIL"
+else 
+	first, last, email = ARGV 
+end 
+
+# open str class to create formatting # 
+
+class String 
+	def entry_header 
+		# blue text on green 
+		"\033[34;42m" + self + "\033[0m" 
+	end 
+end 
+
+# the student class #
+
+class Student
+
+	attr_accessor :first, :last, :email
+	attr_reader :id
+
+	def initialize first, last, email, id=SecureRandom.hex  
+		@first = first 
+		@last = last 
+		@email = email 
+		@id = id 
+	end 
+
+	def to_hash
+		{ "first" => self.first, "last" => self.last, "email" => self.email, "id" => self.id }
+	end 
+
+	def self.all 
+		# returns an array of student objs 
+		f = File.read "./student.db"
+		student_hashes = JSON.load f
+		student_hashes.map do |student_hash|
+			student_hash.to_student 
+		end 
+	end 
+
+	def create 
+		student_hashes = Student.all.map(&:to_hash)
+		student_hashes << self.to_hash
+		File.write "./student.db", student_hashes.to_json
+	end 
+end 
+
+# need to get student objs from db # 
+
+class Hash 
+	def to_student 
+		Student.new self["first"], self["last"], self["email"], self["id"]
+	end 
+end 
+
+# app methods # 
+
+def display_db 
+	Student.all.each do |student_obj|
+		print "First Name:".entry_header + " #{student_obj.first}  " + "Last Name:".entry_header + " #{student_obj.last}  " + "Email:".entry_header + " #{student_obj.email}\n"
+	end 
+end 
+
+# main appp #
+
+s = Student.new first, last, email 
+
+s.create 
+
+display_db
+
+
