@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h1>Astronauts</h1>
+<p>
+<% astronaut.each do |a| %>
+<li><a href = 'astronaut/search/<%= a["id"] %>'><%= a["name"] %></a></li> 
+<% end %>
+
+</p>
+</body>
+</html>

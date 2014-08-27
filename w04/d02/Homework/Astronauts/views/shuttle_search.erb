@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1> Spaceship</h1>
+
+<p>
+The <%= shuttle["name"] %> from <%= shuttle["origin_country"] %> is going to <%= shuttle["destination"] %>. <br><br>
+The astronauts on board are:
+<% astronaut.each do |a| %>
+<li><%= a["name"] %></li>
+<% end %>
+
+</p>
+</body>
+</html>
