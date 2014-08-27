@@ -7,24 +7,24 @@ require_relative './student_class'
 students = []
 
 loop do
-student = []
+# student = []
 
 puts "What is your first name?"
 first_name = gets.chomp
-student.push(first_name)
+# student.push(first_name)
 
 puts "what is your last name?"
 last_name = gets.chomp
-student.push(last_name)
+# student.push(last_name)
 
 puts "What is your email address?"
 email = gets.chomp
-student.push(email)
+# student.push(email)
 
+student = Student.new(first_name, last_name, email)
+# student = Student.new("first_name", "last_name", "email")
 
-student = Student.new("first_name", "last_name", "email")
-
-student.push(students)
+students.push(student)
 
 
 students.each do |x|
