@@ -4,10 +4,10 @@
 
 class Comedian
 
-	def initialize(attributes) # this can be a hash that is created in the program
-		@name = name
-		@age = age
-		@fav_joke = fav_joke
+	def initialize(attributes)
+		@name = info["name"]
+		@age = info["age"]
+		@fav_joke = info["fav_joke"]
 	end
 
 	def tell_joke
@@ -15,7 +15,11 @@ class Comedian
 	end
 
 	def getInfo
-		return { name: @name, age: @age, fav_joke: @fav_joke }
+		return { name: @name,  age: @age, fav_joke: @fav_joke }
+	end
+
+	def putsInfo
+		return "Name is #{@name}; age is #{@age}. Favorite joke is #{@fav_joke}"
 	end
 
 	def get_the_name
