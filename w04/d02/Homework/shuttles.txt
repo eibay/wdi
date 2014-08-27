@@ -1,0 +1,1 @@
+[{"name":"Enterprise","origin_country":"USA","destination":"Rigel","id":"c2742a74191286c509f7a6dc30fe4f35"},{"name":"Constitution","origin_country":"USA","destination":"Antaries","id":"d39260be571ea0312262dfd6805c7ba7"}]
