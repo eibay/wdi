@@ -1,0 +1,43 @@
+h1{
+	color: red;
+	text-align: center;
+}
+
+h2{
+
+	font-family: arial;
+	text-align: center;
+}
+
+h3{
+
+	font-family: arial
+}
+
+
+body{
+	margin: 0 auto;
+	width: 900px;
+	background-color: #C4E5DA;
+}
+
+div{
+	text-align: center;
+	background-color: lightgrey;
+	height: 30px;
+	margin: 0 auto;
+	padding-top: 10px
+}
+
+a{
+	padding: 20px;
+	text-decoration: none;
+	color: black;
+	font-family: arial;
+}
+
+form{
+
+	text-align: center;
+
+}

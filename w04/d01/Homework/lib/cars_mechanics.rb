@@ -1,4 +1,5 @@
 require 'json'
+require 'securerandom'
 
 class Mechanics
 
@@ -16,11 +17,10 @@ class Mechanics
 	def self.search(key, value)
 		mechanic_result = []
 		self.all.each do |mechanic|
-			if mechanic[key].include?(value)
+			if mechanic[key] = mechanic[value] 
 				mechanic_result.push(mechanic)
 			end
 		end
-		
 		return mechanic_result
 	end
 
@@ -43,7 +43,7 @@ class Cars
 	def self.search(key, value)
 		car_result = []
 		self.all.each do |car|
-			if car[key].include?(value)
+			if car[key] == car[value]
 				car_result.push(car)
 			end
 		end

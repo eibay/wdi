@@ -27,8 +27,9 @@ end
 
 
 get '/mechanics/search' do
-	binding.pry
+
 	mechanics = Mechanics.search("name", params["name"])
+	binding.pry
 	erb(:mechanics_results, {locals: {mechanics: mechanics}})
 end
 
@@ -55,10 +56,8 @@ end
 
 
 get '/cars/search' do
-
+binding.pry
 	cars = Cars.search("make", params["make"])
-	# cars = Cars.search("model", params["model"])
-	# binding.pry
 	erb(:cars_results, {locals: {cars: cars}})
 end
 

@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Astronaut Information</title>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+		<h1>Space Center</h1>
+	<div>
+	<a href='/'>Home</a>
+	<a href='/shuttles'>Add/View Shuttles</a>
+	<a href='/astronauts'>Add/View Astronauts</a>
+	</div>
+
+	<h2><%= astronaut["first"] %> <%= astronaut["last"] %></h2>
+
+	<h3>Rank: <%= astronaut["rank"] %></h3>
+	<h3>Shuttle: <a href="/shuttles/<%= shuttle["id"] %>"><%= shuttle["name"] %></a></h3>
+
+
+</body>
+</html>
