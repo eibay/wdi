@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome!</title>
+</head>
+<body>
+  <form action="/students" method="POST">
+    <input type="text" name="first" placeholder="First Name">
+    <input type="text" name="last" placeholder="Last Name">
+    <input type="text" name="email" placeholder="Email">
+    <select name="dorm_id">
+      <% dorms.each do |dorm| %>
+        <option value="<%= dorm["id"] %>"><%= dorm["name"] %></option>
+      <% end %>
+    </select>
+    <button>Submit</button>
+  </form>
+</body>
+</html>

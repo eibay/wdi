@@ -1,0 +1,26 @@
+
+body {
+	background-image: url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSBOHpDM8GXE2_IB8lSXA_7BqpU1AoOd8D7jfIlHK33Tlw9OlPzLQ');
+    background-size: cover;
+    color: white;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 20px;
+	line-height: 30px;
+	letter-spacing: 4px;
+}
+
+h1 {
+	color: LightSteelBlue;
+}
+
+
+body a {
+	color: LightSteelBlue;
+}
+
+body a:hover {
+	color: white;
+}
+li strong {
+	font-weight: 700;
+}

@@ -1,0 +1,1 @@
+[{"name":"Funky Town","capacity":"400","id":"a08dedde99ec467ecabc7c484e496eae"},{"name":"Big Hall","capacity":"239","id":"58733e9d429fd16fda2be3f284008df5"}]

@@ -1,0 +1,1 @@
+[{"color":"red","mileage":"10000","capacity":"5","car_id":"55b9ef26999d5e86dfa10c77f733cef2"},{"color":"blue","mileage":"20000","capacity":"10","car_id":"89a820a077272c4bb49a29060abf1d10"},{"color":"green","mileage":"35000","capacity":"8","car_id":"ad6db0af5700528da49fdada69f274ea"}]
