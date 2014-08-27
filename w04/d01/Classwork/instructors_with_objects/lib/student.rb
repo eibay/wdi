@@ -1,4 +1,4 @@
-rrequire 'json'
+require 'json'
 
 class Student
   def self.create(student)

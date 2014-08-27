@@ -2,7 +2,7 @@
 
 Goal: Create a web application that keeps track of astronauts and the shuttles they are on.
 
-1) Setup two models:
+1) Setup two models: each "model" includes a txt file and library 
 
   * Shuttles (name, origin_country, destination)
   * Astronaut (name, rank)
@@ -10,7 +10,7 @@ Goal: Create a web application that keeps track of astronauts and the shuttles t
 2) Be able to associate astronauts and shuttles on the command line in `pry`.
   * Which "model" will have the `foreign_key`? How will you "encode" these relationships?
 
-3) Create a web application that allows us to create and review shuttles and astronauts.
+3) Create a web application that allows users to create and review shuttles and astronauts.
 
 **Features**:
   * Create new shuttles.

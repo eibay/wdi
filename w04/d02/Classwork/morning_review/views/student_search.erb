@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Search!</title>
+</head>
+<body>
+
+<!-- for search - you can try check boxes to make multiple selections (this may give us unexpected behavior in the code) -->
+<!-- creating a drop down menu will allow user to just select one item -->
+
+<form action = "/students/search_results" method = "GET">
+	<input type ="text" name="keyword" placeholder="Enter search">
+	<select name="search_type">
+		<option value = "first">First Name></option>
+		<option value = "last">Last Name></option>
+		<option value = "email">Email></option>
+	</select>
+</form>
+
+
+
+
+</body>
+</html>

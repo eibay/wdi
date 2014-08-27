@@ -8,9 +8,8 @@
   <a href="/dorms/new">Add a new dorm</a>
   <ul>
     <% dorms.each do |dorm| %>
-      <li><%= dorm["name"] %>, <em>capacity: <%= dorm["capacity"] %></em></li>
+      <li><a href="/dorms/<%= dorm["id"] %>"><%= dorm["name"] %></a>, <em>capacity: <%= dorm["capacity"] %></em></li>
     <% end %>
   </ul>
 </body>
 </html>
-

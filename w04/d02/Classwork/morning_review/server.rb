@@ -30,6 +30,19 @@ get("/students/:first_name") do
   erb(:student, { locals: { student: student } })
 end
 
+# added on Aug 26
+get("/students/search") do #displays search form
+  erb( student_search, {})
+end
+
+# added on Aug 26
+get("/students/search_results") do #displays search results
+  # !!!! this is incomplete - check neel's code!!!!!
+  Student.select_by
+end
+
+
+
 get("/dorms/new") do
   erb(:new_dorm)
 end

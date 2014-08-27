@@ -22,12 +22,11 @@ post("/patients") do
 
   person = {"first" => first_name, "last" => last_name, "admit_date" => admit_date, "condition" => condition}
 
-
-  # not sure if i need this line because there is nothing in the file yet to read for the first patient entry
+  
 # for the first patient hash entry do i need to initialize the array?
 #   patients = []
 
-
+# not sure if i need this line because there is nothing in the file yet to read for the first patient entry
   # patients is an array
   patients = JSON.parse(File.read('./patients.txt'))
   # add hash to array
@@ -76,7 +75,7 @@ condition_search = params["condition_search"].downcase
 
 patients = JSON.parse(File.read('./patients.txt'))
 
-i think this goes in the .erb document instead of here on the server but not sure
+# i think this goes in the .erb document instead of here on the server but not sure
 
 patients.each do |patient|
   # wondering if we could also do person here (since we established that this is the name of the patient hash above)
@@ -86,11 +85,6 @@ patients.each do |patient|
 end
 
 # maybe we could also push the entire 'patient' hash to the array? except for the fact that we dont really need to display the condition again
-
-
-  # patients is an array
-
-  # not sure if i need this line because there is nothing in the file yet to read for the first patient entry
 
 # for the first patient hash entry do i need to initialize the array?
 #   patients = []

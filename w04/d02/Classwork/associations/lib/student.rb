@@ -1,9 +1,18 @@
-rrequire 'json'
+require 'securerandom'
+require 'json'
 
 class Student
+
+  def self.all()
+    return JSON.parse(File.read('./students.txt'))
+  end
+  
   def self.create(student)
     students = self.all()
+
+    student["id"] = SecureRandom.hex
     students.push(student)
+
     students_json = JSON.generate(students)
     File.write('./students.txt', students_json)
   end
@@ -14,7 +23,10 @@ class Student
     end
   end
 
-  def self.all()
-    return JSON.parse(File.read('./students.txt'))
+  def self.select_by(key, value)
+    self.all().select do |student|
+      student[key] == value
+    end
   end
+
 end
