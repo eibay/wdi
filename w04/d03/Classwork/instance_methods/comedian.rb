@@ -11,7 +11,18 @@ class Comedian
 	end
 
 	def tell_joke
-		puts @fav_joke
-	end
+		return @fav_joke
+    #sends it to be output
+    #when you use puts it wont string interpolate
+    #always use return 
+  end
+
+  def name
+    return @name
+  end
+
+  def age
+    return @age
+  end
 
 end
