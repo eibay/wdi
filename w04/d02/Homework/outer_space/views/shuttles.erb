@@ -1,0 +1,12 @@
+<html>
+<head>
+	<title>Voyager Class Shuttles</title>
+</head>
+<body>
+	<div><a href="/shuttle/add">Dispatch a ship into that black unknown...</a></div>
+	<h2>Shuttles currently in service:</h2>
+	<% list.each do |shuttle| %>
+	<div><a href="shuttle/view/<%= shuttle["id"] %>"><%= shuttle["name"] %></a></div>
+	<% end %>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Launch an Astronaut</title>
+</head>
+<body>
+	<h2>Dispatch an Astronaut to a Shuttle by Space Skiff</h2>
+	<form action="/astronaut" method="POST">
+		<input type="text" name="name" placeholder="Firstname Lastname" />
+		<input type="text" name="rank" placeholder="Pay Grade" />
+		<select name="shuttle_id">
+			<% shuttles.each do |shuttle| %>
+			<option value="<%= shuttle["id"] %>"><%= shuttle["name"] %></option>
+			<% end %>
+		</select>
+		<button>3..2..1</button>
+	</form>
+</body>
+</html>

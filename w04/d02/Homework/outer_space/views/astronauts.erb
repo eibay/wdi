@@ -1,0 +1,12 @@
+<html>
+<head>
+	<title>Astronauts</title>
+</head>
+<body>
+	<div><a href="/astronaut/add">Dispatch a new Astronaut into Outer...Space...</a></div>
+	<h2>Astronauts...In...Space</h2>
+	<% list.each do |astronaut| %>
+	<div><a href="/astronaut/view/<%= astronaut["id"] %>"><%= astronaut["name"] %></a></div>
+	<% end %>
+</body>
+</html>
