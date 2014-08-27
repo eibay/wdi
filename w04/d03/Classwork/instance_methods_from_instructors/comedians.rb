@@ -1,16 +1,33 @@
-Class Comedian
+# 1) make an array 3-5 comedians
+# 2) have them all tell their jokes, looping through the array
 
-comedians=[]
+comedians = []
 
-def initialize(comedian, joke)
-		@comedian = comedian
-		@joke = joke
-	end
+mitch = Comedian.new("mitch",25, "haha")
+jerry= Comedian.new("jerry",27, "stfu")
+harry= Comedian.new("harry",29, "lol")
 
-	def tell_joke
-		puts @joke
-	end
+comedians << mitch
+comedians<< jerry
+comedians << harry
 
+comedians.each do |comedian|
+
+	comedian.tell_joke
 end
 
-#nope don't get it thanks
+
+
+# Class Comedian
+
+# 	def initialize(name, age, fav_joke)
+# 		@name = name
+# 		@age = age
+# 		@fav_joke = fav_joke
+# 	end
+
+# 	def tell_joke
+# 		puts @fav_joke
+# 	end
+
+# end
