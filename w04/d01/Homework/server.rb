@@ -46,7 +46,7 @@ get("/cars/:car_name") do
 	car = Car.find_by("make", params[:car_make])
 	# car = Car.find_by("model", params[:car_model])
 
-erb(:car, {locals: { car: car, car2: car2 } } )
+erb(:cars, {locals: { car: car } } )
 end
 
 post("/cars") do
@@ -58,11 +58,11 @@ post("/cars") do
 
 	Car.create(car_name)
 
-	erb(:cars, {locals: {cars: Car.all() } } )
+	erb(:car, {locals: {car: Car.all() } } )
 end
 
 get("/cars") do
-	erb(:cars, {locals: { cars: Car.all() } })
+	erb(:cars, {locals: {car: Car.all() } } )
 
 end
 
