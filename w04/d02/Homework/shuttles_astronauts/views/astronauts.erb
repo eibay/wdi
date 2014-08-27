@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Astronauts</title>
+</head>
+<body>
+  <a href="/astronauts/new">Register a new astronaut</a>
+  <ul>
+    <% astronauts.each do |astronaut| %>
+      <li><a href="/astronauts/<%= astronaut["id"] %>"><%= astronaut["name"] %></a>, <em>astronaut: <%= astronaut["rank"] %></em></li>
+    <% end %>
+  </ul>
+</body>
+</html>
+
