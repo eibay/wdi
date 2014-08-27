@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <a href="/shuttles/new">Add a new Shuttle</a>
+      <h4>All Shuttles</h4>
+      <hr />
+      <ul>
+      <% shuttles.each do |shuttle| %>
+        <li><%= "#{shuttle["name"]} #{shuttle["origin"]} #{shuttle["destination"]}" %></li>
+        <% end %>
+      </ul>
+
+    </div>
+  </body>
+</html>

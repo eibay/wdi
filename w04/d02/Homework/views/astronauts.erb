@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <a href="/astronauts/new">Add a new Astronaut!</a>
+      <h4>All Astronauts</h4>
+      <hr />
+      <ul>
+      <% astronauts.each do |astro| %>
+        <li><%= "#{astro["name"]}, Rank: #{astro["rank"]} #{astro["shuttle_name"]}" %></li>
+        <% end %>
+      </ul>
+
+    </div>
+  </body>
+</html>
