@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome!</title>
+</head>
+<body>
+<h1>Add an astronaut to the crew!</h1>
+  <form action="/astronauts" method="POST">
+    <input type="text" name="first" placeholder="First Name">
+    <input type="text" name="last" placeholder="Last Name">
+    <input type="text" name="rank" placeholder="Rank">
+    <select name="shuttle_id">
+      <% shuttles.each do |shuttle| %>
+        <option value="<%= shuttle["id"] %>"><%= shuttle["name"] %></option>
+      <% end %>
+    </select>
+    <button>Submit</button>
+  </form>
+</body>
+</html>
+
+<!-- generic drop down menu code:
+ -->
+<!-- 
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="">
+<select name="cars">
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="fiat">Fiat</option>
+<option value="audi">Audi</option>
+</select>
+</form>
+
+</body>
+</html> -->

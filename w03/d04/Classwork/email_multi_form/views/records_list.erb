@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<h1>Thanks for submitting your information!</h1>
+
+
+<h1>Here is your record:</h1>
+
+<!-- CAN'T USE JOIN ON A HASH (THE STUDENT RECORD AT EACH INDEX POINT IS A UNIQUE HASH, NOT AN ARRAY!)
+	<p><%= information.last.join(",") %></p> -->
+
+
+
+<h1>And here's the complete list of records:</h1>
+	
+<ul>
+    <% information.each do |person| %>
+      <li><%= person[:first] %> <%= person[:last] %> - <%= person[:email] %></li>
+    <% end %>
+</ul>
+
+
+</body>
+</html>
+
+<!-- could also create the list <li> tags in the server -->
+<!-- Jeff's code: this will show info for each person in the info array-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>List</title>
+</head>
+<body>
+  <ul>
+    <% information.each do |person| %>
+      <li><%= person[:first] %> <%= person[:last] %> - <%= person[:email] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>

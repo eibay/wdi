@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome!</title>
+</head>
+<body>
+  <form action="/students" method="POST">
+    <input type="text" name="first" placeholder="First Name">
+    <input type="text" name="last" placeholder="Last Name">
+    <input type="text" name="email" placeholder="Email">
+    <select name="dorm_id">
+      <% dorms.each do |dorm| %>
+        <option value="<%= dorm["id"] %>"><%= dorm["name"] %></option>
+      <% end %>
+    </select>
+    <button>Submit</button>
+  </form>
+</body>
+</html>
+
+<!-- generic drop down menu code:
+ -->
+<!-- 
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="">
+<select name="cars">
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="fiat">Fiat</option>
+<option value="audi">Audi</option>
+</select>
+</form>
+
+</body>
+</html> -->

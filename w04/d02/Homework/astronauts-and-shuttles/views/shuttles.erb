@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shuttles</title>
+</head>
+<body>
+  <a href="/shuttles/new">Add a new shuttle</a>
+  <h1>Our Shuttle Fleet</h1>
+  <ul>
+    <% shuttles.each do |shuttle| %>
+      <li><a href="/shuttles/<%= shuttle["id"] %>"><%= shuttle["name"] %></a>, <em>Origin Country: <%= shuttle["origin_country"] %>, Destination: <%= shuttle["destination"] %></em></li>
+    <% end %>
+  </ul>
+</body>
+</html>

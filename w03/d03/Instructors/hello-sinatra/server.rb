@@ -15,3 +15,9 @@ get("/colors/:color") do
   html = html.gsub("{{color}}", params[:color])
   html
 end
+
+get("/colors/:color") do
+
+	could also do two or more query params
+
+	get("/colors/:color") 
