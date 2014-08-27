@@ -1,16 +1,23 @@
+require 'pry'
 require_relative 'student.rb'
 
 students = []
 
-mitch = Student.new("mitch","moore", "mm@gmail.com")
-jerry= Student.new("jerry","jerrs", "jj@gmail.com")
-harry= Student.new("harry","harrs", "hh@gmail.com")
+x = 0
+while x < 2
 
-students << mitch
-students << jerry
-students << harry
+	puts "Whats the student's first name?"
+	first = gets.chomp
+	puts "Whats the student's last name"
+	last = gets.chomp
+	puts "Whats the student's email?"
+	email = gets.chomp
+	
+	student = Student.new(first, last, email)
 
-students.each do |student|
+	students << student
 
-	student.ask_info
+	x = x + 1
 end
+
+binding.pry

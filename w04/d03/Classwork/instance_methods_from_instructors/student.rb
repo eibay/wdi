@@ -10,13 +10,13 @@ class Student
 		@email = email
 	end
 
-	def ask_info
-		puts "Whats the student's first name?"
-		@first = gets.chomp
-		puts "Whats the student's last name"
-		@last = gets.chomp
-		puts "Whats the student's email?"
-		@email = gets.chomp
-	end
+	# def ask_info
+	# 	puts "Whats the student's first name?"
+	# 	@first = gets.chomp
+	# 	puts "Whats the student's last name"
+	# 	@last = gets.chomp
+	# 	puts "Whats the student's email?"
+	# 	@email = gets.chomp
+	# end
 end
 
