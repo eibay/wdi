@@ -1,1 +1,1 @@
-[{"first":"Eric","last":"Kramer","email":"theerickramer@gmail.com"}]
+[{"first":"Eric","last":"Kramer","email":"theerickramer@gmail.com"},{"first":"Conor","last":"Hastings","email":"conor@hastings.com"},{"first":"Sean","last":"West","email":"sean@generalassemb.ly"},{"first":"Bob","last":"Small","email":"bob@small.com"}]
