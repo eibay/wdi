@@ -9,16 +9,26 @@
 	<a href='/mechanics'>Add/See Mechanics</a>
 	<a href='/cars'>Add/See Cars</a>
 	
+	<h3>Search by Mechanic</h3>
 	<form action='/mechanics/search' method='GET'>
-		<label>Search by Name or Favorite Car: 
-			<input type='text' name='name' placeholder='Name'></label>
+		<input type="text" name="keyword" placeholder="Search Mechanic"</input>
+		<select name="search_by">
+			<option value="name">Name</option>
+			<option value="favorite">Favorite Car</option>
+		</select>
 		<button>Find Mechanic!</button>
 	</form>
 
+	<h3>Search by Car</h3>
 	<form action='/cars/search' method='GET'>
-		<label>Search by Make or Model: <input type='text' name='make' placeholder='Make/Model'></label>
+		<input type="text" name="keyword" placeholder="Search Car"</input>
+		<select name="search_by">
+			<option value="make">Make</option>
+			<option value="model">Model</option>
+		</select>
 		<button>Find Car!</button>
 	</form>
+
 
 </body>
 </html>

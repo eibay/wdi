@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>Astronauts</title>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+		<h1>Space Center</h1>
+	<div>
+	<a href='/'>Home</a>
+	<a href='/shuttles'>Add/View Shuttles</a>
+	<a href='/astronauts'>Add/View Astronauts</a>
+	</div>
+
+	<h2>Add Astronaut</h2>
+
+	<form action='/astronauts' method='POST'>
+		<label>First Name: <input type='text' name='first' placeholder='First Name'></label>
+		<label>Last Name: <input type='text' name='last' placeholder='Last Name'></label>
+		<label>Rank: <input type='text' name='rank' placeholder='Rank'></label>
+		<label>Shuttle: <select name='shuttle_id'>
+			<% shuttles.each do |shuttle| %>
+			<option value='<%= shuttle["id"] %>'><%= shuttle["name"] %></option>
+			<% end %>
+		</select></label>
+		<button>Add Astronaut!</button>
+	</form>
+
+	<h3>Active Astronauts</h3>
+
+	<ul>
+		<% astronauts.each do |astronaut| %>
+		<li> <a href="/astronaut/<%= astronaut["id"] %>"><%= astronaut["first"] %> <%= astronaut["last"] %>,</a> <em><%= astronaut["rank"] %></em></li>
+		<% end %>
+	</ul>
+
+
+</body>
+</html>
