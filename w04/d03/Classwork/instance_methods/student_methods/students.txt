@@ -1,1 +1,1 @@
-[{"first":"joe","last":"biggica","email":"joe@gmail.com"},{"first":"bruce","last":"wayne","email":"bw@batmail.com"},{"first":"clark","last":"ket","email":"ck@super.com"}]
+[{"first":"joe","last":"biggica","email":"joe@gmail.com"},{"first":"bruce","last":"wayne","email":"bw@batmail.com"},{"first":"clark","last":"ket","email":"ck@super.com"},{"first":"conan","last":"barbarian","email":"thedestroyer@kram.com"},{"first":"joe","last":"big","email":"jj@gmail.com"},{"first":"night","last":"rider","email":"nrider@kitt.com"},{"first":"bob","last":"bob","email":"bob@bobmail.com"}]

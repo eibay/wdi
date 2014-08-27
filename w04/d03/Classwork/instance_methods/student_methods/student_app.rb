@@ -16,10 +16,9 @@ students_array = JSON.parse(File.read('./students.txt'))
 	student = Student.new(fname, lname, email)
 	students_array << student.txt_friendly
 
-	binding.pry
 	File.write('./students.txt', students_array.to_json)
-	
+
 	students_array.each do |x|
-		puts x
+		puts students_array
 	end
 end
