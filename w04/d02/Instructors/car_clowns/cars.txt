@@ -1,0 +1,1 @@
+[{"color":"Red","mileage":45000,"capacity":30,"id":"d7be2a8878893d041bb5b7c732c99ad5"},{"color":"Blue","mileage":40000,"capacity":10,"id":"42431a7b575714c554803ab878f39d98"},{"color":"black","mileage":40000,"capacity":5,"id":"ebbdad5bb9484f345fa4c940dc9810e3"},{"color":"green","mileage":493893,"capacity":5,"id":"ea5dd18a05d42a6e859511c6bdc34239"}]

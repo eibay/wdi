@@ -1,1 +1,1 @@
-[{"firstname":"a","lastname":"a","admittance_date":"","condition":"a","doctor":"Dr. Naomi Bennett"}]
+[{"firstname":"a","lastname":"a","admittance_date":"","condition":"a","doctor":"Dr. Naomi Bennett"},{"firstname":"大石","lastname":"一哉","admittance_date":"2011-12-31","condition":"肝臓","doctor":"Dr. Allen"}]

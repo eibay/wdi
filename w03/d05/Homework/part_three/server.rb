@@ -19,6 +19,11 @@ patients_json = JSON.generate(patients)
 	end
 
 get("/") do
+	user = HTTParty.get('http://api.randomuser.me')
+	first_name = user["results"]["user"]["name"]["first"]
+	last_name = user["results"]["user"]["name"]["last"]
+	
+	binding.pry
 	erb(:index)
 end
 

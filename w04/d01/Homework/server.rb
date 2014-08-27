@@ -22,9 +22,7 @@ end
 get('/search/name') do
 	list = []
 	Mechanic.all()
-	result = Mechanic.all().find do |thing|
-		params["name"] == thing["name"]
-		end
+	Mechanic.find_by(name, params["name"])	
 
 	list << result
 
@@ -35,9 +33,7 @@ get('/search/favorite_car') do
 	list = []
 
 	Mechanic.all()
-	result = Mechanic.all().find do |thing|
-		params["favorite_car"] == thing["favorite_car"]
-		end
+	Mechanic.find_by(favorite_car, params["favorite_car"])
 
 	list << result
 
@@ -57,9 +53,7 @@ end
 get('/search/make') do
 	list = []
 	Car.all()
-	result = Car.all().find do |thing|
-		params["make"] == thing["make"]
-		end
+	Car.find_by(make, params[make])
 
 	list << result
 
@@ -70,9 +64,7 @@ get('/search/model') do
 	list = []
 
 	Car.all()
-	result = Car.all().find do |thing|
-		params["model"] == thing["model"]
-		end
+	Car.find_by(model, params["model"])
 
 	list << result
 

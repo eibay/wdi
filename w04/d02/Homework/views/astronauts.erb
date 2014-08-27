@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>Space Shuttles and Astronauts</title>
+</head>
+<body>
+	<h1>Astronauts list</h1>
+	<ul>
+		<% astronauts.each do |astronaut| %>
+		<li><a href="/astronauts/<%= astronaut["astronaut_id"]%>"><%= astronaut["name"]%></a></li>
+		<% end %>
+	</ul>
+	<a href="/">Go back</a>
+</body>
+</html>
