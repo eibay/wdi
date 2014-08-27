@@ -3,15 +3,13 @@
 # - Give comedians the attributes - name, age, fav_joke 
 
 class Comedian
-
-	def initialize(name, age, fav_joke)
+	def initialize(name, age, joke)
 		@name = name
 		@age = age
-		@fav_joke = fav_joke
+		@joke = joke
 	end
 
-	def tell_joke
-		puts @fav_joke
+	def show
+		puts "#{@name} is #{@age} and says #{@joke}"
 	end
-
 end

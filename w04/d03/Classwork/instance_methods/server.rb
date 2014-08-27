@@ -1,10 +1,26 @@
+require 'pry'
+require 'json'
 require_relative './comedian'
+counter = 0
+while counter == 0
 
-jokers = ["mitch"]
+puts "name?"
+name = gets.chomp
+puts "age?"
+age = gets.chomp
+puts "joke?"
+joke = gets.chomp
 
-jokers.each do |name|
-	name.Comedian.new(name)
+newcomedian = Comedian.new(name, age, joke)
+newcomedian.show
+binding.pry
+all = JSON.parse(File.read('./stud.txt'))
+all<<newcomedian
+File.write('./stud.txt', all.to_json)
+puts all 
+puts "continue?"
+answer = gets.chomp
+	if answer == "no"
+		counter += 1
+	end
 end
-puts newcom
-
-	
