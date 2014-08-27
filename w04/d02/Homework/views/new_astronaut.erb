@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Are you ready to Moonwalk?</title>
+</head>
+<body>
+
+  <form action="/astronauts" method= "POST">
+    <input type="text" name="name" placeholder="Enter A Name">
+       <input type="text" name="rank" placeholder="Enter A Rank">
+    <select name="shuttle_id">
+      <% shuttles.each do |shuttle| %>
+        <option value="<%= shuttle["id"] %>"><%= shuttle["name"]  %><%= shuttle["rank"] %></option>
+        <% end %>
+    </select>
+    <button>Submit</button>
+  </form>
+
+</body>
+</html>
