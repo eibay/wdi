@@ -4,7 +4,7 @@ class Comedian
 	end
 
 	def tell_joke
-		puts @joke
+		puts @attributes["joke"]
 	end
 
 	def getInfo
