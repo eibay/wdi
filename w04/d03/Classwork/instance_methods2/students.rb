@@ -2,8 +2,6 @@ require 'pry'
 
 class Student
 
-
-
 	def initialize(first, last, email)
 		@first = first
 		@last = last
@@ -13,8 +11,7 @@ class Student
 
 
 	def print
-	
-		puts @first
+		puts "#{@first} #{@last}"
 	end
 
 end
@@ -36,6 +33,6 @@ loop do
 	students.each do |student|
 		student.print
 	end
-	
+
 
 end
