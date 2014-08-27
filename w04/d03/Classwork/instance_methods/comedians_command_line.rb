@@ -10,11 +10,11 @@
 
         puts "What is your age?"
 
-        last_name = gets.chomp
+        age = gets.chomp
 
         puts "What is your last name?"
 
-        age = gets.chomp
+       last_name = gets.chomp
 
         puts "What is your joke?"
 
@@ -30,5 +30,4 @@
 
   end
 
-  #######################
 
