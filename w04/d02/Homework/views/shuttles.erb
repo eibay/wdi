@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shuttles</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="head">
+		<img src="http://upload.wikimedia.org/wikipedia/commons/d/d3/Atlantis_taking_off_on_STS-27.jpg">
+	</div>
+	<h1>Shuttles</h1>
+		<div class="menu">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/shuttles">Shuttles</a></li>
+			<li><a href="/astronauts">Astronauts</a></li>
+			<li><a href="/add-shuttle">Add Shuttle</a></li>
+			<li><a href="/add-astronaut">Add Astronaut</a></li>
+		</ul>
+	</div>
+	<ul>
+	<% shuttles.each do |shuttle| %>
+		<li><a href="/shuttles/<%= shuttle['id'] %>"><%= shuttle['name'] %></a></li>
+		<% end %>
+	</ul>
+</body>
+</html>

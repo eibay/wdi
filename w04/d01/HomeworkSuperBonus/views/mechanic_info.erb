@@ -1,0 +1,12 @@
+<html>
+<body>
+	<img src="<%= mechanic['picture'] %>">
+	<h1><%= mechanic['name'] %></h1>
+	<h3>Age: <%= mechanic['age'] %></h3>
+	<h3>Favorite Car: <%= mechanic['fave_car'] %></h3>  
+	<form action="/mechanic/assign" method="POST">
+		<input type="hidden" name="mechanic" value="<%= "#{mechanic['name']}" %>">
+		<button>Assign</button>
+	</form>
+</body>
+</html>

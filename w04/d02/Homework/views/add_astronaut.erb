@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Add Astronaut</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="head">
+		<img src="http://williamgallagher.com/wp-content/uploads/2014/05/astronaut-outer-space-moon-nasa-astronauts-free-208100.jpg">
+	</div>
+	<h1>Add Astronaut</h1>
+	<div class="menu">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/shuttles">Shuttles</a></li>
+			<li><a href="/astronauts">Astronauts</a></li>
+			<li><a href="/add-shuttle">Add Shuttle</a></li>
+			<li><a href="/add-astronaut">Add Astronaut</a></li>
+		</ul>
+	</div>
+	<form action="/add-astronaut" method="POST">
+		<input type="text" name="name" placeholder="Name">
+		<input type="text" name="rank" placeholder="Rank">
+		<select name="shuttle">
+			<% shuttles.each do |shuttle| %>
+			<option value="<%= shuttle['id'] %>"><%= shuttle['name'] %></option>
+			<% end %>
+		</select>
+		<button>Submit</button>
+	</form>
+</body>
+</html>
