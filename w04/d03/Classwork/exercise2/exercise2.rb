@@ -17,7 +17,7 @@ while ans == "y" || ans == "yes" do
 
 
   student = Student.new(first, last, email)
-  array << student.list
+  array << student.list()
 
   puts array
   puts " "

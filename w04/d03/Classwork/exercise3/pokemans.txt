@@ -1,0 +1,1 @@
+[{"name":"pikachu","element":"electricity","level":"13"},{"name":"squirtle","element":"water","level":"12"},{"name":"charmander","element":"fire","level":"14"}]

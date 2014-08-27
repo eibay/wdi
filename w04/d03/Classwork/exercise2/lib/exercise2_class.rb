@@ -5,7 +5,7 @@ class Student
     @email = email
   end
 
-  def list
+  def list()
     return {first: @first, last: @last, email: @email}
   end
 
