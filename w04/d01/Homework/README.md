@@ -3,29 +3,41 @@
 ---
 ###Garage
 - **GOAL**: Build a server that allows us to add new Mechanics and Cars
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c1f5d6a19289c09c0c6aa78b43206efaedb7cc2
 - **SPEC**: Create all the necessary routes and views so that I can do the below:
   - *Mechanic*:
     - Add Mechanic information into a form - `name, age, favorite car`
     - Have that information be persistent
     - See all of my mechanics listed on a page
     - Search for mechanics by name ***or*** favorite car
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c1f5d6a19289c09c0c6aa78b43206efaedb7cc2
   - *Car*:
     - Add Car information into a form - `make, model, color`
     - Have that information be persistent
     - See all of my cars listed on a page
     - Search for cars by make ***or*** model
       - What happens if the you search for a make or model and there is more than one in your array? I.E. you are searching for `toyota` and your array has information for both a `corolla` and a `camry`
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3c1f5d6a19289c09c0c6aa78b43206efaedb7cc2
 - **DETAILS**:
   - Make sure you are using 2 separate files to handle your persistance
   - Be sure to use classes and class methods
     - Use `require_relative` so that your classes can placed in a `lib` folder, but are still accessible in your `server.rb`
+<<<<<<< HEAD
 
 ######################################################################    
     
     
+=======
+>>>>>>> 3c1f5d6a19289c09c0c6aa78b43206efaedb7cc2
 - **BONUS**:
   - We should already have two pages to list all our items; one for cars and one for mechanics
     - Update these pages so that they only list name of each mechanic and the model of each car

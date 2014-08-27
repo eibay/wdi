@@ -5,12 +5,14 @@
 	<title>Search: Car</title>
 </head>
 <body>
-	<h2> <%= ["make"] %> <%= ["model"] %></h2>
+	<h2> <%= car["make"] %> <%= car["model"] %></h2>
 	<ul>
-		<li>Make: <%= ["make"] %></li>
-		<li>Model: <%= ["model"] %></li>
-		<li>Color: <%= ["color"] %></li>
+	<% car.each do |x| %>
+		<li>Make: <%= x["make"] %></li>
+		<li>Model: <%= x["model"] %></li>
+		<li>Color: <%= x["color"] %></li>
 	</ul>
+	<%end %>
 
 	<form action="/" method="GET">
 		<input type="hidden">

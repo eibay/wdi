@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Astronauts</title>
+</head>
+<body>
+	<h1>Rosencrantzzzzzzzz Active Astronauts</h1>
+	<% astronauts.each do |x| %>
+		<li>
+		<a href="/astronaut/<%= x["id"] %>"><%= x["name"] %></a>
+		</li>
+	<% end %>
+	</form>
+<br>
+<br>
+<br>
+<a href="/"> Go back to home page </a>
+
+</body>
+</html>
