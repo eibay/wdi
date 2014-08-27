@@ -26,7 +26,16 @@ I'm gonna lose my furniture."
 OK, OK, OK. 
 TWO_FURNITURE
 
-  @@joke_array = [white_suit]
+joke = <<PEPPER 
+What does a nosy pepper do? Get jalapeno buisness. 
+PEPPER
+
+harddrive = <<HARDDRIVE
+I named my harddrive ass so once a month my computer asks me 
+if I want to back that ass up.
+HARDDRIVE
+
+  @@joke_array = [white_suit, joke, furniture]
   @@knock_knock_joke_array = [{"who" => "Brad", "who who" => "Brad Pitt, what other Brad is worth talking about?"}] 
 
   def tell_joke
@@ -45,7 +54,6 @@ TWO_FURNITURE
   end
 end
 
-joker = Comedian.new
-joker.tell_joke
-joker.tell_knock_knock_joke
-
+[Comedian.new, Comedian.new, Comedian.new].each do |c|
+	c.tell_joke
+end
