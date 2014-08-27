@@ -1,1 +1,1 @@
-[{"make":"Chevorlet","model":"Corvette","color":"Black"},{"make":"Hennessey","model":"Venom","color":"Black"},{"make":"Batmobile","model":"Dark Knight Trilogy","color":"Black"},{"make":"Tesla","model":"S","color":"Red"}]
+[{"make":"Chevorlet","model":"Corvette","color":"Black"},{"make":"Hennessey","model":"Venom","color":"Black"},{"make":"Batmobile","model":"Dark Knight Trilogy","color":"Black"},{"make":"Tesla","model":"S","color":"Red"},{"make":"Batmobile","model":"1967 Model","color":"Blue/Black"}]

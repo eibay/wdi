@@ -45,7 +45,7 @@
 
 	<h2>Currently Listed Mechanics</h2>
 	<% mechanics.each do |x| %>
-		<h2><%= x["name"] %></h2>
+		<h3><%= x["name"] %></h3>
 		<ul>
 			<li>Age: <%= x["age"] %></li>
 			<li>Favorite Car: <%= x["fav_car"] %></li>
@@ -55,7 +55,7 @@
 	<h2>Currently Listed Cars</h2>
 	<% i = 1 %>
 	<% cars.each do |x| %>
-		<h2>Car #<%= i %></h2>
+		<h3>Car #<%= i %></h3>
 		<ul>
 			<li>Make: <%= x["make"] %></li>
 			<li>Model: <%= x["model"] %></li>

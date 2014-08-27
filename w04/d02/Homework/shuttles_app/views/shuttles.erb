@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shuttles</title>
+</head>
+<body>
+	<h1>Our shuttles</h1>
+	<% shuttles.each do |x| %>
+		<ul>
+		<h4><a href="/shuttle/<%= x["id"] %>"><%= x["name"] %></a></h4>
+		</ul>
+	<% end %>
+
+	<form action="/" method"GET">
+		<input type="hidden">
+		<button>PhoneHome</button>
+	</form>
+</body>
+</html>

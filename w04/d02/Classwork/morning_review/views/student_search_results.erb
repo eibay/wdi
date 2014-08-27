@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Results</title>
+</head>
+<body>
+	<ul>
+		<% results.each do |student| %>
+		<li><%='#{student["first"]} #{student["last"]}'%></li>
+	</ul>
+</body>
+</html>
