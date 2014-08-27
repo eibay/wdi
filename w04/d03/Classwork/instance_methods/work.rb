@@ -8,3 +8,5 @@ steve = Comedian.new("Steve Martin", 69, "I've taken up juggling, but in my mind
 comics = [mitch, steven, steve]
 
 comics.each {|comic| comic.tell_joke}
+
+binding.pry
