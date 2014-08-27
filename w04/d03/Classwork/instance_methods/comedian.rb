@@ -4,13 +4,13 @@
 
 class Comedian
 
-	def initialize(name, age, fav_joke)
+	def initialize(name, fav_joke)
 		@name = name
-		@age = age
 		@fav_joke = fav_joke
 	end
 
 	def tell_joke
+		puts @name
 		puts @fav_joke
 	end
 
