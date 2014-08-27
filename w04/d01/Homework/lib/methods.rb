@@ -32,10 +32,13 @@ class Car
 		File.write('./cars.txt', cars.to_json)
 	end
 	def self.find_by(key, value)
-    self.parse().find_all do |mech|
-      mech[key].downcase == value.downcase
+    self.parse().find_all do |car|
+      car[key].downcase == value.downcase
+  	end	
+      
+      
     end
-end
+
 end
 
 

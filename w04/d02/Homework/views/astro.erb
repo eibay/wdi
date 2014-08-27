@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css"
+	<meta charset="UTF-8">
+	<title>Astronaut Info</title>
+</head>
+<body>
+	<header>
+		<h1><a href="/">GASA HEADQUARTERS</a></h1>
+	</header>
+	<div>
+		<h1>All about <%= "#{astro["rank"]} #{astro["name"]}" %></h1>
+		<p><%= "#{astro["rank"]} #{astro["name"]} can be found aboard #{ship["name"]}, heading to #{ship["destination"]}" %></p>
+	</div>
+</body>
+</html>
