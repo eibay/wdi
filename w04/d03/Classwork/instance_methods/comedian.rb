@@ -10,7 +10,7 @@ end
 
 class Comedian
 
-	def initialize (name, age, fav_joke)
+	def initialize (attributes)
 		@name = name
 		@age = age
 		@fav_joke = fav_joke
@@ -20,4 +20,9 @@ class Comedian
 	def tell_joke
 		puts "Hi, I'm #{@name}. I'm #{@age} and my favorite joke is '#{@fav_joke}'"
 	end
+
+		def getInfo 
+		return {"name" => @name, "age" => @age, "fav_joke" => @fav_joke}
+	end
+
 end

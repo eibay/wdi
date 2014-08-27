@@ -20,5 +20,4 @@ students << info
 students.each do |student|
 	student.list_info
 	end	
-
 end
