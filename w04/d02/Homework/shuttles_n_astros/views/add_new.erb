@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+	<title>Add New</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="/">Mission Control</a></li>
+			<li><a href="/fleet">Fleet</a></li>
+			<li><a href="/crew">Crew Roster</a></li>
+		</ul>
+	</nav>
+
+<h1>Add Shuttles and Astronauts</h1>
+
+<h3>Add Shuttle to Fleet</h3>
+
+<form action="/fleet" method="POST">
+	    <input type="text" name="name" placeholder="Name">
+	    <input type="text" name="origin_country" placeholder="Country of Origin">
+	    <input type="text" name="destination" placeholder="Destination">
+	    <button>Launch</button>
+  </form>
+
+  <h3>Add Astronauts to Crew</h3>
+  <form action="/crew" method="POST">
+	    <input type="text" name="rank" placeholder="Rank">
+	    <input type="text" name="name" placeholder="Name">
+	    <select name="shuttle_id">
+	      <% fleet.each do |shuttle| %>
+	        <option value="<%= shuttle["id"] %>"><%= shuttle["name"] %></option>
+	      <% end %>
+	    </select>
+	    <button>Deploy</button>
+  </form>
+  </body

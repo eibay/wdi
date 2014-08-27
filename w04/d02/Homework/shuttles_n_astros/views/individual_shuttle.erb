@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+	<title><%= shuttle["name"] %></title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="/">Mission Control</a></li>
+			<li><a href="/fleet">Fleet</a></li>
+			<li><a href="/crew">Crew Roster</a></li>
+			<li><a href="/add">Add Shuttles and Crew</a></li>
+		</ul>
+	</nav>
+	<h1><%=shuttle["name"]%></h1>
+	<h3>Voyaging from <%=shuttle["origin_country"]%> to <%=shuttle["destination"]%></h3>
+	<h3>Crew Members:</h3>
+		<ul>
+			<% crew.each do |astronaut| %>
+			<li><a href="/crew/<%=astronaut["id"]%>"><%= astronaut["rank"]%> <%=astronaut["name"]%></a></li>
+			<% end %>
+		</ul>	
+</body>

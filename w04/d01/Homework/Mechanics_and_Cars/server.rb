@@ -60,13 +60,14 @@ get("/search_results") do
 	end
 end
 
-get("car/:model") do
-	car = Car.individual_result("model", params["model"])
+get("/car/:model") do
+	car = Car.individual_result("model", params[:model])
 	erb(:individual_car, {locals: {car: car}})
 end
 
-get("mechanic/:name") do
-	mechanic = Mechanic.individual_result("name", params["name"])
+get("/mechanic/:name") do
+	mechanic = Mechanic.individual_result("name", params[:name])
+	
 	erb(:individual_mechanic, {locals: {mechanic: mechanic}})
 end
 
