@@ -4,7 +4,7 @@ Goal: Create a web application that keeps track of astronauts and the shuttles t
 
 1) Setup two models:
 
-  * Shuttles (name, origin_country, destination)
+  * Shuttles '(name, origin_country, destination)'
   * Astronaut (name, rank)
 
 2) Be able to associate astronauts and shuttles on the command line in `pry`.

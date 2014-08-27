@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shuttles Page</title>
+</head>
+<body>
+	<div class="navbar">
+		<form action="/" method="GET">
+			<button>Home</button>
+		</form>
+		<form action="/shuttles_page" method="GET">
+			<button>Shuttles</button>
+		</form>
+		<form action="/astronauts_page" method="GET">
+			<button>Astronauts</button>
+		</form>		
+	</div>
+
+
+	<div class="main">
+		
+		<div class="form">
+			<form action="/shuttles_page" method="POST">
+				<input type="text" name="name" placeholder="Enter name">
+				<input type="text" name="origin" placeholder="Country of origin">
+				<input type="text" name="destination" placeholder="Destination">
+
+				<button> Build new shuttle </button>
+			</form>
+		</div>
+
+
+		<div class="details">
+			<h3> Shuttles </h3>
+			<ul>
+				<%data_shuttle.each do |shuttle|%>
+					<li> <a href='/shuttle/<%=shuttle["id"]%>'><%=shuttle["name"]%></a> </li>
+				<%end%> 
+			</ul>
+		</div>
+
+	</div>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+[{"id":"891781b3d5531a56b6b2375f042b8696","size_feet":"big","is_sad":"1","can_drive":"0"},{"id":"4919a9033038991b4776ef19067cae94","size_feet":"small","is_sad":"0","can_drive":"0"},{"id":"3aa4e4d68f43d720c425409ec9443a45","size_feet":"medium","is_sad":"1","can_drive":"1"},{"id":"e18eaf2e84a01fa0670bc6fee24d815c","size_feet":"small","is_sad":"0","can_drive":"1"}]
