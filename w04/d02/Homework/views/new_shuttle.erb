@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Abel|Orbitron|Titillium+Web' rel='stylesheet' type='text/css'>
+	<title>Add a New Shuttle</title>
+</head>
+<body>
+	<h1>Add a New Shuttle</h1>
+	<div class="navigation">
+	<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/astronauts">All astronauts</a></li>
+			<li><a href="/shuttles">All shuttles</a></li>
+			<li><a href="/shuttles/new">Add a shuttle</a></li>
+			<li><a href="/astronauts/new">Add an astronaut</a></li>
+		</ul>
+	</div>
+	<div align="center">
+		<form action="/shuttles" method="POST">
+		<input type="text" name="name" placeholder="Shuttle name">
+		<input type="text" name="country" placeholder="Country of origin">
+		<input type="text" name="destination" placeholder="Destination">
+		<button>Submit</button>
+		</form>
+	</div>
+</body>
+</html>

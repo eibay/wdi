@@ -1,0 +1,83 @@
+body {
+	background-image: url('./outer_space.jpg');
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 16px;
+}
+
+.home {
+	margin-top: 75px;
+	background-color:rgba(0,0,0,0.75);
+	height: 250px;
+	padding: 10px;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 24px;
+	text-transform: uppercase;
+
+}
+
+.wrapper {
+
+	background-color:rgba(0,0,0,0.75);
+	height: 300px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.navigation {
+	background-color:rgba(0,0,0,0.5);
+	margin-bottom: 50px;
+}
+
+.navigation li {
+	display: inline;
+	margin-left: 100px;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+h1 {
+	color: white;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 75px;
+	text-align: center;
+}
+
+h3 {
+	color: white;
+}
+
+a {
+	text-decoration: underline;
+	color: white;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #6495ED;
+}
+
+li {
+	color: white;
+	list-style-type: square;
+}
+
+form button {
+	font-family: 'Abel', sans-serif;
+	font-size: 15px;
+	border-radius: 10px;	
+	color: white;
+	background-color: black;
+}
+
+input {
+	font-family: 'Abel', sans-serif;
+	border-radius: 10px;
+	font-size: 15px;
+}
+
+option {
+	font-family: 'Abel', sans-serif;
+	border-radius: 10px;
+	font-size: 15px;
+}

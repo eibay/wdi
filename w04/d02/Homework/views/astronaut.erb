@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Abel|Orbitron|Titillium+Web' rel='stylesheet' type='text/css'>
+	<title>Astronaut Information: <%= astronaut["name"] %></title>
+</head>
+<body>
+	<h1> <%= astronaut["name"] %></h1>
+	<div class="navigation">
+	<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/astronauts">All astronauts</a></li>
+			<li><a href="/shuttles">All shuttles</a></li>
+			<li><a href="/shuttles/new">Add a shuttle</a></li>
+			<li><a href="/astronauts/new">Add an astronaut</a></li>
+		</ul>
+</div>
+	<div class="wrapper">
+		<h3> Rank: <%= astronaut["rank"] %></h3>
+		<h3>Shuttle(s):</h3>
+		<ol>
+		<li> <%= shuttle["name"] %></li>
+		</ol>
+	</div>
+</body>
+</html>
