@@ -12,4 +12,7 @@ comedians.push(george)
 wilma = Comedian.new("Wilma", 27, "bling bling")
 comedians.push(wilma)
 
-binding.pry
+
+comedians.each do |comedian|
+	comedian.tell_joke
+end
