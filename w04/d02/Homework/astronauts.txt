@@ -1,0 +1,1 @@
+[{"name":"Bruce Banner","rank":"Colonel","id":"5390ba66950f12b5cae2594d4a7a4e41"},{"name":"James Kirk","rank":"Ensign","id":"cd2b480a01b16e0d8213dd799fdbd48a"},{"name":"Luke Skywalker","rank":"General","id":"2ab6f2f2e78a17a1fa7c120b7c703e8c"}]

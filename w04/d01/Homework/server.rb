@@ -35,7 +35,8 @@ require_relative './lib/cars'
 	end
 
 	get("/cars/:model") do
-		car = Car.find_by("model", params[:model])
+		model_coming_from_browser = params[:model]
+		car = Car.find_by("model", model_coming_from_browser)
 
 		erb(:car, { locals: { car: car } })
 	end
