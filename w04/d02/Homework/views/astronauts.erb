@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Abel|Orbitron|Titillium+Web' rel='stylesheet' type='text/css'>
+	<title>All Astronauts</title>
+</head>
+<body>
+	<h1>Astronauts</h1>
+	<div class="navigation">
+	<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/astronauts">All astronauts</a></li>
+			<li><a href="/shuttles">All shuttles</a></li>
+			<li><a href="/shuttles/new">Add a shuttle</a></li>
+			<li><a href="/astronauts/new">Add an astronaut</a></li>
+		</ul>
+	</div>
+	<div class="wrapper">
+		<ol>
+		<% astronauts.each do |astronaut| %>
+		<li><a href="/astronauts/<%= astronaut["id"] %>"><%= astronaut["name"] %></a></li>
+		<% end %>
+		</ol>
+	</div>
+</body>
+</html>

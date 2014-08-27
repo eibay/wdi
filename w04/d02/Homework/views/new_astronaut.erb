@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<link href='http://fonts.googleapis.com/css?family=Abel|Orbitron|Titillium+Web' rel='stylesheet' type='text/css'>
+	<title>Add an Astronaut</title>
+</head>
+<body>
+	<h1>Add an Astronaut</h1>
+	<div class="navigation">
+	<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/astronauts">All astronauts</a></li>
+			<li><a href="/shuttles">All shuttles</a></li>
+			<li><a href="/shuttles/new">Add a shuttle</a></li>
+			<li><a href="/astronauts/new">Add an astronaut</a></li>
+		</ul>
+</div>
+<div align="center">
+	<form action="/astronauts" method="POST">
+		<input type="text" name="name" placeholder="Name">
+		<input type="text" name="rank" placeholder="Rank">
+		<select name="shuttle_id">
+			<option selected="selected">Select a shuttle</option>
+		<% shuttles.each do |shuttle| %>
+			<option value="<%= shuttle["id"] %>"><%= shuttle["name"] %></option>
+			<% end %>
+		</select>
+		<button>Submit</button>
+	</form>
+</div>
+</body>
+</html>
