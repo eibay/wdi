@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Astronauts &amp; Shuttles! | <%= view_name %></title>
+</head>
+<body>
+	<%= erb :header_partial %>
+	<h1><%= view_name %></h1>
+	<ul>
+		<% astronauts.each do |astronaut| %>
+			<li><a href=<%= "/astronauts/" + astronaut.id %>><%= astronaut.name %></a></li> 
+		<% end %>
+	</ul>
+</body>
+</html>

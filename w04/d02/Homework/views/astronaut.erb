@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Astronauts &amp; Shuttles! | <%= view_name %></title>
+</head>
+<body>
+	<%= erb :header_partial %>
+	<h1><%= astronaut.name %></h1>
+	<h2><%= astronaut.rank %></h2>
+	<% if shuttle %> 
+		<p>They are currently on the <%= shuttle.name %> which is going to <%= shuttle.destination %>.</p>
+	<% else %> 
+		<p>Currently earth-bound.</p>
+	<% end %>
+</body>
+</html>

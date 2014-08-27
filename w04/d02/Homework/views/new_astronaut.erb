@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Astronauts &amp; Shuttles! | <%= view_name %></title>
+	<link type="text/css" rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+	<%= erb :header_partial %>
+	<h2>Add a Astronaut to Astronauts &amp; Shuttles</h2>
+	<p>Do you want to add an astronaut to Astronauts &amp; Shuttles? Of course you do! But you may be confused about how to add an astronaut to Astronauts &amp; Shuttles. Don&rsquo;t worry, I&rsquo;m here to help.</p>
+	<p></p>
+	<form action="/astronauts" method="POST">
+		<label>First, tell me what they&rsquo;re called:<input type="text" name="name"></label>
+		<label>Their military rank:<input type="text" name="origin_country"></label>
+		<label>&amp; if they&rsquo;re currently on any shuttles:<select name="shuttle_id">
+			<% shuttles.each do |shuttle| %>
+			<option value=<%= shuttle.id %>><%= shuttle.name %></option>
+			<% end %>
+		</select>
+		<button>That&rsquo;s All!</button>
+	</form>
+</body>
+</html>
