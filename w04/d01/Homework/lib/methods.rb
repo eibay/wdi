@@ -14,6 +14,7 @@ class Mechanic
 
 
 	def self.create(mech)
+		mechanics = SecureRandom.hex
 		mechanics= self.all()
 		mechanics.push(mech)
 		mechanic_json = JSON.generate(mechanics)

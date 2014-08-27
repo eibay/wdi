@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<h2>Shuttles</h2>
+
+
+<p>
+<% shuttle.each do |b| %>
+<li><a href="/shuttle/search/<%= b['id'] %>"> <%=b["name"] %> </a> </li>
+<% end %>
+<p>
+</body>
+</html>

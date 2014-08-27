@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form method="POST" action="/astronaut">
+	Astronaut Name: <input type="text" name="name"><br>
+	Astronaut Rank: <input type="text" name="rank"><br>
+	Shuttle: <select name="shuttle_id">
+		<% shuttle.each do |shutt| %>
+		<option value="<%=shutt["id"] %>"> <%= shutt["name"] %> </option>
+		<% end %>
+		</select><br>
+	<button>Submit</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,1 @@
+[{"name":"Funky Town","capacity":"400","id":"a08dedde99ec467ecabc7c484e496eae"},{"name":"Rosencranz","capacity":"20","id":"6e5781e4c7a2ab55fd1c12fcc70e9421"}]
