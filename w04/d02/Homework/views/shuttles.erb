@@ -10,7 +10,7 @@
   <ul>
 
     <% shuttles.each do |shuttle| %>
-      <li><a href="/shuttles/<%= shuttle["id"] %>"><%= shuttle["name"] %></a>
+      <li><a href="/shuttles/<%= shuttle['id'] %>"><%= shuttle["name"] %></a>
         <br>
         <li><%=shuttle["origin_country"] %></li>
         <!-- <br> -->
