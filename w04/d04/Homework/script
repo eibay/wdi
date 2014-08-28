@@ -1,0 +1,31 @@
+#!/bin/bash 
+
+echo "What is a DATABASE?\nA database is a program, designed to keep records.\nWhat is problematic about using files instead of a db?\nReliability & having been thought through by computer scientists.\n\nClayton, you know what a SCHEMA is, right? Because you totally heard *ev-er-y-thing* Neel said in lecture today, right? And you weren't mucking about on Hipchat at all, right?\nI am not sure I do know. But the [simple Wikipedia article for Database schema][simple] makes me think what we do when we issue the commands to create a db & create tables inside the db is describing to `psql` the schema, the schematic, the blueprint, whatever that is.\n\n[simple]: http://simple.wikipedia.org/wiki/Database_schema \"Database schema on Wikipedia\"\n\nIf a user or process is not adding/deleting/querying the db, is the db process still running?\nYes, it is listening on a port for queries.\n" > testing.txt 
+
+psql -U clayreed -c "CREATE DATABASE tablefun;" -e >> writeup.txt 
+
+commands= ( "\\c tablefun;" 
+	"CREATE TABLE schools (name varchar(50), city varchar(30), state varchar(2));" 
+	"ALTER TABLE schools ADD zip varchar(5);" 
+	"INSERT INTO schools (name, city, state, zip) VALUES ('Hogwarts', 'Somewhere Outside London', 'WA', '23456');" 
+	"INSERT INTO schools (name, city, state, zip) VALUES ('New School', 'New York', 'NY', '10003');" 
+	"INSERT INTO schools (name, city, state, zip) VALUES ('bleeb', 'bloob', 'bg', 'bloog');" "SELECT * FROM schools;" 
+	"\\d schools;" 
+	"UPDATE schools SET name='Manhattan High' WHERE name like '%';" 
+	"SELECT * FROM schools;" 
+	"CREATE TABLE teachers (name varchar(50), email varchar(20), subject varchar(30));" 
+	"ALTER TABLE teachers ADD age integer;" 
+	"INSERT INTO teachers (name, email, subject, age) VALUES ('Mr. Bonj', 'mike@school.edu', 'Math', 35);" 
+	"INSERT INTO teachers (name, email, subject, age) VALUES ('Mr. Rutlidge', 'mark@school.edu', 'Math', 35);" 
+	"INSERT INTO teachers (name, email, subject, age) VALUES ('Somebody', 'somebody@teaches.edu', 'English', 35);" 
+	"INSERT INTO teachers (name, email, subject, age) VALUES ('Somebody Else', 'else@teaches.edu', 'English', 35);" 
+	"INSERT INTO teachers (name, email, subject, age) VALUES ('PE Teacher', 'physical@ed.edu', 'PE', 35);" 
+	"SELECT * FROM teachers;" 
+	"\\d teachers;" 
+	"UPDATE teachers SET age=40 WHERE subject='Math';" 
+	"DELETE FROM teachers WHERE subject='Math';" ) 
+
+
+for command in ${commands[@]} do 
+	psql -U clayreed -c $COMMAND -e tablefun >> writeup.txt 
+done 
