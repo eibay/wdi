@@ -29,7 +29,7 @@ class Student
     instances = []
 
     array_of_hashes.each do |student|
-      instances << Student.new(student)
+      instances << self.new(student)
     end
 
     return instances
@@ -49,11 +49,4 @@ class Student
   def [](key)
     return @attributes[key]
   end
-
-def dorm
-  Dorm.find_by("id", @attributes["dorm_id"])
 end
-
-end
-
-
