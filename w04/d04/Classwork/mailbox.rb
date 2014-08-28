@@ -32,7 +32,8 @@ class Mailbox
 
 		
 		if reciever.nil?
-			# if there're no users w/ that name, save it in sender's outbox # 
+			# if there're no users w/ that name,
+			# save it in sender's outbox # 
 			puts "Your message could not be sent."
 			puts "I have placed it in your outbox."
 
