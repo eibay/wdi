@@ -1,0 +1,1 @@
+[{"first":"bob","last":"smith","email":"bsmith"},{"first":"jon","last":"snow","email":"jsnow"},{"first":"otto","last":"octavius","email":"dock"},{"first":"revolutionary","last":"clown","email":"rclown"},{"first":"bruce","last":"wayne","email":"bwayne"},{"first":"king","last":"octopus","email":"koctopus"},{"first":"ash","last":"ketchum","email":"aketchum"}]

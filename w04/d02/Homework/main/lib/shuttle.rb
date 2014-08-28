@@ -1,6 +1,7 @@
 require 'json'
 require 'pry'
 require 'securerandom'
+require 'sinatra/reloader'
 
 class Shuttle
 
