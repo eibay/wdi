@@ -56,6 +56,6 @@ end
 
 get("/ships/:id") do 
 	ship = Ship.find_by("ship_id", params[:id])
-	astros_in_ship = Astro.select_by("ship_id", params[:id])
-erb(:ship, locals: { ship: ship, astros: astros_in_ship})
+	astro = Astro.select_by("ship_id", params[:id])
+erb(:ship, locals: { ship: ship, astro: astro})
 end
