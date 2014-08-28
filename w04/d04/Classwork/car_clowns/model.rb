@@ -44,7 +44,11 @@ class Model
     @attributes = attributes
   end
 
+<<<<<<< HEAD:w04/d04/Classwork/car_clowns/model.rb
   def to_json (_)
+=======
+  def to_json(_)
+>>>>>>> f5feeb67515e33a589c68cf9783446fe1a89480b:w04/d04/Instructors/car_clowns/model.rb
     @attributes.to_json
   end
 
