@@ -1,33 +1,14 @@
 require_relative './class_command_line_app_hashes'
 
-comedians = []
+kevin_hart = Comedian.new("name" => "Kevin Hart", "age" => 40, "joke" => "haha" )
 
-loop do
+russell_peters = Comedian.new("name" => "Russell Peters", "age" => 45, "joke" => "haha take two" )
 
-puts "What is your name?"
+chris_rock = Comedian.new("name" => "Russell Peters", "age" => 50, "joke" => "haha take three" )
 
-name = gets.chomp
-
-puts "What is your age?"
-
-age = gets.chomp
-
-puts "Tell me a joke"
-
-joke = gets.chomp
-
-kevin_hart = Comedian.new(name, age, joke)
-
-russell_peters = Comedian.new(name, age, joke)
-
-chris_rock = Comedian.new(name, age, joke)
-
-comedians << kevin_hart
-comedians << russell_peters
-comedians << chris_rock
+comedians = [kevin_hart, russell_peters, chris_rock]
 
 comedians.each do |comedian|
-  comedian.getInfo
+puts comedian.getInfo
 end
 
-end # ends loop statement

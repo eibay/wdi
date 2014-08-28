@@ -1,10 +1,12 @@
 class Comedian
 
   def initialize(info)
-      @info = info
+      @name = info["name"]
+      @age = info["age"]
+      @joke = info["joke"]
   end
 
-    def getInfo(name, age, joke)
+    def getInfo
       { "name" => @name,
       "age" => @age,
       "joke" => @joke }
