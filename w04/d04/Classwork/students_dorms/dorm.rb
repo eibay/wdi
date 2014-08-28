@@ -1,6 +1,5 @@
 require 'securerandom'
 require 'json'
-require_relative "./student"
 
 class Dorm
   def self.create(dorm)
@@ -50,10 +49,4 @@ class Dorm
   def [](key)
     return @attributes[key]
   end
-
-  def students
-    # return all the students with the dorm_id of the current dorm
-    return Student.select_by("dorm_id", @attributes["id"])
-  end
-
 end
