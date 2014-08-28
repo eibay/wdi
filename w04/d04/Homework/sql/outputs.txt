@@ -1,0 +1,25 @@
+heidiwilliams=# SELECT * FROM schools;
+       name       |    city    |   state    |  zip  
+------------------+------------+------------+-------
+ UC-Santa Cruz    | Santa Cruz | California | 95060
+ PS 84            | Brooklyn   | New York   | 11222
+ West High School | Madison    | Wisconsin  | 53703
+(3 rows)
+
+heidiwilliams=# \d schools
+           Table "public.schools"
+ Column |          Type          | Modifiers 
+--------+------------------------+-----------
+ name   | character varying(100) | 
+ city   | character varying(100) | 
+ state  | character varying(100) | 
+ zip    | character varying(5)   | 
+
+ heidiwilliams=# SELECT * FROM schools;
+      name      |    city    |   state    |  zip  
+----------------+------------+------------+-------
+ Manhattan High | Santa Cruz | California | 95060
+ Manhattan High | Brooklyn   | New York   | 11222
+ Manhattan High | Madison    | Wisconsin  | 53703
+(3 rows)
+
