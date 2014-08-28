@@ -6,7 +6,7 @@ Create a web app that keeps track of which characters are in which houses.
   * House - name, age ; Character - name, image_url
   * Practice creating houses and characters on the command line.
 
-2) Routes
+2) GET Routes
 
   * `/` -> A welcome page with links to `/characters` and `/houses`
   * `/characters` -> a list of the characters with links to their `/charaters/:id` page
