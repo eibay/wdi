@@ -44,7 +44,7 @@ class Model
     @attributes = attributes
   end
 
-  def to_json(_)
+  def to_json
     @attributes.to_json
   end
 
