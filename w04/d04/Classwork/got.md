@@ -5,6 +5,7 @@ Create a web app that keeps track of which characters are in which houses.
 1) Copy the `model.rb` into your GOT project and use it to create classes for House and Character.
   * House - name, age ; Character - name, image_url
   * Practice creating houses and characters on the command line.
+  * You should be able to call `character.house` and `house.characters`
 
 2) GET Routes
 
