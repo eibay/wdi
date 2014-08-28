@@ -23,7 +23,7 @@ class User
 		city = random["results"[0]]["user"]["location"]["city"]
 		state = random["results"[0]]["user"]["location"]["state"]
 
-		return {"first_name" => first_name, "last_name" => last_name, "gender" => gender, "city" => city, "state" => state}
+		return {first_name: first_name, last_name: last_name, gender: gender, city: city, state: state}
 	end
 
 	def self.random_user_creator
@@ -35,6 +35,6 @@ class User
 		city = random["results"[0]]["user"]["location"]["city"]
 		state = random["results"[0]]["user"]["location"]["state"]
 
-		return self.new{"first_name" => first_name, "last_name" => last_name, "gender" => gender, "city" => city, "state" => state}
+		return self.new(first_name, last_name, gender, city, state)
 	end
 end
