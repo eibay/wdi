@@ -1,4 +1,3 @@
-
 require 'sinatra'
 require 'sinatra/reloader'
 require 'securerandom'
@@ -68,18 +67,3 @@ get "/shuttles/:id" do
 	astronauts=Astronaut.select_by("shuttle_id" , id)
 	erb(:individual_shuttle, {locals:{shuttle: shuttle, astronauts: astronauts}})
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

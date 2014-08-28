@@ -7,7 +7,7 @@
 <h1>Active shuttles</h1>
 <ul>
 	<%shuttles.each do |shuttle|%>
-	<li><a href='<%= "/shuttles/#{shuttle['id']}"%>'> <%=shuttle['name']%></a></li>
+	<li><a href="/shuttles/<%= shuttle['id'] %>"><%= shuttle["name"] %></a></li>
 	<%end%>
 </ul>
 
