@@ -51,7 +51,12 @@ class Dorm
   end
 
   def students
+<<<<<<< HEAD
       Student.select_by("dorm_id", @attributes["id"])
   end
 
+=======
+    Student.select_by("dorm_id", @attributes["id"])
+  end
+>>>>>>> 28890bca592cc1051fa820051b7c7949a2cf1463
 end

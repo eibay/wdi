@@ -1,3 +1,4 @@
+require_relative './dorm'
 require 'securerandom'
 require 'json'
 
@@ -50,6 +51,7 @@ class Student
     return @attributes[key]
   end
 
+<<<<<<< HEAD
 def dorm
   Dorm.find_by("id", @attributes["dorm_id"])
 end
@@ -57,3 +59,13 @@ end
 end
 
 
+=======
+  def hello
+    return "My name is #{@attributes["first"]}"
+  end
+
+  def dorm
+    return Dorm.find_by("id", @attributes["dorm_id"])
+  end
+end
+>>>>>>> 28890bca592cc1051fa820051b7c7949a2cf1463
