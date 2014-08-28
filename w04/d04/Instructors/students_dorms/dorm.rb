@@ -49,4 +49,8 @@ class Dorm
   def [](key)
     return @attributes[key]
   end
+
+  def students
+    Student.select_by("dorm_id", @attributes["id"])
+  end
 end
