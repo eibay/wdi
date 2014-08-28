@@ -9,7 +9,7 @@ class Mailbox
 
 	def initialize user_name
 
-		# ensure a username is unique 
+		# ensure a username is unique # 
 		mailbox_array = Mailbox.all
 		until !mailbox_array.include? user_name
 			puts "#{user_name} is already taken."
@@ -25,7 +25,7 @@ class Mailbox
 
 	def send_message message, to
 
-		# find the reciever
+		# find the reciever #
 		reciever = Mailbox.all.find do |mailbox| 
 			mailbox.user_name == to 
 		end 
