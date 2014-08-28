@@ -26,13 +26,12 @@ end
 
 post "/shuttles" do
   shuttle = {"name"=> params["name"], "origin"=> params["origin"], "destination"=> params["destination"]}
-Shuttles.add(shuttle)
-
-erb(:shuttles, {locals: {shuttles: Shuttles.list()}}) 
+  Shuttles.add(shuttle)
+  erb(:shuttles, {locals: {shuttles: Shuttles.list()}}) 
 end
 
 post "/astronauts" do
-  astronaut = {"name" => params["name"],"rank"=>params["rank"], "shuttleid"=> params["shuttleid"]}
+  astronaut = {"name" => params["name"],"rank" => params["rank"], "shuttleid" => params["shuttleid"]}
   Astronauts.add(astronaut)
   erb(:astronauts,{locals: {astronauts: Astronauts.list()}})
 end
