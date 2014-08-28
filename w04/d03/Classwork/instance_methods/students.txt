@@ -1,0 +1,1 @@
+[["Daniel","Farber","df@farber.com"],["Roger","Cohen","rc@cohen.com"],["Ben","Brantly","benbrantly@wp.com"],["Daniel","Farber","df@farber.com"],["Daniel","Moynihan","dpmoynie@congress.gov"],["Harald","Hardaway","hhardaway@place.com"],["Bob","Woodward","bwoody@wp.com"],["Carl","Bernstein","berniebernie@wp.com"]]
