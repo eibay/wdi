@@ -23,7 +23,7 @@
       - Add 3 schools with different data into the table
       - Select all schools and copy and paste the output in the terminal to ```outputs.txt```
       - Show the structure of the table by typing ```\d schools``` and copy and paste this output into ```outputs.txt```
-      - Change every school's name to "Manhattan High". Select all schools again and copy and paste this output into ```outputs.txt```
+      - **Bonus** change every school's name to "Manhattan High". Select all schools again and copy and paste this output into ```outputs.txt```
     - *Teachers Table*:
       - Create a table called ```teachers```
       - Add the fields ```name```, ```email```, and ```subject```. Each being of type ```varchar```
@@ -32,7 +32,7 @@
       - Select all teachers and copy and paste the output in the terminal to ```outputs.txt```
       - Show the structure of the table by typing ```\d teachers``` and copy and paste this output into ```outputs.txt```
       - **Bonus** update every math teacher to be 40 years old. Put the SQL statement you used into your ```outputs.txt```
-      - Delete all math teachers. Copy and paste the SQL statement you used into ```outputs.txt```
+      - **Bonus** delete all math teachers. Copy and paste the SQL statement you used into ```outputs.txt```
 - **BONUS**:
   - Create the following tables
     - *Mechanics Table*
