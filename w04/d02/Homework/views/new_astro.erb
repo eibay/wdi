@@ -15,7 +15,7 @@
 		<input type="text" name="rank" placeholder="rank">
 		<select name="ship_id">
 			<% ships.each do |ship| %>
-			<option value"<%= ship["ship_id"] %>"><%= ship["name"] %></option>
+			<option value="<%= ship["ship_id"] %>"><%= ship["name"] %></option>
 			<% end %>
 		</select>
 		<button>Suit up!</button>

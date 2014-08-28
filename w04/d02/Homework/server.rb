@@ -16,7 +16,9 @@ end
 
 post ("/astros") do 
 	astro_id = SecureRandom.hex
+binding.pry
 	astro = {"name" => params["name"], "rank" => params["rank"], "ship_id" => params["ship_id"], "astro_id" => astro_id}
+	binding.pry
 	Astro.create(astro)
 erb(:astros, locals: { astros: Astro.all() })
 end
@@ -46,14 +48,14 @@ get("/ships") do
 end
 
 get("/astros/:id") do 
-	astro = Astro.find_by("astro_id", params["ship_id"])
-	ship = Ship.find_by("ship_id", astro["astro_id"])
+	astro = Astro.find_by("astro_id", params[:id])
+	ship = Ship.find_by("ship_id", astro["ship_id"])
 erb(:astro, locals: { astro: astro, ship: ship})
 end
 
 
 get("/ships/:id") do 
-	ship = Ship.find_by("ship_id", params["astro_id"])
-	astros_in_ship = Astro.select_by("ship_id", ship["ship_id"])
-erb(:ship, locals: { ship: ship, astros: astros_in_ship})
+	ship = Ship.find_by("ship_id", params[:id])
+	astro = Astro.select_by("ship_id", params[:id])
+erb(:ship, locals: { ship: ship, astro: astro})
 end

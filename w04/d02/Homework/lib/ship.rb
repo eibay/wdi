@@ -16,7 +16,7 @@ class Ship
 
 	def self.find_by(key, value)
 		self.all().find do |ship|
-			ship[key].downcase == value.downcase
+			ship[key] == value
 		end
 	end
 
