@@ -1,8 +1,8 @@
-class Comedian
+class Comedian #notes
 
-	comedians = []
+	#comedians = []
 
-	Comedian.new = (name, age, joke)
+	#Comedian.new = (name, age, joke)
 
 	def initialize(name, age, joke)
 		@name = name
@@ -10,9 +10,23 @@ class Comedian
 		@joke = joke
 	end
 
-	def ask_comedian
-	
+	def name
+		return @name
 	end
-	
-	def 
+   
+    def get_the_name
+    	return @name 
+    end
+
+    def getInfo
+    	return {"name" => @name, "age" => @age, "joke" => @joke}
+    end
+
 end
+
+mitch = Comedian.new()
+puts mitch.getInfo["age"]
+
+info = {"name" => "sean", "age" => 28}
+
+def initialize( attributes )
