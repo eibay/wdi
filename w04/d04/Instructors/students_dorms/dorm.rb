@@ -50,6 +50,7 @@ class Dorm
     return @attributes[key]
   end
 
+<<<<<<< HEAD
   def student
     student = Student.select_by("dorm_id", @attributes['dorm_id'])
     return student
@@ -59,3 +60,9 @@ end
 
 
 
+=======
+  def students
+    Student.select_by("dorm_id", @attributes["id"])
+  end
+end
+>>>>>>> 28890bca592cc1051fa820051b7c7949a2cf1463
