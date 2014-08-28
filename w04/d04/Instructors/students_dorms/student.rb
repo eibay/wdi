@@ -1,5 +1,6 @@
 require 'securerandom'
 require 'json'
+require 'pry'
 
 class Student
   def self.create(student)
@@ -49,4 +50,25 @@ class Student
   def [](key)
     return @attributes[key]
   end
+
+  def hello
+    return "My name is #{@attributes["first"]}"
+  end
+
+  def dorm
+    ### returns the Dorm object for this student
+    dorm = Dorm.find_by("dorm_id", @attributes['dorm_id'])
+    return dorm
+  end
 end
+
+binding.pry
+
+
+
+
+
+
+
+
+

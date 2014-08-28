@@ -1,4 +1,5 @@
 require 'httparty'
+require 'pry'
 
 class User
 	def initialize(attr)
@@ -25,12 +26,15 @@ class User
 
 	def self.random_user
 		user = HTTParty.get("http://api.randomuser.me/")
-		@gender = user["results"][0]["user"]["gender"]
-		@first_name = user["results"][0]["user"]["name"]["first"]
-		@last_name = user["results"][0]["user"]["name"]["last"]
-		@city = user["results"][0]["user"]["name"]["location"]["city"]
-		@state = user["results"][0]["user"]["name"]["location"]["state"]
-
+		random_info = user["results"][0]["user"]
+		random_hash = {
+		gender:random_info["gender"],
+		first:random_info["name"]["first"],
+		last:random_info["name"]["last"],
+		city:random_info["name"]["location"]["city"],
+		state:random_info["name"]["location"]["state"]
+	}
+		return random_info
 	end
 	### Still dont get how to apply ramdomuser api. I need explain! ###
 end
