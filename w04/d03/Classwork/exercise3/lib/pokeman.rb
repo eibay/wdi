@@ -12,4 +12,5 @@ class Pokemon
   def return_hash
     return {name: @name, element: @element, level: @level}
   end
+  
 end
