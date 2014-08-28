@@ -2,6 +2,7 @@ require "pry"
 require "json"
 require_relative "./students"
 
+students = Student.recall
 
 loop do
 
@@ -12,9 +13,13 @@ loop do
 	puts "Please enter your email address now."
 	email = gets.chomp.downcase
 
-	Student.new(first_name, last_name, email).remember
+	student = Student.new(first_name, last_name, email)
 
-	students = Student.recall
+	student.remember
+
+	students << student
+
+	
 
 	students.each {|student| puts "#{student.first} #{student.last}: #{student.email}"}
 
