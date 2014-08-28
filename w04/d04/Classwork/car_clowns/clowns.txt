@@ -1,0 +1,1 @@
+[{"name":"Bozo","shoe_size":"XXXXL","car_id":"42431a7b575714c554803ab878f39d98","id":"bd9079304fecaa8ffba49db73f5c3166"},{"name":"Mike","shoe_size":"XXXXL","car_id":"d7be2a8878893d041bb5b7c732c99ad5","id":"87e0767947c6928cd6dd96a709b1c97b"},{"name":"Johnny","shoe_size":"XXXXL","car_id":"d7be2a8878893d041bb5b7c732c99ad5","id":"3ac6fc62a3121b752e7d793d71201c76"}]
