@@ -9,8 +9,12 @@ class User
 		@gender = gender
 		@city = city
 		@state = state
+	end
 
-		puts "Hi! I'm #{first_name} #{last_name}, from #{city}!"
+	attr_reader :first_name, :last_name, :gender, :city, :state
+
+	def greeting
+		"Hi!  I'm #{self.first_name} #{self.last_name}, from #{self.city}!"
 	end
 
 	def self.random_user
@@ -21,8 +25,9 @@ class User
 		state = user["location"]["state"].capitalize
 		first = user["name"]["first"].capitalize
 		last = user["name"]["last"].capitalize
-		User.new(first, last, gender, city, state)
-		return response
+		return [User.new(first, last, gender, city, state), response]
 	end
 
 end
+
+binding.pry
