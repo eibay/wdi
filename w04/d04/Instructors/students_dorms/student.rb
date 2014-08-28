@@ -1,3 +1,4 @@
+require_relative './dorm'
 require 'securerandom'
 require 'json'
 
@@ -29,7 +30,7 @@ class Student
     instances = []
 
     array_of_hashes.each do |student|
-      instances << self.new(student)
+      instances << Student.new(student)
     end
 
     return instances
@@ -48,5 +49,13 @@ class Student
 
   def [](key)
     return @attributes[key]
+  end
+
+  def hello
+    return "My name is #{@attributes["first"]}"
+  end
+
+  def dorm
+    return Dorm.find_by("id", @attributes["dorm_id"])
   end
 end
