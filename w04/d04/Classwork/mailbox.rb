@@ -46,7 +46,7 @@ class Mailbox
 	end 
 end 
 
-# #
+# demonstrate functionality #
 
 m = Mailbox.new "Mom"
 c = Mailbox.new "Clayton"
