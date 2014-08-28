@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>House/Character Tracker</title>
+</head>
+<body>
+	<h1>Characters list</h1>
+	<ul>
+	<% characters.each do |character|%>
+	<li><a href="/characters/<%= character['id']%>"><%= character["name"]%></a></li>
+	<% end %>
+	</ul>
+	<a href="/characters/new">Create a new character</a><br />
+	<a href="/">Go back</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>House/Character Tracker</title>
+</head>
+<body>
+	<p>
+	<%= house["name"]%>!
+	Age: <%= house["age"]%></p>
+	<p>Residents at <%= house["name"] %></p>
+	<ul>
+	<% house.characters.each do |character| %>
+	<li><a href="/characters/<%= character['id']%>"><%= character['name']%></a></li>
+	<% end %>
+	</ul>
+	<a href="/">Go back</a>
+</body>
+</html>
