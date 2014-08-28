@@ -7,16 +7,16 @@ require 'pry'
 class Comedian
 
 	def initialize(info)
-		@name = name
-		@age = age
-		@fav_joke = fav_joke
+		@name = info["name"]
+		@age = info["age"]
+		@fav_joke = info["fav_joke"]
 	end
 
 
-	# def get_info(name)
-	# 	return {"name" => @name,
-	# 			"age" => @age,
-	# 			"joke" => @joke}
-	# end
+	def get_info
+		return {"name" => @name,
+				"age" => @age,
+				"joke" => @fav_joke}
+	end
 
 end
