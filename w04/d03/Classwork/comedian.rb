@@ -1,9 +1,9 @@
 class Comedian
 
-	def initialize(name, age, fav_joke)
-		@name = name
-		@age = age
-		@fav_joke = fav_joke
+	def initialize(attribute)
+		@name = attribute["name"]
+		@age = attribute["age"]
+		@fav_joke = attribute["fav_joke"]
 	end
 	def getinfo
 		return {"name" => @name, "age" => @age, "joke" => @joke}
