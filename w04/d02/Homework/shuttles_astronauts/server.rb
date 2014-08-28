@@ -29,7 +29,7 @@ get("/shuttles/:id") do
   shuttle = Shuttle.find_by("id", params[:id])
   astronaut = Astronaut.find_by("id", shuttle["astronaut_id"])
 
-  erb(:shuttle, {locals: { shuttle: shuttle, astronaut: astronaut }}
+  erb(:shuttle, {locals: { shuttle: shuttle, astronaut: astronaut } })
 end
 
 get("/") do  
