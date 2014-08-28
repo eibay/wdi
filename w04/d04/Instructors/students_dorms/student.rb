@@ -49,8 +49,4 @@ class Student
   def [](key)
     return @attributes[key]
   end
-
-  def dorm
-    Dorm.find_by("id", self["dorm_id"])
-  end
 end
