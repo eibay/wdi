@@ -65,3 +65,12 @@ Your command line app should:
 1. Prompt the user for the name of a new greeter, and then create that greeter and persist them using the ```model``` class.
 2. Show the user all currently created greeters, having them all say their greets
 3. Repeat 1-2
+
+##Greeters (Part 3)
+
+**Create a small webapp to search for Greeters**
+
+Create a webapp that:
+- allows the user to search for greeters by name.
+- displays all greeters that match that name and shows their greeting
+  - You may have to change the Greeter's instance method that says their greet
