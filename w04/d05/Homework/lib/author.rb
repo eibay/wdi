@@ -5,7 +5,7 @@ class Author
 
 	# define a db var # 
 
-	@@db = "./author.db"  
+	@@db = "./authors.db"  
 
 
 	# the init # 
@@ -62,6 +62,10 @@ class Author
 	def create
 		db_hashes << self.to_hash
 		File.write @@db, db_hashes.to_json 
+	end 
+
+	def posts 
+		Post.all.find_all_by :author_id, self.id 
 	end 
 
 end 
