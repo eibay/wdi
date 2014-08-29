@@ -1,0 +1,7 @@
+1. A database is a program that runs on a computer. It's a collection of tables that store information. 
+
+2. With text files, it's easy to enter mistakes and typos into the file. There are inconsistencies with data types (i.e. numbers can be added as integers or strings). Txt files also don't enforce the schema determined by the user. They are less consistent and structured than databases.
+
+3. A schema is the template or predetermined structure of the information to be captured.
+
+4. Yes.

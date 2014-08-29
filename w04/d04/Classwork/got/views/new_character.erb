@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Game of Thrones: Add a Character</title>
+</head>
+<body>
+	<h1>Game of Thrones: Add a Character</h1>
+
+	<form action="/characters" method="POST">
+		<input type="text" name="name" placeholder="Character's Name">
+		<input type="text" name="image_url" placeholder="Image path">
+		<select name="house_id">
+		<option selected="selected">Select a House</option>
+		<% houses.each do |house| %>
+		<option value="<%= house["id"] %>"><%= house["name"] %></option>
+		<% end %>
+		</select>
+		<button>Submit</button>
+	</form>
+
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/houses">All Houses</a></li>
+		<li><a href="/characters">All Characters</a></li>
+		<li><a href="/characters/new">Add a Character</a></li>
+	</ul>
+
+</body>
+</html>

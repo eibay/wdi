@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Game of Thrones: Character Profile</title>
+</head>
+<body>
+
+<h1>Character Profile</h1>
+Name: <%= character["name"] %><br>
+House: <%= house["name"] %><br>
+<img src="<%= character["image_url"] %>" alt="<%= character["name"] %>">
+
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/houses">All Houses</a></li>
+		<li><a href="/characters">All Characters</a></li>
+		<li><a href="/characters/new">Add a Character</a></li>
+	</ul>
+</body>
+</html>

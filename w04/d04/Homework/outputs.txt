@@ -1,0 +1,105 @@
+Create a table called teachers
+Add the fields name, email, and subject. Each being of type varchar
+Add the field age as an integer
+Add 2 teachers with the subject math and 4 teachers in various other subjects
+Select all teachers and copy and paste the output in the terminal to outputs.txt
+Show the structure of the table by typing \d teachers and copy and paste this output into outputs.txt
+Bonus update every math teacher to be 40 years old. Put the SQL statement you used into your outputs.txt
+Bonus delete all math teachers. Copy and paste the SQL statement you used into outputs.txt
+
+** --- SCHOOLS TABLE --- **
+
+brendadargan=# CREATE DATABASE tablefun;
+CREATE DATABASE
+brendadargan=# \c tablefun;
+You are now connected to database "tablefun" as user "brendadargan".
+
+tablefun=# CREATE TABLE schools (name varchar(50), city varchar(50), state varchar(50));
+CREATE TABLE
+
+tablefun=# ALTER TABLE schools ADD zip varchar(5);
+ALTER TABLE
+
+tablefun=# INSERT INTO schools (name, city, state, zip) VALUES ('Princeton University', 'Princeton', 'NJ', '08540');
+INSERT 0 1
+
+tablefun=# INSERT INTO schools (name, city, state, zip) VALUES ('Harvard University', 'Cambridge', 'MA', '02139');
+INSERT 0 1
+
+tablefun=# INSERT INTO schools (name, city, state, zip) VALUES ('Georgetown Univerity', 'Washington', 'DC', '20057');
+INSERT 0 1
+
+tablefun=# SELECT * FROM schools;
+         name         |    city    | state |  zip  
+----------------------+------------+-------+-------
+ Princeton University | Princeton  | NJ    | 08540
+ Harvard University   | Cambridge  | MA    | 02139
+ Georgetown Univerity | Washington | DC    | 20057
+(3 rows)
+
+tablefun=# \d schools
+           Table "public.schools"
+ Column |         Type          | Modifiers 
+--------+-----------------------+-----------
+ name   | character varying(50) | 
+ city   | character varying(50) | 
+ state  | character varying(50) | 
+ zip    | character varying(5)  | 
+
+Bonus:
+tablefun=# UPDATE schools SET name='Manhattan High';
+UPDATE 3
+
+** --- TEACHERS TABLE --- **
+
+tablefun=# CREATE TABLE teachers (name varchar(50), email varchar(50), subject varchar(50));
+CREATE TABLE
+
+tablefun=# ALTER TABLE teachers ADD age integer;
+ALTER TABLE
+
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('Mrs. Beadle', 'mrs_beadle@aol.com', 'Math', 35);
+INSERT 0 1
+
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('Mrs. Crabapple', 'edna@springfield.edu', 'English', 45);
+INSERT 0 1
+
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('Albert Einstein', 'al@princeton.edu', 'Math', 68);
+INSERT 0 1
+
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('Mr. Holland', 'mr.holland@someschool.edu', 'Music', 52);
+INSERT 0 1
+
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('Maya Angelou', 'maya.angelou@mayaangelou.com', 'Literature', 85);
+INSERT 0 1
+
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUEs ('Mark Thackeray', 'mark_thackeray@nqss.uk.co', 'General Studies', 42);
+INSERT 0 1
+
+tablefun=# SELECT * FROM teachers;
+      name       |            email             |     subject     | age 
+-----------------+------------------------------+-----------------+-----
+ Mrs. Beadle     | mrs_beadle@aol.com           | Math            |  35
+ Mrs. Crabapple  | edna@springfield.edu         | English         |  45
+ Albert Einstein | al@princeton.edu             | Math            |  68
+ Mr. Holland     | mr.holland@someschool.edu    | Music           |  52
+ Maya Angelou    | maya.angelou@mayaangelou.com | Literature      |  85
+ Mark Thackeray  | mark_thackeray@nqss.uk.co    | General Studies |  42
+(6 rows)
+
+tablefun=# \d teachers
+           Table "public.teachers"
+ Column  |         Type          | Modifiers 
+---------+-----------------------+-----------
+ name    | character varying(50) | 
+ email   | character varying(50) | 
+ subject | character varying(50) | 
+ age     | integer               | 
+
+Bonus: 
+tablefun=# UPDATE teachers SET age=40 WHERE subject='Math';
+UPDATE 2
+
+Bonus:
+tablefun=# DELETE FROM teachers WHERE subject='Math';
+DELETE 2 

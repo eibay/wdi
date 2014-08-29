@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>All Houses</h1>
+
+	<ol>
+		<% houses.each do |house| %>
+		<li><a href="/house/<%= house["id"] %>"><%= house["name"] %></a></li>
+		<% end %>
+	</ol>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/houses">All Houses</a></li>
+		<li><a href="/characters">All Characters</a></li>
+		<li><a href="/characters/new">Add a Character</a></li>
+	</ul>
+</body>
+</html>

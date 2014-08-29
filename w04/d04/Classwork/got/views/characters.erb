@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Game of Thrones: Characters</title>
+</head>
+<body>
+	<h1>All Characters</h1>
+
+	<ol>
+		<% characters.each do |character| %>
+		<li><a href="/characters/<%= character["id"] %>"><%= character["name"] %></a></li>
+		<% end %>
+	</ol>
+
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/houses">All Houses</a></li>
+		<li><a href="/characters">All Characters</a></li>
+		<li><a href="/characters/new">Add a Character</a></li>
+	</ul>
+</body>
+</html>
