@@ -25,7 +25,7 @@
 			<label>Write Your Heart Out:<textarea name="content">This is where your heart goes.</textarea></label>
 			<label>Who Are You, Posting to a Blog?<select name="author_id">
 			<% authors.each do |author| %>
-				<option value=<%= author_id %>><%= author.name %></option>  
+				<option value=<%= author.id %>><%= author.name %></option>  
 			<% end %>
 			</select></label>
 			<button>Post</button> 

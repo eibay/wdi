@@ -21,7 +21,7 @@
 	<section class="authors">
 		<h3>All Authors</h3>
 		<ul>
-			<% authors.all do |author| %> 
+			<% authors.each do |author| %> 
 				<li><a href=<%= "/authors/" + author.id %>><%= author.name %></a> (has <%= author.posts.length %> posts)</li>
 			<% end %>
 		</ul>

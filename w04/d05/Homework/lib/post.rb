@@ -5,8 +5,9 @@ require 'date'
 class Post  
 
 	# define a db var # 
-
-	@@db = "./posts.db"  
+	def self.db 
+		"./posts.db" 
+	end  
 
 
 	# the init # 
@@ -14,7 +15,7 @@ class Post
 	attr_accessor :subject, :content   
 	attr_reader  :author_id, :created_at, :id
 
-	def initialize subj, content, author_id, created_at=Date.today, id=SecureRandom.hex 
+	def initialize subj, content, author_id, created_at=Date.today.to_s, id=SecureRandom.hex 
 		@subject = subj  
 		@content = content  
 		@author_id = author_id
@@ -35,8 +36,8 @@ class Post
 
 	# helper methods # 
 
-	def db_hashes 
-		f = File.read @@db 
+	def self.db_hashes 
+		f = File.read Post.db  
 		JSON.parse f
 	end 
 
@@ -44,7 +45,7 @@ class Post
 	# class methods # 
 
 	def self.all
-		db_hashes.map &:to_post 
+		Post.db_hashes.map &:to_post 
 	end
 
 	def self.find_all_by key, val 
@@ -73,12 +74,13 @@ class Post
 	end 
 
 	def create
-		db_hashes << self.to_hash
-		File.write @@db, db_hashes.to_json 
+		posts = Post.db_hashes
+		posts << self.to_hash
+		File.write Post.db, posts.to_json 
 	end 
 
 	def author 
-		Author.all.find_by_id self.author_id
+		Author.find_by_id self.author_id
 	end 
 
 end 

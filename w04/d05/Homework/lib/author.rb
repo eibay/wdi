@@ -5,8 +5,9 @@ class Author
 
 	# define a db var # 
 
-	@@db = "./authors.db"  
-
+	def self.db 
+		"./authors.db"
+	end   
 
 	# the init # 
 
@@ -22,8 +23,8 @@ class Author
 
 	# helper methods # 
 
-	def db_hashes 
-		f = File.read @@db 
+	def self.db_hashes 
+		f = File.read Author.db 
 		JSON.parse f
 	end 
 
@@ -31,7 +32,7 @@ class Author
 	# class methods # 
 
 	def self.all
-		db_hashes.map &:to_author 
+		Author.db_hashes.map &:to_author 
 	end
 
 	def self.find_all_by key, val 
@@ -60,15 +61,16 @@ class Author
 	end 
 
 	def create
-		db_hashes << self.to_hash
-		File.write @@db, db_hashes.to_json 
+		authors = Author.db_hashes
+		authors << self.to_hash
+		File.write Author.db, authors.to_json 
 	end 
 
 	def posts 
-		Post.all.find_all_by :author_id, self.id 
+		Post.find_all_by :author_id, self.id 
 	end 
 
-	def post subj, content  
+	def post subj, content
 		Post.new subj, content, self.id 
 	end 
 

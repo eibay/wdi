@@ -21,9 +21,9 @@
 	<section class="posts">
 		<h3>All Posts</h3>
 		<ul>
-			<% posts.all do |post| %> 
+			<% posts.each do |post| %> 
 			<% au = post.author %>
-				<li><a href=<%= "/posts/" + post.id %>><%= post.subject %>| <span><%= post.content[0,15] + "..." %></span></a> (by <a href=<%= "/authors/" + au.id %>><%= au.name %>)</a></li>
+				<li><a href=<%= "/posts/" + post.id %>><%= post.subject %> | <span><%= post.content[0,25] + "..." %></span></a> (by <a href=<%= "/authors/" + au.id %>><%= au.name %></a>)</li>
 			<% end %>
 		</ul>
 	</section>

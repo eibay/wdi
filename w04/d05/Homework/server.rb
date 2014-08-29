@@ -1,5 +1,6 @@
 require 'sinatra'
-
+require_relative "./lib/author"
+require_relative "./lib/post"
 
 ## GET METHOD ## 
 # landing # 
