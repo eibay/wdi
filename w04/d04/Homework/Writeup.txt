@@ -1,0 +1,18 @@
+Create a file called writeup.txt to record your answers to the following questions:
+		In your own words: what is a database?
+		List some problems with using files instead of a database
+		What is a schema (google may confuse you here)
+		When you are not specifically adding/deleting or querying your database, is it still running?
+-----------------------------------------------------------------------------------
+
+1.	A database is a collection of tables that may be relatable.
+
+2		Some problems using .txt files to store data instead of a database:
+		
+			a.	datatype may be inconsistant
+			b.	very easy to make an error on it (i.e. missed comma, quotes)
+			c.	the keys to the data are not enforceable.
+
+3.	Schema - basically a template for a hash.
+
+4.	Database is a program. If you haven't quit out of it, it is still running. 

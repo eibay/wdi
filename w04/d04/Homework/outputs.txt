@@ -1,0 +1,91 @@
+Part_2
+
+
+SCHOOLS TABLE:
+
+tablefun=# SELECT * FROM schools;
+     name      |   city   | state |  zip
+---------------+----------+-------+-------
+ JHS 56        | New York |  NY   | 10038
+ Bronx Science | New York | NY    | 10468
+ Brooklyn Tech | New York | NY    | 11217
+(3 rows)
+
+tablefun=# \d schools
+           Table "public.schools"
+ Column |         Type          | Modifiers
+--------+-----------------------+-----------
+ name   | character varying(50) |
+ city   | character varying(50) |
+ state  | character varying(50) |
+ zip    | character varying(5)  |
+
+
+TEACHERS TABLE:
+
+tablefun=# SELECT * FROM teachers;
+      name       |       email       |      subject       | age
+-----------------+-------------------+--------------------+-----
+ Frank Messenger | fmsgr@ps45.edu    | math               |  35
+ Joe Blow        | JB@hs44.edu       | math               |  25
+ Harry Potter    | HPotter@hs77.edu  | social studies     |  44
+ Jane Poe        | JaneP@JHS76.edu   | physical education |  59
+ Tom Row         | TRow@JHS88.edu    | chemistry          |  77
+ Frank Castle    | FCastle@JHS18.edu | biology            |  22
+(6 rows)
+
+           Table "public.teachers"
+ Column  |         Type          | Modifiers
+---------+-----------------------+-----------
+ name    | character varying(50) |
+ email   | character varying(50) |
+ subject | character varying(50) |
+ age     | integer               |
+
+ 
+MECHANICS TABLE:
+
+ tablefun=# SELECT * FROM mechanics;
+ id |  name
+----+--------
+  1 | Thomas
+  2 | Joseph
+  3 | James
+  4 | Henry
+(4 rows)
+
+
+CARS TABLE:
+
+tablefun=# SELECT * FROM cars;
+ id |   make   |   model    | mechanics_id
+----+----------+------------+--------------
+  1 | Acura    | Integra    |            3
+  2 | Chrysler | Cordoba    |            1
+  3 | Dodge    | Challenger |            4
+  4 | GMC      | Canyon     |            2
+  5 | Honda    | Accord     |            4
+(5 rows)
+
+
+\d ON BOTH MECHANICS AND CARS TABLE:
+
+tablefun=# \d mechanics;
+                                Table "public.mechanics"
+ Column |         Type          |                       Modifiers
+--------+-----------------------+--------------------------------------------------------
+ id     | integer               | not null default nextval('mechanics_id_seq'::regclass)
+ name   | character varying(50) |
+Indexes:
+    "mechanics_pkey" PRIMARY KEY, btree (id)
+
+tablefun=# \d cars;
+                                   Table "public.cars"
+    Column    |         Type          |                     Modifiers
+--------------+-----------------------+---------------------------------------------------
+ id           | integer               | not null default nextval('cars_id_seq'::regclass)
+ make         | character varying(50) |
+ model        | character varying(50) |
+ mechanics_id | integer               |
+Indexes:
+    "cars_pkey" PRIMARY KEY, btree (id)
