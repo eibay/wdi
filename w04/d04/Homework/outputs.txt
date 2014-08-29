@@ -1,0 +1,98 @@
+tablefun=# SELECT * FROM schools;
+         name         |   city   | state |  zip  
+----------------------+----------+-------+-------
+ New York University  | New York | NY    | 10003
+ School of Visual Art | New York | NY    | 10010
+ General Assembly     | New York | NY    | 10010
+(3 rows)
+
+ Column |         Type          | Modifiers 
+--------+-----------------------+-----------
+ name   | character varying(50) | 
+ city   | character varying(50) | 
+ state  | character varying(2)  | 
+ zip    | integer               | 
+
+      name      |   city   | state |  zip  
+----------------+----------+-------+-------
+ Manhattan High | New York | NY    | 10003
+ Manhattan High | New York | NY    | 10010
+ Manhattan High | New York | NY    | 10010
+(3 rows)
+
+      name       |          email           |    subject    | age 
+-----------------+--------------------------+---------------+-----
+ Bob Ludwig      | bob@ludwig.com           | math          |  55
+ Dennis Lehane   | dlehane@earthlink.com    | math          |  69
+ Daria Jones     | DariaJones@hotmail.com   | earth science |  43
+ Melissa Birch   | mbirch@gmail.com         | biology       |  37
+ Dan Albright    | dannyboya@rocketmail.com | phys ed       |  45
+ Jamie Ettenbaum | Jametten@freakmail.com   | home ec       |  58
+(6 rows)
+
+           Table "public.teachers"
+ Column  |         Type          | Modifiers 
+---------+-----------------------+-----------
+ name    | character varying(50) | 
+ email   | character varying(50) | 
+ subject | character varying(50) | 
+ age     | integer               | 
+
+UPDATE teachers SET age = 40;
+
+      name       |          email           |    subject    | age 
+-----------------+--------------------------+---------------+-----
+ Bob Ludwig      | bob@ludwig.com           | math          |  40
+ Dennis Lehane   | dlehane@earthlink.com    | math          |  40
+ Daria Jones     | DariaJones@hotmail.com   | earth science |  40
+ Melissa Birch   | mbirch@gmail.com         | biology       |  40
+ Dan Albright    | dannyboya@rocketmail.com | phys ed       |  40
+ Jamie Ettenbaum | Jametten@freakmail.com   | home ec       |  40
+(6 rows)
+
+DELETE FROM teachers;
+
+You don't have to add id's in either mechanics or cars tables because postgres auto increments for you. 
+
+                                Table "public.mechanics"
+ Column |         Type          |                       Modifiers                        
+--------+-----------------------+--------------------------------------------------------
+ id     | integer               | not null default nextval('mechanics_id_seq'::regclass)
+ name   | character varying(50) | 
+Indexes:
+    "mechanics_pkey" PRIMARY KEY, btree (id)
+
+ id |  name  
+----+--------
+  1 | Joe
+  2 | John
+  3 | Janine
+  4 | Doris
+(4 rows)
+
+                                  Table "public.cars"
+   Column    |         Type          |                     Modifiers                     
+-------------+-----------------------+---------------------------------------------------
+ id          | integer               | not null default nextval('cars_id_seq'::regclass)
+ make        | character varying(50) | 
+ model       | character varying(50) | 
+ mechanic_id | integer               | 
+Indexes:
+    "cars_pkey" PRIMARY KEY, btree (id)
+
+tablefun=# SELECT * FROM cars;
+ id |  make  |  model  | mechanic_id 
+----+--------+---------+-------------
+  1 | Ford   | Mustang |           1
+  2 | Nissan | Rogue   |           2
+  3 | VW     | Passat  |           3
+  4 | Ford   | Escape  |           4
+  5 | Chevy  | Impala  |           3
+(5 rows)
+
+tablefun=# SELECT cars.make, cars.model, mechanics.name FROM cars, mechanics WHERE cars.mechanic_id = mechanics.id AND mechanics.name = 'Janine';
+ make  | model  |  name  
+-------+--------+--------
+ VW    | Passat | Janine
+ Chevy | Impala | Janine
+(2 rows)

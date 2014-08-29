@@ -1,0 +1,9 @@
+A database is a collection of tables.
+
+Problems with using files instead of databases:
+	Text files encoded in json are hard to read.
+	When editing a text file, it's easy to make a mistake.
+
+A schema is a structure for a database. 
+
+Yes your database is running on your database server postgres.
