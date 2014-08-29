@@ -1,0 +1,38 @@
+
+tablefun=# SELECT * FROM schools;
+         name         |    city     | state | zip  
+----------------------+-------------+-------+------
+ St. Peters Prep      | Jersey City | NJ    | 7302
+ St. Anthonys High    | Jersey City | NJ    | 7302
+ St. Dominics Academy | Jersey City | NJ    | 7304
+(3 rows)
+
+jeffcampomanes=# UPDATE schools SET name='Manhattan HS';
+UPDATE 3
+jeffcampomanes=# SELECT * FROM schools;
+     name     |    city     | state | zip  
+--------------+-------------+-------+------
+ Manhattan HS | Jersey City | NJ    | 7302
+ Manhattan HS | Jersey City | NJ    | 7302
+ Manhattan HS | Jersey City | NJ    | 7304
+(3 rows)
+
+#######################################################################
+
+jeffcampomanes=# SELECT * FROM teachers;
+      name       |        email         | subject | age 
+-----------------+----------------------+---------+-----
+ Mr. Smith       | msmith@hello.com     | Math    |  42
+ Mrs. Pennyhorse | pennyhorse@hello.com | Math    |  39
+ Mr. Jackson     | jackson@hello.com    | Gym     |  28
+ Ms. Swanson     | swanson@hello.com    | History |  34
+
+jeffcampomanes=# UPDATE teachers SET age=40 WHERE subject='Math';
+UPDATE 2
+jeffcampomanes=# SELECT * FROM teachers;
+      name       |        email         | subject | age 
+-----------------+----------------------+---------+-----
+ Mr. Jackson     | jackson@hello.com    | Gym     |  28
+ Ms. Swanson     | swanson@hello.com    | History |  34
+ Mr. Smith       | msmith@hello.com     | Math    |  40
+ Mrs. Pennyhorse | pennyhorse@hello.com | Math    |  40

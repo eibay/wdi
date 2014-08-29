@@ -1,0 +1,9 @@
+Write up:
+- In your own words: what is a database?
+A database is a program that runs on your computer that is made up of tables that retains data on a server.
+- List some problems with using files instead of a database
+Files (.txt) are not reliable as they do not have any restrictions when it comes to data; code can easily be broken with edited data. 
+- What is a schema (google may confuse you here)
+a schema is a type of data structure that groups tables together as well as other objects.
+- When you are not specifically adding/deleting or querying your database, is it still running?
+Yes, as long as your DB is running in terminal, it is still live.
