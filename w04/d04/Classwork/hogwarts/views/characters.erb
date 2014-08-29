@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Characters</title>
+  </head>
+  <body>
+    <h3>Characters</h3>
+    <ul>
+
+    <% characters.each do |character| %>
+    <li><a href="/character/<%= character["id"] %>"><%= character["name"] %></a>": "<%= character %></li>
+    <li><img src="<%= character["image_url"] %>"</li>
+    <% end %>
+    </ul>
+  </body>
+</html>
