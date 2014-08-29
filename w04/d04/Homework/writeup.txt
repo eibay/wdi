@@ -1,0 +1,74 @@
+##Questions 
+
+__What is a DATABASE?__ 
+
+A database is a program, designed to keep records.
+
+__What is problematic about using files instead of a db?__ 
+
+Reliability & having been thought through by computer scientists.
+
+__Clayton, you know what a SCHEMA is, right? Because you totally heard *ev-er-y-thing* Neel said in lecture today, right? And you weren't mucking about on Hipchat at all, right?__ 
+
+I am not sure I do know. But the [simple Wikipedia article for Database schema][simple] makes me think what we do when we issue the commands to create a db & create tables inside the db is describing to `psql` the schema, the schematic, the blueprint, whatever that is.
+
+[simple]: http://simple.wikipedia.org/wiki/Database_schema "Database schema on Wikipedia"
+
+__If a user or process is not adding/deleting/querying the db, is the db process still running?__ 
+
+Yes, it is listening on a port for queries.
+
+##OUTPUTS 
+
+###A:
+
+               Table "public.schools"
+     Column |         Type          | Modifiers 
+    --------+-----------------------+-----------
+     name   | character varying(50) | 
+     city   | character varying(30) | 
+     state  | character varying(2)  | 
+     zip    | character varying(5)  | 
+
+###B: 
+
+    tablefun=# UPDATE schools SET name='Manhattan High' WHERE name like '%';
+    UPDATE 3
+    tablefun=# SELECT * FROM schools;
+
+             name      |           city           | state |  zip  
+       ----------------+--------------------------+-------+-------
+        Manhattan High | Somewhere Outside London | WA    | 23456
+        Manhattan High | New York                 | NY    | 10003
+        Manhattan High | bloob                    | bg    | bloog
+       (3 rows)
+
+###C: 
+
+    tablefun=# SELECT * FROM teachers;
+
+        name      |        email         | subject | age 
+   ---------------+----------------------+---------+-----
+    Mr. Bonj      | mike@school.edu      | Math    |  35
+    Mr. Rutlidge  | mark@school.edu      | Math    |  35
+    Somebody      | somebody@teaches.edu | English |  35
+    Somebody Else | else@teaches.edu     | English |  35
+    PE Teacher    | physical@ed.edu      | PE      |  35
+   (5 rows)
+
+###D: 
+
+    tablefun=# \d teachers;
+
+              Table "public.teachers"
+     Column  |         Type          | Modifiers 
+    ---------+-----------------------+-----------
+     name    | character varying(50) | 
+     email   | character varying(20) | 
+     subject | character varying(30) | 
+     age     | integer               | 
+
+    tablefun=# UPDATE teachers SET age=40 WHERE subject='Math';
+    UPDATE 2
+    tablefun=# DELETE FROM teachers WHERE subject='Math';
+    DELETE 2
