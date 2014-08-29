@@ -1,0 +1,10 @@
+A place to store data that acts like a gatekeeper, so that it has a quality of integrity.
+
+There is no gatekeeper and you can't trust them.
+
+Schema is the specific structure of a database program. In this case the specific structure that holds data in psql.
+
+Allegedly yes. It is allways running. However I don't feel like I believe it.
+
+
+

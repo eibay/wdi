@@ -1,0 +1,78 @@
+Part 2: Fun with tables
+
+GOAL: Practice creating and querying tables with a SQL database
+SPEC:
+Create a file called outputs.txt. Throughout this homework you will be copying output from your terminal after running a specific command and pasting it into this outputs.txt.
+
+Create a database called tablefun
+Create the following tables in that database with the specified fields
+Schools Table:
+Create a table called schools
+Add the fields name, city, and state. Each being of type varchar
+Add the field zip as a varchar of 5 characters
+Add 3 schools with different data into the table
+
+Select all schools and copy and paste the output in the terminal to outputs.txt
+JillOrtenberg=# SELECT * FROM schools;
+ id |         name          |       city       |  state   |  zip
+----+-----------------------+------------------+----------+-------
+  1 | South Side HS         | Rockville Centre | New York | 11570
+  2 | Oceanside HS          | Oceanside        | New York | 11480
+  3 | University of Arizona | Tucson           | Arizona  | 14383
+(3 rows)
+
+Show the structure of the table by typing \d schools and copy and paste this output into outputs.txt
+JillOrtenberg=# \d schools
+                                Table "public.schools"
+ Column |         Type          |                      Modifiers
+--------+-----------------------+------------------------------------------------------
+ id     | integer               | not null default nextval('schools_id_seq'::regclass)
+ name   | character varying(50) |
+ city   | character varying(50) |
+ state  | character varying(30) |
+ zip    | character varying(5)  |
+Indexes:
+    "schools_pkey" PRIMARY KEY, btree (id)
+
+Bonus change every school's name to "Manhattan High". Select all schools again and copy and paste this output into outputs.txt
+JillOrtenberg=# UPDATE schools SET name='Manhattan High';
+UPDATE 3
+JillOrtenberg=#
+
+
+Teachers Table:
+Create a table called teachers
+Add the fields name, email, and subject. Each being of type varchar
+Add the field age as an integer
+Add 2 teachers with the subject math and 4 teachers in various other subjects
+Select all teachers and copy and paste the output in the terminal to outputs.txt
+JillOrtenberg=# SELECT * FROM teachers;
+ id |        name        |            email            |   subject    | age
+----+--------------------+-----------------------------+--------------+-----
+  1 | Ms. Jane Smith     | jsmith@oceansidehs.com      | Math         |  30
+  2 | Mr. Seymour Brown  | sbrown@southsidehs.com      | Math         |  35
+  3 | Mr. John Miluf     | jmiluf@uofarizona.com       | Painting     |  38
+  4 | Mr. Sam Williamson | swilliamson@oceansidehs.com | Physics      |  23
+  5 | Ms. Jill Nelson    | jnelson@oceansidehs.com     | Gym          |  40
+  6 | Ms. Amy Smith      | asmith@uorarizona.com       | Anthropology |  51
+(6 rows)
+
+Show the structure of the table by typing \d teachers and copy and paste this output into outputs.txt
+JillOrtenberg=# \d teachers
+                                 Table "public.teachers"
+ Column  |         Type          |                       Modifiers
+---------+-----------------------+-------------------------------------------------------
+ id      | integer               | not null default nextval('teachers_id_seq'::regclass)
+ name    | character varying(50) |
+ email   | character varying(40) |
+ subject | character varying(50) |
+ age     | integer               |
+Indexes:
+    "teachers_pkey" PRIMARY KEY, btree (id)
+
+Bonus update every math teacher to be 40 years old. Put the SQL statement you used into your outputs.txt
+JillOrtenberg=# UPDATE teachers SET age=40 WHERE subject='Math';
+UPDATE 2
+JillOrtenberg=#
+Bonus delete all math teachers. Copy and paste the SQL statement you used into outputs.txt
+
