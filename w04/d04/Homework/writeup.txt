@@ -1,0 +1,18 @@
+-- In your own words: what is a database?
+
+A database is a collection of data, organized in tables.
+
+-- List some problems with using files instead of a database
+
+* hard to read and edit
+* prone to error when editing
+* anything can go into them willy-nilly, regardless of the desired structure of the data
+* possible unwieldy to navigate and manipulate
+
+-- What is a schema (google may confuse you here)
+
+A schema is a template for data--a plan and structure as to its organization
+
+-- When you are not specifically adding/deleting or querying your database, is it still running?
+
+I would think it is running as long as you're connected to it, but maybe not. Maybe since it's a way of storing data, it just sits around waiting for orders. In that sense, maybe Postgres is running, but the database is passive. 

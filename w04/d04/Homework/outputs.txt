@@ -1,0 +1,121 @@
+tablefun=# INSERT INTO schools (name, city, state, zip) VALUES ('Antioch', 'Yellow Springs', 'OH', '40404');
+INSERT 0 1
+tablefun=# SELECT * FROM schools;
+     name      |      city       | state |  zip  
+---------------+-----------------+-------+-------
+ Pershing      | St. Louis       | MO    | 63130
+ Garden School | Jackson Heights | NY    | 11372
+ Antioch       | Yellow Springs  | OH    | 40404
+(3 rows)
+
+
+tablefun=# \d schools
+           Table "public.schools"
+ Column |         Type          | Modifiers 
+--------+-----------------------+-----------
+ name   | character varying(50) | 
+ city   | character varying(50) | 
+ state  | character varying(2)  | 
+ zip    | character varying(5)  | 
+
+tablefun=# UPDATE schools SET name='Manhattan High';
+UPDATE 3
+tablefun=# SELECT * FROM schools;
+      name      |      city       | state |  zip  
+----------------+-----------------+-------+-------
+ Manhattan High | St. Louis       | MO    | 63130
+ Manhattan High | Jackson Heights | NY    | 11372
+ Manhattan High | Yellow Springs  | OH    | 40404
+(3 rows)
+
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('Bob Devine', 'bobdevine@antioch.edu', 'hegemony', '40');
+INSERT 0 1
+tablefun=# SELECT * FROM teachers;
+      name      |           email           | subject  | age 
+----------------+---------------------------+----------+-----
+ Mrs. Bondurant | mrsbondurant@pershing.edu | math     |  76
+ Mr. Fong       | mrfong@hanley.edu         | math     |  33
+ Sherry         | sherry@ucityhigh.edu      | dance    |  28
+ Mrs. Gonzalez  | mrsgonzalez@ucityhigh.edu | spanish  |  44
+ Mr. Lawless    | mrlawless@ucityhigh.edu   | art      |  44
+ Bob Devine     | bobdevine@antioch.edu     | hegemony |  40
+(6 rows)
+
+tablefun=# \d
+         List of relations
+ Schema |   Name   | Type  | Owner 
+--------+----------+-------+-------
+ public | schools  | table | lisa
+ public | teachers | table | lisa
+(2 rows)
+
+tablefun=# \d teachers
+           Table "public.teachers"
+ Column  |         Type          | Modifiers 
+---------+-----------------------+-----------
+ name    | character varying(50) | 
+ email   | character varying(50) | 
+ subject | character varying(50) | 
+ age     | integer               | 
+
+
+tablefun=# UPDATE teachers SET age=40 WHERE subject='math';
+UPDATE 2
+
+tablefun=# SELECT * FROM teachers;
+      name      |           email           | subject  | age 
+----------------+---------------------------+----------+-----
+ Sherry         | sherry@ucityhigh.edu      | dance    |  28
+ Mrs. Gonzalez  | mrsgonzalez@ucityhigh.edu | spanish  |  44
+ Mr. Lawless    | mrlawless@ucityhigh.edu   | art      |  44
+ Bob Devine     | bobdevine@antioch.edu     | hegemony |  40
+ Mrs. Bondurant | mrsbondurant@pershing.edu | math     |  40
+ Mr. Fong       | mrfong@hanley.edu         | math     |  40
+(6 rows)
+
+
+tablefun=# DELETE FROM teachers WHERE subject='math';
+DELETE 2
+tablefun=# SELECT * FROM teachers;
+     name      |           email           | subject  | age 
+---------------+---------------------------+----------+-----
+ Sherry        | sherry@ucityhigh.edu      | dance    |  28
+ Mrs. Gonzalez | mrsgonzalez@ucityhigh.edu | spanish  |  44
+ Mr. Lawless   | mrlawless@ucityhigh.edu   | art      |  44
+ Bob Devine    | bobdevine@antioch.edu     | hegemony |  40
+(4 rows)
+
+**** I do not have to--nor would I want to--provide a serial primary key value to my mechanics or cars because Postgres can do it automatically. This doesn't just save me the trouble. It ensures that there is no duplication, etc. 
+
+             List of relations
+ Schema |       Name       |   Type   | Owner 
+--------+------------------+----------+-------
+ public | cars             | table    | lisa
+ public | cars_id_seq      | sequence | lisa
+ public | mechanics        | table    | lisa
+ public | mechanics_id_seq | sequence | lisa
+(4 rows)
+
+uto=# SELECT * FROM mechanics;
+ id |       name       
+----+------------------
+  1 | Bob Devine
+  2 | Ilka Nevarez
+  3 | James Williamson
+  4 | Iceberg Slim
+  5 | Irma Thomas
+(5 rows)
+
+auto=# SELECT * FROM cars;
+ id |    make    |  model   | mechanic_id 
+----+------------+----------+-------------
+  1 | Nash       | Rambler  |           5
+  2 | Chevy      | Nova     |           2
+  3 | Ford       | Mustang  |           4
+  4 | Chevy      | Impala   |           4
+  5 | Jeep       | Wrangler |           5
+  6 | Scion      | XTE      |           1
+  7 | Volkswagen | Golf     |           3
+(7 rows)
+
+Foiled on the Inner Join...
