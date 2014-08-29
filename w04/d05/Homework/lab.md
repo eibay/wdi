@@ -20,7 +20,9 @@ Goal: Create a blogging web application.
 4. Add a third model. Each Post can have several images associated with it. Create an Image model. Back in `console.rb` make sure you can create images that belong to a post and call `post.images` and `image.post`.
 
 5. New Routes
-  * `/posts/:id/images` -> contains a button that says "Add Images"
+
+  * `/posts/:id` -> now contains a button below the post content that says "Add Images"
+
     * when pressed, it hits the server at POST `/posts/:id/images`
     * The server will hit the Instagram API and create 3 new images for the given post using the post's keyword as the search tag for Instagram.
   * And, when you look at `/posts/:id` you should see all of the images associated with that post along with the post content.
@@ -38,7 +40,11 @@ We learned in Neel's lecture yesterday that files aren't the best place to keep 
 
   Yesterday, we only connected to our postgres database server using `psql`. Today, we will connect to postgres from our ruby program.
 
+<<<<<<< HEAD
 3. Read Sections 1 - 3, and 5 of the (ActiveRecord Basics)[http://guides.rubyonrails.org/active_record_basics.html] documentation.
+=======
+3. Read Sections 1 - 3, and 5 of the [ActiveRecord Basics](http://guides.rubyonrails.org/active_record_basics.html) documentation.
+>>>>>>> ca8cf57ae7ea041ca478023ac37c49f3bcea9f59
 
   Create a folder in today's `Homework` folder called `reflection`.
 
