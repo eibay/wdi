@@ -1,0 +1,168 @@
+tablefun=# SELECT * FROM schools;
+   name    |   city    |   state    |  zip  
+-----------+-----------+------------+-------
+ Macarthur | Levittown | New York   | 11756
+ Macarthur | Levittown | New Mexico | 34324
+ Mills     | Harvest   | California | 90210
+(3 rows)
+
+
+tablefun=# \d schools
+          Table "public.schools"
+ Column |         Type         | Modifiers 
+--------+----------------------+-----------
+ name   | character varying    | 
+ city   | character varying    | 
+ state  | character varying    | 
+ zip    | character varying(5) | 
+
+tablefun=# UPDATE schools SET name='Manhattan High'
+tablefun-# ;
+UPDATE 3
+tablefun=# SELECT * from schools;
+      name      |   city    |   state    |  zip  
+----------------+-----------+------------+-------
+ Manhattan High | Levittown | New York   | 11756
+ Manhattan High | Levittown | New Mexico | 34324
+ Manhattan High | Harvest   | California | 90210
+(3 rows)
+
+tablefun=# SELECT * from teachers;
+     name     |     email     | subject | age  
+--------------+---------------+---------+------
+ Matt Mattson | matt@matt.com | Math    |   43
+ Rog Rogs     | rog@rog.com   | Math    |   12
+ J K          | j@k.com       | Science |   99
+ T F          | t@f.com       | Science | 1391
+ R J          | r@j.com       | SS      | 1492
+ L O          | l@o.com       | English |    6
+(6 rows)
+
+         Table "public.teachers"
+ Column  |       Type        | Modifiers 
+---------+-------------------+-----------
+ name    | character varying | 
+ email   | character varying | 
+ subject | character varying | 
+ age     | integer           | 
+
+
+
+tablefun=# UPDATE teachers SET age=40 WHERE subject='Math';
+
+tablefun=# DELETE FROM teachers WHERE subject='Math';
+
+
+tablefun=# \d mechanics
+                              Table "public.mechanics"
+ Column |       Type        |                       Modifiers                        
+--------+-------------------+--------------------------------------------------------
+ id     | integer           | not null default nextval('mechanics_id_seq'::regclass)
+ name   | character varying | 
+Indexes:
+    "mechanics_pkey" PRIMARY KEY, btree (id)
+
+tablefun=# SELECT * FROM mechanics;
+ id |  name  
+----+--------
+  1 | Johnny
+  2 | Tommy
+  3 | Seth
+  4 | Greeny
+(4 rows)
+
+
+
+
+tablefun=# \d cars;
+                                 Table "public.cars"
+   Column    |       Type        |                     Modifiers                     
+-------------+-------------------+---------------------------------------------------
+ id          | integer           | not null default nextval('cars_id_seq'::regclass)
+ make        | character varying | 
+ model       | character varying | 
+ mechanic_id | integer           | 
+Indexes:
+    "cars_pkey" PRIMARY KEY, btree (id)
+
+
+
+tablefun=# SELECT * FROM cars;
+ id | make |  model  | mechanic_id 
+----+------+---------+-------------
+  1 | Ford | mustang |           1
+  2 | Ford | fusion  |           3
+  3 | Ford | taurus  |           1
+  4 | Ford | lover   |           3
+  5 | Ford | f150    |           1
+(5 rows)
+
+#####SUPER BONUS#####
+
+tablefun=# SELECT make, model FROM cars JOIN mechanics ON cars.mechanic_id=mechanics.id WHERE mechanics.name='Johnny';
+ id | make |  model  | mechanic_id | id |  name  
+----+------+---------+-------------+----+--------
+  1 | Ford | mustang |           1 |  1 | Johnny
+  3 | Ford | taurus  |           1 |  1 | Johnny
+  5 | Ford | f150    |           1 |  1 | Johnny
+(3 rows)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

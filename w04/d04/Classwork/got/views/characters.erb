@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Here's all the cool characters! Wow!</title>
+</head>
+<body>
+	<a href="/characters/new">Add a new character</a><br />
+	<h1>A list of all the characters(Dude you know lists?)</h1>
+	<ul>
+		<%characters.each do |character|%>
+		<li><a href="/characters/<%=character.attributes['id']%>"><%=character.attributes['name']%></li>
+		<% end %>
+	</ul>
+
+</body>
+</html>

@@ -16,23 +16,22 @@ require_relative './students'
 
 # email=gets.chomp
 
-# file=JSON.parse(File.read("./students.txt"))
-# student={"first"=>first, "last"=>last, "email"=>email}
-# file.push(student)
-# File.write("./students.txt", file.to_json)
-# students=JSON.parse(File.read("./students.txt"))
-file="./students.txt"
-conor=Student.new(Student.find_by(file,"first","Conor"))
-puts conor.getInfo[:email]
+
+# dorms=JSON.parse(File.read("./dorms.txt"))
+# dorm_id=dorms.sample["id"]
 
 
-# students.each do |n|
-# 	binding.pry
+# student={"first"=>first, "last"=>last, "email"=>email , "dorm_id"=> dorm_id}
+# Student.create(student)
 
-# 	x=Student.new(n)
 
-# 	puts "#{x.first} #{x.last}-#{x.email}"
-# end
+Student.random_student
+
+conor=Student.find_by("first","Conor")
+puts conor.first
+puts conor.dorm
+
+
 
 
 # end
