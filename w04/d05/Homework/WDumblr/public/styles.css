@@ -1,0 +1,29 @@
+body {
+	background-color: Silver;
+    background-size: cover;
+	font-family: 'Droid Serif', serif;	
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+body div {
+	width: 500px;
+	margin: 0 auto;
+}
+
+h1 {
+	color: Brown;
+}
+
+
+body a {
+	color: Brown;
+}
+
+body a:hover {
+	color: Coral;
+}
+li strong {
+	font-weight: 700;
+}
