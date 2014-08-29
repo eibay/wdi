@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title><%=name%></title>
+</head>
+<body>
+	<h1><%=name%></h1>
+		<a href="/houses">See other houses</a>
+		<h3><%=age%> years old!</h3>
+		<h1>Characters from this house</h1>
+		<h3><%=characters.count%> characters live here</h3>
+		<%characters.each do |character|%>
+		<li><a href="/characters/<%=character.attributes['id']%>"><%=character.attributes['name']%></li>
+		<% end %>
+	</ul>
+
+</body>
+</html>
+
+

@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>Here's all the cool houses! Wow! v. cool</title>
+</head>
+<body>
+
+	<h1>A list of all the HOUSES(Dude, I still know lists)</h1>
+	
+	<ul>
+		<%houses.each do |house|%>
+		<li><a href="/houses/<%=house.attributes['id']%>"><%=house.attributes['name']%></li>
+		<% end %>
+	</ul>
+
+</body>
+</html>

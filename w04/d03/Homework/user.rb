@@ -32,7 +32,7 @@ def self.random_user
 	state=api["results"][0]["user"]["location"]["state"]
 	
 
-	return User.new({first_name:first , last_name: last, gender: gender, city: city, state: state})
+	return self.new({first_name:first , last_name: last, gender: gender, city: city, state: state})
 	
 end
 end

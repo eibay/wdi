@@ -1,0 +1,4 @@
+1.A database is a program running on our computers that stores data. We use SQL to communicate with it.
+2. easily deleted, hard to edit, one small edit can destroy the entire file, awkward to interact with.
+3.A way to logically group objects.
+4. yes
