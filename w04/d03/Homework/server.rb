@@ -6,10 +6,12 @@ require_relative './lib/user'
 # taxi1 = Taxi.new(attr)
 # taxi1.getInfo
 
-attr = {first_name:"Tim", last_name:"Jordan", gender:"male", city:"New York", state:"NY"}
+# attr = {first_name:"Tim", last_name:"Jordan", gender:"male", city:"New York", state:"NY"}
 
 # user1 = User.new(attr)
 
-User.random_user
+a = User.new({first_name:"Sho", last_name:"Kame", gender:"Male", city:"Tokyo", state:"Minato"})
 
-user1.getInfo
+a.getInfo
+
+a.greeting

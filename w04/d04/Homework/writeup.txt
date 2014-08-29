@@ -1,0 +1,11 @@
+In your own words: what is a database?
+- Collection of tables. Tables consist of a date structure.
+
+List some problems with using files instead of a database
+- 1. It is easy to screw up 2. It enforsce Schema or Keys. 3, Data type is inconsistancy.
+
+What is a schema (google may confuse you here)
+- Schema is a structure of data. It has sort of hierarchy which has some layers.
+
+When you are not specifically adding/deleting or querying your database, is it still running?
+- I have no idea.

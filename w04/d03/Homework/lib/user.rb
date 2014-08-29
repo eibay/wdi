@@ -31,10 +31,9 @@ class User
 		gender:random_info["gender"],
 		first:random_info["name"]["first"],
 		last:random_info["name"]["last"],
-		city:random_info["name"]["location"]["city"],
-		state:random_info["name"]["location"]["state"]
+		city:random_info["location"]["city"],
+		state:random_info["location"]["state"]
 	}
-		return random_info
+		return random_hash
 	end
-	### Still dont get how to apply ramdomuser api. I need explain! ###
 end
