@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title><%= post.attributes["keyword"]%></title>
+</head>
+<body>
+<h1><%= post.attributes["keyword"]%></h1>
+<h3><a href="/authors/<%=author['id']%>"><%=author['name']%></a></h3>
+<h5><%=post["created_at"]%></h5>
+<p><%=post["content"]%></p>
+<form action="/posts/<%=post['id']%>/images" method="POST">
+	
+	<button>Add Images</button></form>
+	<%else%>
+	<img src="<%=images.attributes['url1']%>">
+	<img src="<%=images['url2']%>">
+	<img src="<%=images['url3']%>">
+
+	<%end%>
+
+	
+</form>
+</body>
+</html>

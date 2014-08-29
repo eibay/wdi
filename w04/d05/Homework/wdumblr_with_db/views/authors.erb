@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>List of Authors!</title>
+</head>
+<body>
+	<h1>Authors</h1>
+	<a href="/authors/new">Add new Author</a>
+	 <% authors.each do |author| %>
+      <li>
+        <a href="/authors/<%= author["id"] %>"> <%= author["name"] %></a>
+      </li>
+      <%end%>
+
+</body>
+</html>

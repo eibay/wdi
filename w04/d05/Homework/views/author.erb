@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title><%=author.attributes["name"]%></title>
+</head>
+<body>
+
+	<h1><%=author.attributes["name"]%></h1>
+	<h3><%=author.attributes["email"]%></h3>
+	<%posts.each do |post|%>
+		<li><a href="/posts/<%=post.attributes['id']%>"><%=post.attributes['keyword']%><a/></li>
+		<% end %>
+
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+ActiveRecord is acting sort of like the model does in the way that we have been using it so far. It facilitates our connection to the databases and as allows us to access the data stored in the database from within our ruby program and execute commands without directly writing in SQL
+
+ActiveRecord allows us to interact with the database in an object oriented fashion that we have become familiar with working with ruby.
+
+ActiveRecord interacts with your classes like a model and simply adds an s to your class name for the names of tables.
+
+
+The Postgressql database server is the “program” that is running all of your databases.
+
+The Wdumblr database is where your data for the blog is stored, it is run by the Postgresql database server.
+
+The authors, posts, and images tables are places within the Wdumblr database where specific data relating to those things is stored, similar to the txt files with an array of hashes that we had used earlier.
+
+psql is a tool similar to pry but that exists for interacting with Postgresql databases instead of ruby code which is what pry does.
+
+ActiveRecord is a ruby gem that provides an easy to use interface for communicating between your ruby code and Postgresql databases. The syntax is similar to that of the methods that we wrote in the model.rb file

@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title><%=author["name"]%></title>
+</head>
+<body>
+
+	<h1><%=author["name"]%></h1>
+	<h3><%=author["email"]%></h3>
+	<%posts.each do |post|%>
+		<li><a href="/posts/<%=post['id']%>"><%=post['keyword']%><a/></li>
+		<% end %>
+		<a href="/posts/new">Add a new post</a><br>
+		<a href="/authors">View other authors</a>
+
+
+</body>
+</html>
