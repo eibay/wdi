@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1> Game of Thrones</h1>
+<p>
+
+<h2>Best Characters </h2>
+	<% character.each do |a| %>
+	<%= a["name"] %> <img src="<%= a['image'] %>" height="100px">
+	<% end %>
+<h2> Families vying for the Thrown </h2>
+	<% house.each do |a| %>
+	<li> <%= a["name"] %> </li>
+	<% end %>
+
+<a href="/character_new">Add new character</a>
+<a href="/house_new">Ass new house</a>
+<a href="/">Home</a>
+
+</body>
+</html>

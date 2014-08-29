@@ -1,0 +1,20 @@
+In your own words: what is a database?
+
+A database is an organized structure that holds information using meaningful and consistent methods. 
+
+
+
+List some problems with using files instead of a database
+
+Organization isn't enforced: objects in the arrays don't have to be uniform. They can have hashes, integers, objects with differing attributes, nested arrays ect. all in the same file. 
+
+Text file merely holds information we write to it.
+
+
+What is a schema (google may confuse you here)
+
+Schema enforces consistency on the data you collect. The database creator chooses a schmea by deciding 1. what data to collect, 2. the data type in which each is collected, and 3. how the data relates to each other (or other databases).
+
+
+When you are not specifically adding/deleting or querying your database, is it still running?
+Is this sense, a database is the same as a textfile: it is always there and only "does something" when we call to read, write, or delete it. The database is a textfile with rules. 
