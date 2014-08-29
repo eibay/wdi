@@ -1,0 +1,1 @@
+[{"name":"Bozo","shoe_size":"XXXXL","car_id":"42431a7b575714c554803ab878f39d98","id":"bd9079304fecaa8ffba49db73f5c3166"},{"name":"Susy","shoe_size":"petite","car_id":"42431a7b575714c554803ab878f39d98","id":"1261e9a0812009738a7776cd0337caf4"},{"name":"Grace","shoe_size":"obese","car_id":"42431a7b575714c554803ab878f39d98","id":"24c68748a8a1f88efb694b5bc566ab7d"}]

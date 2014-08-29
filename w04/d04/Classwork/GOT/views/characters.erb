@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Characters </title>
+</head>
+<body>
+	<h1> Characters </h1>
+	<ul>
+	<% characters.each do |character| %>
+    <li><a href="/character/<%= character["id"]%>"><%= character["name"] %></a> 
+     <br><img src="<%= character["image_url"] %>"alt="image"></li>
+    <% end %>
+	</ul>
+</body>
+</html>
+
