@@ -1,0 +1,30 @@
+ name |  city   | state |  zip  
+------+---------+-------+-------
+ TCI  | Toronto | ON    | 10017
+ NACI | Toronto | ON    | 20012
+ MCI  | Toronto | ON    | 00242
+
+tablefun=# \d school
+           Table "public.school"
+ Column |         Type          | Modifiers 
+--------+-----------------------+-----------
+ name   | character varying(50) | 
+ city   | character varying(50) | 
+ state  | character varying(50) | 
+ zip    | character varying(5)  | 
+
+  name   |        email        | subject  | age 
+---------+---------------------+----------+-----
+ Meghan  | meghan@teacher.com  | math     |  30
+ Melissa | melissa@teacher.com | math     |  20
+ Tejal   | tejal@teacher.com   | english  |  20
+ Patel   | patel@teacher.com   | english  |  30
+ Paulie  | paulie@teacher.com  | spanish  |  32
+ Leslie  | leslie@teacher.com  | chemistry|  31
+
+  Column  |         Type          | Modifiers 
+---------+-----------------------+-----------
+ name    | character varying(50) | 
+ email   | character varying(50) | 
+ subject | character varying(50) | 
+ age     | integer               | 

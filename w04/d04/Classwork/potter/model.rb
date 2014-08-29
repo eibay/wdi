@@ -34,10 +34,11 @@ class Model
     return instances
   end
 
+
   def self.file_name()
     self.name().downcase + "s.txt"
   end
-
+  # self.name() is prebuilt with it
   # Instance methods
 
   def initialize(attributes)

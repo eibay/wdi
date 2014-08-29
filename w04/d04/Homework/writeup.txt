@@ -1,0 +1,7 @@
+Database is a way to store information. It is consistent and information is put in a logical way and is safe. Runs on a computer and listens on a port
+
+Files can be messed up and dont have to be logical.  Example not every piece of input has to have "age".
+
+Schema refers to how things are organized in a database.  It is logical and has patterns
+
+yes

@@ -1,0 +1,13 @@
+<html>
+<head>
+  <title>Characters</title>
+</head>
+<body>
+  <ul>
+<%characters.each do|character|%>
+<li><a href="/character/<%=character["id"]%>"><%=character["name"]%></a></li>
+<%end%>
+</ul>
+
+</body>
+</html>

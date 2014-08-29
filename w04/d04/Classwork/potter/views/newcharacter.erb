@@ -1,0 +1,17 @@
+<html>
+<head>
+  <title>NEW</title>
+</head>
+<body>
+<form action="/characters" method="POST">
+  <input type="text" name="name" placeholder="What is your name">
+  <input type="text" name="url" placeholder="picture please">
+  <select name="house">
+  <% houses.each do |house| %>
+  <option value="<%=house["id"]%>"><%=house["name"] %></option>
+  <%end%>
+</select>
+  <button>SUBMIT</button>
+</form>
+</body>
+</html>
