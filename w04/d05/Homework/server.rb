@@ -25,7 +25,7 @@ get "/posts" do
 end 
 
 get "/posts/new" do 
-	erb :write_post {locals: {authors: Author.all}}
+	erb :write_post, {locals: {authors: Author.all}}
 end 
 
 ## POST METHOD ## 
