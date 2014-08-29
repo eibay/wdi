@@ -1,0 +1,85 @@
+           name            |    city     | state |  zip  
+---------------------------+-------------+-------+-------
+ Tisdale Elementary        | Ramsey      | NJ    | 07446
+ Selinsgrove Middle School | Selinsgrove | PA    | 17870
+ PS 103                    | Brooklyn    | NY    | 11215
+(3 rows)
+
+           Table "public.schools"
+ Column |         Type          | Modifiers 
+--------+-----------------------+-----------
+ name   | character varying(50) | 
+ city   | character varying(50) | 
+ state  | character varying(2)  | 
+ zip    | character varying(5)  | 
+
+      name      |    city     | state |  zip  
+----------------+-------------+-------+-------
+ Manhattan High | Ramsey      | NJ    | 07446
+ Manhattan High | Selinsgrove | PA    | 17870
+ Manhattan High | Brooklyn    | NY    | 11215
+(3 rows)
+
+     name      |             email             |  subject  | age 
+---------------+-------------------------------+-----------+-----
+ Mr. Kotter    | welcomeback@gmail.com         | english   |  37
+ Mr. Belding   | MBalding@aol.com              | principal |  52
+ Dewey Finn    | AlwaysDTenasciously@gmail.com | music     |  33
+ Mr. Garrison  | MsGarrison@hotmail.com        | math      |  42
+ Ms. Cross     | MCross@Rushmore.edu           | math      |  28
+ Ms. Krabbapel | MsK@gmail.com                 | math      |  40
+(6 rows)
+
+           Table "public.teachers"
+ Column  |         Type          | Modifiers 
+---------+-----------------------+-----------
+ name    | character varying(50) | 
+ email   | character varying(50) | 
+ subject | character varying(50) | 
+ age     | integer               | 
+
+UPDATE teachers SET age = 40 WHERE subject = 'math';
+
+DELETE FROM teachers WHERE subject = 'math';
+
+                                   Table "public.cars"
+   Column    |         Type          |                     Modifiers                     
+-------------+-----------------------+---------------------------------------------------
+ id          | integer               | not null default nextval('cars_id_seq'::regclass)
+ make        | character varying(50) | 
+ model       | character varying(50) | 
+ mechanic_id | integer               | 
+Indexes:
+    "cars_pkey" PRIMARY KEY, btree (id)
+
+ id |  make  |  model  | mechanic_id 
+----+--------+---------+-------------
+  1 | Saab   | 95      |           2
+  2 | Subaru | Outback |           2
+  3 | Honda  | civic   |           1
+  4 | Ford   | Model-T |           3
+(4 rows)
+
+                                Table "public.mechanics"
+ Column |         Type          |                       Modifiers                        
+--------+-----------------------+--------------------------------------------------------
+ id     | integer               | not null default nextval('mechanics_id_seq'::regclass)
+ name   | character varying(50) | 
+Indexes:
+    "mechanics_pkey" PRIMARY KEY, btree (id)
+
+ id | name  
+----+-------
+  1 | Mike
+  2 | Fran
+  3 | Peter
+(3 rows)
+
+
+
+
+
+
+
+
+

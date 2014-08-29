@@ -1,0 +1,6 @@
+A database is a collection of tables created to organize data.
+Files can contain erroneous information such as integers instead of strings, they allow direct editing without oversight which can lead to inconsitancies in the data, and they are difficult to read and manipulate.
+In databases the schema is an ordered list of categories; it describes the data.
+Postgres runs unless it is manually stopped, so yes.
+
+When id serial primary key is given as an argument Postgres automatically assigns an ID number to the row, and never reuses the number even if the row is deleted.

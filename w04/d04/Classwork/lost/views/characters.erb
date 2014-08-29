@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+	<meta charset="UTF-8">
+	<title>Characters</title>
+</head>
+<body>
+	<header><h1><a href="/">Lost Directory</a></h1></header>
+	<h1>characters</h1>
+	<ul><% Char.all().each do |char| %>
+		<li><a href="/characters/<%= char["id"] %>"><%= char["name"] %></a></li>
+		<% end %>
+	</ul>
+</body>
+</html>
