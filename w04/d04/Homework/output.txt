@@ -1,0 +1,66 @@
+IrisMartinez ~/dev/wdi/rosencrantz/w04/d04/Homework on master[+!?]
+$ psql
+psql (9.3.5)
+Type "help" for help.
+
+IrisMartinez=# CREATE DATABASE tablefun
+IrisMartinez-# ;
+CREATE DATABASE
+IrisMartinez=# CREATE TABLE schools(name varchar(50), city varchar(50), state varchar(50));
+CREATE TABLE
+IrisMartinez=# 
+IrisMartinez=# ALTER TABLE schools ADD zipcode varchar(5)
+IrisMartinez-# ;
+ALTER TABLE
+IrisMartinez=# 
+ALTER TABLE
+IrisMartinez=# INSERT INTO schools(name, city, state) VALUES ('University of Miami', 'Miami', 'Florida');
+INSERT 0 1
+IrisMartinez=# INSERT INTO schools(name, city, state, zipcode) VALUES ('University of Miami', 'Miami', 'Florida','33166');
+INSERT 0 1
+IrisMartinez=# INSERT INTO schools(name, city, state, zipcode) VALUES ('New York City', 'New York', 'New York', '10011');
+INSERT 0 1
+IrisMartinez=# INSERT INTO schools(name, city, state, zipcode) VALUES ('University of Maryland', 'Central Park', 'Maryland','20742');
+INSERT 0 1
+IrisMartinez=# \d schools
+           Table "public.schools"
+ Column  |         Type          | Modifiers 
+---------+-----------------------+-----------
+ name    | character varying(50) | 
+ city    | character varying(50) | 
+ state   | character varying(50) | 
+ zipcode | character varying(5)  | 
+
+IrisMartinez=# CREATE TABLE teachers(name varchar(50), email varchar(50), subject varchar(50));
+CREATE TABLE
+IrisMartinez=# ALTER TABLE teachers ADD age integer
+IrisMartinez-# ;
+ALTER TABLE
+IrisMartinez=# INSERT INTO teachers(name, email, subject, age) VALUES('Bob','bob@teacher.com','math',42);
+INSERT 0 1
+IrisMartinez=# INSERT INTO teachers(name, email, subject, age) VALUES('Paris','paris@teacher.com','math',32);
+INSERT 0 1
+IrisMartinez=# INSERT INTO teachers(name, email, subject, age) VALUES('Lisa','lisa@teacher.com','science',45);
+INSERT 0 1
+IrisMartinez=# INSERT INTO teachers(name, email, subject, age) VALUES('Greg','greg@teacher.com','history',36);
+INSERT 0 1
+IrisMartinez=# INSERT INTO teachers(name, email, subject, age) VALUES('Maria','maria@teacher.com','spanish',33);
+INSERT 0 1
+IrisMartinez=# INSERT INTO teachers(name, email, subject, age) VALUES('Christine','geology@teacher.com','geology',38);
+INSERT 0 1
+IrisMartinez=# \d
+            List of relations
+ Schema |  Name     | Type  |    Owner     
+--------+-----------+-------+--------------
+ public | schools   | table | IrisMartinez
+ public | teachers  | table | IrisMartinez
+(2 rows)
+IrisMartinez=# \d teachers
+           Table "public.teachers"
+ Column  |         Type          | Modifiers 
+---------+-----------------------+-----------
+ name    | character varying(50) | 
+ email   | character varying(50) | 
+ subject | character varying(50) | 
+ age     | integer               | 
+

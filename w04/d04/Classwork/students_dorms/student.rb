@@ -49,4 +49,8 @@ class Student
   def [](key)
     return @attributes[key]
   end
+
+  def dorm
+    
+  end
 end
