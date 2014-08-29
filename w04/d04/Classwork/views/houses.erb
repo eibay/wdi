@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>House/Character Tracker</title>
+</head>
+<body>
+	<h1>Houses list</h1>
+	<ul>
+	<% houses.each do |house|%>
+	<li><a href="/houses/<%= house['id']%>"><%= house["name"]%></a></li>
+	<% end %>
+	</ul>
+	<a href="/">Go back</a>
+</body>
+</html>

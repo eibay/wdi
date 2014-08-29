@@ -1,0 +1,175 @@
+###################
+###Schools Table###
+###################
+
+shotaro=# CREATE DATABASE tablefun;
+CREATE DATABASE
+shotaro=# \c tablefun;
+You are now connected to database "tablefun" as user "shotaro".
+tablefun=# CREATE TABLE schools (name varchar(50), city varchar(50), state varchar(50));
+CREATE TABLE
+tablefun=# ALTER TABLE schools ADD zip varchar(5);
+ALTER TABLE
+tablefun=# INSERT INTO schools (name, city, state, zip) VALUES ('Westside School', 'California', 'CA', '90482');
+INSERT 0 1
+tablefun=# INSERT INTO schools (name, city, state, zip) VALUES ('Eastside School', 'New York', 'NY', '11221');
+INSERT 0 1
+tablefun=# INSERT INTO schools (name, city, state, zip) VALUES ('Miami School', 'Miami', 'MIA', '44225');
+INSERT 0 1
+tablefun=# SELECT * FROM schools;
+      name       |    city    | state |  zip  
+-----------------+------------+-------+-------
+ Westside School | California | CA    | 90482
+ Eastside School | New York   | NY    | 11221
+ Miami School    | Miami      | MIA   | 44225
+(3 rows)
+tablefun=# SELECT * FROM schools;
+      name       |    city    | state |  zip  
+-----------------+------------+-------+-------
+ Westside School | California | CA    | 90482
+ Eastside School | New York   | NY    | 11221
+ Miami School    | Miami      | MIA   | 44225
+(3 rows)
+
+tablefun=# \d schools;
+           Table "public.schools"
+ Column |         Type          | Modifiers 
+--------+-----------------------+-----------
+ name   | character varying(50) | 
+ city   | character varying(50) | 
+ state  | character varying(50) | 
+ zip    | character varying(5)  |
+
+tablefun=# UPDATE schools SET name = 'Manhattan High';
+UPDATE 3
+
+tablefun=# SELECT * FROM schools;
+      name      |    city    | state |  zip  
+----------------+------------+-------+-------
+ Manhattan High | California | CA    | 90482
+ Manhattan High | New York   | NY    | 11221
+ Manhattan High | Miami      | MIA   | 44225
+(3 rows)
+
+
+---------------------------------------------------
+####################
+###Teachers Table###
+####################
+
+ tablefun=# CREATE TABLE teachers (name varchar(50), email varchar(50), subject varchar(50));
+CREATE TABLE
+tablefun=# ALTER TABLE teachers ADD age integer;
+ALTER TABLE
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('john', 'john@gmail.com', 'Math', 35);
+INSERT 0 1
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('Mike', 'mike@gmail.com', 'English', 24);
+INSERT 0 1
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('Dustin', 'dustin@gmail.com', 'Chemistry', 37);
+INSERT 0 1
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('Kart', 'kart@gmail.com', 'Phycology', 31);
+INSERT 0 1
+tablefun=# \d teachers
+           Table "public.teachers"
+ Column  |         Type          | Modifiers 
+---------+-----------------------+-----------
+ name    | character varying(50) | 
+ email   | character varying(50) | 
+ subject | character varying(50) | 
+ age     | integer               |
+
+tablefun=# UPDATE teachers SET age = 40 WHERE subject = 'Math';
+UPDATE 1
+
+tablefun=# SELECT * FROM teachers;
+  name  |      email       |  subject  | age 
+--------+------------------+-----------+-----
+ Mike   | mike@gmail.com   | English   |  24
+ Dustin | dustin@gmail.com | Chemistry |  37
+ Kart   | kart@gmail.com   | Phycology |  31
+ john   | john@gmail.com   | Math      |  40
+(4 rows)
+
+tablefun=# DELETE FROM teachers WHERE subject = 'Math';
+DELETE 1
+tablefun=# SELECT * FROM teachers
+tablefun-# ;
+
+  name  |      email       |  subject  | age 
+--------+------------------+-----------+-----
+ Mike   | mike@gmail.com   | English   |  24
+ Dustin | dustin@gmail.com | Chemistry |  37
+ Kart   | kart@gmail.com   | Phycology |  31
+(3 rows
+
+---------------------------------------------------
+#############
+### BONUS ###
+#############
+
+tablefun=# CREATE TABLE mechanics (id serial primary key, name varchar(50));
+CREATE TABLE
+
+tablefun=# INSERT INTO mechanics (name) VALUES ('PUPPY');
+INSERT 0 1
+
+tablefun=# INSERT INTO mechanics (name) VALUES ('BEAR');
+INSERT 0 1
+
+tablefun=# INSERT INTO mechanics (name) VALUES ('CAT');
+INSERT 0 1
+tablefun=# SELECT * FROM mechanics
+tablefun-# ;
+ id | name  
+----+-------
+  1 | PUPPY
+  2 | BEAR
+  3 | CAT
+(3 rows)
+
+###################################################
+
+The reason why I do not need to put id is psql will automatically give us id number. 
+
+###################################################
+
+tablefun=# CREATE TABLE cars (id serial primary key, make varchar(50), model varchar(50), mechanic_id integer);
+CREATE TABLE
+
+tablefun=# INSERT INTO cars (make, model, mechanic_id) VALUES ('Chrysler', 'Imperial', 1);
+INSERT 0 1
+
+tablefun=# INSERT INTO cars (make, model, mechanic_id) VALUES ('Citroën', '2CV', 2);
+INSERT 0 1
+
+tablefun=# INSERT INTO cars (make, model, mechanic_id) VALUES ('Hillman', 'Minx Magnificent', 3);
+INSERT 0 1
+
+tablefun=# SELECT * FROM cars;
+ id |   make   |      model       | mechanic_id 
+----+----------+------------------+-------------
+  1 | Chrysler | Imperial         |           1
+  2 | Citroën  | 2CV              |           2
+  3 | Hillman  | Minx Magnificent |           3
+(3 rows)
+
+#################
+###Super Bonus###
+#################
+
+tablefun=# SELECT*FROM cars JOIN mechanics USING(id);
+ id |   make   |      model       | mechanic_id | name  
+----+----------+------------------+-------------+-------
+  1 | Chrysler | Imperial         |           1 | PUPPY
+  2 | Citroën  | 2CV              |           2 | BEAR
+  3 | Hillman  | Minx Magnificent |           3 | CAT
+(3 rows)
+
+###################################################I think I did this in a wrong way...
+###################################################
+
+
+
+
+
+
