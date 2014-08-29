@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Houses</title>
+</head>
+<body>
+
+  <a href="/houses/:id"> Check out the Houses</a>
+
+  <ul>
+      <% houses.each do |house| %>
+      <li><a href="/houses/<%= house["id"] %>"><% house["name"] %></a>
+        <li><%=house["image_url"]%></li>
+        <% end %>
+  </ul>
+
+</body>
+</html>
+
+<!-- /houses -> a list of houses with links to the /houses/:id page for each one
+/houses/:id -> A page with information about an individual house and a list of characters that belong to it. -->

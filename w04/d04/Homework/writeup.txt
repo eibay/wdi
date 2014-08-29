@@ -1,0 +1,9 @@
+Part 1 -
+
+1) A database to me is a program that runs on my computer which is used to give structure and consistency to my data. A collection of tables, it helps me stay organized and ensures that I'm using the right data type for the right purpose, ex: integers where I need, booleans elsewhere etc.
+
+2) The downside to using files instead of a database are that it can be very easy to make a mistake and not be made aware of that error until further into the program which can be a waste of time and effort. Due to no strict requirements per se, data types can be inconsistent across the application in question and can make simple tweaks harder than they need to be.
+
+3) A database schema to me is like a blueprint that puts the d in data and  sets the rules for how our tables, objects etc should behave and interact with each other and ensures they stay in line.
+
+4) Yes.
