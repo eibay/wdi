@@ -1,0 +1,92 @@
+     name      |    city     | state |  zip  
+---------------+-------------+-------+-------
+ Washington HS | Allentown   | PA    | 10743
+ Jefferson HS  | Chino Hills | CA    | 90743
+ Franklin HS   | Pasadena    | CA    | 90723
+(3 rows)
+
+          Table "public.schools"
+ Column |         Type         | Modifiers 
+--------+----------------------+-----------
+ name   | character varying    | 
+ city   | character varying    | 
+ state  | character varying    | 
+ zip    | character varying(5) | 
+
+      name      |        email        |    subject     | age 
+----------------+---------------------+----------------+-----
+ Mr. Franklin   | frank@benjamin.co   | math           |  52
+ Mr. Washington | george@resident.edu | math           |  48
+ Mrs. Jefferson | thomasita@prez.com  | art            |  33
+ Ms. Roosevelt  | theo@prez.co.uk     | biology        |  29
+ Miss Lincoln   | al@logcabin.co.uk   | history        |  42
+ Miss Kennedy   | jackie@flotus.com   | home economics |  24
+(6 rows)
+
+tablefun=# \d teachers
+         Table "public.teachers"
+ Column  |       Type        | Modifiers 
+---------+-------------------+-----------
+ name    | character varying | 
+ email   | character varying | 
+ subject | character varying | 
+ age     | integer           | 
+
+
+
+
+To change age:
+
+tablefun=# UPDATE teachers
+tablefun-# SET age = 40
+tablefun-# WHERE subject = 'math';
+
+To delete math teachers:
+
+tablefun=# DELETE FROM teachers
+tablefun-# WHERE subject = 'math';
+
+
+
+
+Postgres generates serializes ids for each entery:
+                            Table "public.mechanics"
+ Column |       Type        |                       Modifiers                        
+--------+-------------------+--------------------------------------------------------
+ id     | integer           | not null default nextval('mechanics_id_seq'::regclass)
+ name   | character varying | 
+Indexes:
+    "mechanics_pkey" PRIMARY KEY, btree (id)
+
+Indexes:
+    "mechanics_pkey" PRIMARY KEY, btree (id)
+
+tablefun=# SELECT * FROM mechanics;
+ id |  name   
+----+---------
+  1 | Bob
+  2 | Winston
+  3 | Horatio
+(3 rows)
+
+                                 Table "public.cars"
+   Column    |       Type        |                     Modifiers                     
+-------------+-------------------+---------------------------------------------------
+ id          | integer           | not null default nextval('cars_id_seq'::regclass)
+ make        | character varying | 
+ model       | character varying | 
+ mechanic_id | integer           | 
+Indexes:
+    "cars_pkey" PRIMARY KEY, btree (id)
+
+Indexes:
+    "cars_pkey" PRIMARY KEY, btree (id)
+
+tablefun=# SELECT * FROM cars;
+ id | make  |  model   | mechanic_id 
+----+-------+----------+-------------
+  1 | Kia   | Soul     |           2
+  2 | Mazda | Miyata   |           2
+  3 | Ford  | Explorer |           1
+  4 | Dodge | Charger  |           3
+(4 rows)

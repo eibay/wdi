@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+	<title>Add New</title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="/">Castle</a></li>
+			<li><a href="/houses">Houses</a></li>
+			<li><a href="/students">Students</a></li>
+		</ul>
+	</nav>
+
+<h1>Register a New Wizard or Witch</h1>
+
+<form action="/students" method="POST">
+	    <input type="text" name="name" placeholder="Name">
+	    <input type="text" name="image" placeholder="ID Pic URL">
+	    <select name="house_id">
+	    <% houses.each do |house| %>
+	     <option value="<%= house["id"] %>"><%= house["name"] %></option>
+	      <% end %>
+	    </select>
+	    <button>Enroll</button>
+ </form>
+
+  </body
