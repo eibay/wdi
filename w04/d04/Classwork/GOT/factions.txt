@@ -1,0 +1,1 @@
+[{"name":"Cops","legality":3,"id":"de76516d03e3eebba2c472b9218ce1e0"},{"name":"Drug Dealers","legality":0,"id":"ec5c92997711adbba9deb1bed1f678e0"},{"name":"Government","legality":2,"id":"1dd9840a208f65e812a6ab2de08b9a4b"}]
