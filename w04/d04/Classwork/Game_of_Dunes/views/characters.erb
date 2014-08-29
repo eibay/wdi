@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Characters</title>
+</head>
+<body>
+	Characters
+	<a href='/characters/new'> Add new character </a>
+
+	<ul>
+		<%data_characters.each do |character|%>
+			<li> <a href='/characters/<%=character["id"]%>'><%=character["name"]%> </a></li>
+		<%end%>
+	</ul>
+</body>
+</html>

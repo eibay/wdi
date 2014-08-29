@@ -1,0 +1,50 @@
+tablefun=# SELECT * FROM schools;
+               name               |     city      | state  |  zip  
+----------------------------------+---------------+--------+-------
+ UPenn                            | Philadelphia  | PA     | 19103
+ NYU                              | New York City | NY     | 10003
+ Imperial College Business School | London        | London | SW7
+(3 rows)
+
+           Table "public.schools"
+ Column |         Type          | Modifiers 
+--------+-----------------------+-----------
+ name   | character varying(50) | 
+ city   | character varying(50) | 
+ state  | character varying(50) | 
+ zip    | character varying(5)  | 
+
+
+   name   |      email      |     subject      | age 
+---------+-----------------+------------------+-----
+ bob     | bob@bob.com     | math             |  33
+ tob     | tob@tob.com     | math             |  32
+ dob     | dob@dob.com     | physics          |  33
+ nob     | nob@nob.com     | biology          |  31
+ rob     | rob@rob.com     | chemistry        |  35
+ zoltran | ztran@omega.com | world domination |  53
+(6 rows)
+
+
+tablefun=# \d teachers
+         Table "public.teachers"
+ Column  |       Type        | Modifiers 
+---------+-------------------+-----------
+ name    | character varying | 
+ email   | character varying | 
+ subject | character varying | 
+ age     | integer           | 
+
+ tablefun=# DELETE FROM teachers WHERE subject = 'math';
+DELETE 2
+
+
+tablefun=# SELECT * FROM teachers
+tablefun-# ;
+  name   |      email      |     subject      | age 
+---------+-----------------+------------------+-----
+ dob     | dob@dob.com     | physics          |  33
+ nob     | nob@nob.com     | biology          |  31
+ rob     | rob@rob.com     | chemistry        |  35
+ zoltran | ztran@omega.com | world domination |  53
+(4 rows)
