@@ -1,0 +1,31 @@
+    name     |    city     | state |  zip  
+--------------+-------------+-------+-------
+ So. Pas High | So.Pasadena | CA    | 91030
+ FIT          | NYC         | NY    | 10001
+ PCC          | Pasadena    | CA    | 91106
+
+
+ Column |         Type          | Modifiers 
+--------+-----------------------+-----------
+ name   | character varying(50) | 
+ city   | character varying(50) | 
+ state  | character varying(50) | 
+ zip    | character varying(5)  | 
+
+
+   name   |        email        | subject | age 
+----------+---------------------+---------+-----
+ Smith    | Mr.Smith@math.com   | math    |  50
+ Anderson | anderson@math.com   | math    |  38
+ Linda    | linda@lit.com       | english |  30
+ Asta     | physics@science.com | physics |  64
+ George   | george@history.com  | history |  27
+ Yolanda  | yolanda@hola.com    | spanish |  55
+
+  Column  |         Type          | Modifiers 
+---------+-----------------------+-----------
+ name    | character varying(50) | 
+ email   | character varying(50) | 
+ subject | character varying(50) | 
+ age     | integer               | 
+

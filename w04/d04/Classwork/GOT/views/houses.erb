@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>House Information</title>
+</head>
+<body>
+	<a href='/'>Home</a>
+	<h2> <%= house["name"] %></h2>
+	<img src="<%= house["url"] %>">
+	<h3>Characters in <%= house["name"] %> House:</h3>
+
+	<ul>
+		<% characters.each do |character| %>
+		<li><a href="/characters/<%= character["id"] %>"><%= character["first"] %> <%= character["last"] %></a></li>
+		<%end%>
+	</ul>
+
+	
+
+</body>
+</html>

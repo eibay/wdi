@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>Character Profile</title>
+</head>
+<body>
+	<a href='/'>Home</a>
+	<h2> <%= character["first"] %> <%= character["last"] %> </h2>
+	<img src='<%= character["url"] %>'>
+
+	<h3>House: <a href='/houses/<%= house["id"] %>'><%= house["name"] %></a></h3>
+	<img src="<%= house['url'] %>">
+
+</body>
+</html>
