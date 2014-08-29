@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Author</title>
+</head>
+<body>
+	<h1> <%= author["name"] %> </h1>
+	<h3> <%= author["email"] %> </h3>
+	<ul> 
+		<% posts.each do |post| %>
+		<li><a href="/posts/<%= post["id"] %>"> <%= post["keyword"] %> </a></li>
+		<% end %>
+	</ul>
+</body>
+</html>
