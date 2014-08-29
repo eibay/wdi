@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Character</title>
+</head>
+<body>
+	<h1> <%= character["name"] %> </h1>
+	<img src="<%= character["image_url"] %>">
+	<h3>House: <a href="/houses/<%= house["id"] %>"><%= house["name"] %></a></h3> 
+</body>
+</html>
