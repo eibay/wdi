@@ -1,5 +1,4 @@
 
-
 CREATE DATABASE jungle;
 
 \c; # connect to database

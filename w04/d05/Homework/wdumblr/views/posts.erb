@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Posts</title>
+</head>
+<body>
+
+	<div class="navbar">
+		<a href="/authors"> Authors </a>
+		<br/>
+		<a href="/posts"> Posts </a>
+	</div>
+
+
+	<div class="main">
+		
+
+	<h1> Posts </h1>
+
+
+
+		<form action="/posts/new" method="POST">
+			<label> Author:
+				<select name="author_id"> 
+					<%data_authors.each do |author|%>
+						<option value="<%=author['id']%>"><%=author['name']%></option> 
+					<%end%>
+				</select>
+			</label>
+			<input type="text" name="keyword" placeholder="Keyword">
+
+			<input type="hidden" name="created_at" value="<%=Time.now%>">
+			<input type="text" name="content" placeholder="Type content here" class="content_space">
+			
+			<button> Add Post </button>
+		</form>
+		
+
+		<%data_posts.each do |post|%>
+			<li> 
+				<%=post["keyword"]%> --- "
+					<a href="/posts/<%=post["id"]%>">
+						<%=post["content"]%>
+					</a>" 
+				--- posted at <%=post["created_at"].split(" ")[1]%> on <%=post["created_at"].split(" ")[0]%> 
+			</li>
+		<%end%>
+
+
+
+
+	</div>
+
+
+</body>
+</html>

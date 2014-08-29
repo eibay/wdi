@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Specific Post</title>
+</head>
+<body>
+
+	<div class="navbar">
+		<a href="/authors"> Authors </a>
+		<br/>
+		<a href="/posts"> Posts </a>
+	</div>
+
+	Specific Posts
+	
+	<h5> This post is brought to you today by the word:</h5> <h3> "<%=post["keyword"]%> "</h3>
+
+
+	<h4> Post: "<%=post["content"]%>" </h4>
+	<h4> Post author: <a href="/authors/<%=post_author["id"]%>"><%= post_author["name"]%></a> </h4>
+	
+</body>
+</html>
