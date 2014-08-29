@@ -2,7 +2,7 @@ require 'sinatra'
 require_relative "./lib/author"
 require_relative "./lib/post"
 
-## GET METHOD ## 
+## METHOD GET ## 
 # landing # 
 
 get '/' do 
@@ -19,6 +19,12 @@ get "/authors/new" do
 	erb :sign_up 
 end 
 
+get "/authors/:id" do 
+	author = Author.find_by_id params[:id]
+
+	erb :author, {locals: {author: author}} 
+end 
+
 # posts # 
 
 get "/posts" do 
@@ -29,7 +35,13 @@ get "/posts/new" do
 	erb :write_post, {locals: {authors: Author.all}}
 end 
 
-## POST METHOD ## 
+get "/posts/:id" do 
+	post = Post.find_by_id params[:id]
+
+	erb :post, {locals: {post: post}}
+end 
+
+## METHOD POST ## 
 
 post "/posts" do 
 	post = Post.new params["subject"], params["content"], params["author_id"]

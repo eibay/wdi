@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>WDumblr | <%= post.subject %>: <%= post.content[0,10] %></title>
+</head>
+<body>
+	<header>
+		<h1><a href='/'>WDumblr</a></h1>
+		<% author_name = post.author.name %> 
+		<h2><%= author_name %> on <%= post.subject %></h2>
+		<nav>
+			<ul>
+				<li><a href='/'>Home</a></li>
+				<li><a href="/authors">Authors</a></li>
+				<li><a href="/posts">Posts</a></li>
+				<li><a href="/authors/new">Sign Up</a></li>
+				<li><a href="/posts/new">Write a Post</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<h3><%= post.subject %></h3>
+		<p><%= post.content %> &mdash; <%= author_name %></p>
+	</section>
+</body>
+</html>
