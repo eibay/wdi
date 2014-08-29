@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Houses</title>
+</head>
+<body>
+	<h1>Houses</h1>
+	<ul>
+		<% houses.each do |x| %>
+		<li><a href="/houses/<%= x["id"] %>"><%= x["name"] %></li>
+		<% end %>
+	</ul>
+</body>
+</html>
