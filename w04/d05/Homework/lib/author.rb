@@ -65,7 +65,13 @@ class Author
 		Post.find_all_by :author_id, self.id 
 	end 
 
-	def post subj, content  
+
+	def post subj, content 
+		# this might be a little silly, as
+		# what w/ the way the routes are set up 
+		# requires us to first find the user w/ the id  
+		# already given to us, before taking the id 
+		# from the user, which we already had to begin w/   
 		Post.new subj, content, self.id 
 	end 
 
