@@ -1,0 +1,37 @@
+timoorkurdi=# SELECT * FROM schools;
+       name       |     city     | state |  zip
+------------------+--------------+-------+-------
+ forest hills     | forest hills | ny    | 1111
+ newtown          | elmhurst     | ny    | 2222
+ randomschoolname | manhattan    | ny    | 33333
+(3 rows)
+
+timoorkurdi=# \d schools
+           Table "public.schools"
+ Column |         Type          | Modifiers
+--------+-----------------------+-----------
+ name   | character varying(50) |
+ city   | character varying(50) |
+ state  | character varying(50) |
+ zip    | character varying(5)  |
+
+timoorkurdi=# SELECT * FROM teachers;
+           name            |        email         |  subject   | age
+---------------------------+----------------------+------------+-----
+ Msjennie                  | randomemail          | math       |  30
+ Msminnie                  | randomemailtaketwo   | math       |  35
+ Msthang                   | randomemailtakethree | history    |  40
+ Msboothang                | randomemailtakefour  | music      |  45
+ Msbeyoncethisoneisforneel | randomemailtakefive  | arthistory |  50
+ Mssteroids                | randomemailtakesix   | gym        |  50
+(6 rows)
+
+timoorkurdi=# \d teachers;
+           Table "public.teachers"
+ Column  |         Type          | Modifiers
+---------+-----------------------+-----------
+ name    | character varying(50) |
+ email   | character varying(50) |
+ subject | character varying(50) |
+ age     | integer               |
+

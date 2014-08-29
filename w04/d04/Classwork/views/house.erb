@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>House</title>
+</head>
+<body>
+
+  <h1> <%= house["name"] %></h1>
+  <h1> <%= house["image_url"] %> <h1>
+
+    <h3> Characters </h3>
+
+      <ul>
+        <% characters.each do |character| %>
+        <li><a href="/characters/<%=character["id"] %>"><%= character["name"] %> <%=character["age"] %></a></li>
+        <% end %>
+
+      </ul>
+
+</body>
+</html>

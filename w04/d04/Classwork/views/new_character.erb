@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New character Page</title>
+</head>
+<body>
+
+    <form action="/characters" method= "POST">
+      <input type="text" name="name" placeholder="Enter A Name">
+      <input type="text" name="age" placeholder="Enter A Age">
+    <select name="house_id">
+      <% houses.each do |house| %>
+        <option value="<%= house["id"] %>"><%= house["name"] %><%= house["age"] %></option>
+
+        <% end %>
+      </select>
+      <button> Submit</button>
+
+  </form>
+
+</body>
+</html>
