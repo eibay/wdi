@@ -1,0 +1,12 @@
+Create a file called writeup.txt to record your answers to the following questions:
+In your own words: what is a database?
+List some problems with using files instead of a database
+What is a schema (google may confuse you here)
+When you are not specifically adding/deleting or querying your database, is it still running?
+
+1. A database is a program that runs on your computer and retains your data on a server. A database organizes your
+data and keep track of it with primary serial keys. 
+2. Files can easily be broken if edited. Files are difficult to edit and search. 
+3. A schema is a tree diagram that displays in your terminal that shows you the current structure of your
+database or drive.
+4. Yes as long as you have your database running in your terminal you do not specifically have to query or add/delete to make it run.
