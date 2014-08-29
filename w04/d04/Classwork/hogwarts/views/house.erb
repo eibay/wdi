@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+	<title><%= house["name"] %></title>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="/">Castle</a></li>
+			<li><a href="/houses">Houses</a></li>
+			<li><a href="/students">Students</a></li>
+			<li><a href="/students/new">Enroll New Student</a></li>
+		</ul>
+	</nav>
+	<h1><%=house["name"]%></h1>
+	<h3>Established in <%=house["age"]%>.</h3>
+	<h3>Students:</h3>
+		<ul>
+			<% students.each do |student| %>
+			<li><a href="/students/<%=student["id"]%>"><%=student["name"]%></a></li>
+			<% end %>
+		</ul>	
+</body>
