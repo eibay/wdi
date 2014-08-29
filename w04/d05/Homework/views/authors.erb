@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>WDumblr | All Authors</title>
+</head>
+<body>
+	<header>
+		<h1><a href='/'>WDumblr</a></h1>
+		<h2>Another Website That'd Like to Buy a Vowel</h2>
+		<nav>
+			<ul>
+				<li><a href='/'>Home</a></li>
+				<li><a href="/authors">Authors</a></li>
+				<li><a href="/posts">Posts</a></li>
+				<li><a href="/authors/new">Sign Up</a></li>
+				<li><a href="/posts/new">Write a Post</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section class="authors">
+		<h3>All Authors</h3>
+		<ul>
+			<% authors.all do |author| %> 
+				<li><a href=<%= "/authors/" + author.id %>><%= author.name %></a> (has <%= author.posts.length %> posts)</li>
+			<% end %>
+		</ul>
+	</section>
+</body>
+</html>
