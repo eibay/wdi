@@ -24,5 +24,6 @@ end
 
 get("/characters/:id") do 
 	char = Char.find_by("id", params[:id])
-erb(:character, locals: {char: char})
+	home = Home.find_by("id", )
+erb(:character, locals: {char: char, home: home})
 end

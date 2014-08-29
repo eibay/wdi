@@ -1,7 +1,5 @@
-require 'pry'
 require 'json'
 require 'securerandom'
-
 
 class Model
   def self.create(entity)
@@ -46,7 +44,7 @@ class Model
     @attributes = attributes
   end
 
-  def to_json(something)
+  def to_json(_)
     @attributes.to_json
   end
 
