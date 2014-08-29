@@ -1,0 +1,1 @@
+[{"name":"Baratheon","words":"Ours is the Fury","id":"f55cf2ed4927eeefb6ca11fc9754025c"},{"name":"Stark","words":"Winter is Coming","id":"9d06175bca965bedafa6c2b101391666"},{"name":"Lannister","words":"Hear Me Roar","id":"5141386ef29d4b65106ecd13023d174c"},{"name":"Tyrell","words":"Growing Strong","id":"fee13daa3c3cff84c6db584602b4fd98"}]

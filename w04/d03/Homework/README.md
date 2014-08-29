@@ -1,7 +1,7 @@
 ### Review
 
 Everything in ruby is an instance of an object of some sort.
-Objects have behavior (methods) and data (instance variables).
+Objects have behavior (methods) and data (instance data).
 
 ```ruby
 # Instantiating an Array in 'literal' form
@@ -27,7 +27,7 @@ me[:name]
 
 Each instance of a class has the same behavior but *different* data. Just like every book has similar behavior - you can open it, read it, put it on a shelf - but each one has totally different "data" - ie the words on the pages, the author.
 
-Similarly, every string is fundamentally the same in terms of **how** it works, but each hash we make contains totally different data.
+Similarly, every string is fundamentally the same in terms of **how** it works, but each string we make contains totally different data.
 
 ```ruby
 jeff = "Jeff" # <-- instance of the String class with data Jeff
