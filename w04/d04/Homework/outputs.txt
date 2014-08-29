@@ -1,0 +1,40 @@
+tablefun=# SELECT * FROM schools;
+                  name                   |   city   |  state   |  zip  
+-----------------------------------------+----------+----------+-------
+ Fletcher Carry HS                       | Winnetka | Illinois | 23283
+ Francis Garbanzo Regional Middle School | Olathe   | Kansas   | 42008
+ Schuly Bartokovits Hebrew Day School    | Rockvale | New York | 19228
+(3 rows)
+
+
+
+tablefun=# \d schools
+          Table "public.schools"
+ Column |         Type         | Modifiers 
+--------+----------------------+-----------
+ name   | character varying    | 
+ city   | character varying    | 
+ state  | character varying    | 
+ zip    | character varying(5) | 
+
+tablefun=# SELECT * FROM teachers;
+        name         |            email             |    subject     | age 
+---------------------+------------------------------+----------------+-----
+ Jacob Halstead      | jhalstead@fletchercarry.edu  | math           |  46
+ Frank Murrh         | fmurrh@fletchercarry.edu     | math           |  41
+ Griselda Meyer      | gmeyer@fletchercarry.edu     | art            |  38
+ Dell McPherson      | dmcpherson@fletchercarry.edu | social studies |  44
+ Benedict Kramer     | bkramer@fletchercarry.edu    | english        |  31
+ Rembrandt Kassovitz | rkassovitz@fletchercarry.edu | biology        |  44
+(6 rows)
+
+
+tablefun=# \d teachers
+         Table "public.teachers"
+ Column  |       Type        | Modifiers 
+---------+-------------------+-----------
+ name    | character varying | 
+ email   | character varying | 
+ subject | character varying | 
+ age     | integer           | 
+

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Houses of Westeros</title>
+</head>
+<body>
+	<h2>Houses of Westeros</h2>
+	<% list.each do |house| %>
+	<div><a href="/houses/<%= house["id"] %>"><%= house["name"] %></a></div>
+	<% end %>
+</body>
+</html>

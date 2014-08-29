@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Include a Westeron</title>
+</head>
+<body>
+	<h2>Enter a Restuaron into the Database</h2>
+	<form action="/characters/new" method="POST">
+		<input type="text" name="name" placeholder="Character's name">
+		<input type="text" name="img_url" placeholder="An image link">
+		<select name="house_id">
+			<% list.each do |house| %>
+			<option value="<%= house["id"] %>"><%= house["name"] %></option>
+			<% end %>
+		</select>
+		<button>Enter</button>
+</body>
+</html>
