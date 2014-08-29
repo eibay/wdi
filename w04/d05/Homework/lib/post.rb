@@ -4,12 +4,6 @@ require 'date'
 
 class Post  
 
-	# define a db var # 
-	def self.db 
-		"./posts.db" 
-	end  
-
-
 	# the init # 
 
 	attr_accessor :subject, :content   
@@ -34,15 +28,16 @@ class Post
 	end 
 
 
-	# helper methods # 
+	# class methods # 
+
+	def self.db 
+		"./posts.db" 
+	end  
 
 	def self.db_hashes 
 		f = File.read Post.db  
 		JSON.parse f
 	end 
-
-
-	# class methods # 
 
 	def self.all
 		Post.db_hashes.map &:to_post 

@@ -1,13 +1,7 @@
 require 'json'
 require 'securerandom'
 
-class Author 
-
-	# define a db var # 
-
-	def self.db 
-		"./authors.db"
-	end   
+class Author 	
 
 	# the init # 
 
@@ -21,15 +15,16 @@ class Author
 	end
 
 
-	# helper methods # 
+	# class methods # 
+
+	def self.db 
+		"./authors.db"
+	end   
 
 	def self.db_hashes 
 		f = File.read Author.db 
 		JSON.parse f
 	end 
-
-
-	# class methods # 
 
 	def self.all
 		Author.db_hashes.map &:to_author 
@@ -70,7 +65,7 @@ class Author
 		Post.find_all_by :author_id, self.id 
 	end 
 
-	def post subj, content
+	def post subj, content  
 		Post.new subj, content, self.id 
 	end 
 
