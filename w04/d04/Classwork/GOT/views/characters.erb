@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Characters</title>
+</head>
+<body>
+	<h2> Characters</h2>
+<a href='/'>Home</a>
+	<h3> Add Character</h3>
+	<form action='/characters' method='POST'>
+		<label>First Name: <input type='text' name="first" placeholder="First Name"></label>
+		<label>Last Name: <input type='text' name='last' placeholder="Last Name"></label>
+		<label>House: <select name='house_id'>
+			<% houses.each do |house| %>
+			<option value='<%= house["id"] %>'><%= house["name"] %></option>
+			<% end %>
+		</select></label>
+		<label>Image Link:<input type='text' name='url' placeholder="Paste Image URL"></label>
+		<button>Add Character</button>
+	</form>
+
+<h3> All Characters</h3>
+
+<ul>
+	<% characters.each do |character| %>
+	<li><a href="/characters/<%= character['id'] %>"><%= character["first"] %> <%= character["last"] %></a></li>
+	<% end %>
+</ul>
+
+
+</body>
+</html>

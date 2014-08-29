@@ -1,0 +1,12 @@
+In your own words: what is a database?
+List some problems with using files instead of a database
+What is a schema (google may confuse you here)
+When you are not specifically adding/deleting or querying your database, is it still running?
+
+A database is a particular system of storage. 
+
+A database will allow you to maitain consistent data. 
+
+A schema defines the way your data is stored.
+
+I think so. 
