@@ -38,7 +38,7 @@ We learned in Neel's lecture yesterday that files aren't the best place to keep 
 
   Yesterday, we only connected to our postgres database server using `psql`. Today, we will connect to postgres from our ruby program.
 
-3. Read Sections 1 - 3, and 5 of the (ActiveRecord Basics)[http://guides.rubyonrails.org/active_record_basics.html] documentation.
+3. Read Sections 1 - 3, and 5 of the [ActiveRecord Basics](http://guides.rubyonrails.org/active_record_basics.html) documentation.
 
   Create a folder in today's `Homework` folder called `reflection`.
 
