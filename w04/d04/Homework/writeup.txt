@@ -1,0 +1,16 @@
+Part 1: Writeup
+
+GOAL: Think about the benefits and goals of using a database
+SPEC:
+Create a file called writeup.txt to record your answers to the following questions:
+In your own words: what is a database?
+List some problems with using files instead of a database
+What is a schema (google may confuse you here)
+When you are not specifically adding/deleting or querying your database, is it still running?
+
+
+Files can be easily accessed and messed up. Files are a completely blank canvas with no structure at all. Text files don’t know or care what you are doing, and won’t help you keep things in order. It takes whatever you give it. You have all the responsibility to structure the data, and as everyone knows, with great responsibility comes great mess-up potential. 
+
+A schema is a structure that data can be set to in order for it to be more logical and easy to work with, played with, retrieved, updated.
+
+The database continues to run when you are not working with it. It is a separate program that you use a program to access.
