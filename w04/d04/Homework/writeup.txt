@@ -1,0 +1,9 @@
+--> A database is a well-structured and organized compilation of data, which can benreadily updated and extracted.
+
+--> Files are easy to break, there is no set schema, and the data cannot be easily obtained.
+
+--> A schema is sort of like a data structure template that prevents a user from breaking their tables and databases.
+
+--> Yes, the database is always running, but whether a user is connected or not is the question.
+
+--> An id is not needed for either table, because SQL autmatically assigns the id's, and also manages the instance where an id is deleted and a new entry is created.

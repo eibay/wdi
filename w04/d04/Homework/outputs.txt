@@ -1,0 +1,100 @@
+tablefun=# SELECT * FROM schools
+tablefun-# ;
+          name          |    city     | state |  zip  
+------------------------+-------------+-------+-------
+ Springfield Elementary | Springfield | N/A   | 12345
+ Ridgemond High         | San Diego   | CA    | 19345
+ Rydell High            | Los Angeles | CA    | 19453
+(3 rows)
+
+
+
+tablefun=# UPDATE schools
+SET name='Manhattan High'
+WHERE name='Rydell High';
+UPDATE 1
+tablefun=# UPDATE schools
+SET name='Manhattan High'
+WHERE name='Ridgemond High';
+UPDATE 1
+tablefun=# SELECT * FROM schools;
+      name      |    city     | state |  zip  
+----------------+-------------+-------+-------
+ Manhattan High | Springfield | N/A   | 12345
+ Manhattan High | Los Angeles | CA    | 19453
+ Manhattan High | San Diego   | CA    | 19345
+(3 rows)
+
+
+
+tablefun=# SELECT * FROM teachers;
+       name        | email |       subject        | age 
+-------------------+-------+----------------------+-----
+ Ms Crabaple       |       | Math                 |    
+ Yoda              |       | Math                 |    
+ Gandalf the White |       | Sorcery              |    
+ Patches OHoulihan |       | Dodgeball            |    
+ Shooter McGavin   |       | Golf                 |    
+ Professor Xavier  |       | Intro to Mutant Life |    
+(6 rows)
+
+
+
+tablefun=# \d teachers
+           Table "public.teachers"
+ Column  |         Type          | Modifiers 
+---------+-----------------------+-----------
+ name    | character varying(30) | 
+ email   | character varying(50) | 
+ subject | character varying(30) | 
+ age     | integer  
+
+
+
+tablefun=# UPDATE teachers
+tablefun-# SET age=40
+tablefun-# WHERE subject='Math';
+UPDATE 2
+
+
+
+tablefun=# DELETE FROM teachers
+tablefun-# WHERE subject='Math';
+DELETE 2
+
+
+
+tablefun=# \d 
+                   List of relations
+ Schema |         Name          |   Type   |   Owner    
+--------+-----------------------+----------+------------
+ public | carstable             | table    | joebiggica
+ public | carstable_id_seq      | sequence | joebiggica
+ public | mechanicstable        | table    | joebiggica
+ public | mechanicstable_id_seq | sequence | joebiggica
+ public | schools               | table    | joebiggica
+ public | teachers              | table    | joebiggica
+(6 rows)
+
+
+
+
+tablefun=# SELECT * FROM CarsTable
+tablefun-# ;
+ id |    make    | model | mechanic_id 
+----+------------+-------+-------------
+  1 | Hennessey  | Venom |           2
+  2 | Tesla      | S     |           2
+  3 | Oldsmobile | Shit  |           3
+(3 rows)
+
+
+
+
+tablefun=# SELECT * FROM MechanicsTable;
+ id |  name  
+----+--------
+  1 | Joey
+  2 | Tony
+  3 | Johnny
+(3 rows)

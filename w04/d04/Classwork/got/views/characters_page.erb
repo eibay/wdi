@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Characters</title>
+</head>
+<body>
+	<h1>Characters</h1>
+	<ul>
+		<% characters.each do |x| %>
+		<li><a href="/characters/<%= x["id"] %>"><%= x["name"] %></li>
+		<% end %>
+	</ul>
+</body>
+</html>

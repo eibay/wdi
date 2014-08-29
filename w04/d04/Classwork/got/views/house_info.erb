@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>House <%= house["name"] %></title>
+</head>
+<body>
+	<h1>House <%= house["name"] %></h1>
+	<h2>Sigil: <%= house["sigil"] %></h2>
+	<h3>Characters</h3>
+	<% characters.each do |hodor| %>
+	<ul>
+		<li><a href="/characters/<%= hodor["id"] %>"><%= hodor["name"] %></li>
+	</ul>
+	<% end %>
+</body>
+</html>

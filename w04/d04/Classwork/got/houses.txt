@@ -1,0 +1,1 @@
+[{"name":"Stark","sigil":"Dire Wolf","id":"f648ea4d5f4ac24bcfc94c07ac04ef45"},{"name":"Targaryen","sigil":"Three Headed Dragon","id":"1a1c60ff97ed1a525918b906ba47a89c"},{"name":"Lannister","sigil":"Lion","id":"bd25af3b26bef671c2b2a21e6782d1b2"}]

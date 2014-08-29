@@ -1,8 +1,6 @@
 require 'httparty'
 require 'pry'
 
-
-
 class User
 
 	def initialize(attribute)
