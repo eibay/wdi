@@ -14,9 +14,9 @@ class Post
 	attr_accessor :subject, :content   
 	attr_reader  :author_id, :created_at, :id
 
-	def initialize subject, content, author_id, created_at=Date.today, id=SecureRandom.hex 
+	def initialize subj, content, author_id, created_at=Date.today, id=SecureRandom.hex 
+		@subject = subj  
 		@content = content  
-		@subject = subject  
 		@author_id = author_id
 		@created_at = created_at
 		@id = id 

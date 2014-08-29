@@ -68,6 +68,10 @@ class Author
 		Post.all.find_all_by :author_id, self.id 
 	end 
 
+	def post subj, content  
+		Post.new subj, content, self.id 
+	end 
+
 end 
 
 
