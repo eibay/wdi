@@ -1,0 +1,111 @@
+######Schools Table#####
+
+tablefun=# SELECT * FROM schools;
+     name     |      city      | state |  zip  
+--------------+----------------+-------+-------
+ Lower Marion | Marion         | PA    | 11824
+ Saint Ann    | New York       | NY    | 11854
+ Major Deegan | Charlottsville | NC    | 13854
+(3 rows)
+
+tablefun=# \d schools;
+           Table "public.schools"
+ Column |         Type          | Modifiers 
+--------+-----------------------+-----------
+ name   | character varying(50) | 
+ city   | character varying(50) | 
+ state  | character varying(2)  | 
+ zip    | character varying(5)  | 
+
+tablefun=# UPDATE schools SET name = 'Manhattan High';
+UPDATE 3
+tablefun=# SELECT * FROM schools;
+      name      |      city      | state |  zip  
+----------------+----------------+-------+-------
+ Manhattan High | Marion         | PA    | 11824
+ Manhattan High | New York       | NY    | 11854
+ Manhattan High | Charlottsville | NC    | 13854
+(3 rows)
+
+######Teachers Table#####
+
+tablefun=# CREATE TABLE teachers (name varchar(50), email varchar(100), subject varchar(50));
+CREATE TABLE
+tablefun=# ALTER TABLE teachers  ADD age integer ;
+ALTER TABLE
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('jane', 'jane@gmail.com', 'Math', 40);
+INSERT 0 1
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('john', 'john@gmail.com', 'Math', 35);
+INSERT 0 1
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('mary', 'mary@gmail.com', 'art', 45);
+INSERT 0 1
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('yogi', 'yogi@gmail.com', 'english', 32);
+INSERT 0 1
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('neel', 'neel@gmail.com', 'computer science', 28);
+INSERT 0 1
+tablefun=# INSERT INTO teachers (name, email, subject, age) VALUES ('jim', 'jim@gmail.com', 'science', 31);
+INSERT 0 1
+tablefun=# \d teachers
+           Table "public.teachers"
+ Column  |          Type          | Modifiers 
+---------+------------------------+-----------
+ name    | character varying(50)  | 
+ email   | character varying(100) | 
+ subject | character varying(50)  | 
+ age     | integer                | 
+
+tablefun=# UPDATE teachers SET age = 40 WHERE subject = 'Math';
+UPDATE 2
+
+tablefun=# DELETE FROM teachers WHERE subject = 'math';
+DELETE 0
+
+
+#####Mechanics Table#####
+
+tablefun-# ;
+ id |  name  
+----+--------
+  1 | Mark
+  2 | Mikek
+  3 | Jamiek
+(3 rows)
+
+*** psql automatically assigns all info an id number ****
+tablefun=# \d mechanics
+                                Table "public.mechanics"
+ Column |         Type          |                       Modifiers                        
+--------+-----------------------+--------------------------------------------------------
+ id     | integer               | not null default nextval('mechanics_id_seq'::regclass)
+ name   | character varying(50) | 
+Indexes:
+    "mechanics_pkey" PRIMARY KEY, btree (id)
+
+tablefun=# \d cars
+                                   Table "public.cars"
+   Column    |         Type          |                     Modifiers                     
+-------------+-----------------------+---------------------------------------------------
+ id          | integer               | not null default nextval('cars_id_seq'::regclass)
+ make        | character varying(50) | 
+ model       | character varying(50) | 
+ mechanic_id | integer               | 
+Indexes:
+    "cars_pkey" PRIMARY KEY, btree (id)
+
+
+tablefun=# SELECT * FROM mechanics;
+ id |  name  
+----+--------
+  1 | Mark
+  2 | Mikek
+  3 | Jamiek
+(3 rows)
+
+
+tablefun=# SELECT * FROM cars;
+ id | make  |  model  | mechanic_id 
+----+-------+---------+-------------
+  1 | Honda | Civic   |           1
+  2 | Ford  | Mustang |           2
+  3 | Audi  | Major   |           3
+(3 rows)
