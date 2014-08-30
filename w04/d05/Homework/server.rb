@@ -70,7 +70,7 @@ end
 post "/images" do 
 
 	# defend against bug where filenames w/ spaces will break view # 
-	img_src = params["src"][:filename].delete(' ').downcase
+	img_src = params["src"][:filename].gsub(/\s+/, '').downcase
 
 	# write img file to public dir # 
 	File.open("./public/posts/" + img_src, 'w') do |img|
