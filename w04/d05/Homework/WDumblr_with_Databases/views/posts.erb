@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Posts</title>
+</head>
+<body>
+	<h1>Post Feed</h1>
+	<ul>
+		<% posts.each do |p| %>
+		<%= p["created_at"] %>
+		<h3><a href="/posts/<%= p["id"] %>"><%= p["content"] %></a></h3>
+		<% end %>
+	</ul>
+	
+	<form action="/posts/new" method="GET">
+		<input type="hidden">
+		<button>Post Something</button>
+	</form>
+	
+	<form action="/" method="GET">
+		<input type="hidden">
+		<button>Home</button>
+	</form>
+</body>
+</html>

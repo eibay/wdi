@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Authors</title>
+</head>
+<body>
+	<h1>Our Authors</h1>
+	<ul>
+		<% authors.each do |a| %>
+		<li><a href="/authors/<%= a["id"] %>"><%= a["name"] %></li>
+		<% end %>
+	</ul>
+	
+	<form action="/authors/new" method="GET">
+		<input type="hidden">
+		<button>Sign Up</button>
+	</form>
+	
+	<form action="/" method="GET">
+		<input type="hidden">
+		<button>Home</button>
+	</form>
+</body>
+</html>

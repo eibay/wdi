@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= author["name"] %></title>
+</head>
+<body>
+	<h1><%= author["name"] %></h1>
+	<ul>
+		<% posts.each do |p| %>
+		<li><%= p["created_at"] %>: <%= p["content"] %></li>
+		<% end %>
+	</ul>
+</body>
+</html>

@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
-require_relative './lib/model.rb'
+# require_relative './lib/model.rb'
 require_relative './lib/house.rb'
 require_relative './lib/character.rb'
 
