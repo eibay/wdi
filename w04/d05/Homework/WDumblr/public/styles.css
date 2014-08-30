@@ -1,4 +1,5 @@
 body {
+	margin-top: 30px;
 	background-color: Silver;
     background-size: cover;
 	font-family: 'Droid Serif', serif;	
@@ -13,9 +14,8 @@ body div {
 }
 
 h1 {
-	color: Brown;
+	color: DarkRed;
 }
-
 
 body a {
 	color: Brown;
@@ -26,4 +26,23 @@ body a:hover {
 }
 li strong {
 	font-weight: 700;
+}
+
+input {
+	width: 300px;
+	height: 20px;
+	padding: 3px;
+	border: solid 1px Brown;
+	display: block;
+	margin-top: 6px;
+	font-size: 13px;
+}
+
+textarea {
+	width: 300px;
+	padding: 3px;
+	border: solid 1px Brown;
+	display: block;
+	margin: 6px 0;
+	font-size: 13px;
 }
