@@ -22,15 +22,15 @@ require 'pry'
 
 
 # Author.create({
-# 	name: "Johnny Thunders",
-# 	email: "johnny@thenewyorkdolls.com"
+# 	name: "Mezcal Monkey",
+# 	email: "mezcal@oaxaca.com"
 # 	})
 
-Image.create({
- 	keyword: "italian",
- 	post_id: "6a0f77403cb26502f2b8e637dd311b5c",
-	image_url: "http://www.deliverywow.com/order-food-online/images/main-photo-chicago-italian-food-delivery.jpg"
- 	})
+# Image.create({
+#  	keyword: "italian",
+#  	post_id: "6a0f77403cb26502f2b8e637dd311b5c",
+# 	image_url: "http://www.deliverywow.com/order-food-online/images/main-photo-chicago-italian-food-delivery.jpg"
+#  	})
 
 
 

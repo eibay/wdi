@@ -7,7 +7,7 @@ class Post < Model
 	 end
 
 	 def images
-	 	Image.select_by("image_id", @attributes["id"])
+	 	Image.select_by("post_id", @attributes["id"])
 	 end
 
 
