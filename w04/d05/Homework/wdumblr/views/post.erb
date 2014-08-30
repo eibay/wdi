@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= post["name"] %></title>
+</head>
+<body>
+  <h2><%= post["name"] %></h2>
+
+
+  <h5>Post written by: <%= post.author["name"] %> at <%= post["created_at"] %></h5> 
+  <!--   how come I am only passing 1 attribute when the method should get 2? /> -->
+
+  <p><%= post["content"] %></p>
+
+
+
+
+
+</body>
+</html>

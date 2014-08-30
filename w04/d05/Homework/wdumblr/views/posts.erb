@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Posts</title>
+</head>
+<body>
+	<h3>Posts</h3>
+	<ul>
+		<% posts.each do |post| %>
+			<li>
+				<a href ="/posts/<%= post["id"] %>"><%= post["name"] %></a><br>
+			</li>
+		<% end %>
+	</ul>
+
+<!-- shows all the authors (with links to their /authors/:id page) -->
+
+	<a href="/posts/new">Add New Post</a><br>
+
+</body>
+</html>
