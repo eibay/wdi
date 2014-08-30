@@ -13,10 +13,14 @@
 		<p>&mdash;<a href="/authors/<%= post_author["id"] %>"> <%= post_author["name"] %>
 	</div>
 	<div>
+		<% images.each do |image| %>
+			<img src="<%= image['image_url'] %>">
+		<% end %>
+	</div>
+	<div>
 		<p><a href="/">Go home</a></p>
 		<p><a href="/posts">All posts</a></p>
 	</div>
 
 </body>
 </html>
-

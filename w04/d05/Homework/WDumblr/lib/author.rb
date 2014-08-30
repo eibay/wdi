@@ -1,4 +1,6 @@
 require_relative './model'
+require_relative './image'
+require_relative './post'
 
 class Author < Model
 

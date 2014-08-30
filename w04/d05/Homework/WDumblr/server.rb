@@ -6,6 +6,8 @@ require 'json'
 require_relative './lib/author'
 require_relative './lib/post'
 
+
+
 get("/") do
 	erb(:index)
 end
@@ -54,8 +56,9 @@ end
 
 get("/posts/:id") do
 	post = Post.find_by("id", params[:id])
+	images = post.images
 	post_author = post.author
-	erb(:post, { locals: { post: post, post_author: post_author } })
+	erb(:post, { locals: { post: post, post_author: post_author, images: images } })
 end
 
 get("/authors/:id") do
