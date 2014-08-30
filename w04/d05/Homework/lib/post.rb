@@ -65,7 +65,17 @@ class Post
 	# instance methods # 
 
 	def to_hash 
-		{"subject" => self.subject, "content" => self.content, "author_id" => self.author_id, "created_at" => self.created_at, "id" => self.id}
+		{
+			"subject" => self.subject, 
+			"content" => self.content, 
+		  "author_id" => self.author_id, 
+		 "created_at" => self.created_at, 
+		         "id" => self.id
+		}
+	end 
+
+	def to_h 
+		self.to_hash  
 	end 
 
 	def create
@@ -76,8 +86,11 @@ class Post
 
 	def author 
 		Author.find_by_id self.author_id
-	end 
+	end
 
+	def images 
+		Image.find_all_by "post_id", self.id 
+	end 
 end 
 
 

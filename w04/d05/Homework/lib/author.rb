@@ -52,7 +52,15 @@ class Author
 	# instance methods # 
 
 	def to_hash 
-		{"name" => self.name, "email" => self.email, "id" => self.id}
+		{
+			"name" => self.name, 
+		   "email" => self.email, 
+			  "id" => self.id
+		}
+	end 
+
+	def to_h  
+		self.to_hash # alias 
 	end 
 
 	def create
