@@ -19,9 +19,36 @@
 			</ul>
 		</nav>
 	</header>
-	<section>
+	<section class="post">
 		<h3><%= post.subject %></h3>
 		<p><%= post.content %> &mdash; <%= author_name %></p>
+		<% unless images.length.zero? %> 
+			<section class="imgs">
+				<h4>Images for This Post:</h4>
+				<ul>
+					<% images.each do |image| %>
+					<li>
+						<img src=<%= image.src %> alt=<%= image.alt %>>
+						<p>added by <%= image.user.name %></p> 
+					</li>
+					<% end %>  
+				</ul>
+			</section>
+		<% end %> 
+		<section class="post_img_form">
+			<h4>Add an Image!</h4>
+			<form action="/images" method="POST" enctype="multipart/form-data">
+				<label>Upload an Image:<input type="file" name="src"></label>
+				<label>Brief Description of Image:<input type="text" name="alt"></label> 
+				<input type="hidden" name="post_id" value=<%= post.id %>>
+				<label>Who&rsquo;s Adding the Photo to the Post?<select name="user_id">
+					<% authors.each do |author| %>
+					<option value=<%= author.id %>><%= author.name %></option>
+					<% end %> 
+				</select></label>
+				<button>Upload Image</button>
+			</form>
+		</section>
 	</section>
 </body>
 </html>

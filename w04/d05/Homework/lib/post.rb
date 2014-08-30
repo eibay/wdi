@@ -75,7 +75,7 @@ class Post
 	end 
 
 	def to_h 
-		self.to_hash  
+		self.to_hash # alias 
 	end 
 
 	def create

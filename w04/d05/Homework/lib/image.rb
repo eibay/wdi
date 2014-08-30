@@ -70,7 +70,7 @@ class Image
 	end 
 
 	def to_h 
-		self.to_hash
+		self.to_hash # alias 
 	end 
 
 	def create 
@@ -81,6 +81,14 @@ class Image
 
 	def post
 		Post.find_by_id self.post_id  
+	end 
+
+	def author 
+		Author.find_by_id self.user_id 
+	end 
+
+	def user
+		self.author # alias 
 	end 
 
 end 
