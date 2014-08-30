@@ -1,6 +1,6 @@
-#require 'sinatra'
 require_relative './lib/author'
 require_relative './lib/post'
+require_relative './lib/image'
 require 'pry'
 
 # authors = Author.find_by("name", "Author")
@@ -25,6 +25,12 @@ require 'pry'
 # 	name: "Johnny Thunders",
 # 	email: "johnny@thenewyorkdolls.com"
 # 	})
+
+Image.create({
+ 	keyword: "italian",
+ 	post_id: "6a0f77403cb26502f2b8e637dd311b5c",
+	image_url: "http://www.deliverywow.com/order-food-online/images/main-photo-chicago-italian-food-delivery.jpg"
+ 	})
 
 
 

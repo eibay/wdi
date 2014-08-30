@@ -6,5 +6,9 @@ class Post < Model
 	 	Author.find_by("id", @attributes["author_id"])
 	 end
 
+	 def images
+	 	Image.select_by("image_id", @attributes["id"])
+	 end
+
 
 end
