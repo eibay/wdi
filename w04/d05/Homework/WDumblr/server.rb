@@ -19,7 +19,6 @@ get("/posts/new") do
 end
 
 post("/posts") do
-	binding.pry
 	post_hash = {
 		title: params["title"],
 		keyword: params["keyword"],
@@ -31,6 +30,17 @@ post("/posts") do
 	Post.create(post_hash)
 
 	erb(:posts, { locals: { posts: Post.all() } })
+end
+
+post("/authors") do
+	author_hash = {
+		name: params["name"],
+		email: params["email"]
+	}
+
+	Author.create(author_hash)
+
+	erb(:authors, { locals: { authors: Author.all() } })
 end
 
 
