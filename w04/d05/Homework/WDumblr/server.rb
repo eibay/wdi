@@ -61,6 +61,37 @@ get("/posts/:id") do
 	erb(:post, { locals: { post: post, post_author: post_author, images: images } })
 end
 
+post("/posts/:id/images") do
+	post = Post.find_by("id", params[:id])
+	# find the keyword of post
+	keyword = Post.find_by("id", params["id"])["keyword"]
+	response = HTTParty.get("https://api.instagram.com/v1/tags/#{keyword}/media/recent?client_id=4ad7cc36c172434588afd340aa74cd01")
+
+	image_hash_1 = {
+		keyword: keyword,
+		post_id: post["id"],
+		image_url: response["data"][1]["images"]["low_resolution"]["url"],
+	}
+	image_hash_2 = {
+		keyword: keyword,
+		post_id: post["id"],
+		image_url: response["data"][1]["images"]["low_resolution"]["url"],
+	}
+	image_hash_3 = {
+		keyword: keyword,
+		post_id: post["id"],
+		image_url: response["data"][1]["images"]["low_resolution"]["url"],
+	}
+	Image.create(image_hash_1)
+	Image.create(image_hash_2)
+	Image.create(image_hash_3)
+
+	images = post.images
+	post_author = post.author
+
+	erb(:post, { locals: { post: post, keyword: keyword, images: images, post_author: post_author } })
+end
+
 get("/authors/:id") do
 	author = Author.find_by("id", params[:id])
 	erb(:author, { locals: { author: author } })

@@ -18,6 +18,12 @@
 		<% end %>
 	</div>
 	<div>
+		<form action="/posts/<%= post["id"] %>/images" method="POST">
+			<input type="hidden">
+			<button>Add Images</button>
+		</form>	
+	</div>
+	<div>
 		<p><a href="/">Go home</a></p>
 		<p><a href="/posts">All posts</a></p>
 	</div>
