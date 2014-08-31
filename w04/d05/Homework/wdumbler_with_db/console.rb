@@ -66,19 +66,8 @@ get("/posts/:id") do
 end
 
 post("/posts/:id/images") do	
-	post = Post.find_by(id: params["post_id"])
-	post_key = post["keyword"].split(" ").join("")
-	instagram = HTTParty.get("https://api.instagram.com/v1/tags/#{post_key}/media/recent?client_id=4c08eb6f8fb948d581437e9315b48fb2&count=3")
-	images = []
-	instagram["data"].each do |instagram|
-		image = instagram["images"]["low_resolution"]["url"]
-		images << image
-	end
-	images.each do |image|
-		image_hash = {}
-		image_hash["url"] = image 
-		image_hash["post_id"] = params["post_id"]
-		Image.create(image_hash)
-	end	
-	redirect("/posts/#{post["id"]}")
+	post_id = params["post_id"]
+	Image.where(post_id: post_id).delete_all 
+	Image.post(post_id)
+	redirect("/posts/#{post_id}")
 end
