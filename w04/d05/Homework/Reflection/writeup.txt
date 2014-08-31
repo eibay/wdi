@@ -1,0 +1,7 @@
+Compare and contrast the Model class we have been using to ActiveRecord
+
+---- So far, I see very little difference except that ActiveRecord will allow us to interact with our database in much the same way that we have been interacting with our text files so far. (You cleverly used the ActiveRecord vocabulary this week in setting up the Models we have been working with, so that "Model" and "id" are not unfamiliar terms or concepts, nor are "serial primary key" and "foreign key".)
+
+What is ActiveRecord doing? How does it relate to our database server?
+
+---- I'm not sure yet. It seems like it is not only an interface between our ruby app and our database. From what I read, it seems like it might come with a bunch of methods like the ones we had written into our Model class this week. Somehow, too, the objects get saved not just as raw data content, but with the behavior of their class. 
