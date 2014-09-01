@@ -1,5 +1,5 @@
 
-/* make authors table */
+-- make authors table --
 
 CREATE TABLE authors (
 	id serial primary key, 
@@ -7,18 +7,17 @@ CREATE TABLE authors (
 	email varchar(45) 
 ); 
 
-/* make posts table */ 
+-- make posts table -- 
 
 CREATE TABLE posts (
 	id serial primary key,
 	subject varchar(50), 
 	content varchar(1000), -- limit 1000 chars for post content  
 	author_id integer, 
-	created_at varchar(10) -- Date.today.to_s.length => 10  
-	
+	created_at varchar(10) -- Date.today.to_s.length => 10  	
 ); 
 
-/* make images table */ 
+-- make images table --  
 
 CREATE TABLE images (
 	id serial primary key,
@@ -28,3 +27,7 @@ CREATE TABLE images (
 	author_id integer, 
 	date_created varchar(10) -- Date.today.to_s.length => 10 
 ); 
+
+-- I run this script like so: 
+-- $ psql -d wdumblr -a -f script.sql 
+-- (option "-a" is AT&T UNIX for "--echo-all")  
