@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Submitted Posts</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<h2>All Posts by All Authors</h2>
+	<a href="/posts/new">Compose a new post</a>
+	<% posts.each do |post| %>
+	<% author = Author.find_by("id", post["author_id"]) %>
+	<div><a href="/posts/<%= post["id"] %>"><%= "#{post["created_at"]}: #{post["keyword"]}, by #{author["name"]}" %></a></div>
+	<% end %>
+</body>
+</html>

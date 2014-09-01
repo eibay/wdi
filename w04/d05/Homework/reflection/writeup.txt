@@ -1,0 +1,3 @@
+Since I haven't actually implemented ActiveRecord yet, I can't say with certainty what the differences are between it and our Model class but here's what I believe I understand.
+
+ActiveRecord is keyed to a database in Postgres and can therefore enforce the limits of the database when a new object is created.  It can limit the number of characters, being what you might call a client of Postgres.  It has a lot or all of the methods of our Model class.  It's an interface between SQL and our Ruby code.  

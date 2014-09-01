@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>Greeter Search Results</title>
+</head>
+<body>
+	<h2>Search Results</h2>
+	<% list.each do |greeter| %>
+	<div><%= "#{greeter["name"]}: #{greeter["greeting"]}" %></div>
+	<% end %>
+	<% if list.empty? %>
+	<div><%= "There were no matches to your search." %></div>
+	<% end %>
+</body>
+</html>
