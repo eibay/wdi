@@ -1,1 +1,0 @@
-[{"name":"bob","email":"bob@bob.com","id":"e12fc1ec8370c227ea77ede9cc0d6b3a"},{"name":"tom","email":"tom@tom.com","id":"c380f1f8bde8065c231f9fc122370b1a"},{"name":"Aurelius","email":"aur@elius.com","id":"bd2e8339f8bd0f61eba006cd3ec235c7"}]

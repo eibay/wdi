@@ -5,12 +5,15 @@
 	<title>Specific Post</title>
 </head>
 <body>
-
 	<div class="navbar">
+		<a href="/"> Home</a>
+		<br/>
 		<a href="/authors"> Authors </a>
 		<br/>
 		<a href="/posts"> Posts </a>
 	</div>
+
+
 
 	Specific Posts
 	
@@ -21,19 +24,23 @@
 	<h4> Post author: <a href="/authors/<%=post_author["id"]%>"><%= post_author["name"]%></a> </h4>
 	
 
+
+
+
+<!-- ADD IMAGES -->
+
 	<form action="/posts/<%=post_id%>/images" method="POST">
 		<input type="hidden" name="keyword" value="<%=post['keyword']%>">
 		<button>Add three random images</button>
 	</form>
-	
 
 
-	<h1> images </h1>
-	<%data_images.each do |hash|%>
-		<%hash["urls"].each do |img|%>
-			<img src="<%=img%>"/>
-		<%end%>
+	<%specific_data_images.each do |image|%>
+		<img src='<%=image["url"]%>'/>
 	<%end%>
+
+
+
 
 
 

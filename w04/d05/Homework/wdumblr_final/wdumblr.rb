@@ -78,17 +78,13 @@ post '/posts/:id/images' do
   image_list << Image.new({"post_id" => post_id, "url" => insta_api["data"][1]["images"]["low_resolution"]["url"], "id" => SecureRandom.hex})
   image_list << Image.new({"post_id" => post_id, "url" => insta_api["data"][2]["images"]["low_resolution"]["url"], "id" => SecureRandom.hex})
 
+  
+
+
   File.write("./images.txt", image_list.to_json)
 
-  # data_images1 = Image.all
-  # binding.pry
-
-
-
-
+  # specific_data_images = Post.images() # why doesnt this work?
   specific_data_images = Image.select_by("post_id", post_id)
-  # binding.pry
-
 
   erb(:posts_profile, {locals: { post: post, post_author: post_author, post_id: post_id, specific_data_images: specific_data_images}})
 end
@@ -98,17 +94,6 @@ get '/posts/:id/images' do
 
   erb(:images)
 end
-
-# <!-- SHOW IMAGES -->
-# <!--
-#   <h1> images </h1>
-#   <%data_images.each do |hash|%>
-#     <%hash["urls"].each do |img|%>
-#       <img src="<%=img%>"/>
-#     <%end%>
-#   <%end%>
-# -->
-
 
 
 
