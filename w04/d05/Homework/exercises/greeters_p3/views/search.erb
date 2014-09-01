@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Results</title>
+</head>
+<body>
+	<h1>Results for '<%= search %>'</h1>
+	<% greeters.each do |g| %>
+	<ul>
+		<li><%=g["name"]%> likes to say <%=g["greeting"]%></li>
+	</ul>
+	<% end %>
+</body>
+</html>
