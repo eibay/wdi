@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View All Posts</title>
+</head>
+<body>
+  <a href="/posts/new">Create Your Post</a>
+  <ul>
+    <% posts.each do |post| %>
+      <li>
+         <a href="/posts/<%= post["id"] %>">
+        <%= post["title"] %>
+      </li>
+    <% end %>
+  </ul>
+</body>
+</html>

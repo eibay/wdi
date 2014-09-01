@@ -57,6 +57,7 @@ end
 #instagram_pics = HTTParty.get("https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=17a4630338cd4da38b94cbbecd787fae")
     #images = []
 
+
 post("/posts/:id/images") do
   #when pressed, it hits the server at POST /posts/:id/images
   #The server will hit the Instagram API and create 3 new images 
