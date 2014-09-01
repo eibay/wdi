@@ -73,23 +73,10 @@ get '/posts/:id' do
 
   data_images = JSON.parse(File.read("./images.txt"))
 
-  # the_image = data_images.find_by ######
+ #################### # the_image = data_images.find_by ######
+
 
   # binding.pry
-  # binding.pry
-
-#############################################################################
-#############################################################################
-#############################################################################
-  image = data_images.find do |entity|
-    entity["id"] == post_id
-  end 
-  #############################################################################
-#############################################################################
-#############################################################################
-
-
-
   erb(:posts_profile, {locals: { post: post, post_author: post_author, post_id: post_id, data_images: data_images}})
 end
 
@@ -112,6 +99,10 @@ post '/posts/:id/images' do
   
 
 
+
+
+
+# binding.pry
   def image_get(keyword, image_number)
     image_raw = HTTParty.get("https://api.instagram.com/v1/tags/#{keyword}/media/recent?client_id=b3dd0e6a077e45d0b8a026c954d59719")
     image_link = image_raw["data"][image_number]["images"]["low_resolution"]["url"]
@@ -133,7 +124,14 @@ post '/posts/:id/images' do
 
 
 
+
+
   img_hash = image_hash(img_list, post_author)
+
+  images = Image.new(img_hash)
+
+  # binding.pry
+
 # binding.pry # code checkpoint - works till here
 
   data_images = JSON.parse(File.read("./images.txt"))
