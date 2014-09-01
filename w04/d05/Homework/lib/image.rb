@@ -91,6 +91,10 @@ class Image
 		self.author # alias 
 	end 
 
+	def author_id 
+		self.user_id # alias 
+	end 
+
 end 
 
 class Hash 
