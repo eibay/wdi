@@ -51,4 +51,10 @@ class Model
   def [](key)
     return @attributes[key]
   end
+
+   # def 
+   #  response = HTTParty.get("")
+   #  user = response["results"][0]["keyword"]
+   #  return response
+
 end

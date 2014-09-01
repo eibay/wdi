@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'pry'
 require_relative './lib/author'
 require_relative './lib/post'
+require_relative './lib/image'
 
 get("/") do
   erb(:index)
@@ -39,7 +40,7 @@ get("/authors/:id") do
   erb(:author, { locals: { author: author } })
 end
 
-get("/posts") do
+get("/posts") do    
    #all the posts with links to their /posts/:id page and a link to create a new post.
   erb(:posts, { locals: { posts: Post.all() } })
 end
@@ -53,6 +54,17 @@ get("/posts/:id") do
   erb(:post, { locals: { post: post } })
 end
 
+#instagram_pics = HTTParty.get("https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=17a4630338cd4da38b94cbbecd787fae")
+    #images = []
+
+
+post("/posts/:id/images") do
+  #when pressed, it hits the server at POST /posts/:id/images
+  #The server will hit the Instagram API and create 3 new images 
+  #for the given post using the post's keyword as the search tag for Instagram.
+  post = Post.find_by("id", params[:id])
+  erb(:post, { locals: { post: post } })
+end
 
 
 

@@ -1,0 +1,7 @@
+1. Compare and contrast the Model class we have been using to ActiveRecord
+
+It looks like we will no longer need to push the Model into the classes because Active Record will make sure consistent behavior and data operate on that data. That is almost a direct quote from the reading but I understand this to mean that the relationship between models, data and objects will be more streamlined and consistent. In constrast to Active Record, Model seems more limited as to how it can help us work with the data and logic in our programs.
+
+2. What is ActiveRecord doing? How does it relate to our database server?
+
+Is it correct to say that Active Record will act as a sort of agent on behalf of data and logic and make sure our database operates on and object-oriented basis (that is, how data and logic are interacting with our objects?)? Active Record goes beyond what the use of Models does for us currently because it will validate our models and ensure conistency with our database. For example, the naming conventions required with Active Record are there so that Active Record may maintain the heirarchy and consistency of our data.
