@@ -24,6 +24,7 @@
       - Select all schools and copy and paste the output in the terminal to ```outputs.txt```
       - Show the structure of the table by typing ```\d schools``` and copy and paste this output into ```outputs.txt```
       - **Bonus** change every school's name to "Manhattan High". Select all schools again and copy and paste this output into ```outputs.txt```
+      
     - *Teachers Table*:
       - Create a table called ```teachers```
       - Add the fields ```name```, ```email```, and ```subject```. Each being of type ```varchar```

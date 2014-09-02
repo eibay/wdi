@@ -6,6 +6,7 @@ require 'pry'
 
 server = TCPServer.new 2000
 
+# tags = []
 
 loop do 
 

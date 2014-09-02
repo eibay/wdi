@@ -15,3 +15,4 @@ class Comedian
 	end
 
 end
+

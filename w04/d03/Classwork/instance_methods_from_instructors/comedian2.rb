@@ -1,6 +1,9 @@
 class Comedian
 
-	def initialize(attributes)
+	def initialize(attr)
+		@name = attr[:name]
+		@age = attr[:age]
+		@joke = attr[:joke]
 		
 	end
 
@@ -11,3 +14,4 @@ class Comedian
 			"joke" => @joke
 		}
 	end
+end

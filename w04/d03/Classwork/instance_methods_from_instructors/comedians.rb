@@ -1,6 +1,6 @@
 # 1) make an array 3-5 comedians
 # 2) have them all tell their jokes, looping through the array
-
+require_relative '/comedian.rb'
 comedians = []
 
 mitch = Comedian.new("mitch",25, "haha")

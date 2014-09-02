@@ -32,6 +32,11 @@ get("/characters/:id") do
   erb(:character, { locals: { character: character } })
 end
 
+
+
+
+
+
 get("/houses") do
   erb(:houses, { locals: { houses: House.all() } })
 end

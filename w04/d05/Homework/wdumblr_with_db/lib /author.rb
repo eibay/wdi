@@ -1,7 +1,7 @@
 require_relative "./model"
 
-class Author < Model
+class Author < ActiveRecord::Base
 	def post
-		return Post.select_by("author_id", @attributes["id"])
+		return Post.where({author_id: @attributes["id"]})
 	end
 end

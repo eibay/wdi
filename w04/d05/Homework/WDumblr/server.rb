@@ -79,6 +79,10 @@ post("/posts/:id/images") do
 	erb(:posts, {locals: {post: post, author: author, images: images } })
 end
 
+#created an image_array hash
 
+# Image.create()
+
+#USE INSTANCE VARIABLES, 
 
 
