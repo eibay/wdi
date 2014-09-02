@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>WDumblr -- Posts</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <a href="/">Home</a>
+      <a href="/authors">All authors</a>
+      <hr />
+      <h3>All WDumblr posts</h3>
+      <ul>
+        <% posts.each do |post| %>
+        <li><a href="/post/<%= post["id"] %>"><%= post["keyword"] %> -- Date Created: <%= post["created_at"] %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </body>
+</html>
