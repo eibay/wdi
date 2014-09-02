@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>WDumblr</title>
+</head>
+<body>
+	<h1>Your favorite pictures!</h1>
+	<ul>
+		<% images.each do |image| %>
+		<h2>Tag: <%= image["tag"] %></h2>
+		<% binding.pry %>
+		<% image["url"].each do |pic|%>
+		<li><a href="<%= pic%>"><img src='<%= pic%>'></a></li>
+		<% end %>
+		<% end %>
+	</ul>
+	<a href="/">Go back</a>
+</body>
+</html>

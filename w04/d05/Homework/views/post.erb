@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>WDumblr</title>
+</head>
+<body>
+	<p>Title: <%= post["title"] %></p>
+	<p>Created at: <%= post["created_at"] %></p>
+	<p>Keyword: <%= post["keyword"] %></p>
+	<p>Content: <%= post["content"] %></p>
+	<p>Authored by <%= author %></p>
+	<% images.each do |image| %>
+		<li><a href='<%= image%>'><img src='<%= image%>'></a></li>
+		<% end %>
+	<form action="/posts/<%= post['id']%>/images" method="POST">
+		<button>Add image</button>
+	</form>	
+	<a href="/">Go back</a>
+</body>
+</html>
