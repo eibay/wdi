@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Author Information</title>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<h1>WDumblr</h1>
+<a href='/'>Home</a> |
+<a href='/authors'>Add Author</a> |
+<a href='/posts'>Add New Post</a>
+
+			<h3>Posts by <%= author['name'] %></h3>
+		<% posts.each do |post| %>
+		<div>
+			<h4><a href='/posts/<%=post["id"]%>'><%= post['title'] %></a></h4>
+			 <p><%= post['content'] %></p>
+			<p><em><%= post['created_at'] %></em>  <em> ...<%= post['tag']%></em></p>
+		</div>
+		<% end %>
+
+
+</body>
+</html>

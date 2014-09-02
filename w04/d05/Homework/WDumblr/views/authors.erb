@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>Authors</title>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+
+<h1>WDumblr</h1>
+<a href='/'>Home</a> |
+<a href='/authors'>Add Author</a> |
+<a href='/posts'>Add New Post</a>
+
+	<h3>Add a New Author!</h3>
+
+	<form action='/authors' method='POST'>
+		<label>Name: <input type='text' name='name' placeholder='Name'></label>
+		<label>Email: <input type='text' name='email' placeholder='Email'></label>
+		<button>Add Author</button>
+	</form>
+
+
+
+	<h3>Our Authors</h3>
+
+	<ul>
+		<% authors.each do |author| %>
+		<li><a href='/authors/<%= author["id"] %>'><%= author["name"] %></a> </li>
+		<% end %>
+	</ul>
+
+
+
+</body>
+</html>
