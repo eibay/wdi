@@ -12,6 +12,7 @@ require 'sinatra/reloader'
     ActiveRecord::Base.connection.close
  end
 
+
 get ("/") do 
 erb(:index)
 end

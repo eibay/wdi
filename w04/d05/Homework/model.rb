@@ -1,8 +1,11 @@
 require 'json'
 require 'securerandom'
+<<<<<<< HEAD
 require 'httparty'
 
 
+=======
+>>>>>>> 002d566a85999ac6039c07ff1375c232421fcb18
 
 class Model
   def self.create(entity)
@@ -41,9 +44,13 @@ class Model
     self.name().downcase + "s.txt"
   end
 
+<<<<<<< HEAD
 
   attr_accessor :attributes
 
+=======
+  # Instance methods
+>>>>>>> 002d566a85999ac6039c07ff1375c232421fcb18
 
   def initialize(attributes)
     @attributes = attributes
