@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>WDumblr -- New Post</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <a href="/">Home</a>
+      <hr />
+      <h3>New post</h3>
+      <form action="/posts" method="POST">
+        <input type="text" name="keyword" placeholder="Title of Post"><br />
+        <textarea name="content" rows="20" cols="60"></textarea><br />
+        <select name="author_id">
+          <% authors.each do |author| %>
+          <option value="<%= author["id"] %>"><%= author["name"] %></option>
+          <% end %>
+        </select>
+        <input type="hidden" name="created_at" value="<%= Time.now %>">
+        <button>Post</button>
+      </form>
+    </div>
+  </body>
+</html>

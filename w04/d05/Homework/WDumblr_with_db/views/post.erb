@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>WDumblr -- <%= post["keyword"] %></title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <a href="/">Home</a>
+      <hr />
+      <h3><%= post["keyword"] %></h3>
+      <p><span style="font-size:.7em">By: <%= author["name"] %></span></p>
+      <p><%= post["content"] %></h3><br />
+        <form action="/post/:id/images" method="POST">
+          <input type="hidden" value="<%= post["keyword"] %>" name="image">
+        <button>Add images</button>
+      <h5>Images</h5>
+      <img src="<%= imgs %>">
+
+    </div>
+  </body>
+</html>
