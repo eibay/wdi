@@ -1,30 +1,10 @@
-require 'active_record'
 require 'json'
-require 'pg'
+require_relative "./ufo.rb"
 
       # load json file # 
 
 json_file = File.open "./ufo_formatted.json"
 ufo_hash_arr = JSON.load json_file
-
-
-# establish connection w/ postgres # 
-
-ActiveRecord::Base.establish_connection(
-   adapter: "postgresql",
-      host: "localhost",
-  database: "ufo_sightings",
-  username: "clayreed",
-  password: '',
-  encoding: "utf-8", 
-      port: "5432"
-)
-
-
-    # make a UFO class # 
-
-class UFO < ActiveRecord::Base 
-end 
 
 
        # main loop #
