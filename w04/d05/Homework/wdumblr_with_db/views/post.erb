@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Posts</title>
+	<h2> View posts </h2>
+</head>
+<body>
+
+	<label>
+		<%= post["content"] %> 
+	<ul>
+		<li> Written on: <%= post["created_at"] %></li>
+		<li> Keywords: <%= post["keyword"] %></li>
+	</ul>
+	<h4> Written by: <%= author["name"] %> </h4>
+
+	<% images.each do |x| %>
+		<img src="<%= x["url"] %>">
+	<% end %>
+
+	<form action="/posts/<%= post["id"]%>/images" method="POST">
+		<input type="hidden">
+		<button>See Images</button>
+	</label>
+	</form>
+<br>
+<a href="/"> Back to Home page </a>
+
+
+
+</body>
+</html>

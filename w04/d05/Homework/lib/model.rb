@@ -35,7 +35,7 @@ class Model
   end
 
   def self.file_name()
-    self.name().downcase + "s.txt"
+    self.name().downcase + ".txt"
   end
 
   # Instance methods
