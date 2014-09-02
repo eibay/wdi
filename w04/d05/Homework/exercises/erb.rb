@@ -18,6 +18,6 @@ end
 
 random_user = person()
 
-erb = ERB.new("This awesome person is named #{random_user[:full_name]}\nThey live in #{random_user[:city]}, #{random_user[:state]}")
+erb = ERB.new("This awesome person is named <%= random_user[:full_name] %> \nThey live in <%= random_user[:city] %>, <%= random_user[:state] %>")
 
-erb.result
+puts erb.result
