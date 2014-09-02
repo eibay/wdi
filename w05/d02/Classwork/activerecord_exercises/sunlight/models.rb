@@ -5,7 +5,7 @@ require 'active_record'
 ActiveRecord::Base.establish_connection(
    adapter: "postgresql",
       host: "localhost",
-  database: "sunlight_api",
+  database: "congress",
   username: "clayreed",
   password: '',
   encoding: "utf-8", 

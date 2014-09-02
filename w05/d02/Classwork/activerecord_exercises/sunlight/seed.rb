@@ -14,7 +14,10 @@ senators_up_for_reelection.each do |senator|
  	 	      party: senator["party"],
  	 	   birthday: senator["birthday"]
  	 	).save
-	bills = find_bills_by_sponsor_id senator["bioguide_id"][0,10]
+
+	bills = find_bills_by_sponsor_id senator["bioguide_id"]
+	bills = bills.sort_by{|bill| bill["introduced_on"]}.reverse[0,10]
+
 	# seed bills table # 
 	bills.each do |bill|
 		Bill.new(
