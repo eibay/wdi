@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Post</title>
+</head>
+<body>
+
+  <h1> <%="#{post["content"]} #{post["created_at"]} #{post["keyword"]}" %></h1>
+  <h3> Author: <%=author["name"] %></h3>
+
+  <a href="/posts/<%=post["id"] %>/images"><button> Add Images </button>
+
+</body>
+</html>
