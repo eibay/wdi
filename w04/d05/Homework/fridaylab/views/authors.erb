@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Authors </title>
+</head>
+<body>
+	<h1> Authors </h1>
+	<ul>
+	<% authors.each do |author| %>
+    <li><a href="/author/<%= author["id"]%>"><%= author["name"] %></a> </li>
+    <% end %>
+	</ul>
+
+	<p>  
+		<ul><a href="/authors/new"> Add a new author</a>
+	</p>
+</body>
+</html>

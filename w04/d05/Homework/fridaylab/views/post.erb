@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Posts</title>
+</head>
+<body>
+  <h1>Keyword:<%= post["keyword"] %></h1>
+  <p>Author:</p>
+  <ul>
+    <%= post.author["name"] %>
+  </ul>
+
+  <p> Content: </p>
+  <ul>
+  <p><%= post["content"] %> </p>
+  </ul>
+
+  <p> Images: </p>
+  <ul>
+    <% images.each do |image| %>
+    <% image_array.each do |image| %>
+    <li><img src="<%= image %>"></li>
+    <% end %>
+
+  </ul>
+  <p> <a href ="/posts/new">Add a New Post <p>
+</body>
+</html>
+  </ul>
+
+</body>
+</html>

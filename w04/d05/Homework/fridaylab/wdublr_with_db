@@ -1,0 +1,245 @@
+require_relative './author'
+require_relative './post'
+require 'pry'
+require 'json'
+require 'sinatra'
+require 'sinatra/reloader'
+require 'time'
+
+get("/") do 
+	erb(:index)
+end
+
+get("/authors") do
+	authors = Author.all()
+	erb(:authors, {locals: {authors: authors} } )
+end
+
+get("/authors/new") do
+	posts = Post.all()
+	erb(:new_author, {locals: {posts: posts } } )
+end
+
+post("/authors") do
+	author_hash = {
+		name: params["name"],
+		email: params["email"],
+		post_id: params["post_id"]
+	}
+	Author.create(author_hash)
+
+	erb(:authors, {locals: { authors: Author.all() } } )
+end
+
+get("/author/:id") do
+	author = Author.find_by("id", params[:id])
+	erb(:author, {locals: {author: author } } )
+end
+
+get ("/posts") do
+	erb(:posts, {locals: {posts: Post.all() } } )
+end
+
+get("/posts/new") do
+	authors = Author.all()
+	binding.pry
+	posts = Post.all
+	erb(:new_post, {locals: { authors: authors, posts: posts } } )
+end 
+
+post("/posts") do
+	post_hash = {
+		content: params["content"],
+		keyword: params["keyword"],
+		created_at: params["created_at"],
+		author_id: params["author_id"]
+	}
+
+	Post.create(post_hash)
+
+	erb(:posts, {locals: {posts: Post.all(), authors: Author.all } })
+end
+
+get("/post/:id") do
+	post = Post.find_by("id", params[:id])
+	erb(:post, {locals: {post: post} } )
+end
+
+get("/post/:id/images") do
+	post = Post.find_by("id", params[:id])
+	binding.pry
+	erb(:images, {locals: {post: post } } )
+end
+
+post("/post/:id/images") do
+	post = Post.find_by("id", params[:id])
+	binding.pry
+	erb(:images, {locals: {posts: Post.all() } })
+end
+
+require_relative './model'
+
+class Post < Model
+	def author
+		return Author.find_by("id", @attributes["author_id"])
+	end
+end
+
+require_relative './model'
+
+class Author < Model
+	def post
+		return Post.select_by("author_id", @attributes["id"])
+	end
+end
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= author["name"] %></title>
+</head>
+<body>
+  <h1><%= author["name"] %></h1>
+  <p><%= author["email"] %></p>
+  <p>Post: <% author.post.each do |author| %>
+  			<li><%= author["keyword"] %>
+  				<br><%= author["content"] %>
+  			    <br><%= author["created_at"] %></li>
+  			<% end %>
+  </p>
+</body>
+</html>
+
+<html>
+<head>
+	<title>Authors </title>
+</head>
+<body>
+	<h1> Authors </h1>
+	<ul>
+	<% authors.each do |author| %>
+    <li><a href="/author/<%= author["id"]%>"><%= author["name"] %></a> </li>
+    <% end %>
+	</ul>
+
+	<p>  
+		<ul><a href="/authors/new"> Add a new author</a>
+	</p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WDumblr</title>
+</head>
+<body>
+	<h1> WDumblr </h1>
+<ol>
+<a href = "/authors">See all Authors</a>
+<br><a href = "/posts">See all Posts</a>
+</ol>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Author</title>
+</head>
+<h1> Add a New Author </h1>
+<body>
+  <form action="/authors" method="POST">
+    <input type="text" name="name" placeholder="Authors Name">
+    <input type="text" name="email" placeholder="Authors E-mail">
+    <select name="post_id">
+      <% posts.each do |post| %>
+      <% if post["id"] == authors["post_id"] %>
+   		 <option value="<%= post["id"] %>"><%= post["keyword"] %></option>
+      <% end %>
+      <% end %>
+    </select>
+    <button>Submit</button>
+  </form>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Post</title>
+</head>
+<body>
+  <h1> Add a New Post! </h1>
+  <form action="/posts" method="POST">
+    <input type="text" name="content" placeholder="Content" />
+    <input type="text" name="keyword" placeholder="Keyword" />
+    <input type="hidden" name="created_at" value= "<%= Time.now.strftime("%D - %H:%M %p")    %>" />
+    <select name="author_id">
+      <% authors.each do |author| %>
+        <option value="<%= author["id"] %>"><%= author["name"] %></option>
+      <% end %>
+    </select>
+    <button>Submit</button>
+  </form>
+  <h1> Find Images related to keyword of a specific post! </h1>
+    <% posts.each do |post| %>
+  <form action="/posts/<%= post["id"] %>/images" method="POST"><% end %>
+    <select name="post_id">
+      <% posts.each do |post| %>
+        <option value="<%= post["id"] %>"><%= post["keyword"] %></option>
+      <% end %>
+    </select>
+    <button>Submit</button>
+  </form>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Posts</title>
+</head>
+<body>
+  <h1>Keyword:<%= post["keyword"] %></h1>
+  <p>Author:</p>
+  <ul>
+    <%= post.author["name"] %>
+  </ul>
+
+  <p> Content: </p>
+  <ul>
+  <p><%= post["content"] %> </p>
+  </ul>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Posts</title>
+</head>
+<body>
+  <h1>Posts </h1>
+  <p> Post: </p>
+  <ul>
+    <% posts.each do |post| %>
+      <li>
+        <a href="/post/<%= post["id"] %>">
+          <%= post["keyword"] %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+  <p> <a href ="/posts/new">Add a New Post <p>
+</body>
+</html>
