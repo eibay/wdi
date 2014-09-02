@@ -1,0 +1,56 @@
+post("/posts/:id/images") do
+	images = []
+	keyword = Post.find_by("id", params["id"])["keyword"]
+
+	instagram = HTTParty.get("https://api.instagram.com/v1/tags/#{keyword}/media/recent?client_id=cd29458e23f648fa9359e75074f0d497")
+
+	image_1 = {
+	url: instagram["data"][0]["images"]["standard_resolution"]["url"],
+	id: params["id"]
+	}
+	images << image_1
+
+	image_2 = {
+	url: instagram["data"][1]["images"]["standard_resolution"]["url"],
+	id: params["id"]
+	}
+	images << image_2
+
+	image_3 = {
+	url: instagram["data"][2]["images"]["standard_resolution"]["url"],
+	id: params["id"]
+	}
+	images << image_3
+
+	post = Post.find_by("id", params["id"])
+	title = Post.find_by("id", params["id"])["title"]
+	# image = post.images
+	author = post.author
+
+	-- HTML --
+
+	<h1>Images tagged <%= keyword %></h1>
+	<h3>From "<%= title %>"</h3>
+
+		<ul>
+			
+					<% images.each do |image| %>
+				<li>
+						<img src="<%= image[:url] %>">
+				</li>
+				<% end %>
+			</ul>
+
+---
+
+		image_hash = {
+		id: params["id"],
+		url: params["url"],
+	}
+
+	Image.create(image_hash)
+
+	image_1 = {
+	url: instagram["data"][0]["images"]["standard_resolution"]["url"],
+	id: params["id"]
+	}

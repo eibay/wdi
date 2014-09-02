@@ -1,0 +1,28 @@
+<html>
+<head>		
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<title>All Authors</title>
+</head>
+<body>
+	<h1>All Authors</h1>
+		<ol>
+			<% authors.each do |author| %>
+				<li>
+					<a href="/authors/<%= author["id"] %>">
+						<%= author["name"] %>
+					</a>
+				</li>
+				<% end %>
+			</ol>
+		
+		<ul>
+			<li><a href="/authors/new">Add an Author</a></li>
+			<li><a href="/posts/new">Create a New Post</a></li>
+			<li><a href="/authors">All Authors</a></li>
+			<li><a href="/posts">All Posts</a></li>
+			<li><a href="/">Home</a></li>
+
+		</ul>
+
+</body>
+</html>

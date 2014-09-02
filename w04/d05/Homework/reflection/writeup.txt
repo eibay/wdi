@@ -1,0 +1,8 @@
+Compare and contrast the Model class we have been using to ActiveRecord
+ActiveRecord also adds inheritance and associations. Overall, it reduces the amount of code that needs to be written to store and retrieve properties and relationshps.
+
+Unlike the Model class, Active Record automatically creates methods to to read and manipulate data.
+
+What is ActiveRecord doing? How does it relate to our database server?
+ActiveRecord is responsible for mapping one row in a database to one object in Ruby. It validates the models before they get persisted to the database.
+

@@ -1,0 +1,30 @@
+<html>
+<head>
+<link rel ="stylesheet" type=text/css href="/styles.css">
+
+	<title>All Posts</title>
+</head>
+<body>
+	<h1>All Posts</h1>
+	
+		<ol>
+			<% posts.each do |post| %>
+			<li>
+				<em><a href="/posts/<%= post["id"] %>">
+					<%= post["title"] %>
+				</a></em>
+			</li>
+			<% end %>
+		</ol>
+
+		<ul>
+			<li><a href="/authors/new">Add an Author</a></li>
+			<li><a href="/posts/new">Create a New Post</a></li>
+			<li><a href="/authors">All Authors</a></li>
+			<li><a href="/posts">All Posts</a></li>
+			<li><a href="/">Home</a></li>
+
+		</ul>
+
+</body>
+</html>

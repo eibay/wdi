@@ -1,0 +1,25 @@
+<html>
+<head>
+		<link rel ="stylesheet" type=text/css href="/styles.css">
+
+	<title>WDumblr: Images</title>
+</head>
+<body>
+	
+	<h1>From <em><a href="/posts/<%= post["id"] %>"><%= title %></a></em></h1>
+	<h3>Images tagged "<%= keyword %>"</h3>
+	
+		<% images.each do |image| %>
+		<img src="<%= image["image_url"] %>">
+		<% end %>	
+
+
+	<ul>
+		<li><a href="/authors/new">Add an Author</a></li>
+		<li><a href="/posts/new">Create a New Post</a></li>
+		<li><a href="/authors">All Authors</a></li>
+		<li><a href="/posts">All Posts</a></li>
+	</ul>
+
+</body>
+</html>
