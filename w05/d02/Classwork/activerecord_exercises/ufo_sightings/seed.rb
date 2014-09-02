@@ -2,41 +2,43 @@ require 'active_record'
 require 'json'
 require 'pg'
 
-# load json file # 
+      # load json file # 
 
-f = File.open "./ufo_formatted.json"
-arr = JSON.load f
+json_file = File.open "./ufo_formatted.json"
+ufo_hash_arr = JSON.load json_file
 
 
 # establish connection w/ postgres # 
 
 ActiveRecord::Base.establish_connection(
-  adapter:    "postgresql",
-  host:       "localhost",
-  database:   "ufo_sightings",
-  username:   "clayreed",
-  password:   "",
-  encoding:   "utf-8", 
-  port:       "5432"
+   adapter: "postgresql",
+      host: "localhost",
+  database: "ufo_sightings",
+  username: "clayreed",
+  password: '',
+  encoding: "utf-8", 
+      port: "5432"
 )
 
 
-# make a UFO class # 
+    # make a UFO class # 
 
 class UFO < ActiveRecord::Base 
-
 end 
 
 
-# main loop #
+       # main loop #
 
-arr.each do |ufo|
-  s = ufo["sighted_at"]
-  r = ufo["reported_at"]
-  l = ufo["location"]
-  s = ufo["shape"]
-  dura = ufo["duration"]
-  desc = ufo["description"]
-  obj = UFO.new(sighted_at: s, reported_at: r, location: l, shape: s, duration: dura, description: desc)
-  obj.save 
+ufo_hash_arr.each do |ufo|
+
+  UFO.new(
+   sighted_at: ufo["sighted_at"],
+  reported_at: ufo["reported_at"],
+     location: ufo["location"],
+        shape: ufo["shape"],
+     duration: ufo["duration"],
+  description: ufo["description"]
+  ).save
+
 end 
+
