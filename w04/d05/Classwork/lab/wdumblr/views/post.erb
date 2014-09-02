@@ -7,7 +7,15 @@
 <body>
   <h1><%= post["id"] %></h1>
   <p>From author <%= post.author["name"] %></p>
-   <button>Add Images</button>
+  <p>Keyword: <%= post["keyword"] %></p>
+  <p><%= post["content"] %></p>
+  <h2>Images</h2>
+  <% post.images.each do |image| %>
+  	<img src="<%= image["url"] %>" alt="This is an image.">
+  <% end %>
+  <form action="/posts/<%= post["id"] %>/images" method="POST">
+  	<button>Add Images</button>
+  </form>
 </body>
 </html>
 

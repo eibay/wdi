@@ -5,12 +5,14 @@
   <title>New Post</title>
 </head>
 <body>
-  <form action="/posts/new" method="POST">
-    <input type="text" name="title" placeholder="Title" />
-    <input type="text" name="content" placeholder="Write Your Post" />
-    <input type="text" name="author" placeholder="Byline" />
-    <input type="text" name="keyword" placeholder="Keyword" />
+  <form action="/posts" method="POST">
+    <select name="author_id">
+      <% Author.all.each do |author| %>
+        <option value="<%= author["id"] %>"><%= author["name"] %></option>
+      <% end %>      
     </select>
+    <input type="text" name="keyword" placeholder="Keyword" />
+    <input type="text" name="content" placeholder="Write Your Post" />
     <button>Submit</button>
   </form>
 </body>

@@ -1,7 +1,10 @@
-require_relative './model'
+class Post < ActiveRecord::Base
 
-class Post < Model
   def author
-    Post.find_by("id", @attributes["post_id"])
+    Author.find_by("id", @attributes["author_id"])
+  end
+
+  def images
+  	Image.select_by("post_id", @attributes["id"])
   end
 end

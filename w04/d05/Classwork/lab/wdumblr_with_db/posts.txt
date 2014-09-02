@@ -1,1 +1,1 @@
-[]
+[{"author_id":"a03127c10b8b505b8b9e3f9df58eea4f","keyword":"Foo","content":"Bar","created_at":"2014-09-01 21:50:13 -0400","id":"0794fdae562bf6382047a789cbf4d48a"},{"keyword":"Hong Kong","content":"China is wonderful country everyone should visit","author_id":"a03127c10b8b505b8b9e3f9df58eea4f","created_at":"2014-09-01 22:23:28 -0400","id":"c04f052891a6787e0e639c501233bbf4"}]
