@@ -15,7 +15,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 
-    # make a UFO class # 
+    # make a Sightings class # 
 
-class UFO < ActiveRecord::Base 
+class Sighting < ActiveRecord::Base 
 end 

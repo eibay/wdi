@@ -1,23 +1,23 @@
 require 'json'
-require_relative "./ufo.rb"
+require_relative "./sighting.rb"
 
       # load json file # 
 
 json_file = File.open "./ufo_formatted.json"
-ufo_hash_arr = JSON.load json_file
+sightings = JSON.load json_file
 
 
        # main loop #
 
-ufo_hash_arr.each do |ufo|
+sightings.each do |sighting|
 
-  UFO.new(
-   sighted_at: ufo["sighted_at"],
-  reported_at: ufo["reported_at"],
-     location: ufo["location"],
-        shape: ufo["shape"],
-     duration: ufo["duration"],
-  description: ufo["description"]
+  Sighting.new(
+   sighted_at: sighting["sighted_at"],
+  reported_at: sighting["reported_at"],
+     location: sighting["location"],
+        shape: sighting["shape"],
+     duration: sighting["duration"],
+  description: sighting["description"]
   ).save
 
 end 
