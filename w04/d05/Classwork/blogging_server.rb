@@ -40,7 +40,7 @@ get("/posts/:id/images") do
 
 tag = Post.find_by("id", params["id"])["keyword"]
 api_call = HTTParty.get("https://api.instagram.com/v1/tags/#{tag}/media/recent?client_id=4c08eb6f8fb948d581437e9315b48fb2")
-#binding.pry
+binding.pry
 
 image1 = {
     url: api_call["data"][0]["images"]["low_resolution"]["url"],

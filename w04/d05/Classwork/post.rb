@@ -9,4 +9,5 @@ class Post < Model
   def images
     return Image.select_by("post_id", @attributes["id"])
   end
+
 end
