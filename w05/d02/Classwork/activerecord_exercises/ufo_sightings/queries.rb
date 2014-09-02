@@ -1,4 +1,4 @@
-require_relative "./ufo.rb"
+require_relative "./sighting.rb"
 
 # shape of circle #
 
