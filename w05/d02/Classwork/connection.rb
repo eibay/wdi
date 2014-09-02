@@ -4,7 +4,8 @@ require 'active_record'
     :adapter => "postgresql",
     :host => "localhost",
     :username => "timoorkurdi",
-    :database => "wdumblr"
+    :database => "ufosightings"
   })
 
   ActiveRecord::Base.logger = Logger.new(STDOUT)
+
