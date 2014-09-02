@@ -4,8 +4,8 @@
 
 CREATE TABLE ufos (
 	id serial primary key, 
-	sighted_at varchar(8),
-	reported_at varchar(8), 
+	sighted_at varchar(16),
+	reported_at varchar(16), 
 	location varchar(130),
 	shape varchar(10), 
 	duration varchar(30),
