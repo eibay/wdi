@@ -6,7 +6,12 @@ require 'httparty'
 require_relative './lib/author.rb'
 require_relative './lib/post.rb'
 require_relative './lib/image.rb'
-require_relative '../connection.rb'
+require_relative './connection.rb'
+
+
+after do
+  ActiveRecord::Base.connection.close
+end
 
 
 get '/' do 
