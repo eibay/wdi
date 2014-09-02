@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+	<title><%= author[:name] %></title>
+	<link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h1><a href="/">Wdumblr</a></h1>
+	<h4>Tublr fur wreally dumb pipol!</h4>
+	<nav>
+		<ul>
+			<li><a href="/authors">Othurz</a></li>
+			<li><a href="/posts">Postz</a></li>
+		</ul>
+	</nav>
+	<h3><%=author[:name]%></h3>
+	<h3>Posts</h3>
+		<div>
+			<% posts.each do |post| %>
+			<p><%=post[:content]%><br>Postud at: <%=post[:created_at]%><br>Tag: <a href="/posts/<%= post[:id]%>"> <%=post[:keyword]%></a></p>
+			<% end %>
+		</div>	
+</body>

@@ -1,0 +1,23 @@
+<% require "./lib/post.rb" %>
+<!DOCTYPE html>
+<head>
+	<title>Posts</title>
+	<link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h1><a href="/">Wdumblr</a></h1>
+	<h4>Tublr fur Wreally Dumb pipol!</h4>
+	<nav>
+		<ul>
+			<li><a href="/posts/new">Rite a Post</a></li>
+			<li><a href="/authors">Othurz</a></li>
+		</ul>
+	</nav>
+	<h2>Postz</h2>
+	<ul>
+		<% posts.each do |post| %>
+		<li><a href="/posts/<%=post["id"]%>">Tag: <%=post["keyword"]%> - Bi: <%=post.author["name"]%> - Postud: <%=post["created_at"]%></a></li>
+		<% end %>
+	</ul>
+</body>
