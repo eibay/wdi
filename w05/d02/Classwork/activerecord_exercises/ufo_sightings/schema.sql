@@ -2,7 +2,7 @@
 -- run this w/ 
 -- $ psql -d ufo_sightings -a -f schema.sql
 
-CREATE TABLE ufos (
+CREATE TABLE sightings (
 	id serial primary key, 
 	sighted_at date, 
 	reported_at date, 
