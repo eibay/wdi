@@ -1,0 +1,25 @@
+#!/usr/bin/ruby 
+
+class Fixnum 
+	def is_prime? 
+		(2..self-1).none? do |num|
+			self % num == 0 
+		end 
+	end
+end  
+
+def find_primes n 
+	(1..n).each do |num|
+		# if num is prime 
+		if num.is_prime? 
+			# emit num 
+			puts num 
+		end 
+	end 
+end 
+
+if ARGV.length != 1
+	abort "USAGE: print_primes range_end"
+else 
+	find_primes ARGV.last.to_i 
+end 
