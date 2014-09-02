@@ -1,0 +1,18 @@
+Q:
+Compare and contrast the Model class we have been using to ActiveRecord.
+What is ActiveRecord doing? How does it relate to our database server?
+
+A:
+The Model Class and ActiveRecord both contain classes and methods(they have the same function). With the Model class we have a static model.rb file, precreated. With ActiveRecord methods are created automatically. The main difference is that ActiveRecord allows us to directly interact with our information from a database server using ruby, eliminating the need for connecting to the postgres database server use psql.
+
+Q:
+Postgresql database server
+Wdumblr database
+authors, posts, and images tables
+psql
+ActiveRecord
+
+Which component receives and interprets SQL statements? Which component connects to the postgresql database server? What kind of data (string, integer, other...) does it send and receive?
+
+A: 
+The Postgresql database server both receives and interrepts SQL statements.  The Wdumblr database connects to the postgresql database server. Authors, posts, and images tables are the subclasses or data represented as strings integer etc. aka tables. psql is what we use to access our database using the terminal. ActiveRecord is a great new "architecturel" tool that allows us to access our databases without using the Model class.
