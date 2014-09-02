@@ -9,7 +9,7 @@ class Fixnum
 end  
 
 def find_primes n 
-	(1..n).each do |num|
+	(2..n).each do |num|
 		# if num is prime 
 		if num.is_prime? 
 			# emit num 
