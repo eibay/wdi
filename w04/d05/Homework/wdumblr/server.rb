@@ -58,7 +58,17 @@ end
 get("/posts/:id") do
 
   	post = Post.find_by("id", params[:id]) 
+
 	erb(:post, { locals: { post: post } } )  #pass post[author_id]
 end
 
+post("/posts/:id/images") do
 
+	post = Post.find_by("id", params[:id])
+
+	images = "images to come from instatgram"
+
+	# images = Images.find_by("id", params[:id])   #params[:id] is the post id
+
+	erb(:images, { locals: { post: post, images: images } } )
+end

@@ -1,0 +1,28 @@
+--------
+
+*Compare and contrast the Model class we have been using to ActiveRecord
+--I think the schema/structure of the Model class is in line with the schema/structure of ActiveRecord. I am unclear about many of the specifics. 
+1 specific thing,, I can designate a column in a table to be a foreign key and that Active Record will by default add an integer column for Primary Key "id".
+2 specific thing, instances of the model/class are represented by table rows. The model/class is the table name. The columns are @attribute/instance variables.
+
+Interesting tid bits I found...
+The table containing the foreign key is called the referencing or child table, and the table containing the candidate key is called the referenced or parent table.[4]
+
+Object-Relational Mapping, commonly referred to as its abbreviation ORM, is a technique that connects the rich objects of an application to tables in a relational database management system. 
+-----------
+
+*What is ActiveRecord doing? How does it relate to our database server? 
+It seems that chapter 5 of the documentation talks about syntax and code to actually implement Active Record on your server. And access the data in the data base.
+
+I was unable to see what it does because after installing the gem and updating my console.rb file and running it with a binding.pry, I got this error message
+
+$ ruby console.rb
+/Users/JillOrtenberg/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-4.1.5/lib/active_record/connection_adapters/connection_specification.rb:190:in `rescue in spec': Specified 'postgresql' for database adapter, but the gem is not loaded. Add `gem 'pg'` to your Gemfile (and ensure its version is at the minimum required by ActiveRecord). (Gem::LoadError)
+	from /Users/JillOrtenberg/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-4.1.5/lib/active_record/connection_adapters/connection_specification.rb:187:in `spec'
+	from /Users/JillOrtenberg/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/activerecord-4.1.5/lib/active_record/connection_handling.rb:50:in `establish_connection'
+	from /Users/JillOrtenberg/dev/wdi/rosencrantz/w04/d05/Homework/wdumblr_with_db/connection.rb:3:in `<top (required)>'
+	from console.rb:5:in `require_relative'
+	from console.rb:5:in `<main>'
+
+-----------
+

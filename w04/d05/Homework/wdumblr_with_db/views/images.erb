@@ -13,10 +13,16 @@
 
   <p><%= post["content"] %></p>
 
-  <form action="/posts/<%= post["id"] %>/images" method="POST">
-   		<button>Add Images</button>
-  </form>
+  <img src="<%= image["pic1"] %>" alt="<%= post["keyword"] %>">
+  <img src="<%= image["pic2"] %>" alt="<%= post["keyword"] %>">
+  <img src="<%= image["pic3"] %>" alt="<%= post["keyword"] %>"><br>
+
+  <a href="/authors">All Authors</a><br>
+  <a href="/posts">All Posts</a>
 
 
 </body>
 </html>
+
+
+
