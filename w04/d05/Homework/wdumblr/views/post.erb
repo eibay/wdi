@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+	<meta charset="UTF-8">
+	<title><%= post["title"] %></title>
+</head>
+<body>
+	<header>
+		<h1><a href="/">Dumb and Dumblr</a></h1>
+	</header>
+	<div>
+		<h1><%= post["title"] %></h1>
+		<p>Posted by <%= post.author %> on <%= post["time"] %></p>
+		<div>
+			<p><%= post["content"] %></p></br><p>And let's see what instagram has to add:</p>
+			<%= images %>
+		</div>
+		<div> 
+			<form action="/images/<%= post["keyword"] %>" method="POST">
+				<input type="hidden" name="post_keyword" value="<%= post["keyword"] %>">
+				<input type="hidden" name="id" value="<%= post["id"] %>">
+				<button>Add images</button>
+			</form>
+		</div>
+
+
+
+	</div>
+
+</body>
+</html>

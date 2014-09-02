@@ -1,0 +1,13 @@
+Similarities between Active Record and our model class:
+	Active Record must be subclassed in any class using it in the same manner as our model class.
+	Active Record allows the creation and reading of class instances in the same manner as our model class (e.g. Class.create(), Class.all(), Class.find_by()).
+
+Differences between Active Record and our model class:
+	To update an instance in our model class we had to call the entire instance with Class.all(), make any changes, and then recreate the instance with Class.create(). Active Record can just call in the instance with Class.find_by and save changes with Class.save or Class.update.
+	To delete an instance in our model class we had to delete the associated text file, Active Record can delete instances with Class.destroy.
+
+ACtive Record is a class that has predefined methods that interact with SQL databases. Instead of using an SQL program to interface with a class' database, the Active Record class allows ruby to manipulate the database information directly.
+
+The Postgresql database server is a program that holds persistent data. The Wdumblr database is within the Postgresql database server and is comprised of three tables: authors, posts, and images.  These tables (or models) hold the actual data related to the isntances of their respective classes in the wdumblr app.  All of this (the server, databases, and tables) can be manipulated through the terminal using a program called psql or within Ruby using the ActiveRecord class and its associated methods.
+
+Postgresql receives and interprets SQL statements from either ActiveRecord or psql.  It sends and receives strings.
