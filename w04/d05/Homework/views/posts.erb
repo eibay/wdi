@@ -1,0 +1,18 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Posts</title>
+</head>
+
+<body>
+  <a href="/">HOME</a>
+
+  <a href="/posts/new">NEW POST</a>
+  <ul>
+<% posts.each do|post| %>
+<li><a href="/posts/<%=post["id"]%>"><%=post["key"]%></a></li>
+<%=post["content"]%>
+<%end%>
+</ul>
+</body>
+</html>

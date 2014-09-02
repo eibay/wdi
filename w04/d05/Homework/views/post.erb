@@ -1,0 +1,25 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title><%=post["key"]%></title>
+</head>
+<body>
+This post was created on <%=post["create"]%> with keyword <%=post["key"]%> by <a href="/authors/<%=author["id"]%>"><%=author["name"]%> </a>
+<%=post["content"]%>
+
+<form action="/posts/<%=post["id"]%>/images" method="POST">
+<input type="hidden">
+<button>ADD IMAGES</button>
+Images
+<%images.each do |image|%>
+<img src="<%=image["images"][0]%>"/>
+<img src="<%=image["images"][1]%>"/>
+<img src="<%=image["images"][0]%>"/> 
+<%end%>
+
+</form>
+
+
+
+</body>
+</html>

@@ -3,9 +3,10 @@
   <title></title>
 </head>
 <body>
+  <%=house["name"]%>
   <ul>
-<li><%people.each do |person|%>
-<%=person["name"]%> and <%=person["url"]%></li>
+<%people.each do |person|%>
+<li><%=person["name"]%> and <%=person["url"]%></li>
 <%end%>
 </ul>
 </body>

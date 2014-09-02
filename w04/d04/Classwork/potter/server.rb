@@ -6,41 +6,26 @@ require 'securerandom'
 require_relative './house.rb'
 require_relative './character.rb'
 
-
 get "/" do
   erb(:index)
 end
 
 get "/houses" do
-  #only create once
-  # gryfindor = JSON.parse(File.read("./houses.txt"))[0]
-  # slytherin = JSON.parse(File.read("./houses.txt"))[1]
-  #did create
-  houses = JSON.parse(File.read("./houses.txt"))
-  gryfindor = House.new(houses[0])
-  slytherin = House.new(houses[1])
-  
-  # houses << gryfindor
-  # houses << slytherin
-  erb(:houses, {locals: {gryfindor: gryfindor,slytherin: slytherin}})
+  # gryfindor1 = ({"name"=> "gryfindor", "age"=>"old", "id"=>"96c298446bde846f11c5fc64ca24c81e"})
+  # slytherin1 = ({"name"=>"slytherin", "age"=>"very old", "id"=>"cde36e3316236d4d78c85f08bfd4808b"})
+  # houses << House.new(gryfindor1)
+  # houses << House.new(slytherin1)
+  # File.write("./houses.txt", houses.to_json)
+  #how to make instances in the txt file
+  #dont need to House.all() changes to instances
+  erb(:houses, {locals: {houses: House.all()}})
 end
 
 get "/house/:id" do
-  houses = JSON.parse(File.read("./houses.txt"))
-  gryfindor = House.new(houses[0])
-  slytherin = House.new(houses[1])
-  if params["id"] == "96c298446bde846f11c5fc64ca24c81e"
-  people = gryfindor.character
-  elsif params["id"] == "cde36e3316236d4d78c85f08bfd4808b"
-    people = slytherin.character
-  end
-    
-    # if params["id"]=="96c298446bde846f11c5fc64ca24c81e"
-    #   people = Character.select_by("house_id", "96c298446bde846f11c5fc64ca24c81e")
-    # elsif params["id"]=="cde36e3316236d4d78c85f08bfd4808b"
-    #   people = Character.select_by("house_id", "cde36e3316236d4d78c85f08bfd4808b")
-    # end
-erb(:house, {locals: {people: people}})
+  house = House.find_by("id", params["id"])
+  people = house.character
+  #attribute is house
+  erb(:house, {locals: {people: people, house: house}})
 end
 
 get "/new/character" do
@@ -51,11 +36,9 @@ post "/characters" do
   name = params["name"]
   url = params["url"]
   house = params["house"]
-  characters = JSON.parse(File.read('./characters.txt'))
-  newcharacter = {"name"=>name, "url"=>url, "house_id"=>house, "id"=>SecureRandom.hex}
-  characters << newcharacter
-  File.write('./characters.txt', characters.to_json)
-  @character = Character.new(newcharacter)
+  newcharacter = ({"name"=>name, "url"=>url, "house_id"=>house, "id"=>SecureRandom.hex})
+  characters = Character.create(newcharacter)
+  #in the method of Character.all() turns it into an instance
   erb(:characters, {locals: {characters: Character.all()}})
 end
 
@@ -64,11 +47,12 @@ get "/characters" do
 end
 
 get "/character/:id" do
-  person = params["id"]
-  person1 = Character.find_by("id", person)
+  person1 = Character.find_by("id", params["id"])
   house = person1.house
+  #the attribute is person1
   erb(:character, {locals: {house: house, person1: person1}})
 end
+
 
 
 

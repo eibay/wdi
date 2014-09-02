@@ -1,0 +1,17 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title><%=author["name"]%></title>
+</head>
+<body>
+  <a href="/">HOME</a>
+<%=author["name"]%> can be contacted at <%=author["email"] %> and have posts about
+<ul>
+<%posts.each do |post|%>
+<li><a href="/posts/<%=post["id"]%>"><%=post["key"]%></a></li>
+  <%end%>
+</ul>
+
+
+</body>
+</html>
