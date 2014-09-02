@@ -5,6 +5,6 @@ require_relative './post'
 
 class Author < ActiveRecord::Base
 	def post
-		Post.where("author_id", @attributes["id"])
+		Post.where({author_id: @attributes["id"]})
 	end
 end

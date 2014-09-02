@@ -36,7 +36,7 @@ post("/authors") do
 end
 
 get("/authors/:id") do
-	author = Author.where("id", params[:id])
+	author = Author.find_by({id: params[:id]})
 	posts = author.post
 	erb(:author, { locals: { author: author, posts: posts } })
 end
@@ -54,7 +54,7 @@ get("/posts/:id") do
 	post = Post.find_by("id", params[:id])
 	author = post.author
 	images = post.images
-	keyword = Post.find_by("id", params["id"])["keyword"]
+	keyword = Post.find_by({id: params[id:]})["keyword"]
 
 	erb(:post, { locals: { post: post, author: author, images: images, keyword: keyword} })
 end
