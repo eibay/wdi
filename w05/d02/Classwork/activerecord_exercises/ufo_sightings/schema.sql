@@ -18,5 +18,5 @@ CREATE TABLE ufos (
 -- ufo[x].length => 8 
 
 -- & shape & duration are 
--- varchar_size for "shape"
+-- varchar_size for x
 
