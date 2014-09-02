@@ -6,11 +6,11 @@ Like the Model class, we can use the ActiveRecord class to inherit its built in 
 ActiveRecord is helping us create, organize, and retreive our data. 
 
 
-Postgresql database server
-Wdumblr database
-authors, posts, and images tables
-psql
-ActiveRecord
+Postgresql database server ??
+Wdumblr database - our Web app server
+authors, posts, and images tables - organizational structures for our data
+psql ??
+ActiveRecord ??
 
 Which component receives and interprets SQL statements? Which component connects to the postgresql database server? What kind of data (string, integer, other...) does it send and receive?
 
