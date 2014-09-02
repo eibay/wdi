@@ -1,6 +1,10 @@
 ##Week05 Day02
 ---
 
+###Work on the in class exercise using the Sunlight API before proceeding to the below exercises.
+
+---
+
 ###ActiveRecord and Algorithms
 
 **Part 1**:
