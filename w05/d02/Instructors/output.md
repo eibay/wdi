@@ -1,3 +1,4 @@
+```bash
 jeff ~/dev/wdi/rosencrantz/w05/d02/Instructors on master
 $ psql
 psql (9.3.2)
@@ -473,3 +474,4 @@ D, [2014-09-02T10:28:14.441881 #20367] DEBUG -- :   Post Load (0.9ms)  SELECT "p
 [3] pry(main)> ^D
 jeff ~/dev/wdi/rosencrantz/w05/d02/Instructors on master[!?]
 $ 
+```
