@@ -1,0 +1,34 @@
+Compare and contrast the Model class we have been using to ActiveRecord
+
+
+Active record is taking the spot of the text file used for persisting data. 
+The txt file is not structured, with active recored you must declare your variables and it will show you in a neat chart which ones are not filled in. 
+I haven't really figured out how to join tables. I have been using foreign keys to link tables. Doesn't really make sense to me to have a seperate Images file. I think it makes more sense to add the images as a column in the Post file. Especially for how we want them displayed. 
+
+I was putting too much logic in the erb file, but couldnt see a way around it if we wanted every post with its API query-ed picture below (reading from 2 text files, rather than pulling from one)
+
+
+What is ActiveRecord doing? How does it relate to our database server?
+
+ActiveRecord is storing our data we entered into the website/ pulled from instagram. 
+
+
+
+The postgres database server is a free database we are using. The database is an organized list of information broken into columns and rows. Each piece of data has a specific location specified by the column and row which together is meaningful for the user. It is easy to refer to or find information by columns/rows and data/input.
+
+
+The Wdumblr database was created by us to persist informaiton after the sinatra server has closed. It is specific to my local connection and username.
+
+
+
+
+authors, posts, and images tables
+All the tables are linked to one another using foreign keys. Images linked to post, post linked to authors. 
+
+
+psql is the database we are using. 
+
+ActiveRecord converts ruby commands to psql syntax to create, read, update, and delete information from PSQL. 
+You can't create new databases or tables from Active Record, you can only create new instances of a table already in exsistence. 
+
+
