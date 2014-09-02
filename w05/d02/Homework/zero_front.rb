@@ -1,5 +1,5 @@
 class Array 
-	def zeroFront
+	def zero_front
 		zero_arr = self.select &:zero? 
 		nonzero = self.select do |n|
 			!n.zero?
@@ -14,14 +14,14 @@ def passed
 	puts "test passed!"
 end 
 
-if [1, 0, 0, 1].zeroFront == [0, 0, 1, 1]
+if [1, 0, 0, 1].zero_front == [0, 0, 1, 1]
 	passed 
 end 
 
-if [0, 1, 1, 0, 1].zeroFront == [0, 0, 1, 1, 1]
+if [0, 1, 1, 0, 1].zero_front == [0, 0, 1, 1, 1]
 	passed 
 end 
 
-if [1, 0].zeroFront == [0, 1]
+if [1, 0].zero_front == [0, 1]
 	passed  
 end 
