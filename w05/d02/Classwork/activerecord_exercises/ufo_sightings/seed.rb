@@ -1,6 +1,7 @@
 require 'json'
 require_relative "./sighting.rb"
 
+
       # load json file # 
 
 json_file = File.open "./ufo_formatted.json"
