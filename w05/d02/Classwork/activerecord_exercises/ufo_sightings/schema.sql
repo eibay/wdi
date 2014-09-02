@@ -4,19 +4,14 @@
 
 CREATE TABLE ufos (
 	id serial primary key, 
-	sighted_at varchar(16), -- found sighted_at might sometimes be > 8 
-	reported_at varchar(16), 
+	sighted_at date, 
+	reported_at date, 
 	location varchar(130),
 	shape varchar(10), 
 	duration varchar(30),
 	description text
 );
 
--- where 
-
--- sighted_at & reported_at are both x 
--- ufo[x].length => 8 
-
--- & shape & duration are 
+-- where shape & duration are 
 -- varchar_size for x
 
