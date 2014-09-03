@@ -40,6 +40,8 @@ elsif ARGV.length == 4
 		end   
 	else 
 		abort "USAGE: method [id] [name] [description]"
-	end  
+	end
+else 
+	abort "USAGE: method [id] [name] [description]"
 end 
 
