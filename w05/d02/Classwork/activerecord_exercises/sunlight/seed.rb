@@ -5,7 +5,7 @@ require_relative './senator.rb'
 require_relative './bill.rb'
 require_relative './connection.rb'
 
-senators = HTTParty.get("http://congress.api.sunlightfoundation.com/legislators?term_end=2015-01-03&per_page=all&apikey=410ebf08032d4867b9f317a12fe39965")
+senators = HTTParty.get("http://congress.api.sunlightfoundation.com/legislators?chamber=senate&term_end=2015-01-03&per_page=all&apikey=410ebf08032d4867b9f317a12fe39965")
 
 Senator.delete_all
 
@@ -23,13 +23,7 @@ senators["results"].each do |info|
 	
 	end
 
-# Senator.all.each do |element|
-
-# bioguide_id = element.bioguide_id
-
 bills = HTTParty.get("http://congress.api.sunlightfoundation.com/bills/search?chamber=senate&per_page=all&apikey=410ebf08032d4867b9f317a12fe39965")
-
-# bills = HTTParty.get("http://congress.api.sunlightfoundation.com/bills/search?sponsor_id=#{bioguide_id}&apikey=410ebf08032d4867b9f317a12fe39965&per_page=all")
 
 Bill.delete_all
 
