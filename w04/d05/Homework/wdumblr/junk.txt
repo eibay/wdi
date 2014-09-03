@@ -1,0 +1,16 @@
+
+Author.create("name" => "Tom Smith", "email" => "tsmith@gmail.com")
+{"name" => "Tom Smith", "email" => "tsmith@gmail.com"}
+
+Post.create("content" => "Look at these puppies, blah blah", "created_at" => "now", "keyword" => "puppy")
+{"content" => "Look at these puppies, blah blah", "created_at" => "now", "keyword" => "puppy"}
+
+tom = Author.find_by("name", "Tom Smith")
+
+tom.post
+
+puppies = Post.find_by("keyword", "puppy")
+
+puppies.author
+
+"name":"Puppys Are Cute",
