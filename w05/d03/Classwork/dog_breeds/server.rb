@@ -48,3 +48,15 @@ get "/api" do
 	Breed.all.to_json 
 end 
 
+delete "/api" do 
+	Breed.find_by({id: params[:id]}).destroy
+	Breed.all.to_json
+end 
+
+post "/api" do 
+	Breed.new({ 
+		   name: params["name"], 
+	description: params["description"]
+	}).save 
+	Breed.all.to_json
+end 

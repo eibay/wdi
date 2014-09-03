@@ -15,8 +15,7 @@ if ARGV.length == 1
 elsif ARGV.length == 2 
 	method, id = ARGV
 	if method == "--delete"
-		HTTParty.delete "http://127.0.0.1:4567/breeds/#{id}"
-		JSON.load(HTTParty.get("http://127.0.0.1:4567/api")).each do |breed|
+		JSON.load(HTTParty.delete("http://127.0.0.1:4567/api", {body: {id: id}})).each do |breed|
 			puts breed["id"], breed["name"], breed["description"]
 		end  
 	else 
@@ -25,8 +24,8 @@ elsif ARGV.length == 2
 elsif ARGV.length == 3 
 	method, name, description = ARGV 
 	if method == "--post"
-		HTTParty.post(
-			"http://127.0.0.1:4567/breeds", 
+		JSON.load(HTTParty.post(
+			"http://127.0.0.1:4567/api", 
 			{
 			 :body => 
 				{
@@ -34,8 +33,7 @@ elsif ARGV.length == 3
 				:description => description
 				}
 			}
-		)
-		JSON.load(HTTParty.get("http://127.0.0.1:4567/api")).each do |breed|
+		)).each do |breed|
 			puts breed["id"], breed["name"], breed["description"]
 		end   
 	else 
