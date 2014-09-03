@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= "#{senator.first} #{senator.last}" %></title>
+</head>
+<body>
+	<h2><%= "#{senator.first} #{senator.last}" %></h2>
+	<div>Date of birth: <%= senator.dob %></div>
+	<div>Party: <%= senator.party %></div>
+	<div>State: <%= senator.state %></div>
+	<div>Recent legislation:</div>
+	<% bills.each do |bill| %>
+	<div><a href="/bills/<%= bill.id %>"><%= bill.short_title %></a></div>
+	<% end %>
+</body>
+</html>

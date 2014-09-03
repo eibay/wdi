@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= author["name"] %></title>
+</head>
+<body>
+	<h2><%= author["name"] %></h2>
+	<h4>Posts</h4>
+	<% posts.each do |post| %>
+	<div><a href="/posts/<%= post["id"] %>"><%= post["created_at"] %>: <%= post["keyword"] %></a></div>
+	<% end %>
+	<div><a href="mailto:<%= author["email"] %>"><%= author["email"] %></a></div>
+</body>
+</html>

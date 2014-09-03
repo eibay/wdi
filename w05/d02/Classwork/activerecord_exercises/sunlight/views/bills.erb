@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bills sponsored by 2014 incumbent senators</title>
+</head>
+<body>
+	<h2>Bills sponsored by 2014 incumbent senators</h2>
+	<% bills.each do |bill| %>
+	<div><a href="/bills/<%= bill.id %>"><%= bill.short_title %></div>
+	<% end %>
+</body>
+</html>

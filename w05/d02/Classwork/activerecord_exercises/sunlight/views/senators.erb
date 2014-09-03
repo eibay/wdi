@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Incumbent Senators 2014</title>
+</head>
+<body>
+	<h2>Incumbent Senators in the year 2014</h2>
+	<% senators.each do |senator| %>
+	<div><a href="/senators/<%= senator.id %>"><%= "#{senator.first} #{senator.last}" %></a></div>
+	<% end %>
+</body>
+</html>

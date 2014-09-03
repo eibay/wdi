@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= bill.short_title %></title>
+</head>
+<body>
+	<h2><%= bill.short_title %></h2>
+	<div>2014 incumbent sponsor: <a href="/senators/<%= senator.id %>"><%= "#{senator.first} #{senator.last}" %></a></div>
+	<div>Introduced: <%= bill.introduced %></div>
+	<div>Length: <%= bill.pages %> pages</div>
+	<div>Enacted: <%= bill.enacted %></div>
+</body>
+</html>

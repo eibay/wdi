@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= post["created_at"] %></title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<% unless images.empty? %>
+	<% images.each do |image| %>
+	<div><img src="<%= image["url"] %>"></div>
+	<% end %>
+	<% end %>
+	<div>
+		<p><%= post["content"] %></p>
+		<p>Written by <a href="/authors/<% author["id"] %>"><%= "#{author["name"]} at #{post["created_at"]}." %></a></p>
+	</div>
+	<form action="/posts/<%= post["id"] %>/images" method="POST">
+		<button>Add three related images to this post!</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Post</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+	<h2>Compose a New Post</h2>
+	<form class="post" action ="/posts/new" method="POST">
+		<textarea name="content" rows=15>Post Content</textarea>
+		<input type="text" name="keyword" placeholder="Keyword">
+		<select name="author_id">
+			<% authors.each do |author| %>
+			<option value="<%= author["id"] %>"><%= author["name"] %></option>
+			<% end %>
+		</select>
+		<button>Compose!</button>
+	</form>
+</body>
+</html>
