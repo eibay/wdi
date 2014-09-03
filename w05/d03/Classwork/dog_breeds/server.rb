@@ -2,6 +2,8 @@ require 'sinatra'
 require_relative "./lib/breed"
 require_relative "./lib/config"
 
+# pages # 
+
 get '/' do 
 	erb :main, {locals: {breeds: Breed.all}}
 end 
@@ -9,6 +11,8 @@ end
 get "/breeds/:id" do 
 	erb :breed, {locals: {breed: Breed.find_by({id: params[:id]})}}
 end 
+
+# actions # 
 
 post "/breeds" do
 
@@ -37,3 +41,10 @@ delete "/breeds/:id" do
 
 	redirect '/'
 end 
+
+# api route # 
+
+get "/api" do 
+	Breed.all.to_json 
+end 
+
