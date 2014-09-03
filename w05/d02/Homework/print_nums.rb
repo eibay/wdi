@@ -1,6 +1,6 @@
 require_relative './connection.rb'
 require_relative './numbers.rb'
-numbers = []
+
 data = Number.all.order(number: :desc)
 data.each do |prime|
   
