@@ -1,59 +1,35 @@
-require 'pry'
-require 'httparty'
-require_relative './db/connection.rb'
-require_relative './models/senator.rb'
-require_relative './models/bill.rb'
+  require 'pry'
+  require 'httparty'
 
-senators = HTTParty.get("https://congress.api.sunlightfoundation.com/legislators?chamber=senate&term_end=2015-01-03&apikey=c8afc9366159477581e3be0a4045b6f5&per_page=all")
+  require_relative './db/connection.rb'
+  require_relative './models/senator.rb'
+  require_relative './models/bill.rb'
 
-Senator.delete_all
-Bill.delete_all
+  api_call = HTTParty.get("https://congress.api.sunlightfoundation.com/legislators?chamber=senate&term_end=2015-01-03&apikey=3ff38976a5114f27a35d49fa4f454f04")
 
-sen_array = []
-senators["results"].each do |s|
-  if s["term_end"] == "2015-01-03"
-    sen_hash = {
-    first: s["first_name"],
-    last: s["last_name"],
-    state: s["state"],
-    bioguide_id: s["bioguide_id"],
-    party: s["party"],
-    birthday: s["birthday"]
-    }
-    Senator.create(sen_hash)
-    sen_array << sen_hash
+  Senator.delete_all
+  Bill.delete_all
+
+  senator_bills = []
+  api_call["results"].each do |s|
+  senators = Senator.new(first: s["first_name"], last: s["last_name"], state: s["state"], bioguide_id: s["bioguide_id"], party: s["party"], birthday: s["birthday"])
+
+  senator_bills << senators
+  senators.save
+
+
   end
-end
 
-sen_array.each do |x|
+  senator_bills.each do |x|
   bioguide_id = x[:bioguide_id]
-  bills = HTTParty.get("https://congress.api.sunlightfoundation.com/bills?chamber=senate&sponsor_id=#{bioguide_id}&per_page=10&apikey=c8afc9366159477581e3be0a4045b6f5")
+  api_call02 = bills = HTTParty.get("https://congress.api.sunlightfoundation.com/bills?chamber=senate&sponsor_id=#{bioguide_id}&per_page=10&&apikey=3ff38976a5114f27a35d49fa4f454f04")
 
-  bills["results"].each do |b|
-    bill_hash = {
-    short_title: b["short_title"],
-    pages: b["pages"],
-    enacted: b["enacted"],
-    introduced: b["introduced_on"],
-    senator_id: b["sponsor_id"]
-    }
-    Bill.create(bill_hash)
+  api_call02["results"].each do |b|
+  bills = Bill.new(short_title: b["short_title"], pages: b["pages"], enacted: b["enacted"], introduced: b["introduced"], senator_id: b["sponsor_id"])
+
+  bills.save
+
   end
 end
 
-binding.pry
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ #binding.pry
