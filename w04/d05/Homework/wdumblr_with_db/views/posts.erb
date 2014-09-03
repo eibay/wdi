@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>WDumblr</title>
+</head>
+<body>
+	<h1>A list of posts</h1>
+	<ul>
+		<% posts.each do |post| %>
+		<li><a href="/posts/<%= post['id']%>"><%= post["title"] %></a></li>
+		<% end %>
+	</ul>
+	<a href="/posts/new">Go add a new post!</a>
+	<a href="/">Go back</a>
+</body>
+</html>

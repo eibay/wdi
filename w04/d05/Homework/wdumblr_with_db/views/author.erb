@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>WDumblr</title>
+</head>
+<body>
+	<h1><%= author["name"] %></h1>
+	<h2>Email: <%= author["email"] %></h2>
+	<ul>
+		<% author.posts.each do |post|%>
+		<li><a href="/posts/<%= post['id']%>"><%= post["title"] %></li>
+		<% end %>
+	</ul>
+	<a href="/">Go back</a>
+</body>
+</html>

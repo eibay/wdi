@@ -1,0 +1,5 @@
+Compare and contrast the Model class we have been using to ActiveRecord
+- We handle data in txt file when using the Model, we remote and organize data by connecting to lowercase class and Capital class.
+
+What is ActiveRecord doing? How does it relate to our database server?
+-
