@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>WDumblr -- Authors</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <a href="/">Home</a>
+      <a href="/posts">All posts</a>
+      <hr />
+      <h3>All WDumblr authors</h3>
+      <ul>
+        <% authors.each do |author| %>
+        <li><a href="/author/<%= author["id"] %>"><%= author["name"] %></a> -- <%= author["email"] %></li>
+        <% end %>
+      </ul>
+    </div>
+  </body>
+</html>

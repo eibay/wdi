@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>WDumblr -- <%= author["name"] %></title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <a href="/">Home</a>
+      <hr />
+      <h3><%= author["name"] %></h3>
+      <%= author["email"] %><br />
+      <h4>Bio</h4>
+      <%= author["bio"] %><br />
+      <h5>Posts</h5>
+      <ul>
+        <% posts.each do |post| %>
+        <li><a href="/post/<%= post["id"] %>"><%= post["keyword"] %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+	In your own words: what is a database?
+	List some problems with using files instead of a database
+	What is a schema (google may confuse you here)
+	When you are not specifically adding/deleting or querying your database, is it still running?
+
+1. A database is a program that holds tables. These tables are used to store information for a specific thing in your program.
+
+2. Using files is not an optimal solution because its very easy to corrupt the data via typos or errant code.
+Also, if you want to change the format of your data it will not be easy. If you change the format of your data, it does not retro actively change the format of your past info.
+
+3. Schema is merely the format of your data. Column info headers like names as varchars and ids as integer
+
+4. Yes your database is like a server, always listening. it is still running even if you aren't adding or deleting things.
