@@ -1,0 +1,13 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<ul>
+		<%senators.each do |senator|%>
+		<li><a href="/senators/<%=senator.bioguide_id%>"><%="#{senator.first} #{senator.last}"%></a></li>
+		<%end%>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title><%= post["keyword"]%></title>
+</head>
+<body>
+<h1><%= post["keyword"]%></h1>
+<h3><a href="/authors/<%=author['id']%>"><%=author['name']%></a></h3>
+<h5><%=post["created_at"]%></h5>
+<p><%=post["content"].gsub("\n", "<br>")%></p>
+<% if images==nil%>
+<form action="/posts/<%=post['id']%>/images" method="POST">
+	
+	<button>Add Images</button></form>
+	<%else%>
+	<h1> Pictures that might be  vaguely associated with this topic</h1>
+	<img src="<%=images.attributes['url1']%>">
+	<img src="<%=images.attributes['url2']%>">
+	<img src="<%=images.attributes['url3']%>">
+	<form action="/posts/<%=post['id']%>/change_images" method="POST">
+		<input type="hidden" name="keyword" value="<%=post['keyword']%>">
+		<button>Change Images</button>
+	</form>
+	
+	<%end%>
+
+	
+</form>
+</body>
+</html>
