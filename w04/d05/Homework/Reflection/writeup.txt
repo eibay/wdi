@@ -1,0 +1,27 @@
+** Compare and contrast the Model class we have been using to ActiveRecord
+
+---- So far, I see very little difference except that ActiveRecord will allow us to interact with our database in much the same way that we have been interacting with our text files so far. (You cleverly used the ActiveRecord vocabulary this week in setting up the Models we have been working with, so that "Model" and "id" are not unfamiliar terms or concepts, nor are "serial primary key" and "foreign key".)
+
+** What is ActiveRecord doing? How does it relate to our database server?
+
+---- I'm not sure yet. It seems like it is not only an interface between our ruby app and our database. From what I read, it seems like it might come with a bunch of methods like the ones we had written into our Model class this week. Somehow, too, the objects get saved not just as raw data content, but with the behavior of their class. 
+
+** In reflection/writeup.txt please explain the distinction between:
+
+Postgresql database server
+Wdumblr database
+authors, posts, and images tables
+psql
+ActiveRecord
+
+---- The Postgresql database server is the mysterious location where our databases live, which receives and responds to requests to manipulate the databases.
+    - The Wdumblr database is a database that we created that holds the data used in our application.
+    - authors, posts, and images tables are the tables which hold the data for those particular models. They are all contained in the Wdumblr database. As such, they are able to interact with each other.
+    - psql is a kind of client for Postgresql, which enables us to interact with Postgresql through the Terminal.
+    - ActiveRecord is a way of creating classes in Ruby that brings a bunch of methods with it. 
+
+** Which component receives and interprets SQL statements? Which component connects to the postgresql database server? What kind of data (string, integer, other...) does it send and receive?
+
+---- In the drawing I did earlier I had ActiveRecord talking to Postgresql. Actually, I don't know if ActiveRecord communicates with Postgresql or if Sinatra does it. I think ActiveRecord does it because the database information in included in connection.rb. 
+    The database contains all types of data, but I'm guessing this could be kind of a trick question and that it travels as a string and gets interpreted on either end. 
+    
