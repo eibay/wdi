@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Different Kinds of Dog</title>
+</head>
+<body>
+	<section>
+		<header>
+			<h1>Different Kinds of Dogs</h1>
+			<nav></nav>
+		</header>
+		<section>
+			<ul>
+				<% dogs.each do |dog|%>
+					<li> 
+						<section>
+							<h3><a href="/dogs/<%= dog.id %>"><%= dog.name %></a></h3>
+							<p><%= dog.description %></p>
+							<form action="/dogs/<%= dog.id %>" method="POST">
+								<input type="hidden" name="_method" value="DELETE">
+								<button>Erase Dog from Face of Earth</button>
+							</form>
+						</section> 
+					</li>
+				<% end %>
+			</ul>
+		</section>
+		<section id="add_a_dog" class="form">
+			<h2>Have you found a new kind of dog?</h2>
+			<form action="/dogs" method="post">
+				<label>Whaddya gonna call this new kind of dog?:<input type="text" name="name"></label>
+				<label>Describe your discovery:<textarea></textarea></label>
+			</form>
+		</section>
+	</section>
+</body>
+</html>
