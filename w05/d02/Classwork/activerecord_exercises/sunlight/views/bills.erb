@@ -1,0 +1,13 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<ul>
+		<%bills.each do |bill|%>
+		<li><a href="/bills/<%=bill.short_title%>"><%=bill.short_title%></a></li>
+		<%end%>
+
+</body>
+</html>

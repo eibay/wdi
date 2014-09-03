@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title><%="#{senator.first} #{senator.last}"%></title>
+</head>
+<body>
+	<h1><%="#{senator.first} #{senator.last}"%></h1>
+	<h3>State: <%=senator.state%>
+	<h3>Birthday: <%=senator.birthday%></h3>
+	<h3>Party <%=party%></h3>
+	<h1>Bills</h1>
+	<ul>
+
+	<%bills.each do |bill|%>
+	<li><a href="/bills/<%=bill.short_title%>"><%=bill.short_title%></a></li>
+	<%end%>
+</ul>
+
+</body>
+</html>
