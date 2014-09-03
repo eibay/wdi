@@ -6,6 +6,8 @@ require 'httparty'
 require_relative './lib/breed.rb'
 require_relative './lib/connection.rb'
 
+
+
 after do
   ActiveRecord::Base.connection.close
   # after every do, close connection. gotta close connections otherwise will be overloaded
@@ -19,7 +21,12 @@ end
 
 
 post '/new' do 
-  new_breed = {breed: params["breed"]}
+
+  api = HTTParty.get("http://api.petfinder.com/pet.getRandom?key=a85891abadd3bab6c6f9a2bd91ebaebd&animal=dog&format=json&breed=#{params["breed"]}&output=basic")
+  api_photos = api["petfinder"]["pet"]["media"]["photos"]["photo"]
+  api_photo_one = api_photos[rand(api_photos.length)]["$t"]
+
+  new_breed = {breed: params["breed"], url: api_photo_one} # is this a hash of a hash?
   b = Breed.new(new_breed)
   b.save
 
@@ -49,6 +56,18 @@ put '/edit/:id' do
   redirect '/'
 end
 
+
+# Congratulations, you have access to the Petfinder API!
+# Welcome:
+# Log out
+# API Key
+# a85891abadd3bab6c6f9a2bd91ebaebd
+# API Secret
+# ac33e5269325e3bc16198cb076c8b298
+# API Status
+# Active
+
+# http://api.petfinder.com/pet.getRandom?key=a85891abadd3bab6c6f9a2bd91ebaebd&animal=dog&format=json&breed=#%7Bbreed%7D&output=basic
 
 
 

@@ -16,6 +16,7 @@
 
 		<%list_breeds.each do |breed|%>
 			<li> <%=breed[:breed]%> </li>
+			<img src="<%=breed[:url]%>"/>
 
 			<form action="/breed/<%=breed.id%>" method="POST">
 				<input type="hidden" name="_method" value="DELETE">
@@ -26,6 +27,8 @@
 				<input type="hidden" name="breed" value="<%=breed.id%>">
 				<button>Edit breed</button>
 			</form>
+
+
 		<%end%>
 	</ul>
 
