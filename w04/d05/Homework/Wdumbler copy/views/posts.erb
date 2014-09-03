@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>View All WDumbler's Posts</title>
+</head>
+<body>
+<h1>Newest Posts to WDumbler</h1><br><br><br>
+<h3>All Posts</h3>
+<% posts.each do |a| %>
+<%= a["post"] %><br><a href="/posts/<%= a['author_id'] %>">More posts by this author</a><br><br>
+<% end %>
+
+<a href="/post/new">Write a New Post</a>
+</body>
+</html>

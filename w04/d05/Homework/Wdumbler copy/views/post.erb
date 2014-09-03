@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>Post w Pic</title>
+</head>
+
+<h1></h1>
+<body><p>
+<% posts.each do |a| %>
+<%= a["post"] %><br>
+<%= a["image"] %>
+
+
+
+<br>
+
+<form method="POST" action= '<%= a['author_id'] %>/images'>
+<input type="hidden" name="images" value="<%= a["keyword"] %>">
+	<button>Get Image</button>
+</form>
+
+<br><br>
+
+<%end%>
+</p></body>
+</html>

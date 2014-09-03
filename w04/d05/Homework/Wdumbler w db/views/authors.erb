@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>All Authors</title>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/styles.css"
+</head>
+<body>
+
+	<h1>Look at all of our Authors!!</h1>
+<br>
+<br>
+<% authors.each do |a| %>
+<li><%= a["name"] %></li>
+<% end %>
+<br>
+
+<a href="/author/new">Add Author</a>
+
+
+
+</body>
+</html>
