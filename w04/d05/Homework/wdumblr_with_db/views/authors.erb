@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Authors</title>
+
+</head>
+<body>
+	<a href ="/authors/add"> Sign up to become a contributer! </a>
+		<% authors.each do |x| %>
+	<ul>
+		<li>
+			<a href="/authors/<%= x["id"] %>"> <%= x["name"] %> </a>
+		</li>
+	</ul>
+		<% end %>
+	
+</body>
+</html>

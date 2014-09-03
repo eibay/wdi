@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WDumblr</title>
+	<h2> New Blog Entry: </h2>
+	<a href="/">Back to Home Page</a>
+</head>
+<body>
+	<form action="/posts" method="POST">
+		<br>
+		<input type="text" name="title" placeholder="Title of Post">
+		<br>
+		<br>
+		<textarea name="content" cols="50" rows="5" placeholder="Write here!"></textarea>
+		<br>
+		<input type="text" name="created_at" placeholder="Created at">
+		<br>
+		<input type="text" name="keyword" placeholder="Keywords">
+	
+	<select name="author_id">
+    <% authors.each do |x| %>
+        <option value="<%= x["id"] %>"><%= x["name"] %> <%= x["title"]%> <%= x["content"] %> <%= x["created_at"] %> <%= x["keyword"] %></option>
+      	<% end %>
+    </select>	
+    
+    <button> Submit </button>	
+	</form>
+
+</body>
+</html>

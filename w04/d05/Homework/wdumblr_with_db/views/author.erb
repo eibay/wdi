@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> Welcome to WDUmbler!</title>
+	<h2> Welcome <%= author["name"] %>! </h2>
+</head>
+<body>
+	<ul>
+		<li> Name: <%= author["name"] %> <br>
+			Email: <%= author["email"] %> </li>
+	</ul>
+	<h3> Contributions </h3>
+	<ul>
+     <% posts.each do |post| %>
+      <li><a href="/posts/<%=post["id"] %>"> <%=post["title"] %><a/>
+      </li>
+      <% end %>
+	</ul>
+</body>
+</html>
+
+
+ 

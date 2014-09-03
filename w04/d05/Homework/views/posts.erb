@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Posts</title>
+	<h2> WDumblr Posts </h2>
+	<h4> Click link to view content: </h4>
+</head>
+<body>
+
+	<a href ="/posts/add"> Add a new blog entry </a>
+	<br>
+		<% posts.each do |x| %>
+	<ul>
+		<li>
+			<a href="/posts/<%= x["id"] %>"> <%= x["title"] %></a>
+		</li>
+	</ul>
+		<% end %>
+	
+
+	
+</body>
+</html>
