@@ -6,6 +6,7 @@ require_relative './lib/character'
 
 after do
   ActiveRecord::Base.connection.close
+  # after every do, close connection. gotta close connections otherwise will be overloaded
 end
 
 get("/") do
