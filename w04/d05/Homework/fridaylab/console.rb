@@ -1,11 +1,13 @@
 require_relative './author'
 require_relative './post'
+require_relative './connection'
 require 'pry'
 require 'json'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'time'
 require 'httparty'
+
 
 get("/") do 
 	erb(:index)
