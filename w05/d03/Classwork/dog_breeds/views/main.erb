@@ -12,25 +12,26 @@
 		</header>
 		<section>
 			<ul>
-				<% dogs.each do |dog|%>
+				<% breeds.each do |breed|%>
 					<li> 
 						<section>
-							<h3><a href="/dogs/<%= dog.id %>"><%= dog.name %></a></h3>
-							<p><%= dog.description %></p>
-							<form action="/dogs/<%= dog.id %>" method="POST">
+							<h3><a href="/breeds/<%= breed.id %>"><%= breed.name %></a></h3>
+							<p><%= breed.description %></p>
+							<form action="/breeds/<%= breed.id %>" method="POST">
 								<input type="hidden" name="_method" value="DELETE">
-								<button>Erase Dog from Face of Earth</button>
+								<button>Erase This Kind of Dog from Face of Earth</button>
 							</form>
 						</section> 
 					</li>
 				<% end %>
 			</ul>
 		</section>
-		<section id="add_a_dog" class="form">
+		<section id="add_a_kind_of_dog" class="form">
 			<h2>Have you found a new kind of dog?</h2>
-			<form action="/dogs" method="post">
+			<form action="/breeds" method="post">
 				<label>Whaddya gonna call this new kind of dog?:<input type="text" name="name"></label>
-				<label>Describe your discovery:<textarea></textarea></label>
+				<label>Describe your discovery:<textarea name="description"></textarea></label>
+				<button>Submit</button>
 			</form>
 		</section>
 	</section>
