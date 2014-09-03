@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Posts</title>
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<h1>WDumblr</h1>
+<a href='/'>Home</a> |
+<a href='/authors'>Add Author</a> |
+<a href='/posts'>Add New Post</a>
+	<h2>Add a New Post!</h2>
+
+	<form action='/posts' method='POST'>
+		
+		<label>Title: <input type='text' name='title' placeholder='Title'></label>
+		<label>Share: <input type='text' name='content' placeholder='Your thoughts...'></label>
+		<label>Tag: <input type='text' name='tag' placeholder='Tag'></label>
+		<label>Author:
+			<select name='author_id'>
+				<% authors.each do |author| %>
+				<option value='<%= author["id"] %>'><%= author["name"] %></option>
+				<% end %>
+			</select>
+		</label>
+		<button>Share</button>
+	</form>
+
+
+	<h3>All Posts</h3>
+		<% posts.each do |post| %>
+		<div>
+			<h4><a href='/posts/<%=post["id"]%>'><%= post['title'] %></a></h4>
+			<p> <%= post['content'] %> </p>
+			<p> By: <em> <%= post['author'] %></em> On: <em><%= post['created_at'] %><em> ...<%= post['tag']%></em></em> </p>
+		</div>
+		<% end %>
+
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+Compare and contrast the Model class we have been using to ActiveRecord
+What is ActiveRecord doing? How does it relate to our database server?
+
+Like the Model class, we can use the ActiveRecord class to inherit its built in methods which will allow us access our database. In ActiveRecord, however, we will have a orginizational method similar to what we practiced with psql. 
+
+ActiveRecord is helping us create, organize, and retreive our data. 
+
+
+Postgresql database server ??
+Wdumblr database - our Web app server
+authors, posts, and images tables - organizational structures for our data
+psql ??
+ActiveRecord ??
+
+Which component receives and interprets SQL statements? Which component connects to the postgresql database server? What kind of data (string, integer, other...) does it send and receive?
+
+
