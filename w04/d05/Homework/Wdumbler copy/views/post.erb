@@ -7,12 +7,7 @@
 <body><p>
 <% posts.each do |a| %>
 <%= a["post"] %><br>
-<% images << image.find do |b| %>
-	<% a['id'] == b['post_id']%>
-
-<%= images %>
-
-<%end%>
+<%= a["image"] %>
 
 
 

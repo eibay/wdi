@@ -55,13 +55,13 @@ get('/posts/:id') do #displays all posts by author. "Get image" button beneath e
 
 	post = Post.select_by("author_id", params["id"])
 
-	images = []
+	# images = []
 		# post.each do |a|
 		# 	images << Image.find_by("post_id", a["id"])
 		# end
 
 
-	erb(:post, {locals: { posts: post, image: Image.all(), images: images }})
+	erb(:post, {locals: { posts: post, image: Image.all() }})
 end 
 
 post('/posts/:id/images') do # searches Instagram API using "keyword" as seach paramater. returns first 3 images --> still need to figure out how to add images to each post
