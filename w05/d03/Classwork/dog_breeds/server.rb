@@ -19,6 +19,9 @@ post "/breeds" do
 	redirect '/'
 end 
 
-delete "/breeds/:id" do 
+delete "/breeds/:id" do
+	# now we have to put Fritz to sleep, Clayton # 
+	Breed.find_by({id: params[:id]}).destroy
 
+	redirect '/'
 end 
