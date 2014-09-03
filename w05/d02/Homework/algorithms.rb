@@ -58,18 +58,35 @@ end
 end
 
 def make_chocolate(small, big, goal)
-
+	big_bars_used = goal / 5
+	if(big_bars_used > big)
+		big_bars_used=big
+	end
+	remaining_weight=goal-(big_bars_used*5)
 	big_kilo=big*5
-	remainder=goal%big_kilo
-
-	if(small >= remainder)
-		return remainder
+	if(big_kilo > goal)&&(goal%5==0)
+		return 0
+		binding.pry
+	elsif(small >= remaining_weight)
+		return remaining_weight
 	else
 		return -1
 	end
-	
 end
 
+
+def assert(actual, expected)
+  unless actual == expected
+    throw "Expected #{expected}, but was #{actual}"
+  end
+end
+
+ # assert(make_chocolate(2,2,13), -1)
+ # assert(make_chocolate(3,2,13), 3)
+ # assert(make_chocolate(3,3,13), 3)
+  # assert(make_chocolate(10,1,13), 8)
+
+  # assert(make_chocolate(1,2,9), -1)
 
 alphabet="a".."z"
 alphabet=alphabet.to_a
