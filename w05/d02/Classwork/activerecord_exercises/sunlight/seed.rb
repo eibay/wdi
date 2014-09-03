@@ -9,6 +9,7 @@ senators_array = HTTParty.get('https://congress.api.sunlightfoundation.com/legis
 
 Senator.delete_all
 
+
 senators_array["results"].each do |senator|
 	senator = Senator.new(
 		first: senator["first_name"], 
@@ -20,6 +21,7 @@ senators_array["results"].each do |senator|
 
 	senator.save
 end
+
 
 bills_array = HTTParty.get('https://congress.api.sunlightfoundation.com/bills?chamber=senate&apikey=a6760ef4e4f147a09df891918e869be0')
 
