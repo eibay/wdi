@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>Images</title>
+</head>
+<body>
+	<% image_array = [] %>
+	<% images["data"].each do |image| %>
+	<% image = image["images"]["low_resolution"]["url"] %>
+	<% image_array.push(image) %>
+	<% end %>
+
+	<ul>
+		<% image_array.each do |b| %>
+		<li><img src="<%= b %>"></li>
+		<% end %>
+	</ul>
+
+</body>
+</html>

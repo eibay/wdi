@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= author["name"] %></title>
+</head>
+<body>
+  <h1><%= author["name"] %></h1>
+  <p><%= author["email"] %></p>
+  <p>Post: <% author.post.each do |author| %>
+  			<li><%= author["keyword"] %>
+  				<br><%= author["content"] %>
+  			    <br><%= author["created_at"] %></li>
+  			<% end %>
+  </p>
+</body>
+</html>

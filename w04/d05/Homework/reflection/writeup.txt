@@ -1,0 +1,10 @@
+Compare and contrast the Model class we have been using to ActiveRecord
+ActiveRecord seems to make recalling certain data from our objects a lot more intuitive and easier than the Model class that we have been using in class. In the model class we have to write a different class and make a definiton to recall a certain information by their name or by the occupation they had whereas with the ActiveRecord we can use the example below.
+user = User.new
+user.name = "David"
+user.occupation = "Code Artist"
+This allows for more intuitive coding and less possible room for error. 
+
+
+What is ActiveRecord doing? How does it relate to our database server?
+ActiveRecord allows for faster inputs and access with our database. Therefore, when using our database server we can recall certain information and

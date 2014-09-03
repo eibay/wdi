@@ -1,0 +1,34 @@
+A) Draw a diagram of the following components and their interactions (as well as the protocols they use to interact):
+
+DB server (postgresql)
+server.rb
+ActiveRecord
+sintra
+HTTParty (Instagram API)
+Client's web browser
+psql
+Please take a photo of this diagram and put it in the reflection folder.
+
+
+
+B) In reflection/writeup.txt please explain the distinction between:
+
+Postgresql database server
+As a database server, its primary function is to store data, securely and supporting best practices, and retrieve it later, as requested by other software applications
+
+Wdumblr database
+The database is the collection of posts, authors and images tables 
+
+authors, posts, and images tables
+stores the information of authors names and emails, posts information and image tables
+
+psql
+psql is a terminal-based front-end to PostgreSQL. It enables you to type in queries interactively, issue them to PostgreSQL, and see the query results. Alternatively, input can be from a file. In addition, it provides a number of meta-commands and various shell-like features to facilitate writing scripts and automating a wide variety of tasks
+
+ActiveRecord
+ the active record pattern is an architectural pattern found in software that stores its data in relational databases
+
+Which component receives and interprets SQL statements? Which component connects to the postgresql database server? What kind of data (string, integer, other...) does it send and receive?
+
+
+
