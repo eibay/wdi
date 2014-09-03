@@ -22,27 +22,27 @@ end
 
 senators = Senator.all 
 
+Bill.delete_all
+
 senators.each do |senator|
 	bills = senator.find_bills
 		bills.each do |bill|
-		 	bill = Bill.new
-		 	bill.save #but i need the variables/columns
+		 	bill = Bill.new(senator_id: bill["sponsor_id"], short_title: bill["short_title"], pages: bill["last_version"]["pages"], enacted: bill["history"]["enacted"], introduced_on: bill["introduced_on"])
+		 	bill.save
 		end
 end
 
-
-
-
+#senator_id: bill["sponsor_id"], 
 ########## getting replaced by above
 
-bills_api = HTTParty.get("https://congress.api.sunlightfoundation.com/bills/search?chamber=senate&per_page=all&apikey=1768f8116fa5471f9b0849e35709e64b")["results"]
+# bills_api = HTTParty.get("https://congress.api.sunlightfoundation.com/bills/search?chamber=senate&per_page=all&apikey=1768f8116fa5471f9b0849e35709e64b")["results"]
 
-Bill.delete_all
+# Bill.delete_all
 
-bills_api.each do |element|
- 	bill = Bill.new(senator_id: element["sponsor_id"], short_title: element["short_title"], pages: element["last_version"]["pages"], enacted: element["history"]["enacted"], introduced_on: element["introduced_on"])
+# bills_api.each do |element|
+#  	bill = Bill.new(senator_id: element["sponsor_id"], short_title: element["short_title"], pages: element["last_version"]["pages"], enacted: element["history"]["enacted"], introduced_on: element["introduced_on"])
 
-	bill.save
- end
+# 	bill.save
+#  end
 
 

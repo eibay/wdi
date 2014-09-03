@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>Add a Breed</title>
+</head>
+<body>
+	<h1>All the Breeds</h1>
+
+	<ul>
+		<% breeds.each do |b| %>
+			<li><%= b %></li>
+		<% end %>
+
+	</ul>
+
+	<h1>Add a Breed</h1>
+
+	<form action="/breeds" method="POST">
+		<input type="text" name="breed" placeholder="Name of Breed" />
+		<button>Submit</button>
+	</form>
+
+</body>
+</html>
+
