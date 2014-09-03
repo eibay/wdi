@@ -1,0 +1,98 @@
+body {
+	background-color: #a6e86a;
+	font-size: 22px;
+	padding: 0;
+	margin: 0;
+}
+
+header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	border-top: 10px solid #a6e86a;
+	background-color: lightblue;
+}
+
+a {
+	text-decoration: none;
+	color: darkblue;
+}
+
+h1 {
+	color: darkblue;
+	font-family: 'Droid Serif';
+	/*padding: 10px;*/
+	margin: 10px 10px 0 10px;
+}
+div {
+	margin: 90px 20px 20px 20px;
+	padding: 20px;
+	background-color: lightblue;
+	border: navy 5px solid;
+	border-radius: 3px;
+}
+div div {
+	margin: 30px;
+	padding: 20px;
+	background-color: lightblue;
+	border: navy 5px solid;
+	border-radius: 3px;
+}
+
+div ul li {
+	margin: 1px 40px 0px 0px;
+	list-style-type: none;
+	border-bottom: 1px solid navy;
+}
+
+div div ul li {
+	margin: 20px;
+	list-style-type: none;
+	border-bottom: 1px solid navy;
+}
+
+form {
+	background-color: lightblue;
+	margin: 15px 20px;
+	padding: 10px;
+/*	border: navy 5px solid;*/
+	border-radius: 3px;
+}
+
+input {
+	width: 150px;
+	height: 30px;
+	background-color: lavender;
+	margin-left: 5px;
+}
+
+button {
+	height: 30px;
+	color: navy; 
+	background-color: lavender;
+	width: 120px;
+}
+
+select {
+background-color: lavender;
+border: outset 2px;
+height: 30px;
+
+}
+
+form ul li {
+	list-style-type: none;
+	float: left;
+	border: none;
+	margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
