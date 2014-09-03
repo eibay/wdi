@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Post It!</title>
+</head>
+<body>
+	<h1>Post here</h1>
+	<form action="/posts" method="POST">
+		<textarea rows="15" cols="60" name="content" placeholder="Just Do It!"></textarea><br/>
+		<input type="text" name="keyword" placeholder="Keyword"><br/>
+		<input type="hidden" name="created_at" value="<%= Time.now %>">
+		<select name="author_id">
+			<% authors.each do |a| %>
+			<option value="<%=a["id"] %>"><%= a["name"] %></option>
+			<% end %>
+		</select><br/>
+		<input type="password" name="password" placeholder="password"><br/>
+		<button>Post</button>
+	</form>
+</body>
+</html>

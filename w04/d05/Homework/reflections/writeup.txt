@@ -1,0 +1,5 @@
+--> The model class is similar to ActiveRecord in that the all other classes inherit the properties of them.  They differ because the model class was something we created and cannot use databases from SQL, whereas ActiveRecord is a program the utilizes classes and modules to implement data stored in databases and tables.
+
+--> It relates to our database server by pulling information from it based on following the convential criteria or by some other methods.
+
+--> Postgresql database server connects to the Wdumblr database, which conatins the authors, posts, and images tables.  These tables contain strings, integers, and serial primary keys.  Psql enables the user to interact with their databases to perform a number of functions.  It's sort of like pry for SQL with a lot more functionality.  Both psql and ActiveRecord receives and interprets SQL statements.

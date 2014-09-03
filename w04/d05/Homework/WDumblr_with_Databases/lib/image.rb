@@ -1,0 +1,6 @@
+class Image < ActiveRecord::Base
+
+	def post 
+		return Post.find_by(id: self.post_id)
+	end
+end
