@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Post <%= post["keyword"] %></title>
+</head>
+<body>
+	<p>Created: <%= post["created_at"] %></p>
+	<p>Keyword: <%= post["keyword"] %></p>
+	<p><%= post["content"] %></p>
+	<p><a href="/authors/<%= post_author["id"] %>"> <%=post_author["name"] %></a></p>
+	<p><a href="/">Home</a></p>
+	<p><a href="/posts">All Posts</a></p>
+</body>
+</html>
+
+
+
