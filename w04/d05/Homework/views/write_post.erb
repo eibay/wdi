@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>WDumblr | Write a Post</title>
+</head>
+<body>
+	<header>
+		<h1><a href='/'>WDumblr</a></h1>
+		<h2>Sign Up</h2>
+		<nav>
+			<ul>
+				<li><a href='/'>Home</a></li>
+				<li><a href="/authors">Authors</a></li>
+				<li><a href="/posts">Posts</a></li>
+				<li><a href="/authors/new">Sign Up</a></li>
+				<li><a href="/posts/new">Write a Post</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<h3>Sign Up</h3>
+		<form action="/posts" method="POST">
+			<label>Subject (keep it to one word):<input type="text" name="subject" placeholder="Henry, puppy, hashtagfoobar, etc."></label> 
+			<label>Write Your Heart Out:<textarea name="content" placeholder="This is where yr heart goes."></textarea></label>
+			<label>Who Are You, Posting to a Blog?<select name="author_id">
+			<% authors.each do |author| %>
+				<option value=<%= author.id %>><%= author.name %></option>  
+			<% end %>
+			</select></label>
+			<button>Post</button> 
+		</form>
+	</section>
+</body>
+</html>

@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby  
+
+# define sum method # 
+class Array 
+	def sum 
+		self.inject &:+ 
+	end 
+end 
+
+# assemble secret_decoder_ring # 
+
+secret_decoder_ring = {}
+
+i = 1 
+('a'..'z').each do |l|
+	secret_decoder_ring[l] = i
+	i += 1 
+end 
+
+# turn word into an arr of chars # 
+
+word = ARGV.last.downcase 
+
+str = []
+word.each_char do |char|
+	str << char 
+end
+
+# transform the arr w/ ecret_decoder_ring # 
+
+vals = str.map do |char|
+	secret_decoder_ring[char]
+end 
+
+# output the sum # 
+
+puts vals.sum 

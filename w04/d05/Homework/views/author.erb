@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>WDumblr | <%= author.name %> </title>
+</head>
+<body>
+	<header>
+		<h1><a href='/'>WDumblr</a></h1>
+		<h2><%= author.name %>&rsquo;s profile on WDumblr!</h2>
+		<nav>
+			<ul>
+				<li><a href='/'>Home</a></li>
+				<li><a href="/authors">Authors</a></li>
+				<li><a href="/posts">Posts</a></li>
+				<li><a href="/authors/new">Sign Up</a></li>
+				<li><a href="/posts/new">Write a Post</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<h3>About <%= author.name %></h3>
+		<p>Uh, we don&rsquo;t <em>actually</em> know anything about <%= author.name %>, but you can <a href=<%= "mailto:" + author.email %>>email them</a>. I mean, since email is so hot right now, why not?</p>
+	</section>
+</body>
+</html>

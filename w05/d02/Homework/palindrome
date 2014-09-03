@@ -1,0 +1,14 @@
+#!/usr/bin/ruby 
+
+class String 
+	def palindrome? 
+		self == self.reverse 
+	end 
+end 
+
+
+if ARGV.join('').downcase.delete(' \',-.;:!?"').palindrome? 
+	puts "Yup, that's a palindrome."
+else 
+	puts "No, dude, that is not a palindrome."
+end 
