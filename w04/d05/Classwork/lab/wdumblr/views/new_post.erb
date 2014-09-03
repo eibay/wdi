@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Post</title>
+</head>
+<body>
+  <form action="/posts" method="POST">
+    <select name="author_id">
+      <% Author.all.each do |author| %>
+        <option value="<%= author["id"] %>"><%= author["name"] %></option>
+      <% end %>      
+    </select>
+    <input type="text" name="keyword" placeholder="Keyword" />
+    <input type="text" name="content" placeholder="Write Your Post" />
+    <button>Submit</button>
+  </form>
+</body>
+</html>
