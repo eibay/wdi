@@ -11,3 +11,4 @@ CREATE TABLE characters(
   id serial primary key,
   house_id integer
 );
+

@@ -70,12 +70,11 @@ get("/houses/:id") do
   house = House.find_by({id: params[:id]})
   erb(:"houses/show", { locals: { house: house } })
 end
+
 get("/houses/:id/edit") do
   house = House.find_by({id: params[:id]})
   erb(:"houses/edit", { locals: { house: house} })
 end
-
-
 
 put("/houses/:id") do
   house_hash = { 
