@@ -27,7 +27,7 @@ end
 
 sen_array.each do |x|
 	bioguide_id = x[:bioguide_id]
-	bills = HTTParty.get("https://congress.api.sunlightfoundation.com/bills?chamber=senate&sponsor_id=#{bioguide_id}&apikey=c8afc9366159477581e3be0a4045b6f5")
+	bills = HTTParty.get("https://congress.api.sunlightfoundation.com/bills?chamber=senate&sponsor_id=#{bioguide_id}&per_page=10&apikey=c8afc9366159477581e3be0a4045b6f5")
 	
 	bills["results"].each do |b|
 		bill_hash = {
@@ -41,7 +41,7 @@ sen_array.each do |x|
 	end
 end
 
-first_10 = Bill.limit(10).order(introduced: :asc)
+# first_10 = Bill.limit(10).order(introduced: :asc)
 
 # array = []
 # bill_array.each do |y|
