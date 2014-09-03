@@ -15,7 +15,7 @@ table {border:none;}
 
 <table>
 	<%breeds.each do |breed|%>
-	<tr><td><%=breed.name%></td><td> <a href="/edit/<%=breed.id%>">Edit Breed</a></td><td>  <form action="/<%= breed.id %>" method="POST">
+	<tr><td><%=breed.name%></td><td><img src="<%=breed.images%>" width="150"></td><td> <a href="/edit/<%=breed.id%>">Edit Breed</a></td><td>  <form action="/<%= breed.id %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <button>Delete Breed</button>
   </form></li></td></tr>

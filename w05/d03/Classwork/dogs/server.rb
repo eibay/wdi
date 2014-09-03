@@ -5,6 +5,7 @@ require_relative './lib/breed'
 require 'pry'
 require 'httparty'
 
+
 after do
   ActiveRecord::Base.connection.close
 end
@@ -17,10 +18,12 @@ erb(:index, {locals:{breeds: breeds}})
 end
 
 post("/") do
-
-	breeds=Breed.all
+	http=HTTParty.get("http://api.petfinder.com/pet.getRandom?key=b476dbce46a562367f4ccb03f49a0743&animal=dog&breed=#{params[:name]}&format=json&output=basic")
+	# http["petfinder"]["pet"]["breeds"]["breed"]["$t"]  
+	breeds=Breed.all.order(id: :asc)
 	breed=Breed.new
 	breed.name=params[:name]
+	breed.images=http["petfinder"]["pet"]["media"]["photos"]["photo"][3]["$t"]
 	breed.save
 	erb(:index, {locals:{breeds: breeds}})
 end
@@ -36,9 +39,12 @@ get("/edit/:id") do
 end
 
 put ("/:id") do
+		
 
+	http=HTTParty.get("http://api.petfinder.com/pet.getRandom?key=b476dbce46a562367f4ccb03f49a0743&animal=dog&breed=#{params[:name]}&format=json&output=basic")
 	breed=Breed.find_by(id: params[:id])
 	breed.name=params[:name]
+	breed.images=http["petfinder"]["pet"]["media"]["photos"]["photo"][3]["$t"]
 	breed.save
 	redirect "/"
 end

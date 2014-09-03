@@ -2,6 +2,7 @@ require 'httparty'
 require 'pry'
 
 
+
 puts "put in the breed you would like to add"
 
 breed=gets.chomp
