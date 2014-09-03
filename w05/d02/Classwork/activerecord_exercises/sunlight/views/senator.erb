@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Senator</title>
+</head>
+<body>
+	<h1> <%= "#{senator.first} #{senator.last}" %> </h1>
+	<h3> State: <%= senator.state %> </h3>
+	<h3> Party: <%= senator.party %> </h3>
+	<h3> Birthday: <%= senator.birthday %> </h3>
+	<h3> Bills: </h3>
+	<ul> 
+		<% bills.each do |bill| %>
+			<li><a href="/bills/<%= bill.official_title %>"> <%= bill.official_title %> </a></li>
+		<% end %>
+	</ul>
+</body>
+</html>
