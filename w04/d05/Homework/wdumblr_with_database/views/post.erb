@@ -1,0 +1,33 @@
+<html>
+<head>
+	<link rel ="stylesheet" type=text/css href="/styles.css">
+	<title><%= post["title"] %></title>
+</head>
+<body>
+<!-- 	<h1><em><%= post["title"] %></em></h1> -->
+	<p><%= post["content"] %></p>
+	<p><em>Created: <%= post["created_at"] %></em> | <em>Authored by: <a href="/authors/<%= author["id"] %>">
+						<%= author["name"] %></a></em></p>
+			
+	<p>Images tagged "<%= keyword %>"</p>
+				
+			<% images.each do |image| %>
+			<img src="<%= image["image_url"] %>">
+			<% end %>
+
+	<form action="/posts/<%= post["id"] %>/images" method="POST">
+	<input type="hidden" %>
+	<button>Add Images</button>
+	</form>
+	
+	<ul>
+		<li><a href="/authors/new">Add an Author</a></li>
+		<li><a href="/posts/new">Create a New Post</a></li>
+		<li><a href="/authors">All Authors</a></li>
+		<li><a href="/posts">All Posts</a></li>
+		<li><a href="/">Home</a></li>
+
+	</ul>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Greeter Search Results</title>
+</head>
+<body>
+	<h1>Search Results</h1>
+
+	<h3>Results for "<%= name %>"</h3>
+
+	<ol>
+		<% greeters.each do |search| %>
+		<% if search["name"].include?(name) %>
+		<li><%= search["name"] %> says, "<%= search["greeting"]%>"</li>
+			<% end %>
+		<% end %>
+	</ol>
+
+	<a href="/">Search Again</a>
+
+</body>
+</html>
