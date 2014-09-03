@@ -26,7 +26,7 @@ elsif ARGV.length == 4
 	method, id, name, description = ARGV 
 	if method == "--put"
 		HTTParty.put(
-			"http://127.0.0.1:4567/breeds/#{id}", 
+			"http://127.0.0.1:4567/breeds/", 
 			{
 			 :body => 
 				{
