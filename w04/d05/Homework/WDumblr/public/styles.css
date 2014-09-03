@@ -1,3 +1,7 @@
+/*	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>	
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+*/
+
 body {
 	margin-top: 30px;
 	background-color: Silver;
@@ -11,6 +15,17 @@ body {
 body div {
 	width: 500px;
 	margin: 0 auto;
+}
+
+header {
+	background-color: DeepSkyBlue;
+	min-height: 100px;
+
+}
+
+footer {
+	background-color: OliveDrab;
+	min-height: 100px;
 }
 
 h1 {
