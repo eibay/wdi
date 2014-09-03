@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Results</title>
+</head>
+<body>
+
+	<ul>
+		<% results.each do |mechanic| %>
+			<li><%="#{mechanic["name"]} #{mechanic["age"]}" %> - <%=mechanic["favorite_car"] %>
+			</li>
+		<% end %>
+	<ul>
+
+</body>
+</html>

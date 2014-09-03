@@ -25,6 +25,7 @@ get("/astronauts/new") do
 end
 
 get("/astronaut/:id") do
+	binding.pry
 	astronaut = Astronaut.find_by("id", params[:id])
 	shuttle = Shuttle.find_by("id", astronaut["shuttle_id"])
 

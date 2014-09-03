@@ -53,11 +53,13 @@ loop do
   elsif params[:path] == "/words"
     word = params[:query_params][:specific_word] 
 
-    omdbapi = TCPSocket.new 'www.omdbapi.com', 80
-    omdbapi.puts "GET /?s=#{word}"
-    response = omdbapi.gets
-    omdbapi.close
+    # omdbapi = TCPSocket.new 'www.omdbapi.com', 80
+    # omdbapi.puts "GET /?s=#{word}"
+    # response = omdbapi.gets
+    # omdbapi.close
     parsed = JSON.parse(response)
+
+    binding.pry
 
     html = File.read('./views/movies.html')
     html = html.gsub('{{search_word}}', word)

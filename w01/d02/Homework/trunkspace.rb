@@ -16,27 +16,3 @@ if i >= 6
 end
 
 
-# trunk = 0
-# trunk.push 
-
-
-# while trunk < 5 &&  
-#   trunk.push(items)
-#   trunk = trunk + 1
-
-# if trunk >= 6
-#     puts "Trunk is full!"
-  
-# end
-# end
-
-# trunk.push(items)
-
-# while trunk < 6 
-# 	puts trunk
-# 	trunk = trunk + 1 
-# end
-
-# if trunk >= 6
-# 	puts "Trunk is full!"
-# end

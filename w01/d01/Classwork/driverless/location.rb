@@ -7,35 +7,30 @@ valid_locations = ["New York", "San	Francisco", "Dallas"]
 # dallas = "Dallas"
 # valid_locations = [new_york, san_fran, dallas]
 
-
-#while 
-	
-#end
-
 index = 0
 found = false
 
-while index <= 2
-
-#	if location == valid_locations[index]
-#		puts "YES WE GO THERE!"
-#	else
-#		puts "umm. try again"
-#	end
+while (index <= 2 && valid_locations[index] != location)
+	if location == valid_locations[index]
+		puts "YES WE GO THERE!"
+	else
+		puts "umm. try again"
+	end
 	
-if valid_locations[index] == location
-	found = true
-end
-
-
 	index = index + 1
+
+# if valid_locations[index] == location
+# 	found = true
+# end
+
+
 end
 
-if found
-	puts "yes we go there!"
-else
-	puts "no we don't go there!"
-end
+# if found
+# 	puts "yes we go there!"
+# else
+# 	puts "no we don't go there!"
+# end
 
 
 

@@ -7,7 +7,8 @@ class Taxi
 		@color = attr[:color]
 	end
 
-	def getInfo
-		return "#{@driver_name} is from #{@city} and drives a #{@color} taxi."
+	def GetInfo
+		puts "#{@driver_name} is from #{@city} and drives a #{@color} taxi."
 	end
+
 end

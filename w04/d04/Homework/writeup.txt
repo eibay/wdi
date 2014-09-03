@@ -1,0 +1,15 @@
+what is a database?
+
+Databases give our data consistency and structure. It is just a program running on our computer.
+
+List some problems with using files instead of a database
+
+Text files are easy to screw up, they dont enforce schema or keys and allow for data type inconsistency.
+
+What is a schema?
+
+A schema is a template for the hash. For example, I want my house hash to have a name and an age.
+
+When you are not specifically adding/deleting or querying your database, is it still running?
+
+i assume so... so that the information can be accessed always even if you are not changing anything. 

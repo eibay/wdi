@@ -27,7 +27,7 @@ end
 
 
 get '/search' do
-	erb(:search {locals: {on_file: on_file}})
+	erb(:search {locals: {: }})
 
 end
 
@@ -41,20 +41,4 @@ end
 
 
 
-	name = params["name"]
-	age = params["age"]
-	favorite_spell = params["favorite_spell"]
-	person = { name: name, age:age, favorite_spell:favorite_spell}
-	information.push(person)
-	erb(:regform, { locals: {information:information} })
-end
-
-get '/students/show' do
 	
-end
-	
-
-get '/search' do
-	erb(:search)
-end
-

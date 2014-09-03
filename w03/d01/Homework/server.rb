@@ -21,23 +21,23 @@ loop do
 	elsif path.split("=")[0] == "/words?specific_word"
 		specific_word= path.split("=")[1]
 
-	response = HTTParty.get("https://api.instagram.com/v1/tags/#{specific_word}/media/recent?client_id=40eb15cb18e94f7db90a3ee37208f21b")
-		
 	
-	html = File.read('./views/images.html')
-	html = html.gsub('{{images}}', specific_word)
-	binding.pry
+	response = HTTParty.get("https://api.instagram.com/v1/tags/#{specific_word}/media/recent?client_id=40eb15cb18e94f7db90a3ee37208f21b")
 	
 	images=[]
 
 	response["data"].each do |x|
-		images << x["images"]["standard_resolution"]["url"]
+		url = x["images"]["standard_resolution"]["url"] 
+		images.push("<li><img src='#{url}'></li>")
 	end
 
-	"<img src= ["images"] + ["url"] + ["standard_resolution"]/>"
-
-		html = html.gsub('{{images}}', images.join(''))
 	
+
+
+		images = images.join(' ')
+
+		html = File.read('./views/images.html')
+		html = html.gsub('{{images}}', images)
 		client.puts(html)
 	else
 		html = File.read('./views/404.html')

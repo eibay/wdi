@@ -4,7 +4,7 @@ all_patients = JSON.parse(File.read("patients.txt"))
 
 patient = {}
 
-puts "\nPlease enter patient information."
+puts "\nEnter patient information."
 print "First Name: "
 first = gets.chomp
 print "Last Name: "

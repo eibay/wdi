@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Results</title>
+</head>
+<body>
+
+	<ul>
+		<% results.each do |student| %>
+			<li><%="#{student["first"]} #{student["last"]}" %> - <%=student["email"] %>
+			</li>
+		<% end %>
+	<ul>
+
+</body>
+</html>

@@ -1,5 +1,3 @@
 require 'sinatra'
-
-get("/") do
-	erb(:index)	
+get("/") {"Hello World"}	
 end
