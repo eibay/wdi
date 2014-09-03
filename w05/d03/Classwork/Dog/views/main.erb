@@ -6,10 +6,9 @@
 	<h1>All the Breeds</h1>
 
 	<ul>
-		<% breeds.each do |b| %>
-			<li><%= b %></li>
+		<% breeds.each do |x| %>
+			<li><%= x["breed"] %></li>
 		<% end %>
-
 	</ul>
 
 	<h1>Add a Breed</h1>
