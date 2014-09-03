@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+	<title>Authors</title>
+	<link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h1><a href="/">Wdumblr</a></h1>
+	<h4>Tublr fur Wreally Dumb pipol!</h4>
+	<nav>
+		<ul>
+			<li><a href="/authors/new">Kre8 a nAkownt</a></li>
+			<li><a href="/posts">Postz</a></li>
+		</ul>
+	</nav>
+	<h2>Othurz</h2>
+	<ul>
+		<% authors.each do |author| %>
+		<li><a href="/authors/<%=author["id"]%>"><%=author["name"]%></a></li>
+		<% end %>
+	</ul>	
+</body>

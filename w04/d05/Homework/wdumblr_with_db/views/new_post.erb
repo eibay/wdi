@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+	<title>Add Post</title>
+	<link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+	<h1><a href="/">Wdumblr</a></h1>
+	<h4>Tublr fur wreally dumb pipol!</h4>
+	<nav>
+		<ul>
+			<li><a href="/authors">Othurz</a></li>
+			<li><a href="/posts">Postz</a></li>
+		</ul>
+	</nav>
+
+<h2>Rite a Nyoo Post</h2>
+
+<form action="/posts" method="POST" id="add_post">
+	    Tag:<input type="text" name="keyword" placeholder="Tag">
+	    Othur: <select name="author_id">
+	    <% authors.each do |author| %>
+	     <option value="<%= author[:id] %>"><%= author[:name] %></option>
+	      <% end %>
+	    </select>
+	    <button>Post</button>
+ </form>
+ <textarea rows="10" cols="100" name="content" form="add_post">Put yer wurds hear...</textarea>
+
+  </body

@@ -1,0 +1,25 @@
+Model Class vs Active Record
+	The Model class we've been using and Active Record are similar in that they both provide an interface between our server and our persistent data.  
+
+	They both have methods that allow us to add to and access specific items of data. We have used both with our servers to add to and present data in response to input from a browser.
+
+	They differ in that the Model Class requires us to define a large variety of methods, and create a new class to access each database file.  Active Record comes with a number of pre-defined methods, which we can use to access data.
+
+	The Model Class was necessary to access persistent data stored in .txt files, whereas Active Record's major advantage is that it can be used with SQL databases.  
+
+
+Differences Between: 
+Postgresql database server 
+	Postgres is a program that allows us to store dynamic databases on our harddrive by receiving and interpreting the Structured Query Language, which was specifically built for interfacing with databases.
+
+Wdumblr database
+	The Wdumblr database is a database stored on our harddrive, which is accessed and manipulated using Postgres.
+
+authors, posts, and images tables
+	The authors and posts table each generate an ID per new entry.  The posts and images tables both contain foreign keys, which link them to another table by the other table's ID numbers. The Posts table contains a created_by column, which generates a time stamp when a new row of data is created.
+
+psql
+	PSQL is the command line interface that we use to access and manipulate our databases in Postgres
+
+ActiveRecord
+	Active Record allows our server.rb to access and manipulate databases in Postgres.

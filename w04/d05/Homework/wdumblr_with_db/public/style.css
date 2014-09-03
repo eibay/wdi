@@ -1,0 +1,47 @@
+body {
+	background: #00ff00 url('http://fc01.deviantart.net/fs71/f/2012/159/6/c/____nyan_cat_snow_leopard_____wallpaper_by_sonyrootkit-d52pzn8.jpg') repeat fixed right;
+}
+
+h1 a {
+	font-size: 75px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	text-shadow: 2px 2px #ff0000;
+}
+
+h2 {
+	color: #00FFFF;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+h3 {
+	color: #0099FF;
+	font-family: 'Coming Soon', cursive;
+}
+
+h4 {
+	color: #FF66CC;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	margin-top: -20px;
+	padding-left: 10px;
+}
+
+a {
+	color: white;
+	font-family: 'Coming Soon', cursive;
+}
+
+p {
+	color: #0099FF;
+	font-family: 'Coming Soon', cursive;
+	background: rgba(255, 255, 255, 0.8);
+}
+
+img {
+	width: 200px;
+}
+
+nav ul li {
+	display: inline;
+	padding: 100px;
+	text-shadow: 2px 2px #ff0000;
+}
