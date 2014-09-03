@@ -68,7 +68,7 @@ end
 
 ###########################################################################
 
-post('/post/:id/images') do
+post('/posts/:id/images') do
 	post= Post.find_by("id", params[:id])
 	tag = Post.find_by("id", params[:id])["keyword"]
 # binding.pry
