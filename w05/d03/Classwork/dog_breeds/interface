@@ -6,7 +6,9 @@ require 'json'
 
 if ARGV.length == 1 
 	if ARGV.last == "--get"
-		HTTParty.get "http://127.0.0.1:4567/api" 
+		JSON.load(HTTParty.get("http://127.0.0.1:4567/api")).each do |breed|
+			puts breed["id"], breed["name"], breed["description"]
+		end  
 	else 
 		abort "USAGE: method [id] [name] [description]"
 	end 
@@ -14,6 +16,9 @@ elsif ARGV.length == 2
 	method, id = ARGV
 	if method == "--delete"
 		HTTParty.delete "http://127.0.0.1:4567/breeds/#{id}"
+		JSON.load(HTTParty.get("http://127.0.0.1:4567/api")).each do |breed|
+			puts breed["id"], breed["name"], breed["description"]
+		end  
 	else 
 		abort "USAGE: method [id] [name] [description]"
 	end 
@@ -30,6 +35,9 @@ elsif ARGV.length == 4
 				}
 			}
 		)
+		JSON.load(HTTParty.get("http://127.0.0.1:4567/api")).each do |breed|
+			puts breed["id"], breed["name"], breed["description"]
+		end   
 	else 
 		abort "USAGE: method [id] [name] [description]"
 	end  
