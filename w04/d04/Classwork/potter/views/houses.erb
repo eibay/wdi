@@ -3,10 +3,11 @@
   <title>Houses</title>
 </head>
 <body>
-<a href="house/<%=gryfindor["id"]%>">
-  <%=gryfindor["name"]%></a>
 
-<a href="house/<%=slytherin["id"]%>">
-  <%=slytherin["name"]%></a>
+  <%houses.each do |house|%>
+<a href="house/<%=house["id"]%>">
+  <%=house["name"]%></a>
+
+<%end%>
 </body>
 </html>

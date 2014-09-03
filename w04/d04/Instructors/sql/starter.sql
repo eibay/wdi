@@ -21,7 +21,7 @@ INSERT INTO monkeys (name, age) VALUES ('Cletus', 4);
 SELECT * FROM monkeys;
 
 -- Return entries based on a specified attribute
-SELECT * FROM birds WHERE name = 'Lola'
+SELECT * FROM birds WHERE name = 'Lola';
 
 -- Add a serialized ID to the table
 CREATE TABLE mechanic (id serial primary key, name varchar(50));

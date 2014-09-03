@@ -1,0 +1,15 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="/styles.css">
+  <title>Authors</title>
+</head>
+<body>
+  <a href="/">HOME</a>
+  <a href="/authors/new">New Authors</a>
+  <ul>
+<%authors.each do |author| %>
+<li><a href="/authors/<%=author["id"]%>"><%=author["name"]%></a></li>
+<%end%>
+</ul>
+</body>
+</html>
