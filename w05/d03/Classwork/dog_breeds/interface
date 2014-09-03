@@ -22,8 +22,8 @@ elsif ARGV.length == 2
 	else 
 		abort "USAGE: method [id] [name] [description]"
 	end 
-elsif ARGV.length == 4 
-	method, id, name, description = ARGV 
+elsif ARGV.length == 3 
+	method, name, description = ARGV 
 	if method == "--put"
 		HTTParty.put(
 			"http://127.0.0.1:4567/breeds/", 
