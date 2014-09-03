@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bill</title>
+</head>
+<body>
+	<h1> <%= bill.official_title %> </h1>
+	<h3> Short Title: </h3> 
+		<p> <%= bill.short_title %> </p>
+	<h3> Enacted: 
+		<% if bill.enacted == true %>
+			<p> Yes </p>
+		<% else %>
+			<p> Not enacted </p>
+		<% end %>
+	<h3> Date Introduced: </h3>
+	<p> <%= bill.introduced %> </p>
+	<h3> Sponsor: </h3> 
+	<a href="/senators/<%= bill.sponsor_id %>"> <%= "#{senator.first} #{senator.last}" %> </a> 
+</body>
+</html>

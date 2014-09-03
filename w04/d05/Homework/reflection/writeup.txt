@@ -1,0 +1,13 @@
+* The 'Model' class we have been using is very similar to ActiveRecord. Methods are named the same, data is written to a textfile named a pluralized version of the class.  However, ActiveRecord is much more versatile since it writes data to a database instead of a txt file, so that individual records are much more easily accessed and edited. I'm psyched to use ActiveRecord! 
+
+* ActiveRecord is writing to a SQL database/table schema, so we can create a database server in postgres and access it with Ruby/ActiveRecord instead of through the terminal. 
+
+* Postgresql is a database server that holds your databases. 
+
+* Wdumbler database is a collection of tables we created to use with our blog server. 
+
+* Authors, posts, and images tables hold information about the objects we create.
+
+* psql is an interface with SQL. It connects to the postgresql database server. It sends strings and integers which are interpreted as many different predetermined data types by SQL. I think???
+
+* ActiveRecord is a framework that connects ruby classes with SQL. It sends and interprets SQL statements. 

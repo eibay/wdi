@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New Post</title>
+</head>
+<body>
+	<h1>New Post</h1>
+	<form action="/posts/new" method="POST">
+		<textarea rows="30" cols="100" name="content"></textarea><br>
+		<input type="hidden" name="created_at" value="<%= Time.now.strftime("created at %I:%M%p, %m/%-d/%Y")  %>">
+		<label>Author:</label>
+		<select name="author_id">
+			<% authors.each do |author| %>
+			<option value="<%= author["id"] %>"> <%= author["name"] %> </option>
+			<% end %>
+		</select>
+		<label>Keyword:</label>
+		<input type="text" name="keyword" placeholder="Keyword">
+		<button>Submit</button>
+</body>
+</html>
