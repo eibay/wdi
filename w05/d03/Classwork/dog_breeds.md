@@ -34,3 +34,26 @@ Also note that our server has to be running for this to actually work.
 - the app should list all current breeds and then prompt the user for the name of a breed to update
 - ask the user for the updated name of that breed
 - do not loop. run once and then exit
+
+##Integrate with the petfinder API
+Wouldn't it be cool if there were pictures for the breeds? So cool.
+
+![Image of pups mcgee](http://photos.petfinder.com/photos/pets/27808175/1/?bust=1384014481&width=300&-pn.jpg)
+
+**Grab an API key from PetFinder**
+- First, go to https://users.petfinder.com/my-account/register and register for an API key. Feel free to put in dummy data so that they don't spam you.
+- Then go to https://www.petfinder.com/developers/api-key to obtain an API key
+- Make sure everything works by substituting in your API key into this URL and pasting it into your browser http://api.petfinder.com/breed.list?key=your-key-goes-here&animal=cat&format=json Do not just click on that link. You should get some json data that does not say error or unauthorized key.
+
+**Learn how to use the API**
+- For your reference here is the API documentation https://www.petfinder.com/developers/api-docs
+- We suggest using the API method pet.getRandom (search for it on the docs page) to get information for one dog, but you can use whatever method you like
+- Be sure to read the doc carefully for the API method call you use
+- **Hint** be sure to include ```format=json``` as a query parameter.
+- Make sure you figure out how to dig into the data and get an image for a dog of that breed before moving onto the next part
+
+**Modify your server from Part 1 to grab dog pictures from the petfinder API**
+- First, create a new table in your database to handle two fields, one for breed name and one for a link to an image (not the image file itself!)
+- Now, whenever you add a dog breed fetch a dog image from the petfinder API **and save the link to that image to the database**
+- When you list the breeds, be sure to include an image for each dog breed **do not fetch a new image for a dog every time you list the breeds**
+- When you edit a breed name make sure to refetch an image for the new breed name and modify the image link in the database
