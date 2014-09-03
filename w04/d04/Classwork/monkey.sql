@@ -1,10 +1,10 @@
-
+# psql
 
 CREATE DATABASE jungle;
 
-\c; # connect to database
+\c jungle; # connect to database
 
-\d; # show the structure
+\d # show the structure
 
 CREATE TABLE monkeys (name varchar(50), age integer);
 

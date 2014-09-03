@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Specific Author</title>
+</head>
+<body>
+
+	<div class="navbar">
+		<a href="/"> Home</a>
+		<br/>
+		<a href="/authors"> Authors </a>
+		<br/>
+		<a href="/posts"> Posts </a>
+	</div>
+
+
+	<h1> <%=author["name"]%> </h1>
+
+	<h3> Posts by this author </h3>
+	<ul>
+		<%author_posts.each do |post|%>
+			<li> "<a href="/posts/<%=post["id"]%>"><%=post["content"]%></a>" --- posted at <%=post["created_at"].split(" ")[1]%> on <%=post["created_at"].split(" ")[0]%></li>
+		<%end%>
+	</ul>
+</body>
+</html>

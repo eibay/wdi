@@ -26,9 +26,9 @@ while true
 	elsif request.path == "/photo"
 		searched_tag = request.query["tag"]
 		p "client searched for searched_tag: #{searched_tag}" #####################################################
-		ig_stuff = HTTParty.get("https://api.instagram.com/v1/tags/#{searched_tag}/media/recent?access_token=23131423.f59def8.a6672ba008ba4698bf9255c69b886261")
-				# ig_stuff = HTTParty.get("https://api.instagram.com/v1/tags/hello/media/recent?access_token=23131423.f59def8.a6672ba008ba4698bf9255c69b886261")
-
+		ig_stuff = HTTParty.get("https://api.instagram.com/v1/tags/#{searched_tag}/media/recent?client_id=b3dd0e6a077e45d0b8a026c954d59719")
+				# ig_stuff = HTTParty.get("https://api.instagram.com/v1/tags/hello/media/recent?client_id=b3dd0e6a077e45d0b8a026c954d59719")
+												
 		images_html = ""
 		ig_stuff["data"].each do |x|
 			image_link = x["images"]["low_resolution"]["url"]

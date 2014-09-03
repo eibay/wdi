@@ -1,0 +1,7 @@
+It seems to me that Active Record is a paradigm of storing data and methods which act on this data in a central unit, like an object. This sounds like it should make it more efficient to store and use this data.And it is also unnecessary to write SQL statements directly to do so.
+
+
+It also seems to have set various conventions such as having Models and Classes be singular while Tables and Schema are plural, as well as built-in methods on the Product class that are based on these conventions being kept. These methods will help the user be much more efficient as the most commonly used methods are already defined and the structure is already set.
+
+After reading the wikipedia article section on object-relational mapping ,it seems that one of the main benefits is indeed the abiltiy to hide the SQL, reducing clutter, and allowing you to focus your cognitive resources on writing the logic for your program rather than making the syntax right for your SQL.
+

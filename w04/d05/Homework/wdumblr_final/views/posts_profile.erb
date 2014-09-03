@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Specific Post</title>
+</head>
+<body>
+	<div class="navbar">
+		<a href="/"> Home</a>
+		<br/>
+		<a href="/authors"> Authors </a>
+		<br/>
+		<a href="/posts"> Posts </a>
+	</div>
+
+
+
+	Specific Posts
+	
+	<h5> This post is brought to you today by the word:</h5> <h3> "<%=post["keyword"]%> "</h3>
+
+
+	<h4> Post: "<%=post["content"]%>" </h4>
+	<h4> Post author: <a href="/authors/<%=post_author["id"]%>"><%= post_author["name"]%></a> </h4>
+	
+
+
+
+
+<!-- ADD IMAGES -->
+
+	<form action="/posts/<%=post_id%>/images" method="POST">
+		<input type="hidden" name="keyword" value="<%=post['keyword']%>">
+		<button>Add three random images</button>
+	</form>
+
+
+	<%specific_data_images.each do |image|%>
+		<img src='<%=image["url"]%>'/>
+	<%end%>
+
+
+
+
+
+
+</body>
+</html>
