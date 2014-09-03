@@ -11,7 +11,7 @@
        <input type="text" name="rank" placeholder="Enter A Rank">
     <select name="shuttle_id">
       <% shuttles.each do |shuttle| %>
-        <option value="<%= shuttle["id"] %>"><%= shuttle["name"]  %><%= shuttle["rank"] %></option>
+        <option value="<%= shuttle["id"] %>"><%= shuttle["name"] %></option>
         <% end %>
     </select>
     <button>Submit</button>
