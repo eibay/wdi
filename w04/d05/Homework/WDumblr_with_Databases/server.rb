@@ -54,7 +54,6 @@ post "/posts" do
 		Post.create(new_post)
 		erb(:posts, {locals: { posts: Post.all}})
 	else
-		puts "<h1>Sorry, wrong password.  Check yo self.</h1>"
 		erb(:post_add, {locals: { authors: Author.all}})
 	end
 end
