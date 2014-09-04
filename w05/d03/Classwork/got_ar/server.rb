@@ -4,6 +4,7 @@ require_relative './lib/connection'
 require_relative './lib/house'
 require_relative './lib/character'
 
+
 after do
   ActiveRecord::Base.connection.close
 end
@@ -57,6 +58,9 @@ end
 
 delete("/characters/:id") do
   character = Character.find_by({id: params[:id]})
+
+  binding.pry
+  
   character.destroy
 
   redirect "/characters"
