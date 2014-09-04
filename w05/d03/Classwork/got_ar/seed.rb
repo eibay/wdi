@@ -3,6 +3,8 @@ require_relative './lib/connection'
 require_relative './lib/house'
 require_relative './lib/character'
 
+House.delete_all
+
 lannister = House.create({
   name: "Lannister", 
   sigil_url: "http://img1.wikia.nocookie.net/__cb20140402110342/gameofthrones/images/thumb/0/0b/House-Lannister-heraldry.jpg/250px-House-Lannister-heraldry.webp",
@@ -14,6 +16,8 @@ stark = House.create({
   sigil_url: "http://img2.wikia.nocookie.net/__cb20140402121259/gameofthrones/images/thumb/7/72/House-Stark-heraldry.jpg/250px-House-Stark-heraldry.jpg",
   region: "The North"
 })
+
+Character.delete_all
 
 Character.create({
   name: "Tyrion",

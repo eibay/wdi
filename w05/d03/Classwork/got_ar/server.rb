@@ -4,6 +4,7 @@ require_relative './lib/connection'
 require_relative './lib/house'
 require_relative './lib/character'
 
+# close the conncection to the DB after every do 
 after do
   ActiveRecord::Base.connection.close
 end
@@ -42,6 +43,7 @@ get("/characters/:id/edit") do
   erb(:"characters/edit", { locals: { character: character, houses: House.all() } })
 end
 
+#used to edit 
 put("/characters/:id") do
   character_hash = { 
     name: params["name"], 
@@ -55,11 +57,12 @@ put("/characters/:id") do
   erb(:"characters/show", { locals: { character: character } })
 end
 
+#used to delete
 delete("/characters/:id") do
   character = Character.find_by({id: params[:id]})
   character.destroy
 
-  redirect "/characters"
+  redirect "/characters" #GET /characters
 end
 
 get("/houses") do

@@ -9,6 +9,7 @@
     <input type="hidden" name="_method" value="PUT">
     <input type="text" name="name" placeholder="Name" value="<%= character.name %>" />
     <input type="text" name="url" placeholder="Image Url" value="<%= character.image_url %>"/>
+    
     <select name="house_id">
       <% houses.each do |house| %>
         <option value="<%= house.id %>" <%= "selected" if character.house.id == house.id%> ><%= house.name %></option>
