@@ -37,7 +37,7 @@ A forum is an application that allows users to both post information and to comm
   - A user can add a time-to-live to a forum post, so that it expires after a given period
   - A user can see, but not interact with, an expired post
   - A user can subscribe to a category or post and receive updates to it via text or email (using Twilio/Sendgrid)
-    - This text message or email can be pretty succinct, such as including the title of an updated post along with a link to it
+    - This text message or email can be pretty succinct, such as including the title of an updated post/category along with a link to it
 
 ###***Bonus***
 
