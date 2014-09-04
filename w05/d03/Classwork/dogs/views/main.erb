@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome</title>
+</head>
+<body>
+	<h1>Dog Breeds</h1>
+	<form action="/new_breed" method="POST">
+		<input type="text" name="breed" placeholder="Type breed here.">
+		<button>Woof</button>
+	</form>
+
+	<h2>Current Breeds</h2>
+	<ul>
+		<% breeds.each do |b| %>
+			<h3><li><%= b["breed"] %></li></h3>
+			<img src="<%= b["url"] %>"> 
+			<form action="/<%= b["id"] %>" method="POST">
+				<input type="hidden" name="_method" value="DELETE">
+				<button>Beat It!</button>
+			</form>
+
+			<form action="/<%= b["id"] %>/edit" method="GET">
+				<input type="hidden">
+				<button>Edit</button>
+			</form>
+		<% end %>
+	</ul>
+</body>
+</html>
