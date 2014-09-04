@@ -10,6 +10,7 @@ A microblog allows users to create, devour, update, and delete miniature blog po
   - `micro_post`
   - `author`
   - `snippet`
+  - `subscriber`
   - `tag`
 - **Required technologies or features**:
   - [Twilio](https://www.twilio.com/docs/api)
@@ -30,7 +31,7 @@ A microblog allows users to create, devour, update, and delete miniature blog po
     - `tag`s can be edited and deleted
   - When a user creates a `micro_post` they can create a new author or choose a pre-existing one from a drop-down menu
   - A user can view an `author`'s page that lists the `micro_post`s that they have created or edited
-  - A user will receive an email or text message when a new `micro_post` is created
+  - A user can opt to add their email or phone number to receive an update whenever a new `micro_post` is created (using twilio/sendgrid)
     - This text message or email should at least contain the title of the new `micro_post`
   - A user can view `micro_post`s posts by author (`authors/authorhandle/posts`)
   - A user can view `micro_post`s posts by tag (`tag/tagname/posts`)
