@@ -1,0 +1,29 @@
+<html>
+<head>
+
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>	
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+
+
+	<title>Edit your Breed</title>
+</head>
+<body>
+	<h1>Edit the Breed</h1>
+
+	<p>I would like to change the name of <%= breed[:breed] %> to:  </p>
+		<form action="/breeds/edit/<%= params["id"] %>" method="POST">
+			<input type="hidden" name="_method" value="PUT" />
+			<input type="text" name="breed" placeholder="New Breed Name"/>
+			<button>Submit</button>
+
+
+		</form>
+	
+
+
+
+
+
+
+</body>
+</html>
