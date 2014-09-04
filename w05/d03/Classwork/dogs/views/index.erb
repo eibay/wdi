@@ -1,0 +1,29 @@
+<html>
+<head>
+  <title>DOG INFORMATION</title>
+</head>
+<body>
+
+  <form action="/" method="POST">
+  <input type="text" name="breed" placeholder="name of breed">
+
+  <button>SUBMIT</button>
+</form>
+
+
+  <ul>
+  <%dogs.each do |dog|%>
+  <li><%=dog.breed%><img src="<%=dog.url%>"/>
+    <form action="/edit/<%=dog.id%>" method="GET">
+  <input type="hidden" value="<%=dog.id%>" name="dog">
+  <button> EDIT </button>
+</form>
+
+  <form action="/dog/<%=dog.id%>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <button>DELETE</button>
+</form></li>
+  <%end%>
+</ul>
+</body>
+</html>

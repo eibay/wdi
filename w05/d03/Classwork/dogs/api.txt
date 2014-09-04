@@ -1,0 +1,6 @@
+23bbafb93dca18264abc62e8e888ab9c
+HTTParty.get("http://api.petfinder.com/breed.list?key=23bbafb93dca18264abc62e8e888ab9c&animal=cat&format=json")
+
+HTTParty.get("http://api.petfinder.com/pet.getRandom?key=23bbafb93dca18264abc62e8e888ab9c&breed=pitbull&animal=dog&output=basic&format=json")
+
+petfinderPetRecord

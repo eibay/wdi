@@ -1,0 +1,13 @@
+<html>
+<head>
+  <title><%=dog.breed%></title>
+</head>
+<body>
+  <a href="/">HOMEPAGE</a>
+
+<form action="/dog/<%=dog.id%>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="text" name="breed" placeholder="change from <%=dog.breed%>">
+  <button>SAVE CHANGES</button>
+</body>
+</html>
