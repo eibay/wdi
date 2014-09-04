@@ -12,7 +12,7 @@ A forum is an application that allows users to both post information and to comm
   - `comment`
   - `subscriber`
   - A `category` can have many `posts`, but a `post` belongs to only one `category`
-  - Similiarly, A `post` can have many `comments`, but a `comment` belong to only one `post`
+  - Similiarly, A `post` can have many `comments`, but a `comment` belongs to only one `post`
 - **Required technologies or features**:
   - [Twilio](https://www.twilio.com/docs/api)
     - Allows an application to send text messages to any phone number
