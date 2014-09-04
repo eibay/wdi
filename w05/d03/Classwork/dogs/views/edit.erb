@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<h1>Edit Dog</h1>
+
+<form action="/" method="POST">
+	<input type="hidden" name="_method" value="PUT" />
+	<input type="hidden" name="id" value="<%=puppy.id%>" />
+	<input type="text" name="name" placeholder="Updated Name" value="<%=puppy.breed%>"/>
+	<input type="text" name="name" placeholder="New Pic URL" value="<%=puppy.breed%>"/>
+	<button>Update</button>
+</form>
