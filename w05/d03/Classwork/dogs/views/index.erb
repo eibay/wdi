@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link type="text/css" rel="stylesheet" href="/styles.css"
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		<h1>Enter a breed</h1>
+		<form action="/breeds" method="POST">
+			<input type="text" name="breed" placeholder="Breed">
+			<button>Submit, Ubu, Submit</button>
+		</form>
+	</div>
+	<div>
+		<ul>
+			<% breeds.each do |breed| %>
+			<li><%= breed["breed"] %></li>
+			<img src='<%= breed["url"] %>'>
+				<form action="/breeds/<%= breed.id %>" method="POST">
+					<input type="hidden" name="_method" value="DELETE">
+					<button>Go to the farm</button>
+				</form>
+				<form action="/edit/<%= breed.id %>" method="GET">
+					<button>edit</button>
+				</form>
+			
+			<% end %>
+		</ul>
+	</div>
+</body>
+</html>

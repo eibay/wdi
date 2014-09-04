@@ -6,7 +6,7 @@ def make_chocolate(small, big, goal_weight)
   		if small_bars_needed > small 
   			return -1
   		else
-  			puts small_bars_needed
+  			return small_bars_needed
   		end
   	else
 
@@ -18,3 +18,14 @@ def make_chocolate(small, big, goal_weight)
 		end	
 	end
 end
+
+def assert(actual, expected)
+  unless actual == expected
+    throw "Expected #{expected}, but was #{actual}"
+  end
+end
+
+assert(make_chocolate(2, 2, 13), -1)
+assert(make_chocolate(3, 2, 13), 3)
+assert(make_chocolate(3, 3, 13), 3)
+assert(make_chocolate(10, 1, 13), 8)
