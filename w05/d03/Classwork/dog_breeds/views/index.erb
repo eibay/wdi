@@ -1,0 +1,38 @@
+<html>
+
+<head>
+	<title>Dog Breeds</title>
+</head>
+
+<body>
+	<h1>Dog Breeds</h1>
+	<h3>Add a Breed</h3>
+
+	<form action="/" method="POST">
+		<input type="text" name="name" placeholder="Name of Breed" />
+		<button>Submit</button>
+	</form>
+
+	<h3>Existing Breeds</h3>
+
+			<ul>
+				<% breeds.each do |breed| %>
+					<li>
+						<%= breed.name %>
+						<img src="<%= breed.image %>">
+					</li>
+					
+			<form action="/<%= breed.id %>/edit" method="GET">
+						<input type="hidden">
+						<button>Edit</button>
+			</form>
+
+						<form action="/<%= breed.id %>" method="POST">
+							<input type="hidden" name="_method" value="DELETE">
+							<button>Delete</button>
+						</form>
+						<% end %>
+			</ul>
+
+</body>
+</html>
