@@ -11,13 +11,13 @@ A microblog allows users to create, devour, update, and delete miniature blog po
   - `author`
   - `snippet`
   - `tag`
-- **Examples Ideas**:
-  - A sports team blog or general sports blog
 - **Required technologies or features**:
   - [Twilio](https://www.twilio.com/docs/api)
     - Allows an application to send text messages to any phone number
   - [SendGrid](https://sendgrid.com/docs/index.html)
     - Allows an application to send emails
+- **Examples Idea**:
+  - A sports team blog or general sports blog
 - **User Stories (MVP)**:
   - A user can create a new `micro_post`
   - A user can add an `author` to a `micro_post` when creating it

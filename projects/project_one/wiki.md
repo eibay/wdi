@@ -2,7 +2,7 @@
 
 ---
 
-A wiki is an application that allows users to create and modify content collaboratively. In a wiki application, the history of a document and changes to it are an important part of what they are. Wikis can chart and connect content from a variety of sources, and the interaction of users working on them. The most popular example is Wikipedia ([sample page](http://en.wikipedia.org/wiki/Gorham%27s_Cave)) but github also comes with a nice wiki ([sample page](https://github.com/Netflix/Hystrix/wiki)).</span>
+A wiki is an application that allows users to create and modify content collaboratively. In a wiki application, the history of a document and changes to it are an important part of what they are. Wikis can chart and connect content from a variety of sources, and the interaction of users working on them. The most popular example is Wikipedia ([sample page](http://en.wikipedia.org/wiki/Gorham%27s_Cave)) but Github also comes with a nice wiki ([sample page](https://github.com/Netflix/Hystrix/wiki)).</span>
 
 ###***MVP***
 
@@ -27,7 +27,8 @@ A wiki is an application that allows users to create and modify content collabor
   - A wiki document should always be written using markdown format
   - A user can search for wikis by title (only exact matches need to be supported)
   - A user can link to other pages in the wiki by using the syntax [[document-title]]
-  - A user can subscribe to a document and receive updates to it via text or email (using Twilio/Sendgrid)
+  - A user can subscribe to a document and receive an email or text message when this document is modified (using Twilio/Sendgrid)
+    - This text message or email should at least contain the title of the document 
   - A user can see a history of changes for a document
 
 ###***Bonus***

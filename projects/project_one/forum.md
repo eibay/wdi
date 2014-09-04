@@ -18,7 +18,7 @@ A forum is an application that allows users to both post information and to comm
     - Allows an application to send text messages to any phone number
   - [SendGrid](https://sendgrid.com/docs/index.html)
     - Allows an application to send emails
-- **Examples**:
+- **Example Ideas**:
   - schedule student get-togethers and topics, vote on them
   - create a reddit like site for wdi life
 - **User Stories (MVP)**:
