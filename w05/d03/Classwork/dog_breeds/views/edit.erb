@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit Dog Breeds</title>
+</head>
+<body>
+	<h3> Breed to edit: </h3>
+	<h2> <%=breed_to_edit[:breed]%> </h2>
+
+	<form action="/edit/<%=breed_to_edit[:id]%>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="breed_change" placeholder="New name">
+		<button>Edit breed name!</button>
+	</form>
+
+</body>
+</html>
