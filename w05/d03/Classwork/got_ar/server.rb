@@ -13,11 +13,11 @@ get("/") do
 end
 
 get("/characters") do
-  erb(:"characters/index", { locals: { characters: Character.all(), } })
+  erb(:"characters/index", { locals: { characters: Character.all() } })
 end
 
 get("/characters/new") do
-  erb(:"characters/new", { locals: { houses: House.all(), } })
+  erb(:"characters/new", { locals: { houses: House.all() } })
 end
 
 post("/characters") do
@@ -59,7 +59,7 @@ delete("/characters/:id") do
   character = Character.find_by({id: params[:id]})
   character.destroy
 
-  redirect "/characters"
+  redirect "/characters" #GET "/characters"
 end
 
 get("/houses") do

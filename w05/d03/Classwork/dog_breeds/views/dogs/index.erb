@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Breeds of Dogs</title>
+</head>
+<body>
+	<form action="/dogs" method="POST">
+		<input type="text" name="name" placeholder="Dog's name">
+		<input type="text" name="breed" placeholder="Dog's breed">
+		<button>Submit</button>
+	</form>
+	<ul>
+	<% dogs.each do |dog| %>
+	<li>Breed: <%= dog.breed %>, Name: <%= dog.name %>
+		<% binding.pry %>
+		<img src="<%= Image.where(dog_id: dog.id)[0]["image_link"] %>">
+		<form action="/dogs/edit/<%= dog.id %>" method="GET">
+			<button>Edit</button>
+		</form>	
+		<form action="/dogs/<%= dog.id %>" method="POST">
+    	<input type="hidden" name="_method" value="DELETE">
+    	<button>Delete Dog</button>
+    	</form>
+    </li>
+    <% end %>
+    </ul>	
+	</li>
+</body>
+</html>
