@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>List of Dog Breed</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <!-- <% breed = Breed.find_by(id: params[:id]) %> -->
+    <form action="/edit/<%= breed.id %>" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <input type="text" name="breed" placeholder="<%= breed.name %>" value="<% breed.id %>">
+      <button>Submit</button>
+    </form>
+      <hr />
+
+    </div>
+  </body>
+</html>

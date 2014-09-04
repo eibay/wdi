@@ -3,17 +3,18 @@
     <title>List of Dog Breed</title>
   </head>
   <body>
-    <div id="wrapper"
-    <form action="/" method="POST">
+    <div id="wrapper">
+    <form action="/new" method="POST">
       <input type="text" name="breed" placeholder="Dog Breed">
       <button>Submit</button>
+    </form>
       <hr />
       <h1>Dog Breeds</h1>
+      <% breeds.each do |breed| %>
       <ul>
-        <% breeds.each do |breed| %>
-        <li><%= breed.name %><form action="/<%= breed.id %>" method="POST"><input type="hidden" name="_method" value="PUT"><Button>Edit</Button></li>
-        <% end %>
+        <li><%= breed.name %><form action="/<%= breed.id %>" method="GET"><input type="hidden" value="<%= breed.id %>" name="<%= breed.name %>"><Button>Edit</Button></form><form action="/<%= breed.id %>" method="POST"><input type="hidden" name="_method" value="DELETE"><Button>Delete</Button></form></li>
       </ul>
+      <% end %>
     </div>
   </body>
 </html>

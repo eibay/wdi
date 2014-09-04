@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require_relative './lib/connection'
 require_relative './lib/house'
 require_relative './lib/character'
+require 'pry'
 
 after do
   ActiveRecord::Base.connection.close
@@ -39,6 +40,7 @@ end
 
 get("/characters/:id/edit") do
   character = Character.find_by({id: params[:id]})
+  binding.pry
   erb(:"characters/edit", { locals: { character: character, houses: House.all() } })
 end
 
@@ -50,6 +52,7 @@ put("/characters/:id") do
   }
 
   character = Character.find_by({id: params[:id]})
+  binding.pry
   character.update(character_hash)
 
   erb(:"characters/show", { locals: { character: character } })
