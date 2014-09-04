@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Breeds</title>
+</head>
+<body>
+	<form action="/breeds" method="POST">
+	<input type="text" name="breed" placeholder="Enter Breed"/>
+	<button>Add</button>
+	</form>
+
+
+	<ul>
+		<% breeds.each do |breed| %>
+		<li>
+			<%= breed.breed %>
+			<img src="<%=breed.img_url%>">
+		<br>
+		<form action="/breeds/<%= breed.id %>" method="POST">
+    		<input type="hidden" name="_method" value="DELETE">
+    		<button>Delete Breed</button>
+  		</form>
+
+  		<a href="/breeds/<%= breed.id %>/edit" >
+			<button> Edit Breed</button>
+		</a>
+		</li>
+		<% end %>
+	</ul>
+
+
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit <%= breed.breed %></title>
+</head>
+<body>
+	<form action="/breeds/<%=breed.id %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text" name="breed" placeholder="Edit Breed" value="<%= breed.breed %>" />
+    <button>Edit Breed</button>
+	</form>
+	
+</body>
+</html>
