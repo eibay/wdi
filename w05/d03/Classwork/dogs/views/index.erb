@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog Home</title>
+</head>
+<body>
+	  <ul>
+    <% dogs.each do |dog| %>
+      <li>
+        <ul><%= dog.breed_name %>
+           <form action="/breeds/<%= dog.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button>Delete Breed</button>
+           </form>
+   
+          <a href="/breeds/edit"><button>Edit Breed</button></a>
+        </ul>
+      </li>
+    <% end %>
+
+
+   <form action="/breeds" method="POST">
+    <input type="text" name="breed_name" placeholder="Breed Name" />
+    <button>Submit New Breed</button>
+  </form>
+
+
+</body>
+</html>
+

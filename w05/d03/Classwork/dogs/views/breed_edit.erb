@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog Edit</title>
+</head>
+<body>
+
+        <p>What is the revised breed name?</p>
+           <form action="/breeds/<%= dog.id %>" method="POST">
+            <input type="hidden" name="_method" value="EDIT">
+            <input type="text" name="breed" placeholder="Breed" value="<%= dog.breed_name %>"/>
+            <button>Submit Change</button>
+           </form>
+
+</body>
+</html>
+
