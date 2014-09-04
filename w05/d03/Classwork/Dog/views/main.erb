@@ -1,0 +1,40 @@
+<html>
+<head>
+
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>	
+	<link rel="stylesheet" type="text/css" href="/styles.css">
+
+	<title>Add a Breed</title>
+</head>
+<body>
+	<h1>All the Breeds</h1>
+
+	<ul>
+		<% breeds.each do |x| %>
+
+			<li><%= x["breed"] %>
+			
+				<form action="/breeds/delete/<%= x.id %>" method="POST">
+					<input type="hidden" name="_method" value="DELETE">
+					<button>Delete breed</button>
+				</form>
+
+				<form action="/breeds/edit/<%= x.id %>" method="POST">
+					<button>Edit breed</button>
+				</form>
+			
+			</li>
+
+		<% end %>
+	</ul>
+
+	<h1>Add a Breed</h1>
+
+	<form action="/breeds" method="POST">
+		<input type="text" name="breed" placeholder="Name of Breed" />
+		<button>Submit</button>
+	</form>
+
+</body>
+</html>
+
