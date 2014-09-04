@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h1> Made a boo boo? Edit each dog </h1>
+  <form action="/dogs/<%=dog.id %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text" name="breed" placeholder="Breed" value="<%= dog.breed %>" />
+    <button> Make the edit </button>
+  </form>
+
+  <form action="/dogs/<%= dog.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button>Delete Breed</button>
+  </form>
+</body>
+</html>

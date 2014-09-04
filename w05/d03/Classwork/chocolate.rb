@@ -8,14 +8,6 @@ def make_chocolate (small, big, goal_weight)
 	weight_small_bars_used = goal_weight - weight_big_bars_used
 
 end
-	else 
-		number_big_bars_used = goal_weight/5
-		number_small_bars_used = goal_weight - (number_big_bars_used * 5)
-		number_small_bars_used  small || number_big_bars_used > big
-		return -1
-
-	else
-
 
 def assert(actual, expected)
   unless actual == expected
