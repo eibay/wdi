@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Dogs</title>
+	<style>
+table {border:none;}
+ 
+</style>
+</head>
+<body>
+	Add a breed
+	<form method="POST" action="/">
+		<input type="text" name="name">
+		<button>Add Breed</button>
+</form>
+
+<table>
+	<%breeds.each do |breed|%>
+	<tr><td><%=breed.name%></td><td><img src="<%=breed.images%>" width="150"></td><td> <a href="/edit/<%=breed.id%>">Edit Breed</a></td><td>  <form action="/<%= breed.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button>Delete Breed</button>
+  </form></li></td></tr>
+	<%end%>
+</ul>
+
+</body>
+</html>

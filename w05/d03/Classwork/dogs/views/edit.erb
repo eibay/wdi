@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title>Edit Breed</title>
+</head>
+<body>
+
+	<form action="/<%=breed.id%>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text" name="name" placeholder="Name" value="<%= breed.name %>" />
+    <button>Edit</button>
+</form>
+
+</body>
+</html>

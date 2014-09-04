@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit <%= house.name %></title>
+</head>
+<body>
+  <form action="/houses/<%= house.id %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text" name="name" placeholder="Name" value="<%= house.name %>" />
+    <input type="text" name="url" placeholder="Image Url" value="<%= house.sigil_url %>"/>
+    
+    <button>Submit</button>
+  </form>
+
+  <form action="/houses/<%= house.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button>Delete House</button>
+  </form>
+</body>
+</html>
