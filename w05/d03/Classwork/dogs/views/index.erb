@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<h1>Dog Breeds</h1>
+
+<h3>Add New Breed</h3>
+<form action="/" method="POST">
+	<select name="breed">
+		<% breeds.each do |breed| %>
+		<option value="<%=breed.name%>"><%= breed.name %>
+		<% end %>
+		</select> 
+	<button>Add</button>
+</form>
+
+<h3>Current Breed List:</h3>
+<ol>
+	<% puppies.each do |puppy| %>
+	<li><%=puppy.breed%>
+		<form action="/edit/<%=puppy.id%>" method="GET">
+			<input type="submit" value="Edit" />
+		</form>
+		<form action="/" method="GET">
+			<input type="hidden" name="_method" value="DELETE"/>
+			<input type="hidden" name="id" value="<%=puppy.id%>"/>
+			<button>Delete</button>
+		</form>
+		<img src="<%=puppy.url%>">
+		</li>
+		
+	<%end%>
+</ol>
