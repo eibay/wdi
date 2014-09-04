@@ -52,7 +52,7 @@ A forum is an application that allows users to both post information and to comm
   - A user can specify an author when creating a post by creating a new author or choosing a pre-existing one from a drop-down menu
   - A user can view posts by author (`authors/authorhandle/posts`)
   - A user can view posts by tag (`tag/tagname/posts`)
-  - A user can reference an existing post in a new post by using the syntax [[post-title]] (which will automatically create a link for that referenced post)
+  - A user can reference an existing post in a new post by using the syntax [[post-title]]. This will automatically create a hyperlink for that referenced post.
   - A user can write a post that is "sticky" (stays at the top of the feed, or after a previously stuck post) and has a "life" (in seconds, the time until it becomes "unstuck") of up to two weeks
 - **Incorporate Bundler and a Gemfile into your application**
   - [Bundler Website](http://bundler.io/)
