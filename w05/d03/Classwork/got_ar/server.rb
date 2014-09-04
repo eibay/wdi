@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require_relative './lib/connection'
 require_relative './lib/house'
 require_relative './lib/character'
+require_relative './seed'
 
 after do
   ActiveRecord::Base.connection.close
