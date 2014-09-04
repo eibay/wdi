@@ -39,9 +39,9 @@ If it's a conceptual problem, the issue must include:
 
 ## Feature Sets
 
-#### [Team Microblog][microblog]
+#### [Microblog][microblog]
 
-<span style="color:gray">A microblog allows users to create, read, update, and destroy miniature blog posts. A team microblog allows a group of users to create posts on a shared feed. These posts can reference outside links, scrape useful information from them, and add novel commentary to the linked content.</span>
+<span style="color:gray">A microblog allows users to create, read, update, and destroy miniature blog posts. A microblog allows a group of users to create posts on a shared feed. These posts can reference outside links, scrape useful information from them, and add novel commentary to the linked content.</span>
 
 #### [Forum][forum]
 
