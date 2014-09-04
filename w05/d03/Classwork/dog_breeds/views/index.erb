@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dog Breeds</title>
+</head>
+<body>
+	<h1>Dog Breeds</h1>
+	<form action="/breeds/add" method="POST">
+		<label>Add Breed</label>
+		<input type="text" name="name" placeholder="Name">
+		<button>Submit</button>
+	</form>
+	<ul>
+		<% breeds.each do |breed| %>
+		<li> 
+			<% image = Image.find_by(breed_id: breed.id) %>
+			<h3> <%= breed.name %> </h3>
+			<img src="<%= image.url %>">
+			<form action="/breeds/<%= breed.id %>/edit" method="GET">
+				<button >Edit</button> 
+			</form>
+			<form action="/breeds/<%= breed.id %>" method="POST">
+				<input type="hidden" name="_method" value="DELETE">
+				<button >Delete</button> 
+			</form> 
+		</li>
+		<% end %>
+	</ul>
+</body>
+</html>
