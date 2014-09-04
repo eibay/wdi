@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dog Breeds</title>
+</head>
+<body>
+	<h2>Dog Breeds</h2>
+	<% breeds.each do |breed| %>
+	<div>
+		<p><%= breed.name %></p>
+		<p><img src="<%= breed.img_url %>"></p>
+		<form action="/breeds/<%= breed.id %>" method="POST">
+			<input type="hidden" name="_method" value="DELETE">
+			<button>Delete</button>
+		</form>
+		<form action="/breeds/<%= breed.id %>" method="GET">
+			<button>Edit</button>
+		</form>
+	</div>
+	<% end %>
+	<div>Add a breed to the Compendium
+		<form action="/breeds" method="POST">
+			<input type="text" name="name" placeholder="Name of Breed">
+			<button>Add Breed</button>
+		</form>
+	</div>
+</body>
+</html>
