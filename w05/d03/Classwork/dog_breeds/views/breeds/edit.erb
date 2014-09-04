@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit Breed</title>
+</head>
+<body>
+	<h1>Edit Breed</h1>
+	<form action="/breeds/<%= breed.id %>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="name" placeholder="Name">
+		<button>Update</button>
+	</form> 
+</body>
+</html
+
