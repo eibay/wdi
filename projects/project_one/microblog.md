@@ -67,9 +67,7 @@ A microblog allows users to create, devour, update, and delete miniature blog po
     - You can use the gem `nokogiri` to pull this off, basically you have to grab the html of the page that the link  refers to and parse it to find important information. Then put that information in your snippet.
 
 
-##### Displaying "snippets" with links
-
-You may be familiar with this from social media and sharing websites. Here is an example from Facebook:
+##### An example of "snippets" in Facebook
 
 When you "post" a status in Facebook, you see an empty field like this.
 
@@ -78,5 +76,3 @@ When you "post" a status in Facebook, you see an empty field like this.
 And when you paste in a link, Facebook displays data as a snippet of information about the page being linked.
 
 <img alt="Form after entering the link. There is structured information, including a title, image and description, not just a link." src="https://github.com/ga-students/guildenstern/raw/master/projects/project_one/images/snippet-after.png" width="600px" style="margin: 0 auto;"/>
-
-This is done automatically by Facebook using AJAX (Javascript), but we only need to get that same data and present it once our `micro_post` has been created.
