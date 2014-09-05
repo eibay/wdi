@@ -24,8 +24,6 @@ A microblog allows users to create, devour, update, and delete miniature blog po
   - A user can add an `author` to a `micro_post` when creating it
   - A user can show (ie, see) a given `micro_post`
   - A user can see all of the `micro_post`s as a *feed* (`/feed`)
-  - A user can add a link to a `micro_post` as a `snippet`
-    - A snippet is similar to how Facebook handles links. When you paste a link to an article on Facebook, it shows you some limited information about it, but clicking it will take you to the full article.
   - A user can add a "topic" or "hashtag" to a `micro_post` as a `tag`
     - This should be optional to do and the choice of `tag` is up to the user. Not having a `tag` for the `post` should NOT break the application
     - `tag`s can be edited and deleted
@@ -44,6 +42,11 @@ A microblog allows users to create, devour, update, and delete miniature blog po
   - A user can reference an existing `micro_post` in a new `micro_post` (ie, *reblog* it)...
   - A user can identify a referenced `micro_post` in a reblog as a separate snippet...
   - A user can write a post that is "sticky" (stays at the top of the feed, or after a previously stuck post) and has a "life" (in seconds, the time until it becomes "unstuck") of up to two weeks...
+  - A user can add a link to a `micro_post` as a `snippet`
+    - A snippet is similar to how Facebook handles links. When you paste a link to an article on Facebook, it shows you some limited information about it, but clicking it will take you to the full article.
+    - Here is an example from Google+: https://developers.google.com/+/web/snippet/
+    - Scrape whatever information from the website to put into the snippet
+    - You can use the gem `nokogiri` to pull this off, basically you have to grab the html of the page that the link  refers to and parse it to find important information. Then put that information in your snippet.
 - **Incorporate Bundler and a Gemfile into your application**
     - [Bundler Website](http://bundler.io/)
     - [Why use Bundler?](http://bundler.io/rationale.html)
