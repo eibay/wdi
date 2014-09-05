@@ -42,11 +42,6 @@ A microblog allows users to create, devour, update, and delete miniature blog po
   - A user can reference an existing `micro_post` in a new `micro_post` (ie, *reblog* it)...
   - A user can identify a referenced `micro_post` in a reblog as a separate snippet...
   - A user can write a post that is "sticky" (stays at the top of the feed, or after a previously stuck post) and has a "life" (in seconds, the time until it becomes "unstuck") of up to two weeks...
-  - A user can add a link to a `micro_post` as a `snippet`
-    - A snippet is similar to how Facebook handles links. When you paste a link to an article on Facebook, it shows you some limited information about it, but clicking it will take you to the full article.
-    - Here is an example from Google+: https://developers.google.com/+/web/snippet/
-    - Scrape whatever information from the website to put into the snippet
-    - You can use the gem `nokogiri` to pull this off, basically you have to grab the html of the page that the link  refers to and parse it to find important information. Then put that information in your snippet.
 - **Incorporate Bundler and a Gemfile into your application**
     - [Bundler Website](http://bundler.io/)
     - [Why use Bundler?](http://bundler.io/rationale.html)
@@ -64,5 +59,24 @@ A microblog allows users to create, devour, update, and delete miniature blog po
     - [Tumblr](http://www.tumblr.com/docs/en/api/v2)
 - **Implement responsive web design to your application**
   - [What the heck is responsive web design?](http://johnpolacek.github.io/scrolldeck.js/decks/responsive/)
+- **Snippets**
+  - A user can add a link to a `micro_post` as a `snippet`
+    - A snippet is similar to how Facebook handles links. When you paste a link to an article on Facebook, it shows you some limited information about it, but clicking it will take you to the full article.
+    - Here is an example from Google+: https://developers.google.com/+/web/snippet/
+    - Scrape whatever information from the website to put into the snippet
+    - You can use the gem `nokogiri` to pull this off, basically you have to grab the html of the page that the link  refers to and parse it to find important information. Then put that information in your snippet.
 
----
+
+##### Displaying "snippets" with links
+
+You may be familiar with this from social media and sharing websites. Here is an example from Facebook:
+
+When you "post" a status in Facebook, you see an empty field like this.
+
+<img alt="Form where you enter a link." src="https://github.com/ga-students/guildenstern/blob/master/projects/project_one/images/snippet-before.png" width="600px" style="margin: 0 auto;"/>
+
+And when you paste in a link, Facebook displays data as a snippet of information about the page being linked.
+
+<img alt="Form after entering the link. There is structured information, including a title, image and description, not just a link." src="https://github.com/ga-students/guildenstern/raw/master/projects/project_one/images/snippet-after.png" width="600px" style="margin: 0 auto;"/>
+
+This is done automatically by Facebook using AJAX (Javascript), but we only need to get that same data and present it once our `micro_post` has been created.
