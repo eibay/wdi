@@ -5,7 +5,7 @@ If you are having trouble with Sendgrid you can use Mailgun instead.
 Sign up for the api here: http://www.mailgun.com .
 
 When you are done creating an account you will come to a page with this image:
-<img alt="Mailgun guide." src="./mailgun.png" width="600px" style="margin: 0 auto;"/>
+![Mailgun image](./mailgun.png)
 
 Copy and paste the following code into a text editor and substitute in the values (e.g. API keys and urls) from the Mailgun page that you see.
 
