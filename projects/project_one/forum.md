@@ -2,12 +2,13 @@
 
 ---
 
-####Update to Email API
-Instead of using SendGrid you can use MailGun. A guide has been posted [here](./mailgun_guide.md).
+A forum is an application that allows users to both post information and to comment on other's posts, or tag the other posts with metadata. One of the most important functions of forums is to allow "voting" on content to determine it's popularity.
 
 ---
 
-A forum is an application that allows users to both post information and to comment on other's posts, or tag the other posts with metadata. One of the most important functions of forums is to allow "voting" on content to determine it's popularity.
+####**Update Notice**
+Instead of using SendGrid you can use MailGun. A guide has been posted [here](./mailgun_guide.md).
+
 
 
 ###***MVP***
