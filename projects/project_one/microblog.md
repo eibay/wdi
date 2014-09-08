@@ -4,6 +4,12 @@
 
 A microblog allows users to create, devour, update, and delete miniature blog posts. You will be creating a team microblog, which allows a group of users to create posts on a shared feed. These posts can reference outside links and scrape useful information from them (like texts and images), and add novel commentary, like "LOLZ" or "haters gonna hate".
 
+---
+
+####**Update Notice**
+Instead of using SendGrid you can use MailGun. A guide has been posted [here](./mailgun_guide.md).
+
+
 
 ###***MVP***
 - **Data Model**:
