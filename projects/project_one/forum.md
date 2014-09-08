@@ -6,7 +6,7 @@ A forum is an application that allows users to both post information and to comm
 
 ---
 
-##**Update Notice**
+####**Update Notice**
 Instead of using SendGrid you can use MailGun. A guide has been posted [here](./mailgun_guide.md).
 
 
