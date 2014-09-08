@@ -9,7 +9,6 @@ A microblog allows users to create, devour, update, and delete miniature blog po
 - **Data Model**:
   - `micro_post`
   - `author`
-  - `snippet`
   - `subscriber`
   - `tag`
 - **Required technologies or features**:
@@ -38,6 +37,8 @@ A microblog allows users to create, devour, update, and delete miniature blog po
 
 ###***Bonus***
 
+- **Additional Data Model**
+  - `snippet`
 - **Further User Stories**:
   - A user can reference an existing `micro_post` in a new `micro_post` (ie, *reblog* it)...
   - A user can identify a referenced `micro_post` in a reblog as a separate snippet...
