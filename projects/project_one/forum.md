@@ -4,6 +4,8 @@
 
 A forum is an application that allows users to both post information and to comment on other's posts, or tag the other posts with metadata. One of the most important functions of forums is to allow "voting" on content to determine it's popularity.
 
+**Update**: Instead of using SendGrid you can use MailGun. A guide has been posted [here](./mailgun_guide.md).
+
 ###***MVP***
 
 - **Data Model**:
