@@ -4,6 +4,13 @@
 
 A forum is an application that allows users to both post information and to comment on other's posts, or tag the other posts with metadata. One of the most important functions of forums is to allow "voting" on content to determine it's popularity.
 
+---
+
+####**Update Notice**
+Instead of using SendGrid you can use MailGun. A guide has been posted [here](./mailgun_guide.md).
+
+
+
 ###***MVP***
 
 - **Data Model**:
@@ -12,7 +19,7 @@ A forum is an application that allows users to both post information and to comm
   - `comment`
   - `subscriber`
   - A `category` can have many `posts`, but a `post` belongs to only one `category`
-  - Similiarly, A `post` can have many `comments`, but a `comment` belong to only one `post`
+  - Similiarly, A `post` can have many `comments`, but a `comment` belongs to only one `post`
 - **Required technologies or features**:
   - [Twilio](https://www.twilio.com/docs/api)
     - Allows an application to send text messages to any phone number
@@ -37,6 +44,7 @@ A forum is an application that allows users to both post information and to comm
   - A user can add a time-to-live to a forum post, so that it expires after a given period
   - A user can see, but not interact with, an expired post
   - A user can subscribe to a category or post and receive updates to it via text or email (using Twilio/Sendgrid)
+    - This text message or email can be pretty succinct, such as including the title of an updated post/category along with a link to it
 
 ###***Bonus***
 
@@ -52,7 +60,7 @@ A forum is an application that allows users to both post information and to comm
   - A user can specify an author when creating a post by creating a new author or choosing a pre-existing one from a drop-down menu
   - A user can view posts by author (`authors/authorhandle/posts`)
   - A user can view posts by tag (`tag/tagname/posts`)
-  - A user can reference an existing post in a new post by using the syntax [[post-title]] (which will automatically create a link for that referenced post)
+  - A user can reference an existing post in a new post by using the syntax [[post-title]]. This will automatically create a hyperlink for that referenced post.
   - A user can write a post that is "sticky" (stays at the top of the feed, or after a previously stuck post) and has a "life" (in seconds, the time until it becomes "unstuck") of up to two weeks
 - **Incorporate Bundler and a Gemfile into your application**
   - [Bundler Website](http://bundler.io/)
