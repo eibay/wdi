@@ -4,6 +4,13 @@
 
 A wiki is an application that allows users to create and modify content collaboratively. In a wiki application, the history of a document and changes to it are an important part of what they are. Wikis can chart and connect content from a variety of sources, and the interaction of users working on them. The most popular example is Wikipedia ([sample page](http://en.wikipedia.org/wiki/Gorham%27s_Cave)) but Github also comes with a nice wiki ([sample page](https://github.com/Netflix/Hystrix/wiki)).</span>
 
+---
+
+####**Update Notice**
+Instead of using SendGrid you can use MailGun. A guide has been posted [here](./mailgun_guide.md).
+
+
+
 ###***MVP***
 
 - **Data model**:
