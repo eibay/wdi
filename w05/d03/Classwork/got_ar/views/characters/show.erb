@@ -7,10 +7,10 @@
 <body>
   <h1><%= character.name %></h1>
   <div>
-    <a href="/characters/<%= character.id %>/edit">Edit</a>  
+    <a href="/characters/<%= character.id %>/edit">Edit</a>
   </div>
   <img src="<%= character.image_url %>" />
-  <p>From House 
+  <p>From House
     <a href="/houses/<%=character.house.id %>">
       <%= character.house.name %>
     </a>

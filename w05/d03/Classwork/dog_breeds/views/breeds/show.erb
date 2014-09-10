@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= breed.species %></title>
+</head>
+<body>
+
+  <h1> Species: <%= breed.species %></h1>
+  <h1> Age: <%= breed.age %></h1>
+
+  <img src="<%= breed.image_url %>" />
+
+
+  <div>
+    <a href="/breeds/<%= breed.id %>/edit">Edit</a>
+  </div>
+
+</body>
+</html>

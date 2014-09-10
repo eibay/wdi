@@ -1,10 +1,10 @@
 require 'active_record'
 
-ActiveRecord::Base.establish_connection({
+ActiveRecord::Base.establish_connection ({
   :adapter => "postgresql",
   :host => "localhost",
   :username => "timoorkurdi",
-  :database => "got"
+  :database => "dogs"
 })
 
 ActiveRecord::Base.logger = Logger.new(STDOUT)

@@ -21,9 +21,9 @@ get("/characters/new") do
 end
 
 post("/characters") do
-  character_hash = { 
-    name: params["name"], 
-    image_url: params["url"], 
+  character_hash = {
+    name: params["name"],
+    image_url: params["url"],
     house_id: params["house_id"]
   }
 
@@ -43,9 +43,9 @@ get("/characters/:id/edit") do
 end
 
 put("/characters/:id") do
-  character_hash = { 
-    name: params["name"], 
-    image_url: params["url"], 
+  character_hash = {
+    name: params["name"],
+    image_url: params["url"],
     house_id: params["house_id"]
   }
 
@@ -59,7 +59,7 @@ delete("/characters/:id") do
   character = Character.find_by({id: params[:id]})
   character.destroy
 
-  redirect "/characters"
+  redirect "/characters" #sends the browser a redirect http status code and redirects it to get/characters
 end
 
 get("/houses") do
