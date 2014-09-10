@@ -33,3 +33,11 @@ function count_xx(str){
 	}
 	return xxes;
 }
+
+function makesTen(a, b){
+	if(a == 10 || b == 10){
+		return true; 
+	} else {
+		return (a + b == 10); 
+	}
+}
