@@ -108,7 +108,7 @@ post("/posts") do
 		title: params["title"],
 		content: params["content"],
 		created_at: Time.now.strftime("%F/%T"),
-		keyword: params["keyword"],
+		tag_id: params["keyword"],
 		author_id: params["author_id"],
 	}
 
