@@ -94,21 +94,21 @@ function posNeg(x, y, truth) {
 };
 
 
+//######### RUBY CODE ###############//
+// def count_xx(string)
+//   spling = string.split("")
+//   i = 0
+//   count = 0
 
-def count_xx(string)
-  spling = string.split("")
-  i = 0
-  count = 0
+//   while i < string.length
+//     if spling[i] == "x" && spling[i+1] == "x"
+//       count += 1
+//     end
+//     i += 1
+//   end
+//   return count
 
-  while i < string.length
-    if spling[i] == "x" && spling[i+1] == "x"
-      count += 1
-    end
-    i += 1
-  end
-  return count
-
-end
+// end
 
 
 
@@ -127,14 +127,38 @@ function countXX(str) {
 
 };
 
-countXX("xx");
-countXX("xxx");
-countXX("xxxx");
+countXX("xx"); //#=> 2
+countXX("xxx"); //#=> 3
+countXX("xxxx"); //#=> 4
 
-countXX("xx0000000000000xx");
-countXX("xxx0000000xx");
+countXX("xx0000000000000xx"); //#=> 2
+countXX("xxx0000000xx"); //#=> 3
 
 
+
+// bottles of beer
+
+function ninetyNine(container, item) {
+  var i = 99;
+  while(i < -1) {
+    console.log(i + container + " of " + item + " on the wall!");
+    console.log(i + container + " of " + item + "!");
+    console.log("take one down, pass it around");
+    console.log(i-1 + container + " of " + item + " on the wall");
+
+    i = i - 1;
+  };
+};
+
+ninetyNine("baskets", "eggs");
+ninetyNine("bottles", "beer");
+
+
+
+// while true infinite loop
+while(true) {
+  console.log("true");
+};
 
 
 
