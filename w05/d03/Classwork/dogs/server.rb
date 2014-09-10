@@ -20,7 +20,7 @@ end
 post("/") do
 	http=HTTParty.get("http://api.petfinder.com/pet.getRandom?key=b476dbce46a562367f4ccb03f49a0743&animal=dog&breed=#{params[:name]}&format=json&output=basic")
 	# http["petfinder"]["pet"]["breeds"]["breed"]["$t"]  
-	breeds=Breed.all.order(id: :asc)
+	breeds=Breed.all.order(id: :asc) 
 	breed=Breed.new
 	breed.name=params[:name]
 	breed.images=http["petfinder"]["pet"]["media"]["photos"]["photo"][3]["$t"]
