@@ -68,3 +68,13 @@ function maxOfThree(a, b, c){
 		}
 	}
 }
+
+function filterLongWords(l, arr){
+	var return_array = [];
+	for(var i = 0; i < arr.length; i++){
+		if(arr[i].length > l){
+			return_array.push(arr[i]); 
+		}
+	}
+	return return_array; 
+}
