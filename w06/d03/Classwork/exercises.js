@@ -51,3 +51,20 @@ function makeTags(tagName, textNode){
 	var closing = "</" + tagName + ">";
 	return opening + textNode + closing;  
 }
+
+function maxOfThree(a, b, c){
+	// I remember Math.max(a, b, c) but  
+	if (a < b){
+		if(b < c){
+			return c; 
+		} else {
+			return b; 
+		}
+	} else {
+		if(a < c){
+			return c;
+		} else {
+			return a; 
+		}
+	}
+}
