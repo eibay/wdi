@@ -1,4 +1,4 @@
-function posNeg(a, b){
+function posNeg(a, b, opt){
 	// treat zero as positive  
 	if(a < 0) {
 		a = false; 
@@ -12,8 +12,15 @@ function posNeg(a, b){
 		b = true;  
 	}
 
-	// simulate XOR 
-	return (( a && !b ) || ( !a && b )); 
+	// add option to return true only if both
+	// are negative  
+
+	if(!opt) { 
+		// simulate XOR 
+		return (( a && !b ) || ( !a && b )); 
+	} else {
+		return ((!a) && (!b))  
+	}
 }
 
 function count_xx(str){
