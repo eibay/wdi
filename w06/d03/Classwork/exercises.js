@@ -28,7 +28,7 @@ function posNeg(num1, num2, boolean) {
  	var prev_letter=""
  	count=0
  	for(i=0; i<array.length; i++) {
- 		if (array[i]==prev_letter) {
+ 		if (array[i]=="x" && prev_letter=="x") {
  			count=count+1;
  			prev_letter=array[i];
  		} else {
@@ -39,5 +39,9 @@ function posNeg(num1, num2, boolean) {
  }
 
 
-console.log(count_xx("xxabcxxix"))
+
+
+
+
+console.log(count_xx("xxabbcxxix"))
 
