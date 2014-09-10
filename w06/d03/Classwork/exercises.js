@@ -41,3 +41,7 @@ function makesTen(a, b){
 		return (a + b == 10); 
 	}
 }
+
+function withoutEnd(str){
+	 return str.substring(1,str.length-1);
+}
