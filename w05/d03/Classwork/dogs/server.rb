@@ -57,7 +57,7 @@ end
 delete("/") do
 	puppy = Puppy.find_by({id: params["id"]})
 	puppy.destroy
-
+    
 	redirect "/"
 end
 
