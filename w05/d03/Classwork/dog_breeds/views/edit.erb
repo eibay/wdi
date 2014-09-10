@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Edit your Dog</title>
+</head>
+<body>
+	<h1> Edit <%= dog[:breed] %> </h1>
+<form method="POST" action="/dog/<%=dog[:id]%>">
+	<input type="hidden" name="_method" value="PUT">
+	Rename dog: <input type="text" name="name"><br>
+	Change breed: <input type="text" name="breed"><br>
+	Update age: <input type="text" name="age"><br><br>
+	<button>Update Information</button>
+</form>
+
+
+</body>
+</html>
