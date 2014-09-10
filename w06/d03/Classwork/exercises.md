@@ -71,7 +71,7 @@ http://autotelicum.github.io/Smooth-CoffeeScript/literate/js-intro.html
 
 5. Make Tags
 
-  The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. In this example, the "i" tag makes <i> and </i> which surround the word "Yay". Given tag and word strings, create the HTML string with tags around the word, e.g. "<i>Yay</i>".
+  The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. In this example, the "i" tag makes `<i>` and `</i>` which surround the word "Yay" -> `<i>Yay</i>`. Given tag and word strings, create the HTML string with tags around the word, e.g. "<i>Yay</i>".
 
   ```javascript
   makeTags('i', 'Yay')
@@ -123,4 +123,41 @@ http://autotelicum.github.io/Smooth-CoffeeScript/literate/js-intro.html
   # Jennifer Anniston
   $ cast
   # Mathew Perry
+  ```
+
+11. Namester
+  1. Retrieve "Bumblebee" from the firstname list
+  2. Add "Peter" to the firstnamelist
+  3. Remove "Muffinmitts" from the firstnamelist
+  4. Find out the index of "Scratchnsniff" in lastnamelist
+  5. Combine 1 randomly selected name from `firstnamelist` and 1 randomly selected name from `lastnamelist` to form a name.
+  6. Create a program that accepts how many random names a user would like as a command line argument. Then have it output that many random names.
+
+  ```javascript
+  firstnamelist = ["Bumblebee", "Banderscoop", "Broccoli", "Rinkydink", "Bombadil", "Boilerduck", "Bandicoot", "Fragglerock", "Muffinmitts", "Crumplesack", "Congleton", "Blubberbrains", "Buffalo", "Benadryl", "Butterfree", "Burberry", "Whippersnatch", "Buttermilk", "Beezlebub", "Budapest", "Boilerdang", "Blubberwhale", "Bumberstump", "Bulbasaur", "Cogglesnatch", "Liverswort", "Bodybuild", "Johnnycash", "Burgerking", "Bonaparte", "Bunsenburner", "Billiardball", "Baseballmitt", "Blubberbett", "Baseballbat", "Rumblesack", "Barister", "Danglerack", "Rinkydink", "Bombadil", "Honkytonk", "Billyray", "Bumbleshack", "Snorkeldink", "Anglerfish", "Beetlejuice", "Bedlington", "Bandicoot", "Boobytrap", "Bentobox", "Pallettown", "Wimbledon", "Hairyhog", "Buttercup", "Blasphemy", "Syphilis", "Snorkeldink", "Brandenburg", "Barbituate", "Snozzlebert", "Tiddleywomp", "Bouillabaisse", "Wellington", "Benetton", "Bendandsnap", "Timothy", "Brewery", "Bentobox", "Brandybuck"];
+
+  lastnamelist = ["Coddleswort", "Curdlesnoot", "Calldispatch", "Humperdinck", "Rivendell", "Cuttlefish", "Lingerie", "Vegemite", "Ampersand", "Cumberbund", "Candycrush", "Clombyclomp", "Cragglethatch", "Nottinghill", "Cabbagepatch", "Camouflage","Creamsicle", "Curdlemilk", "Upperclass", "Frumblesnatch", "Crumplehorn", "Talisman", "Candlestick", "Chesterfield", "Bumbersplat", "Scratchnsniff", "Snugglesnatch", "Charizard", "Carrotstick", "Cumbertoot", "Crackerknack", "Crucifix", "Cuckatoo", "Crackletot", "Collywog", "Gigglesnort", "Capncrunch", "Covergirl", "Cumbersnatch", "Countryside","Coggleswort", "Splishnsplash", "Copperwire", "Animorph", "Curdledmilk", "Cheddarcheese", "Cottagecheese", "Crumplehorn", "Snickersbar", "Banglesnatch", "Stinkyrash", "Camelhump", "Chickenbroth", "Concubine", "Candygram", "Moldyspore", "Chuckecheese", "Cankersore", "Crimpysnitch", "Wafflesmack", "Chowderpants", "Toodlesnoot", "Clavichord", "Cuckooclock", "Oxfordshire", "Cumbersome", "Chickenstrips", "Battleship", "Commonwealth", "Cunningsnatch", "Custardbath", "Kryptonite"]
+  ```
+  
+12. Write a command line app that takes as arguments any number of words and prints out the concatenation of them (you may have to google concatenation)
+
+  ```bash
+  $ concat hello big world
+  # hellobigworld
+  ```
+
+13. **Bonus** Write the same concatenation program as in #12 except that the arguments are files. Print out the concatenation of the content of these files. Can you figure out how to redirect the output of your program to a file from the command line (consult docs for file operations in JS)
+
+  ```bash
+  $ concat ./file1.txt ./file2.txt
+  # (CONTENTS OF FILE1)(CONTENTS OF FILE2)
+  ```
+
+14. **Bonus** Write a command line app that takes an English word as an argument and prints the amount of times that word was found in the text of Moby Dick.
+
+  ```bash
+  $ mobycount love
+  # 31
+  $ mobycount very
+  # 945
   ```
