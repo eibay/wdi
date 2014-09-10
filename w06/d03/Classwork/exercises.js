@@ -78,3 +78,14 @@ function filterLongWords(l, arr){
 	}
 	return return_array; 
 }
+
+function initials(fullName){
+	names = fullName.split(' ');
+	initials_array = [];
+	for(var i = 0; i < names.length; i++){
+		var name = names[i]; 
+		var initial = name[0].toUpperCase(); 
+		initials_array.push(initial); 
+	}
+	return initials_array.join(''); 
+}
