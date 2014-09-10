@@ -17,5 +17,12 @@ function posNeg(a, b){
 }
 
 function count_xx(str){
-
+	var xxes = 0; 
+	// length not method but property of str
+	for(var i = 0; i < str.length; i++){
+		if(str[i] === 'x' && str[i+1] === 'x'){
+			xxes++; 
+		} 
+	}
+	return xxes;
 }
