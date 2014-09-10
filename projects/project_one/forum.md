@@ -4,6 +4,13 @@
 
 A forum is an application that allows users to both post information and to comment on other's posts, or tag the other posts with metadata. One of the most important functions of forums is to allow "voting" on content to determine it's popularity.
 
+---
+
+####**Update Notice**
+Instead of using SendGrid you can use MailGun. A guide has been posted [here](./mailgun_guide.md).
+
+
+
 ###***MVP***
 
 - **Data Model**:
@@ -12,7 +19,7 @@ A forum is an application that allows users to both post information and to comm
   - `comment`
   - `subscriber`
   - A `category` can have many `posts`, but a `post` belongs to only one `category`
-  - Similiarly, A `post` can have many `comments`, but a `comment` belong to only one `post`
+  - Similiarly, A `post` can have many `comments`, but a `comment` belongs to only one `post`
 - **Required technologies or features**:
   - [Twilio](https://www.twilio.com/docs/api)
     - Allows an application to send text messages to any phone number
@@ -37,6 +44,7 @@ A forum is an application that allows users to both post information and to comm
   - A user can add a time-to-live to a forum post, so that it expires after a given period
   - A user can see, but not interact with, an expired post
   - A user can subscribe to a category or post and receive updates to it via text or email (using Twilio/Sendgrid)
+    - This text message or email can be pretty succinct, such as including the title of an updated post/category along with a link to it
 
 ###***Bonus***
 
