@@ -43,5 +43,11 @@ function makesTen(a, b){
 }
 
 function withoutEnd(str){
-	 return str.substring(1,str.length-1);
+	 return str.substring(1,str.length-1);  
+}
+
+function makeTags(tagName, textNode){
+	var opening = "<" + tagName + ">";
+	var closing = "</" + tagName + ">";
+	return opening + textNode + closing;  
 }
