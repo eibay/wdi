@@ -25,17 +25,17 @@ The dedicated project period is known as a ***sprint***. During this sprint, we 
 
 **The instructors will schedule pair programming sessions with each student**. Beyond that, **each student will only receive help from the instructors by using [GitHub's Issue Tracker](https://guides.github.com/features/issues/)**. We will do our best to get to your issues, but understand there will be problems you need to solve on your own or with a classmate. 
 
-In order to receive that help, **the issue must be include all of the necessary parts of a good question**:
+In order to receive that help, **the issue must include all of the necessary parts of a good question**:
 
-  1. a description of what the student is trying to do,
-  -  what error or problem they are having, and
-  -  what they have tried already.
+  1. a description of what you are trying to do,
+  -  what error or problem you are having, and
+  -  what you have tried already.
 
 If it's a conceptual problem, the issue must include:
 
-  1. what the student wants to do,
-  -  what they see as possible solutions, and
-  -  what resources they have already consulted about the problem.
+  1. what you want to do,
+  -  what you see as possible solutions, and
+  -  what resources you have already consulted about the problem.
 
 ## Feature Sets
 
