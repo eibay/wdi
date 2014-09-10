@@ -1,7 +1,5 @@
 function count_xx(str){
-  if (str.match("x") == true) {
-    console.log('yes.')
-  };
+  str.match("x")
 };
 
 
