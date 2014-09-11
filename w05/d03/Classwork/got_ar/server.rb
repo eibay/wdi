@@ -58,8 +58,6 @@ end
 
 delete("/characters/:id") do
   character = Character.find_by({id: params[:id]})
-
-  binding.pry
   
   character.destroy
 
