@@ -1,0 +1,25 @@
+#! /usr/local/bin/node
+
+args = process.argv;
+
+var fs = require("fs");
+
+var mobytext = fs.readFileSync("./mobydick.txt").toString();
+
+var position = 0;
+
+var index = 0;
+
+var count = 0;
+
+while (index < mobytext.length) {
+	if (mobytext.charAt(index) == " ") {
+		if (mobytext.substr(position, index) == args[2]) {
+			count = count + 1;
+		};
+		position = index;
+	};
+	index = index + 1;
+};
+
+console.log(args[2] + " appears in Moby Dick " + count + " times.");
