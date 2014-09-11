@@ -12,18 +12,17 @@ get "/reddit" do
 
 	# get titles from reddit_page #
 	anchor_titles = reddit_page.css "a.title" 
-	anchor_titles_children = anchor_titles.map &:children 
-	titles = anchor_titles_children.map &:text
+	titles = anchor_titles.map &:content 
 
 
 	# get links # 
-	links = anchor_titles.map { |anchor_title| anchor_title.attr("href") } 
+	links = anchor_titles.map { |anchor_title| anchor_title.attr "href" } 
 
 
 	# get upvotes # 
 	upvote_divs = reddit_page.css "div.score.likes"
 	upvote_divs_children = upvote_divs.map &:children 
-	upvotes = upvote_divs_children.map &:text 
+	upvotes = upvote_divs_children.map &:text
 	 
 	a = []
 	i = 0 
