@@ -41,7 +41,7 @@ post('/posts') do
 		title: params["title"],
 		content: params["content"],
 		created_at: params["created_at"],
-		keyword: params["keyword"],
+		tag_id: params["tag_id"],
 		author_id: params["author_id"]
 	}
 	Post.create(post_hash)
@@ -58,8 +58,9 @@ get('/posts/add') do
 end
 
 get('/posts/:id') do 
+		# images = Image.select_by("post_id", post["id"])
+
 	post = Post.find_by("id", params[:id])
-	images = Image.select_by("post_id", post["id"])
 
 	author = Author.find_by("id", post["author_id"])
 	erb(:post, {locals: {post: post, author: author, images: Image.all()} })

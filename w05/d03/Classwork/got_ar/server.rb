@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require_relative './lib/connection'
 require_relative './lib/house'
 require_relative './lib/character'
+require 'pry'
 
 # close the conncection to the DB after every do 
 after do
@@ -53,6 +54,7 @@ put("/characters/:id") do
 
   character = Character.find_by({id: params[:id]})
   character.update(character_hash)
+binding.pry
 
   erb(:"characters/show", { locals: { character: character } })
 end
@@ -64,6 +66,12 @@ delete("/characters/:id") do
 
   redirect "/characters" #GET /characters
 end
+
+
+
+
+
+
 
 get("/houses") do
   erb(:"houses/index", { locals: { houses: House.all() } })
