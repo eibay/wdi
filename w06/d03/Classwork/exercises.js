@@ -135,3 +135,8 @@ delete x[z]
 
 y = lastname array
 var last = y.indexOf("Scratchnsniff")
+
+function join(array){
+  console.log(array.join)
+};
+
