@@ -9,9 +9,18 @@
 
 
 function count_xx(string) {
-	
-
-
+	var count = string.split("xx").length -1;
 
 
 };
+
+console.log(count_xx("abcxx"));
+
+
+// def count_xx(string) 
+// 	count = string.count('xx')
+// 	puts count
+// end
+
+(theString.split(/o/g).length - 1)
+"this is foo bar".split("o").length - 1;
