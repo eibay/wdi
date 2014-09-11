@@ -56,13 +56,14 @@ function maxOfThree(num1, num2, num3) {
 maxOfThree(1, 4, 6)
 
 ////  
+// #! /usr/local/bin/node
 
 function inbetween(num1, num2) {
 	for (i = num1 + 1; i < num2; i++) {
 		console.log(i);
 	}
 }
-
+//process.argv
 inbetween(2, 6)
 
 ////
