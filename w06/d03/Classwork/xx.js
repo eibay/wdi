@@ -1,13 +1,13 @@
 function count_xx(str) {
-	var n = 0
-	var x = 0
-	{while (n <= str.length) {
-		if (str[n, n + 1] == "xx") {
-			x = x + 1
+	var n = 0;
+	var j = 0;
+	while (n < (str.length - 1)) {
+		if (str.charAt(n) == "x" && str.charAt(n+1) == "x") {
+			j += 1;
 		}
-		n = n + 1
+		n = n + 1;
 	}
-	console.log(x);
+	console.log(j);
 }
 
 

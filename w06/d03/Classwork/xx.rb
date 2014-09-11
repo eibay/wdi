@@ -4,7 +4,7 @@ def count_xx(str)
 	n = 0
 	x = 0
 	while n <= (str.length)
-		if str[n, n + 1] == "xx"
+		if str[n, 2] == "xx"
 			x += 1
 		end
 		n += 1
