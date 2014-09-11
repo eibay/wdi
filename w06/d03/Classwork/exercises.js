@@ -123,6 +123,15 @@ index = Math.floor(Math.random() * array.length)
 var name = array[index]
 console.log(name)
 
+x = firstname array
 
+ var y = x.indexOf("Bumblebee")
+ console.log(answer = x[y])
 
+x.push("Peter")
+x.sort()
+var z = x.indexOf("Muffinmitts")
+delete x[z]
 
+y = lastname array
+var last = y.indexOf("Scratchnsniff")
