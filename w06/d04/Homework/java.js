@@ -21,8 +21,10 @@ var method = request["method"]
 } else if (path.indexOf("?") == 6 && params[0] == "name" && params.length == 2 && method == "GET"){
  response.end("Hey "+ params[1])
 }
-
-
+else if (path == "/styles.css"){
+  var file = fs.readFileSync("./styles.css")
+response.end(file)
+}
 
 });
 
