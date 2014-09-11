@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Different Kinds of Dog</title>
+</head>
+<body>
+	<section>
+		<header>
+			<h1>Different Kinds of Dogs</h1>
+			<nav></nav>
+		</header>
+		<section>
+			<form action="/breeds/<%= breed.id %>" method="POST">
+				<input type="hidden" name="_method" value="PUT">
+				<input type="text" name="name" placeholder="Name" value="<%= breed.name %>" />
+				<textarea name="description"><%= breed.description %></textarea>
+	    		<button>Edit This Dog</button>
+  			</form>
+		</section>
+	</section>
+</body>
+</html>
