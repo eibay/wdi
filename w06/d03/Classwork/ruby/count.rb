@@ -9,8 +9,8 @@
 
 
 def count_xx(string)
-	number = string.scan("xx")
-	amount = number.length
+	pairs = string.scan("xx")
+	amount = pairs.length
 	puts amount
 end
 

@@ -8,10 +8,13 @@
 // #   // 3
 
 
-function count_xx
+function count_xx(string) {
+	return 0;
+}
 
 
-
-count_xx("abcxx");
+var num = count_xx("abcxx");
 count_xx("xxx");
 count_xx("xxxx");
+
+console.log(num);
