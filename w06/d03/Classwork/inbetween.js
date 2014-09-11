@@ -1,18 +1,15 @@
-// Write a command line app that takes 2 numbers and prints every number in between
+// Write a command line app that takes 2 numbers and prints every number in between 2-6
+
 //#!/usr/bin/env node
 var args = process.argv;
-
-
-array = [2, 3, 4, 5, 6]
-
-var range = array.slice(1, string.length-1)
-
-
-	console.log(range) 
-
+// $ node filename.js 2 10
 // process.argv => ["node", "filename.js", "arg1", "arg2"]
 
+function inBetween(num1, num2) {
+	while (num1 < (num2-1)) {
+	console.log(num1+1)
+	num1 += 1
+};
+}
 
-
-
-console.log(inbetween(2 6));
+console.log(inBetween(parseInt(args[2]), parseInt(args[3])));
