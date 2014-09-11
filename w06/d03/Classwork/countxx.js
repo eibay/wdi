@@ -1,4 +1,4 @@
-function consecutiveExes(str) {
+function count_xx(str) {
 	var index = 0;
 	var total = 0;
 	while (index < str.length) {
@@ -9,4 +9,4 @@ function consecutiveExes(str) {
 	return total
 }
 
-console.log(consecutiveExes("xxx"))
+console.log(count_xx("xxx"))
