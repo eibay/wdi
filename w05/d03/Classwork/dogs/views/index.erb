@@ -18,7 +18,8 @@
 		<form action="/edit/<%=puppy.id%>" method="GET">
 			<input type="submit" value="Edit" />
 		</form>
-		<form action="/" method="GET">
+
+		<form action="/" method="POST">
 			<input type="hidden" name="_method" value="DELETE"/>
 			<input type="hidden" name="id" value="<%=puppy.id%>"/>
 			<button>Delete</button>
