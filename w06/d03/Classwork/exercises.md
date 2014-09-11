@@ -15,7 +15,7 @@ http://autotelicum.github.io/Smooth-CoffeeScript/literate/js-intro.html
   // false
   ```
 
-  Enhancement: Given 2 integers, return true if one is negative and one is positive **except** if the third argument is true, then return true only if both are negative.
+  Enhancement: Given 2 integers, return true if one is negative and one is positive **except** if the third argument is true, then return true only if ith are negative.
 
   ```javascript
   posNeg(1, -1, false)
