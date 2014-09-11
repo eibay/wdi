@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+
+
+
+var array = []
+
+
+function in_between(first, last){
+	
+	while (first < last){
+		array.push(first);
+		first += 1;
+	}return array
+};
+
+
+var args = process.argv;
+var num1 = parseInt(args[2]);
+var num2 = parseInt(args[3]);
+// console.log(num1);
+// console.log(num2);
+
+var answer = in_between(num1, num2);
+console.log(answer)

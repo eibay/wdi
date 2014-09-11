@@ -1,19 +1,40 @@
 require "pry"
 
-# prime = (1..100).select { |a|
-#     (1..a).select{ |b|
-#       a%b==0
-#     }
-#   }
 
-# print prime
+
+prime = (1..100).select { |a|
+    (1..a).select{ |b|
+      a%b==0
+    }.size==2
+  }
+
+print prime
 
 (3..5).select do |a|
-  retvalue = (1..a).select do |b|
-   a !=b && a!= 1 && b!=1 && a%b==0
+  (1..(a-1)).select do |b|
+   a !=b && a!= 1 && b!=1 && a%b!=0
   end
   binding.pry
 end 
+
+
+def prime(number)
+  found_divisor = false
+
+  (2..number - 1).each do |i|
+    if number % i == 0
+      found_divisor = true
+    end
+  end
+
+  return found_divisor
+end
+
+(1..100).each do |num|
+  if prime(num)
+    puts num 
+  end
+end
 
 
 # or as with a method

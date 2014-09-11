@@ -1,0 +1,17 @@
+Pet finder
+
+API Key
+5f152795b20e9b45e65ad04fdae3eb12
+API Secret
+d992e48eb0d873ccaf732a975ffc2adc
+API Status
+Activen
+
+
+http://api.petfinder.com/breed.list?key=5f152795b20e9b45e65ad04fdae3eb12&animal=cat&format=json
+
+
+
+HTTParty.get(http://api.petfinder.com/my.method?key=5f152795b20e9b45e65ad04fdae3eb12
+
+)
