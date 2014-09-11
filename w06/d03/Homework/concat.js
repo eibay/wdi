@@ -1,4 +1,6 @@
 #!/usr/local/bin/node 
+
+// use fs module to read files using node 
 var fs = require('fs');
 
 var files = []
