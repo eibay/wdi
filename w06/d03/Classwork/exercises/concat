@@ -1,0 +1,16 @@
+#! /usr/local/bin/node
+
+args = process.argv;
+
+var all = args.length;
+
+var index = 2;
+
+var output = "";
+
+while (index < all) {
+	output = output + args[index];
+	index = index + 1;
+};
+
+console.log(output);
