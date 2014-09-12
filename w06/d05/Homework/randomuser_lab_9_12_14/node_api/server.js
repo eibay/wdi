@@ -16,7 +16,7 @@ var randomRosencrantzer = {
    	last_name: ["kurdi", "laws", "carmona", "biggica", "kramer", 
    	"hastings", "albachten", "dargan-levy", "lin", "ortenberg", 
    	"patel", "martinez", "rosen", "farber", "pitt", "forbes", 
-   	"campomanes"]
+   	"campomanes", "kielley", "williams-foy"]
 }
 
 // random functions for Array 
@@ -28,8 +28,24 @@ Array.prototype.randomIndex = function(){
 }
 
 Array.prototype.randomValue = function(){
-	return this[this.randomIndex]
+	return this[this.randomIndex()]
 }
+
+function genHipChatAvatar(){
+	var alnumStr = Math.random().toString(36).substring(7);
+	return "http://robohash.org/" + alnumStr + ".png"
+}
+
+function genRandomRosencrantzer(){ 
+	return { "gender": randomRosencrantzer.gender.randomValue(), 
+		"title": randomRosencrantzer.title.randomValue(),
+		"first_name": randomRosencrantzer.first_name.randomValue(),
+		"last_name": randomRosencrantzer.last_name.randomValue(), 
+		"hipchat_avatar": genHipChatAvatar()
+	}
+}
+
+
 
 
 // server   
