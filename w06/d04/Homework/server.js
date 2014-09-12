@@ -33,7 +33,9 @@ var server = http.createServer(function(request, response){
 		response.end(randomChar)
 	}
 	else if(path = '/style') {
+
 		var css = fs.readFileSync('./style.css')
+		debugger
 		response.end(css)
 	}
 });
