@@ -12,13 +12,21 @@ console.log(firstnamelist.push("Peter"));
 
 // Remove "Muffinmitts" from the firstnamelist
 
-console.log(firstnamelist.remove("Muffinmitts"));
+  // firstnamelist.indexOf("Muffinmitts");
+  // firstnamelist.splice(8, 1);
+
+  delete firstnamelist[8];
+  console.log(firstnamelist);
 
 // Find out the index of "Scratchnsniff" in lastnamelist
 
 console.log(lastnamelist.indexOf("Scratchnsniff"));
 
-// Combine 1 randomly selected name from firstnamelist and 1 randomly selected name from lastnamelist to form a name.
+// Combine 1 randomly selected name from firstnamelist and 1 randomly selected name from lastnamelist to form a name.l
+randFirst = Math.floor(Math.random() * firstnamelist.length);
+randLast = Math.floor(Math.random() * lastnamelist.length);
+
+name = firstnamelist[randFirst] + " " + lastnamelist[randLast];
 
 
 
