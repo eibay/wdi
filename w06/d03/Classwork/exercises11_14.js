@@ -74,6 +74,11 @@ function mobycount(word) {
 	moby = moby.split(word)
 	console.log(moby.length)
 }
+debugger
+// function mobycount(word) {
+// 	var string = fs.readFileSync('./MobyDick.txt', 'utf8');
+// 	console.log(string.match(new RegExp( "\\b" + args[2] + "\\b", "gi")).length)
+// }
 
 mobycount(args[2])
 

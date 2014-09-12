@@ -1,0 +1,25 @@
+body {
+	text-align: center;
+}
+
+a {
+	background-color: grey;
+	color: white;
+	padding: 5px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+btn {
+	padding: 5px;
+	background-color: grey;
+	color: white;
+}
+
+btn:hover {
+	padding: 5px;
+	background-color: slategrey;
+	color: white;
+}

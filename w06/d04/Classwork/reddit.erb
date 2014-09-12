@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reddit</title>
+</head>
+<body>
+	<h1>redditor</h1>
+	<ul>
+	<% results.each do |result|%>
+		<li><a href="<%= result.link %>"><%= result.title %>: <%= result.upvote %> upvotes</a></li>
+	<% end %>
+	</ul>
+</body>
+</html>
