@@ -30,7 +30,7 @@ console.log("Client is attempting to reach the " + path + " route")
 	} else if (path.split("?").length > 1) { 
 		var name = path.split("?")[1].split("=")[1]; response.end("<h1>Hello, " + name + "!</h1>");
 	} else {
-		response.end("ERROR")
+		response.end("<h1>ERROR!</h1>")
 	};
 
 });
