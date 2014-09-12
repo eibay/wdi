@@ -5,7 +5,11 @@ var cast = ["Jennifer Aniston", "David Schwimmer", "Courtney Cox", "Matthew Perr
 var server = http.createServer(function(req, res) {
 	var path = req.url;
 
-	res.writeHead(200, {'Content-Type': 'text/html'});
+	res.writeHead(200, {
+  'Content-Type': "text/html",
+  'Cache-Control': 'no-cache'
+	});
+
 	if(path == "/") {
 		var html = fs.readFileSync("./index.html");
 		res.end(html);
