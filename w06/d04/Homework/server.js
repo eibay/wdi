@@ -2,6 +2,7 @@ var fs = require('fs');
 var http = require('http');
 var request = require('request'); 
 var Mustache = require('mustache');
+var url = require('url'); 
 
 var instAPIKey = "17a4630338cd4da38b94cbbecd787fae";
 var friendsArray = [
@@ -28,7 +29,8 @@ Array.prototype.randomIndex = function(){
 	// using C comments to indicate serious-mindedness 
 	/* SERVER */
 	var server = http.createServer(function(request, response){
-	var path = request.url; 
+	var url_parts = url.parse(request.url, true);
+	var path = url_parts.pathname;
 
 	if(path == '/') {
 		var indexHTML = moreAdvancedThings("views/index.html");
@@ -47,6 +49,11 @@ Array.prototype.randomIndex = function(){
 		var mustacheTemplate = moreAdvancedThings("views/friend.html"); 
 		var view = Mustache.render(mustacheTemplate, locals); 
 		response.end(view); 
+	} else if(path == "/hello"){
+		var queryString = url_parts.query; 
+		debugger 
+		
+		response.end("Hello Friend!");
 	} else {
 		response.end("<h1>Hello Lost Person!</h1><p>404 404 404 404 404 404 404</p>");	
 	}
