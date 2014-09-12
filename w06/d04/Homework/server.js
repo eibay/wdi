@@ -114,6 +114,13 @@ var request = https.get(url, function (response) {
 
 }
 
+else if(req.url=="/instaform"){
+
+	res.end(fs.readFileSync('instaform.html'));
+
+
+}
+
 else if(req.url=="/style.css"){
 
 	res.end(fs.readFileSync('style.css'));
