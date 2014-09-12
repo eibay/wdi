@@ -56,33 +56,37 @@ var server = http.createServer(function(req, res) {
 		} 
 		html = html + ("</ul></body></html>");
 		res.end(html);
-	} else if(path == "/photos?tag=cat") {
-	var tag = path.split("=")[1];
+	} else if(path == "/photo") {
+		var html = fs.readFileSync("./photo.html");
+		res.end(html);
+	} else if(path.split("?")[0] == "/photos") {
+		var tag = path.split("=")[1];
 
-	var Client = require('node-rest-client').Client;
+		var Client = require('node-rest-client').Client;
 
-	client = new Client();
+		client = new Client();
 
-	var instagram = client.get("https://api.instagram.com/v1/tags/cat/media/recent?client_id=4c08eb6f8fb948d581437e9315b48fb2&count=3", function(data, response){
-	            // parsed response body as js object
-	            console.log(data);
-	            // raw response
-	            console.log(response);
-var parsed = JSON.parse(data);
+		var instagram = client.get("https://api.instagram.com/v1/tags/" + tag + "/media/recent?client_id=4c08eb6f8fb948d581437e9315b48fb2&count=4", function(data, response){
+      // parsed response body as js object
+      console.log(data);
+      // raw response
+      console.log(response);
 
-var arr = [];
+		var parsed = JSON.parse(data);
 
-for(var x in parsed){
-  arr.push(parsed[x]);
-}
+		var arr = [];
 
-var images = "";
-for(var i = 0; i < arr.length; i++) {
-	images = images + "<img src='" + arr[2][i].images.standard_resolution.url + "'>";
-}
-res.end(images)
-		debugger
-	        });
+		for(var x in parsed){
+	  	arr.push(parsed[x]);
+		}
+
+		var images = "";
+		for(var i = 0; i < arr.length; i++) {
+			images = images + "<img src='" + arr[2][i].images.standard_resolution.url + "'>";
+		}
+		res.end(images)
+				debugger
+		});
 	} else {
 		res.end("error")
 	}
