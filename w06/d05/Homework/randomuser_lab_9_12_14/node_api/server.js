@@ -3,6 +3,37 @@ var redis = require('node-redis');
 var url = require('url'); 
 var fs = require('fs');
 
+// data to randomize 
+
+var randomRosencrantzer = {
+	gender: ["male", "female", "transgendered"], 
+	title: ["ms", "mr", "mrs", "sir", "dr", "prof"], 
+	first_name: ["clayton", "cheryl", "nick", "amanda", 
+	  "conor", "eric", "misty", "david", "chris", "heidi", 
+   "natassia", "tim", "joe", "jeff", "adrian", "jill", "lisa", 
+   	  "trish", "sean", "brenda", "yoshie", "shotaro", "olivia", 
+   	  "neel", "janine", "iris", "dan", "crawford"], 
+   	last_name: ["kurdi", "laws", "carmona", "biggica", "kramer", 
+   	"hastings", "albachten", "dargan-levy", "lin", "ortenberg", 
+   	"patel", "martinez", "rosen", "farber", "pitt", "forbes", 
+   	"campomanes"]
+}
+
+// random functions for Array 
+
+Array.prototype.randomIndex = function(){
+	var randomFloatingIndex = Math.random() * this.length; 
+	var randomIndex = Math.floor(randomFloatingIndex); 
+	return randomIndex
+}
+
+Array.prototype.randomValue = function(){
+	return this[this.randomIndex]
+}
+
+
+// server   
+
 var client = redis.createClient(); 
 
 var server = http.createServer(function(request, response){
