@@ -31,26 +31,34 @@ Array.prototype.randomValue = function(){
 	return this[this.randomIndex()]
 }
 
-function genHipChatAvatar(){
-	var alnumStr = Math.random().toString(36).substring(7);
-	return "http://robohash.org/" + alnumStr + ".png"
+// random Rosencrantzer functions 
+
+
+function genUserId(){
+	return Math.random().toString(36).substring(7);
+}
+
+function genHipChatAvatar(user_id){
+	return "http://robohash.org/" + user_id + ".png"
 }
 
 function genRandomRosencrantzer(){ 
+	var user_id = genUserId();
 	return { "gender": randomRosencrantzer.gender.randomValue(), 
 		"title": randomRosencrantzer.title.randomValue(),
 		"first_name": randomRosencrantzer.first_name.randomValue(),
 		"last_name": randomRosencrantzer.last_name.randomValue(), 
-		"hipchat_avatar": genHipChatAvatar()
+		"user_id": user_id, 
+		"hipchat_avatar": genHipChatAvatar(user_id)
 	}
 }
 
 
 
 
-// server   
-
 var client = redis.createClient(); 
+
+// SERVER 
 
 var server = http.createServer(function(request, response){
 	var method = request.method; // "GET"
@@ -60,7 +68,11 @@ var server = http.createServer(function(request, response){
 
 	if(method == "POST"){
 		if(path == "/user/create"){
+			var randomRosencrantzer = genRandomRosencrantzer(); 
+			var randomRosencrantzerJSON = JSON.stringify(randomRosencrantzer);
+			client.rpush.apply(client, ['randomRosencrantzers'].concat(randomRosencrantzerJSON));
 
+			response.end(randomRosencrantzerJSON); 
 		} else {
 			response.end("<h1>404 Not Found</h1>"); 
 		}
@@ -76,6 +88,4 @@ var server = http.createServer(function(request, response){
 		response.end("<h1>404 Not Found</h1>"); 
 	}
 
-});
-
-server.listen(2000);
+}).listen(2000);
