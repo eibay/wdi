@@ -1,6 +1,6 @@
 var http = require('http');
 
-var bands = [ {name: "Wise Moo", genre: "drone", location: "Berlin"}, {name: "Pseudo Dazzle", genre: "disco", location: "San Diego"}, {name: "Blasphemy Wall", genre: "christian rock", location: "Mobile"}, {name: "Scraping Havoc", genre: "hardcore", location: "Helsinki"}, {name: "Nebraska Tuna", genre: "novelty", location: "Omaha"}, {name: "Pile Resistor", genre: "noise", location: "Detroit"}, {name: "The Schadenfreudes", genre: "emo", location: "Bushwick"}, {name: "Elemental Cucumber", genre: "psychodelic", location: "San Francisco"}];
+var bands = [ {name: "Unlucky Boxers", genre: "fado", location: "The Azores"}, {name: "State of Mechanical Warriors", genre: "metal", location: "Cleveland"}, {name: "Wise Moo", genre: "drone", location: "Berlin"}, {name: "Pseudo Dazzle", genre: "disco", location: "San Diego"}, {name: "Blasphemy Wall", genre: "christian rock", location: "Mobile"}, {name: "Scraping Havoc", genre: "hardcore", location: "Helsinki"}, {name: "Nebraska Tuna", genre: "novelty", location: "Omaha"}, {name: "Pile Resistor", genre: "noise", location: "Detroit"}, {name: "The Schadenfreudes", genre: "emo", location: "Bushwick"}, {name: "Elemental Cucumber", genre: "psychodelic", location: "San Francisco"}];
 
 var server = http.createServer(function(request, response){
 	console.log("connection made")

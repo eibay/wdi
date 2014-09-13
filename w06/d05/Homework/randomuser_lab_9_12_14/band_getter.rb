@@ -20,9 +20,22 @@ get("/") do
 	erb(:index, { locals: { bands: Band.all() } })
 end
 
-get("/band/create") do
+post("/band/create") do
 	api_band = HTTParty.get("http://127.0.0.1:2000/band/create")
-	erb(:band, { locals: { ape_band: api_band } })
+	api_band = JSON.parse(api_band)
+binding.pry
+	bands = Band.all
+# if api_band is included already in database, get a different one
+		band_hash = {
+		name: api_band["name"],
+		genre: api_band["genre"],
+		location: api_band["location"]
+	}
+
+	Band.create(band_hash)
+	band = Band.find_by({name: api_band["name"]})
+
+	erb(:band, { locals: { band: band, bands: Band.all() } })
 # binding.pry
 end
 
