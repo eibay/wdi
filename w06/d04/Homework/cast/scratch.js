@@ -1,8 +1,10 @@
-function each(array, someThing) {
-	ind = 0;
-	while (ind < array.length) {
-		someThing(array[ind]);
-		ind = ind +1;
-	};
-};
+http = require("http")
 
+var output = null;
+
+resp = http.get("http://www.google.com/index.html", function(res) {
+
+	
+
+	
+})
