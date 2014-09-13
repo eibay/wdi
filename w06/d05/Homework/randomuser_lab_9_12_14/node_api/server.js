@@ -86,7 +86,7 @@ var server = http.createServer(function(request, response){
 					return console.log(error); 
 				} else {
 					randomRosencrantzers = randomRosencrantzers.map(function(randomRosencrantzer){
-						return randomRosencrantzer.toString();
+						return JSON.parse(randomRosencrantzer.toString());
 					})
 
 					var randomRosencrantzersJSON = JSON.stringify(randomRosencrantzers); 
