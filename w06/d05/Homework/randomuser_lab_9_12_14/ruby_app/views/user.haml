@@ -1,0 +1,14 @@
+!!!
+%html{:lang => "en"}
+	%head 
+		%meta{:charset => "utf-8"}
+		%title= "Random Rosencrantzers | #{user["first_name"]} #{user["last_name"]}"  
+	%body 
+		%header 
+			%h1 Random Rosencrantzers
+
+		%section 
+			%h2= "#{user["title"]} #{user["first_name"]} #{user["last_name"]}"
+			%h3= user["gender"]
+
+			%img{:src => user["hipchat_avatar"]} 
