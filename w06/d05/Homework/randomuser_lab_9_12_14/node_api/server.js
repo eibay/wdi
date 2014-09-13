@@ -61,6 +61,7 @@ var client = redis.createClient();
 // SERVER 
 
 var server = http.createServer(function(request, response){
+	// for GET /hello?name=cheryl
 	var method = request.method; // "GET"
 	var url_parts = url.parse(request.url, true);
 	var path = url_parts.pathname; // "/hello"
@@ -78,9 +79,20 @@ var server = http.createServer(function(request, response){
 		}
 	} else if(method == "GET"){
 		if(path == "/user/user_id"){
-
+			// get user by id & return them 
 		} else if(path == "/users"){
+			client.lrange("randomRosencrantzers", 0, -1, function(error, randomRosencrantzers){
+				if (error) { 
+					return console.log(error); 
+				} else {
+					randomRosencrantzers = randomRosencrantzers.map(function(randomRosencrantzer){
+						return randomRosencrantzer.toString();
+					})
 
+					var randomRosencrantzersJSON = JSON.stringify(randomRosencrantzers); 
+					response.end(randomRosencrantzersJSON);
+				}
+			});
 		} else {
 			response.end("<h1>404 Not Found</h1>"); 
 		}

@@ -13,3 +13,8 @@
 		%ul 
 			- users.each do |user|
 				%li= "#{user["first_name"]} #{user["last_name"]}"
+
+	%section
+		%h2 Make a New Random Rosencrantzer 
+		%form{:action => "/user", :method => "POST"}
+			%button Do It
