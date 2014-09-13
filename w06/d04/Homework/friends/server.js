@@ -36,19 +36,17 @@ var allFriends = ["Rachel Green", "Monica Geller", "Phoebe Buffay", "Joey Tribbi
 		var splitHtml = html.split('#');
 		var finalHtml = splitHtml[0] + randomFriend + splitHtml[1];
 		response.end(finalHtml); 
-	} else {
-		response.end("<h2>you have no friends</h2>");
+	} else if (path == '/hello/'){}
+
+
+	else {
+		response.end("<html><h2>you have no friends</h2></html>");
 	};
-
-
-
-
-
-
-
 
 
 
 
 });
 server.listen(2000);
+
+
