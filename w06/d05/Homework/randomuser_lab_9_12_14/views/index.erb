@@ -5,9 +5,15 @@
 <body>
 <h1>Here are all the bands for now, 5 when I get it together</h1>
 
-<p><%= bands %></p>
+<ul>
+	<% bands.each do |x| %>
+		<li><%= x.name %></li>
+	<% end %>
+</ul>
 
-<form>create new user</form>
+<form action="/band/create" method="POST">
+	<button>Create new random band</button>
+</form>
 
 
 
