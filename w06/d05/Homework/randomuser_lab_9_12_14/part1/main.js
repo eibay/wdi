@@ -5,7 +5,6 @@
 // Should return in JSON just the hash for the company of that name
 // /apple should return {name: "apple", location: "cupertino"} in JSON
 
-
 var http = require('http');
 
 var companies = [
