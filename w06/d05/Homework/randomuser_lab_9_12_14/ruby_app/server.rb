@@ -5,9 +5,11 @@ require 'haml'
 
 # api methods # 
 
-def get_random_rosencrantzers
+def get_random_rosencrantzers page_length, page_num 
 	api_route = "http://localhost:2000/users"
-	random_rosencrantzers_json = HTTParty.get api_route
+	query_str = "?page_length=#{page_length}&page_num=#{page_num}"
+	request = api_route + query_str 
+	random_rosencrantzers_json = HTTParty.get request 
 	JSON.parse random_rosencrantzers_json 
 end 
 
@@ -25,8 +27,9 @@ end
 
 # routes # 
 
-get '/' do 
-	haml :index, locals: {users: get_random_rosencrantzers} 
+get '/' do
+	page_num = params["page_num"] ? params["page_num"] : 1
+	haml :index, locals: {users: get_random_rosencrantzers(5, page_num)} 
 end 
 
 post "/user" do 

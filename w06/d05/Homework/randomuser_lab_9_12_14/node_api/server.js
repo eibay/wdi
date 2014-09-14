@@ -5,7 +5,7 @@ var fs = require('fs');
 
 // data to randomize 
 
-var randomRosencrantzer = {
+var randomRosencrantzerData = {
 	gender: ["male", "female", "transgendered"], 
 	title: ["ms", "mr", "mrs", "sir", "dr", "prof"], 
 	first_name: ["clayton", "cheryl", "nick", "amanda", 
@@ -44,10 +44,10 @@ function genHipChatAvatar(user_id){
 
 function genRandomRosencrantzer(){ 
 	var user_id = genUserId();
-	return { "gender": randomRosencrantzer.gender.randomValue(), 
-		"title": randomRosencrantzer.title.randomValue(),
-		"first_name": randomRosencrantzer.first_name.randomValue(),
-		"last_name": randomRosencrantzer.last_name.randomValue(), 
+	return { "gender": randomRosencrantzerData.gender.randomValue(), 
+		"title": randomRosencrantzerData.title.randomValue(),
+		"first_name": randomRosencrantzerData.first_name.randomValue(),
+		"last_name": randomRosencrantzerData.last_name.randomValue(), 
 		"user_id": user_id, 
 		"hipchat_avatar": genHipChatAvatar(user_id)
 	}
@@ -79,7 +79,7 @@ var server = http.createServer(function(request, response){
 		var path_array = path.split('/');
 		var user = path_array[1];
 		var possible_user_id = path_array[2];
-		if(user == "user"){
+		if(user == "user") {
 			client.lrange("randomRosencrantzers", 0, -1, function(error, randomRosencrantzers){
 				if (error) { 
 					return console.log(error); 
@@ -97,18 +97,32 @@ var server = http.createServer(function(request, response){
 				}
 			})		
 		} else if(path == "/users"){
-			client.lrange("randomRosencrantzers", 0, -1, function(error, randomRosencrantzers){
-				if (error) { 
-					return console.log(error); 
-				} else {
-					randomRosencrantzers = randomRosencrantzers.map(function(randomRosencrantzer){
-						return JSON.parse(randomRosencrantzer);
-					})
+			var page_length = query.page_length;
+			var page_num = query.page_num;
+			if(page_length){ 
+				client.lrange("randomRosencrantzers", 0, -1, function(error, randomRosencrantzers){
+					if (error) { 
+						return console.log(error); 
+					} else {
+						randomRosencrantzers = randomRosencrantzers.map(function(randomRosencrantzer){
+							return JSON.parse(randomRosencrantzer);
+						})
+						// pagination logic 
+						// Array.prototype.slice(startIndexInclusive, stopIndexExclusive); 
 
-					var randomRosencrantzersJSON = JSON.stringify(randomRosencrantzers); 
-					response.end(randomRosencrantzersJSON);
-				}
-			});
+						// 0= (1-1)*5, 5= (2-1)*5 
+						var startIndex= (page_num-1)*page_length;
+
+						// 5= 0+5, 10= 5+5 
+						var stopIndex= startIndex+page_length;  
+
+						var page = randomRosencrantzers.slice(startIndex, stopIndex); 
+						debugger 
+						var randomRosencrantzersJSON = JSON.stringify(page); 
+						response.end(randomRosencrantzersJSON);
+					}
+				});
+			}
 		} else {
 			response.end("<h1>404 Not Found</h1>"); 
 		}
