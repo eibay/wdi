@@ -34,5 +34,5 @@ post "/user" do
 end 
 
 get "/user/:user_id" do
-	haml :user, locals: {user: get_random_rosecrantzer(params[:user_id])} 
+	haml :user, locals: {user: get_random_rosencrantzer(params[:user_id])} 
 end 
