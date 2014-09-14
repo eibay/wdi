@@ -1,10 +1,7 @@
 var redis = require('redis');
-var http = require("http");
-
 var client = redis.createClient();
-
+var http = require('http');
 var server = http.createServer(function(request, response){
-
 var path = request["url"];
 
 // var characters = [
