@@ -1,3 +1,5 @@
+require_relative "./lib/comment"
+require_relative "./lib/connection"
 require 'sinatra'
 require 'json'
 require 'httparty'
@@ -54,9 +56,26 @@ get '/' do
 end 
 
 post "/user" do 
-	haml :user, locals: {user: post_random_rosencrantzer} 
+	locals = {
+		user: post_random_rosencrantzer, 
+		comments: [] # assume a newly created user has no comments 
+	}
+	haml :user, locals: locals 
+end 
+
+post "/comment" do 
+	Comment.new({
+		user_id: params["user_id"],
+		content: params["content"]
+		}).save 
+	
+	redirect "/user/#{params["user_id"]}"
 end 
 
 get "/user/:user_id" do
-	haml :user, locals: {user: get_random_rosencrantzer(params[:user_id])} 
+	locals = {
+		user: get_random_rosencrantzer(params[:user_id]), 
+		comments: Comment.where(user_id: params[:user_id]) 
+	} 
+	haml :user, locals: locals 
 end 

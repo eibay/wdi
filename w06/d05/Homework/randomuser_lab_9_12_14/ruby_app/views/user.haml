@@ -12,3 +12,21 @@
 			%h3= user["gender"]
 
 			%img{:src => user["hipchat_avatar"], :height => "100px", :width => "100px"}
+
+		%section
+			- unless comments.empty? 
+				%h2= "All Comments About #{user["title"].capitalize} #{user["first_name"].capitalize}"  
+				%ul
+					- comments.each do |comment| 
+						%li 
+							%p= comment.content 
+
+			%h3= "Have a Comment About #{user["title"].capitalize} #{user["first_name"].capitalize}?"
+
+			%form{:action => "/comment", :method => "POST"}
+				%input{:type => "hidden", :name => "user_id", :value => user["user_id"]}
+				%textarea{:name => "content"}
+				%button Make It Happen   
+			
+
+
