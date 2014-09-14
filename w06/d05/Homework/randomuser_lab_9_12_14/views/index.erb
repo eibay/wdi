@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>Users</title>
+</head>
+<body>
+  <ul>
+
+    <%users = users.shuffle%>
+     <%i = 0%>
+    <%while i < 5%>
+<li><a href="/user/<%=users[i].id%>"><%=users[i].name%></li>
+<% i += 1 %>
+<%end%>
+</ul>
+<form action = "/random" method = "POST">
+  <input type="hidden" name="random" value="random">
+  <button>RANDOM USER</button>
+  </form>
+</body>
+</html>

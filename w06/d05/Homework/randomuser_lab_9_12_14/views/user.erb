@@ -1,0 +1,18 @@
+<html>
+<head>
+  <title><%=user.name%></title>
+</head>
+<body>
+<%=user.name%> 
+<%=user.job%>
+<ul>
+<%comments.each do |comment|%>
+  <li><%=comment.comment%></li>
+  <%end%>
+</ul>
+<form action="/comment/<%=user.id%>" method="POST">
+  <textarea rows="12" cols="72" name="comment" placeholder="comment"></textarea>
+  <button>COMMENT</button>
+  </form>
+</body>
+</html>
