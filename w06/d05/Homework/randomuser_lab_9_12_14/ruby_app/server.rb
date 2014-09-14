@@ -25,11 +25,32 @@ def get_random_rosencrantzer id
 	JSON.parse random_rosencrantzer_json
 end 
 
+# api helper methods # 
+
+class Fixnum 
+	def has_next_page? 
+		next_page_num = self + 1 
+		next_page = get_random_rosencrantzers 5, next_page_num
+		!next_page.empty? 
+	end 
+
+	def has_previous_page? 
+		self > 1 
+	end 
+end 
+
 # routes # 
 
 get '/' do
-	page_num = params["page_num"] ? params["page_num"] : 1
-	haml :index, locals: {users: get_random_rosencrantzers(5, page_num)} 
+	page_num = params["page_num"] ? params["page_num"].to_i : 1
+	locals = {
+	 	        users: get_random_rosencrantzers(5, page_num), 
+	 	     page_num: page_num,
+		    next_page: page_num.has_next_page?,
+		previous_page: page_num.has_previous_page? 
+	}   
+	
+	haml :index, locals: locals  
 end 
 
 post "/user" do 

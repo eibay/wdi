@@ -15,6 +15,15 @@
 					%li
 						%img{:src => user["hipchat_avatar"], :height => "100px", :width => "100px"}
 						%a{:href => "/user/#{user["user_id"]}"}= "#{user["first_name"]} #{user["last_name"]}"
+			%footer 
+				%nav 
+					%ul 
+						- if previous_page 
+							%li 
+								%a{:href => "/?page_num=#{page_num-1}"} Previous Page
+						- if next_page 
+							%li
+								%a{:href => "/?page_num=#{page_num+1}"} Next Page 
 
 		%section
 			%h2 Make a New Random Rosencrantzer 
