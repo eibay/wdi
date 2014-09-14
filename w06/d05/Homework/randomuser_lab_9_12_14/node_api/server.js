@@ -97,8 +97,8 @@ var server = http.createServer(function(request, response){
 				}
 			})		
 		} else if(path == "/users"){
-			var page_length = query.page_length;
-			var page_num = query.page_num;
+			var pageLength = query.page_length;
+			var pageNum = query.page_num;
 			if(page_length){ 
 				client.lrange("randomRosencrantzers", 0, -1, function(error, randomRosencrantzers){
 					if (error) { 
@@ -111,13 +111,14 @@ var server = http.createServer(function(request, response){
 						// Array.prototype.slice(startIndexInclusive, stopIndexExclusive); 
 
 						// 0= (1-1)*5, 5= (2-1)*5 
-						var startIndex= (page_num-1)*page_length;
+						var startIndex= (pageNum-1)*pageLength;
 
 						// 5= 0+5, 10= 5+5 
-						var stopIndex= startIndex+page_length;  
+						var stopIndex= startIndex+pageLength;  
 
 						var page = randomRosencrantzers.slice(startIndex, stopIndex); 
-						debugger 
+
+
 						var randomRosencrantzersJSON = JSON.stringify(page); 
 						response.end(randomRosencrantzersJSON);
 					}
