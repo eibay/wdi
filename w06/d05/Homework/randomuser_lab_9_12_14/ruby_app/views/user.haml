@@ -8,7 +8,7 @@
 			%h1 Random Rosencrantzers
 
 		%section 
-			%h2= "#{user["title"]} #{user["first_name"]} #{user["last_name"]}"
+			%h2= "#{user["title"].capitalize} #{user["first_name"].capitalize} #{user["last_name"].capitalize}"
 			%h3= user["gender"]
 
-			%img{:src => user["hipchat_avatar"]} 
+			%img{:src => user["hipchat_avatar"], :height => "100px", :width => "100px"}

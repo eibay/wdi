@@ -2,27 +2,37 @@ require 'sinatra'
 require 'json'
 require 'httparty'
 require 'haml'
-require 'pry'
 
-def random_rosencrantzers
-	random_rosencrantzers_json = HTTParty.get "http://localhost:2000/users"
+# api methods # 
+
+def get_random_rosencrantzers
+	api_route = "http://localhost:2000/users"
+	random_rosencrantzers_json = HTTParty.get api_route
 	JSON.parse random_rosencrantzers_json 
 end 
 
+def post_random_rosencrantzer 
+	api_route = "http://localhost:2000/user/create"
+	random_rosencrantzer_json = HTTParty.post api_route
+	JSON.parse random_rosencrantzer_json
+end 
+
+def get_random_rosencrantzer id
+	api_route = "http://localhost:2000/user/#{id}" 
+	random_rosencrantzer_json = HTTParty.get api_route
+	JSON.parse random_rosencrantzer_json
+end 
+
+# routes # 
+
 get '/' do 
-	haml :index, locals: {users: random_rosencrantzers} 
+	haml :index, locals: {users: get_random_rosencrantzers} 
 end 
 
 post "/user" do 
-	random_rosencrantzer_json = HTTParty.post "http://localhost:2000/user/create"
-	random_rosencrantzer = JSON.parse random_rosencrantzer_json
-	redirect "/user/#{random_rosencrantzer["user_id"]}"
+	haml :user, locals: {user: post_random_rosencrantzer} 
 end 
 
 get "/user/:user_id" do
-	random_rosencrantzer = random_rosencrantzers.find do |random_rosencrantzer|
-		random_rosencrantzer["user_id"] == params[:user_id]
-	end 
-
-	haml :user, locals: {user: random_rosencrantzer} 
+	haml :user, locals: {user: get_random_rosecrantzer(params[:user_id])} 
 end 

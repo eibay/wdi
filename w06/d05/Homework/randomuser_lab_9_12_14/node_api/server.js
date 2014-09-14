@@ -53,8 +53,7 @@ function genRandomRosencrantzer(){
 	}
 }
 
-
-
+// how to use redis 
 
 var client = redis.createClient(); 
 
@@ -72,7 +71,6 @@ var server = http.createServer(function(request, response){
 			var randomRosencrantzer = genRandomRosencrantzer(); 
 			var randomRosencrantzerJSON = JSON.stringify(randomRosencrantzer);
 			client.rpush.apply(client, ['randomRosencrantzers'].concat(randomRosencrantzerJSON));
-
 			response.end(randomRosencrantzerJSON); 
 		} else {
 			response.end("<h1>404 Not Found</h1>"); 
