@@ -78,8 +78,26 @@ var server = http.createServer(function(request, response){
 			response.end("<h1>404 Not Found</h1>"); 
 		}
 	} else if(method == "GET"){
-		if(path == "/user/user_id"){
-			// get user by id & return them 
+		var path_array = path.split('/');
+		var user = path_array[1];
+		var possible_user_id = path_array[2];
+		if(user == "user"){
+			client.lrange("randomRosencrantzers", 0, -1, function(error, randomRosencrantzers){
+				if (error) { 
+					return console.log(error); 
+				} else {
+					results = randomRosencrantzers.filter(function(randomRosencrantzer){
+						return JSON.parse(randomRosencrantzer)["user_id"] == possible_user_id;
+					})
+
+					if(results.length == 1) {
+						str = results[0];
+						response.end(str);
+					} else {
+						response.end("<h1>404 Not Found</h1>"); 
+					}
+				}
+			})		
 		} else if(path == "/users"){
 			client.lrange("randomRosencrantzers", 0, -1, function(error, randomRosencrantzers){
 				if (error) { 
