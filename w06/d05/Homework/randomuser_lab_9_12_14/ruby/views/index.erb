@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Characters</title>
+</head>
+<body>
+	<ul>
+	<%characters.each do |character|%>
+	<li><a href='/user/<%=character["id"]%>'><%=character["name"]%></a></li>
+	<%end%>
+</ul>
+
+<%if next_page != 2%>
+
+<a href="/?page=<%=previous_page%>">Previous Page</a>
+<%end%>
+<%if characters.length==5%>
+
+<a href="/?page=<%=next_page%>">Next Page</a>
+<%end%>
+
+<form action="/adduser" method="POST">
+	<button>Add User</button>
+</form>
+
+
+
+</body>
+</html>

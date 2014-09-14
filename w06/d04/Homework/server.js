@@ -82,8 +82,10 @@ else if(req.url.split("?")[0]=="/photos"){
 var request = https.get(url, function (response) {
  
     var buffer = "", 
-        data,
+      	data,
         route;
+
+
 
     response.on("data", function (chunk) {
         buffer += chunk;
