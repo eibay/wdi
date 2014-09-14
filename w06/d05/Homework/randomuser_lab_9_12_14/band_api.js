@@ -22,7 +22,12 @@ var server = http.createServer(function(request, response){
 
 		if (path == '/band/create') {
 			console.log("I'm creating a random band!");
-			var randomBand = bands[Math.floor(Math.random() * bands.length)];
+			var randomBand = 
+				{name: bands[Math.floor(Math.random() * bands.length)]["name"],
+				genre: bands[Math.floor(Math.random() * bands.length)]["genre"],
+				location: bands[Math.floor(Math.random() * bands.length)]["location"],
+				band_id: Math.floor(Math.random() * (1000 - 1)) + 1 
+				};
 			createdBands.push(randomBand); 
 			createdBand = JSON.stringify(randomBand);
 			response.end(createdBand);

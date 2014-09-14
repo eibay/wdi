@@ -56,3 +56,4 @@ for (var i = 0; i < titanic_actors.length; i++) {
 
 
 console.log(similar);
+

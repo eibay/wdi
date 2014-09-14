@@ -23,9 +23,8 @@ end
 post("/band/create") do
 	api_band = HTTParty.get("http://127.0.0.1:2000/band/create")
 	api_band = JSON.parse(api_band)
-binding.pry
 	bands = Band.all
-# if api_band is included already in database, get a different one
+# ***** if api_band is included already in database, get a different one
 		band_hash = {
 		name: api_band["name"],
 		genre: api_band["genre"],
@@ -36,7 +35,26 @@ binding.pry
 	band = Band.find_by({name: api_band["name"]})
 
 	erb(:band, { locals: { band: band, bands: Band.all() } })
-# binding.pry
 end
+
+# how do I create dynamic http request? *****
+# get("band/:id") do
+# binding.pry
+# 	id = params[:id]
+# 	api_band = HTTParty.get("http://127.0.0.1:2000/band/#{id}")
+# 	api_band = JSON.parse(api_band)
+
+# 		band = {
+# 		name: api_band["name"],
+# 		genre: api_band["genre"],
+# 		location: api_band["location"]
+# 	}
+
+# 	erb(:band, { locals: { band: band, bands: Band.all() } })
+
+# end
+
+
+
 
 

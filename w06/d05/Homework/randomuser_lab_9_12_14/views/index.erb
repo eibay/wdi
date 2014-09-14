@@ -7,7 +7,9 @@
 
 <ul>
 	<% bands.each do |x| %>
-		<li><%= x.name %></li>
+		<li>
+			<a href="//<% x.name %>"><%= x.name %></a>
+		</li>
 	<% end %>
 </ul>
 
