@@ -13,7 +13,7 @@ var server = http.createServer(function(request, response){
 
 	// returns all the bands
 	if (path == '/') {
-		bands_in_json = JSON.stringify(bands);
+		bands_in_json = JSON.stringify(createdBands);
 		response.end(bands_in_json);
 		console.log('responded with all bands in JSON');
 	}
@@ -34,9 +34,9 @@ var server = http.createServer(function(request, response){
 			console.log('sent the random band on its merry way!');
 	}
 	else {
-		for (var i = 0; i < bands.length; i++) {
-			if (path == "/band/" + bands[i]["band_id"]) {
- 				band = JSON.stringify(bands[i]);
+		for (var i = 0; i < createdBands.length; i++) {
+			if (path == "/band/" + createdBands[i]["band_id"]) {
+ 				band = JSON.stringify(createdBands[i]);
  				response.end(band)
  				console.log('responded with individual band in JSON');
  			}
