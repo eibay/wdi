@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>First name: <%= user["first"] %></div>
+	<div>Last name: <%= user["last"] %></div>
+	<div>Hailing from: <%= user["location"] %></div>
+	<% unless user["comments"].empty? %>
+	<div>Comments:</div>
+	<ol>
+		<% user["comments"].each do |comment| %>
+		<li><%= comment %></li>
+		<% end %>
+		<% end %>
+	</ol>
+	<div>Add a comment?</div>
+	<form action="/user/<%= user["id"] %>/comment" method="POST">
+		<input type="text" name="comment" placeholder="Enter your comment!">
+		<button>Submit!</button>
+	</form>
+</body>
+</html>

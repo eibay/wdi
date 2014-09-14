@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h2>Hypothetical People</h2>
+	<% users.each do |user| %>
+	<div><a href="/user/<%= user["id"] %>"><%= "#{user["first"]} #{user["last"]}" %></a></div>
+	<% end %>
+	<form action="/user/new" method="POST">
+		<button>Create a new person!</button>
+	</form>
+	<% if more %>
+	<div><a href="<%= page + 1 %>">More Persons!</a></div>
+	<% end %>
+</body>
+</html>
