@@ -1,6 +1,3 @@
-// POST /user/create
-// creates a new user and returns that users info in JSON
-// takes no parameters.
 // GET /user/user_id
 // returns a single user's info given the user_id
 // GET /users:
@@ -12,11 +9,13 @@
 var http = require('http');
 
 var heathers = [
-  {name: "Veronica Sawyer", user_id: "1", age: "17", quote: "What is your damage, Heather?"},
-  {name: "Martha Dumptruck", user_id: "2", age: "16", quote: "I'd like that."},
-  {name: "Betty Finn", user_id: "3", age: "15", quote: "Nice guys finish last, I should know."},
-  {name: "J.D. Dean", user_id: "4", age: "20", quote: "Chaos is what killed the dinosaurs, darling."},
-  {name: "Heather Chandler", user_id: "5", age: "21", quote: "Did you have a brain tumor for breakfast?"}]
+  {first_name: "Veronica", last_name: "Sawyer", user_id: "1", grade: "Senior", quote: "What is your damage, Heather?"},
+  {first_name: "Martha", last_name: "Dumptruck", user_id: "2", grade: "Freshman", quote: "I'd like that."},
+  {first_name: "Betty", last_name: "Finn", user_id: "3", grade: "Junior", quote: "Nice guys finish last, I should know."},
+  {first_name: "J.D.", last_name: "Dean", user_id: "4", grade: "Dropout", quote: "Chaos is what killed the dinosaurs, darling."},
+  {first_name: "Heather", last_name: "Chandler", user_id: "5", grade: "Sophomore", quote: "Did you have a brain tumor for breakfast?"}]
+
+var randoms = []
 
 var server = http.createServer(function(request, response){
   console.log("Connection from client has been made")
@@ -29,23 +28,32 @@ if (path == "/") {
 	heathers_in_json = JSON.stringify(heathers);
   response.end(heathers_in_json);
 
-// Creates path based on user_id
- // } else if (path.split("/").length > 1) {
- //  heathers.forEach(function(character){
- //    if (character["user_id"] == path.split("/")[2]){
- //      character = JSON.stringify(character)
- //      response.end(character);
- //    } 
- //  })
-
-  } else if (path.split("/")[1] == "user") {
-
+} else if (path.split("/")[1] == "user") {
     if (path == "/user/create") {
-  // var random = heathers[Math.floor(Math.random() * heathers.length)];
-  var random_character =  [{name: heathers[Math.floor(Math.random() * heathers.length)]["name"], age: heathers[Math.floor(Math.random() * heathers.length)]["age"], quote: heathers[Math.floor(Math.random() * heathers.length)]["quote"]}]
-  new_random = JSON.stringify(random_character);
-  response.end(new_random);
+    var random_character =  
+    {first_name: heathers[Math.floor(Math.random() * heathers.length)]["first_name"], 
+    last_name: heathers[Math.floor(Math.random() * heathers.length)]["last_name"], 
+    user_id: Math.floor(Math.random() * (heathers.length) + 10),
+    grade: heathers[Math.floor(Math.random() * heathers.length)]["grade"], 
+    quote: heathers[Math.floor(Math.random() * heathers.length)]["quote"]}
+    randoms.push(random_character);
+    new_random = JSON.stringify(random_character);
+    response.end(new_random);
+
+} else if (path.split("/")[1] == "user" && path.split("/")[2] != "create") {
+    for (var i = 0; i < randoms.length; i++) {
+    if (path == "/user/" + randoms[i]["user_id"]) {
+      character = JSON.stringify(randoms[i]);
+      response.end(character);
+    }
   }
+};
+
+
+
+
+
+
 
 }});
 
