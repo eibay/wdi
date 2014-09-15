@@ -23,8 +23,8 @@ end
 post '/user/create' do
   new_user = JSON.parse(HTTParty.get('http://127.0.0.1:2000/user/create'))
   storage_array << new_user
-
   redirect request.referrer
+
 end
 
 
