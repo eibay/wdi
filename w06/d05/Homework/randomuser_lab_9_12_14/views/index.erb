@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>All the bands</title>
+</head>
+<body>
+<h1>Here are all the bands for now, 5 when I get it together</h1>
+
+<ul>
+	<% bands.each do |x| %>
+		<li>
+			<a href="//<% x.name %>"><%= x.name %></a>
+		</li>
+	<% end %>
+</ul>
+
+<form action="/band/create" method="POST">
+	<button>Create new random band</button>
+</form>
+
+
+
+</body>
+</html>
