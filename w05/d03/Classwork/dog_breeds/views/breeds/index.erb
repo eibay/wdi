@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Breeds</title>
+</head>
+<body>
+
+  <a href="/breeds/new">Create a Breed</a>
+  <ul>
+    <% breeds.each do |breed| %>
+    <li>
+      <a href="/breeds/<%= breed.id %>">
+        <%= breed.species %>
+      </a>
+    </li>
+    <% end %>
+  </ul>
+
+</body>
+</html>

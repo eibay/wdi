@@ -4,7 +4,7 @@ require 'pry'
 require_relative './lib/student'
 require_relative './lib/dorm'
 
-get("/") do  
+get("/") do
 	erb(:index)
 end
 
@@ -24,13 +24,13 @@ get("/students/new") do
 	erb(:new_student)
 end
 
-# get("/students/:first_name") do 
+# get("/students/:first_name") do
 #   student = Student.find_by("first", params[:first_name])
 
 #   erb(:student, { locals: { student: student } })
 # end
 
-get("/students/search") do 
+get("/students/search") do
   erb(:student_search)
 end
 
@@ -39,6 +39,8 @@ get("/students/search_results") do
   keyword = params["keyword"]
 
   results = Student.select_by(search_type, keyword)
+
+#binding.pry
 
   erb(:students_search_results, { locals: { results: results, keyword: keyword} })
 end

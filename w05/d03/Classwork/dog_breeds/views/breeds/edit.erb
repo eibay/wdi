@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit <%= breed.species %></title>
+</head>
+<body>
+
+  <form action="/breeds/<%= breed.id %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text" name="type" placeholder="Species" value="<%= breed.species %>" />
+    <input type="text" name="age" placeholder="Age" value="<%= breed.age %>" />
+    <input type="text" name="url" placeholder="Image Url" value= "<%= breed.image_url %>" />
+
+  <button>Submit</button>
+  </form>
+
+  <form action="/breeds/<%= breed.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button>Delete Breed</button>
+  </form>
+
+</body>
+</html>
