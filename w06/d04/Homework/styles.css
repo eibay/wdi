@@ -1,0 +1,77 @@
+body {
+
+	background-image: url('./friends.jpg');
+}
+
+h1 {
+	color: white;
+	text-align: center;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 100px;
+	margin-top: 10px;
+}
+
+h1 a {
+	color: white;
+	text-decoration: none;
+}
+
+h1 a:visited {
+    text-decoration: none; 
+    color: white;
+}
+
+h2 {
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 50px;
+	color: white;
+	margin-top: -70px;
+	margin-left: 15px;
+	padding-bottom: 10px;
+}
+
+.navigation {
+	width:100%;
+	height:50px;
+	margin-top: -60px;
+	margin-bottom:0;
+	margin-left:0;
+	background: rgba(0,0,0,0.5);
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 25px;
+}
+
+.navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+}
+
+.navigation li {
+    float: left;
+}
+
+.navigation a {
+  display: block;
+  width: 600px;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.navigation a:hover {
+	color: #FF6666;
+	}
+
+.content	ul {
+		list-style-type: none;
+		font-family: 'Shadows Into Light', cursive;
+		font-size: 45px;
+		color: white;
+		background: rgba(0,0,0,0.5);
+		height: 450px;
+		padding-top: 10px;
+		text-align: center;
+		margin-top: -60px;
+	}
