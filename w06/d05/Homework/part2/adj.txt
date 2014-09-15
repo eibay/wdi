@@ -1,0 +1,1 @@
+[{"beautiful": "vorel"}, {"big": "turalisj"}, {"black":"vutha"}, {"blue":"ulhar"}]
