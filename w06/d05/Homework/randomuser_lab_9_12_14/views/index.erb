@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Home</title>
+</head>
+<body>
+	
+	<ul>
+	<% people.each do |person| %>
+		<li><a href='/user/<%= person["id"]%>'><%= person["name"] %></a></li>
+	<% end %>
+	</ul>
+
+
+</body>
+</html>
