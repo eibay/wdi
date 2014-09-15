@@ -1,0 +1,24 @@
+<div>
+	<h2><%= thisChar["fname"] %> "<%= thisChar["nname"] %>" <%= thisChar["lname"] %></h2>
+	</br>
+	<p>Hailing from <%= thisChar["town"] %>, <%= thisChar["nname"] %> has a bit of a <%= thisChar["attitude"] %> attitude, despite being known for a rather <%= thisChar["looks"] %> style.  After firing upon Matt Damon in the CloneX facility, <%= thisChar["nname"] %> yelled "<%= thisChar["last_words"] %>" before succumbing to Matt's sharpshooting.</p>
+	</br>
+</div>
+<div>
+	<% if comment != "no comment" %>
+		<h2>Comments</h2>
+			<% comment.each do |comm| %>
+				<h3><%= comm["commenter"] %> said on <%= comm["created_at"] %>:</h3>
+				<p><%= comm["comment"] %></p>
+				</br>
+			<% end %>
+	<% end %>
+</br>
+
+<h2>Leave a comment here!</h2>
+<form action="/comment" method="POST">
+	<textarea type="text" name="comment" placeholder="thoughts?"></textarea>
+	<input type="text" name="name" placeholder="According to whom?">
+	<input type="hidden" name="redshirt_id" value="<%= thisChar["id"] %>">
+	<button>Say it!</button>
+</form>

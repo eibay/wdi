@@ -1,6 +1,6 @@
 var http = require('http');
 var fs = require('fs')
-
+var created = []
 var redshirts = {};
 redshirts['ffname'] = ["Catherine", "Roxie", "Celeste", "Jessica", "Karen", "Maria", "Judie", "Jackie", "Jen", "Rose", "Rebecca", "Tina", "Peg", "Natalia", "Candice"];
 redshirts['mfname'] = ["Frank", "Pete", "Edwin", "Ernesto", "Vince", "Robert", "Mohamed", "Lucas", "Hugo", "Zack", "Ethan", "Charlie", "Carlos", "Ulysses", "Mortimer"];
@@ -11,7 +11,7 @@ redshirts['looks'] = ["portly", "foppish", "handsomish", "childish", "lean", "st
 redshirts['attitude'] = ["cool", "cocky", "arrogant", "refreshing", "affable", "gunshy", "surly", "angry", "remorseful", "edgy", "callous", "vain", "ambitious", "sincere", "reliable", "candid", "motivated", "cold", "pretentious", "ego-centric", "selfish", "jovial", "quizzical", "confident", "condescending", "courteous", "modest", "reliable", "sarcastic", "tenacious", "honest"];
 redshirts['last_words'] = ["Mein Leben!", "My only regret is that i have bonitis.", "Tell my wife I love him", "I picked the wrong week to stop sniffing glue.", "Either I'm dead or my watch has stopped.", "They couldn't hit an elephant at this distance!", "AAAAAAAAAAGH!", "It's just a flesh wound.", "How rude!"];
 
-var rando = function(redshirts) {
+var rando = function(redshirts, created) {
 	character = []
 	var gender = [0, 1]
 	gender = gender[Math.floor(Math.random() * gender.length)];
@@ -26,24 +26,45 @@ var rando = function(redshirts) {
 		var style = redshirts['looks'][Math.floor(Math.random() * redshirts['looks'].length)]
 		var xattitude = redshirts['attitude'][Math.floor(Math.random() * redshirts['attitude'].length)]
 		var lwords = redshirts['last_words'][Math.floor(Math.random() * redshirts['last_words'].length)]
-		character.push({fname: firstname}, {lname: lastname}, {nname: nickname}, {town: hometown}, {looks: style}, {attitude: xattitude}, {last_words: lwords})
-	return character
+		var idMath = Math.floor(Math.random() * 100000)
+		character.push({fname: firstname}, {lname: lastname}, {nname: nickname}, {town: hometown}, {looks: style}, {attitude: xattitude}, {last_words: lwords}, {id: idMath})
+		created.push(character)
+	return character, created
 }
 
 var server = http.createServer(function(req, res){
   var path = req["url"]
   var dir = path.split("/")[1]
   var basename = path.split("/")[2]
+  
   console.log("the client requested " + path)
  
-  if (path == "/") {
-  res.end(JSON.stringify(rando(redshirts)))
-	} else if (path.split("/").length == 2) {
-		console.log(dir)
-		for (var i=0; i<redshirts.length; i++) {
-			if (dir == redshirts[i]["gender"]) {
-				res.end(JSON.stringify(redshirts[i]))
+  if (path == "/user/create") {
+  	var newChar = []
+  	newChar = rando(redshirts, created);
+  res.end(JSON.stringify(character))
+	} else if (path.split("/").length == 3 && basename != "create") {
+		console.log(created)
+		for (var i=0; i < created.length; i++) {
+			if (String(basename) == String(created[i][7].id)) {
+				console.log("OK")
+				res.end(JSON.stringify(created[i]))
+			} else {
+				res.end("ERROR")
 			}
+		}
+	} else if (path.split("?").length == 2) {
+			var queryresponse = []
+			var query = path.split("?")[1]
+			var length = parseInt(query.split("&")[0].split("=")[1])
+			var num = parseInt(query.split("&")[1].split("=")[1])
+			if (length*num > created.length) {
+				res.end("NOT ENOUGH CHARACTERS CREATED")
+			} else {
+				for (var j=length*(num - 1); j < length*num; j++) {
+				queryresponse.push(created[j])
+			}
+			res.end(JSON.stringify(queryresponse))
 		}
 	}
 });
