@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Main Page</title>
+</head>
+<body>
+
+  <h3>Welcome to the random user page</h3>
+
+  <ol>
+      <li>
+
+
+
+        <% users.each do |user| %>
+            <a href="/users/<%=user[i].id %>"><%=user[i].name%></a>
+        <% end %>
+
+      </li>
+
+  </ol>
+
+
+  <br>
+  <br>
+
+  <form action="/user/create" method="POST">
+    <input type="text" name="name" placeholder="Enter a name here">
+     <input type="text" name="information" placeholder="Enter info here">
+
+    <button>Submit</button>
+
+
+  </form>
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User List</title>
+</head>
+<body>
+
+  <h3>Name: <%=user.name %></h3>
+  <h3>Info: <%=user.information %></h3>
+
+  <h4>Comments</h4>
+
+  <ul>
+      <li><% user.comment.each do |comment| %>
+
+        <a href="/comments/<%=comment.id %>"><%=comment.id %></a>
+
+      </li>
+
+      <% end %>
+  </ul>
+
+</body>
+</html>
