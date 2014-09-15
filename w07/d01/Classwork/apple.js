@@ -4,30 +4,31 @@ var companies = [
   {name: "apple", location: "cupertino"},
   {name: "google", location: "mountain view"}
 ];
-var msg = "";
-var findCompanyByName = function(path, arr) {
-	for (i=0; i < arr.length; i++) {
-		if (path == arr[i]["name"]) {
-			msg = arr[i]
-		} else msg = "name not found"
+
+function findCompanyByName(path) {
+	for (var i=0; i < companies.length; i++) {
+		if (path == companies[i].name) {
+				console.log(companies[i])
+		return companies[i]
+		}
 	}
-	return msg
 }
 
 var server = http.createServer(function(request, response){
 	var path = request["url"];
 	console.log(path)
 
-	
+	var msg = "";
 	var firstAfterSlash = path.split("/")[1]
 
-	if (path = "/") {
+	if (path == "/") {
   companies_in_json = JSON.stringify(companies);
   msg = companies_in_json
 	} else if (path == "/" + firstAfterSlash) {
-		msg = findCompanyByName(firstAfterSlash, companies);
+		msg = findCompanyByName(firstAfterSlash);
+		msg = JSON.stringify(msg)
 	}
-  response.end(companies_in_json);
+  response.end(msg);
 });
 
 server.listen(2000);
