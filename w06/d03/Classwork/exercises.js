@@ -271,6 +271,29 @@ function maxOfThree(x,y,z) {
 };
 maxOfThree(1, 4, 6)
 
+
+
+function maxOfThree(x,y,z) {
+  mx = [x,y,z]
+  for(i=0; i < arguments.length; i++) {
+    if(mx[0] < mx[1]) {
+      mx.push(mx[0])
+      mx.splice(0,1)
+    }
+  }
+  console.log(mx[0])
+  console.log("rearranged array: " + mx)
+}
+maxOfThree(1, 4, 6)
+maxOfThree(6,4,1)
+maxOfThree(4,6,1)
+maxOfThree(1,6,4)
+
+maxOfThree(1,2,3,4,5)
+
+
+
+
 //7
 // 7. Write a command line app that takes 2 numbers and 
 // prints every number in between
@@ -281,6 +304,8 @@ maxOfThree(1, 4, 6)
 //   # 4
 //   # 5
 //   ```
+
+var args = altTwixt.argv //["node" "filename.js" "x" "y"]
 function altTwixt(x,y) {
   var i = 1;
   while(i < y - x) {
@@ -288,6 +313,9 @@ function altTwixt(x,y) {
     i = i + 1;
   }
 }
+
+altTwixt(parseInt(args[2]), parseInt(args[3]));
+
 altTwixt(2,6)
 
 //8
