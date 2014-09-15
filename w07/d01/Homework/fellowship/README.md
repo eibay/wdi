@@ -30,7 +30,6 @@ var lands = ["The Shire", "Rivendell", "Mordor"];
 function makeMiddleEarth(lands) {
     // add each land as another div tag to the middle-earth div
     // inside each div tag for a land, include an h1 with the name of the land
-    // append middle-earth to your document body
 }
 
 makeMiddleEarth(lands);
