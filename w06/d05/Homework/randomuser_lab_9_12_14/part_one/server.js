@@ -21,8 +21,11 @@ var server = http.createServer(function(request, response) {
 		response.end(JSON.stringify(companies[0]));
 	}
 
+	else {
+		console.log("Bad Path.")
+		response.end("");
+	}
 
-	debugger
 })
 
 server.listen(2000);
