@@ -44,10 +44,10 @@ post '/comment' do
 
 
   this_user = storage_array.detect { |hash| hash['id'] == params['this_user_id']}
-  this_user[:comments] = [] if this_user[:comments] == nil #create new array as key if it doesnt exist. so i dont overwrite
-  new_temp_array = this_user[:comments] #takes the values out and makes new_temp_array. this way we can save old values, since otherwise we'd overwrite.
+  this_user['comments'] = [] if this_user['comments'] == nil #create new array as key if it doesnt exist. so i dont overwrite
+  new_temp_array = this_user['comments'] #takes the values out and makes new_temp_array. this way we can save old values, since otherwise we'd overwrite.
   new_temp_array << params["comment"] #shovel in the new comment
-  this_user[:comments] = new_temp_array #overwrite old value for the key.
+  this_user['comments'] = new_temp_array #overwrite old value for the key.
 
   redirect request.referrer
 end
