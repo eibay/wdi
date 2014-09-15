@@ -45,7 +45,7 @@ if (path == "/user/create" && method == "POST") {
 		
 		for (i = 0; i < random_array.length; i++) {
 			if (random_array[i]["id"] == query_id) {
-				response.end(random_array[i])
+				response.end(JSON.stringify(random_array[i]))
 			};
 	}}
 
@@ -53,7 +53,12 @@ if (path == "/user/create" && method == "POST") {
 		var page_length = path.split("?")[1].split("&")[0].split("=")[1];
 		var page_num = path.split("?")[1].split("&")[1].split("=")[1];
 		random_array = JSON.parse(fs.readFileSync("./array_of_hashes.txt"));
-
+		query_response = []
+		
+		if (((page_length * page_num) - (page_length - 1)) > random_array.length {
+			
+			}
+		for (i = page_length random_array
 
 	}
 	else {
