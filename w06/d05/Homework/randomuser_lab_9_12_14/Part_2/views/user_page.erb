@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1><%= user["name"] %></h1>
+	<h2>Age: <%= user["age"] %></h2>
+
+	<form action="/comments" method="POST">
+		Comment here:<br/>
+		<input type="hidden" name="user_id" value="<%= user["id"] %>">
+		<textarea name="comment" cols="30" rows="10"></textarea><br/>
+		<button>Comment</button>
+	</form>
+
+	<% if comments.length > 0 %>
+		<h2>Current Comments</h2>
+		<ul>
+			<% comments.each do |x| %>
+				<li><%= x[:content] %></li>
+			<% end %>
+		</ul>
+	<% end %>
+</body>
+</html>
