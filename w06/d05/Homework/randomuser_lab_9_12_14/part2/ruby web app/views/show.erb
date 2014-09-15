@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1><%= user["specie"]%></h1>
+	<h2><%= user["group"]%></h2>
+
+	<form action="/comments" method="POST">
+		<input type="hidden" name="user_id" value="<%= user.id] %>">
+		<textarea> name="comment" cols="50%" rows="10%"</textarea>
+		<button>Comment</button>
+	</form>
+
+
+
+</body>
+</html>
