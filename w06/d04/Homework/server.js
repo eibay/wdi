@@ -16,9 +16,7 @@ var server = http.createServer(function(request, response){
 	}; 
 
 
-
 	if (path == '/'){
-		console.log("client attempting to reach" + path)
 		var html = fs.readFileSync("./views/index.html")
 		response.end(html);
 	}else if (path=="/styles.css"){
@@ -33,16 +31,14 @@ var server = http.createServer(function(request, response){
 			list += cast
 		};
 
-		var listUL = "<ul>" + list + "</ul>"
-		
-		response.end("<html>" + listUL + "</html>");
+		response.end("<html><ul>" + list + "</ul></html>");
 
 	}else if (path =='/cast/random'){
 		var random = cast(friends)
 		response.end("<h1>" + random + "</h1>")
 	}else if (path.indexOf("?") > 0){
 		var name = path.split("=")[1]
-		response.end("<h1>"+name+"</h1>")
+		response.end("<h1>" + name + "</h1>")
 	}else{
 		response.end("error");
 	};
