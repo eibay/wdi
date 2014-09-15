@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../style.css">
 	<title>User</title>
 </head>
 <body>
@@ -10,7 +11,7 @@
 	<h5>Leave Comment</h5>
 	<form action="/users/user/comment" method="POST">
 		<input type="text" name="commentor" placeholder="Your Name"><br>
-		<textarea rows="5" cols="50" name="comment" placeholder="What do you think about <%= user.name %>?"></textarea>
+		<textarea rows="5" cols="50" name="comment" placeholder="What do you think about <%= user.name %>?"></textarea><br>
 		<input type="hidden" name="user_id" value="<%= user.id %>">
 		<button>Submit</button>
 	</form>
