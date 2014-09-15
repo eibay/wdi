@@ -1,5 +1,4 @@
 var people=[];
-var request=require('request');
 function createPerson(array){
 	var names=["Steve", "Conor", "John", "Loser", "Ben", "Laura", "OK", "Whatever"];
 	var ages=[1,2,3,4,5,6,7,8,122,9999,409,692];
