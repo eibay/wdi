@@ -16,19 +16,53 @@ var aryTitanic = castTitanic.split(", ");
 console.log(aryInception + aryTitanic);
 
 
+// var compare = function(ary1, ary2) {
+// 	var listCommon = []
+// 	ary1.forEach(function(actor) {
+// 		for(i=0; i < ary2.length; i++) {
+// 			if(actor == ary2[i]) {
+// 				listCommon.push(actor);
+// 			}
+// 		}
+// 	})
+// 	console.log(listCommon);
+// }
+
+
+
 var compare = function(ary1, ary2) {
 	var listCommon = []
 	ary1.forEach(function(actor) {
-		for(i=0; i < ary2.length; i++) {
-			if(actor == ary2[i]) {
+		ary2.forEach(function(actor2){
+			if(actor == actor2) {
 				listCommon.push(actor);
 			}
+		})
+	})
+	console.log(listCommon);
+}
+compare(aryInception, aryTitanic);
+
+
+var exists = function(ary1, ary2) {
+	var listCommon = []
+
+	ary1.forEach(function(actor) {
+		if(ary2.indexOf(actor) != -1) {
+			listCommon.push(actor)
 		}
 	})
 	console.log(listCommon);
 }
 
-compare(aryInception, aryTitanic);
+exists(aryInception, aryTitanic)
+
+
+
+
+
+
+
 
 
 

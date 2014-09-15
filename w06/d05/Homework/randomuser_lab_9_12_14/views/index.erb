@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<%storage_array.each do |hash|%>
+		<a href="/user/<%=hash['id']%>"> <%=hash%> </a> <br/>
+	<%end%>
+
+	<form action="/user/create" method="POST">
+		<button>New Random User</button>
+	</form>
+	
+</body>
+</html>
