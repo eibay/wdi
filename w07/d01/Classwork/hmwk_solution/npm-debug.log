@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'request' ]
+2 info using npm@2.0.0-alpha-5
+3 info using node@v0.10.29
+4 verbose node symlink /usr/local/bin/node
+5 verbose cache add [ 'request', null ]
+6 verbose cache add spec="request" args=["request",null]
+7 verbose cache add local package /Users/susrutcarpenter/dev/wdi/rosencrantz/w07/d01/Classwork/hmwk_solution/request
+8 silly lockFile 088e29b0-request request
+9 verbose lock request /Users/susrutcarpenter/.npm/088e29b0-request.lock
+10 silly lockFile 088e29b0-request request
+11 silly lockFile 088e29b0-request request
+12 error addLocal Could not install request
+13 error Error: ENOENT, open 'request/package.json'
+14 error If you need help, you may report this *entire* log,
+14 error including the npm and node versions, at:
+14 error     <http://github.com/npm/npm/issues>
+15 error System Darwin 13.1.0
+16 error command "node" "/usr/local/bin/npm" "install" "request"
+17 error cwd /Users/susrutcarpenter/dev/wdi/rosencrantz/w07/d01/Classwork/hmwk_solution
+18 error node -v v0.10.29
+19 error npm -v 2.0.0-alpha-5
+20 error path request/package.json
+21 error code ENOENT
+22 error errno 34
+23 verbose exit [ 34, true ]
