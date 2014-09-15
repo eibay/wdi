@@ -4,18 +4,14 @@ var companies = [
 ];
 
 function findCompanyByName(company){
-		companies.forEach(function(comp){
-			debugger;
-			if(comp["name"]==company){
+	var company_hash;
 
-				company_hash=comp
+	companies.forEach(function(comp){
+		if(comp["name"]==company){
+			 company_hash=comp
+		}
+	});
 
-			}
-
-		});
-
-	return JSON.stringify(company_hash);
+	return company_hash;
 }
-
-
 console.log(findCompanyByName("apple"))
