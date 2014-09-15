@@ -1,0 +1,6 @@
+breeds = {name: "Affenpinscher"
+Afghan Hound
+Airedale Terrier
+Akita
+Alaskan Malamute
+American Eskimo Dog
