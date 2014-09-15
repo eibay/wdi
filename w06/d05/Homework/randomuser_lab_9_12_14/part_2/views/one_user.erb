@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>OMG</title>
+</head>
+<body>
+
+<div>
+  <p><%= user_hash["name"] %><%= user_hash["instrument"] %><%= user_hash["band"] %><br>
+    Contact info: <%= user_hash["email"] %></p>
+
+
+  <form action="/musician/comment" method="POST">
+    <input type="hidden" name="id" value=<%= user_hash["id"] %> /><br>
+    <p>Please add your comment, if so inclined.</p>
+    <textarea name="say" rows="8" cols="50" placeholder="Comment..."></textarea><br>
+    <button>Submit</button>
+  </form>
+
+</div>
+ 		
+</body>
+</html>

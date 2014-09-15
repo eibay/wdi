@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>OMG</title>
+</head>
+<body>
+
+<div>
+  <ul>
+    <% users_five.each do |user| %>
+      <li>
+        <a href="/user/<%= user["id"] %>"><%= user["name"] %></a><br>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+
+  <form action="/categories/<%= "id" %>/posts" method="GET">
+    <p>New Random User</p>
+    <button>Submit</button><br>
+  </form>
+
+
+  <a href="/categories/new">Create New Category</a>
+ 		
+
+
+</body>
+</html>
