@@ -4,14 +4,16 @@ var companies = [
 ];
 
 
-var firstAfterSlash = "google"
-
-function find(company, array){
-  array.forEach(function(comp){
-    if (comp["name"] == company){
-      return company
+function findByName(name){
+  var answer = []
+  companies.forEach(function(company){
+    if (company.name == name){
+      answer.push(company)
     }
+    
   })
+  return answer;
 };
 
-console.log(find(firstAfterSlash, companies))
+console.log(findByName("aadasdas"))
+
