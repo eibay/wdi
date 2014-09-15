@@ -16,12 +16,16 @@ var server = http.createServer(function(request, response){
 	}else{
 		var name = path.split('/')[1]
 
-		companies.forEach(function(company){
-			if(company['name'] == name){
-				company_hash = JSON.stringify(company);
-				response.end(company_hash);
-			};
-		});
+		var company_hash = findCompanyByName(companies, name)
+		debugger
+		response.end(company)
+
+		// companies.forEach(function(company){
+		// 	if(company['name'] == name){
+		// 		company_hash = JSON.stringify(company);
+		// 		response.end(company_hash);
+		// 	};
+		// });
 	
 	};
 
@@ -29,3 +33,27 @@ var server = http.createServer(function(request, response){
 });
 
 server.listen(2000);
+
+
+var findCompanyByName = function(my_array, value){
+
+	my_array.forEach(function(element){
+		if (element['name'] == value){
+			element_hash = JSON.stringify(element);
+			console.log(element_hash);
+			return element_hash
+
+		};
+	});
+
+};
+
+
+
+
+
+
+
+
+
+
