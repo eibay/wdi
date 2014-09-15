@@ -3,14 +3,27 @@ var companies = [
   {name: "google", location: "mountain view"}
 ];
 
-var companyName = "apple"
+// var companyName = "apple"
 
-function findCompanyByName (company) {
-	 companies.forEach(function(company) {
-    if (company["name"] == companyName) {
-      return (companyName)
-  } 
-  })
-  };
+// function findCompanyByName (company) {
+// 	 companies.forEach(function(company) {
+//     if (company["name"] == companyName) {
+//       return (companyName)
+  
+function findByName(name) {
+	for(var i=0; i < companies.length; i++) {
+		if (companies[i].name == name) {
+			return companies[i];
+		}
+	}
+	return {};
+}
 
-console.log(findCompanyByName(companyName));
+var thecompany = findByName('apple');
+console.log('thecompany');
+
+//   } 
+//   })
+//   };
+
+// console.log(findCompanyByName(companyName));
