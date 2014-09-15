@@ -14,14 +14,21 @@ var path = request["url"]
 		response.end(companies_in_json);
 	} else if ((path.charAt(0) == "/") && (path.length > 1)) {
 		var names = path.split("/")[1]
+		console.log(names);
+		console.log(companies);
+		var company_name;
 		companies.forEach(function(comp){
+			console.log("in loop")
 			if (comp.name == names){
+				console.log("in conditional");
 				console.log(names)
 				console.log(comp.name)
-				var company_name = JSON.stringify(comp);
+				company_name = JSON.stringify(comp);
 				console.log(company_name)
 				return company_name;
-			} response.end("company_name");
+			}
+			console.log(company_name); 
+			response.end(company_name);
 		}) 
 	}
 })

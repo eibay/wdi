@@ -14,3 +14,13 @@ var findCompanyByName = function(compName){
 }
 
 console.log(findCompanyByName("apple"))
+
+
+
+function findByName(name){
+	for var i=0; i<companies.length; i++){
+		if (companies[i]["name"] == name){
+			console.log("GOT IT!")
+		}
+	}return {};
+}
