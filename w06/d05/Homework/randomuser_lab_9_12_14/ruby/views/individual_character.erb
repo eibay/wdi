@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title><%=character["name"]%></title>
+</head>
+<body>
+
+<h1><%=character["name"]%></h1>
+<h3>Age: <%=character["age"]%></h3>
+<h3>Comments</h3>
+<%comments.each do |comment|%>
+	<h6><%=comment.author%></h6>
+	<p><%=comment.content%></p>
+	<%end%>
+	<h5>Leave Comment</h5>
+	<form action="/addcomment/<%=character['id']%>" method="POST">
+		<input type="text" name="name" placeholder="Name"><br>
+		<textarea name="content">Content</textarea><br>
+		<button>Add Comment</button>
+	</form>
+
+
+</body>
+</html>

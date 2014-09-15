@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	div.container
+		
+		h1 List of Users
+		if users != 'There are not this many users to return'
+			each user in users
+				li
+					a(href = '/user/#{user.id}') #{user.name}
+			if next_page != 2
+				a(href='/?page=#{previous_page}') Previous Page 
+				label &nbsp;
+
+			if users.length == 5		
+				a(href='/?page=#{next_page}') Next Page
+		else
+			p There are not this many users
+	
+
+		form(name="adduser" action="/adduser" method="post")
+			input(type="submit" name="submit" value="Add User")

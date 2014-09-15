@@ -1,0 +1,29 @@
+body {
+	text-align: center;
+}
+
+a {
+	background-color: blue;
+	color: white;
+	padding: 5px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+btn {
+	padding: 5px;
+	background-color: red;
+	color: white;
+}
+
+btn:hover {
+	padding: 5px;
+	background-color: green;
+	color: white;
+}
+h1
+{
+	color:red;
+}
