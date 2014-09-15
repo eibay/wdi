@@ -132,12 +132,13 @@ var server = http.createServer(function(request, response){
 		while (i < all_names.length){
 			debugger
 			if (all_names[i]["id"] == user_id){
-				var specific_name = JSON.stringify(all_names[i])
-				return specific_name
+				var specific_name.push JSON.stringify(all_names[i])
+				
+				response.end(specific_name)
 			} else{
 				response.end("Error")
 			} i++
-		} response.end(specific_name)
+		}
 	} 
 	// else if (method = "GET" && path == '/users'){
 
