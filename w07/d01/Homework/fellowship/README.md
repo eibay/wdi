@@ -28,9 +28,8 @@ var buddies = [
 var lands = ["The Shire", "Rivendell", "Mordor"];
 
 function makeMiddleEarth(lands) {
-    // create a div tag with an id of middle-earth
-    // add each land as another div tag
-    // inside each article tag include an h1 with the name of the land
+    // add each land as another div tag to the middle-earth div
+    // inside each div tag for a land, include an h1 with the name of the land
     // append middle-earth to your document body
 }
 
