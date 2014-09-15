@@ -3,12 +3,14 @@ var companies = [
   {name: "google", location: "mountain view"}
 ];
 
-var findCompanyByName = function(firstAfterSlash){
+function findByName(name){
+	for(var i=0; i<companies.length; i++) {
+		if (companies[i].name == name) {
+			return companies[i];
+		}
+	}
 
-var companies.forEach(function(company){
-    if (company["name"] == path.split("/")[1]){
-      company = JSON.stringify(company)
-      response.end(company);
-  	}
-});
-  	console.log(company);
+	return {};
+}
+
+ console.log("apple = " + findByName('apple'));
