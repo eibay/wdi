@@ -1,0 +1,20 @@
+<div>
+ <h2>Select a new redshirt:</h2>
+	<ul>
+		<% newchar.each do |char| %>
+			<li><a href="/user/<%= char[0]["xid"] %>"><%= char[0]["fname"] %> "<%= char[0]["nname"] %>" <%= char[0]["lname"] %></a></li>
+		<% end %>
+	</ul>
+</div>
+<form action="/new" method="get">
+	<button>I'm feeling lucky!</button>
+</form>
+</div>
+<div>
+	<h2>Saved redshirts:</h2>
+	<ul>
+		<% redshirts.order("id").each do |red| %>
+			<li><a href="/user/<%= red["id"] %>"><%= red["fname"] %> "<%= red["nname"] %>" <%= red["lname"] %></a></li>
+		<% end %>
+	</ul>
+</div>
