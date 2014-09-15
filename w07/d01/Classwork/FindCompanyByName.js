@@ -16,3 +16,16 @@ var companies = [
   		} i++
   	} return companies2
   };
+
+
+
+function findByName(name) {
+  	for(var i=0; i<companies.length; i++){
+  			if (companies[i].name == name){
+  					return companies[i];
+  			}
+  	}
+  	return {};
+}
+
+  var the company = findByName('banana')
