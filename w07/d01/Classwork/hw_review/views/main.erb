@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/style.css">
+	<title>Document</title>
+</head>
+<body>
+	<h1>List of Characters</h1>
+
+	<form action="/user/<%= new_user['id'] %>" method="GET">
+		<input type="hidden" name="id" value="<%= new_user['id'] %>">
+		Create New User: <button>Create</button>
+	</form>
+
+	<ul>
+		<% characters.each do |c| %>
+			<h3><li><a href="/user/<%= c['id'] %>"><%= c["name"] %></li></a></h3>
+		<% end %>
+	</ul>
+</body>
+</html>
