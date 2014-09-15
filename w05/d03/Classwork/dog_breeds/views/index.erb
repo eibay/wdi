@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dog Breed</title>
+</head>
+<body>
+	<form action="/" method="POST">
+		<input type="text" name="name" placeholder="Doggie Breed" />
+		<button>Submit</button>
+
+
+
+	<ul>
+		<% dogbreeds.each do |dogbreed| %>
+			<li>
+				<%= dogbreed[:name] %>
+				
+			</li>
+		<% end %>
+	</ul>
+</body>
+</html>

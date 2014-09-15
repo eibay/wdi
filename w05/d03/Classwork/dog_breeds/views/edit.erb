@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit Dog Breed<%= dogbreed.name %></title>
+</head>
+	<form action="/dogbreeds/edit/<%= dogbreed %>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="name" placeholder="Dog Breed" value="<%= dogbreed.name %>" />
+		<% end %>
+	<button>Submit</button>
+</form>
