@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Ruby Web App</title>
+</head>
+<body>
+	<ul>
+		<li>Name: <%= character["name"] %></li>
+		<li>Age: <%= character["age"] %></li>
+		<li>Quote: <%= character["quote"] %></li>
+		<li>Image: <a href="<%= character['url'] %>"><%= character["url"] %></a></li>
+		<li>Comment: <%= character["comment"] %></li>
+	</ul>
+	<form action="/comment/<%= character['id'] %>" method="POST">
+		<input type="text" name="comment" placeholder="Leave a comment">
+		<button>Add Comment</button>
+	</form>	
+</body>
+</html>

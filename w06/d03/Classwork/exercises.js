@@ -138,23 +138,17 @@
 // 	num1+=1;
 // };
 
-// #! /usr/bin/env node
+var args = process.argv
+var num1 = parseInt(args[2])
+var num2 = parseInt(args[3])
 
-
-
-// var args = process.argv
-// var fl = require()
-// var num1 = parseInt(args[2])
-// var num2 = parseInt(args[3])
-
-// function inBetween(num1, num2), ) {
-// 	while (num1<num2-1) {
-// 		console.log(num1+1)
-// 		num1+=1;
-// 	};
-// };
-
-// inBetween(num1, num2);
+function inBetween(num1, num2), ) {
+	while (num1<num2-1) {
+		console.log(num1+1)
+		num1+=1;
+	};
+};
+inBetween(num1, num2);
 
 /////////////////////////////////
 
@@ -200,11 +194,18 @@ firstname.unshift("Peter")
 
 //iii
 
-for(i=0; i<firstnamelist.length; i++){
+for(i=0; i<firstnamelist.length; i++) {
     if(firstnamelist[i] == "Muffinmitts"){
         firstnamelist.splice(i, 1);
     };
 };
+
+//iv
+
+lastnamelist.indexOf("Scratchnsniff")
+
+//v
+
 
 
 

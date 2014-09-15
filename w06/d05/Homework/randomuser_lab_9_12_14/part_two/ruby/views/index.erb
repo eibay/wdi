@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>Ruby Web App</title>
+</head>
+<body>
+	<ul>
+	<% list.each do |character| %>
+		<li>Name: <a href="/user/<%= character[:id] %>"><%= character[:name] %></a></li>
+		</br >
+	<% end %>
+	</ul>
+	<form action="/user" method="POST">
+		<input type="text" name="name" placeholder="Name">
+		<input type="text" name="age" placeholder="Age">
+		<input type="text" name="quote" placeholder="Quote">
+		<input type="text" name="url" placeholder="Image URL">
+		<button>Create</button>
+	</form>
+</body>
+</html>

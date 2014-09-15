@@ -22,14 +22,9 @@ var server = http.createServer(function(request, response) {
 	} else if (path == '/cast' && request["method"] == "GET") {
 
 		var html = ""
-		// for (i=0; i<cast_member.length; i++) {
-		// 	html = html + "<li>" + cast_member[i] + "</li>"
-		// };
-
-		cast_member.forEach(function(member) {
-			html = html + "<li>" + member + "</li>"
-		});
-
+		for (i=0; i<cast_member.length; i++) {
+			html = html + "<li>" + cast_member[i] + "</li>"
+		};
 		html = "<html><head></head><body><ul>" + html + "</ul></body></html>"
 		response.end(html);
 
@@ -67,6 +62,7 @@ var server = http.createServer(function(request, response) {
 		var html = fs.readFileSync('index.html')
 		response.end(html);
 
+		});
 	} else {
 
 		response.end("<h1>Error!</h1>");
@@ -75,4 +71,3 @@ var server = http.createServer(function(request, response) {
 });
 
 server.listen(2000);
-
