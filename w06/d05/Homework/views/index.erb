@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>
+<% response.each do |a| %>
+Your blues name is
+<a href="/user/<%= a.id%>"><%= a.first %> <%= a.second %> <%= a.third %></a> <br>
+<% end %>
+
+
+</p>
+Get a New User
+<form method="POST" action="/new_user">
+	<button>Get New Blues Name</button>
+</form>
+
+
+Search for a user
+<form method"GET" action="/search">
+	First name: <input type="text" name="first_name">
+	Middle name: <input type="text" name="second_name">
+	Last name: <input type="text" name="third_name">
+	<button>Search</button>
+</form>
+</body>
+</html>
