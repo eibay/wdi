@@ -16,7 +16,7 @@ var server = http.createServer(function(request, response){
 	}else{
 		var name = path.split('/')[1]
 
-		var company_hash = findCompanyByName(companies, name)
+		var company = findCompanyByName(companies, name)
 		debugger
 		response.end(company)
 
@@ -38,10 +38,10 @@ server.listen(2000);
 var findCompanyByName = function(my_array, value){
 
 	my_array.forEach(function(element){
-		if (element['name'] == value){
+		if (element.name == value){
 			element_hash = JSON.stringify(element);
 			console.log(element_hash);
-			return element_hash
+			return element_hash;
 
 		};
 	});
