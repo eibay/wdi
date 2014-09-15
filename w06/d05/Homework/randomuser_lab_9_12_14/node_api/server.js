@@ -97,8 +97,8 @@ var server = http.createServer(function(request, response){
 				}
 			})		
 		} else if(path == "/users"){
-			var pageLength = query.page_length;
-			var pageNum = query.page_num;
+			var pageLength = Number(query.page_length);
+			var pageNum = Number(query.page_num);
 			if(pageLength){ 
 				client.lrange("randomRosencrantzers", 0, -1, function(error, randomRosencrantzers){
 					if (error) { 
