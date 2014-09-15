@@ -1,11 +1,3 @@
-// GET /user/user_id
-// returns a single user's info given the user_id
-// GET /users:
-// returns a paginated list of users that have been created in the system
-// Query Param: page_length: how many users to return per page
-// Query Param: page_num: the page number we are currently on
-// Example: GET /users?page_length=5&page_num=3 would return the 11th to 15th user in the system. This should return no users if there are less than 11 users in the system.
-
 var http = require('http');
 
 var heathers = [
@@ -28,6 +20,9 @@ if (path == "/") {
 	heathers_in_json = JSON.stringify(heathers);
   response.end(heathers_in_json);
 
+} else if (path.split("/")[1] == "users") {
+  response.end(heathers.length["first_name"]);
+
 } else if (path.split("/")[1] == "user") {
     if (path == "/user/create") {
     var random_character =  
@@ -48,12 +43,6 @@ if (path == "/") {
     }
   }
 };
-
-
-
-
-
-
 
 }});
 
