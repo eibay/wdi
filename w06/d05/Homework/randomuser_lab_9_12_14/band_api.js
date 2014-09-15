@@ -10,10 +10,28 @@ var server = http.createServer(function(request, response){
 	var path = request['url'];
 	console.log("client is attempting to reach " + path + " route");
 
-	// var path = 
+// **** query params to get page length and which page
+// GET /users?page_length=5&page_num=3
+// rewriting the old ruby parse_url method
+function parseURL(path) {
+	var queryString = path.split('?')[1];
+	console.log(queryString);
+	// 'page_length=5&page_num=3'
+
+	var pairs = queryString.split('&');
+	console.log(pairs);
+	// [ 'page_length=5', 'page_num=3' ]
+	
+	var keyValues = [];
+
+	for (var i = 0; i < pairs; i++) {
+		keyValues.push(pairs[i].split('='))
+	}
+	// nothing is getting pushed in keyValues array, although it works in repl
+	console.log(keyValues);
+}
 
 	// returns all the created bands
-// **** just put or in path test
 	if ((path == '/') || (path == '/bands')) {
 		bands_in_json = JSON.stringify(createdBands);
 		response.end(bands_in_json);
@@ -21,8 +39,6 @@ var server = http.createServer(function(request, response){
 	}
 
 // **** let's try to paginate instead, ala clayton
-// **** query params to get page length and which page
-// GET /users?page_length=5&page_num=3
 
 
 
@@ -53,7 +69,6 @@ var server = http.createServer(function(request, response){
 	 		} 	
 	 	}
 	}
-// **** just put or in path test
 	else {console.log("error")}
 
 
