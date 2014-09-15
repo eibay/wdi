@@ -1,0 +1,11 @@
+for (var i = 0; i < friends.length; i++) {
+	list = list + "<li>" + friends[i] + "</li>";
+};
+
+friends.forEach(function(monkey_eggs) {
+	list = list + "<li>" + monkey_eggs + "</li>";
+});
+
+schmee is an argument to the forEach method
+
+var schmee = function(monkey_eggs)
