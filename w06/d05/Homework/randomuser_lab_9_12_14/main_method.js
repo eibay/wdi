@@ -13,13 +13,14 @@ var companies = [
 // }
 
 var findCompanyByName = function(name, arrayOfHashes) {
-	for(i=0; i<arrayOfHashes.length; i++) {
+    for(i=0; i<arrayOfHashes.length; i++) {
 		if(arrayOfHashes[i]["name"] == name) {
-			return arrayOfHashes[i]
+			return arrayOfHashes[i];
 		}
 	}
-}
+};
 
-var a = findCompanyByName("apple", companies)
 
-console.log(a)
+var a = findCompanyByName("apple", companies);
+
+console.log(a);
