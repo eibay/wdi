@@ -10,11 +10,12 @@ var first_names = JSON.parse(fs.readFileSync(path + "first_names.txt", "UTF8"));
 var last_names = JSON.parse(fs.readFileSync(path + "last_names.txt", "UTF8"));
 var locations = JSON.parse(fs.readFileSync(path + "locations.txt", "UTF8"));
 
-debugger;
+debugger;	
 
 function createPerson() {
-	people.push(createUser());
-
+	var person = createUser();
+	people.push(person);
+	return people;
 }
 
 function extractRandomly(array) {
