@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>User</title>
+</head>
+<body>
+	<h1><%= user.name %></h1>
+	<h3><%= user.instrument %></h3>
+	<h5>Leave Comment</h5>
+	<form action="/users/user/comment" method="POST">
+		<input type="text" name="commentor" placeholder="Your Name"><br>
+		<textarea rows="5" cols="50" name="comment" placeholder="What do you think about <%= user.name %>?"></textarea>
+		<input type="hidden" name="user_id" value="<%= user.id %>">
+		<button>Submit</button>
+	</form>
+	<% if comments.length > 0 %>
+		<h5>Comments:</h5>
+		<ul>
+			<% comments.each do |comment| %>
+			<li>"<%= comment.comment %>" - <strong><%= comment.commentor %></strong></li>
+			<% end %>
+		</ul>
+	<% end %>
+	<a href="/">Home</a>
+</body>
+</html>

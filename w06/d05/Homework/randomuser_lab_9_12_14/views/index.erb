@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Musicians</title>
+</head>
+<body>
+		<h1>Musicians</h1>
+		<form action="/user/add" method="GET">
+			<button>Add Musician</button>
+		</form>
+		<ul>
+			<% users.limit(5).offset(offset).each do |user| %>
+			<li><a href="/user/user_id?id=<%= user.id %>"><%= user.name %></a></li>
+			<% end %>
+		</ul>
+		<% if users.length > 5 %>
+		<form action="/" method="GET">
+			<input type="hidden" name="page" value="<%= page + 1 %>">
+			<button>Next Page</button>
+		</form>
+		<% end %>
+		<% if page > 1 %>
+			<form action="/" method="GET">
+				<input type="hidden" name="page" value="<%= page - 1 %>">
+				<button>Prev Page</button>
+			</form>
+		<% end %>
+</body>
+</html>
