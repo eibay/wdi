@@ -10,6 +10,7 @@ function createPerson(){
     for(var i=0; i<name.length; i++){
     	newPersonHash["name"]= name[Math.floor(Math.random()*name.length)]
     	newPersonHash["location"]= location[Math.floor(Math.random()*location.length)]
+    	people.push(newPersonHash)
     }return newPersonHash
 	};
 

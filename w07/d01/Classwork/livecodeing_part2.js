@@ -18,7 +18,6 @@ var server = http.createServer(function(request, response){
     console.log(people)
     msg = JSON.stringify(person)
   } 
-
 	response.end(msg);	
 });
 
