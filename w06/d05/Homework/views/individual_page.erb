@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title><%= user.first %> <%= user.second %> <%= user.third %></title>
+</head>
+<body>
+	<h1><%= user.first %> <%= user.second %> <%= user.third %></h1>
+	<% comments.each do |a| %>
+
+	<% end %>
+
+Add a comment: <br>
+
+	<form method="POST" action="/comment">
+		<input type="hidden" name="id" value= "<%= user.id %>">
+		<textarea name="comment" cols="50" rows= "5">What do you know about <%= user.first %> <%= user.second %>"
+		</textarea>
+		<input type="submit" value="submit comment">
+	</form>
+
+</body>
+</html>	
