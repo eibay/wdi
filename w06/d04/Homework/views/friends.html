@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Friends</title>
+</head>
+<body>
+	<header>
+		<h1>Friends</h1>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/cast">The Cast of Friends</a></li>
+				<li><a href="/cast/random">Nah nah nah nah nah</a></li>
+			</ul>
+		</nav>
+	</header>
+	<h1>All My Friends</h1>
+	<ul>
+	{{#friends}}
+		<li>{{.}}</li>
+	{{/friends}}
+	</ul>
+
+</body>
+</html>
