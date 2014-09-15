@@ -21,7 +21,7 @@ random_people_array=[]
 end
 
 get ('/user/:id') do 
-  comments = []
+  comments = []a
   id = params['id']
   comment = params['comment']
 
