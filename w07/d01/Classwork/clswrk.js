@@ -29,4 +29,9 @@ function createPerson(){
 	return person
 };
 
+
 console.log(createPerson());
+console.log(createPerson());
+console.log(createPerson());
+console.log(createPerson());
+console.log(people);
