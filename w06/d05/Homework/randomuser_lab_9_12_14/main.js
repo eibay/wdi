@@ -5,6 +5,20 @@ var companies = [
 	{name: "google", location: "mountain view"}
 ];
 
+function findCompanyByName(company){
+		companies.forEach(function(company){
+
+			if(company["name"]==company){
+
+				company_hash=company
+
+			}
+
+		});
+
+	company_json=JSON.stringify(company_hash);
+}
+
 var server = http.createServer(function(req, res){
 	
 
@@ -20,17 +34,7 @@ else if(req.url.split("/")[1]!=""){
 	var company_name=req.url.split("/")[1]
 	var company_hash=""
 	debugger;
-		companies.forEach(function(company){
 
-			if(JSON.stringify(company).match(company_name)){
-
-				company_hash=company
-
-			}
-
-		});
-
-	company_json=JSON.stringify(company_hash);
 	res.end(company_json)
 
 }
