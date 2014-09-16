@@ -1,13 +1,21 @@
-genParams = function(path) {
-	var dummies = path.split("?")[1].split("&");
-	var params = {};
-	params[dummies[0].split("=")[0]] = dummies[0].split("=")[1];
-	params[dummies[1].split("=")[0]] = dummies[1].split("=")[1];
-	return params;
-}
+var redis = require("redis");
 
-path = "/users?page_length=5&page_num=3";
+process.stdin.setEncoding('utf8');
 
-var parcel = genParams(path);
+console.log("Please enter your name.");
 
-debugger
+process.stdin.on("readable", function() {
+  var name = process.stdin.read();
+  if (name != null) {
+  	name = name.replace("\n", "");
+  	console.log("Hello, " + name + ".");
+  	process.end();
+  }
+ });
+
+process.stdin.on("end", function() {
+	console.log("Enter your city and state of residence, please.");
+})
+
+
+
