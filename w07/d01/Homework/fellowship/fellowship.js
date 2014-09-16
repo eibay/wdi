@@ -62,8 +62,24 @@ function makeBuddies(buddies){
 
 }
 
+// var insertedElement = parentElement.insertBefore(newElement, referenceElement);
+// If referenceElement is null, or undefined, newElement is inserted at the end of the list of child nodes.
+
+// insertedElement The node being inserted, that is newElement
+// parentElement The parent of the newly inserted node.
+// newElement The node to insert.
+// referenceElement The node before which newElement is inserted.
+
 function beautifulStranger(){
   var searches = document.getElementsByTagName("li")
+  //not an array that is why - it is an object
+  //if used buddies instead which is an array, you could use the for loop
+  // searches.forEach(function(search){
+  //   if (search.innerText == "Strider"){
+  //     search.innerText = "Aragorn"
+  // }
+  // })
+  // }
   var i = 0
   //ask why cant you use a forEach
 
