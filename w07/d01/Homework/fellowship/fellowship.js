@@ -80,31 +80,30 @@ function beautifulStranger() {
 
 function forgeTheFellowShip() {
 	var shire = document.getElementById("theshire");
-	var hobbits = shire.children[1];
-	shire.removeChild(hobbits);
 	var rivendell = document.getElementById("rivendell");
-	rivendell.appendChild(hobbits);
+	var hobbits_parent = shire.children[1];
 	var buddies = document.getElementById("buddies");
-	buddies.parentNode.removeChild(buddies);
+	rivendell.appendChild(hobbits_parent);
 	rivendell.appendChild(buddies);
 	var fellowship = document.createElement("div");
 	fellowship.id = "fellowship";
+	fellows = document.createElement("ul");
+	fellowship.appendChild(fellows);
 	rivendell.appendChild(fellowship);
-	fellowship_ul = document.createElement("ul");
-	fellowship.appendChild(fellowship_ul);
-	var hobbits = document.getElementsByClassName("hobbit");
+	hobbits = document.getElementsByClassName("hobbit");
 	for (var i = 0; i < hobbits.length; i++) {
-		fellowship.children[0].appendChild(hobbits[i]);
-	}
-	for (var i = 0; i < buddies.length; i++) {
-		fellowship.children[0].appendChild(buddies[i]);
-	}
-
+		var newHobbit = document.createElement("li");
+		newHobbit.innerText = hobbits[i].innerText;
+		fellows.appendChild(newHobbit);
+		window.alert("Hobbit added to Fellowship");
+	};
+	rivendell.removeChild(hobbits_parent);
+	var buddies = document.getElementById("buddies");
+	for (var i = 0; i < buddies.children[0].children.length; i++) {
+		var newBuddy = document.createElement("li");
+		newBuddy.innerText = buddies.children[0].children[i].innerText;
+		fellows.appendChild(newBuddy);
+		window.alert("Buddy added to Fellowship");
+	};
+	rivendell.removeChild(buddies);
 }
-
-
-
-
-
-
-
