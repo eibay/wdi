@@ -84,7 +84,7 @@ function makeBuddies(buddies) {
 makeBuddies(buddies)
 
 function beautifulStranger() {
-	var strider = middleEarth.children[1].children[1].children[3]
+	var strider = middleEarth.children[1].children[0].children[3]
 	strider.innerText = "Aragorn"
 	// change the buddy 'Strider' textnode to "Aragorn"
 }
@@ -114,6 +114,12 @@ function forgeTheFellowShip() {
 	fellowship_li_b.innerText = buddies[4]
 	fellowship_ul.appendChild(fellowship_li_b)
 	alert(buddies[4] + " has joined the Fellowship!")
+
+	var goneHobbits = middleEarth.children[0].children[1]
+	var goneBuddies = middleEarth.children[1].children[0]
+	goneBuddies.parentNode.removeChild(goneBuddies)
+	goneHobbits.parentNode.removeChild(goneHobbits)
+
 
 	fellowship.appendChild(fellowship_ul)
 
