@@ -4,14 +4,21 @@ function createPerson() {
 	var names = ["Joe", "Bob", "Arnold", "Goku"];
 	var ages = ["20", "30", "40", "80"];
 
-	var name = names[Math.floor(names.length * Math.random())];
-	var age = ages[Math.floor(ages.length * Math.random())];
+	var name = randomize(names);
+	var age = randomize(ages);
 
 	var new_char = {name: name, age: age, id: (characters.length + 1)}
 	characters.push(people);
 
 	return new_char
 }
+
+function randomize(arr) {
+	var element = arr[Math.floor(arr.length * Math.random())];
+	return element;
+}
+
+
 
 console.log(createPerson());
 console.log(createPerson());
