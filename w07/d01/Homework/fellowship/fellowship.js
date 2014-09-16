@@ -82,7 +82,7 @@ function forgeTheFellowShip(){
   var buddies = document.getElementsByTagName("li")
   var middle = document.getElementById("middle-earth")
   var placement = middle.children[2]
-  placement.appendChild(newdiv)
+  placement.children[0].appendChild(newdiv)
   var i = 0
   while (i < 5){
   alert(buddies[0].innerText + " has joined");
