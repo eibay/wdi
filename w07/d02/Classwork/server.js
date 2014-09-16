@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>DOM</title>
-</head>
-<body>
-  <h3>Saplings</h3>
-  <ul class="sapling">
-    <li>Birch</li>
-    <li>Maple</li>
-    <li>Pine</li>
-  </ul>
+var http = require('http')
+var fs = require('fs')
 
-  <h3>Trees</h3>
-  <ul class="tree">
-    <li>Dogwood</li>
-    <li>Apple</li>
-  </ul>
-</body>
-  <script type="text/javascript">
+var server = http.createServer(function(request, response) {
+	var path = request["url"]
+	if(path=="/") {
+		var html = fs.readFileSync("./tree.html")
+		response.end(html)
+	}
+})
 
-
-  </script>
-</html>
+server.listen(2000)
 
 var birch = document.querySelector("ul.sapling li")
 

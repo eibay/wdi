@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>To Do</title>
+</head>
+<body>
+	<h2> What shall we do, sir?</h2>
+	<input id="inputBox" type="text" placeholder="Do what 啊？">
+	
+	<ul id="ul_toDo"></ul>
+	
+	<p id="count_toDo">Tasks left: 0</p>
+
+
+	<script>
+
+		//variables
+		var inputButton = document.getElementById('inputButton')
+		var ul_toDo = document.getElementById('ul_toDo')
+		
+
+
+		//eventlistener on inputBox
+		inputBox.addEventListener('keypress', function() {
+			var count_toDo = document.getElementById('count_toDo')
+			var inputBox = document.getElementById('inputBox')
+			var inputValue = inputBox.value
+
+			if(event.keyCode == 13) {
+
+				//create li
+				var li_toDo = document.createElement('li')
+				li_toDo.innerText =  inputValue
+				
+				//create checkbox
+				var li_checkbox = document.createElement('input')
+				li_checkbox.type = 'checkbox'
+
+				li_toDo.appendChild(li_checkbox)
+
+				
+
+				li_checkbox.addEventListener('click', function(event) {
+					console.log(event);
+					if(event.target.checked == true) {
+						event.target.parentNode.style.textDecoration = "line-through";
+						console.log(event.target.parentNode.style)
+					}
+				})
+
+				//add to top
+				ul_toDo.insertBefore(li_toDo, ul_toDo.children[0])
+
+				// reevalute count_toDo
+				count_toDo.innerText = "Tasks left: " + ul_toDo.children.length
+
+			}	
+		})
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

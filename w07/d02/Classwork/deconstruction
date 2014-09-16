@@ -1,0 +1,13 @@
+
+1. create empty div 
+2. put ul inside div
+
+---------
+
+3. set variable -> input
+4. set function to listen for input submission event
+	4.1 when triggered, function will create variable li --> <li> + input </li>
+	4.2 insert li --> div.ul
+
+5. run
+
