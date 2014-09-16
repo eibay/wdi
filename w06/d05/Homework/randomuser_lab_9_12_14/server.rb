@@ -7,6 +7,10 @@ require_relative './lib/connection'
 require_relative './lib/users'
 require_relative './lib/comments'
 
+after do 
+	ActiveRecord::Base.connection.close
+end
+
 get '/' do 
 	users = User.all()
 	if params[:page] && params[:page].to_i > 1

@@ -5,8 +5,8 @@ var redis = require('redis');
 var client = redis.createClient();
 
 //initialize redis 
-var characters = [];
-client.set("characters", JSON.stringify(characters),redis.print);
+// var characters = [];
+// client.set("characters", JSON.stringify(characters),redis.print);
 
 var firstnames = ["Axl", "Josh", "Tim", "Akita", "Dominick", "Richard", "Tom", "Ben", "Kurt", "Dave"];
 var lastnames = ["Rose", "Homme", "Hecker", "Masami", "Fernow", "James", "Jenkinson", "Vrellen", "Cobain", "Grohl"];
