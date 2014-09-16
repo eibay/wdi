@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>User Page</title>
+</head>
+<body>
+
+<h4> <%=user_information%> </h4>
+	<p> name: <%=user_information["name"]%> </p>
+	<p> id:<%=user_information["id"]%> </p>
+	
+<h4>Leave a comment</h4>
+	<form action='/user/<%=user["id"]%>' method='POST'>
+		<input type='text' name='comment' placeholder='Comments'>
+		<button>Submit</button>
+	</form>
+
+<h4>Comments</h4>
+	<% comments.each do |x| %>
+	<%= x[:comment] %>
+	<% end %>
+
+</body>
+</html>

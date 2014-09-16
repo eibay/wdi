@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RandomUser.me</title>
+</head>
+<body>
+
+	<ul>
+	<% random_people_array.each do |x| %>
+		<li>
+			<a href='/user/<%= x["id"]%>'><%= x["name"] %></a>
+		</li>
+	<% end %>
+	</ul>
+
+	
+</body>
+</html>
