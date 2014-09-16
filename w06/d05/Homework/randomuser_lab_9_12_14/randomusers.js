@@ -18,13 +18,26 @@ var dynamic_path = path.split("/")[2];
 
 	
 if ((path =="/user/create") && (method="POST")) {	
-	var name_index = Math.floor(Math.random() * characters.length)
-	var show_index = Math.floor(Math.random() * show.length)
-	var name_show_combined = {name: name[name_index], show_index: show[show_index]}
-  		character_and_show.push(name_show_combined)
-  		character_string = JSON.stringify(name_show_combined)
-  			response.end(character_string);
-  	}
+
+var people = []
+var characters = ["Ted Mosby", "Peter Griffin", "Corey Matthews", "Homer Simpson"]
+
+function createPerson () {
+
+	person = {}
+	person.characters = randomElement(characters);
+	person.id = people.length +1 ;
+
+	people.push(person);
+
+	return person
+	}
+
+function randomElement(arr) {
+	var index = Math.floor(Math.random() * arr.length);
+	return arr[index];
+
+	}
 
 // http://localhost:2000/user/1
 else if (path =="/user/" + dynamic_path) {
