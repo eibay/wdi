@@ -17,8 +17,17 @@ var buddies = [
 
 var lands = ["The Shire", "Rivendell", "Mordor"];
 
-function makeMiddleEarth(lands) {
+
+function makeMiddleEarth(lands) {  
+	var middleEarth = document.getElementById("middle-earth")
+  
+  lands.forEach(function(land){
+    var landDiv = document.createElement("div") 
+    landDiv.innerText = land
+    middleEarth.appendChild(landDiv)
+  });
 }
+
 
 function makeHobbits(hobbits) {
 }
