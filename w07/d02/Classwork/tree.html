@@ -17,5 +17,46 @@
     <li>Dogwood</li>
     <li>Apple</li>
   </ul>
+    <input type="text" name="name">
+    <button id="btn">Add</button>
+    <button id="del">Delete</button>
 </body>
+  <script type="text/javascript">
+    // birch = document.querySelector("ul.sapling li");
+    // birch.parentElement.removeChild(birch);
+
+    // tree = document.querySelector("ul.tree");
+    // tree.appendChild(birch);
+
+    var button = document.getElementById("btn");
+    var input = document.querySelector("input");
+
+    var addToList = function(item) {
+      var trees = document.getElementsByClassName("tree");
+      tree = document.createElement("li");
+      tree.innerText = item;
+      trees[0].appendChild(tree);
+    }
+
+    var removeElement = function(item) {
+      var lis = document.querySelectorAll("li");
+      for (var i = 0; i < lis.length; i++) {
+        if (lis[i].innerText === item) {
+          lis[i].parentElement.removeChild(lis[i]);
+        }
+      }
+    }
+
+    button.addEventListener("click", function(event){
+      addToList(input.value);
+      input.value = "";
+    })
+
+    var delButton = document.getElementById("del");
+    delButton.addEventListener("click", function(event) {
+      removeElement(input.value);
+      input.value = "";
+    })
+
+  </script>
 </html>

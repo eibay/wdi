@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO</title>
+</head>
+<body>
+	<h1>TODO</h1>
+	<input id="todo" type="text" name="thing">
+	<ul id='list'></ul>
+</body>
+<script>
+	adder = document.getElementById("todo");
+	adder.addEventListener("keydown", function(event) {
+		if (event.keyCode === 13) {
+			list = document.getElementById("list");
+			item = document.createElement("li");
+			var checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			checkbox.addEventListener("click", function() {
+				checkbox.parentElement.parentElement.removeChild(checkbox.parentElement);
+			})
+			item.innerText = adder.value;
+			item.appendChild(checkbox);
+			list.appendChild(item);
+			adder.value = '';
+		}
+	})
+</script>
+</html>
