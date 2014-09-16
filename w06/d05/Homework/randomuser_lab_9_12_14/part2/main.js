@@ -20,8 +20,8 @@ if (path == "/") {
 	heathers_in_json = JSON.stringify(heathers);
   response.end(heathers_in_json);
 
-} else if (path.split("/")[1] == "users") {
-  response.end(heathers.length["first_name"]);
+// } else if (path.split("/")[1] == "users") {
+//   response.end(heathers.length["first_name"]);
 
 } else if (path.split("/")[1] == "user") {
     if (path == "/user/create") {

@@ -1,0 +1,100 @@
+document
+#document<html>​<head>​<title>​Dom Playground​</title>​<link rel=​"stylesheet" type=​"text/​css" href=​"./​stylesheets/​styles.css">​</head>​<body>​<h1 id=​"page_heading">​WDI Rosencrantz!​</h1>​<div id=​"instructors_list">​…​</div>​<div id=​"languages">​…​</div>​<div id=​"bottom_section">​…​</div>​</body>​</html>​
+typeof(document);
+"object"
+document.body
+<body>​<h1 id=​"page_heading">​WDI Rosencrantz!​</h1>​<div id=​"instructors_list">​…​</div>​<div id=​"languages">​…​</div>​<div id=​"bottom_section">​…​</div>​</body>​
+document.body.children
+[<h1 id=​"page_heading">​WDI Rosencrantz!​</h1>​, <div id=​"instructors_list">​<h3>​Instructors​</h3>​<ul id=​"instructors">​<li>​Neel Patel​</li>​<li>​Sean West​</li>​<li>​Jeff Konowitch​</li>​</ul>​</div>​, <div id=​"languages">​…​</div>​, <div id=​"bottom_section">​…​</div>​]
+document.body.children[0]
+<h1 id=​"page_heading">​WDI Rosencrantz!​</h1>​
+document.body.children[1]
+<div id=​"instructors_list">​<h3>​Instructors​</h3>​<ul id=​"instructors">​<li>​Neel Patel​</li>​<li>​Sean West​</li>​<li>​Jeff Konowitch​</li>​</ul>​</div>​
+document.body.children[1]["instructors"]
+undefined
+document.body.children[1][id]
+ReferenceError: id is not defined
+document.body.children[1][id="instructors"]
+undefined
+document.body.children[1][id]["instructors']
+SyntaxError: Unexpected token ILLEGAL
+document.body.children[1]
+<div id=​"instructors_list">​<h3>​Instructors​</h3>​<ul id=​"instructors">​<li>​Neel Patel​</li>​<li>​Sean West​</li>​<li>​Jeff Konowitch​</li>​</ul>​</div>​
+document.body.children[1][0]
+undefined
+document.body.children[1].children
+[<h3>​Instructors​</h3>​, <ul id=​"instructors">​…​</ul>​]
+document.body.children[1].children[1]
+<ul id=​"instructors">​…​</ul>​
+document.body.children[1].children[1].children
+[<li>​Neel Patel​</li>​, <li>​Sean West​</li>​, <li>​Jeff Konowitch​</li>​]
+document.body.children[1].children[1].children[1]
+<li>​Sean West​</li>​
+document.body.children[1].children[1].children[1].parentNode
+<ul id=​"instructors">​…​</ul>​
+instructors.children
+[<li>​Neel Patel​</li>​, <li>​Sean West​</li>​, <li>​Jeff Konowitch​</li>​]
+document.body.children[1].children[1].children[1]
+<li>​Sean West​</li>​
+li.children
+ReferenceError: li is not defined
+document.body.children[1].children[1].children[1]
+<li>​Sean West​</li>​
+document.body.children
+[<h1 id=​"page_heading">​WDI Rosencrantz!​</h1>​, <div id=​"instructors_list">​…​</div>​, <div id=​"languages">​…​</div>​, <div id=​"bottom_section">​…​</div>​]
+document.body.children[3]
+<div id=​"bottom_section">​…​</div>​
+document.body.children[3].children
+[<a class=​"links" href=​"https:​/​/​github.com/​ga-students/​rosencrantz">​Rosencrantz Repo​</a>​, <a class=​"links" href=​"http:​/​/​stackoverflow.com/​">​StackOverflow​</a>​, <p id=​"description">​…​</p>​]
+document.body.children[3].children[1]
+<a class=​"links" href=​"http:​/​/​stackoverflow.com/​">​StackOverflow​</a>​
+document.body.children[3].children[0]
+<a class=​"links" href=​"https:​/​/​github.com/​ga-students/​rosencrantz">​Rosencrantz Repo​</a>​
+document.querySelector("a")
+<a class=​"links" href=​"https:​/​/​github.com/​ga-students/​rosencrantz">​Rosencrantz Repo​</a>​
+document.querySelectorAll("a")
+[<a class=​"links" href=​"https:​/​/​github.com/​ga-students/​rosencrantz">​Rosencrantz Repo​</a>​, <a class=​"links" href=​"http:​/​/​stackoverflow.com/​">​StackOverflow​</a>​]
+document.getElementsByClassName("links");
+[<a class=​"links" href=​"https:​/​/​github.com/​ga-students/​rosencrantz">​Rosencrantz Repo​</a>​, <a class=​"links" href=​"http:​/​/​stackoverflow.com/​">​StackOverflow​</a>​]
+document.getElementsByClassName("description");
+[]
+document.getElementsById("description");
+TypeError: undefined is not a functionmessage: "undefined is not a function"stack: (...)get stack: function () { [native code] }set stack: function () { [native code] }__proto__: Error
+document.getElementById("description");
+<p id=​"description">​"Beard plaid flexitarian hoodie, Blue Bottle direct trade small batch banh mi stumptown sartorial Vice. Dreamcatcher gluten-free street art wayfarers, selfies Shoreditch locavore. Church-key American Apparel selfies umami, plaid 3 wolf moon try-hard vegan fanny pack artisan pour-over chia distillery pickled readymade. Lo-fi Portland chillwave VHS Wes Anderson, art party photo booth shabby chic irony occupy. Fanny pack pour-over cornhole, small batch chillwave Marfa Neutra fixie twee farm-to-table asymmetrical brunch Intelligentsia. Mixtape gastropub PBRB vegan direct trade High Life, Etsy fixie fanny pack mustache chambray McSweeney's biodiesel VHS swag. Post-ironic scenester you probably haven't heard of them, vegan selfies chia Banksy salvia hella flannel."</p>​
+var description = document.getElementById("description");
+undefined
+description
+<p id=​"description">​…​</p>​
+description.innerText("We are learning about the DOM")
+TypeError: string is not a function
+description.innerText
+"Beard plaid flexitarian hoodie, Blue Bottle direct trade small batch banh mi stumptown sartorial Vice. Dreamcatcher gluten-free street art wayfarers, selfies Shoreditch locavore. Church-key American Apparel selfies umami, plaid 3 wolf moon try-hard vegan fanny pack artisan pour-over chia distillery pickled readymade. Lo-fi Portland chillwave VHS Wes Anderson, art party photo booth shabby chic irony occupy. Fanny pack pour-over cornhole, small batch chillwave Marfa Neutra fixie twee farm-to-table asymmetrical brunch Intelligentsia. Mixtape gastropub PBRB vegan direct trade High Life, Etsy fixie fanny pack mustache chambray McSweeney's biodiesel VHS swag. Post-ironic scenester you probably haven't heard of them, vegan selfies chia Banksy salvia hella flannel."
+description.innerText = "We are learning about the DOM"
+"We are learning about the DOM"
+description.innerText
+"We are learning about the DOM"
+var list = document.getElementById("instructors");
+undefined
+list
+<ul id=​"instructors">​…​</ul>​
+document.createElement("li")
+<li>​</li>​
+var listItem = document.createElement("li");
+undefined
+listItem
+<li>​</li>​
+listItem.innerText = "Ben Karl"
+"Ben Karl"
+listItem
+<li>​Ben Karl​</li>​
+list.appendChild(listItem);
+<li>​Ben Karl​</li>​
+list.children
+[<li>​Neel Patel​</li>​, <li>​Sean West​</li>​, <li>​Jeff Konowitch​</li>​, <li>​Ben Karl​</li>​]
+var toDelete = list.children[3];
+undefined
+toDelete
+<li>​Ben Karl​</li>​
+toDelete.parentNode.removeChild(toDelete);
+<li>​Ben Karl​</li>​
