@@ -15,16 +15,35 @@
 		if (event.keyCode === 13) {
 			list = document.getElementById("list");
 			item = document.createElement("li");
+			item.innerText = adder.value;
+
 			var checkbox = document.createElement('input');
 			checkbox.type = 'checkbox';
+			checkbox.value = 'false';
 			checkbox.addEventListener("click", function() {
 				checkbox.parentElement.parentElement.removeChild(checkbox.parentElement);
 			})
-			item.innerText = adder.value;
+
+			var up = document.createElement("button");
+			up.innerText = "up";
+			up.addEventListener("click", function() {
+				up.parentElement.parentElement.insertBefore(up.parentElement, up.parentElement.previousSibling);
+			})
+
+			var down = document.createElement("button");
+			down.innerText = "down";
+			down.addEventListener("click", function() {
+				down.parentElement.parentElement.insertBefore(down.parentElement, down.parentElement.nextSibling.nextSibling);
+			})
+
+			item.appendChild(up);
+			item.appendChild(down);
 			item.appendChild(checkbox);
-			list.appendChild(item);
+			list.insertBefore(item, list.children[0]);
 			adder.value = '';
 		}
 	})
 </script>
 </html>
+
+<!-- lis[0].parentElement.insertBefore(lis[0], lis[0].nextSibling.nextSibling) -->
