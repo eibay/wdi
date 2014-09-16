@@ -3,6 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>DOM</title>
+  <script type="text/javascript">
+  function shmee(){
+    birch = document.querySelector("ul.sapling li");
+    birch.parentElement.removeChild(birch);
+
+    tree = document.querySelector("ul.tree");
+    tree.appendChild(birch);
+    var saplings = document.querySelectorAll("ul.sapling li");
+
+  };
+  var removeElement = function(elementObj){
+    elementObj.parentElement.removeChild(elementObj);
+  }
+  </script>
 </head>
 <body>
   <h3>Saplings</h3>
@@ -17,5 +31,10 @@
     <li>Dogwood</li>
     <li>Apple</li>
   </ul>
+  <script type="text/javascript">
+    var saplings = document.querySelectorAll("ul.sapling");
+    var birch = document.querySelectorAll("ul.sapling li");
+    saplings.addEventListener("click", function(){removeElement(saplings)});
+  </script>
 </body>
 </html>

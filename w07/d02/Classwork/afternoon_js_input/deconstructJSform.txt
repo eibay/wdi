@@ -1,0 +1,8 @@
+1. create your html file, with needed ids & classes
+ - UL with id
+2. create a click event listener on the HTML button ? // are we doing this purely via js?
+3. create a function where it:
+4. investigate the captured text on the click event
+5. take captured text and set to variable.
+6. document.createElement list with innerText as captured text
+6. make document.createElement list as child to the UL element
