@@ -79,14 +79,15 @@ function forgeTheFellowShip() {
   div = document.createElement("div");
   div.id = "the-fellowship";
   middleEarth.children[1].appendChild(div);
-  for(i = 0; i < hobbs.children.length; i++) {
+  setTimeout
+  while (hobbs.children.length > 0) {
+    console.log(hobbs.children[0].innerText + " has joined your party.")
     div.appendChild(hobbs.children[0]);
-    console.log(hobbs.children[i].innerText + " has joined your party.")
   }
-  // for(i = 0; i < humans.children[0].children.length; i++) {
-  //   div.appendChild(humans.children[0].children[i]);
-  //   console.log(humans.children[0].children[i].innerText + " has joined your party.")
-  // }
+  while (humans.children.length > 0) {
+    console.log(humans.children[0].innerText + " has joined your party.");
+    div.appendChild(humans.children[0]);
+  }
 }
 
 
