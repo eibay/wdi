@@ -12,38 +12,49 @@
 <script>
 	adder = document.getElementById("todo");
 	adder.addEventListener("keydown", function(event) {
-		if (event.keyCode === 13) {
-			list = document.getElementById("list");
-			item = document.createElement("li");
-			item.innerText = adder.value;
-
-			var checkbox = document.createElement('input');
-			checkbox.type = 'checkbox';
-			checkbox.value = 'false';
-			checkbox.addEventListener("click", function() {
-				checkbox.parentElement.parentElement.removeChild(checkbox.parentElement);
-			})
-
-			var up = document.createElement("button");
-			up.innerText = "up";
-			up.addEventListener("click", function() {
-				up.parentElement.parentElement.insertBefore(up.parentElement, up.parentElement.previousSibling);
-			})
-
-			var down = document.createElement("button");
-			down.innerText = "down";
-			down.addEventListener("click", function() {
-				down.parentElement.parentElement.insertBefore(down.parentElement, down.parentElement.nextSibling.nextSibling);
-			})
-
-			item.appendChild(up);
-			item.appendChild(down);
-			item.appendChild(checkbox);
-			list.insertBefore(item, list.children[0]);
+		if (event.keyCode === 13) { 
+			addItem(adder.value);
 			adder.value = '';
-		}
-	})
+			}
+		})
+
+	var addItem = function(thing) {
+		list = document.getElementById("list");
+		item = document.createElement("li");
+		item.innerText = thing;
+		item.addEventListener("click", function(event) {
+			event.target.innerHTML = "<input type='text' name='thinged'>";
+		})
+		item.addEventListener("keydown", function(event) {
+			if (event.keyCode === 13) { 
+			addItem(event.target.value);
+			event.target.parentElement.parentElement.removeChild(event.target.parentElement);
+			}
+		})
+
+		var checkbox = document.createElement('input');
+		checkbox.type = 'checkbox';
+		checkbox.value = 'false';
+		checkbox.addEventListener("click", function() {
+			checkbox.parentElement.parentElement.removeChild(checkbox.parentElement);
+		})
+
+		var up = document.createElement("button");
+		up.innerText = "up";
+		up.addEventListener("click", function() {
+			up.parentElement.parentElement.insertBefore(up.parentElement, up.parentElement.previousSibling);
+		})
+
+		var down = document.createElement("button");
+		down.innerText = "down";
+		down.addEventListener("click", function() {
+			down.parentElement.parentElement.insertBefore(down.parentElement, down.parentElement.nextSibling.nextSibling);
+		})
+
+		item.appendChild(up);
+		item.appendChild(down);
+		item.appendChild(checkbox);
+		list.insertBefore(item, list.children[0]);
+	}
 </script>
 </html>
-
-<!-- lis[0].parentElement.insertBefore(lis[0], lis[0].nextSibling.nextSibling) -->
