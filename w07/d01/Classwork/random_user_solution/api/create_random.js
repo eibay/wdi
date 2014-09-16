@@ -1,4 +1,4 @@
-var fs = require("fs")
+var fs = require("fs");
 var crypto = require('crypto');
 var first = JSON.parse(fs.readFileSync('./first_names.txt'));
 var last = JSON.parse(fs.readFileSync('./last_names.txt'));
@@ -26,7 +26,7 @@ function createRandom() {
 		// random_array = random_array.push(random_dog);
 		// fs.writeFileSync("./array_of_hashes.txt", JSON.stringify(random_array));
 
-		msg = JSON.stringify(random_dog);
+		var msg = JSON.stringify(random_dog);
 		return msg
 	}
 console.log(createRandom())

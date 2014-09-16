@@ -32,10 +32,10 @@ if (path == "/user/create") {
 		
 
 		var random_array = JSON.parse(fs.readFileSync("./array_of_hashes.txt"));
-		random_array = random_array.push(random_dog);
+		random_array.push(random_dog);
 		fs.writeFileSync("./array_of_hashes.txt", JSON.stringify(random_array));
 
-		msg = JSON.stringify(random_dog);
+		var msg = JSON.stringify(random_dog);
 	}
 
 	else if (path.split("/")[1] == "user" && method == "GET") {
@@ -45,11 +45,20 @@ if (path == "/user/create") {
 		for (i = 0; i < random_array.length; i++) {
 			if (random_array[i]["id"] == query_id) {
 				msg = JSON.stringify(random_array[i])
-			};
-	}}
+			};}
+	
+	} else if (path.split("?")[0] == "/users") {
+		var random_array = JSON.parse(fs.readFileSync("./array_of_hashes.txt"));
+		var msg = random_array
+		var num = parseInt(path.split("?")[1].split("&")[1].split("=")[1]);
+		var length = parseInt(path.split("?")[1].split("&")[0].split("=")[1]);
+		var start = length*(num-1);
+		
+		var list = random_array.slice(start, (start + length))
+		var msg = JSON.stringify(list)
 
-	else {
-		msg = "Error 404. Page does not exist."
+	} else {
+		var msg = "Error 404. Page does not exist."
 	}
 
 	response.end(msg);
