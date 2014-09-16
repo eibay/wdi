@@ -16,6 +16,20 @@ function createTodoListItem(content) {
 	todoList.appendChild(li); 
 }
 
+function getContent() {
+	var input = document.querySelector("input#content");
+	var content = input.value;
+	input.value = ''
+	return content 
+}
+
+function markItemDone(item) {
+	item.style.textDecoration = "underline";
+}
+
 window.onload = function() {
-	
+	var button = document.querySelector("button"); 
+	button.onclick = function() {
+		createTodoListItem(getContent()); 
+	}
 }
