@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Todo App</title>
+	<link rel="stylesheet" type="text/css" href="./stylesheets/styles.css">
+</head>
+<body>
+	<h1>Todo, Todo</h1>
+
+	<input></input>
+	<button>Add</button>
+
+	<ul id='todo_list'>
+	</ul>
+	
+	<script>
+		var ul = document.getElementById("todo_list");
+		var textbox= document.querySelector("input");
+		var addButton = document.querySelector("button");
+
+		addButton.addEventListener("click", function(){
+			var text = textbox.value;
+			var listItem = document.createElement("li");
+			var inputCheckBox = document.createElement("input");
+			inputCheckBox.type = "checkbox";
+			listItem.innerText = text;
+			listItem.insertBefore(inputCheckBox, listItem.innerText);	
+		
+			ul.appendChild(listItem);
+			
+			textbox.value = "";
+		});
+
+		ul.addEventListener("click", function(){
+			for(var i =0; i< ul.children.length; i++){
+				if(ul.children[i].children[0].checked == true){
+					var childNode = ul.children[i];
+					setTimeout(function(){
+						childNode.parentNode.removeChild(childNode)
+					}, 1500);
+				};
+			};
+		});
+
+	</script>
+
+</body>
+</html>

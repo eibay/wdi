@@ -1,0 +1,14 @@
+h1{
+	color:red;
+	font-family: courier;
+}
+
+body{
+	text-align: center;
+}
+
+li{
+	text-indent: none;
+	list-style-type: none;
+}
+
