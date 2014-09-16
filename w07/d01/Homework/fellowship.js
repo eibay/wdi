@@ -34,21 +34,19 @@ lands.forEach(function(land){
 });
 
 
-
 hobbits.forEach(function(hobbit) {
 	var hobbitList = document.createElement("ul")
-	hobbitList.innerText = hobbit
+	hobbitList.innerText = "hobbit"
 	hobbitList.className = "hobbit"
 	var hobbitsInTheShire = document.getElementsByTagName("h1")[0]
 	hobbitsInTheShire.appendChild(hobbitList);
 });
 
 
-
 function keepItSecretKeepItSafe() {
 	var divTheRing = document.createElement("div")
 	divTheRing.id = "the-ring"
-	var frodo = document.getElementByTagName("h1")[0].children[0]
+	var frodo = document.getElementsByTagName("h1")[0].children[0]
 	divTheRing.appendChild(frodo);
 };
 
