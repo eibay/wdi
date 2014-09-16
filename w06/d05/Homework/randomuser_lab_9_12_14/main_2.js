@@ -11,7 +11,14 @@ var characters = [
 
 var names = ["alice", "bob", "carol", "dan", "errol", "francis", "gary", "Jack"]
 
+var createPerson = function() {
+	person = {}
 
+	person["name"] = names[Math.floor(Math.random() * (names.length))]
+	person["id"] = names.length + 1
+	characters.push(person)
+	return person
+}
 
 
 
@@ -29,15 +36,18 @@ var server = http.createServer(function(request, response) {
 
 
 
-	if((path=="/user/create") && (method=="POST")) {
-		var newCharHash = {}
-		var randomIndex = Math.floor(Math.random() * ((names.length) - (names.length - 6)))
-		newCharHash["name"] = names[randomIndex]
+	if(path=="/user/create" && method=="POST") {
+		// var newCharHash = {}
+		// var randomIndex = Math.floor(Math.random() * ((names.length) - (names.length - 6)))
+		// newCharHash["name"] = names[randomIndex]
 
-		var newCharId = characters[characters.length - 1]["id"]
-		newCharHash["id"] = parseInt(newCharId) + 1	//remember to parse to integer
+		// var newCharId = characters[characters.length - 1]["id"]
+		// newCharHash["id"] = parseInt(newCharId) + 1	//remember to parse to integer
 
-		characters.push(newCharHash)
+		// characters.push(newCharHash)
+
+
+		newCharHash = createPerson()
 
 		response.end(JSON.stringify(newCharHash))
 	}
