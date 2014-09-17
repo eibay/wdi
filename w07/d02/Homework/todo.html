@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>To Do List</title>
+	<h2> Stuffz and What Not </h2>
+
+
+</head>
+<body>
+	<input id="to_do_list" type="text" placeholder="Tasks">
+	<ul id="list"> </ul>
+
+	<script>
+		var button = document.getElementById("add");
+		var textbox = document.getElementById("to_do_list");
+			textbox.addEventListener("keypress", function(event){ 	
+			var text = textbox.value;
+		
+				if(event.keyCode == 13){
+				if(text != ""){
+
+		var listItem = document.createElement("li");
+			listItem.innerHTML = '<input id="checkbox" type="checkbox" class="checkbox">' + text;
+
+		var list = document.getElementById("list");
+			list.insertBefore(listItem, list.children[0]);
+
+		textbox.value = ""
+
+		// strike-through instead of deleting
+		var checkbox = document.createElement("input");
+			// checkbox.type="checkbox";
+			checkbox.addEventListener("click", function(event){
+				// checkbox.className="checkbox";
+				// listItem.appendChild(checkbox)
+			
+			if(event.target.checked == true) {
+				event.target.parentNode.style.setProperty("text-decoration", "line-through");
+				console.log("event");
+			} 
+			else {
+				checkbox.parentNode.style.setProperty("text-decoration", "none");
+				console.log("event");
+			}
+		})
+
+	}
+	}
+	});
+	</script>
+</body>
+</html>
