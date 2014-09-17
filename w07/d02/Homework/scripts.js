@@ -8,7 +8,10 @@ window.onload = function(){
 	var leftTodo = document.getElementById("left_todo");
 	var left = document.createElement("p");
 
-	addButton.addEventListener("click", function(){
+	// textbox.addEventListener("keydown", addTodo(event));
+
+
+	function addTodo(){
 		var text = textbox.value;
 		var listItem = document.createElement("li");
 		var inputCheckBox = document.createElement("input");
@@ -25,7 +28,10 @@ window.onload = function(){
 		leftTodoArray++;
 		left.innerText = leftTodoArray + " left Todo"
 		leftTodo.appendChild(left);
-	});
+	};
+
+
+	addButton.addEventListener("click", addTodo);
 
 
 	ul.addEventListener("click", function(){
@@ -34,13 +40,16 @@ window.onload = function(){
 				var childNode = ul.children[i];
 				setTimeout(function(){
 					childNode.parentNode.removeChild(childNode)
-				}, 1500);
+				}, 900);
 			};
 		};
+		
+		if(leftTodoArray > 0){
+		leftTodoArray--;
+		left.innerText = leftTodoArray + " left Todo"
+		leftTodo.appendChild(left);	
+		};
 
-	leftTodoArray += - 1;
-	left.innerText = leftTodoArray + " left Todo"
-	leftTodo.appendChild(left);	
 	});
 
 };
