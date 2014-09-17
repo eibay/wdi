@@ -35,6 +35,14 @@
 				var li_toDo = document.createElement('li')
 				li_toDo.innerText =  inputValue
 				count_int = count_int + 1
+
+				//create delete button
+				var li_delete_btn = document.createElement('button')
+				li_delete_btn.innerText = 'Delete'
+				li_toDo.appendChild(li_delete_btn)
+				li_delete_btn.addEventListener('click', function(event) {
+					li_delete_btn.parentNode.parentNode.removeChild(li_toDo)
+				})
 				
 				//create checkbox
 				var li_checkbox = document.createElement('input')
