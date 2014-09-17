@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>To Do List!</title>
+</head>
+<body>
+<h1> TO DO LIST </h1>
+
+<input id= "to_do" type="text" placeholder= "To Do">
+<ul id = "to_do_list">
+</ul>
+
+<script type="text/javascript">
+
+	var textbox = document.getElementById("to_do");
+	var toDoList = document.getElementById("to_do_list")
+	textbox.addEventListener("keypress", function(event){
+	if(event.keyCode == 13) {
+		var text = textbox.value
+		var toDoListItem = document.createElement("li")
+		toDoListItem.innerText = text
+		toDoList.appendChild(toDoListItem)
+		var check = document.createElement("input")
+		check.type= "checkbox"
+		check.className = "check"
+		toDoListItem.appendChild(check)
+		textbox.value = ""
+	}
+
+	var total_checks = document.getElementsByClassName("check").length
+		check.type = "checkbox";
+		check.id = "check"+(total_checks+1);
+		toDoListItem.appendChild(check)
+		check.addEventListener('click', function(event){
+			if(event.target.checked == true)
+			{
+			check.parentNode.style.setProperty("text-decoration", "line-through");
+			}
+			else{
+			check.parentNode.style.setProperty("text-decoration", "none");
+
+			}
+			var checks=document.getElementsByClassName("check")
+			var count=0;;
+			for(var i=0; i < checks.length; i++){
+				if(checks[i].checked==false){
+					count +=1;
+				}
+			}
+			var completedTask=document.getElementById("to_do")
+			completedTask.innerText="You have this many tasks left"+count;
+	})
+			var checks=document.getElementsByClassName("check");
+			var count=0;;
+			for(var i=0; i < checks.length; i++){
+				if(checks[i].checked==false){
+					count +=1;
+				}
+			}
+			var completedTask=document.getElementById("to_do")
+			completed.innerText="You have this many tasks left"+count;
+
+});
+
+
+
+</script>
+</body>
+</html>
+
