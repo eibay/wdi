@@ -1,5 +1,5 @@
 h1{
-	color:red;
+	color:#0D88FF;
 	font-family: courier;
 }
 
@@ -10,5 +10,14 @@ body{
 li{
 	text-indent: none;
 	list-style-type: none;
+	font-family: courier;
+	padding-top: 20px;
 }
 
+div#list{
+	height: 500px;
+	width: 500px;
+	background-color: lightyellow;
+	margin: 0 auto;
+	box-shadow: 5px 0px 5px #888888;
+}
