@@ -1,0 +1,65 @@
+  <!-- There should be an textbox where the user can add a new todo item
+  pressing enter after entering text should add the todo item to the top/beginning of the todo list
+
+
+  All todos should be listed as <li>'s underneath a <ul>
+  Each todo item should have a checkbox next to it that when clicked removes that todo item from the list -->
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>ToDoApp</title>
+  </head>
+  <body>
+
+    <h1>TodoList:</h1>
+
+  <input id="user_input" type="text" placeholder="Enter text"/>
+
+  <ul id="list">
+  </ul>
+
+    <script type="text/javascript">
+
+      // var addDo = function(item) {
+      // var li = document.createElement('li');
+      // li.innerText = item;
+      // // li.innerHTML = '<input type="checkbox">' + item
+      // ul.appendChild(li);
+      // div.appendChild(ul);
+
+      // }
+
+     var textbox = document.getElementById("user_input");
+
+      textbox.addEventListener("keypress", function(event){
+
+      if(event.keyCode == 13) {
+
+          if(text != ""){
+
+        var text = textbox.value;
+
+        var listItem = document.createElement("li");
+
+        listItem.innerText = text;
+
+        listItem.innerHTML = '<input type="checkbox">' + text
+
+        var list = document.getElementById("list");
+
+        list.appendChild(listItem);
+
+         textbox.value = ""
+
+        }
+
+      }
+
+   });
+
+    </script>
+
+  </body>
+  </html>

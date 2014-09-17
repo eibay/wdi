@@ -11,22 +11,41 @@
 
 
   <script>
+
+  // grabs and sets the add button
   var addButton = document.getElementById("add");
 
   // function addToList(){}
 
   // button.addEventListener("click", addToList);
 
+
+  // calls click and the function below when the add button is clicked
   addButton.addEventListener("click", function(){
+
+    // grabs and sets the area where text is typed
    var textbox = document.getElementById("user_input");
+
+   // grabs and sets the actual words typed in the textbox area
    var text = textbox.value;
+
+   // ensures that if nt is typed in, the add button doesnt add an empty ul and li
    if(text != ""){
+
+      // creates and sets the li element
      var listItem = document.createElement("li");
+
+     // sets the li element to have the text typed inside of it
      listItem.innerText = text;
 
+
+     // grabs and sets the list id which is the ul to list
      var list = document.getElementById("list");
+
+     // puts the li into the ul, the listitem is the li and list is the ul
      list.appendChild(listItem);
 
+     // lets the text be accepted in as a string
      textbox.value = ""
    }
   });
