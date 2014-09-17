@@ -91,68 +91,73 @@
    var checkingInput = Number(inputs[0].value);
    var savingsInput = Number(inputs[0].value);
 
+   // Event Listeners based on click events
 
 
-//    checkingWith.addEventListener('click', function(event) {
-//   checkingBal = Number(balances[0].innerText.split("$")[1]);
-//   checkingInput = Number(inputs[0].value);
-//   savingsBal = Number(balances[1].innerText.split("$")[1]);
+    checkingDeposit.addEventListener("click", function() {
 
-//   if (checkingBal < checkingInput && savingsBal >= checkingInput) {
-//     new_p = document.createElement("p");
-//     new_p.innerText = "overdraft protection"
-//     checkingTag.parentNode.appendChild(new_p);
-//     newBal = savingsBal - Math.abs(checkingBal - checkingInput)
-//     checkingTag.innerText = '$' + 0;
-//     savingsTag.innerText = '$' + newBal;
-
-//   } else if (checkingBal < checkingInput && savingsBal < checkingInput) {
-//     alert("Whooooooaaaa, you don't have that much, stupid.")
-
-//   } else {
-//     newBal = checkingBal - checkingInput;
-//     checkingTag.innerText = '$' + newBal;
-//   }
-
-// })
+      var checkingBalance = Number(balance[0].innerText.split("$")[1]);
+      var checkingInput = Number(inputs[0].value);
 
 
-
-   checkingDeposit.addEventListener("click", function() {
-
-      checkingBalance = Number(balance[0].innerText.split("$")[1]);
-      checkingInput = Number(inputs[0].value);
-
-      newBalance = checkingBalance + checkingInput
+      var newBalance = checkingBalance + checkingInput
       checking.innerText = "$" + newBalance
     });
 
-   checkingWithdrawal.addEventListener("click", function() {
 
-      checkingBalance = Number(balance[0].innerText.split("$")[1]);
-      checkingInput = Number(inputs[0].value);
+      checkingWithdrawal.addEventListener("click", function() {
 
-      newBalance = checkingBalance - checkingInput
-      checking.innerText = "$" + newBalance
-    });
+      var checkingBalance = Number(balance[0].innerText.split("$")[1]);
+      var checkingInput = Number(inputs[0].value);
+      var savingsBalance = Number(balance[1].innerText.split("$")[1]);
+
+
+        if (checkingBalance < checkingInput && savingsBalance >= checkingInput) {
+          var overdraft = document.createElement("p");
+          console.log(overdraft)
+          overdraft.innerText = "overdraft protection"
+          checking.parentNode.appendChild(overdraft);
+          var newBalance = savingsBalance - Math.abs(checkingBalance - checkingInput)
+          checking.innerText = '$' + 0;
+          savings.innerText = '$' + newBalance;
+
+        } else if (checkingBalance < checkingInput && savingsBalance < checkingInput) {
+          alert("You are broke, go get a job")
+
+        } else {
+          var newBalance = checkingBalance - checkingInput;
+          checking.innerText = '$' + newBalance;
+        }
+
+      });
+
 
    savingsDeposit.addEventListener("click", function() {
 
-      savingBalance = Number(balance[1].innerText.split("$")[1]);
-      savingsInput = Number(inputs[1].value);
+      var savingBalance = Number(balance[1].innerText.split("$")[1]);
+      var savingsInput = Number(inputs[1].value);
 
-      newBalance = savingBalance + savingsInput
+      var newBalance = savingBalance + savingsInput
       savings.innerText = "$" + newBalance
       console.log(newBalance)
     });
 
    savingsWithdrawal.addEventListener("click", function() {
 
-      savingBalance = Number(balance[1].innerText.split("$")[1]);
-      savingsInput = Number(inputs[1].value);
+      var savingBalance = Number(balance[1].innerText.split("$")[1]);
+      var savingsInput = Number(inputs[1].value);
 
-      newBalance = savingBalance - savingsInput
-      savings.innerText = "$" + newBalance
-    });
+        if (savingBalance < savingsInput) {
+
+      alert("Now you're really broke dude, seriously get a job")
+
+    } else {
+
+      var newBalance = savingBalance - savingsInput;
+      savings.innerText = '$' + newBalance;
+  }
+
+});
+
 
 
