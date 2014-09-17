@@ -63,7 +63,7 @@ btn_wth_C.addEventListener('click', function(event){
             console.log("New checking balance: " + balance)
   } else if( ( Number(balance) + Number(balanceSaving) ) > Number(amount) ){
 
-    console.log("overdraft")
+    alert("Stop: Overdraft time!")
 
     // balanceSaving
     div_acct_S.children[1].innerText = div_acct_S.children[1].innerText - Number(amount) + Number(balance)
