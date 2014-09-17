@@ -2,7 +2,8 @@ var fs = require('fs');
 
 var action = process.argv[2];
 var amount = parseInt(process.argv[3]);
-var balance = parseInt(fs.readFileSync('./balance.txt'));
+var accountType = process.argv[4];
+var balance = parseInt(fs.readFileSync('./' + accountType + '.txt'));
 
 if (action == "deposit") {
 
@@ -23,6 +24,6 @@ if (action == "deposit") {
 }
 
 function finishTransaction(balance) {
-  fs.writeFileSync('./balance.txt', balance);
+  fs.writeFileSync('./' + accountType + '.txt', balance);
   console.log("You have $" + balance + " in your account");
 }
