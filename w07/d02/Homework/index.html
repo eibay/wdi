@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TODO</title>
+</head>
+<body>
+	<h1>TODO</h1>
+	<input id="todo" type="text" name="thing">
+	<ul id='list'></ul>
+	<div id="counter"></div>
+</body>
+<script>
+
+	var things = 0;
+	var count = function(num) {
+		var counter = document.getElementById("counter");
+		things += num;
+		if (things == 1) {
+			counter.innerText = "You have 1 thing to do!";
+		} else {
+		counter.innerText = "You have " + things.toString() + " things to do!";
+		}
+	} 
+
+
+	var adder = document.getElementById("todo");
+	adder.addEventListener("keydown", function(event) {
+		if (event.keyCode === 13) { 
+			addItem(adder.value);
+			adder.value = '';
+			}
+		})
+
+	var addItem = function(thing) {
+		list = document.getElementById("list");
+		item = document.createElement("li");
+		label = document.createElement("label");
+		label.innerText = thing;
+		item.appendChild(label);
+		list.insertBefore(item, list.children[0]);
+		label.addEventListener("click", function(event) {
+			event.target.innerHTML = "<input type='text' name='thinged'>";
+		})
+		label.addEventListener("keydown", function(event) {
+			if (event.keyCode === 13) { 
+				this.innerText = event.target.value;
+			}
+		})
+
+		var checkbox = document.createElement('input');
+		checkbox.type = 'checkbox';
+		checkbox.addEventListener("click", function() {
+			if (checkbox.checked) {
+				checkbox.parentElement.style.setProperty("text-decoration", "line-through");
+				checkbox.parentElement.style.setProperty("color", "grey");
+				checkbox.parentElement.style.setProperty("font-style", "italic");
+				count(-1);
+			} else {
+				checkbox.parentElement.style.setProperty("text-decoration", "none");
+				checkbox.parentElement.style.setProperty("color", "black");
+				checkbox.parentElement.style.setProperty("font-style", "normal");
+				count(1);
+			}
+		})
+
+		var up = document.createElement("button");
+		up.innerText = "up";
+		up.addEventListener("click", function() {
+			up.parentElement.parentElement.insertBefore(up.parentElement, up.parentElement.previousSibling);
+		})
+
+		var down = document.createElement("button");
+		down.innerText = "down";
+		down.addEventListener("click", function() {
+			down.parentElement.parentElement.insertBefore(down.parentElement, down.parentElement.nextSibling.nextSibling);
+		})
+
+		var del = document.createElement("button");
+		del.innerText = "x";
+		del.addEventListener("click", function() {
+				del.parentElement.parentElement.removeChild(del.parentElement);
+		if (things > 0) {		
+				count(-1);
+			}
+		})
+		item.appendChild(up);
+		item.appendChild(down);
+		item.appendChild(del);
+		item.appendChild(checkbox);
+		count(1);
+	}
+</script>
+</html>
