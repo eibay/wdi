@@ -10,6 +10,13 @@ function createTodoListItem(content) {
 
 	var checkbox = document.createElement("input");
 	checkbox.setAttribute("type", "checkbox"); 
+	checkbox.addEventListener('click', function() {
+		if (event.target.parentNode.style.textDecoration == "line-through") {
+			undoItem(event.target.parentNode); 
+		} else {
+			markItemDone(event.target.parentNode);
+		}
+	}) 
 	li.appendChild(checkbox); 
 
 	var todoList = document.querySelector("ul");
@@ -24,7 +31,11 @@ function getContent() {
 }
 
 function markItemDone(item) {
-	item.style.textDecoration = "underline";
+	item.style.textDecoration = "line-through";
+}
+
+function undoItem(item) {
+	item.style.textDecoration = "none"; 
 }
 
 window.onload = function() {
