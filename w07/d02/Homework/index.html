@@ -1,4 +1,13 @@
+<html>
+<head>
+	<title>To Do List</title>
+</head>
+<body>
+	<h1> Whaddya gotta do today?</h1>
+	<input id="toDoItem" type="text">
+	<ul id="toDoList"> </ul>
 
+	<script>
 	var textbox = document.getElementById("toDoItem")
 	var ul = document.getElementById("toDoList")
 
@@ -17,7 +26,7 @@
 			ul.appendChild(li)
 			
 			li.addEventListener('click', function(edit){
-			 	edit.target.innerHTML="<input type='text' value='"+li.innerText+"'>"
+			 	edit.target.child[0].innerHTML="<input type='text' value='"+li.innerText+"'>"
 			})
 			
 			li.addEventListener('keypress', function(enter){
@@ -25,8 +34,6 @@
 				li.innerText=enter.target.value
 				}
 			});
-
-
 
 			var check = document.createElement("input")
 			check.type="checkbox"
@@ -51,9 +58,6 @@
 			updateToDoList()
 		}
 	});
-
-
-
 
 	var updateToDoList = function (){
 		var check = document.querySelectorAll("input")
@@ -87,9 +91,23 @@
 
 
 	var edit_text = function(id){
+
  		event.target.innerHTML="<input type='text' value='"+li.innerText+">"
  	};
 
+
  	var enter_text = function(id){
 
-}
+
+ 	}
+
+
+
+
+	
+
+
+
+	</script>
+</body>
+</html>

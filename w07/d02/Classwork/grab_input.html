@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" name="first name">
+<button id="add">Add to list</button>
+<button id="delete">Delete from list</button>
+<ul id="list"></ul>
+
+<script>
+b=document.querySelector("button")
+
+
+var get_input = function(){
+	var input = document.querySelector("first name")
+	
+	if (input.value !=""){
+		var lis = document.createElement("li");
+		lis.innerText = input.value;
+
+		var ul = document.querySelector("ul");
+		ul.appendChild(lis);
+		// i.value = "";
+	}
+}
+
+b.addEventListener("click", get_input);
+
+
+var button_2 = document.getElementById("delete")
+
+button_2.addEventListener("click", function() {
+	var input = document.querySelector("first name")
+	var text = input.value
+	var list = document.getElementById("list")
+
+	for (i=0; i<list.children.length; i++){
+		if (list.children[i].innerText == text){
+			input.parentElement.removeChild(input)
+
+		}
+	}
+});
+
+
+
+
+
+</script>
+</body>
+
+
+</html>
