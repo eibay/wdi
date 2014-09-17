@@ -45,7 +45,7 @@
 
 
 
-				//create up / down arrows
+				//create up arrows
 				var li_up= document.createElement('a')
 				li_up.href = "#"
 				var li_arrow_up = document.createElement('img')
@@ -55,7 +55,7 @@
 				li_toDo.appendChild(li_up)
 
 				li_up.addEventListener('click', function(event) {
-					for(i=0; i<ul_toDo.children.length; i++) {
+					for(i=1; i<ul_toDo.children.length; i++) { //made i==1 so it wont screw up as the 0th position
 						if(li_toDo.parentNode.children[i] == li_toDo) {
 							li_toDo.parentNode.insertBefore(li_toDo, li_toDo.parentNode.children[i-1])
 							li_toDo.parentNode.removeChild(li_up.parentNode.children[i+1])
@@ -64,7 +64,7 @@
 					}
 				})
 					
-
+				//create down arrows
 				var li_down= document.createElement('a')
 				li_down.href = "#"
 				var li_arrow_down = document.createElement('img')
@@ -76,8 +76,12 @@
 				li_down.addEventListener('click', function(event) {
 					for(i=0; i<ul_toDo.children.length; i++) {
 						if(li_toDo.parentNode.children[i] == li_toDo) {
-							li_toDo.parentNode.insertBefore(li_toDo, li_toDo.parentNode.children[i+1])
-							li_toDo.parentNode.removeChild(li_down.parentNode.children[i-1])
+							li_toDo.parentNode.children
+
+							var li_toDo_below = li_toDo.parentNode.children[i+1]
+							li_toDo_below.parentNode.insertBefore(li_toDo_below, li_toDo)
+							li_toDo_below.parentNode.removeChild(li_toDo_below.parentNode.children[i+2])
+							//dunno why hte top two down buttons dont work
 							
 						}
 					}
