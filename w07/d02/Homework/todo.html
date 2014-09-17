@@ -10,7 +10,9 @@
 
 var listed = document.getElementById("toDo")
 
-listed.addEventListener("keypress", function(event){
+listed.addEventListener("keypress", function(){
+
+
 
   if (event.keyIdentifier == "Enter"){
   // could use keycode == 13 too
@@ -47,13 +49,16 @@ listed.addEventListener("keypress", function(event){
 
 var deleteitem = document.getElementById("puthere")
 deleteitem.addEventListener("click", function(event){
-var li = document.getElementById("puthere")
-var lines = li.children
-var todelete=[]
-for (i=0; i < lines.length; i++){
-if (lines[i].children[2].checked == true)
-  lines[i].parentNode.removeChild(lines[i])
-}
+  console.log(arguments)
+  var p = event.target.parentNode
+  p.parentNode.removeChild(p)
+
+// var li = document.getElementById("puthere")
+// var lines = li.children
+// for (i=0; i < lines.length; i++){
+// if (lines[i].children[2].checked == true)
+//   lines[i].parentNode.removeChild(lines[i])
+// }
 })
 //trying bonus
 // var lines = document.getElementById("puthere")
@@ -67,7 +72,7 @@ if (lines[i].children[2].checked == true)
 
 
 // (event.target) is the item so just have to move
-})
+// })
 
 </script>
 </body>
