@@ -48,9 +48,18 @@
 
 		var checkbox = document.createElement('input');
 		checkbox.type = 'checkbox';
-		checkbox.value = 'false';
+		// checkbox.value = 'false';
 		checkbox.addEventListener("click", function() {
-			checkbox.parentElement.parentElement.removeChild(checkbox.parentElement);
+			// checkbox.parentElement.parentElement.removeChild(checkbox.parentElement);
+			if (checkbox.checked) {
+				checkbox.parentElement.style.setProperty("text-decoration", "line-through");
+				checkbox.parentElement.style.setProperty("color", "grey");
+				checkbox.parentElement.style.setProperty("font-style", "italic");
+			} else {
+				checkbox.parentElement.style.setProperty("text-decoration", "none");
+				checkbox.parentElement.style.setProperty("color", "black");
+				checkbox.parentElement.style.setProperty("font-style", "normal");
+			}
 		})
 
 		var up = document.createElement("button");
