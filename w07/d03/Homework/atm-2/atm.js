@@ -1,18 +1,16 @@
 window.onload = function(){
 var depositButton = document.getElementsByClassName("deposit")
 var withdrawButton = document.getElementsByClassName("withdraw")
-var amountArray = document.querySelectorAll("input")
+
 
 for(i = 0; i < depositButton.length; i++){
 depositButton[i].addEventListener("click", function(event){
   if (event.target.parentNode.children[0].innerText == "Checking"){
-     var checkingTotal = getCurrentChecking() + amountChecking()
-      changeChecking(checkingTotal)
-      amountArray[0].value=""
+     changeChecking(totalsDeposit(getCurrentChecking(), amountChecking()))
+     clear()
   }else if (event.target.parentNode.children[0].innerText == "Savings"){
-    var savingTotal = getCurrentSavings() + amountSaving()
-    changeSaving(savingTotal)
-    amountArray[1].value=""
+     changeSaving(totalsDeposit(getCurrentSavings(), amountSaving()))
+     clear()
   };
  });
 
@@ -22,36 +20,48 @@ for(i = 0; i < withdrawButton.length; i++){
   withdrawButton[i].addEventListener("click", function(event){
   if (event.target.parentNode.children[0].innerText == "Checking"){
     if (getCurrentChecking()>=amountChecking()){
-     var checkingTotal = getCurrentChecking() - amountChecking()
+     changeChecking(totalsWithdraw(getCurrentChecking(), amountChecking()))
      changeChecking(checkingTotal)
-     amountArray[0].value="" 
+     clear()
    }else if (getCurrentChecking()< amountChecking()){
-    leftover = amountChecking() - getCurrentChecking()
-    savingsLeft = getCurrentSavings() - leftover
+     leftover = amountChecking() - getCurrentChecking()
+     savingsLeft = getCurrentSavings() - leftover
 
       if (savingsLeft < 0){
         alert("INSUFFIENT FUNDS")
-        amountArray[0].value=""
+        clear()
       }else{
         changeChecking(0)
         changeSaving(savingsLeft)
-        amountArray[0].value=""
+        clear()
       };
    };
 
   }else if (event.target.parentNode.children[0].innerText == "Savings"){
     if (getCurrentSavings() >= amountSaving()){
-      var savingTotal = getCurrentSavings() - amountSaving()
-      changeSaving(savingTotal)
-      amountArray[1].value=""
+      changeSaving(totalsWithdraw(getCurrentSavings(), amountSaving()))
+      clear()
     }else if (getCurrentSavings() < amountSaving()){
       alert("INSUFFIENT FUNDS!")
-      amountArray[1].value=""
+      clear()
     };
   };
  });
 };
 
+function totalsDeposit(current,amount){
+ return total = current + amount
+}
+
+function totalsWithdraw(current, amount){
+return total = current - amount
+}
+
+function clear(){
+  var amountArray = document.querySelectorAll("input")
+  amountArray[0].value=""
+  amountArray[1].value=""
+}
 function amountChecking(){
   var amountArray = document.querySelectorAll("input")
   amount = parseInt(amountArray[0].value)
