@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Button</title>
+</head>
+<body>
+First name: 
+	<input id= "user_input" type="text" name="firstname" placeholder = "Enter text">
+	<button id="add">Add!</button>
+	<button id ="delete">Delete!</button>
+	<ul id = "list">
+	</ul>
+
+<script> 
+	 var button = document.querySelectorAll("button")[0]
+	 button.addEventListener("click", function(){
+	 		var textbox = document.getElementById("user_input");
+  		var text = textbox.value
+  		if(text != ""){
+
+
+  		var listItem = document.createElement("li");
+  		listItem.innerText = text;
+
+  		var list = document.getElementById("list");
+  		list.appendChild(listItem);
+
+  		textbox.value = ""
+  	}
+	});
+
+	 
+	var buttonDelete = document.querySelectorAll("button")[1]
+	buttonDelete.addEventListener("click", function(){
+		var textbox = document.getElementById("user_input");
+		var text = textbox.value
+			var list = document.getElementById("list")
+			for(var i=0; i<list.children.length; i++){
+				if (text == list.children[i].innerText)
+					list.children[i].parentElement.removeChild(list.children[i]);
+				}
+
+	});
+</script>
+</body>
+</html>
