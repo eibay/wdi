@@ -50,6 +50,7 @@
         var list = document.getElementById("list");
 
         list.appendChild(listItem);
+        check(listItem.querySelector('input'));
 
          }
 
@@ -59,12 +60,13 @@
 
     });
 
-      // var strikeThrough = document.getElementById("list")
+     function check(checkbox) {
+        checkbox.addEventListener("click", function(event) {
+        check = event.target;
+        check.parentNode.setAttribute("style", "text-decoration:line-through;")
 
-      // strikeThrough.addEventListener("click", function() {
-
-
-      // }
+        });
+      }
 
 
     </script>
