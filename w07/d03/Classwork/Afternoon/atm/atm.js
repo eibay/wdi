@@ -7,68 +7,102 @@
 
 // variables
 var div_acct_C = document.getElementById("balanceChecking")
-  var bal_C = div_acct_C.children[1]
- 
   var btn_dep_C = div_acct_C.children[3]
   var btn_wth_C = div_acct_C.children[4]
 
 
 var div_acct_S = document.getElementById("balanceSaving")
-  var bal_S = div_acct_S.children[1]
-  var amount_S = div_acct_S.children[2]
   var btn_dep_S = div_acct_S.children[3]
   var btn_wth_S = div_acct_S.children[4]
 
-// var balance = document.getElementsByClassName("balance")
-// var amount = document.getElementsByClassName("amount")
-// var btn_dep = document.getElementsByClassName("deposit")
-// var btn_wth = document.getElementsByClassName("withdraw")
-// after this, can check to see if Checking or Saving by looking at parentNode == div_acct_C or div_acct_S
-
-//logic
-
-
-////////////////////////////////////////////////////////////////////////
-////////////////////////   Deposit Button   ////////////////////////////
-////////////////////////////////////////////////////////////////////////
-// button - deposit --- this includes the account numbers
-/// checking
 
 btn_dep_C.addEventListener('click', function(event){
   var balance = div_acct_C.children[1].innerText // read balance
-            console.log("previous balance: " + Number(balance))
+            console.log("Starting checking balance: " + Number(balance))
   var amount = div_acct_C.children[2].value //read value
-            console.log("depositing: " + amount)
+            console.log("Depositing: " + amount)
 
   div_acct_C.children[1].innerText = Number(balance) + Number(amount)// why do i need this in addition to below?
   balance = div_acct_C.children[1].innerText //update value
-            console.log("new balance: " + balance)
+            console.log("New checking balance: " + balance)
 })
 
 
 /// savings
 btn_dep_S.addEventListener('click', function(event){
+
   var balance = div_acct_S.children[1].innerText // read balance
-            console.log("previous balance: " + Number(balance))
+            console.log("Starting savings balance: " + Number(balance))
   var amount = div_acct_S.children[2].value //read value
-            console.log("depositing: " + amount)
+            console.log("Depositing: " + amount)
 
   div_acct_S.children[1].innerText = Number(balance) + Number(amount)// why do i need this in addition to below?
-  balance = div_acct_C.children[1].innerText //update value
-            console.log("new balance: " + balance)
+  balance = div_acct_S.children[1].innerText //update value
+            console.log("New savings balance: " + balance)
 })
 
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////   Withdrawal Button   /////////////////////////
 ////////////////////////////////////////////////////////////////////////
 btn_wth_C.addEventListener('click', function(event){
-   var balance = div_acct_C.children[1].innerText // read balance
-            console.log("previous balance: " + Number(balance))
-   var amount = div_acct_C.children[2].value //read value
-            console.log("withdrawing: " + amount)         
+  var balance = div_acct_C.children[1].innerText // read balance
+            console.log("Starting checking balance: " + Number(balance))
+  var balanceSaving = div_acct_S.children[1].innerText // read balance
+            console.log("Starting savings balance: " + Number(balance))
+
+  var amount = div_acct_C.children[2].value //read value
+            console.log("withdrawal request: " + amount)  
+
+  var withdrawSavings = Number(amount) - Number(balance)
+            console.log("total amount: " + withdrawSavings)
+
+  //if they try to withdraw too much
+  if(Number(balance)>=Number(amount)){
+    div_acct_C.children[1].innerText = Number(balance) - Number(amount)
+    balance = div_acct_C.children[1].innerText //update value
+            console.log("New checking balance: " + balance)
+  } else if( ( Number(balance) + Number(balanceSaving) ) > Number(amount) ){
+
+    console.log("overdraft")
+
+    // balanceSaving
+    div_acct_S.children[1].innerText = div_acct_S.children[1].innerText - Number(amount) + Number(balance)
+
+    // balance = 0
+    div_acct_C.children[1].innerText = "0"
 
 
+
+  } else {
+    alert("Error. We require more Vespene gas.")
+  }
+ 
 })
+
+
+btn_wth_S.addEventListener('click', function(event){
+  var balance = div_acct_S.children[1].innerText // read balance
+            console.log("Starting saving balance: " + Number(balance))
+  var balanceChecking = div_acct_C.children[1].innerText // read balance
+            console.log("Starting checking balance: " + Number(balance))
+  var amount = div_acct_S.children[2].value //read value
+            console.log("withdrawal request: " + amount)
+
+  //if they try to withdraw too much
+  if(Number(balance)>=Number(amount)){
+    div_acct_S.children[1].innerText = Number(balance) - Number(amount)
+    balance = div_acct_S.children[1].innerText //update value
+            console.log("New savingbalance: " + balance)
+  } else {
+    alert("Error. We require more Vespene gas.")
+  }
+})
+
+
+
+
+
+
 
 // if (action == "deposit") {
 
