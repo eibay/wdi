@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>To Do!</title>
+</head>
+<body>
+	<h1>To Do List</h1>
+
+	<input type="text" id="user-input" placeholder="What to do...">
+
+	<div id="todo-list">
+		<ul></ul>
+	</div>
+	<p></p>
+</body>
+
+<script type="text/javascript">
+	
+	var body = document.body
+	var div = document.getElementById('todo-list');
+	var ul = document.querySelector('ul');
+	var p = document.querySelector('p');
+	// var titleTag = document.createElement('h2')
+	// var listTitle = titleTag.innerText = "List"
+
+	// if (ul.children.length > 0) {
+	// 	body.insertBefore(listTitle, div)
+	// }
+
+	var addDo = function(item) {
+		var li = document.createElement('li');
+
+		li.addEventListener('dblclick', function(event) {
+			event.target.innerHTML = '<input type="checkbox" class="checkbox">' + '<input type="text" value="'+li.innerText+'">' + '<input type="hidden" id="up"><button>MoveUp</button>' + '<input type="hidden" id="down"><button>MoveDown</button>';
+
+			li.addEventListener('keypress', function(event) {
+
+				if(event.keyCode === 13) {
+					li.innerText = event.target.value;
+					li.innerHTML = '<input type="checkbox" class="checkbox">' + event.target.value + '<input type="hidden" id="up"><button>MoveUp</button>' + '<input type="hidden" id="down"><button>MoveDown</button>';
+							var check = li.children[0]
+					check.addEventListener('click', function(event) {
+						if (event.target.checked === true) {
+							event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+							p.innerText = "You have " + ul.children.length + " tasks to complete.";
+						}
+					})
+
+					var moveUp = li.children[2]
+					moveUp.addEventListener('click', function(event) {
+						var previous = event.target.parentNode.previousSibling;
+						ul.insertBefore(event.target.parentNode, previous);	
+					})
+
+					var moveDown = li.children[4]
+					moveDown.addEventListener('click', function(event) {
+						var next = event.target.parentNode.nextSibling.nextSibling;
+						ul.insertBefore(event.target.parentNode, next);
+					})
+				}
+			})
+		})
+
+		li.innerText = item;
+		li.innerHTML = '<input type="checkbox" class="checkbox">' + item + '<input type="hidden" id="up"><button>MoveUp</button>' + '<input type="hidden" id="down"><button>MoveDown</button>';
+		ul.insertBefore(li, ul.children[0]);
+		div.appendChild(ul);
+
+		var check = li.children[0]
+		check.addEventListener('click', function(event) {
+			if (event.target.checked === true) {
+				event.target.parentNode.parentNode.removeChild(event.target.parentNode);
+				p.innerText = "You have " + ul.children.length + " tasks to complete.";
+			}
+		})
+
+		var moveUp = li.children[2]
+		moveUp.addEventListener('click', function(event) {
+			var previous = event.target.parentNode.previousSibling;
+			ul.insertBefore(event.target.parentNode, previous);	
+		})
+
+		var moveDown = li.children[4]
+		moveDown.addEventListener('click', function(event) {
+			var next = event.target.parentNode.nextSibling.nextSibling;
+			ul.insertBefore(event.target.parentNode, next);
+		})
+
+		p.innerText = "You have " + ul.children.length + " tasks to complete.";
+
+	}
+
+	var input = document.getElementById('user-input');
+	input.addEventListener('keypress', function() {
+
+		if(event.keyCode === 13) {
+			var toDo = document.getElementById('user-input').value;
+			addDo(toDo);
+		}
+	})
+
+
+</script>
+</html>
