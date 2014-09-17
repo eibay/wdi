@@ -1,11 +1,11 @@
 // var fs = require('fs');
 
-var action = 
+var action = "deposit"; 
 // process.argv[2];
-var amount = parseInt();
-var accountType = 
+var amount = parseInt("400");
+var accountType = "savings"; 
 // process.argv[4];
-var balance = 
+var balance = 400; 
 // parseInt(fs.readFileSync('./' + accountType + '.txt'));
 
 if (action == "deposit") {
