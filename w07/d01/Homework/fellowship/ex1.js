@@ -31,7 +31,7 @@ function numsBetween(num1, num2) {
 
 console.log(numsBetween(parseInt(args[2]),parseInt(args[3])));
 
-g 
+
 function makeMiddleEarth(lands) {  
 var middleEarth = document.getElementById("middle-earth")
   
