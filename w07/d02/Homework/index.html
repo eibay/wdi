@@ -8,8 +8,20 @@
 	<h1>TODO</h1>
 	<input id="todo" type="text" name="thing">
 	<ul id='list'></ul>
+	<div id="counter"></div>
 </body>
 <script>
+	var count = function() {
+		var counter = document.getElementById("counter");
+		var things = document.querySelectorAll("li");
+		if (things.length == 1) {
+			counter.innerText = "You have 1 thing to do!";
+		} else {
+		counter.innerText = "You have " + things.length.toString() + " things to do!";
+		}
+	} 
+
+
 	var adder = document.getElementById("todo");
 	adder.addEventListener("keydown", function(event) {
 		if (event.keyCode === 13) { 
@@ -56,6 +68,7 @@
 		item.appendChild(up);
 		item.appendChild(down);
 		item.appendChild(checkbox);
+		count();
 	}
 </script>
 </html>
