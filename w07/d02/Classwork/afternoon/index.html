@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM</title>
+</head>
+<body>
+  <h3>list</h3>
+  <ul class="sapling">
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+<input type="text" id="id" value="click" onclick="func()">
+<input type="text" name="name"><br>
+  <input type="submit" value="Submit">
+  <button type="button">Click Me</button>
+
+  <script>
+
+    var thingList = document.createElement("ul")
+    thingList.appendChild
+
+    birch = document.querySelector("ul.sapling li")
+    birch.addEventListener("click", removeBirch)
+    
+    var removeBirch = function() {
+      birch.parentElement.removeChild(birch);
+    }
+
+    function makeMiddleEarth(lands) {  
+  var middleEarth = document.getElementById("middle-earth")
+  
+  lands.forEach(function(land){
+    var landDiv = document.createElement("div") 
+    landDiv.innerText = land
+    middleEarth.appendChild(landDiv)
+  });
+}
+
+  </script>
+</body>
+</html>
+

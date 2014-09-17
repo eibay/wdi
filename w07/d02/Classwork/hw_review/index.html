@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM</title>
+</head>
+<body>
+  <h3>Saplings</h3>
+  <ul class="sapling">
+    <li>Birch</li>
+    <li>Maple</li>
+    <li>Pine</li>
+  </ul>
+
+  <h3>Trees</h3>
+  <ul class="tree">
+    <li>Dogwood</li>
+    <li>Apple</li>
+  </ul>
+
+  <script>
+    birch = document.querySelector("ul.sapling li")
+    birch.addEventListener("click", removeBirch)
+    
+    var removeBirch = function() {
+      birch.parentElement.removeChild(birch);
+    }
+  </script>
+</body>
+</html>
