@@ -47,7 +47,6 @@ listed.addEventListener("keypress", function(event){
 
 var deleteitem = document.getElementById("puthere")
 deleteitem.addEventListener("click", function(event){
-  console.log(event)
 var li = document.getElementById("puthere")
 var lines = li.children
 var todelete=[]
@@ -59,15 +58,16 @@ if (lines[i].children[2].checked == true)
 //trying bonus
 // var lines = document.getElementById("puthere")
 // lines.addEventListener("click", function(event){
-//   for(i=0; i<lines.children.length;i++){
-//   if (lines.children[i].children[0].innerText == "↑"){lines.children[i].children
-//     list.insertBefore(li,lines.children[i-1])
+// var p = event.target
+// var move = p.parentNode
+// if (p.innerText = )
+  //move up arrow then move up
+  //move down arrow then move down
+  //move the parent node of the event.target
 
-//   }
 
-//   }
-// }
-// })
+// (event.target) is the item so just have to move
+})
 
 </script>
 </body>
