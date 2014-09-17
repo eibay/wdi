@@ -1,0 +1,49 @@
+<DOCTYPE! html>
+<head></head>
+<body>
+<div class="myInput">
+<input placeholder="type input"/>
+<button id="add">Submit</button>
+<button id="delete">Delete</button>
+</div>
+<div class="list">
+	<ul></ul>
+</div>
+
+
+
+<script type="text/javascript">
+	var addButton = document.getElementById("add");
+	var deleteButton = document.getElementById("delete");
+	var textbox = document.querySelector('input');
+	var input = textbox.value;
+	
+	var addLi = function(input) {
+		var textbox = document.querySelector('input');
+		var input = textbox.value;
+		if (input != "") {
+		var ul = document.querySelector("ul");
+		var li = document.createElement("li");
+		li.innerText = input;
+		ul.appendChild(li);
+		textbox.value = "";
+	}};
+
+	addButton.addEventListener("click", addLi);
+
+	var deleteLi = function(input) {
+		var ul = document.querySelector("ul");
+		var textbox = document.querySelector('input');
+		var input = textbox.value;
+			for (i = 0; i < ul.children.length; i ++) {
+				if (ul.children[i].innerText == input) {
+					ul.removeChild(ul.children[i])}
+			}
+		 textbox.value = "";
+	};
+
+	deleteButton.addEventListener("click", deleteLi);
+
+
+</script>
+</body>

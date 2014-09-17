@@ -1,0 +1,46 @@
+<DOCTYPE! html>
+<head></head>
+<body>
+	<h1>To Do:</h1>
+	<input id="new_item" type="text" placeholder="New Task">
+	<h2>Current Tasks</h2>
+	<ul>
+	</ul>
+	<h4 id="counter"></h4>
+
+
+
+
+
+<script type="text/javascript">
+var new_item = document.getElementById("new_item");
+
+
+	new_item.addEventListener("keypress", function(e) {
+		if (e.keyCode == 13 && new_item.value != "") {
+			var ul = document.querySelector("ul");
+			var li = document.createElement("li");
+		li.innerHTML = new_item.value + "<input type='checkbox' class='done' />";
+		ul.appendChild(li);
+		var counter = document.getElementById("counter");
+		counter.innerText = ul.children.length + " tasks to do";
+		new_item.value = "";
+	}
+	});
+
+var ul = document.querySelector("ul");
+
+
+if (ul.children.length > 0) {
+	var checkboxes = document.getElementsByClassName("done");
+	for (var i = 0; i < checkboxes.length; i++) {
+		var checkbox = checkboxes[i];
+		checkbox.addEventListener("checked", function(event) {
+			check = event.target
+		check.parentNode.setAttribute("style", "text-decoration:line-through;")
+		});
+}};
+
+
+</script>
+</body>

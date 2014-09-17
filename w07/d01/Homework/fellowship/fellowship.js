@@ -62,7 +62,7 @@ function makeBuddies(buddies) {
 
 function beautifulStranger() {
 	var aside = document.querySelectorAll("aside");
-	strider = aside.children[0].children[3];
+	strider = aside[0].children[0].children[3];
 	strider.innerText = "Aragorn";
 }
 
