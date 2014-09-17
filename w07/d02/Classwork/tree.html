@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM</title>
+</head>
+<body>
+  <h3>Saplings</h3>
+  <ul class="sapling">
+    <li>Birch</li>
+    <li>Maple</li>
+    <li>Pine</li>
+  </ul>
+
+  <h3>Trees</h3>
+  <ul class="tree">
+    <li>Dogwood</li>
+    <li>Apple</li>
+  </ul>
+</body>
+  <script type="text/javascript">
+
+
+  </script>
+</html>
+
+var birch = document.querySelector("ul.sapling li")
+
+var removeElement = function(element) {
+element.parentElement.removeChild(element);
+}
+
+birch.addEventListener('click', function(event) {
+  removeElement(event.target);
+});
+
+
+document.querySelectorAll('li')
+var lis = document.querySelectorAll('li')
+
+for(var i=0; i<lis.length; i++) {
+  lis[i].addEventListener('click', function(event) {
+    removeElement(event.target)
+  })
+}
