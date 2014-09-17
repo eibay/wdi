@@ -19,19 +19,21 @@ function becomeEditor(feed) {
 	listItem.innerText = ""
 	listItem.appendChild(editor);
 	listItem.removeEventListener("click", becomeEditor)
-	listItem.addEventListener("input", becomeElAgain)
+	listItem.addEventListener("keydown", becomeElAgain)
 }
 
-function makeCheckbox(listItem) {
+function makeCheckbox(div) {
 	var box = document.createElement("input");
 	box.type = "checkbox";
-	box.addEventListener("click", function() {
-		listItem.removeEventListener("click", becomeEditor);
-		listItem.style.textDecoration = "line-through";
+	box.addEventListener("click", function(feed) {
+		div.firstChild.removeEventListener("click", becomeEditor);
+		div.style.textDecoration = "line-through";
 		left.innerText = parseInt(left.innerText) - 1;
-		box.parentNode.removeChild(box)
+		box.parentNode.removeChild(box.nextSibling);
+		box.parentNode.removeChild(box.nextSibling);
+		box.parentNode.removeChild(box);
 	})
-	listItem.appendChild(box);
+	div.appendChild(box);
 }
 
 function becomeElAgain(feed) {
@@ -42,12 +44,12 @@ function becomeElAgain(feed) {
 		el = textInput.parentNode;
 		el.removeChild(textInput);
 		el.innerText = text;
-		makeCheckbox(el);
 		el.addEventListener("click", becomeEditor)
 	}
 }
 
 function finishToDo(feed) {
+	console.log(feed.target)
 	listItem.removeEventListener("click", becomeEditor);
 	listItem.removeEventListener("click", finishToDo);
 	listItem.style.textDecoration = "line-through";
@@ -60,26 +62,47 @@ function createEl(feed) {
 		var el = document.createElement("li");
 		el.innerText = listItem.value;
 		el.addEventListener("click", becomeEditor);
-		makeCheckbox(el);
-		makePrioritizer(el);
-		list.insertBefore(el, list.firstElementChild);
+		var div = document.createElement("div");
+		div.appendChild(el);
+		makeCheckbox(div);
+		makePrioritizer(div);
+		list.insertBefore(div, list.firstElementChild);
 		listItem.value = "";
 		left.innerText = parseInt(left.innerText) + 1;
 	}
 }
 
 
-function makePrioritizer(listItem) {
+function makePrioritizer(div) {
 	up = document.createElement("button");
 	up.innerText = "Up";
 	up.addEventListener("click", prioritizeUp)
-	listItem.appendChild(up);	
+	div.appendChild(up);	
+	down = document.createElement("button");
+	down.innerText = "Down";
+	down.addEventListener("click", prioritizeDown);
+	div.appendChild(down);
 }
 
-function prioritizeUp(feed){
-	listItem = feed.target.parentNode;
-	previousItem = listItem.previousSibling;
-	listItem.parentNode.insertBefore(listItem, previousItem);
+function prioritizeUp(feed) {
+	div = feed.target.parentNode;
+	if (div.previousSibling != div.parentNode.firstChild){
+		previousItem = div.previousSibling;
+		div.parentNode.insertBefore(div, previousItem);
+	}
+}
+
+function prioritizeDown(feed) {
+	div = feed.target.parentNode;
+	if (div.nextSibling == div.parentNode.lastChild){
+		div.parentNode.appendChild(div)
+	}
+	else if (div.nextSibling.nextSibling != null) {
+		div.parentNode.insertBefore(div, div.nextSibling.nextSibling)
+	}
+}
+
+
 }
 
 
@@ -95,4 +118,3 @@ function prioritizeUp(feed){
 
 
 
-}
