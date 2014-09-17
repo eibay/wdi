@@ -6,7 +6,11 @@ var left = document.querySelector("#left");
 
 
 
-input.addEventListener("input", createEl);
+input.addEventListener("keydown", createEl);
+
+function giveEvent(feed) {
+	console.log(feed)
+}
 
 function becomeEditor(feed) {
 	var listItem = feed.target;
@@ -34,7 +38,7 @@ function becomeElAgain(feed) {
 	textInput = feed.target;
 	textInput.removeEventListener("input", becomeElAgain)
 	text = textInput.value
-	if (text.slice(-1) == "t") {
+	if (feed.keyIdentifier == "Enter") {
 		el = textInput.parentNode;
 		el.removeChild(textInput);
 		el.innerText = text;
@@ -52,10 +56,10 @@ function finishToDo(feed) {
 
 function createEl(feed) {
 	var listItem = feed.target;
-	if (listItem.value.slice(-1) == "t") {
+	if (feed.keyIdentifier == "Enter") {
 		var el = document.createElement("li");
 		el.innerText = listItem.value;
-		el.innerText.addEventListener("click", becomeEditor);
+		el.addEventListener("click", becomeEditor);
 		makeCheckbox(el);
 		makePrioritizer(el);
 		list.insertBefore(el, list.firstElementChild);
