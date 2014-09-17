@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 	<title>To Do List</title>
+ 	<style type="text/css">
+ 		input { width: 400px; }
+ 		li { width: 400px; }
+ 	</style>
+</head>
+
+<body>
+ 
+	<h1>To Do</h1>
+<!-- <input id="scriptBox" type="text" onkeypress="return runScript(event)" /> -->
+
+	<input id="user_input" type="text" placeholder="what to do">
+
+	<ul id="todolist">
+		<!-- <li class="listitem"><button class="done_button">X</button></li> -->
+	</ul>
+
+<script type="text/javascript">
+
+	var textbox = document.getElementById("user_input");
+	var todolist = document.getElementById("todolist");
+
+	textbox.addEventListener("keypress", function(event) {
+		console.log();
+		if(event.keyIdentifier == "Enter") {
+			var text = textbox.value;
+			if(text != ""){
+				var listItem = document.createElement("li");
+				listItem.innerHTML = text + "<input type='checkbox'>";
+		console.log('');
+
+				todolist.appendChild(listItem);
+		console.log('');
+			}
+				textbox.value = "";
+		}
+	});
+
+	// function deleItem() {
+	// 	<!--// if checkbox in listItem is checked, delete item -->
+	// 	list_items = document.querySelectAll("todolist li");
+	// 	for (var c = 0; c < list_items.length; c++ );
+	// 		if (checkbox == ) {
+
+	// 		}
+	// }
+
+
+</script>
+
+</body>
+</html>
