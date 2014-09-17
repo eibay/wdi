@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Voodoo Todo</title>
+</head>
+<body>
+	<input id="user_input" type="text" placeholder="get some spendin' cash">
+	
+	<h1>To do:</h1>
+	<ul id="list">
+	</ul>
+	<script>
+	var textbox = document.getElementById("user_input");
+		textbox.addEventListener("keypress", function(event){ 
+		if(event.keyCode == 13) {
+			var textbox = document.getElementById("user_input");
+			var text = textbox.value;
+
+			if(text != ""){
+				var list = document.getElementById("list");
+				var listItem = document.createElement("li")
+				listItem.class = "listItem" + list.children.length
+				var input = document.createElement("input")
+				input.type = "checkbox"
+				// input.class = listItem.class
+				input.addEventListener("click", function(){
+					var list = document.getElementsByClassName(input.class)
+					list.parentNode.removeChild(list)
+				})
+
+
+				listItem.innerText = text;
+				if (list.children.length == 0){
+					list.appendChild(listItem);
+					list.insertBefore(input, list.children[1]);
+				} else {
+					list.insertBefore(listItem, list.children[0]);
+					list.insertBefore(input, list.children[1]);
+				}
+				textbox.value = ""
+			}
+		}
+	});
+
+
+
+
+		</script>
+</body>
+</html>
