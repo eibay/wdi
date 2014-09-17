@@ -1,33 +1,4 @@
-<!doctype html>
-<html>
-  <head>
-    <title>ATM</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <article>
-      <header>
-        <p>Rosenbank</p>
-      </header>
-      <div class="account checking">
-        <h2>Checking</h2>
-        <div class="balance">$0</div>
-        <input name="amount" />
-        <button class="deposit">Deposit</button>
-        <button class="withdraw">Withdraw</button>
-      </div>
-
-      <div class="account savings">
-        <h2>Savings</h2>
-        <div class="balance">$0</div>
-        <input name="amount" />
-        <button class="deposit">Deposit</button>
-        <button class="withdraw">Withdraw</button>
-      </div>
-    </article>
-    <script>
-      var getAccount = function(which) {
+var getAccount = function(which) {
         var account = document.getElementsByClassName(which);
         return account
       }
@@ -61,16 +32,21 @@
       function withdraw(which) {
         balance = getBalance(which);
         amount = getAmount(which)
-        if (which == "savings" && amount > balance) {
-          window.alert("Insufficient funds, you only have " + balance.toString() + " in " + which);
-        } else if (which == "checking" && amount > balance) {
+        // if (which == "savings" && amount > balance) {
+        //   window.alert("Insufficient funds, you only have " + balance.toString() + " in " + which);
+        // } else 
+        if (which == "checking" && amount >= balance) {
+          savings = getBalance("savings");
           amount -= balance;
+          if (savings >= amount) {
           balance = 0;
           newBalance("checking", balance);
-          savings = getBalance("savings");
           balance = savings - amount;
           newBalance("savings", balance);
-        }else {
+	        } else if (amount >= savings) {
+	          window.alert("Insufficient funds, you only have " + savings.toString() + " in savings");
+	        }
+        } else {
           balance -= amount;
           newBalance(which, balance);
         }
@@ -95,6 +71,3 @@
       withdrawSavings.addEventListener("click", function(){
         withdraw("savings");
       })
-    </script>
-  </body>
-</html>
