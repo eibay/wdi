@@ -36,7 +36,7 @@ if (action == "deposit") {
       finishTransaction(balance);
       // fs.writeFileSync('./savings.txt', savingsBalance);
     } else {
-      console.log('Insufficient funds');
+      console.log("Insufficient funds");
     }
   }
 } else {
