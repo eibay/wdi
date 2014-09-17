@@ -1,1 +1,17 @@
 Joseph Gordon-Levitt, Ellen Page, Leonardo DiCaprio, Tom Hardy
+
+while {
+		
+	}
+}
+
+while i < titanic_actors.length {
+	var actor = titanic_actors[i];
+}
+
+var j = 0;
+
+while (j < inception_actors.length) {
+	var other_actor = inception_actors[j];
+	if (actor == other_actor)
+}
