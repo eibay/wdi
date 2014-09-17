@@ -1,0 +1,74 @@
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<input type="text" id="toDo" placeholder="To do">
+<ul id="puthere">
+  </ul>
+<script>
+
+var listed = document.getElementById("toDo")
+
+listed.addEventListener("keypress", function(event){
+
+  if (event.keyIdentifier == "Enter"){
+  // could use keycode == 13 too
+  // to look at event-console.log(event)
+    var listitem = document.getElementById("toDo")
+    var list = document.getElementById("puthere")
+    var text = listitem.value
+    if (text != ""){
+    var li = document.createElement("li")
+    li.innerHTML ="<p>&#8593</p> <p>&#8595</p><input type='checkbox' id='delete' value="+text+">" +  text
+    if (list.children.length == 0){
+      list.appendChild(li)
+    } else {
+      var addBefore = list.children[0]
+      // var addBefore = document.querySelector("ul#puthere li")
+      list.insertBefore(li,addBefore);
+
+  
+}
+  listitem.value=""
+
+    // var insertedElement = parentElement.insertBefore(newElement, referenceElement);
+// If referenceElement is null, or undefined, newElement is inserted at the end of the list of child nodes.
+
+// insertedElement The node being inserted, that is newElement
+// parentElement The parent of the newly inserted node.
+// newElement The node to insert.
+// referenceElement The node before which newElement is inserted.
+  }
+
+}
+
+})
+
+var deleteitem = document.getElementById("puthere")
+deleteitem.addEventListener("click", function(event){
+  console.log(event)
+var li = document.getElementById("puthere")
+var lines = li.children
+var todelete=[]
+for (i=0; i < lines.length; i++){
+if (lines[i].children[2].checked == true)
+  lines[i].parentNode.removeChild(lines[i])
+}
+})
+//trying bonus
+// var lines = document.getElementById("puthere")
+// lines.addEventListener("click", function(event){
+//   for(i=0; i<lines.children.length;i++){
+//   if (lines.children[i].children[0].innerText == "↑"){lines.children[i].children
+//     list.insertBefore(li,lines.children[i-1])
+
+//   }
+
+//   }
+// }
+// })
+
+</script>
+</body>
+</html>
