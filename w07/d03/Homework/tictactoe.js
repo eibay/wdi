@@ -1,3 +1,4 @@
+var _ = require('underscore')
 var winboard = [['x', 'o', '-'], ['-', 'o', '-'], ['-', 'o', 'x']]
 
 tictactoe = function(board) {
@@ -23,3 +24,5 @@ var diagboard=[['x', 'x', 'o'], ['-', 'x', '-'], ['-', 'x', 'x']]
 
 console.log(tictactoe(winboard));
 console.log(tictactoe(diagboard));
+
+[i][board.length - (i + 1)]
