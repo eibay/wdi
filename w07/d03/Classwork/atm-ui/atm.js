@@ -1,49 +1,48 @@
-// var fs = require('fs');
 
-var action = "deposit"; 
-// process.argv[2];
-var amount = parseInt("400");
-var accountType = "savings"; 
-// process.argv[4];
-var balance = 400; 
-// parseInt(fs.readFileSync('./' + accountType + '.txt'));
 
-if (action == "deposit") {
+function getAccountBalance(accountType) {
+	var balanceDiv = document.querySelector("div." + accountType + " div.balance"); 
+	var dollarString = balanceDiv.innerText; 
+	var intString = dollarString.replace(/\$/, ''); 
+	return parseInt(intString); 
+} 
 
-  balance = amount + balance;
-  finishTransaction(balance);
-
-} else if (action == "withdraw" && accountType == "savings") {
-
-  if (amount > balance) {
-    console.log("Insufficient funds");
-  } else {
-    balance = balance - amount;  
-    finishTransaction(balance);
-  }
-
-} else if (action == "withdraw" && accountType == "checking") {
-  if (amount > balance) {
-    // can savings cover it?
-    var savingsBalance = parseInt();
-    // fs.readFileSync('./savings.txt')
-    if (amount <= balance + savingsBalance) {
-      var overdraftAmount = amount - balance;
-
-      savingsBalance = savingsBalance - overdraftAmount;
-      balance = 0;
-
-      finishTransaction(balance);
-      // fs.writeFileSync('./savings.txt', savingsBalance);
-    } else {
-      console.log("Insufficient funds");
-    }
-  }
-} else {
-  console.log("Invalid action");
+function setAccountBalance(accountType, newAmount) {
+	var balanceDiv = document.querySelector("div." + accountType + " div.balance"); 
+	balanceDiv.innerText = '$' + newAmount 
 }
 
-function finishTransaction(balance) {
-  // fs.writeFileSync('./' + accountType + '.txt', balance);
-  console.log("You have $" + balance + " in your account");
+function getTransactionAmount(accountType) {
+	var accountInput = document.querySelector("div." + accountType + " input"); 
+	return parseInt(accountInput.value);
+}
+
+
+window.onload = function() {
+	var buttons = document.getElementsByTagName("button");
+	for (var button = 0; button < buttons.length; button++) {
+		buttons[button].addEventListener('click', function() {
+			var transactionType = event.target.getAttribute("class"); 
+			var accountType = event.target.parentNode.getAttribute("class").split(' ')[1];
+			var accountBalance = getAccountBalance(accountType);
+			var transactionAmount = getTransactionAmount(accountType);
+			if (transactionType == "deposit") {
+				accountBalance = accountBalance + transactionAmount
+				setAccountBalance(accountType, accountBalance);
+			} else {
+				accountBalance = accountBalance - transactionAmount
+				if (accountBalance < 0) { 
+					if (accountType == "checking") {
+						if (Math.abs(accountBalance) < getAccountBalance("savings")) {
+							setAccountBalance(accountType, 0); 
+							var overdraftProtection = getAccountBalance("savings") - Math.abs(accountBalance);
+							setAccountBalance("savings", overdraftProtection); 
+						}
+					}
+				} else {
+					setAccountBalance(accountType, accountBalance); 
+				}
+			}
+		})
+	}
 }
