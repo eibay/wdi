@@ -1,0 +1,32 @@
+h1{
+	color:#0D88FF;
+	font-family: courier;
+	text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
+}
+
+body{
+	text-align: center;
+	height: 600px;
+}
+
+li{
+	text-indent: none;
+	list-style-type: none;
+	font-family: courier;
+	padding-top:10px;
+}
+input{
+	margin-bottom: 20px;
+}
+
+div#list{
+	height: 400px;
+	width: 500px;
+	background-color: lightyellow;
+	margin: 0 auto;
+	box-shadow: 5px 0px 5px #888888;
+}
+
+div#left_todo{
+	font-style: italic;
+}
