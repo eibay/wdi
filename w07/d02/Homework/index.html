@@ -15,9 +15,8 @@
 	var things = 0;
 	var count = function(num) {
 		var counter = document.getElementById("counter");
-		// var things = document.querySelectorAll("li");
 		things += num;
-		if (things.length == 1) {
+		if (things == 1) {
 			counter.innerText = "You have 1 thing to do!";
 		} else {
 		counter.innerText = "You have " + things.toString() + " things to do!";
@@ -52,7 +51,6 @@
 		var checkbox = document.createElement('input');
 		checkbox.type = 'checkbox';
 		checkbox.addEventListener("click", function() {
-			// checkbox.parentElement.parentElement.removeChild(checkbox.parentElement);
 			if (checkbox.checked) {
 				checkbox.parentElement.style.setProperty("text-decoration", "line-through");
 				checkbox.parentElement.style.setProperty("color", "grey");
@@ -78,8 +76,17 @@
 			down.parentElement.parentElement.insertBefore(down.parentElement, down.parentElement.nextSibling.nextSibling);
 		})
 
+		var del = document.createElement("button");
+		del.innerText = "x";
+		del.addEventListener("click", function() {
+				del.parentElement.parentElement.removeChild(del.parentElement);
+		if (things > 0) {		
+				count(-1);
+			}
+		})
 		item.appendChild(up);
 		item.appendChild(down);
+		item.appendChild(del);
 		item.appendChild(checkbox);
 		count(1);
 	}
