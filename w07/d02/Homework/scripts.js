@@ -1,8 +1,12 @@
 window.onload = function(){
 	
+	var leftTodoArray = 0;
+
 	var ul = document.getElementById("todo_list");
 	var textbox= document.querySelector("input");
 	var addButton = document.querySelector("button");
+	var leftTodo = document.getElementById("left_todo");
+	var left = document.createElement("p");
 
 	addButton.addEventListener("click", function(){
 		var text = textbox.value;
@@ -17,6 +21,10 @@ window.onload = function(){
 		ul.appendChild(listItem);
 		
 		textbox.value = "";
+
+		leftTodoArray++;
+		left.innerText = leftTodoArray + " left Todo"
+		leftTodo.appendChild(left);
 	});
 
 
@@ -29,6 +37,11 @@ window.onload = function(){
 				}, 1500);
 			};
 		};
+
+	leftTodoArray += - 1;
+	left.innerText = leftTodoArray + " left Todo"
+	leftTodo.appendChild(left);	
 	});
 
 };
+
