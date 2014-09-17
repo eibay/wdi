@@ -11,13 +11,16 @@
 	<div id="counter"></div>
 </body>
 <script>
-	var count = function() {
+
+	var things = 0;
+	var count = function(num) {
 		var counter = document.getElementById("counter");
-		var things = document.querySelectorAll("li");
+		// var things = document.querySelectorAll("li");
+		things += num;
 		if (things.length == 1) {
 			counter.innerText = "You have 1 thing to do!";
 		} else {
-		counter.innerText = "You have " + things.length.toString() + " things to do!";
+		counter.innerText = "You have " + things.toString() + " things to do!";
 		}
 	} 
 
@@ -48,17 +51,18 @@
 
 		var checkbox = document.createElement('input');
 		checkbox.type = 'checkbox';
-		// checkbox.value = 'false';
 		checkbox.addEventListener("click", function() {
 			// checkbox.parentElement.parentElement.removeChild(checkbox.parentElement);
 			if (checkbox.checked) {
 				checkbox.parentElement.style.setProperty("text-decoration", "line-through");
 				checkbox.parentElement.style.setProperty("color", "grey");
 				checkbox.parentElement.style.setProperty("font-style", "italic");
+				count(-1);
 			} else {
 				checkbox.parentElement.style.setProperty("text-decoration", "none");
 				checkbox.parentElement.style.setProperty("color", "black");
 				checkbox.parentElement.style.setProperty("font-style", "normal");
+				count(1);
 			}
 		})
 
@@ -77,7 +81,7 @@
 		item.appendChild(up);
 		item.appendChild(down);
 		item.appendChild(checkbox);
-		count();
+		count(1);
 	}
 </script>
 </html>
