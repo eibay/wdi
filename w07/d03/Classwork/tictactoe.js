@@ -1,5 +1,5 @@
 var board=[['x', 'x', 'o'], ['-', 'x', '-'], ['x', 'x', '-']]
-var board2=[['x', 'x', 'o','-','-'], ['-', 'x', '-','o', '-'], ['x', 'x', '-','o', 'o'], ['x', 'x', '-','o', '-'], ['x', 'x', '-','o', '-']]
+var board2=[['o', 'x', 'o','o','o'], ['-', 'o', '-','o', '-'], ['x', 'x', 'o','o', 'o'], ['x', 'x', '-','o', '-'], ['x', 'x', '-','o', 'o']]
 
 function won(board){
 
@@ -56,7 +56,7 @@ function wonVariableLength(board){
 
 		}	else if((left_diagnol.join('')==check_x)||(left_diagnol.join('')==check_o)){
 				return "left diagnol has won"
-		} else if((left_diagnol.join('')==check_x)||(left_diagnol.join('')==check_o)){
+		} else if((right_diagnol.join('')==check_x)||(right_diagnol.join('')==check_o)){
 				return "right diagnol has won"
 		}
 	}
