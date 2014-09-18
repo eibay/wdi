@@ -4,9 +4,6 @@ var amount = 120;
 var balance = 1000;
 var savingsBalance = 300;
 
-display_check = getCurrentChecking();
-display_sav = getCurrentSavings();
-
 // targets 
 var display_check = document.querySelectorAll("div.balance")[0]
 var display_sav = document.querySelectorAll("div.balance")[1]
@@ -16,6 +13,9 @@ var dep_button_check = document.getElementsByClassName("deposit")[0]
 var dep_button_sav = document.getElementsByClassName("deposit")[1]
 var wdrw_button_check = document.getElementsByClassName("withdraw")[0]
 var wdrw_button_sav = document.getElementsByClassName("withdraw")[1]
+
+display_check = getCurrentChecking();
+display_sav = getCurrentSavings();
 
 
 if (action == "deposit") {
