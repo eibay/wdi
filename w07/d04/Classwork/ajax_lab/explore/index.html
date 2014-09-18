@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <pre></pre>
+
+  <script type="text/javascript">
+    // this line selects the element corresponding to the above pre tags & 
+    // stores it inside a variable called pre 
+    var pre = document.querySelector('pre');
+
+    // define a function fetch that'll take a str 
+    // representing a title 
+    function fetch(title) {
+      // this line creates an XMLHttpRequest obj 
+      // which contains methods 
+      // used in AJAX 
+      var xhr = new XMLHttpRequest();
+
+      // we add an event listener 
+      // that will fire when the response to the request is finished 
+      // loading 
+      xhr.addEventListener('load', function(){ 
+        // it adds this response, first appending a new line, 
+        // to the inner text of the pre element 
+        pre.innerText += xhr.response + '\n';
+      });
+
+      // initialize a request to the node.js server 
+      // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#open() 
+      xhr.open('GET', 
+        // the method whose return is concatenated to the end 
+        // of the string literal in this argument expression 
+        // replaces characters, such as spaces, in a str 
+        // w/ the appropriate URI escape sequences http://everything2.com/title/URL+escape+sequences 
+        // such the str can be used as part of a uri
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent 
+        '/movies?title=' + encodeURIComponent(title));
+
+      // this method sends the initialized request 
+      xhr.send()
+    }
+  </script>
+</body>
+</html>
