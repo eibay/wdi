@@ -2,6 +2,8 @@ window.onload = function() {
 var userInput = document.getElementById("user_input");
 
 		userInput.addEventListener("keypress", function(){
+			//who calls a callback function? The browser.
+			//Any arguments? 
 			var textbox = document.getElementById("user_input");
 			var text = textbox.value;
 			if (event.keyIdentifier == "Enter") {
