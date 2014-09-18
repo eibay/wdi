@@ -1,0 +1,15 @@
+table{
+	border: 1px solid black;
+
+
+
+}
+tbody{
+
+	border= 1px;
+}
+
+td{
+	text-align: center;
+	height: 50px;
+}
