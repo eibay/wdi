@@ -32,7 +32,7 @@ window.onload = function(){
   var deleteCheckBox = function(){
     var checkbox = document.getElementById("check")
     for(var i=0;list.children.length;i++){
-    if (list.children[i].clicked == true){ list.children[i].parentNode.removeChild(list.children[i])}
+    if (list.children[i].checked == true){ list.children[i].parentNode.removeChild(list.children[i])}
     }
 }
   input.addEventListener("keypress", clickedEnter );
@@ -44,9 +44,9 @@ window.onload = function(){
       console.log(event);
     });
 
-    // checkbox.addEventListener("click", function(){
-    //   listEl.list.removeChild(listEl);
-    // })
+    checkbox.addEventListener("click", function(){
+      listEl.list.removeChild(listEl);
+    })
   }
 
 
