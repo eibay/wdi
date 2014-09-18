@@ -1,21 +1,21 @@
 var action = "withdraw";
 var accountType = "checking";
-var amount = 1200;
-var balance = 100;
+var amount = 120;
+var balance = 1000;
 var savingsBalance = 300;
 
-getCurrentChecking();
-getCurrentSavings();
+display_check = getCurrentChecking();
+display_sav = getCurrentSavings();
 
 // targets 
-var balance_check = document.querySelectorAll("div.balance")[0]
-var balance_sav = document.querySelectorAll("div.balance")[1]
-// input_check = document.getElementsByName("amount")[0]
-// input_sav = document.getElementsByName("amount")[1]
-// dep_button_check = document.getElementsByClassName("deposit")[0]
-// dep_button_sav = document.getElementsByClassName("deposit")[1]
-// wdrw_button_check = document.getElementsByClassName("withdraw")[0]
-// wdrw_button_sav = document.getElementsByClassName("withdraw")[1]
+var display_check = document.querySelectorAll("div.balance")[0]
+var display_sav = document.querySelectorAll("div.balance")[1]
+var input_check = document.getElementsByName("amount")[0]
+var input_sav = document.getElementsByName("amount")[1]
+var dep_button_check = document.getElementsByClassName("deposit")[0]
+var dep_button_sav = document.getElementsByClassName("deposit")[1]
+var wdrw_button_check = document.getElementsByClassName("withdraw")[0]
+var wdrw_button_sav = document.getElementsByClassName("withdraw")[1]
 
 
 if (action == "deposit") {
@@ -57,12 +57,12 @@ if (action == "deposit") {
 
 // display checking balance
 function getCurrentChecking() {
-  balance_check.innerText = balance;
+  display_check.innerText = balance;
 }
 
 // display savings balance
 function getCurrentSavings() {
-  balance_sav.innerText = savingsBalance;
+  display_sav.innerText = savingsBalance;
 }
 
 function finishTransaction(balance) {
