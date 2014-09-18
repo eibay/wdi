@@ -84,6 +84,7 @@
       var withdrawals = document.getElementsByClassName("withdraw");
 
       var checkingWithdrawal = withdrawals[0];
+
       var savingsWithdrawal = withdrawals[1];
 
    var inputs = document.querySelectorAll("input")
@@ -114,7 +115,6 @@
 
         if (checkingBalance < checkingInput && savingsBalance >= checkingInput) {
           var overdraft = document.createElement("p");
-          console.log(overdraft)
           overdraft.innerText = "overdraft protection"
           checking.parentNode.appendChild(overdraft);
           var newBalance = savingsBalance - Math.abs(checkingBalance - checkingInput)
@@ -139,7 +139,6 @@
 
       var newBalance = savingBalance + savingsInput
       savings.innerText = "$" + newBalance
-      console.log(newBalance)
     });
 
    savingsWithdrawal.addEventListener("click", function() {
