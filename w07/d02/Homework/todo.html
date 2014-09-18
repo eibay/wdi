@@ -1,53 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>To Do List</title>
-	<h2> Stuffz and What Not </h2>
-
-
-</head>
+<DOCTYPE! html>
+<head></head>
 <body>
-	<input id="to_do_list" type="text" placeholder="Tasks">
-	<ul id="list"> </ul>
+  
+  <h2>Stuffz and What Not</h2>
+	<input id="new_item" type="text" placeholder="New Task">
+  
+  <ul id="list"> </ul>
+  
+  <h4 id="counter"></h4>
 
-	<script>
-		var button = document.getElementById("add");
-		var textbox = document.getElementById("to_do_list");
-			textbox.addEventListener("keypress", function(event){ 	
-			var text = textbox.value;
-		
-				if(event.keyCode == 13){
-				if(text != ""){
+<script type="text/javascript">
+  var new_item = document.getElementById("new_item");
+  // var ul = document.querySelector("ul");
 
-		var listItem = document.createElement("li");
-			listItem.innerHTML = '<input id="checkbox" type="checkbox" class="checkbox">' + text;
+  new_item.addEventListener("keypress", function(event) {
+    if (event.keyCode == 13 && new_item.value != "") {
+      var ul = document.querySelector("ul");
 
-		var list = document.getElementById("list");
-			list.insertBefore(listItem, list.children[0]);
+      var li = document.createElement("li");
+      li.innerHTML = new_item.value + "<input type='checkbox' class='done' />";
 
-		textbox.value = ""
+      var list = document.getElementById("list");
+      list.insertBefore(li, list.children[0]);
 
-		// strike-through instead of deleting
-		var checkbox = document.createElement("input");
-			// checkbox.type="checkbox";
-			checkbox.addEventListener("click", function(event){
-				// checkbox.className="checkbox";
-				// listItem.appendChild(checkbox)
-			
-			if(event.target.checked == true) {
-				event.target.parentNode.style.setProperty("text-decoration", "line-through");
-				console.log("event");
-			} 
-			else {
-				checkbox.parentNode.style.setProperty("text-decoration", "none");
-				console.log("event");
-			}
-		})
+      ul.appendChild(li);
+      listenToCheck(li.querySelector('input'));
 
-	}
-	}
-	});
-	</script>
+      var counter = document.getElementById("counter");
+      counter.innerText = ul.children.length + " tasks to do";
+      new_item.value = "";
+    }
+  });
+
+  function listenToCheck(checkbox) { 
+    checkbox.addEventListener("click", function(event) {
+      check = event.target;
+      check.parentNode.setAttribute("style", "text-decoration:line-through;")
+    });
+  }
+</script>
 </body>
-</html>
