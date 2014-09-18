@@ -1,0 +1,35 @@
+body {
+	padding: 5%;
+}
+
+.square {
+	height: 302px;
+	width: 299px;
+	border: 1px solid black;
+}
+
+.box {
+	height:100px;
+	width: 300px;
+	float: left;
+	border-bottom: 1px solid black;
+}
+
+.box#bottom{
+	border-bottom: none;
+}
+
+.mini_box {
+	height: 100px;
+	width: 99px;
+	float: left;
+	border-right: 1px solid black;
+}
+
+.mini_box#three, .mini_box#six, .mini_box#nine {
+	border-right: none;
+}
+
+button {
+	margin-top: 3%;
+}
