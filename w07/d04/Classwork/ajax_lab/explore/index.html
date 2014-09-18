@@ -7,18 +7,25 @@
 <body>
   <pre></pre>
 
+  <!-- says "hi, this is javascript in here" -->
   <script type="text/javascript">
+    // <!-- selects the element tagged <pre> and assigns it to a variable-->
     var pre = document.querySelector('pre');
 
+    // a function, a bunch of code in a nice little package that can be used *** ????????
     function fetch(title) {
+     // creates a new http request via AJAX
       var xhr = new XMLHttpRequest();
 
+      // creates event listener on the http request so that the enclosed code only fires once the response is completed
       xhr.addEventListener('load', function(){ 
+        // fills the element <pre> with the response and a new line
         pre.innerText += xhr.response + '\n';
+      //ends the function code
       });
-
+      // tells the previously created http request what its parameters are
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
-
+      // fires the http request
       xhr.send()
     }
   </script>
