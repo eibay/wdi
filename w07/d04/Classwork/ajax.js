@@ -5,7 +5,8 @@ window.addEventListener('load', function() {
 	xhr.open('GET', "http://www.omdbapi.com/?t=True%20Grit", true);
 	xhr.send(null);
 
-	xhr.addEventListener('load', function() {
+	xhr.addEventListener('load', function(e) {
 		console.log(xhr.response); 
+		console.log(e); 
 	}); 
 }) 
