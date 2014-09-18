@@ -1,27 +1,23 @@
 <DOCTYPE! html>
 <head></head>
 <body>
-  
-  <h2>Stuffz and What Not</h2>
-	<input id="new_item" type="text" placeholder="New Task">
-  
-  <ul id="list"> </ul>
-  
+  <h1>To Do:</h1>
+  <input id="new_item" type="text" placeholder="New Task">
+  <h2>Current Tasks</h2>
+  <ul>
+  </ul>
   <h4 id="counter"></h4>
 
 <script type="text/javascript">
   var new_item = document.getElementById("new_item");
-  // var ul = document.querySelector("ul");
+  var ul = document.querySelector("ul");
 
-  new_item.addEventListener("keypress", function(event) {
-    if (event.keyCode == 13 && new_item.value != "") {
+  new_item.addEventListener("keypress", function(e) {
+    if (e.keyCode == 13 && new_item.value != "") {
       var ul = document.querySelector("ul");
 
       var li = document.createElement("li");
       li.innerHTML = new_item.value + "<input type='checkbox' class='done' />";
-
-      var list = document.getElementById("list");
-      list.insertBefore(li, list.children[0]);
 
       ul.appendChild(li);
       listenToCheck(li.querySelector('input'));

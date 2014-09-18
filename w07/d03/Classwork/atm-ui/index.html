@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ATM</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <article>
+      <header>
+        <p>Rosenbank</p>
+      </header>
+      <div id="balance_checking" class="account checking">
+        <h2>Checking</h2>
+        <div class="balance">$0</div>
+        <input name="amount" />
+        <button class="deposit">+</button>
+        <button class="withdraw">-</button>
+      </div>
+
+      <div id="balance_saving" class="account savings">
+        <h2>Savings</h2>
+        <div class="balance">$0</div>
+        <input name="amount" />
+        <button class="deposit">+</button>
+        <button class="withdraw">-</button>
+      </div>
+    </article>
+    <script src="atm.js"></script>
+  </body>
+</html>
