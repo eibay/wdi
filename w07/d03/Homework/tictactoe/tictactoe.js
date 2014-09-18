@@ -1,8 +1,12 @@
 var _ = require('underscore');
 // var winboard = [['x', 'o', '-'], ['-', 'o', '-'], ['-', 'o', 'x']];
-var horWin = [['x', 'x', 'x'], ['-', 'o', '-'], ['-', 'o', 'x']];
-var vertWin = [['x', 'o', '-'], ['-', 'o', '-'], ['-', 'o', 'x']];
-var diagWin =[['x', 'x', 'o'], ['-', 'x', '-'], ['-', 'x', 'x']];
+var horWin = [['x', 'o', '-', 'o'], ['-', 'o', '-', 'x'], ['-', 'o', 'x', 'o'], ['x', 'x', 'x', 'x']];
+var vertWin = [['x', 'o', '-', '-'], ['-', 'o', '-', 'x'], ['-', 'o', 'x', 'x'], ['x', 'o', 'x', 'o']];
+var diagWin =[['x', 'x', 'o', '-'],
+						  ['-', 'x', '-', 'o'], 
+						  ['-', 'x', 'x', 'o'], 
+						  ['o', 'o', '-', 'x']];
+var noWin = [['x', 'o', '-', 'o'], ['-', 'o', '-', 'x'], ['-', 'x', 'x', 'o'], ['x', 'o', 'x', 'x']];
 
 tictactoe = function(board) {
 // create winning number of x's
@@ -52,25 +56,27 @@ tictactoe = function(board) {
 	}
 
 // check diagonal
+var diagonal = '';
  	for (var i = 0; i < board.length; i++) {
-		var diagonal = '';
 		var winner = '';
 		diagonal += board[i][i];
-
-		if (diagonal == winX) {
+	}
+	if (diagonal == winX) {
 			winner = 'x';
 			return winner
 		} else if (diagonal == winO) {
 			winner = 'o';
 			return winner
 		} 
-	}
+	
 	return false
 }
 
-console.log(tictactoe(diagboard));
-console.log(tictactoe(diagboard));
-console.log(tictactoe(diagboard));
+console.log(tictactoe(horWin));
+console.log(tictactoe(vertWin));
+console.log(tictactoe(diagWin));
+console.log(tictactoe(noWin));
+
 
 //////////////////////////////////////////////////////////////////
 
