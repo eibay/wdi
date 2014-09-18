@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pic Me</title>
+</head>
+<body>
+	<input type="text" name="search">
+	<button>Search</button>
+
+	<div id="results"></div>
+
+
+
+
+	<script>
+
+		
+// console.log("results")
+		
+
+		function fetch(search) {
+			var xhr = new XMLHttpRequest();
+			var results = document.getElementById('results');
+			xhr.addEventListener('load', function(){
+				results.innerText = xhr.response
+			});
+			xhr.open('GET', '/monkey?search=' + encodeURIComponent(search));
+			xhr.send();
+		}
+
+		var btn = document.querySelector('button')
+// var btn_input = 0
+
+		btn.addEventListener('click', function(event) {
+			
+			var btn_input = document.querySelector('input').value
+
+			fetch(btn_input)
+		})
+	</script>
+</body>
+</html>
