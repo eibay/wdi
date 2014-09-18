@@ -5,7 +5,7 @@ window.onload = function(){
 			if (event.keyIdentifier == "Enter"){
 		var textbox = document.getElementById("submit");
 		var text = textbox.value;
-		var aside = document.createElement("aside");
+		// var aside = document.createElement("aside");
 			if(text != ""){
 				var listItem = document.createElement("li");
 				// listItem.innerText = text;
@@ -23,8 +23,8 @@ window.onload = function(){
 				
 				textbox.value = "";
 			}
-				}
-		});
+		}
+	});
 
 
 		var deleteItem = document.getElementById("items");
