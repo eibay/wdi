@@ -59,10 +59,10 @@
 //   return 5000;
 // }
 
-// function finishTransaction(balance) {
-//   //fs.writeFileSync('./' + accountType + '.txt', balance);
-//   console.log("You now have $" + balance + " in your " + accountType + " account");
-// }
+// // function finishTransaction(balance) {
+// //   //fs.writeFileSync('./' + accountType + '.txt', balance);
+// //   console.log("You now have $" + balance + " in your " + accountType + " account");
+// // }
 
   var div = document.querySelectorAll("div");
 
