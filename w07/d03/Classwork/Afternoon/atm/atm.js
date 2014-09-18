@@ -16,6 +16,37 @@ var div_acct_S = document.getElementById("balanceSaving")
   var btn_wth_S = div_acct_S.children[4]
 
 
+
+
+
+// //deposit buttons for both saving and checking
+// var buttonDeposit = document.getElementsByClass("deposit")
+
+// for(i=0; i=1; i++) {
+//   buttonDeposit.addEventListener('click', function(event){
+//     var balance = event.target.parentNode.children[1].innerText // read balance
+//               console.log("Starting checking balance: " + Number(balance))
+//     var amount = event.target.parentNode.children[2].value //read value
+//               console.log("Depositing: " + amount)
+
+//     event.target.parentNode.children[1].innerText = Number(balance) + Number(amount)// why do i need this in addition to below?
+//     balance = event.target.parentNode.children[1].innerText //update value
+//               console.log("New checking balance: " + balance)
+
+//   }
+// }
+  
+
+
+
+
+
+
+
+
+
+
+
 btn_dep_C.addEventListener('click', function(event){
   var balance = div_acct_C.children[1].innerText // read balance
             console.log("Starting checking balance: " + Number(balance))
@@ -40,6 +71,15 @@ btn_dep_S.addEventListener('click', function(event){
   balance = div_acct_S.children[1].innerText //update value
             console.log("New savings balance: " + balance)
 })
+
+
+
+
+
+
+
+
+
 
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////   Withdrawal Button   /////////////////////////
