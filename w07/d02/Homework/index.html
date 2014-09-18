@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
 var new_item = document.getElementById("new_item");
-
+var ul = document.querySelector("ul");
 
 	new_item.addEventListener("keypress", function(e) {
 		if (e.keyCode == 13 && new_item.value != "") {
@@ -28,10 +28,17 @@ var new_item = document.getElementById("new_item");
 	}
 	});
 
-var ul = document.querySelector("ul");
-
 
 if (ul.children.length > 0) {
+	var lis = document.querySelectorAll("li")
+	for (var i = 0; i < lis.length; i++) {
+		lis[i].innerText.addEventListener("click", function(){
+			lis[i].innerHTML = "<input class='update' type='text'/>"
+		})
+	}
+
+	var updates = document.getElementsByClassName("update")
+
 	var checkboxes = document.getElementsByClassName("done");
 	for (var i = 0; i < checkboxes.length; i++) {
 		var checkbox = checkboxes[i];
