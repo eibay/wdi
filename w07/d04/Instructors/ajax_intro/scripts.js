@@ -3,7 +3,7 @@ var xhr = new XMLHttpRequest;
 xhr.open('GET', 'http://data.cityofnewyork.us/resource/sxx4-xhzg.json', true);		
 
 xhr.addEventListener('load', function(e){
-	console.log('Callback in event has been friend');
+	console.log('Callback in event has been fred');
 	var array = JSON.parse(xhr.response);
 	
 	for(var i=0;i<array.length;i++){
