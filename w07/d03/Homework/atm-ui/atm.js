@@ -5,6 +5,12 @@
 
 // var balance;
 
+var checkingAmount = 2000;
+var savingsAmount = 1000;
+var checkingDisplay = document.querySelector("div.account.checking").children[1];
+var savingsDisplay = document.querySelector("div.account.savings").children[1];
+  checkingDisplay.innerText= "$"+checkingAmount;
+  savingsDisplay.innerText= "$"+savingsAmount;
 
 var buttons = document.querySelectorAll("button");
 for (var i=0; i< buttons.length; i++){
@@ -12,6 +18,7 @@ for (var i=0; i< buttons.length; i++){
 };
 
 function returnAction(feed){
+
   var action = feed.target.innerText;
   var userInputChecking =document.querySelectorAll("input")[0];
   var userInputSavings =document.querySelectorAll("input")[1];
@@ -23,6 +30,7 @@ function returnAction(feed){
   if (accountType == "checking") {
     balance = getCurrentChecking();
     console.log("balance starting out at " + balance)
+
   } else {
     balance = getCurrentSavings();
     console.log("balance starting out at " + balance)
@@ -30,36 +38,63 @@ function returnAction(feed){
 
 
   if (action == "Deposit") {
+    
+    if(accountType == 'checking'){
+      checkingAmount += amount;
+
+      }else{
+        savingsAmount += amount;
+    };
+
     balance = amount + balance;
     finishTransaction(balance);
+    checkingDisplay.innerText= "$"+checkingAmount;
+    savingsDisplay.innerText= "$"+savingsAmount;
+
+    var accountDiv = document.querySelector("div.account."+accountType);
+    accountDiv.children[2].value = ""
 
   } else if (action == "Withdraw" && accountType == "savings") {
 
     if (amount > balance) {
       console.log("Insufficient funds");
     } else {
-      balance = balance - amount;  
+      balance = balance - amount; 
+      savingsAmount -= amount; 
       finishTransaction(balance);
+      checkingDisplay.innerText= "$"+checkingAmount;
+      savingsDisplay.innerText= "$"+savingsAmount;
+      userInputSavings.value = ""
     }
 
   } else if (action == "Withdraw" && accountType == "checking") {
     if (amount > balance) {
       // can savings cover it?
       var savingsBalance = getCurrentSavings();
-      if (amount <= balance + savingsBalance) {
+      if (amount <= checkingAmount + savingsAmount) {
         var overdraftAmount = amount - balance;
 
         savingsBalance = savingsBalance - overdraftAmount;
+        savingsAmount -= overdraftAmount;
         console.log('your savings balance is now ' + savingsBalance)
+        checkingAmount = 0;
         balance = 0;
 
         finishTransaction(balance);
+        checkingDisplay.innerText= "$"+checkingAmount;
+        savingsDisplay.innerText= "$"+savingsAmount;
+        userInputChecking.value = ""
       } else {
         console.log('Insufficient funds');
+        userInputChecking.value = ""
       }
     } else {
       balance = balance - amount;
+      checkingAmount -= amount;
       finishTransaction(balance);
+      checkingDisplay.innerText= "$"+checkingAmount;
+      savingsDisplay.innerText= "$"+savingsAmount;
+      userInputChecking.value = ""
     }
   } else {
     console.log("Invalid action");
@@ -83,12 +118,12 @@ function userInputNotEmpty(checking, savings){
 
 function getCurrentChecking() {
   //for now
-  return 1000;
+  return checkingAmount;
 }
 
 function getCurrentSavings() {
   //for now
-  return 5000;  
+  return savingsAmount;  
 }
 
 // function finishTransaction(balance) {
