@@ -37,8 +37,11 @@ function appendRecycBin(addr, borough, park_site_name, type) {
 	var names = ["Address: ", "Borough: ", "Park: ", "Type: "]
 	for (var j = 0; j < args.length; j++) {
 		var span = document.createElement('span'); 
-		span.innerText = names[j] + args[j]; 
-		para.appendChild(span); 
+		span.innerText = names[j]; 
+		span.style.fontWeight = "900"; 
+		para.appendChild(span)
+		var text = document.createTextNode(args[j]);
+		para.appendChild(text); 
 		para.appendChild(document.createElement('br')); 
 	} 
 	 
