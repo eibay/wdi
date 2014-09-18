@@ -32,6 +32,7 @@ function makeCheckbox(div) {
 		box.parentNode.removeChild(box.nextSibling);
 		box.parentNode.removeChild(box.nextSibling);
 		box.parentNode.removeChild(box);
+		console.log(feed.target)
 	})
 	div.appendChild(box);
 }
@@ -48,13 +49,13 @@ function becomeElAgain(feed) {
 	}
 }
 
-function finishToDo(feed) {
-	console.log(feed.target)
-	listItem.removeEventListener("click", becomeEditor);
-	listItem.removeEventListener("click", finishToDo);
-	listItem.style.textDecoration = "line-through";
-	left.innerText = parseInt(left.innerText) - 1;
-}
+// function finishToDo(feed) {
+// 	console.log(feed.target)
+// 	listItem.removeEventListener("click", becomeEditor);
+// 	listItem.removeEventListener("click", finishToDo);
+// 	listItem.style.textDecoration = "line-through";
+// 	left.innerText = parseInt(left.innerText) - 1;
+// }
 
 function createEl(feed) {
 	var listItem = feed.target;
