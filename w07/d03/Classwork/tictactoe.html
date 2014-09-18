@@ -1,0 +1,155 @@
+<html>
+<head>
+	<title>tic tac</title>
+	<style type="text/css">
+
+	.square{
+    width:100px;
+    height:100px;
+}
+
+.v{
+    border-left:1px solid #000;
+    border-right:1px solid #000;
+}
+
+.h{
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+}
+.square{
+	font-size:50px;
+	text-align:center;
+	font-weight:bold;
+
+}
+	</style>
+</head>
+<body>
+
+<h1 id="winner"></h1>
+<div id="board">
+    <table>
+      <tr id="row1">
+        <td class="square"></td>
+        <td class="square v"></td>
+        <td class="square"></td>
+      </tr>
+      <tr id="row2">
+        <td class="square h"></td>
+        <td class="square v h"></td>
+        <td class="square h"></td>
+      </tr>
+      <tr id="row3">
+        <td class="square"></td>
+        <td class="square v"></td>
+        <td class="square"></td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+<script type="text/javascript">
+
+	var turn="x";
+
+	var square=document.getElementsByClassName('square');
+
+	for(i=0; i < square.length; i++){
+
+		square[i].addEventListener('click', function(event){
+			if(event.target.innerText==""){
+			event.target.innerText=turn;
+				if(turn=="x")
+			{
+				turn="o"
+			}
+			else{
+				turn="x"
+			}
+				var board=countBoard()
+		if(wonVariableLength(board) != false){
+			document.getElementById('winner').innerText=wonVariableLength(board);
+			setTimeout(clearBoard, 2000)
+			
+		}
+		}
+
+		else{
+			window.alert("you can't go there!")
+		}
+		
+	});
+
+	}
+
+	function countBoard(){
+
+			var squares=document.getElementsByClassName('square');
+			var rows=[[squares[0].innerText,squares[1].innerText, squares[2].innerText], [squares[3].innerText,squares[4].innerText, squares[5].innerText], [squares[6].innerText,squares[7].innerText, squares[8].innerText]]
+
+			return rows;
+}
+
+function wonVariableLength(board){
+	length=board.length;
+	var columnsArray=[];
+	left_diagnol=[];
+	right_diagnol=[];
+	var check_x='';
+	var check_o='';
+	for(var i=0; i < length; i++){
+		var new_column=[];
+		for(var n=0; n < length; n++){
+			new_column.push(board[board.length-(n+1)][i])
+		}
+		left_diagnol.push(board[i][i])
+		right_diagnol.push(board[i][board.length-(i+1)])
+		columnsArray.push(new_column);
+			check_x=check_x+'x';
+			check_o=check_o+'o';
+}
+	for(var k=0; k< length; k++){
+		if((board[k].join('')==check_x)||(board[k].join('')==check_o)){
+			return board[k][0]+" has won in row "+ (k+1);
+		}else if((columnsArray[k].join('')==check_x)||(columnsArray[k].join('')==check_o)){
+			return columnsArray[k][0]+" has won in column "+ (k+1);
+
+		}	else if((left_diagnol.join('')==check_x)||(left_diagnol.join('')==check_o)){
+				return "left diagnol has won"
+		} else if((right_diagnol.join('')==check_x)||(right_diagnol.join('')==check_o)){
+				return "right diagnol has won"
+		}
+	}
+		return false;
+}
+
+function clearBoard(){
+
+	var square=document.getElementsByClassName('square');
+
+	for(var n=0; n < square.length; n++){
+
+		square[n].innerText="";
+
+	}
+
+	document.getElementById('winner').innerText="";
+
+
+}
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</html>
