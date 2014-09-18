@@ -6,19 +6,22 @@
 </head>
 <body>
   <pre></pre>
-
+<!-- AJAX -->
   <script type="text/javascript">
+    // Sets a variable for the <pre> tag
     var pre = document.querySelector('pre');
 
+    // Creates a function to handle the movie title
     function fetch(title) {
+    // Initiates a new XHR request
       var xhr = new XMLHttpRequest();
-
+    // Creates an event listener. Activated when the request loads. The callback sets the <pre> tag's inner text to the appropriate data from the request.
       xhr.addEventListener('load', function(){ 
         pre.innerText += xhr.response + '\n';
       });
-
+    //Initiates the request using the GET method. Second argument is the URL where the information should be retrieved. No third argument listed. Is true implied unless otherwise stated?
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
-
+    // Sends the call to the API
       xhr.send()
     }
   </script>
