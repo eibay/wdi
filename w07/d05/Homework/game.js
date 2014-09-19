@@ -1,8 +1,11 @@
-var word = document.getElementsByClassName("guessed-letters")
+var word = "hodor"
 var wordHash  = {}
-var wrongGuesses = 8
+var wrongGuesses = 0
 
 var guesses = []
+
+console.log("Word length: " + word.length)
+
 
 function declareWordHash (word) {
 	for(i=0; i<word.length; i++){
@@ -42,7 +45,7 @@ function isLetterInWord(letter) {
 }
 
 function registerCorrect(letter) {
-	progressHash[letter] = true;
+	wordHash[letter] = true;
 	guesses.push(letter);
 }
 
@@ -54,8 +57,8 @@ function registerIncorrect(letter) {
 function checkWon() {
 	allTrue = true;
 
-	for (key in progressHash) {
-		if (progressHash[key] == false) {
+	for (key in wordHash) {
+		if (wordHash[key] == false) {
 			allTrue = false;
 		}
 	}

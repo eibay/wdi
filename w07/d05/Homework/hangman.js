@@ -1,24 +1,23 @@
-var word = document.getElementsByClassName("guessed-letters")
-var wordHash  = {}
-var wrongGuesses = 8
-
-var guesses = []
+var word = "noodle";
+var wordHash = {};
+var incorrectGuesses = 0
+var guesses = [];
 
 function declareWordHash (word) {
 	for(i=0; i<word.length; i++){
-
 		wordHash[word[i]] = false;
 	}
 }
 
-declareWordHash(word)
+declareWordHash(word);
+
 
 function guessLetter(letter){
 	if (alreadyGuessed(letter)) {
 		return;
 	}
 
-	if (isLetterInWord(letter)) {
+	if (letterInWord(letter)) {
 		registerCorrect(letter);
 	} else {
 		registerIncorrect(letter)
@@ -28,10 +27,10 @@ function guessLetter(letter){
 }
 
 function alreadyGuessed(letter) {
-	return guesses.indexOf(letter) != -1 || guesses.indexOf(letter) != -1;
+	return guesses.indexOf(letter);
 }
 
-function isLetterInWord(letter) {
+function letterInWord(letter) {
 	for(i=0; i<word.length; i++) {	
 		if ( word.indexOf(letter) != -1) {
 			return true;
@@ -42,20 +41,20 @@ function isLetterInWord(letter) {
 }
 
 function registerCorrect(letter) {
-	progressHash[letter] = true;
+	wordHash[letter] = true;
 	guesses.push(letter);
 }
 
 function registerIncorrect(letter) {
 	guesses.push(letter);
-	wrongGuesses--;
+	incorrectGuesses++;
 }
 
 function checkWon() {
 	allTrue = true;
 
-	for (key in progressHash) {
-		if (progressHash[key] == false) {
+	for (key in wordHash) {
+		if (wordHash[key] == false) {
 			allTrue = false;
 		}
 	}
@@ -63,8 +62,6 @@ function checkWon() {
 	return allTrue;
 }
 
-function checkLost() {
-	if (wrongGuesses == 0) {
-		return true;
-	}
-}
+guessLetter('n')
+guessLetter('g')
+guessLetter('j')
