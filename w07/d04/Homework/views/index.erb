@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="/styles.css">
+		<title>Instagram Tag Search</title>
+	</head>
+
+<body>
+	<pre></pre>
+	<h1>Instagram Search</h1>
+	
+	<h3>Search by tag</h3>
+	<form action="/" method="GET">
+		<input type="text" name="search" placeholder="Search for a tag..." />
+		<button>Search</button>
+	</form>
+			<h3>Results</h3>
+<% instagram_api["data"].each do |x| %>
+	<a href='<%= x["images"]["standard_resolution"]["url"] %>'><img src='<%= x["images"]["standard_resolution"]["url"] %>'/></a>
+	<% end %>
+
+  <script type="text/javascript">
+    var pre = document.querySelector('pre');
+
+    function fetch(title) {
+      var xhr = new XMLHttpRequest();
+ 
+      xhr.addEventListener('load', function(){ 
+        pre.innerText += xhr.response + '\n';
+      });
+      xhr.open('GET', '/' + encodeURIComponent(tag));
+      xhr.send()
+    }
+	</script>
+</body>
+</html>

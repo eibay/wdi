@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="/styles.css">
+		<title>Instagram Tag Search Results</title>
+	</head>
+
+<body>
+	
+	<h1>Instagram Search</h1>
+	
+<h3>Results</h3>
+<% instagram_tag["data"].each do |x| %>
+	<a href='<%= x["images"]["standard_resolution"]["url"] %>'><img src='<%= x["images"]["standard_resolution"]["url"] %>'/></a>
+	<% end %>
+
+<!-- 	<h3>Search by latitude/longitude</h3>
+	<form action="/" method="GET">
+		<input type="text" name="latitude" placeholder="Enter latitude..." />
+		<input type="text" name="longitude" placeholder="Enter longitude..." />
+		<button>Search</button>
+	</form> -->
+
+
+
+
+</body>
+</html>
