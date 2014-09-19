@@ -1,0 +1,36 @@
+<DOCTYPE! html>
+	<head>
+		<title>Instasearch</title>
+	</head>
+	<body>
+		<div>
+		<h1>GeoPhotoSearchogram</h1>
+			
+			<div id="search">
+				<input type="text" placeholder="city">
+				<button>Search</button>
+			</div>
+			
+			<div id="results">
+				<h3 id="city_name"></h3>
+			</div>
+		</div>
+	<script type="text/javascript">
+		var button = document.querySelector("button");
+		var input = document.querySelector("input");
+		var city = document.getElementById("city_name");
+		var results_div = document.getElementById("results");
+
+		function fetch(location) {
+			var xhr = new XMLHttpRequest();
+
+			xhr.addEventListener("load", function(){
+				response = xhr.response;
+				response = response["data"]
+
+			})
+		}
+	</script>
+
+	</body>
+</html>
