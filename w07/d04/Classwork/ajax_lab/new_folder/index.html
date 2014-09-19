@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <ul>
+    
+  </ul>
+  <input type="text">
+  <button id="button">button</button>
+
+  <script type="text/javascript">
+    var pre = document.querySelector('pre');
+    function fetch(title) {
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener('load', function(){ 
+       displayMovie(xhr.response); 
+      }); 
+      xhr.open('GET', 
+        '/movies?title=' + encodeURIComponent(title)); 
+      xhr.send()
+    }
+  </script>
+</body>
+</html>

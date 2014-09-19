@@ -1,0 +1,13 @@
+>> str = "https://api.instagram.com/v1/media/search?lat=48.858844&lng=2.294351"
+>> str.split '?'
+=> ["https://api.instagram.com/v1/media/search", "lat=48.858844&lng=2.294351"]
+>> params_string = str.split('?')[1]
+>> params = params_string.split '&' 
+>> params.map! { |param| param.split '=' }
+=> [["lat", "48.858844"], ["lng", "2.294351"]]
+>> params_hash = Hash[params.map {|k,v| [k, v]}] # simulate sinatra params magic 
+=> {"lat"=>"48.858844", "lng"=>"2.294351"}
+>> puts str.scan /\d+\.\d+/ # scan str for any number of digits in a row followed by a period followed by any number of digits in a row 
+48.858844
+2.294351
+=> nil 
