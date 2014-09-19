@@ -5,15 +5,18 @@
 		%title Search for Movie Posters
 		%link{:type => "text/css", :rel => "stylesheet", :href => "styles.css"}
 	%body 
-		%h1 Search for Movie Posters 
+		%section.search_input 
+			%h1 Postersearch  
+			%h2 A Search for Movie Posters  
 
-		%label 
-			%span Movie Name: 
-			%input#search_input{:type => "text"}
+			%label 
+				%span Movie Name: 
+				%input#search_input{:type => "text"}
 
-		%button Search! 
+			%button Search! 
 
-		%h2 Search Results
+		%section.search_results  
+			%h2 Search Results
 
-		%ul#search_results
-		%script{:src => "script.js"}
+			%ul#search_results
+			%script{:src => "script.js"}

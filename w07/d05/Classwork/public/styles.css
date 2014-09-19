@@ -2,3 +2,27 @@
 	margin: 0;
 	padding: 0;
 }
+
+section.search_input,
+section.search_results {
+	box-sizing: border-box;
+	padding: 10em;
+	float: left;
+	width: 50%;
+}
+
+section.search_input label input {
+	display: block;
+	margin: 1em;
+
+}
+
+section.search_input button {
+	margin-left: 9em;
+
+}
+
+section.search_results ul li {
+	list-style-type: none;
+
+}
