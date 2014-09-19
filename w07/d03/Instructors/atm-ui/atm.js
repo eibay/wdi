@@ -1,4 +1,4 @@
-var action = "withdraw";
+var action = "deposit";
 var accountType = "checking";
 var amount = 1200;
 
