@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>stuff</title>
+</head>
+<body>
+	<input id="user_input" type="text" name="tag" placeholder="search tag"><br>
+  <button>get pics</button><br>
+
+  <img src="http://scontent-b.cdninstagram.com/hphotos-xfa1/t51.2885-15/10665905_1559750324246362_1663553765_s.jpg" alt="popular"/>
+  
+  <script type="text/javascript">
+    var xhr = new XMLHttpRequest;
+		xhr.open('GET', '/photos?', true);
+		xhr.send();
+		arr = json.parse(xhr.response);
+
+		 xhr.addEventlistener('load', function(e) {
+		 	console.log(e);
+		 });
+
+		function makelist(arr) {
+		  var stuffUl = document.getElementById("list");
+		  for (var i = 0; i < arr.length; i++) {
+		    var thingLi = document.createElement("li");
+		    thingLi.innerText = arr[i];
+		    stuffUl.appendChild(thing);
+  	}
+
+		var pre = document.querySelector('pre'); //do stuff at the beginning of body
+
+    function fetch(title) { // declare function fetch 
+      var xhr = new XMLHttpRequest(); //initialize ajax api request
+
+      xhr.addEventListener('load', function(){ //make event listener on api request
+        pre.innerText += xhr.response + '\n';  //
+      });
+
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+
+      xhr.send()
+    }
+		
+  </script>
+</body>
+</html>

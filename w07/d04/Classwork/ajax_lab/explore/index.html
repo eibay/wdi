@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <pre></pre>
+
+  <script type="text/javascript">
+    var pre = document.querySelector('pre'); //do stuff at the beginning of body
+
+    function fetch(title) { // declare function fetch 
+      var xhr = new XMLHttpRequest(); //initialize ajax api request
+
+      xhr.addEventListener('load', function(){ //make event listener on api request
+        pre.innerText += xhr.response + '\n';  //
+      });
+
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+
+      xhr.send()
+    }
+  </script>
+</body>
+</html>
