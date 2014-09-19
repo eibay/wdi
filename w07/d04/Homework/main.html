@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pic Me</title>
+</head>
+<body>
+	<input type="text" placeholder="City" id="city">
+	<input type="text" placeholder="Tag" id="city">
+	<button></button>
+
+	<ul></ul>
+
+	<script>
+
+		var ul = document.querySelector('ul');
+
+		function retrieve(city, tag) {
+			var xhr = new XMLHttpRequest;
+
+			xhr.addEventListener('load', function() {
+				ul.innerText = xhr.response
+			})
+
+			xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+
+		    xhr.send();
+		}
+
+		
+
+
+
+	</script>
+</body>
+</html>
