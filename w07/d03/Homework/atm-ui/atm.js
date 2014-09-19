@@ -2,11 +2,11 @@
 // var accountType = "checking";
 // var amount = 500;
 
-
+window.onload= function(){
 // var balance;
 
-var checkingAmount = 2000;
-var savingsAmount = 1000;
+var checkingAmount = 0;
+var savingsAmount = 0;
 var checkingDisplay = document.querySelector("div.account.checking").children[1];
 var savingsDisplay = document.querySelector("div.account.savings").children[1];
   checkingDisplay.innerText= "$"+checkingAmount;
@@ -42,8 +42,8 @@ function returnAction(feed){
     if(accountType == 'checking'){
       checkingAmount += amount;
 
-      }else{
-        savingsAmount += amount;
+    }else{
+      savingsAmount += amount;
     };
 
     balance = amount + balance;
@@ -58,6 +58,7 @@ function returnAction(feed){
 
     if (amount > balance) {
       console.log("Insufficient funds");
+      alert("Insufficient funds")
     } else {
       balance = balance - amount; 
       savingsAmount -= amount; 
@@ -86,6 +87,7 @@ function returnAction(feed){
         userInputChecking.value = ""
       } else {
         console.log('Insufficient funds');
+        alert('Insufficient funds');
         userInputChecking.value = ""
       }
     } else {
@@ -98,6 +100,7 @@ function returnAction(feed){
     }
   } else {
     console.log("Invalid action");
+    alert("Insufficient funds")
   }
 
   function finishTransaction(balance) {
@@ -125,6 +128,8 @@ function getCurrentSavings() {
   //for now
   return savingsAmount;  
 }
+
+};
 
 // function finishTransaction(balance) {
 //   //fs.writeFileSync('./' + accountType + '.txt', balance);
