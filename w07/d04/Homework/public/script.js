@@ -1,8 +1,11 @@
 window.addEventListener('load', function() {
 	var button = document.getElementById("button");
 	button.addEventListener('click', function() {
+
 		var city = getCity(); 
 		var search = getSearch();
+		console.log(city);
+		console.log(search); 
 		var requestURL = assembleRequestUrl(city, search); 
 		var httpRequest = new XMLHttpRequest; 
 		httpRequest.open('GET', requestURL, true);
@@ -10,6 +13,7 @@ window.addEventListener('load', function() {
 		httpRequest.addEventListener('load', function() {
 			var picturesUl = document.getElementById("pictures"); 
 			var srcArray = JSON.parse(httpRequest.response);
+			console.log(srcArray);
 			for (var i = 0; i < srcArray.length; i++) {
 				var src = srcArray[i]; 
 				displayPicture(picturesUl, src);
