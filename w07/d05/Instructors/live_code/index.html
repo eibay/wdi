@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movies</title>
+</head>
+<body>
+  <input type="text" />
+  <button>Press Me</button>
+  <div id="results"></div>
+
+  <script type="text/javascript">
+    
+    var input = document.querySelector('input');
+    var button = document.querySelector('button');
+
+    button.addEventListener('click', function() {
+      // send this to ajax somehow...
+      getMovie(input.value);
+      console.log(input.value);
+    });
+
+    // DIVISION
+    function getMovie(movieTitle) {
+      var monkey = new XMLHttpRequest();
+
+      monkey.open("GET", "http://omdbapi.com/?t=" + movieTitle);
+
+      monkey.addEventListener('load', function() {
+        console.log(monkey.response);
+        parsedMovie = JSON.parse(monkey.response);
+        renderMovie(parsedMovie["Poster"], parsedMovie["Title"]);
+      });
+
+      monkey.send();
+    }
+
+    // DIVISION
+    function renderMovie(imageSrc, title) {
+      var div = document.querySelector('div#results');
+      var img = document.createElement('img');
+      img.src = imageSrc;
+
+      var titleElement = document.createElement('h3');
+      titleElement.innerText = title;
+
+      div.appendChild(titleElement);
+      div.appendChild(img);
+    }
+  </script>
+</body>
+</html>
