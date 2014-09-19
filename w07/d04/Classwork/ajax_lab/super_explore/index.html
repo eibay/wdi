@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <input id="input" /><button>Search</button>
+
+  <pre></pre>
+
+  <!-- start javascript -->
+  <script type="text/javascript">
+  // select the pre HTML tag
+    var pre = document.querySelector('pre');
+    var input = document.querySelector('input');
+    var button = document.querySelector('button');
+
+
+
+    function fetch(title) {
+      var xhr = new XMLHttpRequest();
+
+      xhr.addEventListener('load', function(){
+        pre.innerText += xhr.response + '\n';
+        console.log("i'm in here");
+        console.log(parsed);
+        var t_el = document.createElement("h4");
+        var a_el = document.createElement("h4");
+        console.log(t_el);
+        console.log(a_el);
+        var parsed = JSON.parse(xhr.response);
+        var title = parsed["Title"];
+        var actors = parsed["Actors"];
+        t_el.innerText = title;
+        a_el.innerText = actors;
+        pre.appendChild(t_el);
+        pre.appendChild(a_el);
+      });
+      //Get movie titles from... and insert them into the PRE HTML tag
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+
+      xhr.send()
+    }
+
+    button.addEventListener("click", function(){
+      // var pre = document.querySelector('pre');
+      var query = fetch(input.value);
+      // var yes = pre.innerText;
+      // var title = yes["Title"];
+      // var actors = yes["Actors"];
+      // var t_el = document.createElement("h4");
+      // var a_el = document.createElement("h4");
+      // t_el.innerText = title;
+      // a_el.innerText = actors;
+    })
+  </script>
+</body>
+</html>

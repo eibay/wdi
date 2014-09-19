@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Pic Me</title>
+  </head>
+  <body>
+    <input type="text" id="query"></input><button>Search</button>
+
+  <script type="text/javascript">
+
+    var input = document.querySelector("input");
+    var submit = document.querySelector("button");
+
+    function queryPic(query){
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener('load', function(){
+          console.log(xhr.response);
+
+        });
+        xhr.open('GET', '/query=' + encodeURIComponent(query));
+        console.log(encodeURIComponent(query));
+        xhr.send();
+
+
+    }
+    submit.addEventListener("click", function(){
+      queryPic(input.value);
+});
+  </script>
+  </body>
+</html>
