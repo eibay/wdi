@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <pre></pre>
+
+  <!-- start javascript -->
+  <script type="text/javascript">
+  // select the pre HTML tag
+    var pre = document.querySelector('pre');
+
+    function fetch(title) {
+      var xhr = new XMLHttpRequest();
+
+      xhr.addEventListener('load', function(){
+        pre.innerText += xhr.response + '\n';
+      });
+      //Get movie titles from... and insert them into the PRE HTML tag
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+
+      xhr.send()
+    }
+  </script>
+</body>
+</html>

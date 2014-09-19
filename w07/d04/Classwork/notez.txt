@@ -1,0 +1,4 @@
+1. HTTParty and Request are gems and packages we use in our code to act as a client to make requests to other websites.
+
+I think the code for these programs are evaluated...hmm well
+HTTParty is a gem, the logic for HTTParty is wherever the gem is....
