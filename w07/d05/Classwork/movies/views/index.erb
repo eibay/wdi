@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Movies</title>
+</head>
+<body>
+	<div id="results"></div>
+
+	<input type="text" name="search">
+	<button>Search movies</button>
+
+
+	<script>
+		var results = document.getElementById('results');
+
+	// 	function fetch(search) {
+	// 		var xhr = new XMLHttpRequest();
+
+	// 		xhr.addEventListener('load', function() {
+	// 			var output = xhr.response;
+	// 			output = JSON.parse(output)
+	// console.log("hello")
+
+	// 			for(i=0; i<output.length; i++) {
+	// 				var div = document.createElement('div')
+	// 				var h4 = document.createElement('h4')
+	// 				var img = document.createElement('img')
+
+	// 				var title = output["Title"]
+	// 				var poster_url = output["Poster"]
+
+	// 				h4.innerText = title
+	// 				img.src = poster_url
+
+	// 				div.appendChild(h4)
+	// 				div.appendChild(img)
+	// 				results.appendChild(div)
+	// 			}
+
+	// 			xhr.open('GET', '/search?search=' + encodeURIComponent(
+	// 				search));
+	// 			xhr.send();
+
+	// 		})
+	// 	}
+
+		function fetch(search) {
+			console.log("fetch() is running") //###################//
+
+			var xhr = new XMLHttpRequest();
+			console.log(xhr) //####################################//
+
+
+			xhr.open('GET', 'http://www.omdbapi.com/?t=' + encodeURIComponent(search))
+			xhr.send();
+
+			xhr.addEventListener('load', function(){
+				var output = xhr.response
+				var outputParsed = JSON.parse(output)
+				var title = outputParsed["Title"]
+
+
+
+				console.log(title)
+				console.log(outputParsed)
+				console.log("xhr is ready to output data")
+			})
+
+		}
+
+
+
+		var btn = document.querySelector('button')
+
+		btn.addEventListener('click', function(event) {
+			var btn_input = document.querySelector('input').value
+
+			fetch(btn_input)
+		})
+
+	</script>
+
+</body>
+</html>
