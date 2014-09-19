@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pic Me</title>
+</head>
+<body>
+	<input type="text" name="search">
+	<button>Search</button>
+
+	<div id="results"></div>
+
+
+	<script src='./server.js'>
+
+		var results = document.getElementById('id')
+
+		function fetch(image) {
+			var xhr = new XMLHttpRequest();
+
+			xhr.addEventListener('load', function(){
+
+				results.innerText += xhr.response + '\n';
+			});
+
+			xhr.open('GET', '/images?')
+		}
+	</script>
+</body>
+</html>
