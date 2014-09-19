@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Posters</title>
+</head>
+<body>
+
+  <input type="text" placeholder="Search">
+  <button>Search</button>
+
+<div id="images"></div>
+
+  <script type="text/javascript">
+
+
+    var pre = document.getElementById('div');
+
+    function fetch(title) {
+      var xhr = new XMLHttpRequest();
+
+      xhr.addEventListener('load', function(){
+        var movieHash = JSON.parse(xhr.response);
+        var img = document.createElement('img')
+
+        var title = movieHash["Title"];
+
+        pre.innerHTML = "<h4>" + title + "</h4>"
+      });
+
+      xhr.open('GET', '/images?title=' + encodeURIComponent(title));
+
+      xhr.send()
+
+    }
+
+    var button = document.querySelector('button');
+    var titleInput = document.querySelector('input').value
+
+    button.addEventListener('click', function() {
+      var movie = titleInput;
+      fetch(movie);
+
+    })
+
+
+      xhr.addEventListener('load', function(){
+
+
+        pre.innerText += xhr.response + '\n';
+      });
+
+
+
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+
+      xhr.send()
+
+  </script>
+</body>
+</html>
