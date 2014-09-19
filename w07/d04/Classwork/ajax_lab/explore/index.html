@@ -8,13 +8,13 @@
   <pre></pre>
 
   <script type="text/javascript">
-    var pre = document.querySelector('pre');
+    var pre = document.querySelector('pre'); //do stuff at the beginning of body
 
-    function fetch(title) {
-      var xhr = new XMLHttpRequest();
+    function fetch(title) { // declare function fetch 
+      var xhr = new XMLHttpRequest(); //initialize ajax api request
 
-      xhr.addEventListener('load', function(){ 
-        pre.innerText += xhr.response + '\n';
+      xhr.addEventListener('load', function(){ //make event listener on api request
+        pre.innerText += xhr.response + '\n';  //
       });
 
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));

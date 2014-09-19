@@ -1,11 +1,12 @@
-var fs = require('fs');
-var http = require('http');
-var httpClient = require('request');
-var url = require('url');
+var fs = require('fs'); // read and write
+var http = require('http');  // needed for making and receiveing http requests
+var httpClient = require('request'); // for api requests
+var url = require('url'); // part of api request
 
+// create a server
 var server = http.createServer();
 
-server.on('request', function(request, response) {
+server.on('request', function(request, response) { //sets up server request response
   var parsedRequest = url.parse(request.url, true);
   console.log("Request received to: " + parsedRequest.pathname)
 
