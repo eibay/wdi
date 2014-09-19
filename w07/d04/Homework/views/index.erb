@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Instagram Cool</title>
+</head>
+<body>
+  <label>Input a City</label>
+	<input type="text" name="tag" id="tag">
+	<button id="button">Click Me</button>
+
+
+<div id="pics"></div>
+
+
+
+<script type="text/javascript">
+
+    function fetch(tag) {
+      var pics=document.getElementById('pics');
+      var xhr = new XMLHttpRequest();
+      
+      xhr.addEventListener('load', function(){ 
+        pics.innerHTML=''
+        var json=JSON.parse(xhr.response)
+        
+          console.log(json["data"][0]["location"])
+      
+          for(i=0; i < json["data"].length; i++){
+          
+            pics.innerHTML += "<img src='"+json["data"][i]["images"]["standard_resolution"]["url"]+"'>"
+            //json["data"][0]["location"]["latitude"]
+            //json["data"][0]["location"]["longitude"]
+
+          }
+
+
+      });
+		 xhr.open('GET', 'http://127.0.0.1:4567/images?city=' + encodeURIComponent(tag));
+
+      xhr.send()
+  	}
+
+  	var button=document.getElementById('button')
+
+  	button.addEventListener('click', function(){
+  		var input=document.getElementById('tag').value	
+			fetch(input);
+
+  	})
+</script>
+</body>
+</html>

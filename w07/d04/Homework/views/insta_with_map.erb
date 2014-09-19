@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Google Maps Instagram</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+   
+  </head>
+  <body>
+      <label>Input a City</label>
+    <input type="text" name="tag" id="tag">
+    <button id="button">Click Me</button>
+
+
+
+
+
+    <div id="map-canvas"></div>
+     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+
+
+ function fetch(tag) {
+     var xhr = new XMLHttpRequest();
+     xhr.addEventListener('load', function(){ 
+       
+    
+    function initialize()
+{
+    var json=JSON.parse(xhr.response)
+   
+    var map =  new google.maps.Map(document.getElementById('map-canvas'));
+    var bounds = new google.maps.LatLngBounds();
+    var infowindow = new google.maps.InfoWindow();
+    
+    for (var i=0; i< json["data"].length; i++)
+    {
+        
+    
+        
+        var latlng = new google.maps.LatLng(json["data"][i]["location"]["latitude"], json["data"][i]["location"]["longitude"]);
+        bounds.extend(latlng);
+         
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: "<img src='"+json["data"][i]["images"]["low_resolution"]["url"]+"' height='200' width='200'>"
+        });
+     
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(this.title);
+            infowindow.open(map, this);
+        });
+    }
+     
+    map.fitBounds(bounds);
+
+}
+     initialize()
+   
+  });
+         xhr.open('GET', 'http://127.0.0.1:4567/images?city=' + encodeURIComponent(tag));
+
+         xhr.send()
+}
+
+
+
+
+    var button=document.getElementById('button')
+
+    button.addEventListener('click', function(){
+        var input=document.getElementById('tag').value  
+            fetch(input);
+        });
+
+
+    </script>
+  </body>
+</html>

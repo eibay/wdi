@@ -8,17 +8,20 @@
   <pre></pre>
 
   <script type="text/javascript">
+  //selecting first element with the pre tag
     var pre = document.querySelector('pre');
-
+    //defining fetch function
     function fetch(title) {
+      ///setting up a new request in ajax
       var xhr = new XMLHttpRequest();
-
+      ///addingan event listener that will triger when xhr.send recieves it's contents
       xhr.addEventListener('load', function(){ 
+        ///chaning the text of the <pre> element the the response
         pre.innerText += xhr.response + '\n';
       });
-
+      ///setting up to get something from omdb it looks like
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
-
+      ///actually sending the request
       xhr.send()
     }
   </script>

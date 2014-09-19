@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+
+<input type="text" id="movie"><button id="button">Click Me</button>
+
+
+
+
+  <pre></pre>
+
+  <script type="text/javascript">
+  //selecting first element with the pre tag
+    var pre = document.querySelector('pre');
+    var button=document.getElementById('button');
+   
+    //defining fetch function
+    function fetch(title) {
+      ///setting up a new request in ajax
+      var xhr = new XMLHttpRequest();
+      ///addingan event listener that will triger when xhr.send recieves it's contents
+      xhr.addEventListener('load', function(){ 
+        var json=JSON.parse(xhr.response)
+        ///chaning the text of the <pre> element the the response
+        pre.innerHTML = "<h1>"+json["Title"]+"</h1><h4>Year:"+json["Year"]+"</h4>"+"<h4>Key Actors:"+json["Actors"]+"</h4>";
+
+      });
+      ///setting up to get something from omdb it looks like, upon further inspection going through some hoops
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+      ///actually sending the request
+      xhr.send()
+   
+        }
+    button.addEventListener('click', function(){ 
+      var input=document.getElementById('movie').value
+      fetch(input)
+
+    })
+
+  </script>
+</body>
+</html>
