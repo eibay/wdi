@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Search Instagram Again!</title>
+</head>
+<body>
+
+<pre></pre>
+
+<h1>Search Instagram by Location </h1>
+
+<input id="user_input" type="text" placeholder="search by location"/>
+
+<input id="find_pics" type="button"/>
+
+<pre></pre>
+
+  <script type="text/javascript">
+    var pre = document.querySelector('pre'); 
+    // set variable as pre tags
+
+    function fetch(title) {
+      var xhr = new XMLHttpRequest();
+    // create new XMLHttpRequest object
+
+      xhr.addEventListener('load', function(){ 
+     // add event listener to xhr to wait til the xhr finishes loading and then call the function
+        pre.innerText += xhr.response + '\n';
+     // the function resets the value of the inner text of pre to the response data that's saved to the xhr \add line break
+      });
+// '/movies?title='
+      xhr.open('GET', '/media/search' + encodeURIComponent(image));
+      //  prepares an external request for information
+      xhr.send()
+      // sends the request
+    }
+  </script>
+
+</body>
+</html>
+
