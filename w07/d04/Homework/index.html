@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>Pic Me</title>
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+</head>
+<body>
+	<h1>Pic Me</h1>
+	<h3>Search by word</h3>
+	<input type="text" name="specific_term">
+		<button id="term">Search</button>	
+	</input>
+	<h3>Search by location</h3>
+	<input type="text" name="lat" placeholder="Latitude">
+	<input type="text" name="lng" placeholder="Longitude">
+		<button id="location">Search</button>
+	</input>	
+		<ul>
+		</ul>
+	<script type="text/javascript">
+
+      	console.log('script has been loaded');
+		var ul = document.querySelector('ul');
+		var term_button = document.getElementById('term');
+		var location_button = document.getElementById('location');
+
+		term_button.addEventListener('click', function(){
+			var term = document.querySelector('input').value;
+			var xhr = new XMLHttpRequest();
+			console.log('XMLHttpRequest');
+
+			xhr.open('GET', '/term?specific_term=' + term);
+			xhr.send();
+
+			console.log('Reaching to /term?specific_term=' + term);
+
+    		xhr.addEventListener('load', function(ev){
+    			console.log('Got Callback')
+    			var list_array = document.querySelectorAll('li');
+    			for(var i=0;i<list_array.length;i++) {
+    				list_array[i].parentNode.removeChild(list_array[i]);
+    			};
+    			var image_lists = JSON.parse(ev.currentTarget.response).data
+    			for(var i=0;i<image_lists.length;i++) {
+    				var url = image_lists[i].images.low_resolution.url;
+    				var list = document.createElement('li');
+    				list.setAttribute('style', 'float: left; list-style: none; display: inline; margin: 2%')
+    				var img = document.createElement('img');
+    				img.setAttribute('src', url);
+    				list.appendChild(img);
+    				ul.appendChild(list);
+    			}
+
+    		});
+
+		});
+
+		location_button.addEventListener('click', function(){
+			var lat = document.querySelectorAll('input')[1].value;
+			var lng = document.querySelectorAll('input')[2].value;
+			var xhr = new XMLHttpRequest();
+			console.log('XMLHttpRequest');
+
+			xhr.open('GET', '/location?lat=' + lat + '&lng=' + lng);
+			xhr.send();
+
+			console.log('Reaching to /location?lat=' + lat + '&lng=' + lng);
+
+    		xhr.addEventListener('load', function(ev){
+    			console.log('Got Callback')
+    			var list_array = document.querySelectorAll('li');
+    			for(var i=0;i<list_array.length;i++) {
+    				list_array[i].parentNode.removeChild(list_array[i]);
+    			};
+    			var image_lists = JSON.parse(ev.currentTarget.response).data
+    			for(var i=0;i<image_lists.length;i++) {
+    				var url = image_lists[i].images.low_resolution.url;
+    				var list = document.createElement('li');
+    				list.setAttribute('style', 'float: left; list-style: none; display: inline; margin: 2%');
+    				var img = document.createElement('img');
+    				img.setAttribute('src', url);
+    				list.appendChild(img);
+    				ul.appendChild(list);
+    			}
+
+    		});
+
+		});
+
+	</script>
+</body>
+</html>

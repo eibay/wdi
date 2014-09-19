@@ -8,15 +8,18 @@
   <pre></pre>
 
   <script type="text/javascript">
+// set <pre> in html
     var pre = document.querySelector('pre');
 
     function fetch(title) {
+// create new xhr
       var xhr = new XMLHttpRequest();
-
-      xhr.addEventListener('load', function(){ 
+// when request loaded
+      xhr.addEventListener('load', function(){ console.log('hi');
+// change innerYext in <pre>
         pre.innerText += xhr.response + '\n';
       });
-
+// get a route '/movies?title=' + title
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
 
       xhr.send()
