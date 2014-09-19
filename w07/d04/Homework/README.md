@@ -2,7 +2,7 @@
 
 **Goal**
 
-A page where a user can enter a city and a search term and see pictures from that city displayed on the page.
+A page where a user can enter a city and see pictures from that city displayed on the page.
 
 **Break it down**
 
@@ -28,3 +28,4 @@ Instead of displaying all of the pictures in a list, render a google map with cl
     ```html
       <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     ```
+  * Also enter a search term (need Flickr API)
