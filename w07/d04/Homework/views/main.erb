@@ -3,6 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Pic Me</title>
+
+	<style type="text/css">
+  		html { height: 100% }
+  		body { height: 100%; margin: 0; padding: 0 }
+ 	 	#map-canvas { height: 100% }
+	</style>
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false">
+	</script>
+
 </head>
 <body>
 
@@ -12,7 +22,7 @@
 
 	<div id="photos"></div>
 
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false">
+	<script type="text/javascript">
 
 		var photos = document.getElementById('photos');
 
@@ -32,39 +42,62 @@
 					photos.appendChild(image);
 				}
 			});
+
+			var mapOptions = {
+	          	center: { lat: lat, lng: lng},
+	          	zoom: 8
+	        	};
+	        	var map = new google.maps.Map(document.getElementById('map-canvas'),
+	            mapOptions);
+
+	            var script = document.createElement('script');
+	  			script.type = 'text/javascript';
+	  			script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+	      		'callback=initialize';
+	  			document.body.appendChild(script);
+
 			xhr.open('GET', '/city-pics?lat=' + encodeURIComponent(lat) + '&lng=' + encodeURIComponent(lng));
+		    xhr.send();
+
+		}
+
+		function retrieveTag(tag) {
+			var xhr = new XMLHttpRequest();
+
+			xhr.addEventListener('load', function(){ 
+				
+				photos.innerHTML = ''
+				var jsonRes = JSON.parse(xhr.response);
+				var data = jsonRes['data'];
+
+				for(i=0; i < data.length; i++){
+					var imgURL = data[i]["images"]["low_resolution"]["url"];
+					image = document.createElement('img');
+					image.src = imgURL;
+					photos.appendChild(image);
+				}
+			});
+			xhr.open('GET', '/tag-pics?tag=' + encodeURIComponent(tag));
 		    xhr.send();
 		}
 
-		// function retrieveTag(tag) {
-		// 	var xhr = new XMLHttpRequest();
-
-		// 	xhr.addEventListener('load', function(){ 
-				
-		// 		photos.innerHTML = ''
-		// 		var jsonRes = JSON.parse(xhr.response);
-		// 		var data = jsonRes['data'];
-
-		// 		for(i=0; i < data.length; i++){
-		// 			var imgURL = data[i]["images"]["low_resolution"]["url"];
-		// 			image = document.createElement('img');
-		// 			image.src = imgURL;
-		// 			photos.appendChild(image);
-		// 		}
-		// 	});
-		// 	xhr.open('GET', '/tag-pics?tag=' + encodeURIComponent(tag));
-		//     xhr.send();
-		// }
-
 
 		var button = document.querySelector('button')
+
 		button.addEventListener('click', function() {
 
-
-			var geocoder = new google.maps.Geocoder();
 			var city = document.getElementById("city").value;
+			var tag = document.getElementById("tag").value;
 
-			geocoder.geocode( { 'address': city}, function(results, status) {
+			if (city == '' && tag != '') {
+				retrieveTag(tag)
+			
+			} else if (city != '' && tag == '') {
+
+				var geocoder = new google.maps.Geocoder();
+			
+
+				geocoder.geocode( { 'address': city}, function(results, status) {
 
 				if (status == google.maps.GeocoderStatus.OK) {
 		    	var latitude = results[0].geometry.location.lat();
@@ -76,10 +109,28 @@
 		    	}
 	    	});
 
-			// var tag = document.getElementById("tag").value;
-			// retrieveTag(tag)	
+			} else if (city != '' && tag != '') {
+
+				var geocoder = new google.maps.Geocoder();
+			
+
+				geocoder.geocode( { 'address': city}, function(results, status) {
+
+				if (status == google.maps.GeocoderStatus.OK) {
+		    	var latitude = results[0].geometry.location.lat();
+				var longitude = results[0].geometry.location.lng();
+
+		    	retrieveCity(latitude, longitude)
+		    	} else {
+		    		alert("Whoa, we can't find THAT place.")
+		    	}
+	    	});
+
+
+			}	
+				
 		})
 	</script>
-
+	
 </body>
 </html>
