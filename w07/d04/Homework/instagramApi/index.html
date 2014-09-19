@@ -3,12 +3,12 @@
 	<title>Instagram API</title>
 </head>
 <body style="text-align:center">
-	<h1>Instagram API</h1>
+	<h1 style="color:#2FCCBF">Instagram API</h1>
 
-	<input id="location" placeholder="Enter Location"></input>
+	<input id="location" placeholder="Enter Location" style="margin-bottom:20px"></input>
 	<button>Search</button>
 
-	<ul id="pictures"></ul>
+	<div id="pictures" style="overflow:scroll; width:700px; height:500px; margin:0 auto;"></div>
 
 <script type="text/javascript">
   
@@ -22,7 +22,7 @@
     };
   });
 
-  var ul = document.querySelector('ul');
+  var ul = document.querySelector('div');
 
   function getImage() {
     
@@ -44,7 +44,6 @@
       xhr.send()
       input.value = ""
     };
-
 
 	</script>
 
