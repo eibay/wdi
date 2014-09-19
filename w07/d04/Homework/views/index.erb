@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Moar Instagram</title>
+	<h3> Moar Instagram ft. AJAX </h3>
+</head>
+<body>
+
+<input type="text" placeholder="Search by anything" name="search" id="search">
+<button> Submit </button>
+
+<div id="photos"></div>
+
+<script>
+
+
+	function fetch(search) {
+		var xhr = new XMLHttpRequest();
+		var photos = document.getElementById('photos');
+
+		// xhr.addEventListener('load', function(){ 
+		// photos.innerText += xhr.response + '\n';
+		// });
+		
+		xhr.addEventListener('load', function(){ 
+		photos = xhr.response;
+		photos = JSON.parse(photos)
+
+		for (i = 0; i < photos["data"].length; i++){
+		var div= document.getElementById("photos");
+		var images = document.createElement("img");
+
+		images.src = photos["data"][i]["images"]["standard_resolution"]["url"]
+
+		div.appendChild(images)	
+		}
+		});
+		
+
+
+		xhr.open('GET', '/images?search=' + encodeURIComponent(search));
+		xhr.send();
+		}
+
+		var button = document.querySelector('button')
+		button.addEventListener('click', function() {
+			
+			var search = document.getElementById("search").value;
+			fetch(search)
+
+
+
+
+		});
+
+
+</script>	
+</body>
+</html>

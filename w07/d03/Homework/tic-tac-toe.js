@@ -1,4 +1,4 @@
-var board = [ 	['o', 'o', 'x'], 
+var board = [ 	['o', 'o', 'o'], 
      			['x', 'x', 'o'],  
      			['o', 'o', 'x']
      		]
