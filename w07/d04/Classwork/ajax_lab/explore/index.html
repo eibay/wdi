@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <pre></pre>
+
+  <script type="text/javascript">
+    var pre = document.querySelector('pre');
+    // finding in the DOM 'pre'
+    function fetch(title) {
+      // making a function called title
+      var xhr = new XMLHttpRequest();
+      //opening up a new XMLHttpRequest and calling it xhr
+      xhr.addEventListener('load', function(){ 
+        //adding an event listener to the xhr file for when it loads
+        pre.innerText += xhr.response + '\n';
+      });
+      //setting the innerText of pre to the response and then going on to the next line ('/n')
+      xhr.open('GET', '/movies?title=' + 
+        encodeURIComponent(title));
+      //getting the api using ajax and making it dynamic because it is based on what title the function fetch is given and URI encoding it
+      xhr.send()
+      //sending the request
+    }
+
+
+  </script>
+</body>
+</html>
