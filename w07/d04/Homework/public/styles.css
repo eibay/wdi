@@ -1,0 +1,53 @@
+
+body {
+	text-align: center;
+	}
+
+
+.home_page img {
+	width: auto;
+	height: auto;
+	margin-top: 30px;
+}
+
+form {
+    margin: 30px 0 0 0;
+}
+
+h1 {
+  color: black;
+  font-size: 125px;
+  text-align: center;
+  margin: -10px 0 -10px 0;
+	
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+h3 {
+  font-family: 'Raleway', sans-serif;
+  margin: 20px 0 30px 0;
+}
+
+img {
+	width: 180px;
+	height: auto;
+	border-radius: 10px;
+	padding: 2px;
+}
+
+/*button {
+font-family: Arial, sans-serif;
+font-size: 25px;
+border-radius: 10px;
+background-color: #E617A4;	
+}
+
+input {
+	border-radius: 10px;
+	font-size: 25px;
+}*/
+
