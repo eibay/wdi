@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <pre></pre>
+  <script type="text/javascript">
+// sets a variable 'pre' to the DOM object 'pre'
+    var pre = document.querySelector('pre');
+// creates a function called fetch
+    function fetch(title) {
+      // creates xhr variable for the XMLHttpRequest
+      var xhr = new XMLHttpRequest();
+      // adds event listener to xhr to listen for the request to load before calling the callback function
+      xhr.addEventListener('load', function(){ 
+        // sets text of pre to the response and ends with a new line
+        pre.innerText += xhr.response + '\n';
+      });
+      // set up the request for xhr
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+      // tells xhr to make it's request
+      xhr.send()
+    }
+  </script>
+</body>
+</html>

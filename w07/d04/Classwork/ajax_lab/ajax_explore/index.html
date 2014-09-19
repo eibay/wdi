@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <input type="text" name="title">
+  <button>Search</button>
+  <pre></pre>
+  <script type="text/javascript">
+// sets a variable 'pre' to the DOM object 'pre'
+  var button = document.querySelector('button');
+  var input = document.querySelector('input');
+  button.addEventListener('click', function() {
+    var omdb = fetch(input.value);
+    return omdb;
+  })
+    var pre = document.querySelector('pre');
+// creates a function called fetch
+    function fetch(title) {
+      // creates xhr variable for the XMLHttpRequest
+      var xhr = new XMLHttpRequest();
+      // adds event listener to xhr to listen for the request to load before calling the callback function
+      xhr.addEventListener('load', function(){ 
+        // sets text of pre to the response and ends with a new line
+        // pre.innerText += xhr.response + '\n';
+
+        data = JSON.parse(xhr.response);
+
+        pre.innerHTML = '<h1>' + data['Title'] + '</h1>' + '<h4>' + data['Year'] + '</h4>' + '<h4>' + data['Actors'] + '</h4>'
+      });
+      // set up the request for xhr
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+      // tells xhr to make it's request
+      xhr.send();
+    }
+  </script>
+</body>
+</html>
