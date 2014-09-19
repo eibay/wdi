@@ -1,0 +1,56 @@
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<input name = "city" placeholder ="city">
+<button> GET PICTURES </button>
+<pre></pre>
+<script>
+locationPictures()
+
+function getLocation(location){
+
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', function(){
+  stuff = xhr.response
+  stuff = JSON.parse(stuff)
+  console.log(stuff)
+ 
+    for(i = 0; i < stuff["data"].length; i++){
+        var pre = document.querySelector('pre');
+        var images = document.createElement("img")
+
+        images.src =stuff["data"][i]["images"]["standard_resolution"]["url"]
+
+        pre.appendChild(images)
+    }
+
+});
+
+
+  xhr.open('GET', '/locations?location=' + encodeURIComponent(location));
+
+  xhr.send()
+
+
+}
+
+function locationPictures(){
+      var button = document.querySelector("button")
+      button.addEventListener('click', function(){
+      var inputBox = document.querySelector("input")
+      var locationInfo = inputBox.value
+      getLocation(locationInfo)
+      })
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
