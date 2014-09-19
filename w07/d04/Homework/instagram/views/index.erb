@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>instagram api</title>
+	<script src="../script.js"></script>
+</head>
+<body>
+	<h1>What you want to see</h1>
+
+	<input id="tagname_input" type="text" placeholder="what to see">
+	<button>Get photos</button>
+
+	<h2>Your photos</h2>
+<!-- right now this is coming from ruby server, but it should come from js somehow -->
+<% response["data"].each do |pic| %>
+<% photo_url = pic["images"]["standard_resolution"]["url"] %>
+<img src="<%= photo_url %>">
+<% end %>
+	
+</body>
+</html>
+
+
+
+
+
