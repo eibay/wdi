@@ -1,33 +1,74 @@
-var board=[['x', 'x', 'o'], ['-', 'x', '-'], ['x', 'x', '-']]
-var board2=[['o', 'x', 'o','o','o'], ['-', 'o', '-','o', '-'], ['x', 'x', 'o','o', 'o'], ['x', 'x', '-','o', '-'], ['x', 'x', '-','o', 'o']]
+	
+	var make=document.getElementById('makeboard');
+	makeboard.addEventListener('click', function(){
 
-function won(board){
+		var input=parseInt(document.getElementById('howmany').value);
+		createBoard(input)
+		document.getElementById('howmany').value=''
 
-	for(var i=0; i < board.length; i++){
+})
 
-		if(board[i][0]===board[i][1]&&board[i][1]===board[i][2]){
 
-			return board[i][0]+" is the winner in row "+ (i+1);
+
+	var turn="x";
+
+	var square=document.getElementsByClassName('square');
+
+	for(i=0; i < square.length; i++){
+
+		square[i].addEventListener('click', function(event){
+			if(event.target.innerText==""){
+			event.target.innerText=turn;
+				if(turn=="x")
+			{
+				turn="o"
+			}
+			else{
+				turn="x"
+			}
+				var board=countBoard()
+				
+		if(wonVariableLength(board) != false){
+			document.getElementById('winner').innerText=wonVariableLength(board);
+			setTimeout(clearBoard, 2000)
+			
+		}
 		}
 
-		else if(board[0][i]===board[1][i]&&board[0][i]===board[2][i]){
-
-			return board[0][i]+" is the winner in column "+(i+1);
+		else{
+			window.alert("you can't go there!")
 		}
-	}
-	if(board[0][0]==board[1][1] && board[1][1]==board[2][2]){
-
-		return board[0][0]+" wins diagnolly from the top left";
+		
+	});
 
 	}
-	else if(board[0][2]==board[1][1] && board[1][1]==board[2][0]){
 
-		return board[0][2]+" wins diagnolly from the top right";
-	}
-	else
-	{
-		return false;
-	}
+
+function countBoard(){
+
+			var squares=document.getElementsByClassName('square');
+			var squares_per_row=Math.sqrt(squares.length);
+			var all_squares=[]
+			var rows=[]
+			
+
+				for(i=0; i < squares.length; i++){
+						all_squares.push(squares[i].innerText)
+				}
+				
+				var count=squares_per_row;
+				for(var j=0; j < (all_squares.length); j+=squares_per_row){
+					console.log(all_squares.length-squares_per_row)
+					var new_array=all_squares.slice(j, count)
+					rows.push(new_array);
+					count+=squares_per_row
+				}
+				
+				console.log(rows)
+
+			return rows;
+
+
 }
 
 function wonVariableLength(board){
@@ -55,18 +96,71 @@ function wonVariableLength(board){
 			return columnsArray[k][0]+" has won in column "+ (k+1);
 
 		}	else if((left_diagnol.join('')==check_x)||(left_diagnol.join('')==check_o)){
-				return "left diagnol has won"
+				return left_diagnol[0]+" has won on left diagnol"
 		} else if((right_diagnol.join('')==check_x)||(right_diagnol.join('')==check_o)){
-				return "right diagnol has won"
+				return right_diagnol[0]+" has won on right diagnol"
 		}
 	}
 		return false;
 }
 
+function clearBoard(){
 
-console.log(wonVariableLength(board2))
+	var square=document.getElementsByClassName('square');
 
-console.log(won(board));
+	for(var n=0; n < square.length; n++){
+
+		square[n].innerText="";
+
+	}
+
+	document.getElementById('winner').innerText="";
+
+
+
+}
+
+function createBoard(rows){
+	var table=document.getElementById('board');
+	table.innerHTML='';
+	var board=document.getElementById('board');
+
+	for(var i=0; i < rows; i++){
+			var tr=document.createElement('tr');
+			tr.id="row"+i;
+			board.appendChild(tr);
+			
+			for(var j=0; j < rows; j++){
+				var td=document.createElement('td');
+				td.className="square";
+				tr.appendChild(td);
+				td.addEventListener('click', function(event){
+			if(event.target.innerText==""){
+			event.target.innerText=turn;
+				if(turn=="x")
+			{
+				turn="o"
+			}
+			else{
+				turn="x"
+			}
+				var board=countBoard()
+		if(wonVariableLength(board) != false){
+			document.getElementById('winner').innerText=wonVariableLength(board);
+			setTimeout(clearBoard, 2000)
+			
+		}
+		}
+
+		else{
+			window.alert("you can't go there!")
+		}
+		
+	});
+				}
+		}
+}
+
 
 
 
