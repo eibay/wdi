@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title>Instagram API</title>
+</head>
+<body style="text-align:center">
+	<h1>Instagram API</h1>
+
+	<input id="location" placeholder="Enter Location"></input>
+	<button>Search</button>
+
+	<ul id="pictures"></ul>
+
+<script type="text/javascript">
+  
+  var button = document.querySelector("button");
+  var input = document.getElementById("location");
+  
+  button.addEventListener("click", getImage )
+  input.addEventListener("keypress", function(feed){
+    if (feed.keyIdentifier=='Enter'){
+      getImage();
+    };
+  });
+
+  var ul = document.querySelector('ul');
+
+  function getImage() {
+    
+    var location = document.getElementById("location").value;  
+    var xhr = new XMLHttpRequest();
+      
+      xhr.addEventListener('load', function(){ 
+        var jsonResponse = JSON.parse(xhr.response);
+         
+        for (var i =0; i < jsonResponse.length; i++){
+          var img= document.createElement("img")
+          img.src = jsonResponse[i]["url"]
+          ul.appendChild(img);
+         };
+        
+      });
+
+      xhr.open('GET', '/' + encodeURIComponent(location))
+      xhr.send()
+      input.value = ""
+    };
+
+
+	</script>
+
+</body>
+</html>

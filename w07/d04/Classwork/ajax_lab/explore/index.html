@@ -8,17 +8,23 @@
   <pre></pre>
 
   <script type="text/javascript">
+  //SELECTING CSS SELECTOR <PRE>
     var pre = document.querySelector('pre');
 
+  //FUNCTION CALLED FETCH THAT TAKES ONE ARGUMENT
     function fetch(title) {
+      //WHEN FUNCTION CALLED, WE BEGIN TO CREATE A NEW API CALL BY CREATING VARIABLE XHR
       var xhr = new XMLHttpRequest();
 
+      //WE ADD AN EVENT LISTENER THAT WILL TRIGGER WHEN WE ACTUALLY MAKE THE API CALL
       xhr.addEventListener('load', function(){ 
+        //ADDING THE XHR RESPONSE TO THE HTML ELEMENT
         pre.innerText += xhr.response + '\n';
       });
 
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
 
+      //MAKING THE API CALL
       xhr.send()
     }
   </script>
