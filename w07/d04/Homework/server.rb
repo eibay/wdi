@@ -3,10 +3,8 @@ require 'sinatra/reloader'
 require 'HTTParty'
 require 'JSON'
 require 'pry'
-require 'geocoder'
 
 get("/") do 
-
 	erb(:index)
 end
 
@@ -23,8 +21,6 @@ get("/api/:path") do
 	response["data"].each do |x|
 		picArr<<x["images"]["standard_resolution"]["url"]
 	end
-
-	# pics = picArr.to_json
 	return picArr.to_json
-	# pics.response.body
+
 end
