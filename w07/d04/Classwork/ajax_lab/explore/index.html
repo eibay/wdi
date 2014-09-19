@@ -3,22 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Ajax</title>
+
+        <input type="text" placeholder="Type Movie Here"/>
+        <button class="submit">Submit</button>
+      </div>
+
 </head>
 <body>
   <pre></pre>
 
   <script type="text/javascript">
+// selecting the elements within the document that match
     var pre = document.querySelector('pre');
 
+// function that creates new XHR
     function fetch(title) {
       var xhr = new XMLHttpRequest();
 
+// eventlistener that loads the request
       xhr.addEventListener('load', function(){ 
+
+// adding text 
         pre.innerText += xhr.response + '\n';
       });
 
+// XHR taking the 3 arguments; method, path, async/sync ??what is the encodeURI
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
-
+// XHR sends request
       xhr.send()
     }
   </script>
