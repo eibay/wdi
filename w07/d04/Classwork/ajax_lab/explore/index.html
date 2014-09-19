@@ -1,3 +1,6 @@
+<!-- In the index.html, create an input tag with a button. A user should be able to type in the title of a movie, click that button and see the year and the actors of that movie displayed in separate <h4> tags.
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,22 +8,70 @@
   <title>Ajax</title>
 </head>
 <body>
+
+  <input type="text" placeholder="Search">
+  <button>Search</button>
+
   <pre></pre>
 
   <script type="text/javascript">
+
+
     var pre = document.querySelector('pre');
 
     function fetch(title) {
       var xhr = new XMLHttpRequest();
 
-      xhr.addEventListener('load', function(){ 
-        pre.innerText += xhr.response + '\n';
+      xhr.addEventListener('load', function(){
+        var movieHash = JSON.parse(xhr.response);
+
+        var title = movieHash["Title"];
+        var year = movieHash["Year"];
+        var actors = movieHash["Actors"];
+        pre.innerHTML = "<h4>" + title + "</h4>" + "<h4>" + year + "</h4>" + "<h4>" + actors + "</h4>"
       });
 
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
 
       xhr.send()
+
     }
+
+    var button = document.querySelector('button');
+    var titleInput = document.querySelector('input').value
+
+    button.addEventListener('click', function() {
+      var movie = titleInput;
+      fetch(movie);
+
+    })
+
+
+    // //Sets up the variable pre to the html tag pre
+    // var pre = document.querySelector('pre');
+
+
+    // // Defines a function fetch and passes it an argument title
+    // function fetch(title) {
+
+    //   // Sets up a new XMLHttpRequest object to the variable xhr
+    //   var xhr = new XMLHttpRequest();
+
+
+      // Calls the DOM addEventListener method on xhr with the load event request loading
+      xhr.addEventListener('load', function(){
+
+        //calls the innertext method on the html pre and takes the string and feeds it to the browsers parser and turns the JSON into a string and adds the newline escape character to it.
+        pre.innerText += xhr.response + '\n';
+      });
+
+
+      // xhr.open sets up the information to make the request, it DOES NOT ACTUALLY make the request
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+
+      // This actually makes the call we set up above
+      xhr.send()
+    // }
   </script>
 </body>
 </html>

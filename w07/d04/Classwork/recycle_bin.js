@@ -28,7 +28,7 @@ var xhr = new XMLHttpRequest;
 
 xhr.open('GET', 'http://data.cityofnewyork.us/resource/sxx4-xhzg.json', true);
 
-xhr.send();
+xhr.send(); // the event listener doesnt get fired off until after this request is done so we could even make this the last piece of code in the file and it will still run
 
 var ul = document.querySelector("ul")
 

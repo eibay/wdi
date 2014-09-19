@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <pre></pre>
+
+  <script type="text/javascript">
+
+    //Sets up the variable pre to the html tag pre
+    var pre = document.querySelector('pre');
+
+
+    // Defines a function fetch and passes it an argument title
+    function fetch(title) {
+
+      // Sets up a new XMLHttpRequest object to the variable xhr
+      var xhr = new XMLHttpRequest();
+
+
+      // Calls the DOM addEventListener method on xhr with the load event request loading
+      xhr.addEventListener('load', function(){
+
+        //calls the innertext method on the html pre and takes the string and feeds it to the browsers parser and turns the JSON into a string and adds the newline escape character to it.
+        pre.innerText += xhr.response + '\n';
+      });
+
+
+      // xhr.open sets up the information to make the request, it DOES NOT ACTUALLY make the request
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+
+      // This actually makes the call we set up above
+      xhr.send()
+    }
+  </script>
+</body>
+</html>
