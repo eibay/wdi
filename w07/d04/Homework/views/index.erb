@@ -5,13 +5,13 @@
 	<title>Pic Me</title>
 </head>
 <body>
+	<div id="results"></div>
+
 	<input type="text" name="search">
 	<button>Search</button>
 
-	<div id="results"></div>
 
-
-
+	
 
 	<script>
 
@@ -22,8 +22,18 @@
 		function fetch(search) {
 			var xhr = new XMLHttpRequest();
 			var results = document.getElementById('results');
+
 			xhr.addEventListener('load', function(){
-				results.innerText = xhr.response
+				var output = xhr.response
+				output = JSON.parse(output)
+
+				for (i = 0; i < output["data"].length; i++){
+					var images = document.createElement("img");
+
+					images.src = output["data"][i]["images"]["low_resolution"]["url"]
+
+					results.appendChild(images)	
+				}
 			});
 			xhr.open('GET', '/monkey?search=' + encodeURIComponent(search));
 			xhr.send();
