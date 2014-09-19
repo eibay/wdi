@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GeoPhotoSearcho</title>
+</head>
+<body>
+  <h1>GeoPhotoSearcho</h1>
+  <div id="search">
+    <input type="text" placeholder="Movie Title">
+    <button>Submit</button>
+  </div>
+  <div id="results">
+    <h3></h3>
+
+  </div>
+
+  <script type="text/javascript">
+    var button = document.querySelector("button");
+    var input = document.querySelector("input");
+    var city_name = document.querySelector("h3");
+    var results_div = document.getElementById("results_div")
+
+
+    function fetch(city) {
+     
+      var xhr = new XMLHttpRequest();
+   
+      xhr.addEventListener('load', function(){ 
+       
+        var response = JSON.parse(xhr.response);
+        title_h4.innerText = response["Title"];
+        year.innerText = response["Year"];
+        actors.innerText = response["Actors"]
+      });
+      
+      xhr.open('GET', '/search?city=' + encodeURIComponent(title));
+      
+
+      xhr.send()
+      
+    }
+
+    button.addEventListener("click", function() {
+      if (input.value != "") {
+      var city = input.value;
+      city_name.innerText = city
+      fetch(city);
+      input.value = ""};
+    })
+    
+  </script>
+</body>
+</html>

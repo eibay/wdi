@@ -9,18 +9,24 @@
 
   <script type="text/javascript">
     var pre = document.querySelector('pre');
-
+    // selects preformatted text element from to DOM and assigns it to a variable 
     function fetch(title) {
+      //creates a function called fetch
       var xhr = new XMLHttpRequest();
-
+      // instantiates an XH request
       xhr.addEventListener('load', function(){ 
+        //gives the browser a function to execute once the response has finished loading
         pre.innerText += xhr.response + '\n';
       });
+      // fills the pre tag with the response and a line break
 
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+      // gives the XMLHttpRequest request the method, url, and URI encoded route, which includes the title of the movie the user is searching for 
 
       xhr.send()
+      // sends off the XHrequest
     }
+    fetch("The Lord of the Rings")
   </script>
 </body>
 </html>

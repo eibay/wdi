@@ -39,43 +39,6 @@ withdraw_savings.addEventListener("click", function(){
   withdraw(1);
 })
 
-// withdraw_checking.
-
-//   button.addEventListener("click", function (){
-//     if (button.className == "deposit") {
-//       if (button.parentNode.className == "account checking"){
-//           var amount = parseInt(document.querySelectorAll("input")[0].value);
-//           var old_balance = document.getElementsByClassName("balance")[0].innerText;
-//           old_balance = parseInt(old_balance.substring(1, old_balance.length));
-//           var new_balance = old_balance + amount;
-//           var balance_display = document.getElementsByClassName("balance")[0];
-//           balance_display.innerText = new_balance;
-//       } else if (button.parentNode.className == "account savings"){
-//           var amount = parseInt(document.querySelectorAll("input")[1].value);
-//           var old_balance = document.getElementsByClassName("balance")[1].innerText;
-//           old_balance = parseInt(old_balance.substring(1, old_balance.length));
-//           var new_balance = old_balance + amount;
-//           balance_display.innerText = new_balance;
-//       };
-//   } else if (button.className == "withdraw"){
-//       if (button.parentNode.className == "account checking"){
-//           var amount = parseInt(document.querySelectorAll("input")[0].value);
-//           var old_balance = document.getElementsByClassName("balance")[0].innerText;
-//           old_balance = parseInt(old_balance.substring(1, old_balance.length));
-//           var new_balance = old_balance - amount;
-//           var balance_display = document.getElementsByClassName("balance")[0];
-//           balance_display.innerText = new_balance;
-//       } else {
-//           var amount = parseInt(document.querySelectorAll("input")[1].value);
-//           var old_balance = document.getElementsByClassName("balance")[1].innerText;
-//           old_balance = parseInt(old_balance.substring(1, old_balance.length));
-//           var new_balance = old_balance - amount;
-//           var balance_display = document.getElementsByClassName("balance")[1];
-//           balance_display.innerText = new_balance;
-//       };
-//     }
-//   })
-
 
 // if (accountType == "checking") {
 //   balance = getCurrentChecking();
