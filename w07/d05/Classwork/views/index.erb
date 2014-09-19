@@ -1,0 +1,41 @@
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<input = "title">
+<button>PICTURE</button>
+<pre></pre>
+<script>
+getTitle()
+
+function gettingPicture(title){
+  var xhr = new XMLHttpRequest()
+  // xhr.open('GET', '/titles?stitle='+ encodeURIComponent(title))
+  //using ruby do this
+  xhr.open('GET',"http://www.omdbapi.com/?t="+encodeURIComponent(title))
+  xhr.send()
+  xhr.addEventListener('load', function(){
+    var stuff = JSON.parse(xhr.response)
+    var picture = stuff.Poster
+     var pre = document.querySelector("pre")
+    
+    var image = document.createElement("img")
+    image.src = picture
+   
+    pre.appendChild(image)
+  });
+};
+
+function getTitle(){
+  var button = document.querySelector("button")
+  button.addEventListener('click',function(){
+  var titleInput = document.querySelector("input")
+  var title = titleInput.value
+  gettingPicture(title)
+  titleInput.value = ""
+  });
+};
+</script>
+</body>
+</html>
