@@ -6,7 +6,7 @@
 section.search_input,
 section.search_results {
 	box-sizing: border-box;
-	padding: 10em;
+	padding: 5em;
 	float: left;
 	width: 50%;
 }

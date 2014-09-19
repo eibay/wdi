@@ -22,11 +22,11 @@ function getSearchInput() {
 	return searchInput.value;
 }
 
-function addPosterImg(src) {
+function addPosterImg(imgSrc) {
 	var searchResults = document.querySelector("ul#search_results");
 	var resultItem = document.createElement('li');
 	var resultImage = document.createElement('img');
-	resultImage.setAttribute('src', src);
+	resultImage.src = imgSrc;
 	resultItem.appendChild(resultImage); 
 	search_results.appendChild(resultItem); 
 }
