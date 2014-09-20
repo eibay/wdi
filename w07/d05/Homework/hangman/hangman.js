@@ -27,7 +27,8 @@ function dashAdd(word) {
 		// fill wordDiv with that many underscore chars
 		for (i=0; i < word.length; i++) {
 		dashArray.push("_");
-		wordDiv.innerText = dashArray;
+		dashArrayNoCommas = dashArray.join('');
+		wordDiv.innerText = dashArrayNoCommas;
 		
 	}
 
