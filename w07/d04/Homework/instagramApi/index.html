@@ -25,13 +25,18 @@
   var ul = document.querySelector('div');
 
   function getImage() {
-    
+  
+  //declaring variable for input  
     var location = document.getElementById("location").value;  
+  
+  //declaring a new XHR - AJAX THAT WILL MAKE AN API CALL 
     var xhr = new XMLHttpRequest();
-      
+  
+  //ADDING AN EVENTLISTENER FOR WHEN THE CALL(OR (XHR.)RESPONSE, WHICH IS A JSON HASH) IS FINISHED LOADING...    
       xhr.addEventListener('load', function(){ 
         var jsonResponse = JSON.parse(xhr.response);
          
+         //JSON HASH RETURNED WITH URLS. PARSE HASH AND PULL THE URL. CREATE AN IMAGE ELEMENT AND SET THE SRC= TO THE URL. APPEND THE ELEMENT TO UL VAR WHICH IS THE CSS SELECTOR 'DIV' IN MY HTML
         for (var i =0; i < jsonResponse.length; i++){
           var img= document.createElement("img")
           img.src = jsonResponse[i]["url"]
@@ -39,9 +44,14 @@
          };
         
       });
-
+      
+      //GETTING THE API CALL SET
       xhr.open('GET', '/' + encodeURIComponent(location))
+      
+      //MAKING THE API CALL
       xhr.send()
+      
+      //CLEARING THE INPUT TEXT BOX 
       input.value = ""
     };
 

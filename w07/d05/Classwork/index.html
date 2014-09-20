@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title>MOVIES</title>
+</head>
+<body>
+
+	<input placeholder='Enter Movie Title'></input>
+	<button>Search</button>
+
+	<div id='movies'></div>
+
+
+	<script type="text/javascript">
+
+	var button= document.querySelector("button");
+	var div = document.getElementById("movies");
+	var textbox=document.querySelector("input");
+	
+
+	button.addEventListener("click", getMovie);
+	textbox.addEventListener("keydown", function(feed){
+		if (feed.keyIdentifier =='Enter'){
+			getMovie();
+		};
+	});
+
+	function getMovie(){
+		var title = textbox.value
+		var xhr = new XMLHttpRequest();
+	
+		xhr.addEventListener('load', function(){
+			console.log(xhr.response)
+			var url = xhr.response;
+			var image = document.createElement("img");
+			image.src = url;
+
+			div.appendChild(image);
+
+		});
+
+		xhr.open('GET', '/' + encodeURIComponent(title));
+		xhr.send();
+		textbox.value = ""
+
+	};
+
+	</script>
+
+</body>
+</html>
