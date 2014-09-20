@@ -1,14 +1,24 @@
-
-var secretWord="GOOSE";
-var secretWordArray=secretWord.split('');
-var length=secretWord.length;
-var guesses=7;
+var secretWord='';
+var secretWordArray;
+var length;
+var guesses=8;
 var guessed_wrong=[];
 var guessed_right=[];
 var matched_letters=[];
 
+function getWord() {
+	var xhr = new XMLHttpRequest;
+	xhr.open('GET', 'http://127.0.0.1:4567/word', true)
+	xhr.send();
+	xhr.addEventListener('load', function(){
+		var word = JSON.parse(xhr.response);
+		secretWord = word.toUpperCase();
+		secretWordArray=secretWord.split('')
+		length=secretWord.length
+	});
+}
+
 makeAlphabet()
-restart()
 
 if(localStorage.getItem('wins') == null){
 	localStorage.setItem('wins', 0)
@@ -176,12 +186,13 @@ newGame.addEventListener('click', function(){
 function restart(){
 	var game_word=document.getElementById('game-word');
 		game_word.innerHTML='New Game'
+		getWord()
 		
 	var waitForThis=function(){
 		giveUp()
 		makeAlphabet()
 		outputString(secretWord);
-		guesses=7;
+		guesses=8;
 		var guesses_left=document.getElementById('guesses-left');
 	  guesses_left.innerText=guesses;
 	  guessed_wrong=[];
@@ -201,14 +212,14 @@ function restart(){
 }
 function addBodyPart(){
 
-	if (guesses==6){
+	if (guesses==7){
 		var feet=document.getElementById('feet')
 		var foot=document.createElement('img');
 		foot.src='./HipsterParts/rightfoot.png'
 		foot.id='rightfoot'
 		feet.appendChild(foot)
 	}
-	else if(guesses==5){
+	else if(guesses==6){
 		var feet=document.getElementById('feet')
 		var foot=document.createElement('img');
 		foot.src='./HipsterParts/leftfoot.png'
@@ -216,7 +227,7 @@ function addBodyPart(){
 		feet.appendChild(foot)
 
 	}
-	else if(guesses==4){
+	else if(guesses==5){
 		var legs=document.getElementById('legs')
 		var leg=document.createElement('img');
 		leg.src='./HipsterParts/rightleg.png'
@@ -225,14 +236,14 @@ function addBodyPart(){
 		var feet=document.getElementById('feet')
 		feet.style.margin='0px'
 	}
-	else if(guesses==3){
+	else if(guesses==4){
 		var legs=document.getElementById('legs')
 		var leg=document.createElement('img');
 		leg.src='./HipsterParts/leftleg.png'
 		leg.id='leftleg'
 		legs.appendChild(leg)
 	}
-	else if(guesses==2){
+	else if(guesses==3){
 		var top=document.getElementById('top')
 		var chest=document.createElement('img');
 		chest.src='./HipsterParts/body.png'
@@ -241,7 +252,7 @@ function addBodyPart(){
 		var legs=document.getElementById('legs')
 		legs.style.margin="0px"
 	}
-	else if(guesses==1){
+	else if(guesses==2){
 		var top=document.getElementById('top')
 		var chest=document.getElementById('chest')
 		var head=document.createElement('img');
@@ -250,7 +261,7 @@ function addBodyPart(){
 		top.insertBefore(head, chest)
 		top.style.margin='0px';
 	}
-		else if(guesses==0){
+		else if(guesses==1){
 		var top=document.getElementById('top')
 		var chest=document.getElementById('chest')
 		var firsthead=document.getElementById('head');
@@ -261,8 +272,18 @@ function addBodyPart(){
 		top.insertBefore(head, chest)
 		top.style.margin='0px';
 	}
+	else if(guesses==0){
+		var top=document.getElementById('top')
+		var chest=document.getElementById('chest')
+		var firsthead=document.getElementById('head2');
+		top.removeChild(firsthead);
+		var head=document.createElement('img');
+		head.src='./HipsterParts/head3.png'
+		head.id='head3'
+		top.insertBefore(head, chest)
+		top.style.margin='0px';
+	}
 }
-
 
 
 
