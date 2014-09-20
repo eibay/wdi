@@ -1,6 +1,6 @@
-var secretWord='';
-var secretWordArray;
-var length;
+var secretWord= ''
+var secretWordArray=secretWord.split('');
+var length=secretWord.length;
 var guesses=8;
 var guessed_wrong=[];
 var guessed_right=[];
@@ -12,13 +12,15 @@ function getWord() {
 	xhr.send();
 	xhr.addEventListener('load', function(){
 		var word = JSON.parse(xhr.response);
-		secretWord = word.toUpperCase();
+		secretWord = word;
 		secretWordArray=secretWord.split('')
 		length=secretWord.length
+		console.log(word)
 	});
 }
 
 makeAlphabet()
+restart()
 
 if(localStorage.getItem('wins') == null){
 	localStorage.setItem('wins', 0)
@@ -100,7 +102,8 @@ function letterPositions(letter, array){
 		var game_word=document.getElementById('game-word');
 		game_word.innerHTML='Out Of Guesses!'
 		addBodyPart()
-		setTimeout(restart, 1500)
+		setTimeout(reveal, 700)
+		setTimeout(restart, 2000)
 	}
  }
 function outputString(word) {
@@ -168,6 +171,11 @@ function wrongGuess(){
 	}
 	setTimeout(wrong_timeout,700)
 
+}
+
+function reveal(){
+	var game_word=document.getElementById('game-word');
+		game_word.innerText= 'Word: ' + secretWord;
 }
 
 
@@ -261,7 +269,7 @@ function addBodyPart(){
 		top.insertBefore(head, chest)
 		top.style.margin='0px';
 	}
-		else if(guesses==1){
+	else if(guesses==1){
 		var top=document.getElementById('top')
 		var chest=document.getElementById('chest')
 		var firsthead=document.getElementById('head');
@@ -284,12 +292,3 @@ function addBodyPart(){
 		top.style.margin='0px';
 	}
 }
-
-
-
-
-
-
-
-
- 
