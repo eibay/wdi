@@ -1,13 +1,8 @@
 //declare variables
 
-
 var word = "octopus"
-
-
 var progressHash  = {}
 var guessesLeft= 8
-
-
 var wrongLetters = []
 var rightLetters = []
 
@@ -32,20 +27,29 @@ function enterInput() {
   	guessLetter(guess)
  	div_GuessedLetters.innerText += " " + guess + ","
  	div_GuessesLeft.innerText = guessesLeft
+ 	inputBox.value = "" //wow this is so cool!
 }
 
 var btn_guess = document.getElementById("guess-button")
 btn_guess.addEventListener('click', function(event) {
 	enterInput()
+	
 })
 
 inputBox.addEventListener('keypress', function(event) {
 	if(event.keyCode == 13) {
 		enterInput()
+
 	}
 })
 
 
+
+
+//refresh page
+function refresh() {
+	document.location.reload(true);
+}
 
 //for the new game button -- it refreshes
 var btn_newGame = document.getElementById("new-game");
@@ -53,6 +57,7 @@ btn_newGame.addEventListener('click', function(event) {
 	refresh();
 })
 
+//for giving up -- word shows, then page reloads
 var btn_giveUp = document.getElementById("give-up");
 btn_giveUp.addEventListener('click', function(event) {
 	//reveal word
@@ -65,8 +70,6 @@ btn_giveUp.addEventListener('click', function(event) {
 
 var gameWord = document.getElementById('game-word');
 
-
-
 //mask the word so it is a bunch of dashes
 function maskWord() {
 	var maskedWord = "";
@@ -74,19 +77,24 @@ function maskWord() {
 		maskedWord += "_ ";
 	}
 	gameWord.innerText = maskedWord;
+	return maskedWord
 }
 maskWord();
 
 
 
+
+// var newMaskedWord = maskWord();
 // reveal letters as they are guessed right
-function showLetter() {
-
+function showLetter(letter) {
+	// for(i=0; i=word.length; i++){
+	// 	if(letter==word[i]){
+	// 		console.log("we shoudl show this letter")
+	// 	}
+	// }
 }
 
-function refresh() {
-	document.location.reload(true);
-}
+
 
 
 
