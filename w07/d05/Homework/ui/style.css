@@ -26,6 +26,7 @@ section.game-play > aside > div:first-child {
 }
 
 div.game-word {
+
   letter-spacing: 10px;
   font-size: 100px;
   text-align: center;
@@ -81,7 +82,7 @@ input {
   margin-right:40px;
   float:right;
   border:1px solid #fff;
-  height:450px;
+  height:540px;
 }
 .hang{
   padding:0px;

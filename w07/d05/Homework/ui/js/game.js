@@ -2,11 +2,13 @@
 var secretWord="GOOSE";
 var secretWordArray=secretWord.split('');
 var length=secretWord.length;
-var guesses=6;
+var guesses=7;
 var guessed_wrong=[];
 var guessed_right=[];
 var matched_letters=[];
 
+makeAlphabet()
+restart()
 
 if(localStorage.getItem('wins') == null){
 	localStorage.setItem('wins', 0)
@@ -179,7 +181,7 @@ function restart(){
 		giveUp()
 		makeAlphabet()
 		outputString(secretWord);
-		guesses=6;
+		guesses=7;
 		var guesses_left=document.getElementById('guesses-left');
 	  guesses_left.innerText=guesses;
 	  guessed_wrong=[];
@@ -199,14 +201,14 @@ function restart(){
 }
 function addBodyPart(){
 
-	if (guesses==5){
+	if (guesses==6){
 		var feet=document.getElementById('feet')
 		var foot=document.createElement('img');
 		foot.src='./HipsterParts/rightfoot.png'
 		foot.id='rightfoot'
 		feet.appendChild(foot)
 	}
-	else if(guesses==4){
+	else if(guesses==5){
 		var feet=document.getElementById('feet')
 		var foot=document.createElement('img');
 		foot.src='./HipsterParts/leftfoot.png'
@@ -214,7 +216,7 @@ function addBodyPart(){
 		feet.appendChild(foot)
 
 	}
-	else if(guesses==3){
+	else if(guesses==4){
 		var legs=document.getElementById('legs')
 		var leg=document.createElement('img');
 		leg.src='./HipsterParts/rightleg.png'
@@ -223,14 +225,14 @@ function addBodyPart(){
 		var feet=document.getElementById('feet')
 		feet.style.margin='0px'
 	}
-	else if(guesses==2){
+	else if(guesses==3){
 		var legs=document.getElementById('legs')
 		var leg=document.createElement('img');
 		leg.src='./HipsterParts/leftleg.png'
 		leg.id='leftleg'
 		legs.appendChild(leg)
 	}
-	else if(guesses==1){
+	else if(guesses==2){
 		var top=document.getElementById('top')
 		var chest=document.createElement('img');
 		chest.src='./HipsterParts/body.png'
@@ -239,12 +241,23 @@ function addBodyPart(){
 		var legs=document.getElementById('legs')
 		legs.style.margin="0px"
 	}
-	else if(guesses==0){
+	else if(guesses==1){
 		var top=document.getElementById('top')
 		var chest=document.getElementById('chest')
 		var head=document.createElement('img');
 		head.src='./HipsterParts/head.png'
 		head.id='head'
+		top.insertBefore(head, chest)
+		top.style.margin='0px';
+	}
+		else if(guesses==0){
+		var top=document.getElementById('top')
+		var chest=document.getElementById('chest')
+		var firsthead=document.getElementById('head');
+		top.removeChild(firsthead);
+		var head=document.createElement('img');
+		head.src='./HipsterParts/head2.png'
+		head.id='head2'
 		top.insertBefore(head, chest)
 		top.style.margin='0px';
 	}
