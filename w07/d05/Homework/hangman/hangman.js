@@ -16,13 +16,12 @@ function dashAdd(word) {
 	}
 };
 
-// finds all matches and puts them in an array
+// finds all matches and replaces dashes
 // calls function to put wrong guess in an array
 function matchGuess(letter, word){
 for(var i=0; i<word.length; i++) {
     if (letter == word[i]) {
 		dashArray.splice([i], 1, letter);
-		console.log(dashArray);
 		dashArrayNoCommas = dashArray.join('');
 		wordDiv.innerText = dashArrayNoCommas;
   		}  
@@ -31,6 +30,7 @@ for(var i=0; i<word.length; i++) {
 	} 
 };
 
+// but it's pushing rights, too!! ********
  function wrongGuess(letter) {
  	for(var j = 0; j <= wrongs.length; j++) {
  		if (wrongs.indexOf(letter) == -1) {
@@ -39,4 +39,12 @@ for(var i=0; i<word.length; i++) {
  	}
  }};
 
+function displayWrongs(wrongs) {
+	wrongSpan = document.querySelector('span.guessed-letters');
+	wrongsWithSpace = wrongs.join(', ');
+	wrongSpan.innerText = wrongsWithSpace;
+}
+
+// window.onload = dashAdd(word) {
+// };
 
