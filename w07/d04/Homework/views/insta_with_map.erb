@@ -46,12 +46,12 @@
     
         
         var latlng = new google.maps.LatLng(json["data"][i]["location"]["latitude"], json["data"][i]["location"]["longitude"]);
-        bounds.extend(latlng);
+          bounds.extend(latlng);
          
         var marker = new google.maps.Marker({
             position: latlng,
             map: map,
-            title: "<img src='"+json["data"][i]["images"]["low_resolution"]["url"]+"' height='200' width='200'>"
+            title: "<a href='"+json["data"][i]["images"]["standard_resolution"]["url"]+"'><img src='"+json["data"][i]["images"]["low_resolution"]["url"]+"' height='200' width='200'></a>"
         });
      
         google.maps.event.addListener(marker, 'click', function() {
