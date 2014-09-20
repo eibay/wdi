@@ -1,6 +1,7 @@
 var matches = []
 var wrongs = []
 var word = "poodle"
+var letter = "o"
 
 // fills word div with blanks
 function dashAdd(word) {
@@ -31,18 +32,31 @@ for(var i=0; i<word.length; i++) {
  	for(var j = 0; j <= wrongs.length; j++) {
  		if (wrongs.indexOf(letter) == -1) {
  		wrongs.push(letter);
+ 		wrongs.sort();
  	}
  }};
 
 // finds index of letter in word
-function findIndicesLetter(word, letter) {
 	var indices = [];
 	var idx = word.indexOf(letter);
+function findIndicesLetter(word, letter) {
 	while (idx != -1) {
 	  indices.push(idx);
 	  idx = word.indexOf(letter, idx + 1);
-	} console.log(indices)
+	}  console.log(indices);
 };
+
+// replaces dashes with correct letters
+// using dashArray before it's joined to string
+function replaceDash(dashArray) {
+	findIndicesLetter(word, letter);
+	for (var k = 0; k < indices.length; k++); {
+		dashArray.splice(idx, 1, letter);
+		dashArrayNoCommas = dashArray.join('');
+		wordDiv.innerText = dashArrayNoCommas;
+	}
+};
+
 
 
 
