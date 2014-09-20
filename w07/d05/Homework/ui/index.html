@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <title>Hangman</title>
   <link rel="stylesheet" href="style.css">
-  <script type='text/javascript' src='js/game.js'></script>
+<!--   // <script type='text/javascript' src='js/game.js'></script> -->
 </head>
 <body>
+  <div id="body">
   <section class="game-play">
 
     <figure>
@@ -16,7 +17,7 @@
     <aside>
       <div>
         <span>Letters Guessed Already:</span>
-        <span class="guessed-letters"></span>
+        <span class="guessed-letters"><ul id="guessed-letters"></ul></span>
       </div>
 
       <div>
@@ -27,11 +28,13 @@
     </aside>
   </section>
 
-  <div class="game-word">A B C D</div>
+  <div class="game-word">Let's play hangman!</div>
 
   <section class="game-controls">
     <button class="button give-up">Give Up</button>
     <button class="button new-game">New Game</button>
   </section>
+</div>
+  <script type='text/javascript' src='js/game.js'></script>
 </body>
 </html>

@@ -53,3 +53,13 @@ input {
 .button:hover {
   background-color:rgba(255,0,51,0.8);
  }
+ .guessed-letters {
+  display: inline-block;
+
+ }
+ .guessed-letters li {
+  display: inline-block;
+  list-style-type: none;
+  margin-left: 10px;
+
+ }
