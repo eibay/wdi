@@ -4,34 +4,53 @@
   <meta charset="utf-8">
   <title>Hangman</title>
   <link rel="stylesheet" href="style.css">
-  <script type='text/javascript' src='js/game.js'></script>
+
 </head>
 <body>
   <section class="game-play">
+     <div id="hangman">
+      <div id="top">
+   <!--    <img class="hang" id="head" src="./HipsterParts/head.png">
 
+      <img class ="hang" id="body" src="./HipsterParts/body.png"> -->
+    </div>
+      <div id="legs">
+      <!-- <img class ="hang" id="rightleg" src="./HipsterParts/rightleg.png">
+      <img class ="hang" id-"leftleg" src="./HipsterParts/leftleg.png"> -->
+    </div>
+      <div id="feet">
+<!-- 
+      <img class ="hang" id="rightfoot"src="./HipsterParts/rightfoot.png">
+      <img class ="hang" id="leftfoot" src="./HipsterParts/leftfoot.png"> -->
+    </div>
+     </div>
     <figure>
-      <span>Guesses Left:</span> <span class="guesses-left"></span>
+      <span>Guesses Left:</span> <span class="guesses-left" id="guesses-left"></span><br>
+      <span id ='wins'>Wins:</span>
     </figure>
 
     <aside>
-      <div>
-        <span>Letters Guessed Already:</span>
-        <span class="guessed-letters"></span>
-      </div>
+      
 
-      <div>
-        <label for="letter">Guess a Letter:</label>
-        <input type="text" name="letter" id="letter" />
+      <div id="letters">
+          <span>Letters</span><br>
+      
       </div>
-        <button class="button" id="guess-button">Guess</button>
+      <div id="guessed">
+        <span>Letters Guessed Already:</span><br>
+       
+      </div>
+       
     </aside>
   </section>
 
-  <div class="game-word">A B C D</div>
+  <div class="game-word" id="game-word"></div>
 
   <section class="game-controls">
-    <button class="button give-up">Give Up</button>
-    <button class="button new-game">New Game</button>
+  
+    <button class="button new-game" id="new-game">New Game</button>
+
   </section>
+    <script type='text/javascript' src='js/game.js'></script>
 </body>
 </html>
