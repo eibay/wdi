@@ -1,13 +1,96 @@
 //declare variables
 
 
-var word = "michael" //this shall be variable later
+var word = "octopus"
+
+
 var progressHash  = {}
 var guessesLeft= 8
-// var rightGuesses = 0
+
 
 var wrongLetters = []
 var rightLetters = []
+
+
+
+var inputBox = document.querySelector('input')
+var div_GuessedLetters = document.getElementById("guessed-letters")
+
+var div_GuessesLeft = document.getElementById("guesses-left")
+div_GuessesLeft.innerText = guessesLeft
+
+
+
+
+
+
+
+
+//for guessing letters
+function enterInput() {
+	var guess = inputBox.value // define inside
+  	guessLetter(guess)
+ 	div_GuessedLetters.innerText += " " + guess + ","
+ 	div_GuessesLeft.innerText = guessesLeft
+}
+
+var btn_guess = document.getElementById("guess-button")
+btn_guess.addEventListener('click', function(event) {
+	enterInput()
+})
+
+inputBox.addEventListener('keypress', function(event) {
+	if(event.keyCode == 13) {
+		enterInput()
+	}
+})
+
+
+
+//for the new game button -- it refreshes
+var btn_newGame = document.getElementById("new-game");
+btn_newGame.addEventListener('click', function(event) {
+	refresh();
+})
+
+var btn_giveUp = document.getElementById("give-up");
+btn_giveUp.addEventListener('click', function(event) {
+	//reveal word
+	gameWord.innerText = word;
+
+	//reload page in 2 seconds
+	setTimeout(refresh, 2000);
+})
+
+
+var gameWord = document.getElementById('game-word');
+
+
+
+//mask the word so it is a bunch of dashes
+function maskWord() {
+	var maskedWord = "";
+	for(i=0; i<word.length; i++){
+		maskedWord += "_ ";
+	}
+	gameWord.innerText = maskedWord;
+}
+maskWord();
+
+
+
+// reveal letters as they are guessed right
+function showLetter() {
+
+}
+
+function refresh() {
+	document.location.reload(true);
+}
+
+
+
+
 
 
 
@@ -28,6 +111,7 @@ declareProgressHash(word)
 
 
 function guessLetter(letter){
+	console.log("you guessed: " + letter)
 	if (alreadyGuessed(letter)) {
 		return;
 	}
@@ -39,11 +123,13 @@ function guessLetter(letter){
 	}
 
 	if(checkWon() == true) {
-		console.log("You WIN! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧*:･ﾟ✧");
+		alert("You WIN! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧*:･ﾟ✧");
+		document.location.reload(true);
 	}
 
 	if(checkLose() == true) {
-		console.log("You LOSE! (╯°□°）╯︵ ┻━┻ ")
+		alert("You LOSE! (╯°□°）╯︵ ┻━┻ ")
+		document.location.reload(true);
 	}
 }
 
@@ -64,7 +150,6 @@ function isLetterInWord(letter) {
 function registerCorrect(letter) {
 	progressHash[letter] = true;
 	rightLetters.push(letter);
-
 
 	console.log("GOOD GUESS! \n");
 	console.log("Right letters: " + rightLetters);

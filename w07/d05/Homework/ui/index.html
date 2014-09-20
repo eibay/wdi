@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   <title>Hangman</title>
   <link rel="stylesheet" href="style.css">
-  <script type='text/javascript' src='js/game.js'></script>
+
 </head>
 <body>
   <section class="game-play">
 
     <figure>
-      <span>Guesses Left:</span> <span class="guesses-left"></span>
+      <span>Guesses Left:</span> <span id="guesses-left"></span>
     </figure>
 
     <aside>
       <div>
         <span>Letters Guessed Already:</span>
-        <span class="guessed-letters"></span>
+        <span id="guessed-letters"></span>
       </div>
 
       <div>
@@ -27,11 +27,21 @@
     </aside>
   </section>
 
-  <div class="game-word">A B C D</div>
+  <div id="game-word">A B C D</div>
 
   <section class="game-controls">
-    <button class="button give-up">Give Up</button>
-    <button class="button new-game">New Game</button>
+    <button class="button" id="give-up">Give Up</button>
+    <button class="button" id="new-game">New Game</button>
   </section>
+  <script src="./js/game.js">
+
+
+
+
+
+
+
+  </script>
+
 </body>
 </html>
