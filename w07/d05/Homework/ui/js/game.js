@@ -7,6 +7,19 @@ var guessed_wrong=[];
 var guessed_right=[];
 var matched_letters=[];
 
+
+if(localStorage.getItem('wins') == null){
+	localStorage.setItem('wins', 0)
+	var wins=localStorage.getItem('wins');
+	var winsHtml=document.getElementById('wins');
+	winsHtml.innerText='Wins: '+wins;
+	}
+else{
+	var wins=localStorage.getItem('wins');
+	var winsHtml=document.getElementById('wins');
+	winsHtml.innerText='Wins: '+wins;
+}
+
 function letterInWord(letter, word){
 	
 	if(word.indexOf(letter) != -1){
@@ -94,6 +107,11 @@ function youWon(){
 	if(matched_letters.length==secretWordArray.length){
 		var game_word=document.getElementById('game-word');
 		game_word.innerHTML='You Won!'
+		var current_wins=parseInt(localStorage.getItem('wins'));
+		localStorage.setItem('wins', current_wins+1)
+		wins=localStorage.getItem('wins');
+		var winsHtml=document.getElementById('wins');
+		winsHtml.innerText='Wins: '+wins;
 		setTimeout(restart, 1500)
 	
 	}
