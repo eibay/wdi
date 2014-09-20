@@ -1,7 +1,7 @@
 var secretWord= ''
 var secretWordArray=secretWord.split('');
 var length=secretWord.length;
-var guesses=6;
+var guesses=8;
 var guessed_wrong=[];
 var guessed_right=[];
 var matched_letters=[];
@@ -13,6 +13,9 @@ function getWord() {
 	xhr.addEventListener('load', function(){
 		var word = JSON.parse(xhr.response);
 		secretWord = word;
+		secretWordArray=secretWord.split('')
+		length=secretWord.length
+		console.log(word)
 	});
 }
 
@@ -98,7 +101,8 @@ function letterPositions(letter, array){
 		var game_word=document.getElementById('game-word');
 		game_word.innerHTML='Out Of Guesses!'
 		addBodyPart()
-		setTimeout(restart, 1500)
+		setTimeout(reveal, 700)
+		setTimeout(restart, 2000)
 	}
  }
 function outputString(word) {
@@ -168,6 +172,11 @@ function wrongGuess(){
 
 }
 
+function reveal(){
+	var game_word=document.getElementById('game-word');
+		game_word.innerText= 'Word: ' + secretWord;
+}
+
 
 
 // var give_up=document.getElementById('give-up');
@@ -190,7 +199,7 @@ function restart(){
 		giveUp()
 		makeAlphabet()
 		outputString(secretWord);
-		guesses=7;
+		guesses=8;
 		var guesses_left=document.getElementById('guesses-left');
 	  guesses_left.innerText=guesses;
 	  guessed_wrong=[];
@@ -210,14 +219,14 @@ function restart(){
 }
 function addBodyPart(){
 
-	if (guesses==6){
+	if (guesses==7){
 		var feet=document.getElementById('feet')
 		var foot=document.createElement('img');
 		foot.src='./HipsterParts/rightfoot.png'
 		foot.id='rightfoot'
 		feet.appendChild(foot)
 	}
-	else if(guesses==5){
+	else if(guesses==6){
 		var feet=document.getElementById('feet')
 		var foot=document.createElement('img');
 		foot.src='./HipsterParts/leftfoot.png'
@@ -225,7 +234,7 @@ function addBodyPart(){
 		feet.appendChild(foot)
 
 	}
-	else if(guesses==4){
+	else if(guesses==5){
 		var legs=document.getElementById('legs')
 		var leg=document.createElement('img');
 		leg.src='./HipsterParts/rightleg.png'
@@ -234,14 +243,14 @@ function addBodyPart(){
 		var feet=document.getElementById('feet')
 		feet.style.margin='0px'
 	}
-	else if(guesses==3){
+	else if(guesses==4){
 		var legs=document.getElementById('legs')
 		var leg=document.createElement('img');
 		leg.src='./HipsterParts/leftleg.png'
 		leg.id='leftleg'
 		legs.appendChild(leg)
 	}
-	else if(guesses==2){
+	else if(guesses==3){
 		var top=document.getElementById('top')
 		var chest=document.createElement('img');
 		chest.src='./HipsterParts/body.png'
@@ -250,7 +259,7 @@ function addBodyPart(){
 		var legs=document.getElementById('legs')
 		legs.style.margin="0px"
 	}
-	else if(guesses==1){
+	else if(guesses==2){
 		var top=document.getElementById('top')
 		var chest=document.getElementById('chest')
 		var head=document.createElement('img');
@@ -259,7 +268,7 @@ function addBodyPart(){
 		top.insertBefore(head, chest)
 		top.style.margin='0px';
 	}
-		else if(guesses==0){
+	else if(guesses==1){
 		var top=document.getElementById('top')
 		var chest=document.getElementById('chest')
 		var firsthead=document.getElementById('head');
@@ -267,6 +276,17 @@ function addBodyPart(){
 		var head=document.createElement('img');
 		head.src='./HipsterParts/head2.png'
 		head.id='head2'
+		top.insertBefore(head, chest)
+		top.style.margin='0px';
+	}
+	else if(guesses==0){
+		var top=document.getElementById('top')
+		var chest=document.getElementById('chest')
+		var firsthead=document.getElementById('head2');
+		top.removeChild(firsthead);
+		var head=document.createElement('img');
+		head.src='./HipsterParts/head3.png'
+		head.id='head3'
 		top.insertBefore(head, chest)
 		top.style.margin='0px';
 	}
