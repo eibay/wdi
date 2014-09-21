@@ -11,7 +11,7 @@ getTitle()
 
 function gettingPicture(title){
   var xhr = new XMLHttpRequest()
-  // xhr.open('GET', '/titles?stitle='+ encodeURIComponent(title))
+  // xhr.open('GET', '/titles?title='+ encodeURIComponent(title))
   //using ruby do this
   xhr.open('GET',"http://www.omdbapi.com/?t="+encodeURIComponent(title))
   xhr.send()

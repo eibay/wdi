@@ -4,10 +4,31 @@ var wrongOptions = []
 var correctOptions = []
 var choices = []
 var wordViews = {}
-
+var gameResult = []
+//errors with getting values and result!!!!
 begginingValues()
 
+function randomWord(){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/word');
+  xhr.send()
+  xhr.addEventListener('load', function(){
+   parsedWord = JSON.parse(xhr.response);
+    word = [parsedWord.word.toLowerCase()]
+    wordScreen()
+    console.log(word)
+      });
+}
+
+
 function begginingValues(){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/values');
+  xhr.send()
+  xhr.addEventListener('load', function(){
+    console.log(JSON.parse(xhr.response))
+
+    //count response and alert
   var spanGuessed = document.getElementsByClassName("guessed-letters")
   var h5_guessed = document.createElement("h5")
   spanGuessed[0].appendChild(h5_guessed)
@@ -19,6 +40,15 @@ function begginingValues(){
   wordPlacement[0].innerText = ""
   randomWord()
   buttonsEvent()
+})
+}
+
+function results(){
+  var xhr2 = new XMLHttpRequest();
+  xhr2.open('GET', '/results?result='+gameResult[gameResult.length - 1]);
+  xhr2.send()
+  //count results and alerts
+  randomWord()
 }
 
 
@@ -39,17 +69,6 @@ function wordScreen(){
 }
 
 
-function randomWord(letter){
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://api.wordnik.com/v4/words.json/randomWord?hasDictionaryDef=false&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5');
-  xhr.send()
-  xhr.addEventListener('load', function(){
-    parsedWord = JSON.parse(xhr.response);
-    word = [parsedWord.word.toLowerCase()]
-    wordScreen()
-    console.log(word)
-      });
-}
 
 
 
@@ -87,9 +106,11 @@ function buttonsEvent(){
     }
   } 
 
+
 function checkWin(){
   if (correctOptions.length == word[0].length){
     alert("YOU WON!")
+    gameResult.push("won")
   }
 }
 
@@ -98,14 +119,18 @@ function giveUp(){
   console.log(word[0].length)
   if(event.target.className == "button give-up" && correctOptions.length != word[0].length){
     alert("YOU LOST!! THE WORD WAS "+word[0].toUpperCase())
+    console.log(gameResult)
+    gameResult.push("lost")
+    results()
     guessedLetter()  
-    randomWord()
+    
   }else if (event.target.className == "button give-up" && correctOptions.length == word[0].length){
     alert("YOU WON ALREADY!")
   }else if (event.target.className == "button new-game"){
     alert("LETS PLAY AGAIN!")
+    results()
    guessedLetter()
-   randomWord()
+ 
   
   } 
 }
@@ -113,6 +138,7 @@ function giveUp(){
   function checkTries(){
     if (wrongOptions.length >= 8){
       alert("You Lost! The Word was " +word[0]+" PRESS NEW GAME TO PLAY AGAIN")
+      gameResult.push("lost")
     } else if(wrongOptions.length != 0){
       alert("TRY AGAIN")
     }
@@ -190,8 +216,3 @@ function left(){
 }
 
 }
-
-
-
-
-
