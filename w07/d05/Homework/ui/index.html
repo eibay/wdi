@@ -4,34 +4,173 @@
   <meta charset="utf-8">
   <title>Hangman</title>
   <link rel="stylesheet" href="style.css">
-  <script type='text/javascript' src='js/game.js'></script>
+  <!-- // <script type='text/javascript' src='js/game.js'></script> -->
 </head>
 <body>
   <section class="game-play">
 
     <figure>
-      <span>Guesses Left:</span> <span class="guesses-left"></span>
+      <span>Wrong Guesses Left:</span> <span class="guesses-left"></span>
     </figure>
 
     <aside>
       <div>
         <span>Letters Guessed Already:</span>
-        <span class="guessed-letters"></span>
+        <span class="guessed-letters"></span><br>
       </div>
 
       <div>
         <label for="letter">Guess a Letter:</label>
-        <input type="text" name="letter" id="letter" />
+        <input type="text" name="letter" id="letter">
       </div>
         <button class="button" id="guess-button">Guess</button>
     </aside>
   </section>
 
-  <div class="game-word">A B C D</div>
+  <div class="game-word"></div>
 
   <section class="game-controls">
     <button class="button give-up">Give Up</button>
     <button class="button new-game">New Game</button>
   </section>
+
+  <script>
+  function startGame(){
+    var guessLetter = document.getElementById("guess-button")
+    guessLetter.addEventListener("click", getGuess)
+    
+    var lettersGuessedAlready = document.querySelector("span.guessed-letters")
+    lettersGuessedAlready.innerText=""
+
+  }
+
+  
+
+
+  function getGuess(){
+    var guess = document.getElementById("letter")
+    var letterGuessed = guess.value
+    checkGuess(letterGuessed)
+  }
+
+  // establish secret word in backend (from a list of words, and it gives a category)
+  words = ["ONE DIRECTION"]
+
+  // gets random secret word from array
+  function getSecretWord(){
+    var word = words[Math.floor(Math.random()*words.length)];
+    secretWordToDisplay(word);
+    return word
+  }
+
+
+
+  // creates div for each letter in the secret word with an ID = letter ex <div id="H"> </div>
+  var divGameWord = document.querySelector("div.game-word")
+
+  function secretWordToDisplay(secretWord){
+    var array = secretWord.split("")
+    for (var i=0; i<array.length; i++){
+      var letterDiv = document.createElement("div")
+      letterDiv.className = array[i]
+      letterDiv.innerText = "-"
+      divGameWord.appendChild(letterDiv)
+    } 
+  }
+
+
+  // get secret string.toLowerCase().trim()
+  var secretWord = getSecretWord()
+
+  var wrong_letters = []
+  var right_letters = []
+  var all_letters = []
+
+  // check to see if letter is in secret word
+  function checkGuess(letter){
+    if (secretWord.indexOf(letter) != -1){
+      all_letters.push(letter)
+      right_letters.push(letter)
+      displayRightLetter(letter)
+      return all_letters
+
+    } else {
+      all_letters.push(letter)
+      wrong_letters(letter)
+      displayWrongLetter(letter)
+      return all_letters
+    }
+  }
+
+  // functions to execute if guessed letter is not in the secretWord
+  function displayWrongLetter(letter){
+    var guessedLetters = document.querySelector("span.guessed-letters")
+    guessedLetters.innerText= all_letters
+    gameLost(letter)
+
+  }
+
+  function gameLost(wrong_letters){
+    if (wrong_letters.length >= 8){
+      console.log("You lose!")
+    } else{
+      console.log("Try another letter")
+    }
+  }
+
+  // functions to execute if guessed letter is in the secretWord
+  function displayRightLetter(letter){
+    // displays letter is "Letters Guessed already div"
+    var guessedLetters = document.querySelector("span.guessed-letters")
+    guessedLetters.innerText= all_letters
+
+    // displays letters in word
+    var div = document.getElementsByClassName(letter)
+    if (div.length > 1){  
+      for (var i=0; i<div.length; i++){
+        var divv = document.getElementsByClassName(letter)
+        divv[i].innerText =letter
+      }
+    }
+    else{  
+      var divv = document.getElementsByClassName(letter)
+      divv[0].innerText =letter
+    }
+    gameWon(right_letters)
+  }
+
+  // checks to see length of word not counting double letters - which will gives the word length if won
+  function check(letter) {
+    var allLetters = {};
+    for(var i= 0; i < letter.length; i++) {
+      var character = letter.charAt(i);
+      if(character in allLetters) {
+        allLetters[character] += 1;
+      }
+      else {
+        allLetters[character] = 1;
+      }
+    }if (allLetters.hasOwnProperty(" ")){
+      delete allLetters[" "]
+      return allLetters;
+    }else {
+      return allLetters;
+    }
+  };
+
+  function gameWon(){
+    var letters = check(secretWord)
+    var numOfLetters = Object.keys(letters).length
+
+    if (numOfLetters == right_letters.length){
+      alert("You Won!")
+    } else {
+      console.log("Good guess! Can you figure out another letter?")
+    }
+  }
+
+
+
+  </script>
 </body>
 </html>

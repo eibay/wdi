@@ -31,6 +31,11 @@ div.game-word {
   text-align: center;
 }
 
+div{
+  display: inline;
+  
+}
+
 input {
   border: 5px solid white;
   border-radius:10px;
@@ -49,6 +54,7 @@ input {
   background-color:rgba(255,0,51,1);
   border:1px solid #f03;
   border-radius:10px;
+  display: inline;
 }
 .button:hover {
   background-color:rgba(255,0,51,0.8);
