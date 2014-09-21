@@ -1,15 +1,11 @@
-var fs = require("fs");
-
 window.onload = function(){
-
-	// var wins = fs.readFileSync('./wins.txt');
 
 	getWord()
     setTimeout(function(){
       newGame()}, 400)
 
    function newGame(){
-
+    winsDiv.innerText = wins;
     gameWord.innerText = ""
     answer_array = [];
     word_array = word.split("");
@@ -18,7 +14,6 @@ window.onload = function(){
       answer_array.push("_");
       gameWord.innerText += "_";
     };
-
     plays = 8;
     guessesLeft.innerText = plays;
     lettersDiv.innerText = ""
@@ -55,9 +50,10 @@ window.onload = function(){
     if (answer_array.indexOf("_") == -1) {
       console.log("you win")
       guessesLeft.innerText = 'You Win!'
-      // wins++;
-      // fs.writeFileSync('./js/wins.txt', wins);
-      // console.log(wins);
+      wins++;
+      addWins();
+      console.log(wins);
+      winsDiv.innerText = wins;
     } else if(plays > 0){
       console.log("guess again")
     } else{
@@ -65,7 +61,7 @@ window.onload = function(){
       gameWord.innerText = word;
       getWord();
       setTimeout(function(){
-      newGame();}, 2000);
+      newGame();}, 400);
     };
   };
 

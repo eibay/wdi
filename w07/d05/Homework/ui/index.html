@@ -33,6 +33,8 @@
     <button class="button give-up">Give Up</button>
     <button class="button new-game">New Game</button>
   </section>
+  <h3>Total wins:</h3>
+  <div id='wins'></div>
 
 
   <script type='text/javascript'>
@@ -49,6 +51,9 @@
     var word = ""
     var answer_array = []
     var word_array = []
+    var winsDiv = document.getElementById('wins');
+    var wins = 0;
+    getWins();
     
     function getWord(){
       var xhr = new XMLHttpRequest();
@@ -58,6 +63,26 @@
       });
       xhr.open('GET', '/word');
       xhr.send()
+    };
+
+    function getWins(){
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener('load', function(){
+        console.log(xhr.response);
+        wins = parseInt(xhr.response);
+      });
+      xhr.open('GET', '/wins');
+      xhr.send()
+    };
+
+    function addWins(){
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener('load', function(){
+        console.log(xhr.response);
+      });
+      xhr.open('POST', '/wins');
+      xhr.send();
+
     };
 
   </script>

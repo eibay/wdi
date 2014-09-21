@@ -33,3 +33,26 @@ get '/word' do
 	return word
 	
 end
+
+get '/wins' do
+
+content_type :txt;
+wins = File.read('./wins.txt')
+return wins
+end
+
+post '/wins' do
+
+content_type :txt;
+wins = File.read('./wins.txt').to_i
+wins += 1
+File.write('./wins.txt', wins)
+
+end
+
+
+
+
+
+
+
