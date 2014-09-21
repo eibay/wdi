@@ -1,16 +1,31 @@
-// 
+//get word from server
+var word = ""
+var xhr = new XMLHttpRequest
+xhr.open('GET', 'http://127.0.0.1:4567/word');
+xhr.send();
+xhr.addEventListener("load", function(){
+	word = xhr.response
+	return word
+});
+
 //buttons
 var giveUp = document.getElementsByClassName("button give-up")
 var newGame = document.getElementsByClassName("button new-game")[0]
 var guess = document.getElementById("guess-button")
+
+//the game
 newGame.addEventListener("click", function() {
+	//update records
+	xhr.open('POST', 'http://127.0.0.1:4567/games');
+	xhr.send();
 	//game set up
-	var word = "hello"
+	console.log(word)
 	var word_array = word.split("")
 	var answer_array = []
-	var plays = 0
+
 	
 	//guesses left creation
+	var plays = 0
 	var guesses_leftEl = document.getElementsByClassName("guesses-left")[0]
 	var guesses_left = 8 - plays
 	guesses_leftEl.innerText = String(guesses_left);
@@ -75,6 +90,8 @@ newGame.addEventListener("click", function() {
 
 	  //win, lose, or go again
 	  if (answer_array.indexOf("_ ") == -1) {
+	  	xhr.open('POST', 'http://127.0.0.1:4567/win');
+			xhr.send();
  			document.getElementsByClassName("game-play")[0].innerText = "you won!" 		
  		} else if(plays > 7){
  			document.getElementsByClassName("game-play")[0].innerText = "you lost :("
