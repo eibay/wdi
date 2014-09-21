@@ -83,17 +83,14 @@ maskWord();
 
 
 
-
-// var newMaskedWord = maskWord();
-// reveal letters as they are guessed right
-function showLetter(letter) {
-	// for(i=0; i=word.length; i++){
-	// 	if(letter==word[i]){
-	// 		console.log("we shoudl show this letter")
-	// 	}
-	// }
-}
-
+// function replaceLetter(letter) { //made obsolete by showLetter
+// 	// var correctLetters = []
+// 	var letterIndex = word.indexOf(letter); //get index of guessed letter
+// 	var newGameWord = gameWord.innerText.split(" "); // change to array so i can splice
+// 	newGameWord.splice(letterIndex, 1, letter);
+// 	newGameWord = newGameWord.join(" ");
+// 	gameWord.innerText = newGameWord
+// }
 
 
 
@@ -126,6 +123,8 @@ function guessLetter(letter){
 
 	if (isLetterInWord(letter)) {
 		registerCorrect(letter);
+		showLetter(letter);
+
 	} else {
 		registerIncorrect(letter);
 	}
@@ -191,6 +190,18 @@ function checkWon() {
 function checkLose() {
 	if(guessesLeft == 0) {
 		return true;
+	}
+}
+
+
+function showLetter(letter){
+	for(i=0; i<word.length; i++){
+		if(word[i] == letter){
+			var newGameWord = gameWord.innerText.split(" ");
+			newGameWord.splice(i, 1, letter);
+			newGameWord = newGameWord.join(" ");
+			gameWord.innerText = newGameWord
+		}
 	}
 }
 
