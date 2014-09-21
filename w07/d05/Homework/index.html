@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Hangman</title>
+  </head>
+  <body>
+
+  <script type="text/javascript">
+  var matches = [];
+  var misses = [];
+
+ function noDupesInMisses(letter){
+    for(var m=0;m<=misses.length;m++) {
+      if (misses.indexOf(letter) == -1){
+        misses.push(letter);
+      }
+  }
+}
+
+function noDupesInMatches(letter){
+   for(var m=0;m<=matches.length;m++) {
+     if (matches.indexOf(letter) == -1){
+       matches.push(letter);
+     }
+ }
+}
+// if word is barf, and I guess f...
+  function matchGuess(letter, word){
+    for(var i=0; i<word.length; i++) {
+    if (letter == word[i]) {
+      noDupesInMatches(letter);
+  	}
+	}
+    if (matches.indexOf(letter) == -1){
+      noDupesInMisses(letter);
+    }
+};
+
+  function was_guessed(letter){
+    if (matches.indexOf(letter) != -1 || misses.indexOf(letter) != -1){
+      return true;
+    } else {
+      return false;
+    }
+  }
+  </script>
+  </body>
+</html>
