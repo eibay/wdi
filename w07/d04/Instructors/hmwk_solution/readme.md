@@ -8,5 +8,6 @@ This homework solution shows the steps that were taken to complete the assignmen
 4. ```index.html``` and ```client.js``` were then created to consume the json coming from ```server.js```
 
 After this ```server.js``` was refactored twice:
+
 1. ```server_alternate.js``` this was the first refactoring
 2. ```server_alternate2.js``` this further refactored the code into functions that take callbacks
