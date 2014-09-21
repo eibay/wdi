@@ -9,5 +9,5 @@ This homework solution shows the steps that were taken to complete the assignmen
 
 After this ```server.js``` was refactored twice:
 
-1. ```server_alternate.js``` this was the first refactoring
-2. ```server_alternate2.js``` this further refactored the code into functions that take callbacks
+1. ```server_alternate.js``` was the first refactoring
+2. ```server_alternate2.js``` further refactored the code into functions that take callbacks
