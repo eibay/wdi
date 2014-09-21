@@ -2,9 +2,24 @@ window.addEventListener('load', function() {
 	var httpRequest = new XMLHttpRequest;
 	var randomWordApiURL = "http://randomword.setgetgo.com/get.php";
 	jsonp(randomWordApiURL, function(data){
-		var randomWord = data.Word; 
-		addSecretWord(randomWord); 
+		var secretRandomWord = data.Word; 
+		addSecretWord(secretRandomWord); 
+		var guessButton = document.getElementById("guess-button");
+		guessButton.addEventListener('click', function() {
+			var guessLetter = document.getElementById("letter").value;
+			var letterIndexes = checkForLetter(guessLetter, secretRandomWord);
+			var guessIndexes = addToGuesses(guessLetter); 
+			if (!(guessIndexes.length == 0)) {
+				addLettersToWord(guessIndexes, secretRandomWord);
+			}
+			decrementGuessesLeft(); 
+			if (guessesLeft == 0) {
+				revealWord(); 
+			}
+		}); 
+
 	}); 
+
 });
 
 function checkForLetter(letter, word) {
@@ -14,6 +29,32 @@ function checkForLetter(letter, word) {
 			indexes.push(i); 
 	}
 	return indexes; 
+}
+
+function addLettersToWord(idxArr, word) {
+
+
+}
+
+function addToGuesses(letter) {
+	var guessedLetters = document.querySelector("span.guessed-letters");
+	var guessString = guessedLetters.innerText; 
+	if (guessString === '') {
+		guessedLetters.innerText = letter; 
+	} else {
+		guessString = guessString.split(', ');
+		guessString.push(letter); 
+		guessString = guessString.join(', '); 
+		guessedLetters.innerText = guessString; 
+	}
+}
+
+function decrementGuessesLeft() {
+
+}
+
+function revealWord() {
+
 }
 
 function addSecretWord(word) {
