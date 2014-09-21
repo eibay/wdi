@@ -81,6 +81,7 @@ function letterPositions(letter, array){
 	 				letterPosition.innerText=secretWordArray[letters[i]]
 	 				matched_letters.push(i);
 	 			}
+
 	 			youWon()
 
 	 		}else{
@@ -96,14 +97,36 @@ function letterPositions(letter, array){
 	 	}
 	}
 	else{
-		guesses=0;
-		var guesses_left=document.getElementById('guesses-left');
+		 	if(guessed(letter)==false){
+	 		if(letterInWord(letter, secretWord)==true){
+	
+	 			var guesses_left=document.getElementById('guesses-left');
+	 			guesses_left.innerText=guesses;
+	 			var letters=letterPositions(letter, secretWordArray);	
+	 			for(var i=0; i < letters.length; i++){
+	 				var letterPosition=document.getElementById('l'+letters[i])	
+	 				letterPosition.innerText=secretWordArray[letters[i]]
+	 				matched_letters.push(i);
+	 			}
+	 			
+	 			youWon()
+
+	 		}else{
+	 			guesses=0;
+				var guesses_left=document.getElementById('guesses-left');
 	 			guesses_left.innerText=0;
-		var game_word=document.getElementById('game-word');
-		game_word.innerHTML='Out Of Guesses!'
-		addBodyPart()
-		setTimeout(reveal, 700)
-		setTimeout(restart, 2000)
+				var game_word=document.getElementById('game-word');
+				game_word.innerHTML='Out Of Guesses!'
+				addBodyPart()
+				setTimeout(reveal, 700)
+				setTimeout(restart, 2000)
+	 			// window.alert('Guess Again')
+	 		}
+	 	}else{
+	 		window.alert("You already guessed that letter")
+	 	}
+
+		
 	}
  }
 function outputString(word) {

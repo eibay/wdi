@@ -2,7 +2,6 @@
 require 'sinatra'
 # require 'sinatra/reloader'
 require 'httparty'
-require 'pry'
 
 get('/') do 
 	File.open('index.html')
