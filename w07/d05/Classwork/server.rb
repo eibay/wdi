@@ -5,6 +5,6 @@ require 'httparty'
 require 'uri'
 require 'pry'
 
-get ("/")do
+get ("/") do 
 	erb(:index)
 end
