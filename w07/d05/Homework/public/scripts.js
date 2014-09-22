@@ -58,7 +58,8 @@ function buttonsEvent(){
     for (i = 0; i < buttons.length; i++){
       buttons[i].addEventListener('click', function(event){
         if(event.target.id == "guess-button" && wrongOptions.length < 8 && correctOptions.length != word[0].length){
-          letter = document.querySelector("input").value
+          letter = document.querySelector("input").value.toLowerCase()
+
           console.log(letter.length)
             if (letter.length != 1){
               alert("TRY AGAIN WRONG AMOUNT OF LETTERS")
