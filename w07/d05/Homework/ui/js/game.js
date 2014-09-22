@@ -2,7 +2,7 @@ window.onload = function(){
 
 	getWord()
     setTimeout(function(){
-      newGame()}, 400)
+      newGame()}, 500)
 
    function newGame(){
     winsDiv.innerText = wins;
@@ -47,21 +47,24 @@ window.onload = function(){
 
   function response(){
 
-    if (answer_array.indexOf("_") == -1) {
+    if(answer_array.indexOf("_") == -1){
       console.log("you win")
       guessesLeft.innerText = 'You Win!'
       wins++;
       addWins();
       console.log(wins);
       winsDiv.innerText = wins;
-    } else if(plays > 0){
+    
+    }else if(plays > 0){
       console.log("guess again")
-    } else{
+    
+    }else{
       console.log('you lose')
+      guessesLeft.innerText = 'Game Over'
       gameWord.innerText = word;
       getWord();
       setTimeout(function(){
-      newGame();}, 400);
+      newGame();}, 3000);
     };
   };
 
@@ -69,17 +72,21 @@ window.onload = function(){
   new_game_button.addEventListener("click", function(){
     getWord()
     setTimeout(function(){
-      newGame()}, 400)
+      newGame()}, 500)
   });
 
   guess_button.addEventListener("click", function(){
-    turn(input.value);
-    input.value = "";
+    if(input.value != ""){
+      var letterInput = input.value.toLowerCase();
+      turn(letterInput);
+      input.value = "";
+    };
   });
 
   input.addEventListener("keydown", function(e){
-    if(e.keyIdentifier == "Enter"){
-      turn(input.value)
+    if(e.keyIdentifier == "Enter" && input.value != ""){
+      var letterInput = input.value.toLowerCase();
+      turn(letterInput);
       input.value="";
     };
   });

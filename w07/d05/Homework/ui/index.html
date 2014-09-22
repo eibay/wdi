@@ -77,12 +77,8 @@
 
     function addWins(){
       var xhr = new XMLHttpRequest();
-      xhr.addEventListener('load', function(){
-        console.log(xhr.response);
-      });
       xhr.open('POST', '/wins');
       xhr.send();
-
     };
 
   </script>
