@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<!-- <link rel="stylesheet" href="style.css"> -->
 	<title>InstaSearch</title>
 </head>
 <body>
 	<h1>Search Instagram!</h1>
 	<input type='text' name='loc' placeholder='Search Location'>
 		<button>Search</button>
-		<script>
+	<div id="map-canvas" style="width: 100%; height: 100%"></div>
+	<div>
+		<ul></ul>
+	</div>
+	<script>
 		var button = document.querySelector('button');
 		var input = document.querySelector('input');
 		button.addEventListener('click', function() {
@@ -22,22 +25,35 @@
 			xhr.addEventListener('load', function() {
 
 			var insta = JSON.parse(xhr.response);
-			
-			for (var i = 0; i < insta['data'].length; i++) {
-			var ul = document.querySelector('ul');
+			console.log(insta['data'][0]['location']['latitude'])
+			console.log(insta['data'][0]['location']['longitude'])
 
-				var li = document.createElement('li');
-				li.innerHTML = '<img src=\"' + insta['data'][i]['images']['low_resolution']['url'] + '\">';
-			ul.appendChild(li);
+			//// Google Map
+
+			function initialize() {
+		  var mapOptions = {
+		    zoom: 8,
+		    center: new google.maps.LatLng(insta['data'][0]['location']['latitude'], insta['data'][0]['location']['longitude'])
+		  };
+
+		  var map = new google.maps.Map(document.getElementById('map-canvas'),
+		      mapOptions);
 			}
+
+			initialize();
+			// for (var i = 0; i < insta['data'].length; i++) {
+			// var ul = document.querySelector('ul');
+
+			// 	var li = document.createElement('li');
+			// 	li.innerHTML = '<img src=\"' + insta['data'][i]['images']['low_resolution']['url'] + '\">';
+			// ul.appendChild(li);
+			// }
 		});
 
 	xhr.open('GET', '/photos?loc=' + location.split(' ').join('+'), true);
 	xhr.send();
 	}
 </script>
-	<div>
-		<ul></ul>
-	</div>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </body>
 </html>

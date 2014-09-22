@@ -9,7 +9,7 @@ var server = http.createServer(function(req,res) {
 	var path = req.url
 
 	if(path == '/') {
-		var html = fs.readFileSync('./index.html');
+		var html = fs.readFileSync('./map.html');
 		console.log('made it!')
 		res.end(html);
 	} else if(path.split('?')[0] == '/photos') {

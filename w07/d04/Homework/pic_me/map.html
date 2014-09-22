@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+  <h1>Search Instagram!</h1>
+  <input type='text' name='loc' placeholder='Search Location'>
+    <button>Search</button>
+  <div id="map-canvas"></div>
+      <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+      <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+
+    var latitude = -34.397;
+    var longitude = 150.644;
+
+    function initialize(latitude, longitude) {
+      var mapOptions = {
+        center: { lat: latitude, lng: longitude},
+        zoom: 8
+      };
+      var map = new google.maps.Map(document.getElementById('map-canvas'),
+          mapOptions);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize(latitude, longitude));
+
+    // function drop() {
+    //   for (var i =0; i < markerArray.length; i++) {
+    //     setTimeout(function() {
+    //       addMarkerMethod();
+    //     }, i * 200);
+    //   }
+    // }
+
+    var button = document.querySelector('button');
+    var input = document.querySelector('input');
+    button.addEventListener('click', function() {
+      fetch(input.value);
+    })
+
+    function fetch(location){
+      var xhr = new XMLHttpRequest();
+        var latlngarr = [];
+
+      xhr.addEventListener('load', function() {
+
+        var insta = JSON.parse(xhr.response);
+        latitude = insta['data'][0]['location']['latitude'];
+        longitude = insta['data'][0]['location']['longitude'];
+        initialize(latitude, longitude);
+        var myLatlng = new google.maps.LatLng(latitude, longitude);
+          var mapOptions = {
+            zoom: 13,
+            center: myLatlng
+          }
+          var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        
+        for (var i = 0; i < insta['data'].length; i++) {
+          // li.innerHTML = '<img src=\"' + insta['data'][i]['images']['low_resolution']['url'] + '\">';
+          var markerPosition = {lat: insta['data'][i]['location']['latitude'], lng: insta['data'][i]['location']['longitude']};
+          var image = insta['data'][i]['images']['low_resolution']['url'];
+
+          var infowindow = new google.maps.InfoWindow({
+            content: '<img src=\"' + image + '\">'
+          });
+
+          var marker = new google.maps.Marker({
+          animation: google.maps.Animation.DROP,
+          position: markerPosition,
+          map: map
+          });
+          console.log(infowindow)
+
+          google.maps.event.addListener(marker, 'click', (function(info) {
+            return function() {
+              info.open(map, this);
+            };
+          })(infowindow));
+          
+          marker.setMap(map);
+        }
+      });
+
+    xhr.open('GET', '/photos?loc=' + location.split(' ').join('+'), true);
+    xhr.send();
+    }
+
+    </script>
+  </body>
+</html>
