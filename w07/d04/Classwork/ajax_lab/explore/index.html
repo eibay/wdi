@@ -5,18 +5,20 @@
   <title>Ajax</title>
 </head>
 <body>
+  <!-- I've never seen this tag before, showoff -->
   <pre></pre>
-
+  <!-- our script tag -->
   <script type="text/javascript">
+  // we get the "pre" element
     var pre = document.querySelector('pre');
-
+    // here's a function that creates a request based on a passed in argument
     function fetch(title) {
       var xhr = new XMLHttpRequest();
 
       xhr.addEventListener('load', function(){ 
         pre.innerText += xhr.response + '\n';
       });
-
+      // and sends it to our node server
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
 
       xhr.send()
