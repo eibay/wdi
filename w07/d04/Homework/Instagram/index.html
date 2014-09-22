@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Instagram</title>
+</head>
+<body>
+<h1> PIC ME! </h1>
+<div>
+	<input type = "text" name="city">
+
+	<button> Pic Me </button>
+</div>
+
+<pre> 
+</pre>
+
+
+
+<script> 
+var pre = document.querySelector('pre');
+
+var button = document.querySelector("button");
+button.addEventListener("click", search);
+
+function search(){
+	var input = document.querySelectorAll("input");
+	var city = input[0].value;
+	var xhr = new XMLHttpRequest();
+	xhr.addEventListener('load', function(){
+		pre.innerText += xhr.response + '\n';
+		var response = JSON.parse(xhr.response)
+		console.log(response)
+
+	});
+
+	xhr.open('GET', '/popular', true);
+	xhr.send()
+	console.log(city);
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <div>
+    <input type="text" placeholder="Movie Title">
+    <button>Submit</button>
+  </div>
+  <h4 id="title"></h4>
+  <h4 id="year"></h4>
+  <h4 id="actors"></h4>
+  <pre>
+
+  </pre>
+
+  <script type="text/javascript">
+    var pre = document.querySelector('pre');
+    var button = document.querySelector("button");
+    var input = document.querySelector("input");
+    var title_h4 = document.getElementById("title")
+    var year = document.getElementById("year")
+    var actors = document.getElementById("actors")
+
+    function fetch(title) {
+     
+      var xhr = new XMLHttpRequest();
+   
+      xhr.addEventListener('load', function(){ 
+       
+        pre.innerText += xhr.response + '\n';
+        var response = JSON.parse(xhr.response);
+        title_h4.innerText = response["Title"];
+        year.innerText = response["Year"];
+        actors.innerText = response["Actors"]
+      });
+      
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+      
+
+      xhr.send()
+      
+    }
+
+    button.addEventListener("click", function() {
+      if (input.value != "") {
+      var title = input.value;
+      fetch(title)};
+    })
+    
+  </script>
+</body>
+</html>
