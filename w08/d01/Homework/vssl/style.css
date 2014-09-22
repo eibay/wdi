@@ -28,7 +28,7 @@ header h1 {
 
 nav {
   margin-top: -120px;
-  background-color: #161616;
+  background-color: #121212;
   height: 60px;
   padding-top: 10px;
 
@@ -60,6 +60,7 @@ hr {
 
 section {
   margin: 0 auto;
+  padding-bottom: 90px;
 }
 
 section article div{
@@ -74,7 +75,6 @@ section article {
   width: 30%;
 }
 
-/*#left #middle #right {
-  display: inline;
-  float: left;
-}*/
+.bottom-text {
+  padding-bottom: 40px;
+}
