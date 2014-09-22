@@ -6,7 +6,6 @@ var url = require('url');
 
 var server = http.createServer();
 
- 
 server.on('request', function(request, response) {
 
   var parsedRequest = url.parse(request.url, true);
@@ -16,9 +15,8 @@ server.on('request', function(request, response) {
   if (parsedRequest.pathname == '/') {
   	console.log('index.html has been loaded');
   	response.end(fs.readFileSync('../index.html'));
-  } else if (parsedRequest.pathname == 'random_word') {
+  } else if (parsedRequest.pathname == '/random_word') {
   	httpClient.get('http://randomword.setgetgo.com/get.php', function(err, res2, body) {
-      console.log('HTTParty yahooo!');
       response.end(body);
     });
   } else if (parsedRequest.pathname == '/style.css') {

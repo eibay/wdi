@@ -1,8 +1,6 @@
-window.onload = function(){
+// var secret_words = ["the","of","and","a","to","in","is","you","that","it","he","was","for","on","are","as","with","his","they","I","at","be","this","have","from","or","one","had","by","word","but","not","what","all","were","we","when","your","can","said","there","use","an","each","which","she","do","how","their","if","will","up","other","about","out","many","then","them","these","so","some","her","would","make","like","him","into","time","has","look","two","more","write","go","see","number","no","way","could","people","my","than","first","water","been","call","who","oil","its","now","find","long","down","day","did","get","come","made","may","part"];
 
-var secret_words = ["the","of","and","a","to","in","is","you","that","it","he","was","for","on","are","as","with","his","they","I","at","be","this","have","from","or","one","had","by","word","but","not","what","all","were","we","when","your","can","said","there","use","an","each","which","she","do","how","their","if","will","up","other","about","out","many","then","them","these","so","some","her","would","make","like","him","into","time","has","look","two","more","write","go","see","number","no","way","could","people","my","than","first","water","been","call","who","oil","its","now","find","long","down","day","did","get","come","made","may","part"];
-
-var secret_word = secret_words[Math.floor(Math.random() * secret_words.length)];
+// var secret_word = secret_words[Math.floor(Math.random() * secret_words.length)];
 
 // var xhr = new XMLHttpRequest();
 // console.log('XMLHttpRequest');
@@ -12,6 +10,17 @@ var secret_word = secret_words[Math.floor(Math.random() * secret_words.length)];
 // xhr.addEventListener('load', function(ev){
 //   console.log(ev);
 // });
+
+var xhr = new XMLHttpRequest();
+      console.log('XMLHttpRequest');
+
+      xhr.open('GET', '/random_word');
+      xhr.send();
+xhr.addEventListener('load', function(ev){
+      console.log('Got Callback');
+      var secret_word = ev.currentTarget.response;
+      };
+
 var secret_word_length = secret_word.length;
 
 var guess_letters = [];
@@ -80,7 +89,7 @@ button.addEventListener('click', function() {
     incorrect_num = 0;
     document.getElementsByClassName('game-word')[0].innerText = 'Restart!';
     document.querySelector('aside div span').innerText = 'Letters Guessed Already: '
-  });
+  });     
 };
 
 
