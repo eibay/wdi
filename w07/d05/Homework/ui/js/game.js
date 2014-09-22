@@ -108,6 +108,15 @@ function checkLose() {
 	}
 }
 
+function hideUnguessed() {
+	var display = "";
+	for (i=0; i<word.length; i++){
+		if(rightLetters.indexOf(word[i]) === -1) {
+			display += "_"
+		}
+
+	}		
+}
 // guessLetter("c")
 // guessLetter("a")
 
