@@ -5,7 +5,7 @@ var correctOptions = []
 var choices = []
 var wordViews = {}
 var gameResult = []
-//errors with getting values and result!!!!
+
 begginingValues()
 
 function randomWord(){
@@ -26,7 +26,9 @@ function begginingValues(){
   xhr.open('GET', '/values');
   xhr.send()
   xhr.addEventListener('load', function(){
-    console.log(JSON.parse(xhr.response))
+    games = JSON.parse(xhr.response)
+    gameResult = games
+    alert(gameResult)
 
     //count response and alert
   var spanGuessed = document.getElementsByClassName("guessed-letters")
@@ -122,7 +124,8 @@ function giveUp(){
     console.log(gameResult)
     gameResult.push("lost")
     results()
-    guessedLetter()  
+    guessedLetter() 
+    alert(gameResult) 
     
   }else if (event.target.className == "button give-up" && correctOptions.length == word[0].length){
     alert("YOU WON ALREADY!")
@@ -130,6 +133,7 @@ function giveUp(){
     alert("LETS PLAY AGAIN!")
     results()
    guessedLetter()
+    alert(gameResult)
  
   
   } 
