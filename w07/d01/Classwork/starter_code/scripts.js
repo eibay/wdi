@@ -1,9 +1,9 @@
 console.log("js file has loaded");
 
-var name
+var name = "jill"
 
 function addElToLanguages(text) {
-	var list = document.getElementbyId("languages_list");
+	var list = document.getElementById("languages_list");
 	var language = document.createElement("li");
 	language.innerText = text;
 	list.appendChild(language);
