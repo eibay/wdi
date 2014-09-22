@@ -7,25 +7,46 @@ window.onload = function(){
   var word = word_div.innerText.toLowerCase();
   var guesses_left = document.querySelector("span.guesses-left");
   var letters_guessed = document.querySelector("span.guessed-letters");
+  var give_up_btn = document.querySelector("button.give-up");
   var counter = 0;
   var miss_counter = 0;
   var canvas = document.querySelector('canvas#hangman');
   var game = document.querySelector('div#game-over');
 
+  word_div.style.visibility="hidden";
+
   function count(){
     counter += 1;
     guesses_left.innerText = 8 - counter;
     if (counter == 8){
-      return game.innerText = "GAME OVER!"
+      game_over();
     }
   }
+
   function missCount(){
     var missCount = misses.length;
     if (missCount == 1){
       drawHead();
     } else if (missCount == 2){
       drawTorso();
+    } else if (missCount == 3){
+      drawLeftLeg();
+    } else if (missCount == 4){
+      drawRightLeg();
+    } else if (missCount == 5){
+      drawLeftArm();
+    } else if (missCount == 6){
+      drawRightArm();
     }
+  }
+
+  function drawAll(){
+    drawHead();
+    drawTorso();
+    drawLeftLeg();
+    drawRightLeg();
+    drawRightArm();
+    drawLeftArm();
   }
 
   function drawHead(){
@@ -47,12 +68,68 @@ window.onload = function(){
         var centerX = canvas.width / 2;
         var centerY = (canvas.height / 2) - 40;
         ctx.beginPath();
-        // ctx.moveTo(0,0);
-        // ctx.lineTo()
         ctx.moveTo(centerX, centerY);
         ctx.lineTo(centerX, (canvas.height / 2) + 30);
         ctx.strokeStyle="#FFF";
         ctx.lineWidth = 2;
+        ctx.stroke();
+      }
+    }
+
+    function drawLeftLeg(){
+      if (canvas.getContext){
+        var ctx = canvas.getContext('2d');
+        var centerX = canvas.width / 2;
+        var centerY = (canvas.height / 2) - 40;
+        ctx.beginPath();
+        ctx.moveTo(centerX, (canvas.height / 2) + 30 );
+        ctx.lineTo(50, 250);
+        ctx.strokeStyle="#FFF";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+       }
+     }
+
+     function drawRightLeg(){
+       if (canvas.getContext){
+         var ctx = canvas.getContext('2d');
+         var centerX = canvas.width / 2;
+         var centerY = (canvas.height / 2) - 40;
+         ctx.beginPath();
+         ctx.moveTo(centerX, (canvas.height / 2) + 30 );
+         ctx.lineTo(250, 220);
+         ctx.strokeStyle="#FFF";
+         ctx.lineWidth = 2;
+         ctx.stroke();
+      }
+    }
+
+    function drawLeftArm(){
+      if (canvas.getContext){
+        var ctx = canvas.getContext('2d');
+        var centerX = canvas.width / 2;
+        var centerY = (canvas.height / 2) - 40;
+        ctx.beginPath();
+        ctx.moveTo(centerX, (canvas.height / 2) - 10);
+        ctx.lineTo(5, 250);
+        ctx.strokeStyle="#FFF";
+        ctx.lineWidth = 2;
+        ctx.closePath();
+        ctx.stroke();
+      }
+    }
+
+    function drawRightArm(){
+      if (canvas.getContext){
+        var ctx = canvas.getContext('2d');
+        var centerX = canvas.width / 2;
+        var centerY = (canvas.height / 2) - 40;
+        ctx.beginPath();
+        ctx.moveTo(centerX, (canvas.height / 2) - 10);
+        ctx.lineTo(250, 125);
+        ctx.strokeStyle="#FFF";
+        ctx.lineWidth = 2;
+        ctx.closePath();
         ctx.stroke();
       }
     }
@@ -63,7 +140,7 @@ window.onload = function(){
         misses.push(letter);
         missCount();
       }
-  }
+    }
   }
 
   function noDupesInMatches(letter){
@@ -94,6 +171,16 @@ window.onload = function(){
     }
   }
 
+  function game_over(){
+    game.innerText = "GAME OVER!"
+    word_div.style.visibility="visible";
+    drawAll();
+    guesses_left.innerText = 0
+    guess_button.removeEventListener('click', arguments.callee, false);
+  }
+
+  give_up_btn.addEventListener("click", game_over);
+
   guess_button.addEventListener("click", function(){
     var input = guessed_letter.value.toLowerCase();
     matchGuess(input, word);
@@ -103,4 +190,4 @@ window.onload = function(){
     console.log("matches: " + matches);
     console.log("misses: " + misses);
   })
-};
+}
