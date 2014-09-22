@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hangman</title>
+  <link rel="stylesheet" href="style.css">
+<!--   // <script type='text/javascript' src='js/game.js'></script> -->
+</head>
+<body>
+  <header id="header">
+    <p>Out of <%= records["games"] %> games, <%= records["wins"] %> people have been saved.</p>
+  </header>
+  <div id="body">
+  <section class="game-play">
+
+    <figure>
+      <span>Guesses Left:</span> <span class="guesses-left"></span>
+    </figure>
+
+    <aside>
+      <div>
+        <span>Letters Guessed Already:</span>
+        <span class="guessed-letters"><ul id="guessed-letters"><li></li></ul></span>
+      </div>
+
+      <div>
+        <label for="letter">Guess a Letter:</label>
+        <input type="text" name="letter" id="letter" />
+      </div>
+        <button class="button" id="guess-button">Guess</button>
+    </aside>
+  </section>
+
+  <div class="game-word">Let's play hangman!</div>
+
+  <section class="game-controls">
+    <button class="button give-up">Give Up</button>
+    <button class="button new-game">New Game</button>
+  </section>
+</div>
+  <script type='text/javascript' src='game.js'></script>
+</body>
+</html>
