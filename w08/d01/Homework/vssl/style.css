@@ -66,9 +66,12 @@ section.dumbtext p{
 	font-size:25px;
 	text-align:center;
 }
-hr{
+hr.seperate{
 	color:#D3D3D3;
 	width:750px;
+}
+hr{
+	color:#D3D3D3;
 }
 section.thumbnails{
 	width:750px;
@@ -99,7 +102,22 @@ section.thumbnails a {
 	margin-top:25px;
 	color:black;
 }
-
+section.copyright{
+	padding-top:50px;
+	color:black;
+	margin:0 auto;
+	font-size:12px;
+	width:750px;
+	font-style:italic;
+	padding-bottom:50px;
+}
+footer{
+	width:750px;
+	margin:0 auto;
+}
+footer img{
+	margin-left:330px;
+}
 
 
 
