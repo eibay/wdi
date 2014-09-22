@@ -12,16 +12,14 @@
 	<h1>Instagram Search</h1>
 	
 	<h3>Search by tag</h3>
-	<form action="/" method="GET">
 		<input type="text" name="search" placeholder="Search for a tag..." />
 		<button>Search</button>
-	</form>
 			<h3>Results</h3>
-<% instagram_api["data"].each do |x| %>
-	<a href='<%= x["images"]["standard_resolution"]["url"] %>'><img src='<%= x["images"]["standard_resolution"]["url"] %>'/></a>
-	<% end %>
+
+	<pre></pre>
 
   <script type="text/javascript">
+  getTags()
     var pre = document.querySelector('pre');
 
     function fetch(title) {
@@ -30,9 +28,50 @@
       xhr.addEventListener('load', function(){ 
         pre.innerText += xhr.response + '\n';
       });
-      xhr.open('GET', '/' + encodeURIComponent(tag));
+      xhr.open('GET', '/ ' + encodeURIComponent(tag));
       xhr.send()
     }
 	</script>
+
+
+<script>
+locationPictures()
+
+function getLocation(location){
+
+  var xhr = new XMLHttpRequest();
+  xhr.addEventListener('load', function(){
+  stuff = xhr.response
+  stuff = JSON.parse(stuff)
+  console.log(stuff)
+
+    for(i = 0; i < stuff["data"].length; i++){
+        var pre = document.querySelector('pre');
+        var images = document.createElement("img")
+
+        images.src =stuff["data"][i]["images"]["standard_resolution"]["url"]
+
+        pre.appendChild(images)
+    }
+
+});
+
+
+  xhr.open('GET', '/locations?location=' + encodeURIComponent(location));
+
+  xhr.send()
+
+
+}
+
+function locationPictures(){
+      var button = document.querySelector("button")
+      button.addEventListener('click', function(){
+      var inputBox = document.querySelector("input")
+      var locationInfo = inputBox.value
+      getLocation(locationInfo)
+      })
+    }
+
 </body>
 </html>
