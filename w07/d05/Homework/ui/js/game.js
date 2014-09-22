@@ -48,7 +48,7 @@ window.onload = function(){
   function response(){
 
     if(answer_array.indexOf("_") == -1){
-      console.log("you win")
+      // console.log("you win")
       guessesLeft.innerText = 'You Win!'
       wins++;
       addWins();
@@ -59,7 +59,7 @@ window.onload = function(){
       console.log("guess again")
     
     }else{
-      console.log('you lose')
+      // console.log('you lose')
       guessesLeft.innerText = 'Game Over'
       gameWord.innerText = word;
       getWord();
