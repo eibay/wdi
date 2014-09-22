@@ -62,10 +62,7 @@ function letterPositions(letter, array){
 
  			}
  		}
-
-
-
- 			return indexes;
+			return indexes;
 }
 
  function makeGuess(letter){
