@@ -1,6 +1,6 @@
 window.onload = function(){
 
-var secretWord = "oliver";
+
 var secretWordArray = secretWord.split("");
 var answerArray = [];
 var counter = 8;
@@ -16,10 +16,6 @@ var giveUpButton = document.getElementsByClassName("button give-up")[0];
 var newGameButton = document.getElementsByClassName("button new-game")[0];
 var guessButton = document.getElementById("guess-button");
 
-guessButton.addEventListener("click", function() {
-	var guess = document.getElementById("letter").value;
-	guessLetter(guess);
-});
 
 giveUpButton.addEventListener("click", function(){
 	counter = 0
@@ -34,6 +30,26 @@ newGameButton.addEventListener("click", function(){
 	guessedLetters.innerText = "";
 	answerArray = [];
 	answerWordDisplay.innerText = "";
+	secretWord = [];
+	newWord();
+	secretWord = secretWord.toString();
+});
+
+function newWord() {
+  var xhr = new XMLHttpRequest();
+			
+    	xhr.addEventListener('load', function(){
+    	var response = JSON.parse(xhr.response);
+    	secretWord.push = response;
+    	});
+
+    	xhr.open("GET", "http://127.0.0.1:2000/new_word", true);
+			xhr.send();
+    }
+
+guessButton.addEventListener("click", function() {
+	var guess = document.getElementById("letter").value;
+	guessLetter(guess);
 });
 
 function guessLetter(guess) {
