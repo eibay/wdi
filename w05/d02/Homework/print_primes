@@ -3,7 +3,7 @@
 class Fixnum 
 	def is_prime? 
 		(2..self-1).none? do |num|
-			self % num == 0 
+			(self % num).zero?  
 		end 
 	end
 end  

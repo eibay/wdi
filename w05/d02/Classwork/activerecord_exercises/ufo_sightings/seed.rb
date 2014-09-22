@@ -15,8 +15,8 @@ sightings.each do |sighting|
   Sighting.new(
    sighted_at: sighting["sighted_at"],
   reported_at: sighting["reported_at"],
-     location: sighting["location"],
-        shape: sighting["shape"],
+     location: sighting["location"].strip,
+        shape: sighting["shape"].strip,
      duration: sighting["duration"],
   description: sighting["description"]
   ).save

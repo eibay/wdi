@@ -26,7 +26,7 @@ class Student
 	attr_accessor :first, :last, :email
 	attr_reader :id
 
-	def initialize first, last, email, id=SecureRandom.hex  
+	def initialize first, last, email, id=SecureRandom.hex 
 		@first = first 
 		@last = last 
 		@email = email 
@@ -34,7 +34,7 @@ class Student
 	end 
 
 	def to_hash
-		{ "first" => self.first, "last" => self.last, "email" => self.email, "id" => self.id }
+		{"first" => self.first, "last" => self.last, "email" => self.email, "id" => self.id}
 	end 
 
 	def self.all 
@@ -72,9 +72,7 @@ end
 # main appp #
 
 s = Student.new first, last, email 
-
 s.create 
-
 display_db
 
 

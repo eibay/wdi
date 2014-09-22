@@ -52,7 +52,6 @@ Array.prototype.randomIndex = function(){
 	} else if(path == "/hello"){
 		var queryString = url_parts.query; 
 		debugger 
-		
 		response.end("Hello Friend!");
 	} else {
 		response.end("<h1>Hello Lost Person!</h1><p>404 404 404 404 404 404 404</p>");	

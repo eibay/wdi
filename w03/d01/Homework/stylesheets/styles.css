@@ -1,0 +1,30 @@
+/* yo, reset the styles, yo */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+
+}
+
+section {
+	margin: auto;
+	width: 80%; 
+}
+
+ul li {
+	list-style-type: none; 
+	width: 30%;
+	margin: 1em;
+	float: left;
+}
+
+ul li img {
+	max-width: 100%; 
+}
+
+ul li p {
+
+}
