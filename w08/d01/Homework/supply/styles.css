@@ -1,0 +1,87 @@
+* {
+	font-family: Helvetica; 
+}
+
+a {
+	text-decoration: none;
+
+}
+
+a:link {
+	color: black;
+
+}
+
+a:visited {
+	color: black;
+
+}
+
+a:hover {
+	color: black;
+
+}
+
+a:active {
+	color: black;
+
+}
+
+img {
+	width: 100%;
+}
+
+header {
+	position: fixed;
+	width: 5em;
+}
+
+main {
+	margin-left: 9em;
+}
+
+
+img.logo {
+	opacity: .75; 
+}
+
+header nav.site a,
+header nav.site a:link,
+header nav.site a:visited, 
+header nav.site a:hover, 
+header nav.site a:active, 
+header nav.merchandise,
+header nav.merchandise a,
+header nav.merchandise a:link, 
+header nav.merchandise a:visited,
+header nav.merchandise a:hover, 
+header nav.merchandise a:active {
+	color: gray;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+section {
+	display: inline-block;
+	width: 30%;
+}
+
+
+section.splash {
+	width: 75%;
+}
+
+section h3 {
+	text-transform: uppercase;
+	border: 3px solid black;
+	display: inline-block;
+	padding: 0.25em;
+
+}
+
+section h3.affordance {
+	color: white;
+	background-color: black;
+}
