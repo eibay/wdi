@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Movies</title>
+</head>
+<body>
+<input type="text" id="movie"><button id="button">Click Me</button>
+
+<div id ="pics"></div>
+
+<script>
+
+var xhr=new XMLHttpRequest();
+
+xhr.addEventListener('load', function(){
+	var movie=JSON.parse(xhr.response)
+	var pics=document.getElementById('pics');
+	pics.innerHTML+='<h1>'+movie["Title"]+'('+movie["Year"]+')</h1><img src="'+movie["Poster"]+'">';
+});
+
+var button=document.getElementById('button');
+button.addEventListener('click', function(){
+	var input=document.getElementById('movie');
+	xhr.open('GET', 'http://www.omdbapi.com/?t='+input.value);
+	xhr.send()
+});
+
+
+function letterInWord(letter, word){
+
+	if(word.indexOf(letter) != -1){
+
+		return indexOf(letter)
+	}
+	else{
+
+		return false;
+
+	}
+
+</script>
+</body>
+</html>
