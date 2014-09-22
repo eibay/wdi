@@ -1,0 +1,47 @@
+<DOCTYPE! html>
+<head>
+	<title>Movie Posters</title>
+</head>
+<body>
+	<h1>Search for Movie Posters</h1>
+	<div id="search">
+		<input type="text" placeholder="Movie Title">
+		<button>Search</button>
+	</div>
+	<div id="results">
+	</div>
+	<script type="text/javascript">
+		var button = document.querySelector("button");
+    var input = document.querySelector("input");
+    var results_div = document.getElementById("results")
+
+    function fetch(title) {
+    	var xhr = new XMLHttpRequest();
+			
+    	xhr.addEventListener('load', function(){
+    	var response = JSON.parse(xhr.response);
+    	renderMovie(response["Poster"], response["Title"]);
+    	});
+
+    	xhr.open("GET", "http://www.omdbapi.com/?t=" + encodeURIComponent(title), true);
+			xhr.send();
+    }
+
+    button.addEventListener("click", function() {
+      var query_title = input.value;
+      fetch(query_title);
+      input.value = "";
+    })
+
+    function renderMovie(imgSrc, title) {
+    	var titleElement = document.createElement("h4");
+    	titleElement.innerText = title;
+    	var img = document.createElement("img");
+    	img.src = imgSrc;
+    	results_div.appendChild(titleElement);
+    	results_div.appendChild(img);
+    }
+
+	</script>
+</body>
+</html>
