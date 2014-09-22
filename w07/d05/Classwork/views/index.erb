@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Movie Server</title>
+  </head>
+  <body>
+
+    <input type="text" /><button>Search</input>
+
+
+    <script type="text/javascript">
+    // var img = document.createElement("img");
+    // img.src = "http://...."
+
+      var input = document.querySelector("input");
+      var button = document.querySelector("button");
+
+      function doStuff(query){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://www.omdbapi.com/?t='+ encodeURIComponent(query), true);
+        xhr.send();
+
+        xhr.addEventListener('load', function(){
+          var title = document.createElement("h4");
+          var pic = document.createElement("div");
+          console.log(typeof xhr.response);
+          console.log(xhr.response);
+          var response = JSON.parse(xhr.response);
+          title.innerText = response["Title"];
+          pic.innerHTML = "<img src=" + response['Poster'] + "/>"
+          document.body.appendChild(title);
+          document.body.appendChild(pic);
+
+        })
+
+      }
+
+
+      button.addEventListener("click", function(){
+
+        doStuff(input.value);
+      
+      })
+    </script>
+  </div>
+  </body>
+</html>
