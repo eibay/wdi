@@ -6,14 +6,21 @@ header img {
 	width: 100%;
 	margin-bottom: -1.4em;
 	padding: none;
-
 }
+
+
+/*.top-image {
+	background: url("./img/sailboat.jpg") no-repeat top center;
+}*/
+
+
+
 header nav {
 	background: black;
 	color: white;
 	margin: none;
 	padding: 1.5em 0 0.5em 0;
-	font-size: 0.8em;
+	font-size: 0.9em;
 
 }
 header nav ul {
