@@ -1,53 +1,84 @@
-var secretWord = "javascript"
-var secretWordArray = secretWord.split("")
-var length = secretWord.length
-var answerArray = []
+window.onload = function(){
+
+var secretWord = "oliver";
+var secretWordArray = secretWord.split("");
+var answerArray = [];
 var counter = 8;
 for (var i = 0; i < secretWordArray.length; i++){
 	answerArray.push(" ");
 };
 
 
+var guessesLeft = document.getElementsByClassName("guesses-left")[0];
+var guessedLetters = document.getElementsByClassName("guessed-letters")[0];
+var answerWordDisplay = document.getElementsByClassName("game-word")[0];
+var giveUpButton = document.getElementsByClassName("button give-up")[0];
+var newGameButton = document.getElementsByClassName("button new-game")[0];
+var guessButton = document.getElementById("guess-button");
 
+guessButton.addEventListener("click", function() {
+	var guess = document.getElementById("letter").value;
+	guessLetter(guess);
+});
 
-function playGame() {
-	console.log("The word contains " + length + " letters.")
-	console.log("You have " + counter + " turns")
-}
+giveUpButton.addEventListener("click", function(){
+	counter = 0
+	var guessesLeft = document.getElementsByClassName("guesses-left")[0];
+	guessesLeft.innerText = counter
+	answerWordDisplay.innerText = "The correct word was " + secretWord + ". You lose.";
+});
+
+newGameButton.addEventListener("click", function(){
+	counter = 8;
+	guessesLeft.innerText = counter;
+	guessedLetters.innerText = "";
+	answerArray = [];
+	answerWordDisplay.innerText = "";
+});
 
 function guessLetter(guess) {
+	if (counter >= 0) {
 	if (secretWordArray.indexOf(guess) < 0 && counter > 0) {
-		console.log("Wrong!");
-		counter = counter - 1
-		if (counter > 0) {
-			console.log("You have " + counter + " turns remaining. Call function guessWord if you are ready to guess the word.")
-		} else {
-				console.log("You lose. Please refresh the page to start again.")}
+		counter = counter - 1;
+		guessesLeft.innerText = counter;
+		guessedLetters.innerText = guessedLetters.innerText + guess;
+		answerWordDisplay.innerText = answerArray.join("");
+		document.getElementById("letter").value = "";
+	 
 	 } else if (secretWordArray.indexOf(guess) >= 0  && counter > 0) {
 				
-			for (var i = 0; i < secretWordArray.length; i++) {
-					
+			for (var i = 0; i < secretWordArray.length; i++) {		
 				if (guess == secretWordArray[i]) {
-					answerArray[i] = guess}}					
-					console.log(answerArray.join(""));	
-					counter = counter - 1;
-					if (counter > 0) {
-						console.log("You have " + counter + " turns remaining. Call function guessWord if you are ready to guess the word.")
-					} else {
-						console.log("You lose. Please refresh the page to start again.")}
-	} else {
-		console.log("Sorry, you are out of turns. Please refresh the page to start again.")
-	} 	
-}
+					answerArray[i] = guess;}}
 
-function guessWord(answerWord) {
-	if (counter == 0) {
-		console.log("Sorry, you are out of turns. Please refresh the page to start again.")
-	} else if (counter > 0 && answerWord == secretWord) {
-		console.log("You win")
-	} else if (counter > 0 && answerWord != secretWord) {
-		counter = counter - 1 
-		console.log("Wrong! You have " + counter + " turns remaining.")
-	}
-}
+			if (answerArray.join("") != secretWord) {
+				answerWordDisplay.innerText = answerArray.join("");	
+				counter = counter - 1;
+				guessesLeft.innerText = counter;
+				guessedLetters.innerText = guessedLetters.innerText + guess;
+				document.getElementById("letter").value = "";}
+			else {
+				answerWordDisplay.innerText = secretWord + " - You guessed it!";
+				counter = 0;
+				guessesLeft.innerText = counter;
+				guessedLetters.innerText = guessedLetters.innerText + guess;
+				document.getElementById("letter").value = "";}
+			
+			
+	}	else if (secretWordArray.indexOf(guess) < 0 && counter == 0) {
+				answerWordDisplay.innerText = "The correct word was " + secretWord + ". You lose.";
+				counter = 0;
+
+	} else if (secretWordArray.indexOf(guess) >= 0  && counter == 0) {
+			if (counter == 0 && answerArray.join("") == secretWord) {
+						answerWordDisplay.innerText = secretWord + " - You guessed it!";
+						counter = 0;
+			} else if (counter == 0 && answerArray.join("") != secretWord) {
+						answerWordDisplay.innerText = "The correct word was " + secretWord + ". You lose.";}
+						counter = 0;
+					} 
+				};
+};
+};
+
 
