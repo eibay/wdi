@@ -1,1 +1,1 @@
-["lost","lost"]
+["lost","lost","won","lost","lost","won"]
