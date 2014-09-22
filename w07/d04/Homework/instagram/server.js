@@ -23,5 +23,5 @@ require 'sinatra'
 require 'json'
 require 'httparty'
 
-get ('/:city') do
+get ('/search') do
 	url = URI.encode("https://maps.googleapis.com/maps/api/geocode/json?address=#{params['city']}&sensor=false&key=AIzaSyA2B6Mxp9ll7QXSN0SiKoALd1ig93AziiI"
