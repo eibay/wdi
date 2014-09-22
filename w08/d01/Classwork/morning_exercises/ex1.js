@@ -6,7 +6,7 @@ function makeArray(word1, word2) {
 	console.log(array);
 };
 
-makeArray(dog, cat);
+makeArray("dog", "cat");
 //doesn't work (dog is not defined)
 
 function makeArray(word1, word2) {
@@ -17,5 +17,5 @@ function makeArray(word1, word2) {
 	console.log(array);
 }
 
-makeArray(dog, cat);
+makeArray("dog", "cat");
 //doesn't work (dog is not defined)
