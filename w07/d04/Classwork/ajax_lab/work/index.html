@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <!-- I've never seen this tag before, showoff -->
+  <pre></pre>
+
+  <input id="input" type="text" placeholder="your favorite movie">
+  <button id="button">Get the year and cast</button>
+
+
+
+
+  <!-- our script tag -->
+  <script type="text/javascript">
+  // we get the "pre" element
+    var pre = document.querySelector('pre');
+    // here's a function that creates a request based on a passed in argument
+    function fetch(title) {
+      var xhr = new XMLHttpRequest();
+
+      xhr.addEventListener('load', function(){ 
+        pre.innerText = "";
+        pre.innerText += xhr.response + '\n';
+        var button = document.querySelector("#button");
+        var input = document.querySelector("#input");
+
+        var hash = JSON.parse(pre.innerText);
+        var div = document.createElement("div");
+        div.id = "movie";
+        var year = document.createElement("h4");
+        year.innerText = hash.Year;
+        var cast = document.createElement("h4");
+        cast.innerText = hash.Actors;
+        div.appendChild(cast);
+        div.appendChild(year);
+        document.body.insertBefore(div, input);
+        pre.innerText = hash.Title;
+      });
+      // and sends it to our node server
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+
+      xhr.send()
+
+
+
+      
+    }
+    button.addEventListener("click", function() {
+      if (document.querySelector("#movie")) {document.body.removeChild(document.body.querySelector("#movie"))};
+      var input = document.querySelector("#input");
+      var movie = input.value;
+      fetch(movie);
+      // var hash = JSON.parse(pre.innerText);
+      // var div = document.createElement("div");
+      // div.id = "movie";
+      // var year = document.createElement("h4");
+      // year.innerText = hash.Year;
+      // var cast = document.createElement("h4");
+      // cast.innerText = hash.Actors;
+      // div.appendChild(cast);
+      // div.appendChild(year);
+      // document.body.appendChild(div);
+      // pre.innerText = hash.Title;
+      
+    })
+
+
+  </script>
+</body>
+</html>
