@@ -1,4 +1,4 @@
-require 'sinatra' #framework
+drequire 'sinatra' #framework
 require 'json'  #structured string data typey
 require 'httparty'  #gem for api requests
 
