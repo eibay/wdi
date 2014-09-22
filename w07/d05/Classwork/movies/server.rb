@@ -15,7 +15,7 @@ get '/search' do
 
   search = params["search"]
   url = URI.encode("http://www.omdbapi.com/?t=#{search}")
-  url_parsed = HTTParty.get(api_data)
+  url_parsed = HTTParty.get(url)
 
   url_parsed.response.body 
 end
