@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>AJAX Tutorial!</title>
+</head>
+<body>
+
+	<ul></ul>
+<script>
+
+// create a new request
+var xhr = new XMLHttpRequest
+
+// set up the variables for the request
+xhr.open("GET", "http://data.cityofnewyork.us/resource/sxx4-xhzg.json", true);
+
+// send 
+xhr.send();
+
+xhr.addEventListener("load", function(event){
+	// parse info
+	var array = JSON.parse(xhr.response);
+	for(var i=0; i<array.length; i++){
+
+	var li = document.createElement("li");
+	li.innerText= array[i]["address"];
+
+	var ul = document.querySelector("ul");
+	ul.appendChild(li)
+	}
+});
+// =>will return XMLHttpRequest {statusText: "OK", status: 200, responseURL: "http://www.omdbapi.com/?t=True%20Grit", response: "{"Title":"True Grit","Year":"2010","Rated":"PG-13"…ID":"tt1403865","Type":"movie","Response":"True"}"
+// have access to many parts of response: xhr.response 
+</script>
+
+
+</body>
+</html>
+

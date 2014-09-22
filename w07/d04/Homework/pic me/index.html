@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Your Pics</title>
+</head>
+<body>
+
+	<div id="insta_params">
+		<input id="search_term" type="text">
+		<input id="city" type="text">
+		<button>Search</button>
+	</div>
+
+
+	<pre></pre>
+	<script>
+		var button = document.querySelector("button")
+		button.addEventListener("click", search)
+
+
+
+		//get search params
+		function getParams(){
+			var insta_params = document.getElementById("insta_params")
+			var tag = insta_params.children[0].value
+			var city = insta_params.children[1].value
+			return city + "/" tag
+		}
+
+
+		function sendInstagramQuery(search_term){
+			var xhr = new XMLHttpRequest
+			xhr.open("GET", "http://127.0.0.1/search_instagram/" + search_term)
+			xhr.addEventListener("load", function(){
+
+
+			})
+
+		}
+		
+		function search(){
+			var city = getParams()
+			var city = parsed[0]
+			sendInstagramQuery(tag)
+		}
+
+	</script>
+	</body>
+
+
+
+</html>
