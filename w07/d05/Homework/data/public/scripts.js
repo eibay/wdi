@@ -19,7 +19,11 @@ function randomWord(){
     console.log(word)
       });
 }
-
+function wonLost(){
+    won = gameResult.join("/").split("won").length - 1
+    lost = gameResult.join("/").split("lost").length - 1
+    alert("won " + won + " lost " + lost)
+}
 
 function begginingValues(){
   var xhr = new XMLHttpRequest();
@@ -28,9 +32,8 @@ function begginingValues(){
   xhr.addEventListener('load', function(){
     games = JSON.parse(xhr.response)
     gameResult = games
-    alert(gameResult)
+    wonLost()
 
-    //count response and alert
   var spanGuessed = document.getElementsByClassName("guessed-letters")
   var h5_guessed = document.createElement("h5")
   spanGuessed[0].appendChild(h5_guessed)
@@ -125,15 +128,15 @@ function giveUp(){
     gameResult.push("lost")
     results()
     guessedLetter() 
-    alert(gameResult) 
+    wonLost()
     
   }else if (event.target.className == "button give-up" && correctOptions.length == word[0].length){
     alert("YOU WON ALREADY!")
   }else if (event.target.className == "button new-game"){
     alert("LETS PLAY AGAIN!")
     results()
-   guessedLetter()
-    alert(gameResult)
+    guessedLetter()
+    wonLost()
  
   
   } 
