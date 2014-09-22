@@ -3,5 +3,6 @@ function stringInfo(string){
 
 	hash['length'] = string.length;
 	hash['original'] = string;
-	hash['splitBySlash'] = string.split("/");w
+	hash['splitBySlash'] = string.split("/");
+	return hash
 }
