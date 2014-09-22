@@ -11,8 +11,8 @@ end
 get '/new_word' do
 
   url = 'http://randomword.setgetgo.com/get.php'
-  url_parsed = HTTParty.get(url)
+  word = HTTParty.get(url)
 
-  url_parsed.response.body
+  word = word.split()[0]
 
 end

@@ -45,19 +45,14 @@ var rightLetters = []
 
 
 var xhr = new XMLHttpRequest();
-xhr.open('GET', '/new_word', true);
-xhr.send();
 xhr.addEventListener('load', function(){
   word = xhr.response
   delete word[word.length]
   maskWord();
   declareProgressHash(word)
-
-
-
-
 })
-
+xhr.open('GET', '/new_word', true);
+xhr.send();
 
 
 
@@ -130,7 +125,7 @@ var gameWord = document.getElementById('game-word');
 //mask the word so it is a bunch of dashes
 function maskWord() {
   var maskedWord = "";
-  for(i=0; i<word.length - 2; i++){
+  for(i=0; i<word.length; i++){
     maskedWord += "_ ";
   }
   gameWord.innerText = maskedWord;
@@ -233,25 +228,13 @@ function registerIncorrect(letter) {
 }
 
 function checkWon() {
-  // allTrue = true;
+  allTrue = true;
 
-  // for (key in progressHash) {
-  //   if (progressHash[key] == false) {
-  //     allTrue = false;
-  //   }
-  // }
-
-  var allTrue = false;
-  var numTrue = 0
   for (key in progressHash) {
-    if(progressHash[key] == true){
-      numTrue += 1
+    if (progressHash[key] == false) {
+      allTrue = false;
     }
   }
-  if(numTrue == word.length - 2){
-    allTrue = true;
-  }
-
   return allTrue;
 }
 
