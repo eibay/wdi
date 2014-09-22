@@ -23,6 +23,15 @@ window.onload = function(){
     }
   }
 
+  function checkWon(){
+    for(var i=0;i<word.length.split(" ").length;i++){
+      if (matches.indexOf(word[i]) == -1){
+        return false
+      }
+    }
+    return true;
+  }
+
   function missCount(){
     var missCount = misses.length;
     if (missCount == 1){
@@ -155,6 +164,10 @@ window.onload = function(){
     for(var i=0; i<word.length; i++) {
     if (letter == word[i]) {
       noDupesInMatches(letter);
+      if (checkWon() == true){
+        debugger;
+        game.innerText = "YOU WON!"
+      }
     }
   }
     if (matches.indexOf(letter) == -1){
@@ -178,6 +191,8 @@ window.onload = function(){
     guesses_left.innerText = 0
     guess_button.removeEventListener('click', arguments.callee, false);
   }
+
+
 
   give_up_btn.addEventListener("click", game_over);
 
