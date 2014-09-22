@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hangman</title>
+  <link rel="stylesheet" href="/style.css">
+<!--   <script type='text/javascript' src='./js/game.js'></script> -->
+</head>
+<body>
+  <section class="game-play">
+
+    <figure>
+      <span>Guesses Left:</span> <span class="guesses-left"></span>
+    </figure>
+
+    <aside>
+      <div>
+        <span>Wins:</span>
+        <span class="wins"></span><br/>
+        <span>Losses:</span>
+        <span class="losses"></span><br/>
+        <span>Letters Guessed Already:</span>
+        <span class="guessed-letters"></span>
+      </div>
+
+      <div>
+        <label for="letter">Guess a Letter:</label>
+        <input type="text" name="letter" id="letter" />
+      </div>
+        <button class="button" id="guess-button">Guess</button>
+    </aside>
+  </section>
+  
+  <div class="alpha-list">
+    <ul id="letter-choices"></ul>
+  </div>
+  <div class="game-word">
+    <ul id="letter-list"></ul>
+  </div>
+
+  <section class="game-controls">
+    <button class="button give-up">Give Up</button>
+    <button class="button new-game">New Game</button>
+  </section>
+  <script type='text/javascript'>
+
+    var word = ""
+    var div = document.getElementsByClassName("game-word")[0]
+    var letterList = document.getElementById('letter-list')
+
+    var wordHash  = {}
+    var wrongGuesses = 8
+    var guesses = []
+
+    var alpha = [];
+    for (i=97; i <= 122; i++) {
+      alpha[alpha.length] = String.fromCharCode(i);
+    }
+
+    var alphaList = document.getElementsByClassName('alpha-list')[0]
+    var letterChoices = document.getElementById('letter-choices')
+    for(i=0; i < alpha.length; i++) {
+      choice = document.createElement('li')
+      choice.id = alpha[i]
+      choice.className = "choice"
+      choice.innerText = alpha[i]
+      letterChoices.appendChild(choice)
+    }
+
+    // 
+    // Functions
+    // 
+    
+    function getWord() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '/word', true);
+      xhr.send();
+
+      xhr.addEventListener('load', function() {
+        word = xhr.response.toLowerCase()
+        changeSpacesTo('?')
+        createWordHash(word)   
+      }); 
+    }
+    getWord()
+
+    function changeSpacesTo(character) {
+      for(l=0; l < word.length; l++) {  
+        var letter = document.createElement('li')
+        letter.className = word[l]
+        letter.id = "space"
+        if (word[l] == " ") {
+          letter.innerHTML = " "
+          letterList.appendChild(letter)
+        } else {
+          letter.innerHTML = character
+          letterList.appendChild(letter)
+        } 
+      }
+    }
+
+    function createWordHash (word) {
+      for(i=0; i<word.length; i++){
+
+        wordHash[word[i]] = false;
+      }
+    }
+
+    function fillIn(letter) {
+      for (key in wordHash) {
+        if (wordHash[key] == true) {
+          var spaceToFill = document.getElementsByClassName(letter)
+          for (i=0; i < spaceToFill.length; i++) {
+            spaceToFill[i].innerHTML = letter
+          }
+        }
+      }
+    }
+
+    function guessLetter(letter){
+      if (alreadyGuessed(letter)) {
+        alert('You already guessed that stupid.')
+        return; 
+      }
+
+      if (isLetterInWord(letter)) {
+        registerCorrect(letter);
+        fillIn(letter);
+      } else {
+        registerIncorrect(letter)
+      }
+
+      return checkWon();
+    }
+
+    function alreadyGuessed(letter) {
+      return guesses.indexOf(letter) != -1 || guesses.indexOf(letter) != -1;
+    }
+
+    function isLetterInWord(letter) {
+      for(i=0; i<word.length; i++) {  
+        if ( word.indexOf(letter) != -1) {
+          return true;
+        }
+      }
+
+      return false;
+    }
+
+    function registerCorrect(letter) {
+      wordHash[letter] = true;
+      guesses.push(letter);
+    }
+
+    function registerIncorrect(letter) {
+      guesses.push(letter);
+      wrongGuesses--;
+    }
+
+    function checkWon() {
+      allTrue = true;
+
+      for (key in wordHash) {
+        if (wordHash[key] == false) {
+          allTrue = false;
+        }
+      }
+
+      return allTrue;
+    }
+
+    function checkLost() {
+      if (wrongGuesses == 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    // 
+    // Event Listeners
+    // 
+
+    var guessesLeft = document.getElementsByClassName("guesses-left")[0]
+    var guessedLetters = document.getElementsByClassName("guessed-letters")[0]
+    var letterInput = document.getElementById("letter")
+    var guessButton = document.getElementById("guess-button")
+    var giveUpButton = document.getElementsByClassName("button give-up")[0]
+    var newGameButton = document.getElementsByClassName("button new-game")[0]
+    var letters = letterList.children
+
+    guessesLeft.innerText = wrongGuesses
+    guessedLetters.innerText = guesses
+
+
+    guessButton.addEventListener('click', function() {
+      var letter = letterInput.value;
+      guessLetter(letter)
+      fillIn(letter)
+
+      guessesLeft.innerText = wrongGuesses
+      guessedLetters.innerText = guesses
+
+      var status = document.createElement('h1')
+
+      if (checkLost() == true) {
+        status.innerText = "LOSER!!"
+        div.insertBefore(status, letterList)
+        losses ++ 
+        lossCount.innerText = losses
+        localStorage.setItem("totalLosses", losses)
+
+      } else if (checkWon() == true) {
+        status.innerText = "WINNER!!"
+        div.insertBefore(status, letterList)
+        wins ++
+        winCount.innerText = wins
+        localStorage.setItem("totalWins", wins)
+      }
+
+
+    })
+
+    giveUpButton.addEventListener('click', function() {
+      for (i=0; i < letters.length; i++) {
+        letters[i].innerHTML = letters[i].className
+      }
+
+      message = document.createElement('h1')
+      message.className = 'message'
+      message.innerText = 'Boooooooooooo!!'
+      giveUpButton.parentNode.insertBefore(message, giveUpButton)
+      setTimeout(function(){location.reload()}, 2000);
+
+    })
+    
+    newGameButton.addEventListener('click', function() {
+    location.reload();
+
+    })
+
+    var alphas = letterChoices.children
+    for(a=0; a < alphas.length; a++) {
+      alphas[a].addEventListener('click', function(event) {
+        var letter = event.target.innerText
+        guessLetter(letter)
+        fillIn(letter)
+
+        guessesLeft.innerText = wrongGuesses
+        guessedLetters.innerText = guesses
+
+        var status = document.createElement('h1')
+
+        if (checkLost() == true) {
+          status.innerText = "LOSER!!"
+          div.insertBefore(status, letterList)
+          losses ++ 
+          lossCount.innerText = losses
+          localStorage.setItem("totalLosses", losses)
+
+        } else if (checkWon() == true) {
+          status.innerText = "WINNER!!"
+          div.insertBefore(status, letterList)
+          wins ++
+          winCount.innerText = wins
+          localStorage.setItem("totalWins", wins)
+        }
+
+      })
+    }
+
+    // 
+    // Local Storage
+    // 
+
+    var wins = localStorage.getItem("totalWins")
+    var losses = localStorage.getItem("totalLosses")
+
+    var winCount = document.getElementsByClassName("wins")[0]
+    var lossCount = document.getElementsByClassName("losses")[0]
+
+    winCount.innerText = localStorage.getItem("totalWins")
+    lossCount.innerText = localStorage.getItem("totalLosses")
+
+  </script>
+</body>
+</html>
