@@ -5,6 +5,8 @@ window.onload = function(){
   var guessed_letter = document.querySelector("input");
   var word_div = document.querySelector("div.game-word");
   var word = word_div.innerText.toLowerCase();
+  var guesses_left = document.querySelector("span.guesses-left");
+  var letters_guessed = document.querySelector("span.guessed-letters");
 
 
   function noDupesInMisses(letter){
@@ -45,6 +47,8 @@ window.onload = function(){
   guess_button.addEventListener("click", function(){
     var input = guessed_letter.value.toLowerCase();
     matchGuess(input, word);
+    guesses_left.innerText = "blah"
+    letters_guessed.innerText = matches + misses;
     guessed_letter.value = "";
     console.log("matches: " + matches);
     console.log("misses: " + misses);
