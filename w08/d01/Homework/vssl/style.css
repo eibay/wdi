@@ -1,0 +1,95 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	width: 100%;
+}
+
+header {
+	background-image: url('./img/sailboat.jpg');
+	background-position: center bottom;
+	background-size: cover;
+	height: 400px;
+	margin: 0 auto;
+	overflow: hidden;
+	background-height: 80%;
+	color: white;
+	text-transform: uppercase;
+}
+
+header h1 {
+	font-weight: 800;
+	font-size: 45px;
+	padding-top: 175px;
+	margin-bottom: 0;
+}
+
+header h3 {
+	font-weight: 300;
+	font-size: 12px;
+	margin-top: 0;
+	letter-spacing: 4px;
+}
+
+ul {
+	list-style-type: none;
+	text-transform: uppercase;
+	background-color: #000;
+	margin: 0;
+	padding: 20px 0 20px 40px;
+}
+
+li {
+	color: #FFF;
+	display: inline;
+	font-size: 12px;
+	padding-right: 10px;
+	letter-spacing: 2px;
+}
+
+article {
+	width: 600px;
+	font-size: 30px;
+	margin: 0 auto;
+	line-height: 50px;
+	padding-top: 50px;
+	padding-bottom: 30px;
+	border-bottom: 1px silver solid;
+}
+section h3 {
+	font-weight: 300;
+	text-align: left;
+}
+
+section div {
+	width: 30%;
+	float: left;
+	padding: 10px;
+	text-align: left;
+}
+
+div img {
+	width: 100%;
+}
+
+section div p {
+	font-size: 12px;
+}
+
+section div a {
+	font-size: 10px;
+	font-weight: 800;
+	text-decoration: none;
+	color: #000;
+}
+
+footer {
+	text-align: left;
+	font-size: 10px;
+	font-style: italic;
+	padding-top: 50px;
+	padding-left: 10px;
+}
+
+span {
+	font-weight: 800;
+}
