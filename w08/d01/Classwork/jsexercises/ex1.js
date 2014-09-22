@@ -9,18 +9,5 @@ return array
 
 }
 
-console.log(makeArray('hello, world'));
-
-function howBig(str) {
-  if {
-
-  } else if {
-
-
-  } else {
-
-
-  }
-
-}
+console.log(makeArray('hello', 'world'));
 
