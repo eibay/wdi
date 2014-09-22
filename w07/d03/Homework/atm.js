@@ -30,7 +30,7 @@ deposit_button.addEventListener("click", function(event){
   new_balance.innerText = checking_total_balance
   current_balance_tag.parentElement.appendChild(new_balance)
   current_balance_tag.parentElement.removeChild(current_balance_tag)
-  console.log(+checking_total_balance);
+  console.log( + checking_total_balance);
 });
 
 
