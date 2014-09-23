@@ -1,0 +1,51 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+body {
+   margin: 0;
+   padding: 70px;
+   font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1 {
+  display: block;
+  font-size: 60px;
+  font-style: inherit;
+}
+
+h2 {
+  display: block;
+  font-size: 20px;
+}
+
+header {
+  background-image: url('./img/sailboat.jpg');
+  background-repeat: none;
+  width:auto;
+  height:auto;
+  margin:0 auto;
+}
+
+nav.top ul li {
+  display: inline;
+  margin-right: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+section.thumbnails div {
+   display: inline-block;
+   width: 25%;
+   margin: 0 auto;
+   padding: 10px 10px 10px 2px;
+}
+
+section.thumbnails {
+	width: 100%;
+}
+
+section.thumbnails h4 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
