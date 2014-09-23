@@ -87,8 +87,8 @@ footer {
 	margin: 0 auto;
 }
 
-section.credit {
-	text-align: left;
+div.credit {
+	float: left;
 	font-size: 10px;
 	font-style: italic;
 	padding-left: 10px;
@@ -102,4 +102,5 @@ span {
 hr {
 	color: silver;
 	margin-left: 0;
+	width: 100%
 }
