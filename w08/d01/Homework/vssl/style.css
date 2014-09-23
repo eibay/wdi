@@ -1,0 +1,130 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+
+body{
+
+margin-top:0px;
+color:white;
+font-family: 'Open Sans', sans-serif;
+
+}
+header{
+	 background: url('./img/sailboat.jpg');
+	  background-size: 750px 500px;
+    background-repeat: no-repeat;
+		height:400px;
+   width:750px;
+
+	 margin: 0 auto;
+	 text-align:center;
+	 color:white;
+	 margin-bottom:0px;
+}
+#company{
+	font-size:50px;
+	padding-top:200px;
+	font-weight:800;
+	padding-bottom:0px;
+	margin-bottom:0px;
+
+}
+#tagline{
+	font-size:14px;
+	font-weight:300;
+}
+nav{
+	background:#161616;
+	color:#A2B1B4;
+	width:750px;
+	margin:0 auto;
+	margin-top:0px;
+	
+	padding-top:20px;
+	padding-bottom:30px;
+	font-size:15px;
+}
+nav li{
+	display:inline;
+	padding-right:33px;
+}
+nav span{
+	text-align:center;
+}
+section.dumbtext{
+	color:black;
+	width:750px;
+	margin:0 auto;
+
+}
+section.dumbtext p{
+	padding-top:40px;
+	word-spacing: 7px;
+	line-height:45px;
+	margin: 0 auto;
+	padding-left:100px;
+	padding-right:100px;
+	font-size:25px;
+	text-align:center;
+}
+hr.seperate{
+	color:#D3D3D3;
+	width:750px;
+}
+hr{
+	color:#D3D3D3;
+}
+section.thumbnails{
+	width:750px;
+	color:black;
+	margin:0 auto;
+	font-size:20px;
+}
+section.thumbnails div {
+  display: inline-block;
+  width: 30%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+section.thumbnails img {
+	margin-top:20px;
+  width: 100%;
+}
+section.thumbnails p {
+	font-size:12px;
+	word-spacing:8px;
+	line-height:20px;
+}
+section.thumbnails a {
+	font-size:12px;
+
+	text-decoration: none;
+	margin-top:25px;
+	color:black;
+}
+section.copyright{
+	padding-top:50px;
+	color:black;
+	margin:0 auto;
+	font-size:12px;
+	width:750px;
+	font-style:italic;
+	padding-bottom:50px;
+}
+footer{
+	width:750px;
+	margin:0 auto;
+}
+footer img{
+	margin-left:330px;
+}
+
+
+
+
+
+
+
+
+
+

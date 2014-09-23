@@ -1,0 +1,98 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:100);
+
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+main{
+	height:100%;
+	width:100%;
+}
+nav{
+	padding-left:2%;
+	padding-top:50%;
+	float:left;
+}
+#container{
+	width:85%;
+	float:right;
+}
+section.top{
+
+	margin-right:40px;
+	margin-top:50px;
+	margin-bottom:25px;
+}
+section.top img{
+	width:100%;
+}
+section.middle{
+
+	margin-top:10px;
+	margin-right:0px;
+	margin-right:26px;
+	margin-bottom:25px;
+}
+section.middle div{
+	display:inline;
+	width:33%;
+	padding:0px;
+	margin:0px;
+	margin-left:5px;
+}
+section.middle img {
+  width: 32%;
+}
+section.bottom{
+
+	margin-top:10px;
+	margin-right:25px;
+}
+section.bottom div{
+	width:50%;
+	display:inline;
+}
+
+section.bottom img{
+	width:49%;
+
+}
+.first{
+	padding:0px;
+}
+.first ul{
+	margin:0px;
+	padding:0px;
+	margin-bottom:15px;
+
+}
+.first li{
+	color:#D5D5D6;
+	font-weight:200;
+	font-size:12.5px;
+	letter-spacing:2px;
+	list-style-type: none;
+	padding:3px;
+	padding-bottom:5px;
+	margin:0px;
+}
+.second{
+	padding:0px;
+}
+.second ul{
+	margin:0px;
+	padding:0px;
+	margin-bottom:15px;
+
+}
+.second li{
+	color:#D5D5D6;
+	font-weight:200;
+	font-size:11px;
+	list-style-type: none;
+	padding:3px;
+	padding-bottom:5px;
+	margin:0px;
+}
+
+
