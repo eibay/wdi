@@ -1,7 +1,3 @@
-header h1.name, 
-header p.number {
-}
-
-section {
-  float: left;
+.center-text {
+  text-align: center; 
 }
