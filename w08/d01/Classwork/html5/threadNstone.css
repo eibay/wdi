@@ -1,0 +1,31 @@
+body {
+	padding: 70px;
+}
+
+main {
+	border: 1px grey solid;
+	height: auto;
+}
+
+header img {
+	height: 38px;
+	margin: auto;
+	display: block;
+}
+
+li {
+	display: inline-block;
+	margin: 10px;
+
+}
+
+
+nav {
+	text-align: center;
+}
+
+.main-photo img {
+	width: 90%;
+	display: block;
+	margin: 0 auto;
+}

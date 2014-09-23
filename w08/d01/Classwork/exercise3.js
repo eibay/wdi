@@ -2,7 +2,8 @@ function stringInfo(string){
 	var hash = {};
 
 	hash['length'] = string.length;
-	hash['original'] = string;
+	hash.original = string;
 	hash['splitBySlash'] = string.split("/");
-	return hash
+	return hash;
 }
+console.log(stringInfo("hello/world"));
