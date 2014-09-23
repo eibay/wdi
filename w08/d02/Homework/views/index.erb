@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Index</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../tshirtly.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="/">Home</a>
+			<a href="/admin">Admin</a>
+		</nav>
+	</header>
+
+	Index
+
+
+	
+	<article>
+		<%list_shirts.each do |shirt|%>
+			<section class="shirt">
+				<h3><%=shirt[:name]%></h3>
+				<img src="<%=shirt[:img_url]%>" alt="shirt">
+				<h4>Price: $<%=shirt[:price]%></h4>
+				<h4>Units left: <%=shirt[:quantity]%></h4>
+				<%the_id = shirt[:id]%>
+				
+
+
+
+				<!-- Button trigger modal -->
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<%=shirt[:id]%>">
+				  Buy
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="<%=shirt[:id]%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+
+						<!-- cancel button -->
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cancel</span></button>
+
+				        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+				      </div>
+
+				      <div class="modal-body">
+				        Enter details:
+				        <form action="/buy" method="POST">
+				        	<input type="hidden" name="_method" value="PUT">
+				        	<input type="hidden" name="id" value="<%=the_id%>">
+				        	<!-- <input type="text" name="qty_to_buy" placeholder="Quantity to purchase"> -->
+
+				        	<select name="qty_to_buy">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+							</select>
+				        	
+							<button class="btn_buy_modal">Buy</button>
+				        	<!-- purchase button -->
+<!-- 				        	<button type="button" class="btn btn-primary">Enter and Purchase</button> -->
+				        </form>
+				        	<!-- cancel button -->
+				        	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				      </div>
+
+				    </div>
+				  </div>
+				</div>
+
+			<script>
+				var btn_buy_modal = document.getElementsByClassName("btn_buy_modal");
+				for(i=0; i<btn_buy_modal.length; i++){
+					btn_buy_modal[i].addEventListener('click', function(event){
+						alert("confirmation of purchase");
+					})
+				}
+			</script>
+		
+				
+
+
+
+<!-- 
+				<form action="/buy" method="POST">
+					<input type="hidden" name="_method" value="PUT">
+					<input type="hidden" name="id" value="<%=shirt[:id]%>">
+
+					<select name="qty_to_buy">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+					<button class="btn_buy">Buy</button>
+				</form> -->
+
+
+			</section>
+		<%end%>
+	</article>
+
+	<script>
+
+		// var btn_buy = document.getElementsByClassName('btn_buy');
+		// for(i=0; i<btn_buy.length; i++){
+		// 	btn_buy[i].addEventListener('click', function(event){
+		// 		alert("confirmation of purchase");
+		// 	})
+		// }
+
+	</script>
+</body>
+</html>
