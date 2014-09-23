@@ -14,7 +14,7 @@
           %a{:href => '/'} Home 
         %li 
           %a{:href => "/admin"} Admins
-  %main 
+  %main.shop  
     %section 
       %h3 All T-Shirts, Yoursly
 
@@ -27,8 +27,8 @@
               = "$#{t_shirt.price}" 
             %p= "We only have #{t_shirt.available_quanity} left!" 
 
-            %form{:action => "/orders", :method => "POST"}
-            %input{:type => "hidden", :name => "tshirt_id", :value => t_shirt.id}
+            %form{:action => "/orders", :method => "GET"}
+              %input{:type => "hidden", :name => "tshirt_id", :value => t_shirt.id}
               %label 
                 %span Quantity:  
                 %input{:type => "number", :name => "tshirt_quanity", :min => 1, :max => t_shirt.available_quanity, :value => 1}
