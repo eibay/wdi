@@ -1,0 +1,68 @@
+body {
+	width: 100%;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+aside header {
+	width: 15%;
+	padding-left: 5%;
+	padding-top: 50%;
+	display: inline-block;
+	float: left;
+}
+
+aside header div img {
+	margin: 0 auto;
+	width: 30%;
+}
+
+aside header div ul {
+	list-style: none;
+	text-align: left;
+	padding: 0;
+}
+
+main {
+	padding: 5%;
+	width: 85%;
+	height: auto;
+	display: inline-block;
+	margin-top: -1000px;
+	margin-left: 15em;
+}
+
+div.boot {
+	height: 40em;
+	margin-bottom: 2%;
+	display: block;
+	position: absolute;
+	width: 100%;
+}
+
+div.boot img {
+	width: 57em;
+}
+
+div.departments {
+	width: 100%;
+	margin-bottom: 2%;
+	display: block;
+	margin-top: 34em;
+}
+
+div.departments img {
+	display: inline-block;
+	width: 26.5%;
+	margin-right: 1.3em;
+}
+
+div.links {
+	height: 25%;
+	display: block;
+}
+
+div.links img {
+	width: 41%;
+	display: inline-block;
+	margin-right: 1.3em;
+}
