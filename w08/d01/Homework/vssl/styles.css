@@ -1,0 +1,92 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header img {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  background-color: rgb(29,29,29);
+}
+
+
+nav ul li {
+  text-align: center;
+  text-decoration: none;
+  display: inline;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  margin: 30px;
+}
+
+nav {
+  background-color: rgb(29,29,29);
+  padding: 5px;
+}
+
+main {
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+
+div.largetxt p {
+  font-size: 50px;
+  margin-right: 8%;
+  margin-left: 8%;
+  margin-top: 6%;
+  margin-bottom: 7%;
+  letter-spacing: 0px;
+  line-height: 1.7;
+}
+
+section.three_col div {
+  float: left;
+  position: inherit;
+  display: inline-block;
+  width: 31%;
+  margin: auto;
+  padding: 10px;
+}
+
+
+section.three_col img {
+  width: 100%;
+}
+
+section.three_col h3 {
+  text-align: center;
+  font-size: 170%;
+}
+
+section.three_col a {
+  float: left;
+  text-align: left;
+  font-size: 110%;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+section.three_col p {
+  font-family: serif;
+  font-size: 140%;
+  line-height: 1.4;
+  text-align: left;
+}
+
+hr {
+  margin-bottom: 20px;
+}
+
+footer nav ul li {
+  display: inline-block;
+  text-transform: uppercase;
+}
