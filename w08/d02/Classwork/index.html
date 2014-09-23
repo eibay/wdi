@@ -1,0 +1,69 @@
+<html>
+  <head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <title>Batman</title>
+  </head>
+  <body>
+    <header>
+      <h1>Batman</h1>
+      <h1>1-800-bat-call</h1>
+    </header>
+    <main>
+      <section>
+        <article class="col-md-4">
+          <h3>Hobbies</h3>
+          <ul>
+            <li>Speaking in a guttural voice</li>
+            <li>Cruising in the bat mobile</li>
+            <li>Apeearing ominous</li>
+          </ul>
+        </article>
+        <article class="col-md-4">
+          <h3>Archnemesis:</h3>
+          <p>The Joker</p>
+        </article>
+        <article class="col-md-4">
+          <h3>Top friends</h3>
+          <ul>
+            <li>Robin</li>
+            <li>Alfred</li>
+            <li>Superman</li>
+          </ul>
+        </article>
+      </section>
+      <article id="myModal">
+        <div class="modal-content">
+          <div class="modal-body">
+          Inquiries</div>
+          <button data-dismiss="modal"><span aria-hidden="true">Thanks</span></button>
+        </div>
+      </article>
+    </main>
+    <script type="text/javascript">
+    var batCall = document.querySelector("header");
+    var thanks = document.querySelector("button");
+    batCall.addEventListener('click', function(){
+      $('#myModal').modal('show')
+      thanks.addEventListener('click', function(){
+        $('#myModal').modal('hide');
+      })
+    })
+    $('#myModal').modal({
+      keyboard: true
+    })
+    $('#myModal').modal('toggle')
+
+    </script>
+  </body>
+</html>
+
+
+
+<!-- <div class="col-md-4 col-md-offset-4">
+        <h1> batman <h1>
+
+      <div class="col-md-3 col-md-offset-1"><h1>1800-bat-call</h1> -->

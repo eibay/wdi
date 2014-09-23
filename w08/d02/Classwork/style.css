@@ -1,0 +1,28 @@
+header {
+  padding-bottom: 30px;
+}
+
+header {
+  text-align:center;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+header h1 {
+  display: inline;
+  text-align: center;
+  padding-left: 300px;
+}
+header h1(:first-child){
+  /*padding-left: 20px;*/
+  padding-right: 30px;
+}
+
+header h1:not(:first-child) {
+  justify:right;
+  margin-right: 2px;
+}
+
+section {
+  padding:10px;
+}
