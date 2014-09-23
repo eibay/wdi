@@ -25,14 +25,14 @@
           %img{:src => t_shirt.img_src, :width => "200px"}
           %p 
             %span Quanity:  
-            = order.tshirt_quanity
+            = order.tshirt_quanity 
           %p 
             %span At: 
-            = t_shirt.price
+            = "$#{t_shirt.price}"
           %p 
             %span Total: 
-            = order.total 
-          %form{:action => "/orders", :method "POST"}
+            = "$#{order.total}"  
+          %form{:action => "/orders", :method => "POST"}
             %input{:type => "hidden", :name => "tshirt_id", :value => t_shirt.id} 
             %input{:type => "hidden", :name => "tshirt_quanity", :value => order.tshirt_quanity}
             %input{:type => "hidden", :name => "total", :value => order.total}

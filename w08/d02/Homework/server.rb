@@ -10,12 +10,12 @@ end
 
 get "/orders" do 
   t_shirt = TShirt.find_by_id params["tshirt_id"] 
-  total_price = tshirt.price.to_f *
+  total_price = t_shirt.price.to_f *
   params["tshirt_quanity"].to_i 
 
   order = Order.new(
     tshirt_quanity: params["tshirt_quanity"],
-         tshirt_id: params["tshirt_id"]
+         tshirt_id: params["tshirt_id"], 
              total: total_price
   )
 
@@ -24,9 +24,10 @@ end
 
 post "/orders" do
   tshirt = TShirt.find_by_id params["tshirt_id"]
-  tshirt.update {available_quanity: tshirt.available_quanity - params["tshirt_quanity"].to_i}
+  updated_quanity = tshirt.available_quanity - params["tshirt_quanity"].to_i
+  TShirt.update params["tshirt_id"], available_quanity: updated_quanity 
   order = Order.new( 
-            emails: params["email"], 
+             email: params["email"], 
          tshirt_id: params["tshirt_id"], 
     tshirt_quanity: params["tshirt_quanity"], 
              total: params["total"]
@@ -34,5 +35,5 @@ post "/orders" do
 
   order.save 
 
-  haml :reciept, {locals: order}
+  haml :reciept, {locals: {order: order}}
 end 
