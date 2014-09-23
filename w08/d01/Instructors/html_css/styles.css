@@ -62,3 +62,8 @@ footer nav ul li {
   display: inline-block;
   text-transform: uppercase;
 }
+
+section .thumbs {
+  display: inline-block;
+  width: 30%;
+}
