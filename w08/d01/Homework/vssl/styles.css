@@ -1,0 +1,100 @@
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+
+ul{
+	padding: 0;
+}
+
+li{
+	list-style-type: none;
+	font-family: 'Dosis', sans-serif;
+	font-size: 14px;
+	margin-right: 25px;
+	text-align: center;
+}
+body{
+	margin: 0;
+	width: 800px;
+	margin: 0 auto;
+}
+
+header {
+	height:300px;
+	background-image: url('img/sailboat.jpg');
+	background-size: cover;
+	background-position: center bottom;
+}
+
+header section{
+	text-align: center;
+	color: white;
+	margin: 0 auto;
+}
+
+header h1{
+	padding-top: 85px;
+}
+
+nav{
+	background-color: grey;
+	width:800px;
+	padding:10 0px;
+}
+
+nav li{
+	display: inline;
+	color:white;
+}
+
+nav ul{
+	text-align: center;
+}
+
+main{
+	padding:100px;
+	text-align: center;
+}
+
+hr{
+	margin-bottom: 20px;
+}
+section.about{
+	margin: 0 auto;
+}
+
+section.about div{
+	display:inline-block;
+	width:30%;
+	margin-bottom:100px;
+	padding: 0 10px;
+	vertical-align: top;
+}
+
+section.about img{
+	width:100%;
+}
+
+h1, h2, h3, h4{
+	font-family: 'Dosis', sans-serif;
+}
+
+main h1{
+	padding-bottom: 10px;
+	line-height: 50px;
+}
+
+header h1{
+	font-family: 'Open Sans', sans-serif;
+};
+
+p{
+	font-family: 'Droid Serif', serif;
+}
+
+
+
+
+
+
+

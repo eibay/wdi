@@ -1,0 +1,85 @@
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+
+body{
+	padding-top: 50px;
+}
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+li{
+	list-style-type: none;
+	font-family: Abel; sans-serif;
+	color: lightgrey;
+	padding-bottom: 10px;
+}
+
+nav{
+	width:100px;
+	display:inline-block;
+	margin-right:100px;
+	margin-left:25px;
+	vertical-align: top;
+	padding-top: 420px;
+
+}
+nav ul{
+	margin:20 0px;
+}
+
+nav img{
+	height: 50px;
+	display:block;
+	margin-bottom: 5px;
+}
+
+
+main{
+	display: inline-block;
+	width: 700px;
+}
+section.mainContent div{
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+section.mainContent img{
+	width: 100%;
+}
+
+section.shop{
+	margin-bottom: 20px;
+}
+
+section.shop div{
+ 	display: inline-block;
+  width: 30%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+section.shop img{
+	width: 100%;
+}
+
+
+section.company div{
+	display: inline-block;
+  width: 46%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+section.company img{
+	width: 100%;
+}
+
+
+
+
+
+
+
+
