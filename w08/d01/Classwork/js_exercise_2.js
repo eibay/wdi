@@ -6,11 +6,14 @@
 function howbig(string) {
 	if (string.length < 3) {
 		return "small"
-	} else if (string.length == 3) || (string.length == 4) || (string.length == 5) {
+	} else if (string.length == 3) {
 		return "medium"
-	} else
+	}	else if (string.length == 4) {
+		return "medium"
+	} else if (string.length == 5) {
+	} else {
 		return "big"
 	}
 };
 
-console.log(howbig("watermelon"));
+console.log(howbig("no"));

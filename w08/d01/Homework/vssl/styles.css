@@ -1,0 +1,142 @@
+@import url(http://fonts.googleapis.com/css?family=Muli:300,400|Open+Sans:300,800);
+
+body {
+	margin:0;
+	padding:0;
+	height: 100%;
+}
+
+header {
+	background-image: url('img/sailboat.jpg');
+	background-size: cover;
+	margin: -70px auto;
+	height: 600px;
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	background-position: center bottom;
+}
+
+header h1 {
+	font-size: 48px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	padding-top: 285px;	
+}
+
+header h2 {
+	font-size: 12px;
+	font-family: 'Muli', sans-serif;
+	margin-top: -30px;	
+}
+
+nav ul {
+  text-align: center;
+  background-color: black;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+nav li {
+  display: inline;
+  
+}
+
+nav a {
+    display: inline;
+    color: #999;
+    font-size: 14px;
+  	font-family: 'Open Sans', sans-serif;
+  	font-weight: 300;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+  	letter-spacing: 2px;
+}
+
+nav a:hover {
+		text-decoration: none;
+		color: white;
+}
+
+.active {
+		text-decoration: none;
+		color: white;
+}
+
+main {
+	height: auto;
+  padding: 0 100px;
+}
+
+.tagline {
+	 font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+	text-align: center;
+	padding: 50px 200px;
+
+}
+
+section.thumbnails div {
+	display: inline-block;
+	width: 30%;
+	margin: 0 auto;
+	padding: 0 10px 200px 20px;
+	font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
+	font-size: 14px;
+	color: #333;
+}
+
+section.thumbnails h3 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 21px;
+	font-weight: 300;
+}
+
+section.thumbnails a {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+section.thumbnails img {
+	width: 100%;
+}
+
+section.thumbnails span {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.photo_credit {
+	margin: 0 auto;
+}
+
+.photo_credit p {
+	font-size: 14px;
+	font-family: 'Times New Roman', serif;
+	color: black;
+}
+
+.photo_credit span {
+	color: #666;
+}
+
+footer img {
+	display: block;
+/*	width: auto;*/
+	margin: 0 auto;
+  padding-top: 25px;
+  padding-bottom: 15px;
+}
+
+
+
+
+
+/*section.tout_copy {
+	display: inline-block;
+	width: 30%;
+	margin: 0 auto;
+	padding: 0 10px;
+}*/
