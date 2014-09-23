@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+img.main {
+    width: 700px;
+    max-height: 100%;
+    display: block;
+    margin: 0 20px 0 350px;
+    padding-top: 40px;
+}
+
+h5#headerfive {
+  border-style: solid;
+  border-width: 2px;
+  color: grey;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: 2%;
+  margin-left: 40px;
+  padding-left: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+ li.one {
+    color: grey;
+    list-style-type: none;
+    line-height: 25px;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-sha
+}
+
+li.two {
+    color: grey;
+    list-style-type: none;
+    line-height: 25px;
+    font-size: 12px;
+}
+
+section.images div {
+  display: inline-block;
+  width: 30%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+section.images img {
+  width: 100%;
+}
+
+
+
+
+

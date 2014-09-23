@@ -1,0 +1,91 @@
+ @import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+
+ body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+ header img {
+    width: 1300px;
+    max-height: 100%;
+    display: block;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h1 {
+  font-family: 'Open Sans';
+}
+
+h2 {
+  font-family: 'Open Sans';
+}
+
+nav {
+  background-color: black;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+nav.bar ul li {
+  display: inline;
+  margin-right: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: white;
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+}
+
+nav.bar ul {
+  text-align: center;
+}
+
+p {
+  font-family: sans-serif;
+  line-height: 30px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+p.lorem {
+  font-size: 10px;
+  color: grey;
+  font-family: Helvetica;
+  line-height: 2em;
+}
+
+p.info {
+  font-size: 10px;
+  margin: 0 -20px 0 -300px;
+  font-weight: bold;
+  padding-bottom: 150px;
+}
+
+p.credit {
+  font-style: italic;
+  font-size: 10px;
+  margin: 0 -20px 0 -200px;
+}
+
+section.images div {
+  display: inline-block;
+  width: 30%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+section.images img {
+  width: 100%;
+}
+
+h4 {
+  font-weight: lighter;
+  font-family: sans-serif;
+}
+
+
