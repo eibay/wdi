@@ -23,6 +23,8 @@ get "/orders" do
 end 
 
 post "/orders" do
+  tshirt = TShirt.find_by_id params["tshirt_id"]
+  tshirt.update {available_quanity: tshirt.available_quanity - params["tshirt_quanity"].to_i}
   order = Order.new( 
             emails: params["email"], 
          tshirt_id: params["tshirt_id"], 

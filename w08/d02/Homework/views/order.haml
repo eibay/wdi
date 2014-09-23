@@ -14,30 +14,30 @@
           %a{:href => '/'} Home 
         %li 
           %a{:href => "/admin"} Admins
-  %main.confirm 
-    %section 
-      %h3 You're About to Order Some Awesome
-      %p You just have to confirm, let the awesome into your life.  
+    %main.confirm 
+      %section
+        %h3 You're About to Order Some Awesome
+        %p You just have to confirm, let the awesome into your life.  
 
-      %section.order
+        %section.order
 
-        %h4 This is Your Awesome 
-        %img{:src => t_shirt.img_src, :width => "200px"}
-        %p 
-          %span Quanity:  
-          = order.tshirt_quanity
-        %p 
-          %span At: 
-          = t_shirt.price
-        %p 
-          %span Total: 
-          = order.total 
-        %form{:action => "/orders", :method "POST"}
-          %input{:type => "hidden", :name => "tshirt_id", :value => t_shirt.id} 
-          %input{:type => "hidden", :name => "tshirt_quanity", :value => order.tshirt_quanity}
-          %input{:type => "hidden", :name => "total", :value => order.total}
-          %label
-            %span Please Enter Your Email: 
-            %input{:type => "email", :name => "email"}
-          %button Confirm 
+          %h4 This is Your Awesome 
+          %img{:src => t_shirt.img_src, :width => "200px"}
+          %p 
+            %span Quanity:  
+            = order.tshirt_quanity
+          %p 
+            %span At: 
+            = t_shirt.price
+          %p 
+            %span Total: 
+            = order.total 
+          %form{:action => "/orders", :method "POST"}
+            %input{:type => "hidden", :name => "tshirt_id", :value => t_shirt.id} 
+            %input{:type => "hidden", :name => "tshirt_quanity", :value => order.tshirt_quanity}
+            %input{:type => "hidden", :name => "total", :value => order.total}
+            %label
+              %span Please Enter Your Email: 
+              %input{:type => "email", :name => "email"}
+            %button Confirm 
 
