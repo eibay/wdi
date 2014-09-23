@@ -1,0 +1,27 @@
+!!!
+%html{:lang => "en"} 
+%head
+  %meta{:charset => "utf-8"}
+  %title Tshirt.ly | A T-Shirt for a Truer Youly  
+%body 
+  %header
+    %a{:href => '/'} 
+      %h1#logo Tshirt.ly 
+    %h2 A T-Shirt for a Truer Youly 
+    %nav 
+      %ul 
+        %li 
+          %a{:href => '/'} Home 
+        %li 
+          %a{:href => "/admin"} Admins
+  %main 
+    %section 
+      %h3 All T-Shirts, Yoursly
+
+      %ul 
+        - t_shirts.each do |t_shirt|
+          %li
+            %img{:src => t_shirt.img_src} 
+            %p 
+              %span Price 
+              = t_shirt.price 
