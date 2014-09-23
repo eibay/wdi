@@ -1,4 +1,4 @@
-CREATE TABLE tshirts (
+CREATE TABLE t_shirts (
   id SERIAL PRIMARY KEY,
   available_quanity INTEGER, 
   price DECIMAL(7,2), -- max price 99999.99, we're a family company 
