@@ -3,8 +3,8 @@
 var emptyArray = [];
 
 function makeArray(word1, word2) {
-	emptyArray.push(word1)
-	emptyArray.push(word2)
+	emptyArray.push(word1, word2)
+	return emptyArray
 };
 
 console.log(makeArray("red", "blue"));
