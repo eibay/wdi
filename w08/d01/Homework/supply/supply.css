@@ -1,0 +1,45 @@
+.left_side {
+	float: left;
+	width: 20%;
+	font-family: arial;
+	color: grey;
+}
+
+.left_side nav {
+	width: 33%;
+	padding: 0 5px 0 5px;
+	height: 100%;
+	margin-top: 120%
+}
+
+.left_side nav ul li {
+	list-style: none;
+}
+
+.left_side nav ul {
+	margin-left: -70%;
+}
+
+.right_side {
+	float: right;
+	width: 80%;
+}
+
+.right_side img {
+	margin: 5px;
+	width: 98%%;
+}
+
+header img {
+	width: 100%;
+}
+
+.top img {
+	width: 32%;
+	margin: 3px;
+}
+
+.bottom img {
+	width: 47%;
+	margin: 10px;
+}
