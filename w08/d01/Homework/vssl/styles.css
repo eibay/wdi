@@ -1,0 +1,146 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800);
+* {
+	padding: 0;
+	margin: 0;
+}
+
+
+header {
+	height: 800px;
+	background-image: url("./img/sailboat.jpg");
+	background-position: -50px -200px;
+	z-index: 0;
+	position: relative;
+	color: white;
+}
+
+header h1 {
+	font-family: open sans;
+	font-weight: 800;
+	position: absolute;
+	z-index: 1;
+	font-size: 84px;
+	text-align: center;
+	margin-top: 360px;
+	margin-left: 605px;
+	width: auto;
+}
+
+header p {
+	font-family: open sans;
+	position: absolute;
+	z-index: 1;
+	font-size: 28px;
+	text-align: center;
+	margin-top: 480px;
+	margin-left: 600px;
+	width: auto;
+	text-transform: uppercase;
+}
+
+nav {
+	background-color: #1D1D1D;
+	padding: 40px;
+	text-align: center;
+}
+
+nav ul {
+	width: 1300px;
+	margin: auto;
+	list-style-type: none;
+}
+
+nav ul li {
+	text-transform: uppercase;
+	font-family: open sans;
+	font-size: 22px;
+	display: inline-block;
+	color: white;
+	margin: 10px 30px 10px 30px;
+}
+
+div p {
+	width: 1200px;
+	text-align: center;
+	margin: 170px 170px 85px 170px;
+	line-height: 2.25;
+	font-family: open sans;
+	font-size: 48px;
+}
+
+#hr1 {
+	width: 90%;
+	margin: auto;
+}
+
+article {
+	padding: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 160px;
+}
+
+section {
+	width: 30%;
+	display: inline-block;
+	margin: 20px;
+}
+
+#center {
+	position: relative;
+	top: -76px;
+}
+
+section h3 {
+	font-family: open sans;
+	font-weight: 400;
+	font-size: 40px;
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+
+section p {
+	color: grey;
+	line-height: 1.75;
+	font-size: 22px;
+	margin-bottom: 40px;
+}
+
+section img {
+	width: 100%;
+	margin-bottom: 40px;
+}
+
+section a {
+	text-decoration: none;
+	color: black;
+	font-size: 22px;
+}
+
+#hr2 {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 90px;
+}
+
+#italics_grey {
+	color: grey;
+	margin-left: 50px;
+	font-size: 22px;
+	font-style: italic;
+}
+
+#italics_black {
+	color: black;
+	font-size: 22px;
+	font-style: italic;
+}
+
+footer img {
+	display: block;
+	width: 97px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 60px;
+}
