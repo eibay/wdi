@@ -13,6 +13,7 @@ url = "www.dummyapi.com/cats"
 request(url, function (error, response, body) {
 	var json = JSON.parse(body)
 	var cats = json.results
+	
 	console.log(cats.length)	
 
 });

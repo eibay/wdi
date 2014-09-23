@@ -16,3 +16,5 @@ var howbig = function(string){
 };
 
 howbig("small");
+howbig("to");
+howbig("hippopatamus");
