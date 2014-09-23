@@ -41,5 +41,5 @@ ABBIB ("Always Be Breaking It Down")
 
 *Fancification*
   
-  * Check out [Bootstrap's documentation](getbootstrap.com) and fancify your application with any styling components that seem cool to you. Have fun!
+  * Check out [Bootstrap's documentation](http://www.getbootstrap.com) and fancify your application with any styling components that seem cool to you. Have fun!
 
