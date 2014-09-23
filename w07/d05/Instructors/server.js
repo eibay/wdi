@@ -14,12 +14,12 @@ var incorrect_num = 0;
 
 var recursiveAsyncReadLine = function () {
   rl.question('Whats your guess?', function (answer) {
-    if (incorrect_num>7) {//we need some base case, for recursion
+    if (incorrect_num>7) {
       log('You lose Loser');
       return rl.close();
     } else if ((incorrect_num<7) && (correct_num==secret_word.length - 1)) {
       log('You won Winner');
-      return rl.close(); //closing RL and returning from function.
+      return rl.close();
     } else if (secret_word.indexOf(answer) !== -1){  
       log('Got it! Your answer was: "', answer, '"');
       correct_num = correct_num + 1;
@@ -29,7 +29,7 @@ var recursiveAsyncReadLine = function () {
       incorrect_num = incorrect_num + 1;
       recursiveAsyncReadLine();
     }
-    recursiveAsyncReadLine(); //Calling this function again to ask new question
+    recursiveAsyncReadLine();
   });
 };
 
