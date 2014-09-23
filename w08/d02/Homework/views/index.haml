@@ -21,7 +21,15 @@
       %ul 
         - t_shirts.each do |t_shirt|
           %li
-            %img{:src => t_shirt.img_src} 
+            %img{:src => t_shirt.img_src, :width => "200px"} 
             %p 
-              %span Price 
-              = t_shirt.price 
+              %span Price:  
+              = "$#{t_shirt.price}" 
+            %p= "We only have #{t_shirt.available_quanity} left!" 
+
+            %form{:action => "/orders", :method => "POST"}
+            %input{:type => "hidden", :name => "tshirt_id", :value => t_shirt.id}
+              %label 
+                %span Quantity:  
+                %input{:type => "number", :name => "tshirt_quanity", :min => 1, :max => t_shirt.available_quanity, :value => 1}
+              %button Order 
