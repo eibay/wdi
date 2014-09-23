@@ -1,0 +1,23 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	height: 100%;
+}
+
+.thirds {
+	display: inline-block;
+	margin-top: 10px;
+	width: 370px;
+}
+
+.halves {
+	margin: 10px;
+	display: inline-block;
+	width: 40%;
+}
+main {
+	margin-left: 250px;
+}
