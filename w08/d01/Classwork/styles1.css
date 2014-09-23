@@ -1,0 +1,18 @@
+
+
+body {
+	padding: 70;
+}
+
+main {
+	border: 1px purple solid;
+	height: auto;
+}
+
+hr {
+	margin-right: 5px;
+}
+
+div {
+	padding-right: 5px;
+}
