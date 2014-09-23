@@ -6,7 +6,7 @@ body {
 
 header {
 	background-image: url('./img/sailboat.jpg');
-	background-position: center bottom;
+	background-position: center;
 	background-size: cover;
 	height: 400px;
 	margin: 0 auto;
@@ -19,7 +19,7 @@ header {
 header h1 {
 	font-weight: 800;
 	font-size: 45px;
-	padding-top: 175px;
+	padding-top: 210px;
 	margin-bottom: 0;
 }
 
@@ -53,8 +53,8 @@ article {
 	line-height: 50px;
 	padding-top: 50px;
 	padding-bottom: 30px;
-	border-bottom: 1px silver solid;
 }
+
 section h3 {
 	font-weight: 300;
 	text-align: left;
@@ -65,6 +65,7 @@ section div {
 	float: left;
 	padding: 10px;
 	text-align: left;
+	margin-bottom: 60px;
 }
 
 div img {
@@ -83,13 +84,22 @@ section div a {
 }
 
 footer {
+	margin: 0 auto;
+}
+
+section.credit {
 	text-align: left;
 	font-size: 10px;
 	font-style: italic;
-	padding-top: 50px;
 	padding-left: 10px;
+	margin-bottom: 50px;
 }
 
 span {
 	font-weight: 800;
+}
+
+hr {
+	color: silver;
+	margin-left: 0;
 }
