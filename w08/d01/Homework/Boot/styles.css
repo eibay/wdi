@@ -1,0 +1,75 @@
+header img{
+  height: 500px;
+  width: 1000px;
+  margin-left: 200px;
+  margin-bottom: 0px;
+}
+
+ 
+aside{
+  float: left;
+  width: 15.5%;
+ }
+
+ aside ul{
+  list-style-type: none;
+
+ }
+ aside ul li{
+  color: gray;
+ }
+
+section img.logo{
+  height: 75px;
+  padding: 15px;
+  
+
+}
+section nav ul{
+  color: gray;
+  padding: 15px;
+  width: 10%;
+  list-style-type: none;
+}
+
+
+
+
+ul.first li{
+  font-size: 15px;
+
+}
+ul.second li{
+  font-size: 13px;
+}
+
+div.pictures{
+  display: inline-block;
+
+
+}
+
+
+div.pictures img{
+  width: 26%;
+  margin-left: 10px;
+  margin-right: 0px;
+
+ 
+}
+aside img{
+  height: 60px;
+}
+
+
+div.footer{
+  display: inline-block;
+  margin-left: 190px;
+
+
+}
+
+div.footer img{
+  width: 47%;
+  margin-left: 10px;
+}
