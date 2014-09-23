@@ -5,5 +5,5 @@ require_relative "./lib/order"
 
 
 get '/' do 
-  haml :index
+  haml :index, {locals: {t_shirts: TShirt.all}} 
 end 
