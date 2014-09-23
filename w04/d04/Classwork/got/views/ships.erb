@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>The Encyclopedia Galactica | The Ships</title>
+	<link type="text/css" rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<header>
+		<h1>The Encylopedia Galactica</h1>
+		<nav>
+			<ul>
+				<li><a href='/'>Home</a></li>
+				<li><a href="/characters">Characters</a></li>
+				<li><a href="/ships">Ships</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<h2>These structures protect us from the void.</h2>
+		<ul>
+			<% ships.each do |ship| %>
+				<li><a href=<%= "/ships/" + ship.id %>><%= ship.name %></a></li>
+			<% end %>
+		</ul>
+	</section>
+</body>
+</html>

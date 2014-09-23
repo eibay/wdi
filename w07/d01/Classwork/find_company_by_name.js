@@ -3,7 +3,7 @@ var companies = [
 	{name: "google", location: "mountain view"}
 ];
 
-function findCompanyByName(companyName){
+function findCompanyByName(companyName) {
 	for(var i = 0; i < companies.length; i++) {
 		if(companies[i].name == companyName) {
 			return companies[i];

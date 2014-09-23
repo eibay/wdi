@@ -15,14 +15,14 @@ Array.prototype.randomValue = function() {
 }
 
 function generateRandomString(length) {
-	return Math.random().toString(36).replace(/[0-9\.]/g, '').substring(0,length).capitalize();
+	return Math.random().toString(36).replace(/[0-9\.]/g, '').substring(0,length);
 }
 
 var genderData = ['male', 'female', 'transgendered'];
 
 function generateOrdinaryPerson() {
-	var firstName = generateRandomString(7); // "Clayton".length => 7
-	var lastName = 	generateRandomString(9); // "Albachten".length => 9  
+	var firstName = generateRandomString(7).capitalize(); // "Clayton".length => 7
+	var lastName = 	generateRandomString(9).capitalize(); // "Albachten".length => 9  
 	var gender = genderData.randomValue(); 
 	var ordinaryPerson = {
 		first_name: firstName,

@@ -12,7 +12,7 @@ get '/:movie_title' do
   # http://rubydoc.info/github/sinatra/sinatra/Sinatra/Helpers:content_type
   # http://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Response_fields 
   # to JSON 
-  content_type :json
+  content_type :json 
 
   # replace chars unusable in a uri w/ uri escape sequences 
   url = URI.encode("http://www.omdbapi.com/?t=#{params[:movie_title]}")

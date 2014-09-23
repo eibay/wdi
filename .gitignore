@@ -1,4 +1,8 @@
 # MAC OS X 
 .DS_Store
+<<<<<<< HEAD
 # node 
 node_modules/ 
+=======
+node_modules
+>>>>>>> c3ac7a7595fab8f8995bd90b50a854c255b4ba23

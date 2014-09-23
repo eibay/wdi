@@ -18,7 +18,7 @@ def make_chocolate s, b, g
 end 
 
 
-# bad ttd but for chocolate! # 
+# bad tdd but for chocolate! # 
 
 if make_chocolate(4, 1, 9) == 4
 	puts "test 1 passed!" 
