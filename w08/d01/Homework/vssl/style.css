@@ -1,0 +1,20 @@
+header {
+	background: url("file:///Users/Trish/dev/wdi/rosencrantz/w08/d01/Homework/vssl/img/sailboat.jpg") repeat;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	margin-bottom: -25px;
+	width: 100%;
+}
+
+nav {
+		text-align: center;
+		font-family: 'Arvo', serif;
+		font-size: 20px;
+		height: 22px;
+		background: rgba(255, 255, 255, 0.75)
+	}
+
+	li {
+		display: inline;
+		padding: 0 20em;
+	}
