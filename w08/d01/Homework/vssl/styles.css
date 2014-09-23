@@ -1,0 +1,104 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #d3d3d3
+}
+ 
+main {
+  border: 1px grey solid;
+  width: auto;
+  height: auto;
+  margin: 40px 200px 40px 200px;
+  background: white;
+}
+
+
+header img {
+	width: 100%;
+	padding-top: 1px;
+	padding-left: 1px;
+	padding-right: 5px;
+	margin: 0 auto;
+	display: block;
+}
+
+nav{
+	background: black;
+	font-size: 5px;
+	height: 80px;
+	padding: 0;
+	margin: 0;
+}
+
+nav.top ul li {
+
+  display: inline;
+  margin-right: 10px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+
+ul {
+	margin: 0 auto;
+  	padding: 25px;
+}
+
+li{
+	color: white;
+	text-transform: uppercase;
+}
+
+nav.top ul {
+  text-align: center;
+}
+
+section.text{
+	background: white;
+	padding: 80px;
+	font-size: 27px;
+	text-align: center;
+
+}
+
+hr {
+  width:650px;
+  color:pink;
+}
+
+
+
+section.thumbnails div {
+  display: inline-block;
+  width: 25%;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+section.thumbnails img {
+  width: 100%;
+}
+
+section.thumbnails h4 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+div#photocredit{
+	font-style: italic;
+	display: inline-block;
+	font-size: 10px;
+	margin:30px;
+}
+
+hr.bottom{
+	width:100%;
+	color: grey;
+}
+
+footer img {
+  display: block;
+  margin: auto;
+  padding: 10px;
+}
