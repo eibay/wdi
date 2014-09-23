@@ -1,0 +1,74 @@
+header img {
+	width: 100%;
+	margin-bottom: -20px;
+
+}
+header nav ul {
+	text-align: center;
+}
+header nav ul li {
+	list-style: none;
+	display: inline-block;
+	padding: 7px;
+	font-family: avenir;
+
+}
+header nav {
+	background: black;
+	color: white;
+}
+article {
+	margin: 10px;
+/*	text-align: center;
+*/}
+.intro {
+	display: block;
+	text-align: center;
+	width: 90%;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: grey;
+	font-family: avenir;
+	font-size: 32px;
+}
+
+.description section {
+	width: 31%;
+	display: inline-block;
+	margin: 3px;
+	font-size: 13px;
+	margin-bottom: 40px;
+	margin-left: 15px;
+	color: grey;
+	font-family: avenir;
+
+}
+.description section header {
+	display: inline-block;
+	margin-bottom: 20px;
+	margin-top: 25px;
+	font-size: 22px;
+	font-family: avenir;
+
+}
+.description section img {
+	width: 94%;
+}
+
+.description a {
+	text-decoration: none;
+	color: grey;
+}
+
+.credits {
+	font-style: italic;
+}
+.credits span {
+	color: black;
+}
+
+footer img {
+	display: block;
+	margin: auto;
+}
