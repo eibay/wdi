@@ -1,0 +1,75 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+
+body {
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+	float: left;
+	margin-top: 718px;
+	margin-left: 20px;
+	padding: 0;
+	width: 100px;
+	display: block;
+}
+
+header img {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px
+}
+
+li {
+	list-style-type: none;
+	font-size: 20px	
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+ul.first {
+	margin-bottom: 20px
+}
+
+div.right-half {
+	float: right;
+	width: 1200px;
+}
+
+section.top img {
+	width: 100%;
+}
+
+section.top div {
+	width: 95%;
+	margin-top: 30px;
+	margin-bottom: 38px;
+}
+section.middle img {
+	width: 100%;
+}
+
+section.middle div {
+	display: inline-block;
+	width: 29.4%;
+ 	margin-right: 38px;
+ 	margin-bottom: 38px;
+}
+
+section.bottom img {
+	width: 100%;
+	mar
+}
+section.bottom div {
+	display: inline-block;
+	width: 46.2%;
+	margin-right: 30px;
+}
+
+ul.second li {
+	font-size: 15px
+}
+

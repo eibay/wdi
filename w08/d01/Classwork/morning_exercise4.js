@@ -1,7 +1,7 @@
 var request = require('request');
 
 request.get('www.dummyapi.com/cats', function (error, response, body) {
-    nameArray = response
+    var nameArray = JSON.parse(response)
     console.log(nameArray.length)
     response.end(body) 
 });
