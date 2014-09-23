@@ -1,0 +1,78 @@
+body {
+	height: 100%;
+	width: 700px;
+	margin: 0 auto;
+}
+
+body div {
+	display: inline-block;;
+}
+
+body div.side {
+	width: 27%;
+	height: 650px;
+	border: 1px black solid;
+}
+
+.images {
+	float: right;
+	width: 72%;
+	height: 650px;
+	border: 1px black solid;
+}
+
+.boots {
+	height: 40%;
+	width: 100%;
+}
+
+.thirds {
+	display: inline-block;
+}
+
+.boots img {
+	width: 96%;
+	margin-left: 2%;
+}
+
+.thirds {
+	width: 29%;
+	margin-left: 2%;
+}
+
+.thirds img {
+	width: 100%;
+}
+
+.halves {
+	width: 45%;
+}
+
+.halves img {
+	width: 100%;
+}
+
+.halves#port {
+	margin-left: 2%;
+}
+
+.halves#starboard {
+	margin-left: 4%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
