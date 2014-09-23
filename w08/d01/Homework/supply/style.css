@@ -1,0 +1,94 @@
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+aside {
+	position: absolute;
+	float: left;
+	width: 20%;
+	padding-top: 45%;
+	padding-right: 80px;
+	padding-left: 10px;
+}
+
+aside img {
+	width: 35%;
+}
+
+ul {
+	list-style-type: none;
+	font-style: sans-serif;
+	padding: 5px;
+	letter-spacing: 2px;
+	color: #D5D5D6;
+	line-height: 20px;
+}
+
+div.items {
+	text-transform: uppercase;
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+
+div.about {
+	font-size: 10px;
+}
+
+main {
+	position: relative;
+	float: right;
+	width: 80%;
+}
+
+header {
+	margin: 50px 1% 15px 0;
+	height: 40%;
+}
+
+header img {
+	width: 100%;
+}
+
+section.middle {
+	width: 100%;
+	margin: 0 1% 15px 0;
+}
+
+div.mens img {
+	display: inline-block;
+	width: 30%;
+	float: left;
+	margin: 0 1% 15px 0;
+}
+
+div.women img {
+	display: inline-block;
+	float: left;
+	width: 30%;
+	margin: 0 1% 15px 3%;
+	
+}
+
+div.lifestyle img {	
+	display: inline-block;
+	float: right;
+	width: 30%;
+	margin: 0 1% 15px 0;
+}
+
+section.bottom {
+	width: 100%;
+}
+
+div.about img {
+	float: left;
+	width: 48%;
+	margin: 0 1%px 50px 0;
+}
+
+div.blog img {
+	width: 48%;
+	float: right;
+	margin: 0 1% 50px 0;
+}
+
