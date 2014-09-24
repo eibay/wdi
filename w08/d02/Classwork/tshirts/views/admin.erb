@@ -1,0 +1,15 @@
+<html>
+  <head>
+    
+  </head>
+
+  <body>
+   
+  <%shirts.each do |shirt|%>
+  <a href="/tshirt/<%=shirt.id%>"><%=shirt.name%>
+    <%end%>
+    <form action ="/add" method="GET">
+    <button id="add">ADD A SHIRT</button>
+  </form>
+ </body>
+</html>

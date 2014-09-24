@@ -1,0 +1,60 @@
+<html>
+
+<head>
+  <a href="/admin">ADMIN</a>
+  <title>TSHIRTS</title>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" href="./styles.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  
+</head>
+
+<body>
+ 
+  <div class="container">
+  
+<script src='/scripts.js'></script>
+  
+ <%shirts.each do |shirt|%>
+  <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#<%=shirt.id%>">
+  DETAILS
+</button>
+<%=shirt.name.capitalize%>
+
+  <!-- Modal -->
+<div class="modal fade" id="<%=shirt.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <h2><%=shirt.name.capitalize%></h2>
+      <h2>$<%=shirt.price%></h2>
+      <img src="<%=shirt.url%>">
+
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only" id="close">Close</span></button>
+        <input type="hidden" name="shirt" value="<%=shirt.id%>"
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary buy">Buy</button>
+
+      </div>
+    </div>
+    
+</div>
+  <%end%>
+
+
+
+
+
+
+</div>
+</body>
+</html>
