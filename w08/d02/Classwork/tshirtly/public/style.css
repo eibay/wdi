@@ -1,0 +1,17 @@
+div.shirt {
+	border: 1px black solid;
+	height: 133px;
+	width: 100px;
+}
+
+div.shirt_window {
+	border: 1px black solid;
+	height: 95px;
+	width: 80px;
+	margin-left: -6px;
+	margin-top: 10px;
+}
+
+div.row {
+	margin-bottom: 25px;
+}
