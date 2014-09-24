@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tshirt Shop</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<!-- <link rel="stylesheet" href="./styles.css"> -->
+<link rel="stylesheet" href="styles.css">
+<!-- jQuery thingy -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+ 
+<header>
+	<h1>This is the shirt you're buying</h1>
+</header>
+
+<ul>
+	<% tshirts.each do |tshirt| %>
+		<li>
+			<img src="<%= tshirt.image %>"><br>
+			<%= tshirt.name %><br>
+			<%= tshirt.price %>
+			<form>How many? <input type="number" name="how_many_order"><br>
+			</form>
+		</li>
+	<% end %>
+</ul>
+<form>
+	<label>Your email address</label><input type="email" name="email"></input>
+	<button>BUY</button>
+</form>
+
+</body>
+</html>

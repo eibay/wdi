@@ -1,13 +1,19 @@
-CREATE TABLE houses(
-  name varchar(255),
-  region varchar(255),
+CREATE TABLE customers(
   id serial primary key,
-  sigil_url text
+  email varchar(100)
 );
 
-CREATE TABLE characters(
-  name varchar(255),
-  image_url text,
+CREATE TABLE orders(
   id serial primary key,
-  house_id integer
+  fulfilled boolean,
+  customer_id integer
+);
+
+CREATE TABLE tshirts(
+  id serial primary key,
+  image varchar(255),
+  price decimal(5,2),
+  quantity integer,
+  name varchar(100),
+  order_id integer
 );
