@@ -1,0 +1,22 @@
+.banner{
+	text-align: center;
+}
+button.addtocart{
+	margin-bottom: 10px;
+}
+.viewcart{
+	margin-top:20px;
+	font-size:25px;
+	text-align:center;
+}
+.cartitem{
+	margin-bottom:6px;
+	font-size:12px;
+	text-align:left;
+}
+.adminAddShirt{
+	margin-bottom:15px;
+}
+.unFulfilledOrder{
+	text-align:center;
+}
