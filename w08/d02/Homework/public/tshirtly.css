@@ -1,11 +1,7 @@
-img {
+.img_small {
 	height: 100px;
 }
 
-.shirt {
-	display: inline-block;
-	margin: 10%;
-}
 
 strong {
 	font-weight: bold;
