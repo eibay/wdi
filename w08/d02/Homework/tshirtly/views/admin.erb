@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Tshirt.ly</title>
+<link rel="stylesheet" type="text/css" href="/styles.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" href="./styles.css">
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	<header>
+		<h1>Admin</h1>
+	</header>
+	<div class="form">
+		<form action="/" method="POST">
+			<input type="text" name="name" placeholder="Tshirt Name">
+			<input type="text" name="image" placeholder="Image URL">
+			<input type="text" name="price" placeholder="Price">
+			<input type="text" name="quantity" placeholder="quantity">
+			<button>Add</button>
+		</form>
+	</div>
+	<div class="col-md-6 order">
+		<h2>Order</h2>
+	<ul>
+		<% users.each do |user| %>
+		<li><a href="tshirt/<%= Tshirt.find_by(id: user.tshirt_id)["id"] %>"><img src="<%= Tshirt.find_by(id: user.tshirt_id)["image"] %>" style="width: 250px; height: 180px"></a><p>Price: <%= Tshirt.find_by(id: user.tshirt_id)["price"] %></p>
+		<p>Quantity: <%= user.quantity %></p>
+		<p>Email: <%= user.email %></p>
+		</li>
+		<form action="/ship/<%= user.id %>" method="POST">
+            <button>FULFILL</button>
+        </form>
+		<form action="/user/<%= user.id %>/remove" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button>REMOVE</button>
+        </form>
+		<% end %>
+	</ul>
+	</div>
+	<div class="col-md-6 sold-out">
+		<h2>Sold Out</h2>
+		<% soldouts.each do |soldout| %>
+		<li><a href="tshirt/<%= soldout["id"] %>"><img src="<%= soldout.image %>" style="width: 250px; height: 180px"></a><p>Price: <%= soldout.price %></p>
+			<p>Quantity: SOLDOUT</p>
+		</li>
+		<% end %>
+	</div>
+</div>
+</body>
+</html>
