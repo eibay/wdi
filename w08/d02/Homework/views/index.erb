@@ -26,7 +26,7 @@
 	
 	<article>
 		<%list_shirts.each do |shirt|%>
-			<section class="col-lg-2">
+			<section class="col-md-2">
 				<h3><%=shirt[:name]%></h3>
 				<img src="<%=shirt[:img_url]%>" alt="shirt" class="img_small" data-toggle="modal" data-target="#img_shirt_<%=shirt[:id]%>">
 				<h4>Price: $<%=shirt[:price]%></h4>
@@ -110,12 +110,7 @@
 					})
 				}
 
-				var img_modal = document.getElementsByClassName("img-modal");
-				for(i=0; i<img_modal.length; i++){
-					img_modal[i].addEventListener('click', function(event){
-						$('#myModal').modal('hide')
-					})
-				}
+
 			</script>
 		
 				

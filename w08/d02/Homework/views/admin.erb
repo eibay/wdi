@@ -43,12 +43,12 @@
 	</form>
 
 
-	<div class="row">
+
 		<h2> Incoming Orders </h2>
 		<%list_orders.each do |order|%>
 
 			<%this_shirt = list_shirts.detect { |shirt| shirt[:id] == order[:shirt_id] }%>
-			<div class="col-lg-2">
+			<div class="col-md-4">
 				<p>Customer: <strong><%=order[:email]%></strong></p>
 				<p>SKU: <strong><%=this_shirt[:name]%></strong></p>
 				<p>order qty: <strong><%=order[:order_amount]%></strong></p>
@@ -65,7 +65,7 @@
 			</div>
 			
 		<%end%>	
-	</div>
+
 	
 
 	<div class="row">
@@ -74,7 +74,7 @@
 			<%this_order = list_orders.detect { |order| order[:shirt_id] == shirt[:id]}%>
 
 			<%if shirt[:quantity] <= 0%>
-				<div class="col-lg-2">
+				<div class="col-md-4">
 					<p>SKU: <strong><%=shirt[:name]%></strong></p>
 					<p>price per SKU: $<strong><%=shirt[:price]%></strong></p>
 					<span class="glyphicon glyphicon-remove"></span>
