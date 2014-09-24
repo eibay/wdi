@@ -1,0 +1,19 @@
+user goes to /
+	sees shirts, each shirt has thumbnail, price, availability(if sold out purchase button is greyed out?), and a purchase button
+
+user hits buy button
+	modal appears with thumbnail, prompt for number of shirts, and email input. cancel button goes back to /, save button goes to /confirm
+
+user goes to /confirm
+	user gets purchase id number, reminder of price and quantity purchased.  
+
+admin goes to /admin
+	==
+	inventory section
+	user sees thumbnail, quantity available, and price of each shirt; each shirt has change quantity button and remove from store button
+	==
+	pending order section 
+	user sees each order with a fulfill button; hitting button moves order to filled order section and removes quantity from corresponding shirt info in inventory section
+	==
+	sales data
+	shows sold out/over sold shirts, most popular shirts/least popular shirts
