@@ -8,8 +8,13 @@ require_relative './lib/tshirt'
 require_relative './lib/user'
 require_relative './lib/order'
 
+after do 
+	ActiveRecord::Base.connection.close
+end
+
 get('/') do
-	erb(:index)
+	tshirts = Tshirt.all()
+	erb(:index, {locals: {tshirts: tshirts}})
 end
 
 get('/admin') do 
@@ -17,7 +22,11 @@ get('/admin') do
 end
 
 post('/add-shirt') do
-	binding.pry
 	params = JSON.parse(request.body.read)
-	tshirt.create(params)
+	Tshirt.create(params)
 end	
+
+post('/add-order') do
+	params = JSON.parse(request.body.read)
+	Order.create(params)
+end

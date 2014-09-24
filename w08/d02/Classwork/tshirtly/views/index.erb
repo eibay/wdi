@@ -17,33 +17,76 @@
 </head>
 <body>
 	<div class="container">
-		<header class="col-md-6 col-md-offset-6">
-			<h1>Tshirt.ly</h1>
-		</header>
-	</div>
+		<div class="row">
+			<header class="col-md-4 col-md-offset-4">
+				<h1>Tshirt.ly</h1>
+			</header>
+		</div>
+		<div class="row">
+			<% tshirts.each do |t| %>
+			<div class="col-md-4"><img src="<%= t.imageurl %>"><br><h4><%= t.shirt %></h4><br>Price: $<%= t.price %><br>In stock: <%= t.quantity %><br>
 
-	<!-- Button trigger modal -->
-	<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-		Add to Order
-	</button>
 
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-				</div>
-				<div class="modal-body">
-					<p>Yippiekaye!!!</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+				<!-- Button trigger modal -->
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+					Order
+				</button>
+
+				<!-- Modal -->
+				<div id="<%= t.id %>">
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+									<h4 class="modal-title" id="myModalLabel">Your Order</h4>
+								</div>
+								<div class="modal-body">
+									<img src="<%= t.imageurl %>">
+									<h5><%= t.shirt %></h5>
+									<input id="email" type="text" name="email" placeholder="Email">
+									<input id="quantity" type="text" name="quantity" placeholder="Quantity">
+									<input id="tshirt_id" type="hidden" name="tshirt_id" value="<%= t.id %>">
+								</div>
+								<div class="modal-footer">
+									<button id="order" type="button" class="btn btn-primary">Submit Order</button>
+								</div>
+							</div>
+						</div>
+					</div>	
 				</div>
 			</div>
+			<% end %>
 		</div>
-	</div>	
-</body>
-</html>
+		<script>
+		var xhr = new XMLHttpRequest;
+
+		var button = document.getElementById('order');
+		button.addEventListener('click', function(){
+			var email = document.getElementById('email');
+			var quantity = document.getElementById('quantity');
+			var tshirt = document.getElementById('tshirt_id');
+
+			var orderInfo = {}
+			orderInfo.email = email.value;
+			orderInfo.quantity = quantity.value;
+			orderInfo.shirt_id = tshirt.value;
+
+			submitOrder(orderInfo);
+		}) 
+
+		function submitOrder(info) {
+			xhr.open('POST', 'http://127.0.0.1:4567/add-order', true);
+			xhr.send(JSON.stringify(info));
+		}
+
+		xhr.addEventListener('load', function(){
+			var modal = document.getElementById('modal-body');
+			modal.innerHTML = '<p>Order Submitted!</p>';
+			// $('#myModal').on('hidden.bs.modal', function (e) {
+			// 	modal.innerHTML = '<input id="tshirt" name="tshirt" placeholder="tshirt"><input id="price" name="price" placeholder="price"><input id="quantity" name="quantity" placeholder="quantity"><input id="imageurl" name="imageurl" placeholder="imageurl">';
+			})
+
+			</script>
+		</body>
+		</html>
