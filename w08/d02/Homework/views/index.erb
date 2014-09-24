@@ -44,7 +44,7 @@
 				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 				      </div>
 				      <div class="modal-body">
-				        <img src="<%=shirt[:img_url]%>" class="img-modal">
+				        <img src="<%=shirt[:img_url]%>" class="img-modal" data-dismiss="modal">
 				      </div>
 
 				    </div>
@@ -107,6 +107,13 @@
 				for(i=0; i<btn_buy_modal.length; i++){
 					btn_buy_modal[i].addEventListener('click', function(event){
 						alert("Order placed!");
+					})
+				}
+
+				var img_modal = document.getElementsByClassName("img-modal");
+				for(i=0; i<img_modal.length; i++){
+					img_modal[i].addEventListener('click', function(event){
+						$('#myModal').modal('hide')
 					})
 				}
 			</script>
