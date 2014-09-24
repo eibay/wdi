@@ -65,7 +65,7 @@
 		orderButton[i].addEventListener('click', function(event) {
 			var button = document.getElementById(event.target.parentElement.children[2].innerText)
 
-			 // document.getElementById('order');
+			 // get these with event.target.parent?? == modal ?
 			button.addEventListener('click', function(){
 				var email = document.getElementById('email');
 				var quantity = document.getElementById('quantity');
@@ -86,6 +86,7 @@
 			xhr.send(JSON.stringify(info));
 		}
 
+		// see line68, move into same function?
 		xhr.addEventListener('load', function(){
 			var modal = document.getElementById('modal-body');
 			modal.innerHTML = '<p>Order Submitted!</p>';
