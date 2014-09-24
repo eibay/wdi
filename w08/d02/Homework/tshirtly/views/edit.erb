@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>TShirt.ly: Edit Product Information</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+		<link rel="stylesheet" type="text/css" href="../styles.css">	
+
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>TShirt.ly</h1>
+	<hr>
+	<a href="/">Home</a>
+		<a href="/admin">Admin</a>
+
+	<h2>Edit Production Information</h2>
+			
+	<form action="/tshirts/<%= tshirt.id %>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+	<p>Product Name: <input type="text" name="name" value="<%= tshirt.name %>" /></p>
+		<p>Price: $ <input type="text" name="price" value="<%= tshirt.price %>" /></p>
+		<p>Quantity: <select name="quantity">
+			<option selected="<%= tshirt["id"] %>"><%= tshirt["quantity"] %></option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select></p>
+			<p>Image URL: <input type="text" name="image_url" value="<%= tshirt.image_url %>" /></p>
+			<p><button>Edit</button></p>
+		</form>
+
+</div>
+</body>
+</html>

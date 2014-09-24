@@ -1,0 +1,47 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>TShirt.ly: Product Info</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+		<link rel="stylesheet" type="text/css" href="../styles.css">	
+
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>TShirt.ly</h1>
+		<hr>
+	<a href="/">Home</a>
+	<a href="/admin">Admin</a>
+	<h2><%= tshirt.name %> T-Shirt (One Size Fits All)</h2>
+<img src="<%= tshirt.image_url %>"><br>
+				Price: $<%= tshirt.price %><br>
+				In Stock: <%= tshirt.quantity %><br>
+				Item ID#: <%= tshirt.id %>
+<h3>Place Your Order</h3>
+	<form action="/confirmation" method="POST">
+		<p><select name="quantity">
+			<option selected="selected">Select quantity</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select></p>
+		<p><input type="email" name="email" placeholder="Email Address"></p>
+		<p><input type="hidden" name="tshirt_id" value="<%= tshirt.id %>"></p>
+			<button>Buy</button>
+	</form>
+</div>
+</body>
+</html>
