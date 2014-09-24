@@ -21,7 +21,7 @@
 		</nav>
 	</header>
 
-	Admin
+
 
 	<form action="/add_shirt" method="POST">
 		
@@ -32,6 +32,38 @@
 		<button>Add to Inventory</button>
 	</form>
 
+
+
+	<h2> Incoming Orders </h2>
+	<%list_orders.each do |order|%>
+
+		<%this_shirt = list_shirts.detect {|shirt| shirt[:id] == order[:shirt_id] }%>
+		<div class="col-lg-2">
+			<p>SKU: <strong><%=this_shirt[:name]%></strong></p>
+			<p>customer email: <strong><%=order[:email]%></strong></p>
+			<p>order qty: <strong><%=order[:order_amount]%></strong></p>
+			<p>SKU qty: <strong><%=this_shirt[:quantity]%></strong></p>
+			<p>price per SKU: $<strong><%=this_shirt[:price]%></strong></p>
+
+			<form action="/send_order" method="POST">
+				<input type="hidden" name="_method" value="PUT">
+				<input type="hidden" name="order_id" value="<%=order[:id]%>">
+				<input type="hidden" name="order_amount" value="<%=order[:order_amount]%>">
+				<input type="hidden" name="shirt_id" value="<%=order[:shirt_id]%>">
+				<button class="btn-send-order">Send order</button>
+			</form>
+		</div>
+		
+	<%end%>
+	
+	<script>
+		var sendButtons = document.getElementsByClassName("btn-send-order");
+		for(i=0; i<sendButtons.length; i++){
+			sendButtons[i].addEventListener('click', function(event){
+				alert("Successfullysent to customer!")
+			})
+		}
+	</script>
 
 </body>
 </html>

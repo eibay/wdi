@@ -31,7 +31,7 @@
 				<img src="<%=shirt[:img_url]%>" alt="shirt">
 				<h4>Price: $<%=shirt[:price]%></h4>
 				<h4>Units left: <%=shirt[:quantity]%></h4>
-				<%the_id = shirt[:id]%>
+
 				
 
 
@@ -55,12 +55,13 @@
 
 				      <div class="modal-body">
 				        Enter details:
-				        <form action="/buy" method="POST">
-				        	<input type="hidden" name="_method" value="PUT">
-				        	<input type="hidden" name="id" value="<%=the_id%>">
+				        <form action="/make_order" method="POST">
+				        	<!-- <input type="hidden" name="_method" value="PUT"> -->
+				        	<input type="hidden" name="id" value="<%=shirt[:id]%>">
 				        	<!-- <input type="text" name="qty_to_buy" placeholder="Quantity to purchase"> -->
-
-				        	<select name="qty_to_buy">
+				        	<input type="text" name="email" placeholder="Email Address">
+							<input type="text" name="order_amount" placeholder="Order Amount">
+				        	<!-- <select name="qty_to_buy">
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
@@ -71,7 +72,7 @@
 								<option value="8">8</option>
 								<option value="9">9</option>
 								<option value="10">10</option>
-							</select>
+							</select> -->
 				        	
 							<button class="btn_buy_modal">Buy</button>
 				        	<!-- purchase button -->
@@ -89,7 +90,7 @@
 				var btn_buy_modal = document.getElementsByClassName("btn_buy_modal");
 				for(i=0; i<btn_buy_modal.length; i++){
 					btn_buy_modal[i].addEventListener('click', function(event){
-						alert("confirmation of purchase");
+						alert("Order placed!");
 					})
 				}
 			</script>

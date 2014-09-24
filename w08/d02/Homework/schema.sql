@@ -9,3 +9,10 @@ quantity integer,
 price integer,
 img_url text
 );
+
+CREATE TABLE orders (
+id serial primary key,
+email text,
+order_amount integer,
+shirt_id integer
+);
