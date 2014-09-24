@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shirtgasam</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+
+		<div class="row">
+			<header class="col-md-6 col-md-offset-3 logo">
+				<h1>Shirtgasam</h1>
+				<h3>The ultimate shirt buying experiece</h3>
+			</header>
+		</div>
+		
+		<div class="row">
+		<section class="shirt-lists">
+			<div>	
+				<% shirts.each do |x| %>
+
+					<div class="col-md-4">
+						<ul class="shirt-info">
+							<img src="<%= x[:image] %>">
+							<li><%= x[:name] %></li>
+							<li><%= x[:price] %></li>
+							<li><%= x[:quantity] %></li>
+						</ul>
+
+						<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#<%= x[:id] %>-order">
+						  Buy It!
+						</button>
+
+	<!-- Modal -->
+						<div class="modal fade" id="<%= x[:id] %>-order" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						        <h4 class="modal-title" id="myModalLabel">Order</h4>
+						      </div>
+						      <div class="modal-body">
+						        
+					
+						        	<input type="hidden" name="id" value="<%= x[:id] %>" id="<%= x[:id] %>-id">
+						        	<input type="text" name="email" placeholder="Email" id="<%= x[:id] %>-email">
+						        	<input type="text" name="quantity" placeholder="Quantity" id="<%= x[:id] %>-quantity">
+
+						  
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-default order-button" id="<%= x[:id] %>"data-dismiss="modal">Submit</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</section>
+	</div>
+
+	<script type="text/javascript">
+		orderButton = document.getElementsByClassName('order-button')
+
+		for(i=0; i<orderButton.length; i++) {
+
+			orderButton[i].addEventListener('click', function(event){
+
+				var orderId = event.target.id
+				var modal = document.getElementById(orderId + "-order");
+				modal.innerHTML = '';
+debugger
+				var data = {}
+				data.email = modal.getElementsByClassName("order-email")[0].value;
+				data.quantity = modal.getElementsByClassName("order-quantity")[0].value;
+
+				var xhr = new XMLHttpRequest();
+				xhr.open('PUT','http://localhost:4567/orders', true);
+
+				xhr.addEventListener('load', function() {
+					modal.innerHTML = "<h1>Order Successful.</h1>";
+				});
+
+				xhr.send(JSON.stringify(data));
+			})
+		}
+
+		
+
+
+
+
+	</script>
+</body>
+</html>
