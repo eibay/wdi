@@ -20,7 +20,7 @@ function attaching(parent){
 
 function modalButtons(){
   var button = document.getElementsByClassName("buy")
-  for(i=0; i < button.length; i++){
+  for(var i=0; i < button.length; i++){
   button[i].addEventListener("click", function(){
     var parent = event.target.parentNode
     attaching(parent)
@@ -31,7 +31,7 @@ function modalButtons(){
 
 function buyButtons(){
 var buyButton = document.getElementsByClassName('buying')
-for(i=0; i < buyButton.length; i++){
+for(var i=0; i < buyButton.length; i++){
   buyButton[i].addEventListener("click", function(){
     var id = event.target.parentNode.children[4].value
     var email = event.target.parentNode.children[8].value
@@ -53,11 +53,20 @@ function ajaxCall(id, email, number){
  }
 
 function clear(){
-  email = document.getElementById("email")
+  var email = document.getElementById("email")
   email.value =""
-  quanity = document.getElementById("howMany")
+  var quanity = document.getElementById("howMany")
   quanity.value=""
-  setTimeout('document.getElementById("close").click()', 3000)
+  var closeButtons = document.getElementsByClassName("close")
+  
+  for(var i=0; i<closeButtons.length; i++){
+    var element = closeButtons[i]
+
+  // have to do this because asynchronocity
+  setTimeout(function() {element.click()
+    
+  }, 3000) 
+}
 }
 
 }
