@@ -54,6 +54,14 @@ put '/send_order' do
   redirect request.referrer
 end
 
+put '/remove_shirt' do
+  s = Shirt.find_by({id: params["shirt_id"]})
+  s.destroy
+
+
+  redirect request.referrer
+end
+
 # http://goo.gl/IpDvog
 # http://goo.gl/aFcMQW
 # http://goo.gl/mgGsai

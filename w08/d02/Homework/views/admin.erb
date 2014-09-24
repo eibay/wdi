@@ -32,6 +32,16 @@
 		<button>Add to Inventory</button>
 	</form>
 
+	<form action="/remove_shirt" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<select name="shirt_id">
+			<%list_shirts.each do |shirt|%>
+				<option value="<%=shirt[:id]%>"><%=shirt[:name]%></option>
+			<%end%>
+		</select>
+		<button>Remove Shirt Line</button>
+	</form>
+
 
 	<div class="row">
 		<h2> Incoming Orders </h2>
