@@ -10,3 +10,7 @@ img {
 strong {
 	font-weight: bold;
 }
+
+.row {
+	margin-left: 5%;
+}
