@@ -20,6 +20,7 @@ order_details = JSON.stringify(order_details)
 
 
 orderNowButton.addEventListener("click", function() {
+	console.log("ASDSDA")
 var xhr = new XMLHttpRequest();
 		xhr.open('POST', url, true)
 
