@@ -19,7 +19,7 @@ We are going to build a prototype of a tshirt store using ruby and bootstrap.
 
 **Process**
 
-ABBIB ("Always Be Breaking It Down")
+ABBID ("Always Be Breaking It Down")
 
 *Wireframes*
 
