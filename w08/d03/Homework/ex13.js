@@ -6,7 +6,6 @@ function functionify() {
   return JSON.stringify(value); 
 }
 
-
 http.createServer(function(req, res) {
   var namesJSON = functionify(); 
   res.end(namesJSON);  
