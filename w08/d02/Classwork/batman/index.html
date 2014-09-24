@@ -1,0 +1,116 @@
+<html>
+<head>
+	<title>batman</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<link rel='stylesheet' href='./styles.css'>
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	
+
+</head>
+<body>
+
+<div class='container'>
+
+	<div class='row'>
+	
+		<header class="col-md-4 col-md-offset-4 title">
+			<h1>Batman</h1>
+		</header>
+		<header class="col-md-4 number">
+			<h2>1-800-bat-call</h2>
+		</header>
+	
+	</div>
+
+	<hr>
+
+	<div class='row'>
+		
+		<section class='col-md-4 hobbies'>
+			<h3>Hobbies</h3>
+			<ul>
+				<li>Speaking in a gutteral voice</li>
+				<li>Cruising in the bat-mobile</li>
+				<li>Apprehending criminals</li>
+			</ul>
+		</section>
+
+		<section class='col-md-4 archnemesis'>
+			<h3>Archnemesis</h3>
+				<p>The Joker</p>
+		</section>
+
+		<section class='col-md-4 topFriends'>
+			<h3>Top friends</h3>
+			<ul>
+				<li>Robin</li>
+				<li>Alfred</li>
+				<li>Superman</li>
+			</ul>
+		</section>
+
+	</div>
+
+
+<!-- Button trigger modal -->
+<button class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">
+ 	sign up!
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <h1>Modal Info</h1>
+        <input id='input' placeholder='enter email'></input>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type='text/javascript'>
+
+	var save = document.getElementsByClassName("btn-primary")[0];
+	save.addEventListener("click", function(){
+		console.log(input.value)
+	})
+
+	var input = document.getElementById("input");
+	input.addEventListener("keydown", function(e){
+		if(e.keyIdentifier == 'Enter'){
+			console.log(input.value)
+			input.value = "";
+
+		}
+	})
+
+</script>
+
+</div>
+
+
+</body>
+</html>
+
+
+
+

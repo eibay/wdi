@@ -1,0 +1,14 @@
+header.number{
+	text-align: right;
+}
+header.title{
+	text-align: center;
+}
+
+.row{
+	margin-bottom: 50px;
+}
+
+h3{
+	text-align: center;
+}

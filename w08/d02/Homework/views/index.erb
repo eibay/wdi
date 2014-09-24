@@ -1,0 +1,112 @@
+<html>
+<head>
+	<title>Home</title>
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<link rel='stylesheet' href='./styles.css'>
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<script src='./javascript.js'></script>
+
+</head>
+<body>
+	
+<div class='container'>
+	
+	<div class='row'>
+		<header class='col-md-8 col-md-offset-2 mainHeader'>
+			<h1>T-shirt Fun!</h1>
+			<h3>For Everyone!</h3>
+		</header>
+	</div>
+
+	<div class='row'>
+		<main class='col-md-8 col-md-offset-2'>
+				
+				<% shirts.each do |shirt| %>
+					<div class='col-md-4 shirtImages'>
+						<img class='img-thumbnail' src=<%= shirt.image %> />
+						<p>$<%= shirt.price %></p>
+						<button value=<%=shirt.id%> class="btn btn-default btn-xs buy-button" data-toggle="modal" data-target="#myModal">buy</button>
+					</div>
+				<% end %>
+		
+		</main>
+	</div>
+
+</div>
+
+<!-- Modal Confirmation -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please enter your email address and the amount of shirts you want to buy</p>
+
+        <input class='email' placeholder='Enter Email'></input>
+        <input class='quantity' placeholder='quantity'></input>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-xs" data-dismiss="modal">back to shopping</button>
+        <button type="button" class="btn btn-default btn-xs" data-dismiss="modal" id="confirmation-button" data-toggle="modal" data-target="#thankYou">buy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Thank You -->
+<div class="modal fade" id="thankYou" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Thank you</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<script type='text/javascript'>
+		var confirmation_button = document.getElementById("confirmation-button");
+		var shirt_id = ""
+		var quantity = ""
+		var email = ""
+	
+		function buyShirt(){
+      var xhr = new XMLHttpRequest();   
+      xhr.open('POST', "/buy/" + shirt_id +"/"+ quantity +"/"+ email);
+      xhr.send()
+    };
+
+	//sending a AJAX request to add new user to our users table
+    confirmation_button.addEventListener("click", function(){
+			quantity= document.getElementsByClassName("quantity")[0].value;
+			email = document.getElementsByClassName("email")[0].value
+			buyShirt()
+		});
+
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
