@@ -14,7 +14,7 @@ after do
 end
 
 get('/') do
-	shirts=Shirt.all.order(id: :desc)
+	shirts=Shirt.all.order(id: :asc)
 	cart=Cart.all()
 
 	erb(:index, {locals:{shirts:shirts, cart: cart}})
