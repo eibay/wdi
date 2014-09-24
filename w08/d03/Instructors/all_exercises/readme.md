@@ -18,7 +18,7 @@
   * Add CSS to style the hello route, but no CSS in a file
   * Every route returns an array of names, in json
   * Every route returns json of names that was returned from a function
-  * Every route calls a function that returns a hash of 3 people with attributes
+  * Every route calls a function that returns an array of 3 people, where each person is represented by a hash of attributes (e.g. name, age, etc)
   * Two routes - one for names, one for people
   * Use the `node-simple-router` library to simplify the above
 
@@ -33,4 +33,7 @@
   * Using [Pup](https://github.com/EricChiang/pup) from the command line filter and print out the [top 5 offensive leaders](http://espn.go.com/nfl/statistics) in passing yards. 
     * `pipe` this output to a file (player yards)
   * Program minecraft-like worlds with [Voxel.js](http://voxeljs.com/)
+    * NodePDX conference talk with Max Ogden presenting Voxel.js: [minecraft.js](http://www.youtube.com/watch?v=8gM3xMObEz4)
   * Create music with [code](https://github.com/substack/code-music-studio)
+    * LXJS conference talk with substack presenting this tool: [beep boop](http://www.youtube.com/watch?v=2oz_SwhBixs)
+  * Watch the NodePDX talk by substack on node, modularity, and anarchy (20 min): [Modularidade para todos](http://www.youtube.com/watch?v=DCQNm6yiZh0)
