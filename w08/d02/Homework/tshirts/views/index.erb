@@ -1,0 +1,17 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Tshirt Shop</title>
+</head>
+<body>
+	<header>
+		<h1>Available Tshirts</h1>
+	</header>
+	<div class="tshirt_list">
+		<ul>
+			<% shirts.each do |shirt| %>
+			<li><img src="<%= shirt.image_url %>"></li>
+			<% end %>
+		</ul>
+</body>
+</html>
