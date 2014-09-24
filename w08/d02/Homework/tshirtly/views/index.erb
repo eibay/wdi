@@ -26,7 +26,7 @@
 						<a href="/tshirts/<%= tshirt.id %>"><img src="<%= tshirt.image_url %>"></a><br>
 					<%= tshirt.name %><br>
 					Price: $<%= tshirt.price %><br>				
-				<a href="/tshirts/<%= tshirt.id %>"><input type="hidden"><button>Buy</button></a>
+				<a href="/tshirts/<%= tshirt.id %>"><input type="hidden"><button type="button" class="btn btn-primary">Order</button></a>
 				</li>
 				<% end %>
 	</ul>			
