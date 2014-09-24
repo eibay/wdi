@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>T Shirts</title>
+	<link rel="stylesheet" href="./styles.css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- bootstrap jquery, needs to go before JS -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js
+"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<div class="container">
+	<header class="col-md-8 col-md-offset-4">	
+		<h2> Rosencrantzzz T Shirt Jawn </h2>
+		<a href="/admin"> Inventory </a>
+		</header>
+</div>
+
+<%shirts.each do |x|%>
+	<ul>
+		<b> <h3> <%=x["name"]%> </h3> </b>
+		<li> Quantity: <%=x["quantity"]%> </li>
+	 	<li> Price: $<%=x["price"]%> </li>
+	 </ul>
+	<section class="images">
+		<img src=<%=x["img_url"]%> />
+	</section>
+ 
+<form action="/order" method="POST">
+	<input type="hidden" name="_method" value="PUT">
+	<input type="hidden" name="id" value=<%="x["id"]%>">
+	
+ <select class="quantity">
+    <option value>1</option>
+    <option value>2</option>
+    <option value>3</option>
+    <option value>4</option>
+    <option value>5</option>
+  </select>
+  <button type="button" class="btn btn-success btn-sm">Buy</button>
+
+
+
+<%end%>
+
+</body>
+</html>
+
+
