@@ -12,11 +12,11 @@ def get_baby_objs
   array_of_baby_arrays = json_data["data"]
   array_of_baby_arrays.map do |baby_array|
     {
-      gender: baby_array[11],
-      county: baby_array[10], 
-        name: baby_array[9], 
-       count: baby_array[12], 
-        year: baby_array[8]
+      "gender" baby_array[11],
+      "county" baby_array[10], 
+        "name" baby_array[9], 
+       "count" baby_array[12], 
+        "year" baby_array[8]
     }
   end
 end 
@@ -24,11 +24,11 @@ end
 def year_sort_babies data 
   sorted_babies = {}
   data.each do |baby_obj|  
-    if sorted_babies.has_key? baby_obj[:year] 
-      sorted_babies[baby_obj[:year]] << baby_obj 
+    if sorted_babies.has_key? baby_obj["year"] 
+      sorted_babies[baby_obj["year"]] << baby_obj 
     else
-      sorted_babies[baby_obj[:year]] = []
-      sorted_babies[baby_obj[:year]] << baby_obj 
+      sorted_babies[baby_obj["year"]] = []
+      sorted_babies[baby_obj["year"]] << baby_obj 
     end 
   end
   # create a hash w/ the years & the count

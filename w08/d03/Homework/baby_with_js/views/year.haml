@@ -16,7 +16,7 @@
           %th Count 
           - babies.each do |baby|
             %tr  
-              %td= baby[:name] 
-              %td= baby[:county]
-              %td= baby[:gender]
-              %td= baby[:count]
+              %td= baby["name"] 
+              %td= baby["county"]
+              %td= baby["gender"]
+              %td= baby["count"]
