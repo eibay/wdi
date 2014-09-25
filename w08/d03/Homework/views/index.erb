@@ -18,9 +18,22 @@
 <body>
 
 <div class="container">
+	<!-- choose year dropdown -->
+		<div class="dropdown">
+			<h3>Choose a year:</h3>
+			<!-- -->
+				<form action="/" method="GET">
+				<select name="year">
+					<% unique_years.each do |y| %>
+						<option value="<%= y %>"><%= y %></option>
+					<% end %>
+				</select>
+				<button>Choose</button>
+			</form>
+		</div>
 	 <table class="table table-striped">
 	  <tr>
-	  	Year: <%= year %>
+	  	Year: 
 	  </tr>
 	  <tr>
 			<th>Name</th>
@@ -30,7 +43,7 @@
 		</tr>
 		<tr>
 			<% all_names["data"].each do |x| %>
-			  <% if year == "2012" %>
+			  <% if year == x[8] %>
 			  	<tr>
 					  <td><%= x[9] %></td>
 					  <td><%= x[10] %></td>

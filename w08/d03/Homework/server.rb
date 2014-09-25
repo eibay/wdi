@@ -4,20 +4,29 @@ require 'sinatra/reloader'
 require 'pry'
 
 
-get '/' do
+get('/') do
 
-all_names = JSON.parse(File.read('./public/ny-baby-names.json'))
+	all_names = JSON.parse(File.read('./public/ny-baby-names.json'))
 
-# name = all_names["data"][0][9]
-# county = all_names["data"][0][10]
-# gender = all_names["data"][0][11]
-# count = all_names["data"][0][12]
-# year = all_names["data"][0][8]
-year = all_names["data"][0][8]
-# binding.pry
+	year = params[:year]
 
+	# name = all_names["data"][0][9]
+	# county = all_names["data"][0][10]
+	# gender = all_names["data"][0][11]
+	# count = all_names["data"][0][12]
+	# year = all_names["data"][0][8]
 
-  erb(:index, { locals: { year: year, all_names: all_names } })
+	years = all_names["data"].map do |y|
+		y[8]
+	end
+	unique_years = years.uniq.sort
+
+	erb(:index, { locals: { unique_years: unique_years, all_names: all_names, year: year } })
 end
 
+# get('/:year') do
 
+# 	year = params["year"]
+
+# 	erb(:index, { locals: { year: year, all_names: all_names } })
+# end
