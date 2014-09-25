@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Baby Names</title>
+	<title></title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-  
+<h3>NY State Baby Names</h3>
+	<ul>
+		<li><a href="Home">Home</li>
+		<li><a href="/2007">Names in 2007</li>
+		<li><a href="/2008">Names in 2008</li>
+		<li><a href="/2009">Names in 2009</li>
+		<li><a href="/2010">Names in 2010</li>
+		<li><a href="/2011">Names in 2011</li>
+		<li><a href="/2012">Names in 2012</li>
+	</ul>
+<table class="table table-hover">
+  <tr>
+
+  <th>Name</th>
+    <th>County</th>
+    <th>Gender</th>
+    <th>County</th>
+  </tr>
+
+<% names["data"].each do |x| %>
+  <% if x[8] == "2008" %>
+  <tr>
+  <td><%= x[8] %></td>
+  <td><%= x[9] %></td>
+  <td><%= x[10] %></td>
+  <td><%= x[11] %></td>
+  <td><%= x[12] %></td>
+  </tr>
+  <% end %>
+<% end %> 
+</table>
 </body>
 </html>
