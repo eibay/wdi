@@ -7,13 +7,3 @@ function outputNames(array) {
 }
 
 outputNames(names);
-
-var numbers = [2, 4, 6]
-
-function double(num) {
-  for(i = 0; i < num.length; i++){
-    console.log(num[i] * 2)
-  }
-}
-
-double(numbers)
