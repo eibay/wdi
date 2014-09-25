@@ -7,10 +7,16 @@ require 'json'
 
 get("/") do
 	names = JSON.parse(File.read('./public/ny-baby-names.json'))
-	erb(:index, { locals: { year: year, names: names } })
+	year = params[:year]
+	binding.pry
+	
+	year = names["data"].map do |y|
+		y[8]
+	end
+
+	unique_years = year.uniq.sort
+
+	erb(:index, { locals: { unique_years: unique_years, names: names, year: year } })
 end
-
-
-
 
 
