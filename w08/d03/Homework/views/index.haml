@@ -5,5 +5,17 @@
     %title Babyparser.com | The Site Where We Parse Babies
 
   %body
-    %h1 Babyparser.com 
-    %h2 The Site Where We Parse Babies
+    %header 
+      %h1 Babyparser.com 
+      %h2 The Site Where We Parse Babies
+    %main 
+      %section.years 
+        %h3 The Babies in Recent Years
+        %ul 
+          - years.each do |year|
+          %li 
+            %p 
+              %a{:href => "/years/#{year}"}= year
+              = "(#{babies_num[year]} babies)"
+ 
+ 
