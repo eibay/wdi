@@ -45,6 +45,11 @@ years = year_sorted_babies.keys
 babies_num = year_sorted_babies.inject({}) { |h, (k, v)| h[k] = v.length; h }
 
 get '/' do
-
   haml :index, {locals: {years: years, babies_num: babies_num}}  
 end
+
+get "/years/:year" do 
+  year = params[:year]
+  babies = year_sorted_babies[year]
+  haml :year, {locals: {babies: babies, year: year}}
+end 

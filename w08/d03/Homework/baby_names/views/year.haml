@@ -1,0 +1,15 @@
+!!! 
+%html 
+  %head 
+    %meta{:charset => "utf-8"}
+    %title= "Babyparser.com | Babies born in #{year}"
+  %body
+    %header 
+      %h1 Babyparser.com 
+      %h2= "Babies born in #{year}" 
+    %main 
+      %section.years 
+        %ul 
+          - babies.each do |baby|
+            %li 
+              %p= baby[:name] 
