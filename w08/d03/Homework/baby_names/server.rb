@@ -6,26 +6,20 @@ require 'redcarpet'
 # when the server starts # 
 # get & parse the babies # 
 
-f = File.read "./public/ny-baby-names.json"
-json_data = JSON.parse f
-
-# we'll ignore all but the core data for now # 
-array_of_baby_arrays = json_data["data"]
-
-
-# transform the data into hash form # 
-baby_hashes = 
-array_of_baby_arrays.map do |baby_array|
-  {
-    gender: baby_array[11],
-    county: baby_array[10], 
-      name: baby_array[9], 
-     count: baby_array[12], 
-      year: baby_array[8] 
-  }
-end
-
-# define & call a method to sort babies by year #
+def get_baby_objs  
+  f = File.read "./public/ny-baby-names.json"
+  json_data = JSON.parse f
+  array_of_baby_arrays = json_data["data"]
+  array_of_baby_arrays.map do |baby_array|
+    {
+      gender: baby_array[11],
+      county: baby_array[10], 
+        name: baby_array[9], 
+       count: baby_array[12], 
+        year: baby_array[8]
+    }
+  end
+end 
 
 def year_sort_babies data 
   sorted_babies = {}
@@ -36,13 +30,13 @@ def year_sort_babies data
       sorted_babies[baby_obj[:year]] = []
       sorted_babies[baby_obj[:year]] << baby_obj 
     end 
-  end 
-  sorted_babies
+  end
+  # create a hash w/ the years & the count 
+  babies_num = sorted_babies.inject({}) { |h, (k, v)| h[k] = v.length; h }
+  [sorted_babies, sorted_babies.keys, babies_num] 
 end 
 
-year_sorted_babies = year_sort_babies baby_hashes
-years = year_sorted_babies.keys
-babies_num = year_sorted_babies.inject({}) { |h, (k, v)| h[k] = v.length; h }
+year_sorted_babies, years, babies_num = year_sort_babies get_baby_objs 
 
 get '/' do
   haml :index, {locals: {years: years, babies_num: babies_num}}  
