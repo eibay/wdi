@@ -1,7 +1,7 @@
 require 'sinatra'
-require 'sinatra/reloader'
 require 'json'
 require 'haml'
+require 'redcarpet'
 
 # when the server starts # 
 # get & parse the babies # 

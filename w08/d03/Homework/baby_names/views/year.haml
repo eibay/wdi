@@ -5,12 +5,18 @@
     %title= "Babyparser.com | Babies born in #{year}"
   %body
     %header 
-      %h1 Babyparser.com 
-      %h2= "Babies born in #{year}" 
+      %h1 Babyparser.com
+      %h2= "Babies born in #{year}!"  
     %main 
       %section.years 
-        %ul 
+        %table 
+          %th Name 
+          %th County 
+          %th Gender 
+          %th Count 
           - babies.each do |baby|
-            %li 
-              %p= baby[:name] 
-              %p= baby[:county]
+            %tr  
+              %td= baby[:name] 
+              %td= baby[:county]
+              %td= baby[:gender]
+              %td= baby[:count]
