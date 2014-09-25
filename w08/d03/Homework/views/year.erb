@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Babies</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<table class="table table-striped table-bordered">
+		<tr><td>Name</td><td>County</td><td>Gender</td><td>Count</td></tr>
+		<%baby_year.each do |baby|%>
+		<tr><td><%=baby[9]%></td><td><%=baby[10]%></td><td><%=baby[11]%></td><td><%=baby[12]%></td></tr>
+		<%end%>
+
+
+	</table>
+</div>
+
+</body>
+</html>
