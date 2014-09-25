@@ -30,31 +30,21 @@ array_of_baby_arrays.map do |baby_array|
     county: baby_array[10], 
       name: baby_array[9], 
      count: baby_array[12], 
-      year: baby_array[8], 
+      year: baby_array[8] 
   }
 end
 
-def year_sort_babies(baby_objs)
-  return_strs = []
-  baby_objs.each do |baby_obj| 
-    years = []
-    have = years.include? baby_obj[year] 
-    if have
-
+def year_sort_babies data 
+  sorted_babies = {}
+  data.each do |baby_obj|  
+    if sorted_babies.has_key? baby_obj[:year] 
+      sorted_babies[baby_obj[:year]] << baby_obj 
     else
-      var_name_str = get_year_var_string baby_obj[year]
-      declaration_str = var_name_str + " = []"
-      eval declaration_str
-      return_strs << var_name_str
-      eval(var_name_str) << baby_obj 
+      sorted_babies[baby_obj[:year]] = []
+      sorted_babies[baby_obj[:year]] << baby_obj 
     end 
   end 
-end 
-
-def get_year_var_string(year_str)
-  year_num = year_str.to_i 
-  in_words = year_num.humanize 
-  in_words.replace ' ', '_'
+  sorted_babies
 end 
 
 binding.pry 
