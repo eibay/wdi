@@ -51,7 +51,11 @@ get '/' do
 end
 
 get "/years/:year" do 
-  year = params[:year]
-  babies = year_sorted_babies[year]
-  haml :year, {locals: {babies: babies, year: year}}
+  haml :year, {locals: {year: params[:year]}}
+end 
+
+get "/json/:year" do 
+  content_type :json 
+  baby_array = year_sorted_babies[params[:year]]
+  baby_array.to_json 
 end 

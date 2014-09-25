@@ -6,18 +6,8 @@
   %body
     %header 
       %h1 Babyparser.com
-      %h2= "Babies born in #{year}!"  
+      %h2= "Babies born in #{year}!" 
     %main 
       %section.years 
-        %table 
-          %th Name 
-          %th County 
-          %th Gender 
-          %th Count 
-          - babies.each do |baby|
-            %tr  
-              %td= baby["name"] 
-              %td= baby["county"]
-              %td= baby["gender"]
-              %td= baby["count"]
+        %table
     %script{:src => "/script.js"}
