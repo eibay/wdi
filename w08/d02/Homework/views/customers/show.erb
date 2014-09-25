@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Information</title>
+</head>
+<body>
+
+  <a href="/">Home</a>
+
+  <h3> Name: <%=customer.name %> </h3>
+  <h3> Email: <%=customer.email %> </h3>
+
+  <p>Tshirts</p>
+
+  <ul>
+
+      <li>
+
+        <% customer.tshirts.each do |tshirt| %>
+
+          <a href="/tshirts/<%=tshirt.id %>"><%=tshirt.size %><%=tshirt.price %><%=tshirt.qty %><%=tshirt.image_url %></a>
+
+      <% end %>
+
+      </li>
+
+  </ul>
+
+</body>
+</html>

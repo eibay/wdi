@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Its T-shirt time</title>
+</head>
+<body>
+
+  <h1>Welcome to the tshirt store. That's all we sell.</h1>
+
+    <h3>Current tshirt sizes we have in stock are shown below: </h3>
+
+      <ol>
+
+      <% tshirts.each do |tshirt| %>
+
+        <li>
+
+          <a href="/tshirts/<%=tshirt.id%>"><%= tshirt.size%></a>
+
+             </li>
+
+      <% end %>
+
+     </ol>
+
+    <a href="/tshirts/buy">Buy tshirt here</a>
+
+</body>
+</html>

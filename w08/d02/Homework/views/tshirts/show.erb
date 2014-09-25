@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tshirts info</title>
+</head>
+<body>
+
+  <a href="/">Go Home</a>
+
+  <h3><%=tshirt.size %></h3>
+    <h3><%=tshirt.price %></h3>
+      <h3><%=tshirt.qty %></h3>
+        <h3><%=tshirt.image_url%></h3>
+
+      <p>Belongs to customer:
+        <a href="/customers/<%=tshirt.id %>"><%=tshirt.customer.size %></a>
+      </p>
+</body>
+</html>
