@@ -3,8 +3,7 @@ require 'json'
 require 'haml'
 require 'redcarpet'
 
-# when the server starts # 
-# get & parse the babies # 
+# baby parsing methods # 
 
 def get_baby_objs  
   f = File.read "./public/ny-baby-names.json"
@@ -31,15 +30,24 @@ def year_sort_babies data
       sorted_babies[baby_obj["year"]] << baby_obj 
     end 
   end
-  # create a hash w/ the years & the count
-  babies_num = sorted_babies.inject({}) { |h, (k, v)| h[k] = v.length; h }
-  [sorted_babies, sorted_babies.keys, babies_num] 
+  baby_years = sorted_babies.keys 
+  baby_nums = count_by_year sorted_babies 
+  [sorted_babies, baby_years, baby_nums] 
 end 
 
-year_sorted_babies, years, babies_num = year_sort_babies get_baby_objs 
+def count_by_year year_sorted_data 
+  # create a hash w/ the years & 
+  # the number of babies born that year # 
+  year_sorted_data.inject({}) { |h, (k, v)| h[k] = v.length; h }
+end 
+
+# when the server starts # 
+# get & parse the babies # 
+
+year_sorted_babies, baby_years, baby_nums = year_sort_babies get_baby_objs 
 
 get '/' do
-  haml :index, {locals: {years: years, babies_num: babies_num}}  
+  haml :index, {locals: {baby_years: baby_years, baby_nums: baby_nums}}  
 end
 
 get "/years/:year" do 

@@ -11,8 +11,8 @@
       %section.years
         %h3 The Babies in Recent Years
         %ul 
-          - years.each do |year|
+          - baby_years.each do |year|
             %li 
               %p 
                 %a{:href => "/years/#{year}"}= year
-                = "(#{babies_num[year]} babies)"
+                = "(#{baby_nums[year]} babies)"
