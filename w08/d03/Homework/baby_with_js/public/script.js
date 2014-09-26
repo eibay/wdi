@@ -1,5 +1,5 @@
-window.addEventListener('load', function() {
-  var babyTable = document.querySelector("table");
+$(document).ready(function() {
+  var babyTable = $("table");
   var request = new XMLHttpRequest();
   // didn't about how to communicate to the server 
   // what year we were getting so get it from present document 
@@ -16,12 +16,15 @@ window.addEventListener('load', function() {
     for (var b = 0; b < babies.length; b++) {
       var baby = babies[b];
       var babyRow = createBabyRow(baby); 
-      babyTable.appendChild(babyRow); 
+      babyTable.append(babyRow); 
     }
   });
 });
 
 function createBabyRow(baby) {
+  // hard-coded array in order of th 
+  // how to find attr & assign them to 
+  // corresponding th dynamically? 
   var attrs = ["name", "county", "gender", "count"]; 
   var babyRow = document.createElement("tr"); 
   for (var a = 0; a < attrs.length; a++) {
