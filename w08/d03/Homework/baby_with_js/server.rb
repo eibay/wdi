@@ -54,8 +54,8 @@ get "/years/:year" do
   haml :year, {locals: {year: params[:year]}}
 end 
 
-get "/json/:year" do 
+get "/json/" do 
   content_type :json 
-  baby_array = year_sorted_babies[params[:year]]
+  baby_array = year_sorted_babies[params["year"]]
   baby_array.to_json 
 end 
