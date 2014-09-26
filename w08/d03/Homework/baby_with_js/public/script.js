@@ -12,6 +12,28 @@ window.addEventListener('load', function() {
   request.open('GET', requestURL, true);
   request.send(null);
   request.addEventListener('load', function() {
-    var babies = request.response;
+    var babies = JSON.parse(request.response);
+    for (var b = 0; b < babies.length; b++) {
+      var baby = babies[b];
+      var babyRow = document.createElement("tr"); 
+
+      var babyNameData = document.createElement("td")
+      babyNameData.innerText = baby["name"];
+      babyRow.appendChild(babyNameData); 
+
+      var babyCountyData = document.createElement("td"); 
+      babyCountyData.innerText = baby["county"];
+      babyRow.appendChild(babyCountyData);
+
+      var babyGenderData = document.createElement("td"); 
+      babyGenderData.innerText = baby["gender"];
+      babyRow.appendChild(babyGenderData); 
+
+      var babyCountData = document.createElement("td"); 
+      babyCountData.innerText = baby["count"]; 
+      babyRow.appendChild(babyCountData);
+
+      babyTable.appendChild(babyRow);
+    }
   });
 });
