@@ -15,25 +15,20 @@ window.addEventListener('load', function() {
     var babies = JSON.parse(request.response);
     for (var b = 0; b < babies.length; b++) {
       var baby = babies[b];
-      var babyRow = document.createElement("tr"); 
-
-      var babyNameData = document.createElement("td")
-      babyNameData.innerText = baby["name"];
-      babyRow.appendChild(babyNameData); 
-
-      var babyCountyData = document.createElement("td"); 
-      babyCountyData.innerText = baby["county"];
-      babyRow.appendChild(babyCountyData);
-
-      var babyGenderData = document.createElement("td"); 
-      babyGenderData.innerText = baby["gender"];
-      babyRow.appendChild(babyGenderData); 
-
-      var babyCountData = document.createElement("td"); 
-      babyCountData.innerText = baby["count"]; 
-      babyRow.appendChild(babyCountData);
-
-      babyTable.appendChild(babyRow);
+      var babyRow = createBabyRow(baby); 
+      babyTable.appendChild(babyRow); 
     }
   });
 });
+
+function createBabyRow(baby) {
+  var attrs = ["name", "county", "gender", "count"]; 
+  var babyRow = document.createElement("tr"); 
+  for (var a = 0; a < attrs.length; a++) {
+    var attr = attrs[a];
+    var data = document.createElement("td"); 
+    data.innerText = baby[attr]; 
+    babyRow.appendChild(data); 
+  }
+  return babyRow; 
+}
