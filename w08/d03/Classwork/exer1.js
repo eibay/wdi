@@ -1,6 +1,5 @@
 // Mechanics
 // Create a function that returns a string with a joke.
-// Create a function that takes a name and returns "hello [name]"
 
 
 function joke() {
@@ -8,6 +7,8 @@ function joke() {
 }
 
 console.log(joke());
+
+// Create a function that takes a name and returns "hello [name]"
 
 function hello(name) {
 	return "hello " + name;
@@ -37,23 +38,17 @@ function helloEach(name) {
 
 array.forEach(helloEach);
 
-/////// *******
+///////
 // Create a function that takes an array of names and returns a new array with "hello [name]" for each name
+
+array = ["jeff1", "jeff2", "jill", "brenda"];
 
 function helloArray(arr) {
 	newArray = [];
 	for (var n = 0; n < arr.length; n++) {
-		newArray.push(arr[n]); 
-			{
-				for (var x = 0; x < newArray.length; x++);
-				return "Hello " + newArray[x];
-			}
-	}		
+		newArray.push("hello " + arr[n]); 
+	} return newArray;
 };
-
-function printEach(narr) {
-	
-}
 
 helloArray(array);
 
@@ -78,11 +73,19 @@ function quadruple(n) {
 quadruple(5);
 
 ////////
-// Create a hash that has peoples names as keys and their favorite colors as values (no functions!)
-// Create a function that takes the above hash and uses Object.keys to print out "[name] favorite color is [color]" for each name
+// Create a function that takes the hash and 
+// uses Object.keys to print out "[name] favorite color is [color]" for each name
 
-hash = {lisa: "teal", david: "brown", brenda: "blue"};
+nc_hash = {lisa: "teal", david: "brown", brenda: "blue"};
 
+function nameColor(hash) {
+	keys = Object.keys(hash);
+	for (var i = 0; i < keys.length; i++) {
+		if (keys[i] == hash[keys[i]]);
+		console.log(keys[i] + "'s favorite color is " + hash[keys[i]]);
+	}
+	
+}
 
-
+nameColor(nc_hash);
 
