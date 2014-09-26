@@ -1,13 +1,7 @@
 $(document).ready(function() {
   var babyTable = $("table");
-  var request = new XMLHttpRequest();
-  // didn't about how to communicate to the server 
-  // what year we were getting so get it from present document 
-  var secondHeader = $("header h2"); 
-  var headerText = secondHeader.text(); 
-  var year = headerText.split(' ')[3].replace('!', ''); 
-  // have a route set up on the server giving JSON array of babies
-  // gets the year param from the url 
+  // get year from the current location's path using jQuery 
+  var year = $(location).attr("pathname").replace("/years/", '');
   var jsonRequestUrl = "http://localhost:4567/json/";
   var requestParams = {"year": year}; 
   $.getJSON(jsonRequestUrl, requestParams, function(babies) {
