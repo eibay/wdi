@@ -2,7 +2,7 @@
 //++2 Route that returns Hello World wrapped in a marquee tag
 //++3 Route that returns Hello World in a marquee tag, but read from a file
 //++4 Change the hello world route to '/hello'
-//5 Add a route '/yo' that says "yo world" (with no additional files)
+//++5 Add a route '/yo' that says "yo world" (with no additional files)
 //6 Add CSS to style the hello route, but no CSS in a file
 //7 Every route returns an array of names, in json
 //8 Every route returns json of names that was returned from a function
@@ -14,12 +14,18 @@ var url = require('url');
 var request = require('request');
 var fs = require('fs');
 
+// **** Why does /hello display correctly but then hang the browser???  
 var server = http.createServer(function(req, response) {
 	console.log(req.url);
 	if (req.url == '/hello') {
-
-	response.end(fs.readFileSync("exer2.html"));
+		var html = fs.readFileSync('./exer2.html');
+		response.end(html);
+	console.log('hello has been there');
 	}
+	else if (req.url == '/yo') {
+		response.end('<html><marquee>yo world</marquee></html>');
+	}
+	else response.end('error');
 
 });
 server.listen(2000);
