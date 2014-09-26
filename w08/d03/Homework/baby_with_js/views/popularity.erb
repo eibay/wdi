@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>Babies</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<style>
+	
+	
+	</style>
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row"></div>
+		<div class="row">
+			<div class="col-md-4">
+				<input type="text" class="form-control" id="name" placeholder="Enter Name"><br>
+				<button type="button" class="btn btn-default btn-sm popularity">Click Me For Charts</button>
+			</div>
+		</div>
+
+
+		<h3 class="chartTitle"></h3>
+		<canvas id="chart" ></canvas>
+
+		<ul id="test" class="testing">
+			<li>sjdksjd</li>
+			<li>sdksjdks</li>
+			<li>sjdksjdksja</li>
+			<li>sdksjdkskjds</li>
+		</ul>
+				<ul id="test2" class="testing">
+			<li>sjdksjd</li>
+			<li>sdksjdks</li>
+			<li>sjdksjdksja</li>
+			<li>sdksjdkskjds</li>
+		</ul>
+	</div>
+</div>
+</div>
+<script src="./charts.js"></script>
+<script src="./underscore.js"></script>
+<script src="./scripts.js"></script>
+<script>
+$( "#test, #test2" ).sortable({
+      connectWith: ".testing"
+    }).disableSelection();
+</script>
+</body>
+</html>
