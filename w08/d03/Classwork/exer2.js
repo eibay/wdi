@@ -15,7 +15,7 @@ var request = require('request');
 var fs = require('fs');
 
 var server = http.createServer(function(req, response) {
-	console.log(req.url)
+	console.log(req.url);
 	if (req.url == '/hello') {
 
 	response.end(fs.readFileSync("exer2.html"));
