@@ -1,4 +1,4 @@
-CREATE TABLE tshirts(
+CREATE TABLE tshirts (
 	id serial primary key,
 	shirt varchar(50),
 	price money,
@@ -15,5 +15,5 @@ CREATE TABLE users (
 
 CREATE TABLE orders (
 	id serial primary key,
-	user_id int,
+	user_id int
 );
