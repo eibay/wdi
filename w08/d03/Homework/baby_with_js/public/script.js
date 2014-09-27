@@ -1,10 +1,13 @@
 var year = '2012';
+var sortedBabies = [];
 
 $.get('http://127.0.0.1:4567/babies', function(data){
 
 	var babynames = $.parseJSON(data);
+	sortedBabies = babynames['data'];
 
 	// var year = window.location.pathname.split('/')[1];
+	
 	//create dropdowns
 	var allyears = _.pluck(babynames["data"], [8]);
 	var years = _.uniq(allyears, false);
@@ -18,31 +21,14 @@ $.get('http://127.0.0.1:4567/babies', function(data){
 		$('.county').append('<option value="' + county + '">' + county + '</option>')	
 	})
 
-	//add events to dropdowns
-	$('.year').on('change', function(){
-		year = $('.year option:selected').text();
-		var babiesByYear = _.filter(babynames["data"], function(baby){ 
+	//table methods
+	function setYear(babies){
+		var babiesByYear = _.filter(sortedBabies, function(baby){ 
 			return baby[8] == year;
 		});
 		setTable(babiesByYear);
-	})
+	}
 
-	$('.county').on('change', function(){
-		var county = $('.county option:selected').text();
-		var babiesByCounty = _.filter(babynames["data"], function(baby){ 
-			return baby[10] == county;
-		});
-		setTable(babiesByCounty);
-	})
-
-	$('.gender').on('change', function(){
-		var gender = $('.gender option:selected').text()[0];
-		var babiesByGender = _.filter(babynames["data"], function(baby){ 
-			return baby[11] == gender;
-		});
-		setTable(babiesByGender);
-	})
-	
 	function setTable(babies){
 		$('.table').empty();
 		babies.forEach(function(baby) {
@@ -50,6 +36,33 @@ $.get('http://127.0.0.1:4567/babies', function(data){
 			console.log(babies.length);
 		})
 	}
+
+	//add events to dropdowns
+	$('.year').on('change', function(){
+		year = $('.year option:selected').text();
+		var babiesByYear = _.filter(sortedBabies, function(baby){ 
+			return baby[8] == year;
+		});
+		setTable(babiesByYear);
+	})
+
+	$('.county').on('change', function(){
+		var county = $('.county option:selected').text();
+		var babiesByCounty = _.filter(sortedBabies, function(baby){ 
+			return baby[10] == county;
+		});
+		setTable(babiesByCounty);
+		sortedBabies = babiesByCounty;
+	})
+
+	$('.gender').on('change', function(){
+		var gender = $('.gender option:selected').text()[0];
+		var babiesByGender = _.filter(sortedBabies, function(baby){ 
+			return baby[11] == gender;
+		});
+		setYear(babiesByGender);
+		sortedBabies = babiesByGender;
+	})
 });
 
 // <ul class="dropdown-menu" role="menu" aria-labelledby="year">
