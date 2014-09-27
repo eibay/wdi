@@ -35,6 +35,16 @@ def year_sort_babies data
   [sorted_babies, baby_years, baby_nums] 
 end 
 
+def count_counties baby_year 
+  counties = []
+  baby_year.each do |baby|
+    unless counties.include? baby["county"]
+      counties << baby["county"]
+    end 
+  end 
+  counties 
+end 
+
 def count_by_year year_sorted_data 
   # create a hash w/ the years & 
   # the number of babies born that year # 
@@ -50,8 +60,10 @@ get '/' do
   haml :index, {locals: {baby_years: baby_years, baby_nums: baby_nums}}  
 end
 
-get "/years/:year" do 
-  haml :year, {locals: {year: params[:year]}}
+get "/years/:year" do
+  baby_year = year_sorted_babies[params[:year]] 
+  counties = count_counties baby_year 
+  haml :year, {locals: {year: params[:year], counties: counties}}
 end 
 
 get "/json/" do 
