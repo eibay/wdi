@@ -3,30 +3,27 @@ var http = require('http');
 var url = require('url');
 var request = require('request');
 var fs = require('fs');
-var Router = require('node-simple-router');
-var router = Router();
+var msg = "nononononono"
 
 var people = [{name: "Eddie", age: 36, favorite: "beer"}, {name: "Becky", age: 32, favorite: "laboutins"}, {name: "Pasha", age: 10, favorite: "ballet"}, {name: "David", age: 6, favorite: "destruction"}]
 
-router.get("/hello", function(request, response) {response.end("Hello, World!")
-}
-
-
-var server = http.createServer(router);
-
-
-
-// var server = http.createServer(function(req, response) {
-// 	console.log(req.url);
-// 	if (req.url == '/names') {
-// 		response.end(returnNames(people));
-// 	}
-// 	else if (req.url == '/people') {
-// 		response.end(returnPeople(people));
-// 	}
-// 	else response.end('error');
-
-// });
+var server = http.createServer(function(req, response) {
+	console.log(req.url);
+	if (req.url == '/') {
+		// console.log('client asking for ' + req.url)
+		var html = fs.readFileSync("exer3.html");
+		response.end(html);
+	}
+	else if (req.url == '/names') {
+		response.end(returnNames(people));
+	}
+	else if (req.url == '/people') {
+		response.end(returnPeople(people));
+	}
+	else {
+		response.end(msg);
+	}
+	
 
 });
 server.listen(2000);
