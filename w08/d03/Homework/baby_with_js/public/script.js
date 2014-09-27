@@ -16,13 +16,19 @@ $(document).ready(function() {
   genderDropdown.addEventListener('change', function(e) {
     var gender = e.srcElement.value;
     var babyRows = document.querySelectorAll("table tr");
-    for (var r = 1; r < babyRows.length; r++) {
-      var babyRow = babyRows[r]; 
-      var babyRowGenderData = babyRow.children[2]; 
-      var babyRowGender = babyRowGenderData.innerText; 
-      if (babyRowGender != gender)
-        babyRow.parentNode.removeChild(babyRow); 
-    }
+
+    for (var r = 1; r < babyRows.length; r++) 
+      babyRows[r].parentNode.removeChild(babyRows[r]); 
+    
+    $.getJSON(jsonRequestUrl, requestParams, function(babies) {
+
+      $.each(babies, function(b, baby) {
+
+        if (baby["gender"] == gender)
+          babyTable.append(createBabyRow(baby)); 
+
+      }); 
+    });    
   }); 
 });
 
