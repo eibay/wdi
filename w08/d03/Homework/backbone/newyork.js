@@ -17,13 +17,10 @@ xhr.addEventListener('load', function(e){
 		var ftype = parsedResponse[i]["facility_type"];
 		var borough = parsedResponse[i]["borough"];
 		var li = document.createElement("li");
-		li.innerText = name;
+		li.innerHTML = "<html>Name: </html>" + name + "<html><br>Facility Type: </html>" + ftype + "<html><br>Borough: </html>" + borough;
 		ul.appendChild(li);		
 
 	}	
-
-
-
 
 
 
