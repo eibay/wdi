@@ -9,8 +9,18 @@ xhr.addEventListener('load', function(e){
 	console.log(e);
 	console.log(xhr.response);
 
+	var parsedResponse = JSON.parse(xhr.response);
+	var ul = document.querySelector("ul");
 
+	for (var i = 0; i < parsedResponse.length; i ++) {
+		var name = parsedResponse[i]["facility_name"];
+		var ftype = parsedResponse[i]["facility_type"];
+		var borough = parsedResponse[i]["borough"];
+		var li = document.createElement("li");
+		li.innerText = name;
+		ul.appendChild(li);		
 
+	}	
 
 
 
@@ -20,13 +30,3 @@ xhr.addEventListener('load', function(e){
 
 
 });
-
-
-
-
-
-
-
-
-
-
