@@ -10,25 +10,30 @@ $(document).ready(function() {
       babyTable.append(babyRow); 
     });
   });
-  var genderDropdown = document.querySelector("select.gender");
-  var countyDropdown = document.querySelector("select.county"); 
 
+  var genderDropdown = document.querySelector("select.gender");
   genderDropdown.addEventListener('change', function(e) {
     var gender = e.srcElement.value;
-    var babyRows = document.querySelectorAll("table tr");
-
-    for (var r = 1; r < babyRows.length; r++) 
-      babyRows[r].parentNode.removeChild(babyRows[r]); 
-    
+    destroyAllBabyRows() 
     $.getJSON(jsonRequestUrl, requestParams, function(babies) {
-
       $.each(babies, function(b, baby) {
-
         if (baby["gender"] == gender)
           babyTable.append(createBabyRow(baby)); 
 
       }); 
     });    
+  }); 
+
+  var countyDropdown = document.querySelector("select.county"); 
+  countyDropdown.addEventListener('change', function(e) {
+    var county = e.srcElement.value; 
+    destroyAllBabyRows() 
+    $.getJSON(jsonRequestUrl, requestParams, function(babies) {
+      $.each(babies, function(b, baby) {
+        if (baby["county"] == county) 
+          babyTable.append(createBabyRow(baby)); 
+      });
+    }); 
   }); 
 });
 
@@ -44,4 +49,11 @@ function createBabyRow(baby) {
     babyRow.append(data); 
   }); 
   return babyRow; 
+}
+
+function destroyAllBabyRows() {
+  var babyRows = document.querySelectorAll("table tr");
+
+  for (var r = 1; r < babyRows.length; r++) 
+    babyRows[r].parentNode.removeChild(babyRows[r]); 
 }
