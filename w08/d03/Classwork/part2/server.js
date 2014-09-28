@@ -11,18 +11,6 @@ var yo = "<h1>Yo world!</h1>"
 var namesArray = ["Peter", "Paul", "Mary"]
 var attrHash = [{name: "Peter", role: "singer"}, {name: "Paul", role: "Also a singer"}, {name: "Mary", role: "Yet another singer" }]
 
-function makeJSON(arr) {
-	var names = JSON.stringify(arr);
-	return names	
-}
-
-function returnAttributes(arr) {
-var newArray = [];
-	for (var i=0; i < arr.length; i++) {
-		newArray.push(arr[i]);
-	}		
-	return JSON.stringify(newArray);
-}
 		if (path == "/hello") {
 			response.end(greeting + makeJSON(namesArray) + '\n' + returnAttributes(attrHash)); 
 		} else if (path == "/marquee"){
@@ -43,3 +31,16 @@ var newArray = [];
 
 
 server.listen(2000);
+
+function makeJSON(arr) {
+	var names = JSON.stringify(arr);
+	return names	
+}
+
+function returnAttributes(arr) {
+var newArray = [];
+	for (var i=0; i < arr.length; i++) {
+		newArray.push(arr[i]);
+	}		
+	return JSON.stringify(newArray);
+}
