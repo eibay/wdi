@@ -9,22 +9,33 @@ var marquee = "<html><marquee><h1 style='font-family: Helvetica'>Hello World!</h
 var yo = "<h1>Yo world!</h1>"
 
 var namesArray = ["Peter", "Paul", "Mary"]
-
+var attrHash = [{name: "Peter", role: "singer"}, {name: "Paul", role: "Also a singer"}, {name: "Mary", role: "Yet another singer" }]
 
 function makeJSON(arr) {
 	var names = JSON.stringify(arr);
 	return names	
 }
 
+function returnAttributes(arr) {
+var newArray = [];
+	for (var i=0; i < arr.length; i++) {
+		newArray.push(arr[i]);
+	}		
+	return JSON.stringify(newArray);
+}
 		if (path == "/hello") {
-			response.end(greeting + makeJSON(names)); 
+			response.end(greeting + makeJSON(namesArray) + '\n' + returnAttributes(attrHash)); 
 		} else if (path == "/marquee"){
-			response.end(marquee + makeJSON(names));
+			response.end(marquee + makeJSON(namesArray) + '\n' + returnAttributes(attrHash));
 		} else if (path == "/marquee2"){
 			var html = fs.readFileSync("./marquee.html")
 			response.end(html); 
 		} else if (path == '/yo') {
-			response.end(yo + makeJSON(names));
+			response.end(yo + makeJSON(namesArray) + '\n' + returnAttributes(attrHash));
+		} else if (path == '/names') {
+			response.end(makeJSON(namesArray));
+ 		} else if (path == '/people') {
+ 		response.end(returnAttributes(attrHash));
 		} else {
 			response.end(greeting);
 		};
@@ -32,5 +43,3 @@ function makeJSON(arr) {
 
 
 server.listen(2000);
-
-Every route calls a function that returns an array of 3 people, where each person is represented by a hash of attributes (e.g. name, age, etc)
