@@ -9,35 +9,37 @@ $(document).ready(function() {
 });
 
 function adjustBabyTable() {
+  destroyAllBabyRows(); 
 
   // AJAX variables 
   var year = $(location).attr("pathname").replace("/years/", '');
   var jsonRequestUrl = "http://localhost:4567/json/";
   var requestParams = {"year": year}; 
-
-  // DOM variables 
-  var $babyTable = $("table");
-  var $countyDropdown = $("select.county");
-  var $genderDropdown = $("select.gender");
- 
-
-  destroyAllBabyRows(); 
+  
   $.getJSON(jsonRequestUrl, requestParams, function(babies) {
+
+    // DOM variables
+    var $genderDropdown = $("select.gender");
+    var $countyDropdown = $("select.county");
+    var $babyTable = $("table");
+
+    // what genders & counties we want to see   
+    var gender = $genderDropdown.val(); 
+    var genderIsBlank = gender == '-';
+
+    var county = $countyDropdown.val();  
+    var countyIsBlank = county == '-';  
+
     $.each(babies, function(b, baby) {
-      // what kind of table are we building? 
-   
-      var gender = $genderDropdown.val(); 
-      var genderIsBlank = gender == '-';
+
+      // test baby & then... 
       var babyHasThisGender = baby["gender"] == gender; 
-
-      var county = $countyDropdown.val(); 
-      var countyIsBlank = county == '-'; 
       var babyHasThisCounty = baby["county"] == county;  
-
-      // select from babies only needed babies  
+ 
+      // only add baby if needed    
       if (genderIsBlank || babyHasThisGender) 
         if (countyIsBlank || babyHasThisCounty) 
-          $babyTable.append(createBabyRow(baby));  
+          $babyTable.append(createBabyRow(baby));   
     }); 
   }); 
 }
@@ -63,3 +65,4 @@ function destroyAllBabyRows() {
   for (var r = 1; r < babyRows.length; r++) 
     babyRows[r].parentNode.removeChild(babyRows[r]); 
 }
+
