@@ -13,12 +13,17 @@ $(document).ready(function() {
 
   var genderDropdown = document.querySelector("select.gender");
   genderDropdown.addEventListener('change', function(e) {
-    var gender = e.srcElement.value;
+    var gender = genderDropdown.value;
     destroyAllBabyRows() 
     $.getJSON(jsonRequestUrl, requestParams, function(babies) {
       $.each(babies, function(b, baby) {
-        if (baby["gender"] == gender)
-          babyTable.append(createBabyRow(baby)); 
+        var genderIsBlank = gender == '-'; 
+        var babyHasThisGender = baby["gender"] == gender; 
+        var countyIsBlank = countyDropdown.value == '-';  
+        var babyHasThisCounty = baby["county"] == countyDropdown.value; 
+        if (genderIsBlank || babyHasThisGender)
+          if (countyIsBlank || babyHasThisCounty)
+            babyTable.append(createBabyRow(baby)); 
 
       }); 
     });    
@@ -26,12 +31,17 @@ $(document).ready(function() {
 
   var countyDropdown = document.querySelector("select.county"); 
   countyDropdown.addEventListener('change', function(e) {
-    var county = e.srcElement.value; 
+    var county = countyDropdown.value; 
     destroyAllBabyRows() 
     $.getJSON(jsonRequestUrl, requestParams, function(babies) {
       $.each(babies, function(b, baby) {
-        if (baby["county"] == county) 
-          babyTable.append(createBabyRow(baby)); 
+        var countyIsBlank = county == '-';
+        var babyHasThisCounty = baby["county"] == county; 
+        var genderIsBlank = genderDropdown.value == '-'; 
+        var babyHasThisGender = baby["gender"] == genderDropdown.value; 
+        if (countyIsBlank || babyHasThisCounty) 
+          if (genderIsBlank || babyHasThisGender)  
+            babyTable.append(createBabyRow(baby)); 
       });
     }); 
   }); 
