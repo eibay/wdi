@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <meta charset="UTF-8">
+  <title>Baby Names</title>
+</head>
+<body>
+  <h3>Baby Names in NY by Year</h3>
+  <ul>
+    </li><a href="/">Home</a></li>
+    </li><a href="/2008">Names in 2008</a></li>
+    </li><a href="/2009">Names in 2009</a></li>
+    </li><a href="/2010">Names in 2010</a></li>
+    </li><a href="/2011">Names in 2011</a></li>
+    </li><a href="/2012">Names in 2012</a></li>
+  </ul>
+  <hr />
+  <table class="table table-striped">
+    <tr>
+      <td>Name</td><td>County</td><td>Gender</td><td>Count</td>
+    </tr>
+  <% names['data'].each do |name| %>
+  <% if name[8] == year %>
+    <tr>
+      <td><%= name[9] %></td><td><%= name[10] %></td><td><%= name[11] %></td><td><%= name[12] %></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>
+</body>
+</html>
