@@ -27,12 +27,13 @@
      <tr>
       Year: 
     </tr>
-  <th>Name</th>
+    <tr>
+    <th>Name</th>
     <th>County</th>
     <th>Gender</th>
-    <th>County</th>
+    <th>Count</th>
   </tr>
-
+<tr>
 <% names["data"].each do |x| %>
   <% if year == x[8] %>
   <tr>
@@ -43,6 +44,8 @@
   </tr>
    <% end %>
   <% end %>
+</tr>
 </table>
+</div>
 </body>
 </html>

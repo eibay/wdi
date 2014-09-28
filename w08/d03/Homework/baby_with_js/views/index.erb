@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class=<"dropdown">
+<h3>Choose a year:</h3>
+<form action="/" method="GET">
+  <select name="year">
+    <% unique_years.each do |y| %>
+    <option value="<%= y %>"><%= y %></option>
+    <% end %>
+  </select>
+        <button>Choose</button>
+      </form>
+    </div>
+   <table class="table table-striped">
+     <tr>
+      Year: 
+    </tr>
+    <tr>
+    <th>Name</th>
+    <th>County</th>
+    <th>Gender</th>
+    <th>Count</th>
+  </tr>
+<tr>
+<% names["data"].each do |x| %>
+  <% if year == x[8] %>
+  <tr>
+  <td><%= x[9] %></td>
+  <td><%= x[10] %></td>
+  <td><%= x[11] %></td>
+  <td><%= x[12] %></td>
+  </tr>
+   <% end %>
+  <% end %>
+</tr>
+</table>
+</div>
+</body>
+</html>
