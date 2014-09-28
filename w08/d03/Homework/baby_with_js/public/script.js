@@ -17,8 +17,8 @@ function adjustBabyTable() {
 
   // DOM variables 
   var $babyTable = $("table");
-  var countyDropdown = document.querySelector("select.county");
-  var genderDropdown = document.querySelector("select.gender");
+  var $countyDropdown = $("select.county");
+  var $genderDropdown = $("select.gender");
  
 
   destroyAllBabyRows(); 
@@ -26,15 +26,15 @@ function adjustBabyTable() {
     $.each(babies, function(b, baby) {
       // what kind of table are we building? 
    
-      var gender = genderDropdown.value; 
+      var gender = $genderDropdown.val(); 
       var genderIsBlank = gender == '-';
       var babyHasThisGender = baby["gender"] == gender; 
 
-      var county = countyDropdown.value; 
+      var county = $countyDropdown.val(); 
       var countyIsBlank = county == '-'; 
       var babyHasThisCounty = baby["county"] == county;  
 
-      // select from the babies only the babies we need 
+      // select from babies only needed babies  
       if (genderIsBlank || babyHasThisGender) 
         if (countyIsBlank || babyHasThisCounty) 
           $babyTable.append(createBabyRow(baby));  
