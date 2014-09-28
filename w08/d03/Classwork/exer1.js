@@ -89,3 +89,9 @@ function nameColor(hash) {
 
 nameColor(nc_hash);
 
+// Create a function that takes two hashes and combines the elements
+
+
+
+
+

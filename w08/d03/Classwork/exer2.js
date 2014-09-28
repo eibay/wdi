@@ -10,10 +10,12 @@ var people = [{name: "Eddie", age: 36, favorite: "beer"}, {name: "Becky", age: 3
 var server = http.createServer(function(req, response) {
 	console.log(req.url);
 	if (req.url == '/') {
-		// console.log('client asking for ' + req.url)
 		var html = fs.readFileSync("exer3.html");
 		response.end(html);
 	}
+  else if (req.url == "/exer3.js") {
+    response.end(fs.readFileSync("exer3.js"));
+  }
 	else if (req.url == '/names') {
 		response.end(returnNames(people));
 	}
