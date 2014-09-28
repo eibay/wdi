@@ -122,16 +122,6 @@ else{
 
 
 
-// $( "#test, #test2" ).sortable({
-//       connectWith: ".testing"
-//     }).disableSelection();
-
-
-
-
-
-
-
 
 
 

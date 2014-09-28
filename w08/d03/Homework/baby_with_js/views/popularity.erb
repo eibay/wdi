@@ -8,7 +8,13 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<style>
-	
+	#test{
+		min-height:10px;
+		
+	}
+	#test2{
+		min-height:10px;
+}
 	
 	</style>
 
@@ -28,18 +34,7 @@
 		<h3 class="chartTitle"></h3>
 		<canvas id="chart" ></canvas>
 
-		<ul id="test" class="testing">
-			<li>sjdksjd</li>
-			<li>sdksjdks</li>
-			<li>sjdksjdksja</li>
-			<li>sdksjdkskjds</li>
-		</ul>
-				<ul id="test2" class="testing">
-			<li>sjdksjd</li>
-			<li>sdksjdks</li>
-			<li>sjdksjdksja</li>
-			<li>sdksjdkskjds</li>
-		</ul>
+		
 	</div>
 </div>
 </div>
@@ -47,9 +42,7 @@
 <script src="./underscore.js"></script>
 <script src="./scripts.js"></script>
 <script>
-$( "#test, #test2" ).sortable({
-      connectWith: ".testing"
-    }).disableSelection();
+
 </script>
 </body>
 </html>
