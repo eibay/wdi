@@ -1,7 +1,7 @@
 var shirts = document.querySelectorAll(".shirt_window")
 
 function orderShirts(feed) {
-	var item = feed.target.innerText;
+	var item = feed.target.parentNode.attributes.name.value;
 	var row = document.createElement("div");
 	row.class = "row"
 	row.id = item

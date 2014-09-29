@@ -12,7 +12,7 @@ end
 
 get "/" do
 
-	erb(:index, {locals: {shirts: Shirt.all} })
+	erb(:index, {locals: {shirts: Shirt.order(:id)} })
 
 end
 
