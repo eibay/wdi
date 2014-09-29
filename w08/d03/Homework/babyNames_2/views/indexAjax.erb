@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baby Names</title>
+
+	<link rel="stylesheet" href="./styles.css">
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<script src="./scripts.js"></script>
+
+	<script>
+      $("document").ready(function() {
+        getData();
+      });
+      
+      function getData() {
+      	// note that below is a get request shortcut
+      	// this will go to server look for url (url.text) take the result
+      	// and put it in the element that matches the selector ("#content")
+      	
+        $(".content").load("url.txt");
+      }
+
+      function successFn(result) {
+        console.log("Setting result");
+      	$("#content").append(result);
+      }
+      function errorFn(xhr, status, strErr) {
+        alert(strErr);
+      }
+  </script>
+
+</head>
+	<body>
+
+		<h1>Babys Born In New York State In 2012</h1>
+
+		<table border="1" style="width:70%">
+		  <tr>
+		    <th>Name</th>
+		    <th>County</th> 
+		    <th>Gender</th>
+		    <th>Count</th>
+		  </tr>
+		  <% i = 0 %>
+		  <% while i <= 100 %>
+		  	<% if babys["data"][i][8] == "2012"%>
+				  <tr>
+				    <td><%= babys["data"][i][9].capitalize %></td>
+				    <td><%= babys["data"][i][10].capitalize %></td> 
+				    <td><%= babys["data"][i][11] %></td>
+				    <td><%= babys["data"][i][12] %></td>
+				  </tr>
+				<% end %> 
+		  <% i += 1 %>
+		  <% end %>
+		</table>
+
+	  
+	</body>
+</html>

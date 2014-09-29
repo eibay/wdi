@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baby Names</title>
+  		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<link rel="stylesheet" href="./styles.css">
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+	<body>
+
+		<h1>Babys Born In New York State In 2012</h1>
+
+		<table border="1" style="width:70%">
+		  <tr>
+		    <th>Name</th>
+		    <th>County</th> 
+		    <th>Gender</th>
+		    <th>Count</th>
+		  </tr>
+
+		  <% babys[1..50].each do |baby| %>
+				<tr>
+				  <td><%= baby[9].capitalize %></td>
+				  <td><%= baby[10].capitalize %></td> 
+				  <td><%= baby[11] %></td>
+				  <td><%= baby[12] %></td>
+				</tr>
+			<% end %> 
+		</table>
+
+	</body>
+</html>

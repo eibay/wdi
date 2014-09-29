@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baby Names</title>
+</head>
+	<body>
+
+		<h1>Babys Born In New York State In 2012</h1>
+
+		<table border="1" style="width:70%">
+		  <tr>
+		    <th>Name</th>
+		    <th>County</th> 
+		    <th>Gender</th>
+		    <th>Count</th>
+		  </tr>
+
+		  <% babys[1..50].each do |baby| %>
+				<tr>
+				  <td><%= baby[9].capitalize %></td>
+				  <td><%= baby[10].capitalize %></td> 
+				  <td><%= baby[11] %></td>
+				  <td><%= baby[12] %></td>
+				</tr>
+			<% end %> 
+		</table>
+
+	</body>
+</html>
