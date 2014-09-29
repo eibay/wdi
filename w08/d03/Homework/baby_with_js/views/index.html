@@ -1,0 +1,176 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="dropdown">
+  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+    County <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" id="county_dropdown">
+
+  </ul>
+</div>
+
+<div class="dropdown">
+  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+    Gender <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel" id="gender">
+    <li class="gender_target">Male</li>
+    <li class="gender_target">Female</li>
+  </ul>
+</div>
+
+  <h1>Baby Name Chart</h1>
+  <ul>
+    <li><h2><a href="/2007">2007 Babies</a></h2></li>
+    <li><h2><a href="/2008">2008 Babies</a></h2></li>
+    <li><h2><a href="/2009">2009 Babies</a></h2></li>
+    <li><h2><a href="/2010">2010 Babies</a></h2></li>
+    <li><h2><a href="/2011">2011 Babies</a></h2></li>
+    <li><h2><a href="/2012">2012 Babies</a></h2></li>
+  </ul>
+  <!-- <h1>Babies born in 2011</h1> -->
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th>County</th>   
+      <th>Gender</th>
+      <th>Count</th>
+    </tr>
+  </table>
+<script type="text/javascript">
+console.log("Index Success!");
+
+    //Load babies imformation//
+
+$.ajax({url: "http://localhost:2000/baby", type: "GET", 
+	success: function(data){
+    console.log("Success!");
+
+		var baby_info = JSON.parse(data)["data"];
+		var babies = [];
+    var county_list = [];
+
+    //make each baby's hash//
+
+    $(baby_info).each(function() {
+      	var baby_hash = {year: $(this)[8], name: $(this)[9], county: $(this)[10], gender: $(this)[11], count: $(this)[12]}
+		babies.push(baby_hash);
+      });
+
+    //craete a county_list
+
+    $(babies).each(function() {
+      if ($.inArray($(this)[0].county, county_list) == -1) {
+        county_list.push($(this)[0].county);
+      };
+    });
+
+    //create county_list dropdown
+
+    for(var i=0;i<county_list.length;i++) {
+        var li = document.createElement('li');
+        $(li).html(county_list[i]);
+        $(li).attr("class", "county_target");
+        $("#county_dropdown").append(li);
+    };
+
+    //if a county is clicked from dropdown
+
+    $(".county_target").click(function() {
+      $(".county").remove();
+      debugger
+
+      county = $(this)[0].innerText;
+      $.ajax({url: "http://localhost:2000/baby", type: "GET", success: function(data){
+        console.log("Success!");
+
+      var baby_info = JSON.parse(data)["data"];
+      var babies = [];
+
+      $(baby_info).each(function() {
+        var baby_hash = {year: $(this)[8], name: $(this)[9], county: $(this)[10], gender: $(this)[11], count: $(this)[12]}
+        babies.push(baby_hash);
+      });
+      $(babies).each(function() {
+        if ($(this)[0].county == county) {
+          var tr = document.createElement('tr');
+          $(tr).attr("class", "county")
+          $(tr).append("<td>" + $(this)[0].name + "</td>");
+          $(tr).append("<td>" + $(this)[0].county + "</td>");
+          $(tr).append("<td>" + $(this)[0].gender + "</td>");
+          $(tr).append("<td>" + $(this)[0].count + "</td>");
+          $(".table").append(tr);
+        };
+        // $("<h1>" + county + "</h1>").insertBefore(".table");
+      });
+
+      }});
+    });
+
+    //If a gender target is clicked//
+
+    $(".gender_target").click(function() {
+
+      console.log("Genderrr!!");
+
+      //Get baby infomation
+
+      var baby_info = JSON.parse(data)["data"];
+      var babies = [];
+
+      $(baby_info).each(function() {
+        var baby_hash = {year: $(this)[8], name: $(this)[9], county: $(this)[10], gender: $(this)[11], count: $(this)[12]}
+        babies.push(baby_hash);
+      });
+
+      //Male or Female
+
+      if ($(this)[0].innerText == "Male") {
+        console.log("Male!");
+        $(babies).each(function() {
+        if ($(this)[0].gender == "M") {
+
+      //Select Male Babies and Create Table
+
+          var tr = document.createElement('tr');
+          $(tr).attr("class", "county")
+          $(tr).append("<td>" + $(this)[0].name + "</td>");
+          $(tr).append("<td>" + $(this)[0].county + "</td>");
+          $(tr).append("<td>" + $(this)[0].gender + "</td>");
+          $(tr).append("<td>" + $(this)[0].count + "</td>");
+          $(".table").append(tr);
+        };
+      });
+      } else {
+        console.log("Female!");
+
+        //Select Fmale Babies and Create Table
+
+        if ($(this)[0].gender == "F") {
+          var tr = document.createElement('tr');
+          $(tr).attr("class", "county")
+          $(tr).append("<td>" + $(this)[0].name + "</td>");
+          $(tr).append("<td>" + $(this)[0].county + "</td>");
+          $(tr).append("<td>" + $(this)[0].gender + "</td>");
+          $(tr).append("<td>" + $(this)[0].count + "</td>");
+          $(".table").append(tr);
+        };
+      };
+    });
+}});
+</script>
+</body>
+</html>

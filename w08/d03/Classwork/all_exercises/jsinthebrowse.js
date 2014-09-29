@@ -9,18 +9,20 @@ server.on('request', function(request, response) {
 
 	var parsedRequest = url.parse(request.url, true);
 
-	console.log('Sho');
+  	console.log("Request received to: " + parsedRequest.pathname);
 
-	var xhr = new XMLHttpRequest();
-      console.log('XMLHttpRequest');
-
-      xhr.open('GET', '/namse');
-      xhr.send();
-xhr.addEventListener('load', function(ev){
-      console.log('Got Callback');
-      
-      };
+	if (parsedRequest.pathname == '/') {
+  	console.log('index.html has been loaded');
+  	response.end('Sho!!');
+  } else if (parsedRequest.pathname == '/js') {
+  	httpClient.get('http://randomword.setgetgo.com/get.php', function(err, res2, body) {
+      response.end(body);
+    });
+  } else if (parsedRequest.pathname == '/names') {
+  	response.end(fs.readFileSync('../style.css'));
+  };
 
 });
 
 server.listen(2000);
+

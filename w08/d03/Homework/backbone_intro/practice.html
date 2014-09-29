@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Practice</title>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div>
+</div>	
+<script type="text/javascript">
+var xhr = new XMLHttpRequest();
+console.log('XMLHttpRequest');
+
+xhr.open('GET', 'http://data.cityofnewyork.us/resource/kn7u-vdxr.json');
+xhr.send();
+xhr.addEventListener('load', function(ev){
+      console.log('Loaded!!');
+      var body = ev.currentTarget.response;
+      $('div').append(body);
+
+});
+</script>
+</body>
+</html>
