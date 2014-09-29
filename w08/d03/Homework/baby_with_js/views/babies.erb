@@ -30,15 +30,17 @@
 			if(xhr.status === 200){
 				console.log("hello2");
 				var response = xhr.response;
+				var respParsed = JSON.parse(response);
 
 				var data = document.createElement("p");
+				
 
-				data.innerText = response;
+				data.innerText = respParsed;
 
 				document.getElementById("octopus").appendChild(data);
 			}
 		});
-		xhr.open('GET', '/2007', true);
+		xhr.open('GET', 'http://localhost:4567/2007', true);
 		xhr.send();
 
 	</script>

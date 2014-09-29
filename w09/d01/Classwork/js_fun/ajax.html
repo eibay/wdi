@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<button>Button</button>
+	<ul></ul>
+	<script>
+		var xhr = new XMLHttpRequest();
+
+		xhr.addEventListener('load', function(){
+
+			var button = document.querySelector('button');
+			var ul = document.querySelector('ul');
+			var response = xhr.response;
+			var respParsed = JSON.parse(response);
+
+
+			button.addEventListener('click', function(event){
+				for(var i=0; i<10; i++){
+					var li = document.createElement('li');
+					li.innerText = respParsed['data'][i][9] + " -- " + respParsed['data'][i][10];
+					ul.appendChild(li);	
+				} 
+			})
+
+		})
+
+
+		xhr.open('GET', 'https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json', true);
+		xhr.send();
+	</script>
+</body>
+</html>
