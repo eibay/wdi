@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>T-Shirt.ly</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/style.css">
+	<script type="text/javascript" href="javascripts/index.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		
+		<div class="row">
+			<header class="col-md-6 col-md-offset-3">
+				<h1><a href="/">T-shirt.ly</a></h1>
+			</header>
+		</div>
+		
+		<main class="col-md-12">
+			<div class="row">
+			<% tshirts.each do |tshirt| %>
+				<section class="col-md-3 col-md-offset-1">
+					<a href="/tshirts/<%=tshirt.id%>"><img src="<%=tshirt.image%>"></a>
+					<p>$<%=tshirt.price%></p>
+					<form action="/tshirts/<%=tshirt.id%>" method="GET"><button type="button" class="btn btn-sm btn-primary">See More</button>
+					</form>
+				</section>
+				<%end%>
+			</div>
+		</main>
+
+		<div class="row">
+			<footer class="col-md-2 col-md-offset-5">
+				<p><a href="/admin">Admin Home</a></p>
+			</footer>
+		</div>
+	
+
+
+
+
+
+
+	</div>
+</body>
