@@ -1,0 +1,35 @@
+!!!
+%html{:lang => "en"} 
+%head
+  %meta{:charset => "utf-8"}
+  %title Tshirt.ly | A T-Shirt for a Truer Youly  
+%body 
+  %header
+    %a{:href => '/'} 
+      %h1#logo Tshirt.ly 
+    %h2 A T-Shirt for a Truer Youly 
+    %nav 
+      %ul 
+        %li 
+          %a{:href => '/'} Home 
+        %li 
+          %a{:href => "/admin"} Admins
+  %main.shop  
+    %section.all_shirts 
+      %h3 All T-Shirts, Yoursly
+
+      %ul 
+        - t_shirts.each do |t_shirt|
+          %li
+            %img{:src => t_shirt.img_src, :width => "200px"} 
+            %p 
+              %span Price:  
+              = "$#{t_shirt.price}" 
+            %p= "We only have #{t_shirt.available_quanity} left!" 
+
+            %form{:action => "/orders", :method => "GET"}
+              %input{:type => "hidden", :name => "tshirt_id", :value => t_shirt.id}
+              %label 
+                %span Quantity:  
+                %input{:type => "number", :name => "tshirt_quanity", :min => 1, :max => t_shirt.available_quanity, :value => 1}
+              %button Order 

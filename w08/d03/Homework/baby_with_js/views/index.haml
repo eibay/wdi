@@ -1,0 +1,18 @@
+!!! 
+%html 
+  %head 
+    %meta{:charset => "utf-8"}
+    %title Babyparser.com | The Site Where We Parse Babies
+  %body
+    %header
+      %h1 Babyparser.com 
+      %h2 The Site Where We Parse Babies
+    %main
+      %section.years
+        %h3 The Babies in Recent Years
+        %ul 
+          - baby_years.each do |year|
+            %li 
+              %p 
+                %a{:href => "/years/#{year}"}= year
+                = "(#{baby_nums[year]} babies)"

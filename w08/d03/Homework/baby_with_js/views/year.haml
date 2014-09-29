@@ -1,0 +1,26 @@
+!!! 
+%html 
+  %head 
+    %meta{:charset => "utf-8"}
+    %title= "Babyparser.com | Babies born in #{year}"
+  %body
+    %header 
+      %h1 Babyparser.com
+      %h2= "Babies born in #{year}!" 
+    %main 
+      %section.years
+        %select.gender{:name => "gender"} 
+          %option{:value => '-', :selected => true}
+          %option{:value => 'M'} Male
+          %option{:value => 'F'} Female  
+        %select.county{:name => "county"}
+          %option{:value => '-', :selected => true}
+          - counties.each do |county|
+            %option{:value => county}= county.split(' ').map(&:capitalize).join ' '
+        %table
+          %th Name 
+          %th County 
+          %th Gender 
+          %th Count
+    %script{:src => "/jquery-2.1.1.min.js"} 
+    %script{:src => "/script.js"}
