@@ -1,0 +1,14 @@
+img {
+	width: auto;
+	height: 200px;
+	border-radius: 10px;
+}
+
+.product_grid li {
+	list-style-type: none;
+	display: inline-block;
+	text-align: center;
+	padding: 25px;
+}
+
+

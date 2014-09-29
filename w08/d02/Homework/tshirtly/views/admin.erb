@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TShirt.ly: Admin Console</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<link rel="stylesheet" type="text/css" href="./styles.css">	
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	<h1>TShirt.ly</h1>
+	<hr>
+		<a href="/">Home</a>
+	<h2>Admin Console</h2>
+
+	<h3>Add a New Item</h3>
+	<form action="/admin" method="POST">
+		<p><input type="text" name="name" placeholder="Product Name" /></p>
+		<p>$ <input type="text" name="price" placeholder="Price" /></p>
+		<select name="quantity">
+			<option selected="selected">Select quantity</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select></p>
+			<p><input type="text" name="image_url" placeholder="Image URL" />
+			<button>Add</button></p>
+		</form>
+
+		<h3>Pending Orders</h3>
+	<ul>
+		<% orders.each do |order| %>
+			<li>
+				Order #: <%= order.id %><br>
+				Ordered by: <%= order.email_address %><br>
+				Item ID: <%= order.tshirt_id %><br>
+				Quantity Ordered: <span class="ordered"><%= order.quantity %></span>
+			</li>
+				<form action="/orders/<%= order.id %>" method="POST">
+		<input type="hidden" name="_method" value="DELETE">
+		<button>Fulfill</button>
+	</form>
+			<% end %>
+		</ul>
+
+		<h3>Current Inventory</h3>
+	<ul>
+		<% tshirts.each do |tshirt| %>
+			<li>
+				Item ID: <%= tshirt.id %> T-Shirt<br>
+				Item Name: <%= tshirt.name %><br>
+				Price: $<%= tshirt.price %><br>
+				Size: One Size Fits All<br>
+				Quantity Available: <span class="remaining"><%= tshirt.quantity %></span>
+			</li>
+				<form action="/tshirts/<%= tshirt.id %>" method="POST">
+		<input type="hidden" name="_method" value="DELETE">
+		<button>Delete</button>
+	</form>
+		<form action="/tshirts/<%= tshirt.id %>/edit" method="GET">
+				<input type="hidden">
+				<button>Edit Item</button>
+			</form>
+			<% end %>
+		</ul>
+
+				<h3>Sold Out/Oversold Inventory</h3>
+		<ul>
+		
+		<li>TK</li>
+		
+		</ul>
+</div>
+</body>
+</html>

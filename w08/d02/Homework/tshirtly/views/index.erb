@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>TShirt.ly</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+		<link rel="stylesheet" type="text/css" href="./styles.css">	
+		<script src="./tshirts.js"></script>
+
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	<h1>TShirt.ly</h1>
+<hr>	
+<a href="/admin">Admin</a>
+	<div class="product_grid">
+	<ul>		
+			<% tshirts.each do |tshirt| %>
+		
+					<li>
+						<a href="/tshirts/<%= tshirt.id %>"><img src="<%= tshirt.image_url %>"></a><br>
+					<%= tshirt.name %><br>
+					Price: $<%= tshirt.price %><br>				
+				<a href="/tshirts/<%= tshirt.id %>"><input type="hidden"><button type="button" class="btn btn-primary">Order</button></a>
+				</li>
+				<% end %>
+	</ul>			
+	</div>
+</div>
+</body>
+</html>
