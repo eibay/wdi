@@ -13,6 +13,7 @@ aside {
 
 aside img {
 	width: 35%;
+	opacity: .5;
 }
 
 ul {

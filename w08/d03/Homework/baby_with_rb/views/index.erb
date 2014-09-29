@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Baby Names</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+	<table class="table table-bordered table-striped">
+		<tr><td>Name</td><td>County</td><td>Gender</td><td>Count</td></tr>
+		<% babies.each do |baby| %>
+		<tr><td><%= baby[9] %></td><td><%= baby[10] %></td><td><%= baby[11] %></td><td><%= baby[12] %></td></tr>			
+		<% end %>
+	</table>
+</body>
+</html>
