@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title> Backbone</title>
+</head>
+<body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://data.cityofnewyork.us/resource/kn7u-vdxr.json',
+
+            dataType: "jsonp",
+
+            crossDomain: true,
+            success: function (msg) {
+
+                alert("success");
+
+            },
+            error: function (request, status, error) {
+
+                alert(error);
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>
