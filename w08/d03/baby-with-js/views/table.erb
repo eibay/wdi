@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Baby Names</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/styles.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="row">
+				<h1 class="col-md-3">Baby makin'</h1>
+			</div>
+			<nav>
+				<div class="row" id="nav">
+					<ul>
+						<li class="col-md-1"><a href="/2007">2007</a></li>
+						<li class="col-md-1"><a href="/2008">2008</a></li>
+						<li class="col-md-1"><a href="/2009">2009</a></li>
+						<li class="col-md-1"><a href="/2010">2010</a></li>
+						<li class="col-md-1"><a href="/2011">2011</a></li>
+						<li class="col-md-1"><a href="/2012">2012</a></li>
+						<li class="col-md-1"><a href="/2013">2013</a></li>
+						<li class="col-md-1"><a href="/2014">2014</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<table class="table table-bordered table-condensed">
+			<tr>
+				<th>Name</th>
+				<th>County</th>
+				<th>Gender</th>
+				<th>Count</th>
+			</tr>
+
+			<% babies.each do |baby| %>
+			<tr>
+				<td><%= baby[9] %></td>
+				<td><%= baby[10] %></td>
+				<td><%= baby[11] %></td>
+				<td><%= baby[12] %></td>
+			</tr>
+			<% end %>
+
+		</table> 
+	</div>
+</body>
+</html>

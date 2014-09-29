@@ -1,0 +1,25 @@
+<div class="container">
+	<header>
+		<h1>Welcome to Shirtly!</h1>
+	</header>
+	<div class="row" id="formPlace">
+		<ul id="shirts">
+		<% shirts.each do |shirt| %>
+		<% if shirt.quantity > 0 %>
+			<li class="col-md-3 col-md-offset-1"><img src='<%= shirt["image"] %>' class="img-responsive" alt="Responsive image">
+
+				<ul>
+					<li>quanity: <%= shirt.quantity %></li>
+					<li>price: <%= shirt.price %></li>
+					<li>
+						<button id="<%= shirt.id %>" class="btn btn-primary btn-lg purchase">Shirt happens!</button>
+
+					</li>
+				</ul>
+			</li>
+		<% end %>
+		<% end %>
+		</ul>
+	</div>
+</div>
+

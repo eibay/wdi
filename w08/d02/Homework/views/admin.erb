@@ -1,0 +1,35 @@
+<div class="container">
+	<header>
+		<h1>Welcome to Shirtly!</h1>
+	</header>
+	<article>
+	<div class="row" id="formPlace">
+		<ul id="shirts">
+		<% shirts.each do |shirt| %>
+
+			<li class="col-md-3 col-md-offset-1"><img src='<%= shirt["image"] %>' class="img-responsive" alt="Responsive image">
+
+				<ul>
+					<li>quanity: <%= shirt.quantity %></li>
+					<li>price: <%= shirt.price %></li>
+
+				</ul>
+			</li>
+		<% end %>
+		</ul>
+	</div>
+	<div class="row"><h2>Unfilled orders</h2>
+		
+			<% purchases.each do |purchase| %>
+			<ul class="col-md-2 col-md-offset-1">
+			<li>order number: <%= purchase.id %></li>
+			<li>customer number: <%= purchase.customer_id %></li>
+			<li>shirt: <%= purchase.shirt_id %></li>
+			<li>quantity: <%= purchase.quantity %></li>amount paid: <%= purchase.quantity * purchase.cost %></li>
+			<li>filled: <%= purchase.filled %></li>
+			<hr>
+		</ul>
+			<% end %>
+		
+</div>
+
