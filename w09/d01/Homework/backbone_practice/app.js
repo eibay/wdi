@@ -23,9 +23,17 @@ var BookView = Backbone.View.extend({
 	render: function(){
 		var myFavBooks = ['Zen and the Art of Motorcycle Maintenance', 'Ubik', 'Bleeding Edge'];
 
-		this.$el.html('<h3>My Favorite Books</h3><ul></ul><input type="');
+		this.$el.html('<h3>My Favorite Books</h3><input type="text" placeholder="Add a Book"><button class="add">Add</button><ul></ul>');
 		_.each(myFavBooks, function(book){
 			$('ul').append('<li>' + book + '</li>');
+		})
+		$('button.add').on('click', function(){
+			var book = $('input').val();
+			myFavBooks.push(book);
+			console.log(myFavBooks);
+			localStorage
+			$('ul').append('<li>' + book + '</li>');
+			$('input').val('');
 		})
 	}
 })
