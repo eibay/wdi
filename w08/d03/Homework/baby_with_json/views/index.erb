@@ -3,19 +3,26 @@
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   <script src="http://underscorejs.org/underscore-min.js"></script>
+ 
   <meta charset="UTF-8">
-  <title>Baby Names <%=year%></title>
+   <script src='/scripts.js'></script>
+  <title></title>
 </head>
 
 <body>
-  <%if information.length == 0%>
-  <h1>TRY AGAIN! NO DATA FOR THAT YEAR</h1>
-  <%else%>
-  <div class="container">
+  <div class = "container">
+    <select name="county" class="counties">
+    </select>
+    <button class="byCounty">GO</button>
+     <select name="sex" class="maleFemale">
+    </select>
+     <button class="bySex">GO</button>
     <table class="table table-bordered table-hover">
-   <caption><h1>BABY NAMES OF <%=year%></h1></caption>
-   <thead>
+      <caption class="babyNames"></caption>
+       <thead>
       <tr>
          <th>Name</th>
          <th>County</th>
@@ -23,17 +30,12 @@
          <th>Count</th>
       </tr>
    </thead>
-  <tbody>
-  <%information.each do |info|%>
-  <tr>
-    <td><%=info[9]%></td>
-    <td><%=info[10]%></td>
-    <td><%=info[11]%></td>
-    <td><%=info[12]%></td>
-  </tr>
-<%end%>
-<%end%>
+ <tbody class = "record">
+
+
 </tbody>
-</div>
+</table>
+  </div>
+  
 </body>
 </html>
