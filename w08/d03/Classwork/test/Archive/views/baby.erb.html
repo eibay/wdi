@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Babies</title>
+
+</head>
+<body>
+	<div class="container">
+		<table class="table table-striped">
+			<tr style="font-weight: bold; font-size: 2em;">
+				<td>Name</td>
+				<td>County</td>
+				<td>Gender</td>
+				<td>Count</td>
+			</tr>
+		</table>
+
+		<div id="octopus"></div>
+
+	</div>
+
+	<script>
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', '/2007', true);
+		xhr.send();
+
+		xhr.addEventListener('load', function(event){
+			console.log("callback in event has been fired");
+			var response = xhr.response;
+			debugger
+			var data = document.createElement("p");
+
+			data.innerText = response;
+
+			document.getElementById("octopus").appendChild(data);
+
+
+		})
+
+	</script>
+	
+</body>
+</html>

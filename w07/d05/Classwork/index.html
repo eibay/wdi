@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Search By Movie Title</title>
+</head>
+<body>
+	<h1>Search by movie title</h1>
+	<input type="text" name="movie_title">
+	<button>Search</button>
+	<ul></ul>
+</input>
+<script type="text/javascript">
+
+var button = document.querySelector('button');
+var ul = document.querySelector('ul');
+button.addEventListener('click', function(){
+	var movie_title = document.querySelector('input').value;
+	var xhr = new XMLHttpRequest();
+	console.log('XMLHttpRequest');
+
+	xhr.open('GET', '/term?movie_title=' + movie_title);
+	xhr.send();
+
+	console.log('Reaching to /term?movie_title=' + movie_title);
+
+    xhr.addEventListener('load', function(ev){
+
+    	console.log('Got Callback')
+    	var url = JSON.parse(ev.currentTarget.response)["Poster"];
+   		var list = document.createElement('li');
+   		var img = document.createElement('img');
+   		var h2 = document.createElement('h2');
+    	img.setAttribute('src', url);
+    	h2.innerText = movie_title;
+    	ul.appendChild(list);
+    	list.appendChild(h2);
+    	list.appendChild(img);
+
+    	document.querySelector('input').value = "";
+    	
+    });
+});
+
+</script>
+</body>
+</html>

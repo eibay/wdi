@@ -1,0 +1,51 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <h1>Babies born in 2011</h1>
+	<table class="table">
+  	<tr>
+  		<th>Name</th>
+    	<th>County</th>		
+    	<th>Gender</th>
+    	<th>Count</th>
+  	</tr>
+  </table>
+<script type="text/javascript">
+$.ajax({url: "http://localhost:2000/baby", type: "GET", 
+	success: function(data){
+    console.log("Eleven Success!");
+
+		var baby_info = JSON.parse(data)["data"];
+		var babies = [];
+
+        $(baby_info).each(function() {
+        	var baby_hash = {year: $(this)[8], name: $(this)[9], county: $(this)[10], gender: $(this)[11], count: $(this)[12]}
+			babies.push(baby_hash);
+        });
+
+        $(babies).each(function() {
+          if ($(this)[0].year == "2012") {
+          	var tr = document.createElement('tr');
+  	        $(tr).append("<td>" + $(this)[0].name + "</td>");
+  	        $(tr).append("<td>" + $(this)[0].county + "</td>");
+  	        $(tr).append("<td>" + $(this)[0].gender + "</td>");
+  	        $(tr).append("<td>" + $(this)[0].count + "</td>");
+  	        $(".table").append(tr);
+          };
+        });
+    console.log("Done!");
+}});
+</script>
+</body>
+</html>

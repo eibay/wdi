@@ -1,0 +1,79 @@
+body {
+	text-align: center;
+	padding-bottom: 5%;
+}
+
+li {
+	list-style: none;
+}
+
+img {
+	overflow: hidden;
+}
+
+img.buy {
+	width: 400px;
+}
+
+div.col-md-4.tshirt {
+	float: left;
+}
+
+div.home {
+	width: 100%;
+}
+
+div.home li {
+	margin-top: 10%;
+}
+
+div.home h2 {
+	font-size: 1em;
+	text-align: left;
+	display: inline;
+}
+
+div.home p {
+	margin: 0;
+}
+
+div.left {
+	width: 50%;
+	margin: 0;
+	float: left;
+}
+
+div.right {
+	width: 50%;
+	margin: 0;
+	float: right;
+}
+
+div.col-md-4.tshirt img {
+	margin-bottom: 5%;
+}
+
+div.info {
+	text-align: left;
+	padding-left: 12%;
+}
+
+div.info li:last-child {
+	display: inline;
+}
+
+div.specific li {
+	margin-bottom: 4%;
+}
+
+div.specific button {
+	margin-left: 77%;
+}
+
+div.col-md-6.order, div.col-md-6.soldout {
+	
+}
+
+footer {
+	padding: 5%;
+}

@@ -1,0 +1,117 @@
+body {
+	padding: 3.5% 2.8% 3.5% 3%;
+}
+
+img {
+	width: 100%;
+	height: auto;
+	float: left;
+}
+
+header {
+	width: 20%;
+	margin-top: 48%;
+	float: left;
+	font-family: "proxima-nova";
+}
+
+header img {
+	width: 27%;
+}
+
+header nav ul div {
+	margin-top: 18%;
+}
+
+header nav ul div.main-nav li {
+	color: #000000;
+	margin-bottom: 5%;
+	font-size: 1.1em;
+}
+
+header nav ul div.sub-nav li {
+	color: gray;
+	margin-bottom: 4%;
+	font-size: 0.9em;
+}
+
+header nav ul {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+header nav ul li {
+	list-style: none;
+}
+
+main {
+	width: 80%;
+	float: right;
+}
+
+div.colum_one {
+	width: 100%;
+}
+
+div.colum_one div {
+	padding: 4%;
+}
+
+div.colum_one div img {
+	width: 100%;
+}
+
+div.colum_two {
+	width: 100%;
+}
+
+div.colum_two div:first-child {
+	padding-left: 4%;
+}
+
+div.colum_two div {
+	width: 28%;
+	padding: 0 4% 4% 0;
+	float: left;
+}
+
+div.colum_two div img {
+	
+}
+
+div.colum_three {
+	width: 100%;
+}
+
+div.colum_three div:first-child {
+	padding-left: 4%;
+}
+
+div.colum_three div {
+	width: 44%;
+	padding: 0 4% 4% 0;
+	float: left;
+}
+
+/*clearfix*/
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+

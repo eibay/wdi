@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Tshirt.ly</title>
+<link rel="stylesheet" type="text/css" href="/styles.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" href="./styles.css">
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1>Tshirt</h1>
+	<ul>
+		<form action="/confirmation/<%= tshirt.id %>" method="POST">
+			<li>Name: <%= tshirt.name %></li>
+			<li><img src="<%= tshirt.image %>"></li>
+			<li>Price: <%= tshirt.price %></li>
+			<li>Quantity: <input type="text" name="quantity"></li>
+			<li>Email: <input type="text" name="email" placeholder="email">
+			<button>Buy</button>
+		</form>
+	</ul>
+	<a href="/">Go back</a>
+</body>
+</html>
