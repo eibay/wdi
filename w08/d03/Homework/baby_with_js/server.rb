@@ -24,7 +24,7 @@ get '/2007' do
       babies_2007 << hash
     end
   end
-  babies_2007.response.body
+  babies_2007.to_json
 end
 
 get '/2008' do
