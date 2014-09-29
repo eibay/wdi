@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>tshirt.ly</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" href="../public/styles.css">
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+	<header>
+		<h1> tshirt.ly </h1>
+	</header>
+
+	<% tshirts.each do |tshirt| %>
+		<ul>
+			<li>
+				<a href="tshirt/<%= tshirt.id %>">
+					<img src="<%= tshirt.image %>">
+				</a>
+				Price: <%= tshirt.price %>
+				Quantity: <%= tshirt.quantity %>
+			</li>
+		</ul>
+
+		<form action="/buy/<%= tshirt.id %>" method="GET">
+			<input type="hidden">
+			<button>Buy</button>
+		</form>
+	<%end%>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+	

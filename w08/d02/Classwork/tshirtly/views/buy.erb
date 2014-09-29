@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title><%= tshirt.name %></title>
+</head>
+<body>
+	<ul>
+		<li>
+			<%= tshirt.name %>
+			<img src="<%= tshirt.image %>">
+			$<%= tshirt.price %>
+		</li>
+	</ul>
+	<form action="/confirmation/<%= tshirt.id %>" method="POST">
+		<input type="text" name="quantity" placeholder="quantity"/>
+		<input type="text" name="email" placeholder="email"/>
+		<button>BUY</button>
+	</form> 
+</body>
+</html>
+
+
+
+
