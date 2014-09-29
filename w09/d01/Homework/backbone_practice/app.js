@@ -5,7 +5,12 @@ var MovieView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.html('<h3>My Favorite Movies</h3><ul><li>Only Lovers Left Alive</li><li>Inception</li><li>Prometheus</li></ul>');
+		var myFavMovies = ['Only Lovers Left Alive', 'Inception', 'Prometheus'];
+
+		this.$el.html('<h3>My Favorite Movies</h3><ul></ul>');
+		_.each(myFavMovies, function(movie){
+			$('ul').append('<li>' + movie + '</li>');
+		})
 	}
 })
 
@@ -16,7 +21,12 @@ var BookView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.html('<h3>My Favorite Books</h3><ul><li>Zen and the Art of Motorcycle Maintenance</li><li>Bleeding Edge</li><li>Ubik</li></ul>')
+		var myFavBooks = ['Zen and the Art of Motorcycle Maintenance', 'Ubik', 'Bleeding Edge'];
+
+		this.$el.html('<h3>My Favorite Books</h3><ul></ul>');
+		_.each(myFavBooks, function(book){
+			$('ul').append('<li>' + book + '</li>');
+		})
 	}
 })
 
