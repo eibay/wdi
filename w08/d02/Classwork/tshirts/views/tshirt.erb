@@ -1,0 +1,27 @@
+<html>
+  <head>
+    
+  </head>
+  <body>
+    Name: <%=shirt.name%>
+    Price:$<%=shirt.price%>
+    Quantity: <%=shirt.quanity%>
+    <br>
+    <%sales.each do |sale|%>
+    SALES
+    Quantity:<%=sale.quanity%>  Id:<%=sale.id%>
+    <form action ="/fulfill/<%=sale.id%>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <button>FULFILL</button>
+  </form>
+
+    
+ 
+  <%end%>
+<form action ="/delete/<%=shirt.id%>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button>DELETE</button>
+       </form>
+
+  </body>
+</html>
