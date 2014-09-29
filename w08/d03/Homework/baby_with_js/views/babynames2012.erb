@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>2012</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+
+<% babynames=[] %>  
+<% baby_names["data"].each do |baby_name| %>                      
+    <% if baby_name[8] == "2012" %> 
+    <% data = {} %>                               
+	<% data["name"] = baby_name[9] %>                         
+	<% data["county"] = baby_name[10] %>                        
+	<% data["sex"]= baby_name[11] %>                          
+	<% data["count"]=baby_name[12] %>                          
+	<% babynames.push(data) %>                                    
+	<% end %>                                                        
+<% end %>     
+
+	<h1> BABY NAMES </h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>County</th>
+            <th>Sex</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+<% babynames.each do |data| %>
+        <tr>
+            <td><%= data["name"] %> </td>
+            <td><%= data["county"] %></td>
+            <td><%= data["sex"] %></td>
+            <td><%= data["count"] %></td>
+        </tr>
+<% end %>
+
+    </tbody>
+</table>
+
+</div>
+</body>
+</html>

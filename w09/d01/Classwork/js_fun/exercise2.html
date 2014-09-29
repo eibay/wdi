@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title>AJAX/DOM</title>
+</head>
+
+
+
+<script>
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json", true)
+ 	xhr.send();
+
+	xhr.addEventListener('load', function(event){
+		console.log(event);
+		console.log(xhr.response);
+	});
+	var button = document.querySelector("button")
+ 	button.addEventListener('click', function(){
+ 		var location = xhr.response["data"]
+ 	})
+ </script>
+<body>
+
+<button type="button">Click Me!</button>
+
+</body>
+</html>
