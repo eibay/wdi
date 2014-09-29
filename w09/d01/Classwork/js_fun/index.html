@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Page</title>
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+</head>
+<body>
+	<button>PUSH ME!</button>
+	<div></div>
+
+<script>
+
+$(document).ready (function(){
+	$("button").on("click", function(){
+		var data = $.ajax({
+		  url: "https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json",
+		});
+		string=""
+	data.addEventListener(load(), function(){
+		console.log(data)
+		for (var i = 0; i<data["data"].length; i++){
+			string.push("<li>"+info[i]+"</li>")
+		}
+		$("div").text(string)
+	})
+
+})
+})
+</script>
+</body>
+</html>
