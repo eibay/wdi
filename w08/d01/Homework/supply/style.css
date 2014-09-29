@@ -1,0 +1,68 @@
+@import url(http://fonts.googleapis.com/css?family=Arimo);
+
+header img{
+	padding-left: 500px;
+	padding-top: 80px;
+	padding-bottom: 44px;
+	height: 685px;
+}
+
+nav div#categories ul li{
+	list-style: none;
+	text-align: left;
+	text-indent: -10px;
+	text-transform: uppercase;
+	opacity: .2;
+	font-size: 20px;
+	padding-top:10px;
+	margin-top: 10px;
+	font-family: 'Arimo', sans-serif;
+	letter-spacing: 3px;
+}
+nav div#info{
+	padding-top: 50px;
+}
+nav div#info ul li{
+	padding-top: 15px;
+	font-family: 'Arimo', sans-serif;
+	text-transform: none;
+}
+
+
+nav.top img{
+	height: 100px;
+	opacity:.4;
+	padding-left: 30px;
+	margin-bottom: 25px;
+}
+
+section.thumbnails div img#mens {
+	height: 497px;
+	padding-left: 500px;
+	margin-top: -440px;
+}
+
+section.thumbnails div img#womens{
+	margin-top: -440px;
+	height: 497px;
+	padding-left: 44px;
+}
+section.thumbnails div img#lifestyles{
+	margin-top: -440px;
+	height: 497px;
+	padding-left: 44px;
+}
+
+section.info div img#supply{
+	margin-top: 39px;
+	padding-left: 500px;
+	height: 390px;
+	padding-bottom: 30px;
+}
+section.info div img#updates{
+	margin-top: 39px;
+	padding-left: 39px;
+	height: 390px;
+	padding-bottom: 30px;
+}
+

@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Admin</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
+<body>
+<div class="container">
+
+<h1> Add a Shirt </h1>
+	<form method = "POST" action="/add">
+		Shirt Name:<input type="text" name= "name" placeholder="Shirt Name">
+		Image Url:<input type= "text" name="imageurl" placeholder= "Image Url">
+		Price: <input type= "text" name="price" placeholder= "Price">
+		<button>Submit</button>
+	</form>
+
+
+
+
+<h1> Delete Shirt </h1>
+<form method = "POST" action="/delete">
+<input type="hidden" name="_method" value= "DELETE">
+	<select name="id">
+		<% shirts.each do |shirt| %>
+		<option value= "<%= shirt.id %>"><%=shirt.name %></option>
+
+		<% end %>
+	</select>
+		<button> Delete </button>
+</form>
+
+
+</div>
+
+
+
+
+</body>
+</html>

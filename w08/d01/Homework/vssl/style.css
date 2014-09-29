@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+header img{
+	height: 100%;
+	width: 100%;
+}
+
+nav div#index ul li{
+	display: inline;
+	text-align: center;
+	font-size: 50px;
+	padding: 50px;
+	font-family: 'Droid Sans', sans-serif;
+	text-transform: uppercase;
+}
+nav{
+	text-align: center;
+	background-color: black;
+	color: white;
+	padding-bottom: 5px;
+	padding-top: 50px;
+	opacity: .87;
+}
+p {
+	padding-left: 600px;
+	padding-right: 600px;
+	padding-top: 150px;
+	text-align: center;
+	font-size: 70px;
+	font-family: Lantinghei SC;
+	line-height: 120px;
+	opacity: .7;
+}
+hr{
+	margin-left: 20px;
+	margin-right: 20px;
+	padding-bottom: 20px;
+	opacity: .5
+}
+article#luxury p {
+	font-size: 30px;
+	line-height: 50px;
+	text-align: justify;
+	padding-left: 35px;
+	padding-top: 35px;
+}
+
+article#luxury img{
+	padding-left: 35px;
+	width: 550px;
+}
+
+article#luxury p#title {
+	padding-left: 35px;
+	font-size: 50px;
+	font-family: Lantinghei SC;
+	opacity:.7;
+
+}
+article#luxury div{
+	display: inline;
+}
+section article {
+	display: inline-block;
+}
