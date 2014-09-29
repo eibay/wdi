@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<title>Document</title>
 </head>
 <body>
@@ -14,7 +15,21 @@
 	xhr.addEventListener('load', function(){
 
 		var names = JSON.parse(xhr.response);
-		console.log(names);
+		$( "<ul></ul>" ).appendTo("body");
+
+		names = reverse(names)
+
+		names.forEach(function(name){
+			$('ul').append('<li>' + name + '</li>');
+		})
+
+		function reverse(list) {
+			var reversedList = []
+			for (var i = 0; i < list.length; i++) {
+				reversedList[i] = list[(list.length - 1) - i];
+			}
+			return reversedList;
+		}
 	})
 	</script>
 </body>

@@ -20,19 +20,19 @@ router.get('/yo', function(request, response) {
 
 router.get('/names', function(request, response) {
 
+response.setHeader("Content-type", "application/json");
+response.setHeader('Access-Control-Allow-Origin', '*');
+
 	var names = ['Eric', 'Maria', 'Conor', 'Clayton'];
 
 	function spitNames(namearray) {
 		return JSON.stringify(namearray);
 	}
 
-	return response.end(spitNames(names));	
+	response.end(spitNames(names));	
 });
 
 router.get('/people', function(request, response) {
-
-response.setRequestHeader("Content-type", "application/json");
-response.setRequestHeader('Access-Control-Allow-Origin: *');
 
 	function namesHash() {
 		var people = {eric: 'cool', maria: 'awesome', conor: 'quick'};

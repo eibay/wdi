@@ -69,10 +69,12 @@ $(function(){
 	var ford = new Car({ make: "Ford", type: "Fiesta", color: "Yellow" });
 	var buick = new Car({ make: "Buick", type: "Le Sabre", color: "Blue" });
 	var nissan = new Car({ make: "Nissan", type: "Sentra", color: "Silver" });
+	var hummer = new Car({ make: "Hummer", type: "H2", color: "Orange" });
 
 	cars.add(honda);
 	cars.add(toyota);
 	cars.add(ford);
 	cars.add(buick);
 	cars.add(nissan);
+	cars.add(hummer);
 })
