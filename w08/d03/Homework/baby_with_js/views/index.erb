@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baby Names</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row yearButtons">
+			<button class="col-md-2" id="2007">2007</button>
+			<button class="col-md-2" id="2008">2008</button>
+			<button class="col-md-2" id="2009">2009</button>
+			<button class="col-md-2" id="2010">2010</button>
+			<button class="col-md-2" id="2011">2011</button>
+			<button class="col-md-2" id="2012">2012</button>
+		</div>
+		
+		<div class="row">
+			<div id="dropdown-1" class="dropdown dropdown-tip col-md-2">
+				<a data-toggle="dropdown" href="#">Counties</a>
+	    		<ul class="dropdown-menu counties" role="menu" aria-labelledby="dLabel"></ul>
+	    	</div>
+
+	    	<div id="dropdown-2" class="dropdown dropdown-tip col-md-2">
+	    		<a data-toggle="dropdown" href="#">Gender</a>
+	    		<ul class="dropdown-menu genders" role="menu" aria-labelledby="dLabel"></ul>
+	    	</div>
+    	</div>
+
+		<table class="table table-striped">
+		<tr style="font-weight: bold; font-size: 2em;">
+			<td>Name</td>
+			<td>County</td>
+			<td>Gender</td>
+			<td>Count</td>
+		</tr>
+
+		</table>
+
+	</div>
+	<script type="text/javascript">
+
+		function getCounties(array) {
+			_.each(array, function(county) {
+				var countyList = $(".counties");
+				var countyItem = document.createElement('li');
+				countyItem.id = county;
+
+				countyItem.innerText = county
+				countyList.append(countyItem)
+
+				
+				countyItem.addEventListener('click',function(event) {
+
+					var eventElements = $('.babies').has($('.county-' + event.target.innerText))
+					console.log(eventElements)
+					
+					$('.babies').remove()
+					_.each(eventElements, function(el) {
+						$('table').append(el)
+					})
+				})
+			})
+		}
+
+		function getGenders(array) {
+			var genders = $('.genders')
+			var mItem = document.createElement('li')
+			var fItem = document.createElement('li')
+			mItem.innerText = "M"
+			fItem.innerText = "F"
+			genders.append(mItem)
+			genders.append(fItem)
+
+			_.each(genders, function(gen) {
+				gen.addEventListener('click',function(event) {
+
+					var eventElements = $('.babies').has($('.gender-' + event.target.innerText))
+					console.log(eventElements)
+					
+					$('.babies').remove()
+					_.each(eventElements, function(el) {
+						$('table').append(el)
+					})
+				})
+			})
+		}
+
+		function getBabies(year, array) {
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'http://localhost:4567/year?year=' + year, true);
+			xhr.send();
+
+			xhr.addEventListener('load', function() {
+				var jsonRes = JSON.parse(xhr.response)
+				
+
+				// for(i=0;i<jsonRes.length;i++) {
+				_.each(jsonRes, function(baby) {
+					var table = $('table');
+					
+					var newRow = document.createElement('tr');
+					newRow.className = 'babies'
+					var td1 = document.createElement('td');
+					var td2 = document.createElement('td');
+					td2.className = 'county-' + baby['county'];
+					var td3 = document.createElement('td');
+					td3.className = 'gender-' + baby['gender'];
+					var td4 = document.createElement('td');
+
+					td1.innerText = baby['name'];
+					newRow.appendChild(td1);
+					td2.innerText = baby['county'];
+					newRow.appendChild(td2);
+					td3.innerText = baby['gender'];
+					newRow.appendChild(td3);
+					td4.innerText = baby['count'];
+					newRow.appendChild(td4);
+
+					table.append(newRow);
+
+					if (array.indexOf(baby['county']) == -1) {
+						array.push(baby['county']);
+					}	
+				})
+				console.log(array);
+				getCounties(array)
+ 			});
+		}
+
+		var buttons = $('button')
+
+		for(i=0;i<buttons.length;i++) {
+			var countyArray = []
+			buttons[i].addEventListener('click', function() {
+				var year = event.target.id;
+				console.log(year);
+				$('.babies').remove();
+				getBabies(year, countyArray);
+				getCounties(countyArray);
+				getGenders(countyArray);
+			})
+		}
+           
+     
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

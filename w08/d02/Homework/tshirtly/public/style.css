@@ -1,0 +1,14 @@
+.logo {
+	text-align: center
+}
+
+
+section.shirt-lists ul {
+	width: 300px;
+	display: inline-block;
+}
+
+
+section.shirt-lists img {
+	width: 70%;
+}
