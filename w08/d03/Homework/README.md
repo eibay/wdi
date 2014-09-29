@@ -1,3 +1,13 @@
+Running documentation locally
+
+If necessary, install Jekyll (requires v2.3.x).
+Windows users: Read this unofficial guide to get Jekyll up and running without problems.
+Install the Ruby-based syntax highlighter, Rouge, with gem install rouge.
+From the root /bootstrap directory, run jekyll serve in the command line.
+Open http://localhost:9001 in your browser, and voilà.
+
+
+
 ### Baby Names
 
 Build an html table using twitter bootstrap that lists:

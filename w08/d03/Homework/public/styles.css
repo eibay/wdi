@@ -1,0 +1,35 @@
+body {
+	background-color: #9FD97D;
+}
+
+header {
+	font-family: verdana;
+	background-color: #5FA58E;
+	margin-top: 20px;
+	padding: 20px 20px 0 20px;
+	border-radius: 8px;
+}
+
+header h1 {
+	bottom: 10px;
+	left: 80px;
+}
+
+header ul {
+	list-style-type: none;
+}
+
+header li {
+	background-color: #C3E4D9;
+	margin-left: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	text-align: center;
+}
+
+table {
+	background-color: #C3E4D9;
+	margin:20px 0 0 0;
+	padding:0px;
+	width: 50%;
+}
