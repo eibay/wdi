@@ -57,23 +57,24 @@ $(function(){
   var router = new AppRouter;
 
   router.on('route:index', function(){
-    var h1 = $('h1');
-    var indexView = new IndexView({el: h1});
+    var mainContent = $('#main-content');
+    var indexView = new IndexView({el: mainContent});
   });
 
   router.on('route:movies', function(){
-    var h1 = $('h1');
-    var moviesView = new MoviesView({el: h1});
+    var mainContent = $('#main-content');
+    var moviesView = new MoviesView({el: mainContent});
+    $('h1').hide();
   });
 
   router.on('route:books', function(){
-    var h1 = $('h1');
-    var booksView = new BooksView({el: h1});
+    var mainContent = $('#main-content');
+    var booksView = new BooksView({el: mainContent});
   });
 
   router.on('route:hello', function(){
-    var h1 = $('h1');
-    var helloView = new HelloView({el: h1});
+    var mainContent = $('#main-content');
+    var helloView = new HelloView({el: mainContent});
   });
 
 
