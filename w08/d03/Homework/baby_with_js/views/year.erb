@@ -1,34 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-   <script src="http://underscorejs.org/underscore-min.js"></script>
- 
   <meta charset="UTF-8">
-   <script src='/scripts.js'></script>
-  <title>Baby Names by Year</title>
+  <title>Baby Names</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-  <div class = "container">
-    <table class="table table-bordered table-hover">
-      <caption class="babyNames"></caption>
-       <thead>
-      <tr>
-         <th>Name</th>
-         <th>County</th>
-         <th>Gender</th>
-         <th>Count</th>
-      </tr>
-   </thead>
- <tbody class = "record">
-
-</tbody>
+  <div class="container">
+  <h1>Baby Names: <%= year %></h1>
+  <p><a href="/">Home</a></p>
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>County</th>
+    <th>Gender</th>
+    <th>Count</th>
+  </tr>
+<% baby_names["data"].each do |name| %>
+    <% if year == name[8] %>
+    
+    <tr><td> <%= name[9] %> </td>
+    <td> <%= name[10] %> </td>
+    <td> <%= name[11] %> </td>
+    <td> <%= name[12] %> </td></tr>
+    <% end %>   
+   <% end %>
 </table>
-  </div>
-  
+
+
+</div>
 </body>
 </html>
