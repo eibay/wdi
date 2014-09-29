@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baby Names</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <table class="table table-striped">
+    <tr style="font-weight: bold; font-size: 2em;">
+      <td>Name</td>
+      <td>County</td>
+      <td>Gender</td>
+      <td>Count</td>
+    </tr>
+    <%babies.each do |baby|%>
+      <tr>
+        <td><%=baby[:name]%></td>
+        <td><%=baby[:county]%></td>
+        <td><%=baby[:gender]%></td>
+        <td><%=baby[:count]%></td>
+      </tr>
+    <%end%>
+    </table>
+
+        </div>
+      </div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!-- Create an html page and a button.
+When you press the button you should see a list with names of 10 wifi hotspots in NYC.
+Make an ajax call to this endpoint to get the wifi hotspot data - https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple</title>
+</head>
+<body>
+
+
+   <input type="text" placeholder="Search">
+  <button>Search</button>
+
+  <div></div>
+
+  <script type="text/javascript">
+
+
+    function data(wifi) {
+      var xhr = new XMLHttpRequest();
+
+      xhr.addEventListener('load', function(){
+        var movieHash = JSON.parse(xhr.response)
+
+      });
+
+      xhr.open('GET', "https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json" + encodeURIComponent(wifi));
+
+      xhr.send()
+  }
+
+    var button = document.querySelector('button');
+    var dataTitle = document.querySelector('input').value
+
+    button.addEventListener('click', function() {
+      var x = dataTitle;
+      data(x);
+
+    })
+
+      </script>
+
+</body>
+</html>

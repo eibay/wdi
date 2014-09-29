@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buy a Tshirt!</title>
+</head>
+<body>
+
+  <a href="/">Home</a>
+
+  <h3>Buy a new t shirt here</h3>
+
+  <form action="/confirmation" method="POST">
+  <input type="text" name="qty" placeholder="Enter Quantity"/>
+  <input type="text" name="email" placeholder="Enter Email"/>
+
+    <button>Submit</button></a>
+
+    <br>
+    <br>
+
+    <% customers.each do |customer| %>
+
+        <option value="<%= customer.id%>"><%=customer.name %></option>
+
+    <% end %>
+
+    <br>
+    <br>
+
+</form>
+
+</body>
+</html>
