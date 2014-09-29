@@ -19,15 +19,15 @@
 
 			if(text != ""){
 				var list = document.getElementById("list");
-				var listItem = document.createElement("li")
-				listItem.class = "listItem" + list.children.length
+				var listItem = document.createElement("li");
+				listItem.className = "listItem" + list.children.length
 				var input = document.createElement("input")
 				input.type = "checkbox"
-				// input.class = listItem.class
-				input.addEventListener("click", function(){
-					var list = document.getElementsByClassName(input.class)
-					list.parentNode.removeChild(list)
-				})
+				input.className = listItem.className
+					input.addEventListener("click", function(){
+						var list = document.getElementsByClassName(input.className)
+						list.parentNode.removeChild(list)
+					});
 
 
 				listItem.innerText = text;

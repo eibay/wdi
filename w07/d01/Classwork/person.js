@@ -3,17 +3,21 @@ function createPerson() {
 	var fnames = ["John", "Paul", "George", "Ringo"]
 	var lnames = ["Lennon", "McCartney", "Harrison", "Starr"]
 	var instruments = ["rhythm guitar", "bass", "lead guitar", "drums"]
-	var first = fnames[Math.floor(Math.random() * fnames.length)]
-	var last = lnames[Math.floor(Math.random() * lnames.length)]
-	var inst = instruments[Math.floor(Math.random() * instruments.length)]
+	var first = rando(fnames);
+	var last = rando(lnames);
+	var inst = rando(instruments);
 	var beatle = {
 		fname: first,
 		lname: last,
 		instrument: inst
 	}
 	return beatle
-
-
 }
+function rando(arr) {
+	var index = arr[Math.floor(Math.random() * arr.length)]
+	return index
+}
+
+
 
 console.log(createPerson());
