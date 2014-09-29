@@ -10,9 +10,12 @@
 	width: 35%;
 	padding: 0 1px 0 1px;
 	height: 100%;
-	margin-top: 10%
+	margin-top: 160%
 }
 
+.left nav header img {
+	opacity: 0.5;
+}
 
 
 .left nav ul li {

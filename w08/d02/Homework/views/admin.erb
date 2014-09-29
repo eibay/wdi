@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Admin</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="../tshirtly.css">
+
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="/">Home</a>
+			<a href="/admin">Admin</a>
+		</nav>
+	</header>
+
+
+
+	<form action="/add_shirt" method="POST">
+		
+		<input type="text" name="name" placeholder="Shirt name">
+		<input type="text" name="quantity" placeholder="Quantity">
+		<input type="text" name="price" placeholder="Price">
+		<input type="text" name="img_url" placeholder="Image URL">
+		<button>Add to Inventory</button>
+	</form>
+
+	<form action="/remove_shirt" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<select name="shirt_id">
+			<%list_shirts.each do |shirt|%>
+				<option value="<%=shirt[:id]%>"><%=shirt[:name]%></option>
+			<%end%>
+		</select>
+		<button>Remove Shirt Line</button>
+	</form>
+
+
+
+		<h2> Incoming Orders </h2>
+		<%list_orders.each do |order|%>
+
+			<%this_shirt = list_shirts.detect { |shirt| shirt[:id] == order[:shirt_id] }%>
+			<div class="col-md-4">
+				<p>Customer: <strong><%=order[:email]%></strong></p>
+				<p>SKU: <strong><%=this_shirt[:name]%></strong></p>
+				<p>order qty: <strong><%=order[:order_amount]%></strong></p>
+				<p>SKU qty: <strong><%=this_shirt[:quantity]%></strong></p>
+				<p>price per SKU: $<strong><%=this_shirt[:price]%></strong></p>
+
+				<form action="/send_order" method="POST">
+					<input type="hidden" name="_method" value="PUT">
+					<input type="hidden" name="order_id" value="<%=order[:id]%>">
+					<input type="hidden" name="order_amount" value="<%=order[:order_amount]%>">
+					<input type="hidden" name="shirt_id" value="<%=order[:shirt_id]%>">
+					<button class="btn-send-order">Send order</button>
+				</form>
+			</div>
+			
+		<%end%>	
+
+	
+
+	<div class="row">
+		<h2> Out of Stock </h2>
+		<%list_shirts.each do |shirt|%>
+			<%this_order = list_orders.detect { |order| order[:shirt_id] == shirt[:id]}%>
+
+			<%if shirt[:quantity] <= 0%>
+				<div class="col-md-4">
+					<p>SKU: <strong><%=shirt[:name]%></strong></p>
+					<p>price per SKU: $<strong><%=shirt[:price]%></strong></p>
+					<span class="glyphicon glyphicon-remove"></span>
+				</div>
+			<%end%>
+		<%end%>
+	</div>
+	
+	
+	<script>
+		var sendButtons = document.getElementsByClassName("btn-send-order");
+		for(i=0; i<sendButtons.length; i++){
+			sendButtons[i].addEventListener('click', function(event){
+				alert("Successfully sent to customer!")
+			})
+		}
+	</script>
+
+</body>
+</html>
