@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js fun</title>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<button>Get WIFI Hotspots</button>
+	<ul></ul>
+</body>
+<script>
+$('button').on('click', function(){
+	$.get('https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json', function(data){
+		data["data"].forEach(function(spot){ 
+			$('ul').append('<li>' + spot + '</lil>');
+		});
+	});	
+})
+</script>
+</html>
