@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Shirts</title>
+</head>
+<body>
+
+<div>
+    <% shirts.each do |shirt| %>
+      <li>
+        <a href="/buy/<%= shirt.id %>"><img src=<%= shirt.url %> alt="Geek Shirt"></a>
+        <h5><%= shirt.name %> -- <em><%= shirt.price %></em></h5>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+</body>
+</html>
