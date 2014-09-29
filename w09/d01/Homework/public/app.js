@@ -3,6 +3,7 @@ $(function(){
   var AppRouter = Backbone.Router.extend({
     routes: {
       "movies": "movies",
+      "movies:movie-name": "movie",
       "books": "books", 
       "hello/:name": "helloer"
     }
@@ -52,9 +53,38 @@ $(function(){
     }
   }); 
 
+  router.on("route:books", function() {
+    var books = [
+      "978-1-56478-691-3"
+    ]; 
+    var requestArray = [];
+    for (var i = 0; i < books.length; i++) {
+      var bookIsbn = books[i];
+      var apiUrl = "https://www.goodreads.com/book/isbn/"; 
+      var formatParam = "?format=json"; 
+      var isbnParam = "&isbn=" + bookIsbn; 
+      var requestUrl = apiUrl + formatParam + isbnParam; 
+      var userIdParam = "&user_id=35469060"; 
+      requestUrl = requestUrl + userIdParam;
+
+      var request = new XMLHttpRequest(); 
+      requestArray.push(request); 
+      requestArray[i].open("GET", requestUrl, true);
+      requestArray[i].send(null);  
+      requestArray[i].addEventListener('load', function(e) {
+        var book = JSON.parse(e.currentTarget.response);
+        console.log(book); 
+      });
+    }
+  });
+
   Backbone.history.start();
 
 });
+
+
+
+
 
 function capitalize(str) {
   return str[0].toUpperCase() + str.slice(1); 
