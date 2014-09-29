@@ -60,7 +60,7 @@ var cars,
 
 $(function(){
 
-	var cars = new CarCollection();
+	cars = new CarCollection();
 
 	var listView = new CarListView({ collection: cars, el: $('#car-list') });
 
