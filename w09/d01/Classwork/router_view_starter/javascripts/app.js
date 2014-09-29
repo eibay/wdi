@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // below is a hash?
   var IndexView = Backbone.View.extend({
     initialize: function(){
@@ -44,6 +45,16 @@ $(function(){
     var createView = new CreateView();
     createView.render();
 	});
+=======
+$(function(){
+
+  var AppRouter = Backbone.Router.extend({
+    routes: {
+    }
+  });
+
+  var appRouter = new AppRouter;
+>>>>>>> 72ee463e9a5a1111200975acb0f3c9407ebaa43c
 
   Backbone.history.start();
 
