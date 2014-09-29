@@ -7,15 +7,28 @@
 </head>
 <body>
 	<button>Get WIFI Hotspots</button>
+	<input type="text">
 	<ul></ul>
 </body>
 <script>
 $('button').on('click', function(){
 	$.get('https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json', function(data){
-		for (var i = 0; i < 10 ; i++) { 
-			$('ul').append('<li>' + data["data"][i] + '</lil>');
-		};
+
+		$('input').keyup(function(){
+			function inArray(array, integer){
+				for (var i = 0; i < array.length; i++) {
+					if (array[i] == integer) {
+						return true
+					}
+				}
+				return false;
+			}
+		});
+		// for (var i = 0; i < 10 ; i++) { 
+		// 	$('ul').append('<li>' + data["data"][i] + '</lil>');
+		// };
 	});	
 })
+
 </script>
 </html>
