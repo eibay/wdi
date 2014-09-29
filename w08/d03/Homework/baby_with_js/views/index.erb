@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baby Names</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<!-- <link rel='stylesheet' href='./styles.css'> -->
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<script src='./javascript.js'></script>
+
+	<script src='./underscore.js'></script>
+
+</head>
+<body>
+	
+	<div class='container'>
+		
+		<div class='row'>
+			<header class='col-md-8 col-md-offset-4'>
+				<h3 class='mainHeader'>Baby Names</h3>
+			</header>
+		</div>
+
+		<div class='row'>
+			<div class='col-xs-3'>
+				<select class='form-control'>
+					<option>--</option>
+					<option>County</option>
+					<option>Male</option>
+					<option>Female</option>
+				</select>
+			</div>
+		</div>
+
+		<table class='table table-striped table-bordered col-md-8'>
+			
+			<tr class='row categories'>
+				<td><h5>Name</h5></td>
+				<td><h5>County</h5></td>
+				<td><h5>Gender</h5></td>
+				<td><h5>Count</h5></td>
+			</tr>
+
+		</table>
+		
+	</div>
+
+	<script type='text/javascript'>
+
+	var url = window.location.pathname
+	
+	// var dropDown= $('select')[0]
+
+	// function getNames(){
+	// 		$.getJSON ("/data"+url, function(data){
+	// 			console.log(_.indexBy(data, 'county'))
+	// 		})
+	// 	};
+
+
+
+
+
+	// dropDown.click(function(){
+		
+	// });
+
+
+	// 	function filterBy(){
+	// 		var filterBy = $('select')[0].value
+
+	// 		if(filterBy == 'Male'){
+	// 			//do something
+
+	// 		}else if(filterBy=='Female'){
+	// 			//do somthing
+	// 		};
+	// 	};
+
+
+		function getNames(){
+			$.getJSON ("/data"+url, function(data){
+				$.each(data, function(key, value){
+					var name = value[9]
+					var county = value[10]
+					var gender = value[11]
+					var count = value[12]
+					// building my table here
+					$('table').append("<tr class='row'><td>"+name+"</td><td>"+county+"</td><td>"+gender+"</td><td>"+count+"</td></tr>")
+				})
+			})
+		};
+		getNames()
+
+		// var testing = getNames()
+
+		//slide down each appended item
+		// function prependListItem(listName, listItemHTML){
+  //   	$(listItemHTML).hide().prependTo('#' + listName).slideDown('slow');
+		// }
+
+
+
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
