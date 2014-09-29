@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajax</title>
+</head>
+<body>
+  <pre></pre>
+
+  <script type="text/javascript">
+    //creates a variable pre that represents the 'pre' html tags  
+    var pre = document.querySelector('pre');
+
+    //runs a function called fetch that takes an arg 'title'.
+    function fetch(title) {
+      // creates a variable xhr that represents an AJAX request
+      var xhr = new XMLHttpRequest();
+
+      //adds an event listener to xhr; when xhr is loaded it triggers a function as outlined below
+      xhr.addEventListener('load', function(){ 
+        //concatenates the text from between the pre html tags and the response from the xhr request and appends a carriage return to it.  this also ends the add event function
+        pre.innerText += xhr.response + '\n';
+      });
+
+      //creates the xhr GET request to the /movies route along with a query for a title that is equal to the argument supplied in the 'fetch' function
+      xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
+
+      //sends the xhr request to the server
+     xhr.send()
+    //ends the fetch function
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+body {
+	background-color: lightblue;
+}
+ul {
+	background-color: blanchedalmond;
+	margin: 5px;
+	padding: 5px;
+	border-radius: 3px;
+
+}
+li {
+	margin: 5px;
+	display: inline-block;
+	list-style-type: none;
+	border: white 5px solid;
+	border-radius: 3px;
+}

@@ -5,19 +5,38 @@
 
 nav {
 	height: 100%;
+	width: 10%;
+	padding-top: 875px;
+	display: inline-block;
+	vertical-align: top;
+	opacity: .5;
+}
+
+nav img {
+	width: 120px;
+}
+
+.big {
+	width: 90%;
 }
 
 .thirds {
+
 	display: inline-block;
-	margin-top: 10px;
-	width: 370px;
+	margin-top: 20px;
+	width: 30%;
+	margin-right: 12px;
 }
 
 .halves {
 	margin: 10px;
 	display: inline-block;
-	width: 40%;
+	width: 45%;
 }
+
 main {
-	margin-left: 250px;
+	width: 85%;
+	vertical-align: top;
+
+	display: inline-block;
 }

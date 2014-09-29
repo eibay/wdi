@@ -74,7 +74,8 @@ rl.question("What do you think of node.js? ", function(answer) {
   console.log("Thank you for your valuable feedback:", answer, answer2);
 
   rl.close();
-});});
+  });
+});
 
 
 

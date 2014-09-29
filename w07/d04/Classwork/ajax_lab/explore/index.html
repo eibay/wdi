@@ -6,21 +6,19 @@
 </head>
 <body>
   <pre></pre>
-
-  <script type="text/javascript">
+    <input type="text" name="name" placeholder="enter a movie, yo">
+    <button>let's go out to dinner and see a movie</button>
+  <script type="text/javascript"> 
     var pre = document.querySelector('pre');
-
     function fetch(title) {
       var xhr = new XMLHttpRequest();
-
-      xhr.addEventListener('load', function(){ 
+      xhr.addEventListener('load', function(){
         pre.innerText += xhr.response + '\n';
       });
-
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
-
-      xhr.send()
+     xhr.send()
     }
+    var function 
   </script>
 </body>
 </html>

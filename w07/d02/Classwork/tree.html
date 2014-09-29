@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- broken: <script type="text" src="./scripts.js"></script> -->
   <meta charset="UTF-8">
   <title>DOM</title>
 </head>
@@ -17,5 +18,19 @@
     <li>Dogwood</li>
     <li>Apple</li>
   </ul>
+  <input type="text" id="user_input"><button>magic</button>
+<ul id="list">
+</ul>
+<script>
+  var button = document.querySelector("button")
+  button.addEventListener("click", function(){
+    var textbox = document.getElementById("user_input")
+    var text = textbox.value;
+    var listItem = document.createElement("li");
+    listItem.innerText = text;
+    var list = document.getElementById("list");
+    list.appendChild(listItem);
+  });
+</script>
 </body>
 </html>

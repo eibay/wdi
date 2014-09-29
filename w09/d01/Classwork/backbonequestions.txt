@@ -1,0 +1,5 @@
+1. A single page application is an app that only uses an index.html page - when new data is requested or provided by the user the DOM changes without reloading the page.
+
+AJAX is important as it is what provides the new data as mentioned in question 1.
+
+Backbone automates the process of updating the DOM when the user sends or requests data.

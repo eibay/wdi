@@ -1,9 +1,8 @@
 function stringInfo (string) {
-	var hash = {
-		length:(string.length)
-		original:(string)
-		splitBySlash:(string.split("/"))
-	}
+	var hash = new Object();
+		hash["length"] = (string.length)
+		hash.original = (string)
+		hash.splitBySlash = (string.split("/"))
 	return hash
 };
 
