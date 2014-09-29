@@ -1,0 +1,69 @@
+<html>
+<head>
+	<title>TShirt.ly::Admin</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<header class="col-md-4 col-md-offset-4">
+				<h1>TShirt.ly::Admin</h1>
+			</header> 
+		</div>
+		<div class="row">
+			<section class="col-md-12">
+				<button class="btn btn-primary btn-lg adminAddShirt" data-toggle="modal" data-target="#basicModal">Add Shirt</button>
+				<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-body addshirt">
+								<input type="text" id="name" placeholder="Shirt Name"><br>
+								<input type="text" id="quantity" placeholder="Quantity Available"><br>
+								<input type="text" id="price" placeholder="Price"><br>
+								<input type="text" id="picture" placeholder="Picture Url"><br>
+							</div>
+							<span id="orderadded"></span>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary" id="addshirt">Add Shirt</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+			<%unfulfilled.each do |fulfill|%>
+			<div class="row">
+			<section class="col-md-4 unfulfilledOrder">
+				<h1>Order <%=fulfill.id%></h1>
+			</section>
+				<section class="col-md-4 unfulfilledOrderPicture">
+			<%fulfill.ordercontents.each do |content|%>
+				<%=content.shirt.name%>-Quantity:<%=content.quantity%><br>
+				<%end%>
+			</section>
+			<section class="col md-4 fulfillButton">
+				<button type="button" class="btn btn-primary fulfillOrder"  value="<%=fulfill.id%>">Fulfill Order</button>
+				<span id="<%=fulfill.id%>"></span>
+				<input type="hidden" 
+			</section>
+			</div>
+				<%end%>
+		
+		
+
+
+
+
+
+
+
+	<script src="./scripts.js"></script>
+</body>
+</html>

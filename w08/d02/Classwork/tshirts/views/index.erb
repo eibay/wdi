@@ -1,0 +1,80 @@
+<html>
+<head>
+	<title>TShirt.ly</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<header class="col-md-4 col-md-offset-4 banner"><h1>TShirt.ly</h1></header>
+			<section class="col-md-4 viewcart"><a data-toggle="modal" data-target="#basicModal">View Cart</a>
+				<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							
+							<div class="modal-body theCart">
+								<%if(cart.length > 0)%>
+								<ul>
+							<%cart.each do |item|%>
+							<li class="cartitem"><img src="<%=item.shirt.picture%>" height="150">&nbsp;&nbsp;&nbsp;<span class="shirtName"><%=item.shirt.name%></span>-<span class="cartQuantity">Quantity-<%=item.quantity%></span></li>
+							<input type="hidden" value="<%=item.shirt.id%>" class="shirtInCart">
+							<input type="hidden" value="<%=item.quantity%>" class="shirtInCartQuant">
+							<%end%>
+						</ul>
+						<%else%>
+						<h1>Your Cart Is Empty!</h1>
+						<%end%>
+							</div>
+							<span id="orderadded"></span>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary" id="finalizeorder">Submit Order</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		</div>
+		<div id="row">
+			<%shirts.each_with_index do |shirt, index|%>
+			<section class="col-md-4"><img src="<%=shirt.picture%>" height="200"><br><%=shirt.name%>
+				<br>
+				Quantity:
+				<select id="select<%=index%>">
+					<%quantity_range=(1..shirt.quantity).to_a%>
+				<%quantity_range.each do |num|%>
+				<option value="<%=num%>"><%=num%></option>
+				<%end%>
+				<input type="hidden" class="shirt_id" id="shirtId<%=index%>" value="<%=shirt.id%>">
+			</select>
+
+
+
+				<br>Price: $<%=shirt.price%><br>
+				
+				<button type="button" class="btn btn-primary addtocart" value="<%=index%>">Add To Cart</button>
+				<span class="addtoorder"></span>
+			</section>
+
+				</section>
+				<%end%>
+
+
+
+	</div>
+</div>
+
+
+
+
+
+
+<script src="./scripts.js"></script>
+</body>
+</html>

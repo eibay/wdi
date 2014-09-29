@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>HELLO</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<p>Hello</p>
+	<p>Also Hello</p>
+	<script>
+
+	var effect = function(){
+		  return $( "p" ).fadeIn(800).delay(1200).fadeOut().delay(1200).fadeIn(800);
+
+		}
+	$(document).ready(effect())
+	</script>
+</body>
+</html>

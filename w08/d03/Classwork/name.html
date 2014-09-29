@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Name</title>
+</head>
+<body>
+
+
+
+
+
+<script>
+console.log('conor');
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET','http://localhost:2000/names', true)
+
+xhr.send()
+xhr.addEventListener('load', function(){
+var ul=document.createElement('ul');
+document.body.appendChild(ul);
+var json=JSON.parse(xhr.response);
+for(var i = 0; i < json.length; i++){
+	var li=document.createElement('li')
+	ul.appendChild(li)
+	li.innerText=json[i]["name"];
+}
+
+
+
+
+})
+
+function reversed(list){
+	var ul=document.createElement('ul');
+	document.body.appendChild(ul);
+	for(var i = list.items.length; i > 0; i--){
+	var li=document.createElement('li')
+	ul.appendChild(li)
+	li.innerText=json[i]["name"];
+
+	}
+
+
+}
+
+
+
+
+</script>
+</body>
+</html>
