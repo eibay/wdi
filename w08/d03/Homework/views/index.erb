@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Baby Names</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<table class="table table-bordered table-hover">
+			<tr>
+				<td> # </td>
+				<td>Name</td>
+				<td>County</td>
+				<td>Count</td>
+			</tr><!-- end top row-->
+			<% data.each do |a| %>
+				<tr>
+					<td><%= data.index(a)+1 %>
+					<td><%= a[:name] %></td>
+					<td><%= a[:county] %></td>
+					<td><%= a[:count] %></td>
+				</tr><!-- end single table row-->
+			<% end %>
+		</table><!-- end table-->
+	</div><!-- end container-->
+</body>
+</html>

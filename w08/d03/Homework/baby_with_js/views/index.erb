@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>Baby Names</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script data-main="scripts/main.js" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+	<div class="container">
+		<table class="table table-bordered table-hover">
+			<tr>
+				<td> # </td>
+				<td>Name</td>
+				<td>County</td>
+				<td>Count</td>
+			</tr><!-- end top row-->
+
+		</table><!-- end table-->
+	</div><!-- end container-->
+
+<script>
+	$.ajax({
+	  url: "http://127.0.0.1:4567/ajaxCall",
+	  dataType: JSON
+	});
+
+	$.getJSON("./public/ny-baby-names.json", function(info){
+		console.log(typeof(info));
+		var dataArray = info.data
+		var dataIWant = []
+		$.each(dataArray, function(a){
+			if (a[8] == 2012){
+				var newHash = {};
+				newHash.year = a[8];
+				newHash.name = a[9];
+				newHash.county = a[10];
+				newHash.gender = a[11];
+				newHash.count = a[12];
+				dataIWant.push(newHash)
+			}
+		})
+		$(".info").html = dataIWant[0]
+	})
+
+	</script>
+
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Baby Names</title>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="info">
+		<table>
+			<tr>
+				<td>
+				</td>
+			</tr>
+
+		</table>
+		</div>
+
+
+	</div>
+
+	<script type="text/javascript">
+			var data = $.ajax({
+			  url: "http://127.0.0.1:2000/ajaxCall",
+			  dataType: JSON
+			});
+			console.log(data)
+			$(document).ready(function(){
+				$("table").text(data)
+
+			});
+		// $.getJSON("./public/ny-baby-names.json", function(info){
+		// 	console.log(typeof(info));
+		// 	var dataArray = info.data
+		// 	var dataIWant = []
+		// 	$.each(dataArray, function(a){
+		// 		if (a[8] == 2012){
+		// 			var newHash = {};
+		// 			newHash.year = a[8];
+		// 			newHash.name = a[9];
+		// 			newHash.county = a[10];
+		// 			newHash.gender = a[11];
+		// 			newHash.count = a[12];
+		// 			dataIWant.push(newHash)
+		// 		}
+		// 	})
+		// 	$(".info").html = dataIWant[0]
+		// })
+
+	</script>
+</body>
+</html>
