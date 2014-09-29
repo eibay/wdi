@@ -3,8 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <title>Baby Names</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<!-- bootstrap jquery, needs to go before JS -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js
+"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
 </head>
 <body>
+<div class="container">
+		<table class="table table-striped">
+		<tr style="font-weight: bold; font-size: 2em;">
+			<td>Name</td>
+			<td>County</td>
+			<td>Gender</td>
+			<td>Count</td>
+		</tr>
+		<%babies.each do |baby|%>
+			<tr>
+				<td><%=baby[:name]%></td>
+				<td><%=baby[:county]%></td>
+				<td><%=baby[:gender]%></td>
+				<td><%=baby[:count]%></td>
+			</tr>
+		<%end%>
+		</table>
+
+	</div>
+
+<%=babies%>
   
+
+
+
 </body>
 </html>

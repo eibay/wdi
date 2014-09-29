@@ -1,4 +1,7 @@
+.show img {
+	margin: 5px;
+	width: 98%;
+}
 .images img {
-	width: 300px;
-	display: inline-block;
+	width: 80%;
 }
