@@ -60,9 +60,9 @@ var cars,
 
 $(function(){
 
-	var cars = new CarCollection();
+	cars = new CarCollection();
 
-	var listView = new CarListView({ collection: cars, el: $('#car-list') });
+ listView = new CarListView({ collection: cars, el: $('#car-list') });
 
 	var honda = new Car({ make: "Honda", type: "Civic", color: "Red" });
 	var toyota = new Car({ make: "Toyota", type: "Corolla", color: "White" });

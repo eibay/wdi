@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>BLah</title>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+
+
+	<input type="text" id="zip" placeholder="Enter Zip Code"><br>
+	<button id="button">Do Stuff</button>
+	<ul id="stuff"></ul>
+
+
+
+	<script>
+	$('#button').on('click', function(){
+		$.get('https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json', function(data){
+			$('#stuff').html('')
+			for(var i = 0; i < 10; i++){
+				
+				$('#stuff').append('<li>'+data["data"][i][1]+' : '+data["data"][i][10]+'</li>')
+			}
+			 
+		})
+	})
+	
+	$('#zip').on('keyup', function(){
+		if($(this).val().length==5){
+			$.get('https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json', function(data){
+				var zip=[];
+				data["data"].forEach(function(wifi){
+					if(wifi[15] == $('#zip').val()){
+						zip.push(wifi)
+					}
+				})
+				$('#stuff').html('')
+				if(zip.length > 10){
+					x=10;
+				}
+				else{
+					x=zip.length
+				}
+			for(var i = 0; i < x; i++){
+				
+				$('#stuff').append('<li>'+zip[i][1]+' : '+zip[i][10]+': '+zip[i][15]+'</li>')
+
+
+			}
+
+		})
+
+		}
+	})
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
