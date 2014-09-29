@@ -14,8 +14,8 @@
   
   1. Simple
     * Create an html page and a button.
-    * When you press the button you should see a list of 10 wifi hotspots in NYC.
-    * Make an ajax call to this endpoint to get the wifi hotspot data - `https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json`
+    * When you press the button you should see a list with names of 10 wifi hotspots in NYC.
+      * Make an ajax call to this endpoint to get the wifi hotspot data - `https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json`
 
   2. Challenge
     * Create an input tag
