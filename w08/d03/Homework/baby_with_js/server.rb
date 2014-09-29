@@ -21,6 +21,7 @@ get '/2007' do
 
     end
   end
+  babies_07.to_json
   # erb(:"index", {locals: {babies: babies_07}})
 end
 
@@ -38,6 +39,7 @@ get '/2008' do
       babies_08 << hash_2008
     end
   end
+    babies_08.to_json
   # erb(:"index", {locals: {babies: babies_08}})
 end
 
@@ -55,6 +57,7 @@ get '/2009' do
       babies_09 << hash_2009
     end
   end
+    babies_09.to_json
   # erb(:"index", {locals: {babies: babies_09}})
 end
 
@@ -72,6 +75,7 @@ get '/2010' do
       babies_10 << hash_2010
     end
   end
+    babies_10.to_json
   # erb(:"index", {locals: {babies: babies_10}})
 end
 
@@ -89,6 +93,7 @@ get '/2011' do
       babies_11 << hash_2011
     end
   end
+    babies_11.to_json
   # erb(:"index", {locals: {babies: babies_11}})
 end
 
@@ -106,6 +111,7 @@ get '/2012' do
       babies_12 << hash_2012
     end
   end
+    babies_12.to_json
   # erb(:"index", {locals: {babies: babies_12}})
 end
 
