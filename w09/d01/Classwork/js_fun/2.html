@@ -12,9 +12,9 @@
 <script>
 $('button').on('click', function(){
 	$.get('https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json', function(data){
-		data["data"].forEach(function(spot){ 
-			$('ul').append('<li>' + spot + '</lil>');
-		});
+		for (var i = 0; i < 10 ; i++) { 
+			$('ul').append('<li>' + data["data"][i] + '</lil>');
+		};
 	});	
 })
 </script>
