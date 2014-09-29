@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title></title>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<input type="text" value="" placeholder="Enter a Zip Code"></input>
+	<button>Button</button>
+	<ul></ul>
+	<script type="text/javascript">
+	$.ajax({url: "https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json", type: "GET", 
+	success: function(data){
+    	console.log("Success!");
+    	$('button').click(function(){
+    		var i=0;
+    		while(i<10) {
+	    		var li = document.createElement('li');
+	    		var wifi_spot = data.data[i];
+	    		var name = wifi_spot[9];
+	    		var address = wifi_spot[10];
+	    		var zip = wifi_spot[15];
+	    		$(li).text("Name: " + name + ", " + "Address: " + address);
+	    		$('ul').append(li);
+	    		i++;
+    		};
+    	});
+
+    	$('input').keyup(function(data){
+    		debugger
+    		var li = document.createElement('li');
+	    	var wifi_spot = data.data[i];
+	    	var name = wifi_spot[9];
+	    	var address = wifi_spot[10];
+	    	var zip = wifi_spot[15];
+
+
+    	});
+	}});	
+	</script>
+</body>
+</html>
