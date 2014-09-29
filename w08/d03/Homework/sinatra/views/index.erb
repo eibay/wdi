@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="style.css">
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<!-- This is Instructor crap -->
+  <meta charset="UTF-8">
+  <title>Baby Names</title>
+</head>
+<body>
+
+	<div class="container">
+		<header class="col-md-8 col-md-offset-2">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th data-field="name">Name</th>
+						<th data-field="county">County</th>
+						<th data-field="gender">Gender</th>
+						<th data-field="count">Count</th>
+					</tr>
+				</thead>
+				<% names.each do |name| %>
+					<tr>
+						<td><%= name[9].downcase.capitalize %></td>
+						<td><%= name[10].downcase.capitalize %></td>
+						<td><%= name[11].downcase.capitalize %></td>
+						<td><%= name[12].downcase.capitalize %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

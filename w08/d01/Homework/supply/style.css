@@ -10,24 +10,26 @@ body div {
 
 body div.side {
 	width: 27%;
-	height: 650px;
+	height: 800px;
 	border: 1px black solid;
 }
 
 .images {
 	float: right;
 	width: 72%;
-	height: 650px;
+	height: 800px;
 	border: 1px black solid;
 }
 
 .boots {
-	height: 40%;
 	width: 100%;
+	margin-bottom: 10.078px;
 }
 
 .thirds {
 	display: inline-block;
+	margin-top: auto;
+	margin-bottom: 10.078px;
 }
 
 .boots img {
@@ -36,7 +38,7 @@ body div.side {
 }
 
 .thirds {
-	width: 29%;
+	width: 30.15%;
 	margin-left: 2%;
 }
 
@@ -45,19 +47,12 @@ body div.side {
 }
 
 .halves {
-	width: 45%;
+	width: 46.62%;
+	margin-left: 2%;
 }
 
 .halves img {
 	width: 100%;
-}
-
-.halves#port {
-	margin-left: 2%;
-}
-
-.halves#starboard {
-	margin-left: 4%;
 }
 
 

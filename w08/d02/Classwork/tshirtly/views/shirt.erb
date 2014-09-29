@@ -1,0 +1,8 @@
+<% array = ["1", "2", "2"] %>
+
+<div class="col-md-2 col-md-offset-<%= array[index % 3] %>">
+	<div class="shirt">
+		<div class="shirt_window" id="<%= shirt.id %>" name="<%= shirt.name %>"><img src="<%= shirt.img_src %>"></div>
+		<%= shirt.name %>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div class="shirt_list">
+		<% shirts.each do |shirt| %>
+			<%= erb(:admin_shirt, { locals: { shirt: shirt } }) %>
+		<% end %>
+	</div>
+
+	<script type="text/javascript" src="script2.js"></script>
+</body>
+</html>
