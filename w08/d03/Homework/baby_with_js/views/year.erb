@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Baby Names</title>
+</head>
+<body>
+  <h3>Baby Names in NY by Year</h3>
+  <ul>
+    </li><a href="/">Home</a></li>
+    </li><a href="/2007">Names in 2007</a></li>
+    </li><a href="/2009">Names in 2009</a></li>
+    </li><a href="/2010">Names in 2010</a></li>
+    </li><a href="/2011">Names in 2011</a></li>
+    </li><a href="/2012">Names in 2012</a></li>
+  </ul>
+  <hr />
+  <div id="babyResults">
+    <table>
+    </table>
+  </div>
+
+
+<script type="text/javascript">
+var test = [];
+var page_path = window.location.pathname;
+page_path = page_path.split("/")[1];
+
+$.get('/ny-baby-names.json', function(result){
+    var ajax_result = result;
+    for(var i=0;i<result.data.length;i++){
+      ajax_result.data[i][8] == page_path  ?
+      $("table").append("<tr>" + "<td>"+ajax_result.data[i][9]+"</td>" + "<td>"+ajax_result.data[i][10]+"</td>"+ "<td>"+ajax_result.data[i][11]+"</td>"+ "<td>"+ajax_result.data[i][12]+"</td>"+ "</tr>")
+        // test.push(result.data[i])
+         : console.log();
+      }
+    }, "json"
+  );
+  // var xhr = new XMLHttpRequest;
+  // xhr.open('GET', '/ny-baby-names.json', true );
+  // xhr.send();
+  // xhr.addEventListener('load', function(e){
+  //   console.log(xhr.response);
+  // });
+</script>
+</body>
+</html>

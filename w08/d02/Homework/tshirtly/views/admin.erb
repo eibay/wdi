@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css">
+    <title>Tshirt.ly Admin Page</title>
+  </head>
+  <body>
+    <nav>
+      <form action="/admin" method="POST">
+        <input type="text" name="teetype" placeholder="t-shirt type">
+        <input type="text" name="image" placeholder="t-shirt image">
+        <input type="number" name="quantity">
+        <input type="text" name="price" placeholder="price">
+      <button>Add shirt</button>
+    </form>
+    </nav>
+    <main>
+      <section>
+        <% shirts.all().each do |s| %>
+        <article>
+          <img src="<%= s['image'] %>" /><br /><%= s['teetype'] %>
+          <br />Quantity: <%= s['quantity'] %><br />Price: $<%= s['price'] %><br />
+          <form action="/admin" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="deleted_shirt" value="<%= s['id'] %>">
+          <button>Delete</button>
+        </form>
+        </article>
+        <% end %>
+      </section>
+    </main>
+  </body>
+</html>

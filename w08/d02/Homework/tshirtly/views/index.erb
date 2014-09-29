@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <!-- <link rel="stylesheet" href="/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"> -->
+
+    <link rel="stylesheet" href="/style.css">
+    <title>Tshirt.ly</title>
+  </head>
+  <body>
+    <header>
+      <h1>Tshirt.ly<h1>
+    </header>
+    <main>
+      <div class="container">
+      <section class="row">
+        <% shirts.all().each do |s| %>
+        <article>
+          <img src="<%= s['image'] %>" /><br /><%= s['teetype'] %><br />
+          <button>I want this on my body</button>
+        </article>
+        <% end %>
+      </section>
+    </div>
+    </main>
+  </body>
+</html>
