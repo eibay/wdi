@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  </head>
+  <body>
+    <input type="text"></input>
+    <button>PUSH</button>
+
+    <script>
+    var btn = $('button');
+    var ul = $('body').append('<ul></ul>');
+    var jul = document.querySelector('ul');
+    $.get( "https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json", function(data){
+      console.log(data);
+
+      newData = data.data.slice(0, 10);
+      for(i=0;i<newData.length;i++){
+        ul.append(
+          "<li>" + data.data[i][9] + " " + data.data[i][10]+ " " + data.data[i][11] + " " + data.data[i][12] + " " + data.data[i][13] + " " + data.data[i][14] + " " + data.data[i][15] + "</li>"
+        );
+      }
+    })
+    var input = document.querySelector('input');
+    input.addEventListener('keyup', function(input){
+      $.get("https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json", function(data){
+        for(i=0;i<data.data.length;i++){
+          input == data.data[i][15];
+          debugger;
+          var lis = jul.appendChild('li');
+          lis.innerText = data.data[i];
+        }
+      })
+    })
+
+    </script>
+  </body>
+</html>
