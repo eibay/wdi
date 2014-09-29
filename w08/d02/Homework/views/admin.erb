@@ -1,0 +1,126 @@
+<html>
+<head>
+	<title>Admin</title>
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<link rel='stylesheet' href='./styles.css'>
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<script src='./javascript.js'></script>
+
+</head>
+<body>
+	
+<div class='container'>
+
+	<div class='row'>
+		<header class='col-md-8 col-md-offset-2 main'>
+			<h1>Admin</h1>
+		</header>
+	</div>
+
+	<article class='addShirt'>
+		<div class='row'>
+			<header class= 'col-md-8 col-md-offset-2'>
+				<h3>Add/Remove a shirt</h3>
+			</header>
+		</div>
+		
+		<div class='row'>
+			<section class='col-md-8 col-md-offset-2'>
+				<form action='/admin/add' method='POST'>
+					<label>Quantity: </label>
+					<input name='quantity'></input>
+					<label>Price: </label>
+					<input name='price'></input>
+					<label>Image URL: </label>
+					<input name='url'></input>
+					<button>Add</button>
+				</form>
+			</section>
+		</div>
+
+		<div class='row'>
+			<section class='col-md-8 col-md-offset-2'>
+				<% shirts.each do |shirt| %>
+					<div class='col-md-4 shirtImages'>
+						<img class='img-thumbnail' src=<%= shirt.image %> />
+						<p>$<%= shirt.price %></p>
+						<form action='/admin/remove-shirt/<%=shirt.id%>' method='POST'>
+							<button class='remove-shirt' value=<%=shirt.id%>>remove</button>
+						</form>
+					</div>
+				<% end %>
+			</section>
+		</div>
+
+	</article>
+
+
+	<article class='pending'>
+		<div class='row'>
+			<header class='col-md-8 col-md-offset-2'>
+				<h3>Pending Orders</h3>
+			</header>
+		</div>
+
+		<div class='row'>
+			<section class='col-md-8 col-md-offset-2'>
+				<% pending.each do |user| %>
+					<div>
+						<p><%=user.email%> requested: <%=user.quantity%><p>
+						<form action='/admin/complete-order/<%=user.id%>' method='POST'>
+							<button value=<%=user.id%> class='complete-order'>Complete Order</button>
+						</form>
+				<% end %>
+			</section>
+		</div>
+	</article>
+
+	<article class='outOverSold'>
+		<div class='row'>
+			<header class='col-md-8 col-md-offset-2'>
+				<h3>Sold Out/Oversold</h3>
+			</header>
+		</div>
+
+		<div class='row'>
+			<section class='col-md-8 col-md-offset-2'>
+					<% soldOut.each do |order| %>
+					<div class='col-md-4 shirtImages'>
+						<img class='img-thumbnail' src=<%= order.image %>>
+						<p>SOLD OUT</p>
+					</div>
+					<% end %>
+					<% overSold.each do |order|%>
+					<div class='col-md-4 shirtImages'>
+						<img class='img-thumbnail' src=<%= order.image %>>
+						<p>OVERSOLD: <%=order.quantity%></p>
+					</div>
+					<% end %>
+			</section>
+		</div>
+	</article>
+
+</div><!--class='container'-->
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

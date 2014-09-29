@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Baby Names</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<!-- <link rel='stylesheet' href='./styles.css'> -->
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<!--<script src='./javascript.js'></script>-->
+
+</head>
+<body>
+	
+	<div class='container'>
+
+		<div class='row'>
+			<header class='col-md-8 col-md-offset-4'>
+				<h3>Baby Names from <%=babies[0][8]%></h3>
+			</header>
+		</div>
+
+		<table class='table table-striped table-bordered col-md-8'>
+		
+		<tr class='row'>
+			<td><h5>Name</h5></td>
+			<td><h5>County</h5></td>
+			<td><h5>Gender</h5></td>
+			<td><h5>Count</h5></td>
+		</tr>
+
+		<% babies.each do |baby| %>
+		<tr class= 'row'>
+			<td><p><%=baby[9]%></p></td>
+			<td><p><%=baby[10]%></p></td>
+			<td><p><%=baby[11]%></p></td>
+			<td><p><%=baby[12]%></p></td>
+		</tr>
+	  <% end %>
+
+  </table>
+
+</body>
+</html>
