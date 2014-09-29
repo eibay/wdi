@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  </head>
+
+  <body>
+    <button class="wifi"> PRESS FOR TOP TEN WIFI SPOTS IN NYC</button>
+    <input class="postal" placeholder="postal"></input>
+    <button class="postalinput">POSTAL</button>
+
+    <ul class="list">
+  </ul>
+
+  <script>
+  button()
+  postal()
+
+  function button(){
+    $('.wifi').click(function(event){
+      $.get("https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json", function(dataJSON){
+        console.log(dataJSON)
+        for (i = 0; i < 10; i++){
+          $(".list").append("<li>"+"Address is "+ dataJSON["data"][i][10]+" Website is "+ dataJSON["data"][i][12]+"</li>")
+  
+        }
+      })  
+    })
+  }
+
+  // function postal(){
+  //     $('.postal').click(function(event){
+  //     $.get("https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json", function(dataJSON){
+  //       console.log($('.postalinput').value)
+  //       for (i = 0; i < 10; i++){
+  //         $(".list").append("<li>"+"Address is "+ dataJSON["data"][i][10]+" Website is "+ dataJSON["data"][i][12]+"</li>")
+  
+  //       }
+  //     })  
+  //   })
+
+  // }
+
+  </script>
+
+  </body>
+</html>
