@@ -4,7 +4,7 @@ var MoviesView = Backbone.View.extend({
 		console.log("A new Movies view has been created");
 	},
 		render: function(){
-		this.$el.html("<h2>Favorite Movies</h2><ol><li><a href='#/movie/Star Wars'>Star Wars</a></li> <li><a href='#/movie/Raiders of the Lost Ark'>Raiders of the Lost Ark</a></li> <li><a href='#/movie/To Kill a Mockingbird'>To Kill a Mockingbird</a></li> <li><a href='#/movie/Life of Brian'>Life of Brian</a></li> <li><a href='#/movie/Heathers'>Heathers</a></li> <li><a href='#/movie/Kill Bill'>Kill Bill</a></li> <li><a href='#/movie/Time Bandits'>Time Bandits</a></li> <li><a href='#/movie/The Neverending Story'>The Neverending Story</a></li> <li><a href='#/movie/Dr. Strangelove'>Dr. Strangelove</a></li> <li><a href='#/movie/Election'>Election</a></li></ol>");
+		this.$el.html("<h2>Favorite Movies</h2><ol><li><a href='#/movie/Star Wars'>Star Wars</a></li> <li><a href='#/movie/Raiders of the Lost Ark'>Raiders of the Lost Ark</a></li> <li><a href='#/movie/To Kill a Mockingbird'>To Kill a Mockingbird</a></li> <li><a href='#/movie/Life of Brian'>Life of Brian</a></li> <li><a href='#/movie/Heathers'>Heathers</a></li> <li><a href='#/movie/Kill Bill'>Kill Bill</a></li> <li><a href='#/movie/Time Bandits'>Time Bandits</a></li> <li><a href='#/movie/The Neverending Story'>The Neverending Story</a></li> <li><a href='#/movie/Trainspotting'>Trainspotting</a></li> <li><a href='#/movie/Election'>Election</a></li></ol>");
 	}
 });
 
@@ -42,15 +42,15 @@ var HelloView = Backbone.View.extend({
 	}
 });
 
-var ImageView = Backbone.View.extend({
-	initialize: function(){
-		this.render()
-		console.log("A new Image view has been created");
-	},
-	render: function(){
-		this.$el.html("<img src='http://placekitten.com/'>" + route);
-	}
-});
+// var ImageView = Backbone.View.extend({
+// 	initialize: function(){
+// 		this.render()
+// 		console.log("A new Image view has been created");
+// 	},
+// 	render: function(){
+// 		this.$el.html(image);
+// 	}
+// });
 
 $(function(){
 
@@ -60,7 +60,7 @@ var AppRouter = Backbone.Router.extend({
 		"movie/:movie": "movie",
 		"books": "books",
 		"hello/:name": "hello",
-		"/200/200": "/200/200"
+		":width/:height": "images"
 	}
 });
 
@@ -84,6 +84,12 @@ router.on('route:books', function(){
 router.on('route:hello', function(name){
 	var header = $('header');
 	var helloView = new HelloView(name);
+});
+
+router.on('route:images', function(width, height){
+	var img = $('.image');
+	var image = "<img src='http://placekitten.com/g/" + width + "/" + height + "'>"
+	img.html(image);
 });
 
 	Backbone.history.start();
