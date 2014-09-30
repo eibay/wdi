@@ -12,6 +12,20 @@ $(function(){
 makeList(shopList);
 
 
+var button =$('button');
+button.on("click", function() {
+	addItem();
+
+})
+
+
+function addItem() {
+	var input = $('#itemAdd').val();
+	var ul = $('ul');
+	ul.append("<li>" + input + "</li>");
+}
+
+
 
 
 
