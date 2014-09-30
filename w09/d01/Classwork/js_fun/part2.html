@@ -13,12 +13,18 @@
 
 	<script type='text/javascript'>
 		
+		var array=[]
+
+		$.each(array, function(value){
+			$('ul').append("<li>"+value+"</li>")
+		});
+
 		function getWifi(){
 			$.getJSON('https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json', function(data){
 					$.each(data, function(key, value){
 						$.each(value, function(key, value){
-							console.log(value[9])
-							$('ul').append("<li>"+value[9]+"</li>")
+							array.push(value[9])
+							// $('ul').append("<li>"+value[9]+"</li>")
 						});
 					})
 			})
@@ -33,19 +39,3 @@
 </body>
 </html>
 
-
-
-
-
-<!-- unction getNames(){
-			$.getJSON ("/data"+url, function(data){
-				$.each(data, function(key, value){
-					var name = value[9]
-					var county = value[10]
-					var gender = value[11]
-					var count = value[12]
-					// building my table here
-					$('table').append("<tr class='row'><td>"+name+"</td><td>"+county+"</td><td>"+gender+"</td><td>"+count+"</td></tr>")
-				})
-			})
-		}; -->
