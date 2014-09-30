@@ -1,25 +1,31 @@
 require 'sinatra'
 require 'haml'
+require 'awesome_print'
 require_relative "./lib/connection"
 require_relative "./lib/item"
 
 get '/' do 
-  haml :index 
+  haml :index
 end 
 
 post "/items" do 
-  Item.new({
-    item: params["item"]
-  }).save
-  "You posted to the server!" 
+  content_type :json 
+  i = Item.new({
+    item: params["item"],
+    quanity: params["quanity"]
+  })
+  i.save 
+  i.reload.to_json
 end 
 
 get "/items" do 
-  content_type :json
+  content_type :json 
   Item.all.to_json
 end 
 
 delete "/items" do
-  Item.find_by_id(params["id"]).destroy  
+  ap params["id"] 
+  ap Item.all.to_json
+  Item.find_by_id(params["id"]).destroy 
   "Item #{params["id"]} destroyed in db!"
 end 
