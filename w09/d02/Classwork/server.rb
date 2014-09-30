@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'haml'
-require 'awesome_print'
 require_relative "./lib/connection"
 require_relative "./lib/item"
 
@@ -18,4 +17,9 @@ end
 get "/items" do 
   content_type :json
   Item.all.to_json
+end 
+
+delete "/items" do
+  Item.find_by_id(params["id"]).destroy  
+  "Item #{params["id"]} destroyed in db!"
 end 
