@@ -29,3 +29,9 @@ delete "/items" do
   Item.find_by_id(params["id"]).destroy 
   "Item #{params["id"]} destroyed in db!"
 end 
+
+put "/items" do 
+  i = Item.find_by_id params["id"] 
+  Item.update params["id"], {quanity: params["quanity"]} 
+  i.reload.to_json
+end 

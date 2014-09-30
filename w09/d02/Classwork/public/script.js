@@ -35,10 +35,16 @@ function addItemToList(itemStr, quanityStr, id) {
   $quanityInput.attr("min", 1);
   $quanityInput.val(quanityStr);
 
+  // send out an AJAX call to update the obj 
+  // if the user changes the quanity 
   $quanityInput.change(function(e) {
     var newQuanity = e.currentTarget.value;
-    console.log(newQuanity);
-
+    var id = e.currentTarget.parentNode.id;
+    $.ajax({
+      url: "/items", 
+      type: "PUT", 
+      data: {"id": id, "quanity": newQuanity}
+    });
   });
   $listItem.append($quanityInput);
 
