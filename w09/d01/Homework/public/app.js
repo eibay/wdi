@@ -24,14 +24,12 @@ $(function(){
 		render: function(array, type){
 			$('#container').html('')
 			$('#container').append('<ul class="awesome"></ul>')
-			array.forEach(function(item){
-
-				$.get('/books?title='+item, function(data){
-
+				
+				_.each(array, function(item){  
+				$.get('/books?title='+item).done(function(data){
+					console.log(data)
 					$('.awesome').append('<li>'+item+'-'+data["rating"]+'</li>')
 				})
-
-
 			})
 		}
 
@@ -108,7 +106,7 @@ $(function(){
 	})
 	appRouter.on('route:books', function(){
 
-		bookView = new BookView({array:["The Hunger Games", "Catch Me If You Can"], type:'book'})
+		bookView = new BookView({array:["Animal Farm", "Catch 22"], type:'book'})
 	})
 
 	appRouter.on('route:individualmovie', function(movie){

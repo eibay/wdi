@@ -17,7 +17,9 @@ end
 get('/books') do
 	content_type :json
 	title=params[:title]
-	url=URI.encode('https://www.goodreads.com/book/title?title=#{title}&key=mLCTndmzBybvikI6Zmer5g')
+	title=title.split(' ')
+	title=title.join('+')
+	url=URI.encode("https://www.goodreads.com/book/title?title=#{title}&key=mLCTndmzBybvikI6Zmer5g")
 	api=HTTParty.get(url)
 	response={rating: api["GoodreadsResponse"]["book"]["average_rating"]}
 	response.to_json
@@ -47,6 +49,9 @@ get('/deletemovie') do
 	movie.destroy
 
 	{response: 'Successfully Deleted'}.to_json
+
+
+	# response={hash:{hash:{hash:{hash:{}, hash2:{}, hash3:{}}}}}
 
 end
 
