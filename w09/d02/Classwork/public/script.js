@@ -1,9 +1,14 @@
 $(function(){
 
   var $theGroceryList = $("ul"); 
-  var $theItem = $("input#grocery_item");
+  var $theItemInput = $("input#grocery_item");
   var $button = $("section.add button"); 
   $button.on('click', function() {
-    console.log("You clicked the button!"); 
+    var item = $theItemInput.val(); 
+    var params = {"item": item}; 
+    console.log(item); 
+    $.post("/items", params, function(response) {
+      console.log(response); 
+    }); 
   });   
 });
