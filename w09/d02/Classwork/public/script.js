@@ -23,10 +23,13 @@ function createItem(itemStr) {
 
 function assembleList() {
   $.getJSON("/items", null, function(itemsArray) {
-    if (itemsArray.length != 0) {
-      $.each(itemsArray, function(idx, item) {
-        addItemToList(item["item"]);
-      });
-    }
+    if (itemsArray.length != 0)
+      addAllItems(itemsArray); 
+  });
+}
+
+function addAllItems(arr) {
+  $.each(arr, function(idx, item) {
+    addItemToList(item["item"]); 
   });
 }
