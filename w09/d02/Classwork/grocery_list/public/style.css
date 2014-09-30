@@ -8,6 +8,7 @@ ul {
 
 li {
 	padding: 10px;
+	text-align: left;
 }
 
 /*.btn {
@@ -25,6 +26,11 @@ li {
 
 input.quantity {
 	display: inline-block;
-	height: 15px;
-	width: 15px;
+	height: 20px;
+	width: 30px;
+	margin-left: 10px;
+}
+
+.check {
+	margin-right: 50px;
 }

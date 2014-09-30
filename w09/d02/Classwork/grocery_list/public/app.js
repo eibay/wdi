@@ -2,12 +2,12 @@ $(function(){
 
 	function lister(list){
 		for (var i = 0; i < list.length; i++) {
-			$('ul').append('<li class="item"><input id="' + list[i]["id"] + '" type="checkbox">' + list[i]["item"] + ' <input class="quantity" id="' + list[i]["id"] + 'type="text" value="1"> <button class="btn del"' + '">X</button></li>');
+			$('ul').append('<li class="item"><input class="check" id="' + list[i]["id"] + '" type="checkbox">' + list[i]["item"] + ' <input class="quantity" id="' + list[i]["id"] + 'type="text" value="' + list[i]["quantity"] + '"> <button class="btn del"' + '">X</button></li>');
 			if (list[i]["checked"] == true) {
 				$('input#' + list[i]["id"]).prop('checked', true);
 				$('input#' + list[i]["id"]).parent().css('textDecoration', 'line-through');	
 			}
-			$('input#' + list[i]["id"]).val(list[i]["quantity"]);
+			// $('input#' + list[i]["id"]).val(list[i]["quantity"]);
 			$('input#' + list[i]["id"]).click(function(){
 				saveState($(this).attr('id'), 'checked', $(this).prop('checked'));
 				var that = this;

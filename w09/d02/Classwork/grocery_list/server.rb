@@ -22,7 +22,7 @@ end
 post('/item') do
 	content_type 'json'
 	item = []
-	item << Item.create({item: request.body.read})
+	item << Item.create({item: request.body.read, quantity: '1'})
 	item.to_json
 end
 
