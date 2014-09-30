@@ -15,7 +15,7 @@ end
 
 get('/list') do
 	content_type 'json'
-	items = Item.all()
+	items = Item.all().order(id: :asc)
 	items.to_json
 end
 
@@ -24,6 +24,11 @@ post('/item') do
 	item = []
 	item << Item.create({item: request.body.read})
 	item.to_json
+end
+
+put('/item') do
+	item = Item.find_by(id: params[:item])
+	item.update(params[:value] => params[:state])
 end
 
 delete('/item') do
