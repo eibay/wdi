@@ -4,6 +4,12 @@ require 'awesome_print'
 require_relative "./lib/connection"
 require_relative "./lib/item"
 
+class String 
+  def to_boolean
+    self == "true"
+  end
+end 
+
 get '/' do 
   haml :index
 end 
@@ -12,7 +18,8 @@ post "/items" do
   content_type :json 
   i = Item.new({
     item: params["item"],
-    quanity: params["quanity"]
+    quanity: params["quanity"],
+    completed: false 
   })
   i.save 
   i.reload.to_json
@@ -30,8 +37,12 @@ delete "/items" do
   "Item #{params["id"]} destroyed in db!"
 end 
 
-put "/items" do 
-  i = Item.find_by_id params["id"] 
-  Item.update params["id"], {quanity: params["quanity"]} 
-  i.reload.to_json
+put "/items" do
+  i = Item.find_by_id params["id"]  
+  if params["quanity"]
+    Item.update params["id"], {quanity: params["quanity"]} 
+  elsif params["completed"] 
+    Item.update params["id"], {completed: params["completed"].to_boolean}
+  end 
+  i.reload.to_json 
 end 

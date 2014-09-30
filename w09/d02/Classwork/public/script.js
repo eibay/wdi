@@ -10,7 +10,7 @@ $(function(){
   });   
 });
 
-function addItemToList(itemStr, quanityStr, id) {
+function addItemToList(itemStr, quanityStr, isCompleted, id) {
   var $theGroceryList = $("ul"); 
 
   // represent the item 
@@ -18,6 +18,9 @@ function addItemToList(itemStr, quanityStr, id) {
   $listItem.attr("id", id);
   var $itemContent = $("<p></p>");
   $itemContent.text(itemStr); 
+  $itemContent.css("text-decoration", 
+    isCompleted ? "line-through" : "none"
+    ); 
   $listItem.append($itemContent);
 
   // construct a delete button 
@@ -28,6 +31,29 @@ function addItemToList(itemStr, quanityStr, id) {
     destroyItem(listItemId); 
   });
   $listItem.append($deleteButton); 
+
+  // construct a completed checkbox 
+  var $completedCheckbox = $("<input></input>");
+  $completedCheckbox.attr("type", "checkbox");
+  $completedCheckbox.attr("checked", isCompleted);
+
+  $completedCheckbox.change(function(e) {
+    var listItemId = e.currentTarget.parentNode.id;
+
+    var completed = e.currentTarget.checked;
+    if (completed) {
+      e.currentTarget.parentNode.style.textDecoration = "line-through";
+    } else {
+      e.currentTarget.parentNode.style.textDecoration = "none";
+    } 
+    $.ajax({
+      url: "/items",
+      type: "PUT",
+      data: {"id": id, "completed": completed}
+    }); 
+  });
+  $listItem.append($completedCheckbox);
+
 
   // construct a quanity input 
   var $quanityInput = $("<input></input>");
@@ -69,7 +95,8 @@ function removeItemFromList(id) {
 function createItem(itemStr, quanityStr) {
   var params = {"item": itemStr, "quanity": quanityStr}; 
   $.post("/items", params, function(response){
-    addItemToList(itemStr, quanityStr, response.id);   
+    console.log(itemStr, quanityStr, response.completed, response.id);
+    addItemToList(itemStr, quanityStr, response.completed, response.id);   
   });
 }
 
@@ -82,6 +109,7 @@ function assembleList() {
 
 function addAllItems(arr) {
   $.each(arr, function(idx, item) {
-    addItemToList(item["item"], item["quanity"], item["id"]); 
+    console.log(item);
+    addItemToList(item["item"], item["quanity"], item["completed"], item["id"]); 
   });
 }
