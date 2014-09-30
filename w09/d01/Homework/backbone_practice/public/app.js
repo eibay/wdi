@@ -31,7 +31,11 @@ var BookView = Backbone.View.extend({
 		// var myFavBooks = $.parseJSON(savedBooks);
 		_.each(myFavBooks, function(book){
 			$.get('http://127.0.0.1:4567/books/' + book, function(data){
-				$('ul').append('<li>' + book + ' - Average Rating: ' + data["GoodreadsResponse"]["book"]["average_rating"] + '</li>');	
+				$('ul').append('<li>' + book + ' - Average Rating: ' + data["GoodreadsResponse"]["book"]["average_rating"] + '<button class="delete ' + book + '\">X</button></li>');	
+				$('button.delete.' + book).on('click', function(){
+					var title = this.parent().text().split('-')[0].split(' ')[0];
+					$.ajax({url: 'http://127.0.0.1:4567/book', type: 'DELETE', data: title});
+				})
 			});
 		})
 	})

@@ -23,6 +23,11 @@ post('/books') do
 	Book.create({title: book})
 end
 
+delete('/book') do
+	book = Book.find_by(title: params[:title])
+	binding.pry
+	book.destroy()
+end
 
 get('/books/:title') do
 	title = URI.encode(params[:title])
