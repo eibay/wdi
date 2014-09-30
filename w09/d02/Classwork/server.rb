@@ -5,22 +5,17 @@ require_relative "./lib/connection"
 require_relative "./lib/item"
 
 get '/' do 
-
   haml :index 
 end 
 
 post "/items" do 
-
-  Item.new(
-    {item: params["item"]}
-  ).save 
-
+  Item.new({
+    item: params["item"]
+  }).save
   "You posted to the server!" 
 end 
 
 get "/items" do 
   content_type :json
-  ap Item.all
-  ap Item.all.to_json 
-  Item.all.to_json 
+  Item.all.to_json
 end 
