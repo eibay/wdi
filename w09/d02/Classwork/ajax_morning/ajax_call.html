@@ -1,0 +1,15 @@
+<html>
+<head>
+        <title></title>
+        <script type="text/javascript">
+                var xhr = new XMLHttpRequest;
+                xhr.open("GET", "http://localhost:2000/joke", "true");  
+                xhr.send()
+                xhr.addEventListener("load", function(){
+                console.log(xhr.response)
+                });  
+        </script>
+</head>
+<body>
+</body>
+</html>

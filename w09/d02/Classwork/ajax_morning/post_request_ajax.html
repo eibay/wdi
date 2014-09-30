@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>thing</title>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	
+	
+
+	<script>
+	function makeCall() {
+		$.ajax({
+		  url: "http://127.0.0.1:2000/joke",
+		  type: "GET"
+		}).done(function(data) {
+			console.log(data)
+			jokes = JSON.parse(data);
+			var $ul = $("ul")
+			for (var i = 0; i < jokes.length; i++) {
+				$ul.t("<li>" +jokes[i]+ "</li>")
+			}
+		});
+	};
+
+	$(function(){
+		$( "button" ).on( "click", function() {
+	  makeCall();
+		});
+	});
+
+	// post request
+	function makeCall() {
+		$.ajax({
+		  url: "http://127.0.0.1:2000/joke",
+		  type: "POST"
+		  data: {"name": "Neel"}
+		}).done(function(data) {
+			console.log(data)
+			jokes = JSON.parse(data);
+			var $ul = $("ul")
+			for (var i = 0; i < jokes.length; i++) {
+				$ul.t("<li>" +jokes[i]+ "</li>")
+			}
+		});
+	};
+
+
+
+	</script>
+
+	<!-- .done takes the place of the event listener, data is a variable that catches what gets returned -->
+</head>
+<body>
+
+	<header>
+		<h3>Enter joke here</h3>
+	</header>
+
+	<button type="button">Click Me!</button>
+
+</body>
+</html>
+
