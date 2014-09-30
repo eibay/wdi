@@ -31,10 +31,13 @@ var BookView = Backbone.View.extend({
 		// var myFavBooks = $.parseJSON(savedBooks);
 		_.each(myFavBooks, function(book){
 			$.get('http://127.0.0.1:4567/books/' + book, function(data){
-				$('ul').append('<li>' + book + ' - Average Rating: ' + data["GoodreadsResponse"]["book"]["average_rating"] + '<button class="delete ' + book + '\">X</button></li>');	
-				$('button.delete.' + book).on('click', function(){
-					var title = this.parent().text().split('-')[0].split(' ')[0];
-					$.ajax({url: 'http://127.0.0.1:4567/book', type: 'DELETE', data: title});
+				$('ul').append('<li>' + book + ' - Average Rating: ' + data["GoodreadsResponse"]["book"]["average_rating"] + '<button class="delete ' + book.split(' ')[0] + '\">X</button></li>');	
+				$('button.delete.' + book.split(' ')[0]).on('click', function(){
+					var fullTitle = $(this).parent().text().split('-')[0];
+					var title = fullTitle.substring(0, fullTitle.length -1);
+					console.log(title);
+					$.ajax({url: 'http://127.0.0.1:4567/book', type: 'DELETE', data: {title: title}});
+					$(this).parent().remove();
 				})
 			});
 		})
@@ -46,7 +49,7 @@ var BookView = Backbone.View.extend({
 			$.post('http://127.0.0.1:4567/books', book);
 			// console.log(myFavBooks);
 			// localStorage.setItem('myFavBooks', $.encodeJSON(myFavBooks));
-			// $('ul').append('<li>' + book + '</li>');
+			$('ul').append('<li>' + book + '</li>');
 			$('input').val('');
 		})
 	}

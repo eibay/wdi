@@ -7,6 +7,10 @@ require 'active_record'
 require_relative './lib/connection'
 require_relative './lib/book'
 
+after do
+	ActiveRecord::Base.connection.close
+end
+
 get('/') do
 	html = File.open('./index.html')
 end
@@ -25,8 +29,8 @@ end
 
 delete('/book') do
 	book = Book.find_by(title: params[:title])
-	binding.pry
 	book.destroy()
+	"#{book.title} successfully deleted"
 end
 
 get('/books/:title') do
