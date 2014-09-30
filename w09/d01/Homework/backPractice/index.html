@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>router_view_starter</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+	<script src='javascripts/jquery.js'></script>
+	<script src='javascripts/jquery.js'></script>
+	<script src='javascripts/underscore.js'></script>
+	<script src='javascripts/backbone.js'></script>
+	<script src='javascripts/app.js'></script>
+
+</head>
+<body>
+
+	<a href="#/movies">Movies</a>
+	<a href="#/books">Books</a>
+
+	<header></header>
+<script>
+
+var call=$.ajax({
+  url: "http://placekitten.com/g/200/300",
+}).done(function() {
+  $(this).addClass( "done" );
+  console.log(this)
+  console.log(this.url)
+  console.log(call)
+});
+
+</script>
+
+
+</body>
+</html>
+
