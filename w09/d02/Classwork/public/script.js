@@ -1,9 +1,10 @@
 $(function(){
-  $.get("/items", null, function(responseJSON) {
-    var itemsArray = JSON.parse(responseJSON);
-    $.each(itemsArray, function(idx, item) {
-      addItemToList(item); 
-    });
+  $.getJSON("/items", null, function(itemsArray) {
+    if (itemsArray.length != 0) {
+      $.each(itemsArray, function(idx, item) {
+        addItemToList(item["item"]);
+      });
+    }
   }); 
   var $theItemInput = $("input#grocery_item");
   var $button = $("section.add button"); 

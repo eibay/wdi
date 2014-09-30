@@ -20,6 +20,7 @@ end
 
 get "/items" do 
   content_type :json
-
-  Item.all.to_json  
+  ap Item.all
+  ap Item.all.to_json 
+  Item.all.to_json 
 end 
