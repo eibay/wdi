@@ -1,70 +1,75 @@
 require 'sinatra'
-require 'sinatra/reloader'
 require 'active_record'
-require_relative './lib/connection'
+require 'json'
+require 'httparty'
+require 'pry'
 require_relative './lib/tshirt'
 require_relative './lib/user'
-require 'pry'
+require_relative './lib/connection'
 
 after do
-
-ActiveRecord::Base.connection.close
-
+	ActiveRecord::Base.connection.close
 end
 
 get('/') do
-	erb(:index, { locals: { tshirts:Tshirt.all() } })
+
+	erb(:index, { locals: { tshirts: Tshirt.all() }})
 end
 
 post('/') do
-	tshirt_hash = {
-		name: params["name"],
-		image: params["image"],
-		quantity: params["quantity"],
-		price: params["price"]	
-	}
 
-	Tshirt.create(tshirt_hash)
+	tshirt = {name: params["name"], price: params["price"], image: params["image"], quantity: params["quantity"]}
+	Tshirt.create(tshirt)
 
-	erb(:index, { locals: { tshirts: Tshirt.all() } })
+	erb(:index, { locals: { tshirts: Tshirt.all() }})
 end
 
-get("/buy/:id")do
+get('/tshirt/:id') do
+
 	tshirt = Tshirt.find_by(id: params["id"])
-
-	erb(:buy, { locals: { tshirt: tshirt } })
+	erb(:buy, { locals: { tshirt: tshirt }})
 end
-
-# post("/tshirt/:id") do
-# 	tshirt = Tshirt.find_by(id: params["id"])
-
-
-# 	erb(:buy, { locals: { tshirt: tshirt } })
-# end
 
 post('/confirmation/:id') do
-	user_hash = {
+	user = {
 		tshirt_id: params["id"],
 		quantity: params["quantity"],
 		email: params["email"]
 	}
 
-	tshirt = Tshirt.find_by(id: params["id"])
-	tshirt.quantity = tshirt.quantity - params["quantity"].to_i
-	tshirt.save
-
-	User.create(user_hash)
+	User.create(user)
 
 	erb(:confirmation)
 end
 
 get('/admin') do
-	erb(:admin, { locals: { users: User.all() } })
+	tshirts = Tshirt.all()
+	soldout = []
+
+	tshirts.each do |tshirt|
+		if tshirt.quantity.to_i == 0
+			soldout << tshirt
+		end
+	end
+
+	erb(:admin, { locals: { users: User.all(), soldouts: soldout }})
+end
+
+post('/ship/:id') do
+
+	tshirt = Tshirt.find_by(id: User.find_by(id: params["id"])["tshirt_id"])
+	tshirt.quantity = tshirt.quantity - User.find_by(id: params["id"])["quantity"].to_i
+	tshirt.save
+
+	user = User.find_by(id: params["id"])
+	user.destroy
+
+	redirect "/admin"
 end
 
 delete('/user/:id/remove') do
-user = Tshirt.find_by(id: params["id"])
-user.destroy
+	user = Tshirt.find_by(id: params["id"])
+	user.destroy
 
-redirect "/admin"
+	redirect "/admin"
 end

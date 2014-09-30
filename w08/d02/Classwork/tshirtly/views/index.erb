@@ -1,45 +1,84 @@
 <html>
 <head>
 	<title>tshirt.ly</title>
-	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" type="text/css" href="/styles.css">
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-<link rel="stylesheet" href="../public/styles.css">
-
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
 </head>
 
 <body>
 
-<div class="container">
-	<header>
-		<h1> tshirt.ly </h1>
-	</header>
+	<div class="container">
+	<div class="row">
 
-	<% tshirts.each do |tshirt| %>
-		<ul>
-			<li>
-				<a href="tshirt/<%= tshirt.id %>">
-					<img src="<%= tshirt.image %>">
-				</a>
-				Price: <%= tshirt.price %>
-				Quantity: <%= tshirt.quantity %>
-			</li>
+		<header>
+			<h1> tshirt.ly </h1>
+		</header>
+
+		<% tshirts.each_with_index do |tshirt, index| %>
+			<div class="col-md-4 tshirt">
+				<% if tshirt.quantity != 0 %>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal<%= index %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h4 class="modal-title" id="myModalLabel"><%= tshirt.name %></h4>
+				      </div>
+				      <div class="modal-body">
+				        <ul>
+							<form action="/confirmation/<%= tshirt.id %>" method="POST">
+								<div class="specific">
+									<li><img src="<%= tshirt.image %>" class="buy img-thumbnail"></li>
+									<div class="info">
+										<li>Price: <%= tshirt.price %></li>
+										<li>Quantity: <input type="text" name="quantity"></li>
+										<li>Email: <input type="text" name="email" placeholder="email"></li>
+										<button>BUY</button>
+									</div>	
+								</div>
+							</form>
+						</ul>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<div class="home">
+					<li>
+						<a href="tshirt/<%= tshirt.id %>"><img src="<%= tshirt.image %>" style="width: 250px; height: 250px" class="img-thumbnail"></a>
+						<div class="left">
+							<h2>Price: $<%= tshirt.price %><h2/>
+							<h2>Quantity Left: <%= tshirt.quantity %></h2>
+						</div>
+						<div class="right">
+							<button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal<%= index %>">
+		  					BUY
+							</button>
+						</div>	
+					</li>
+				</div>
+				<% else %>
+				<div class="home">
+				<li><a href="tshirt/<%= tshirt.id %>"><img src="<%= tshirt.image %>" style="width: 250px; height: 180px" style="img-thumbnail"></a><p><s>Price: <%= tshirt.price %></s></p><p><s>Quantity: SOLD OUT</s></p></li>
+				</div>
+				<% end %>
+			</div>
+			<% end %>
 		</ul>
-
-		<form action="/buy/<%= tshirt.id %>" method="GET">
-			<input type="hidden">
-			<button>Buy</button>
-		</form>
-	<%end%>
-</div>
+		<hr/>
+	</div>			
 </body>
 </html>
 
