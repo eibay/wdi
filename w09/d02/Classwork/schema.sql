@@ -1,4 +1,4 @@
-CREATE TABLE groceries(
+CREATE TABLE items(
   id SERIAL PRIMARY KEY,
   item VARCHAR(100)
 );

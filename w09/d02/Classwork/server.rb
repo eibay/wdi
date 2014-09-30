@@ -11,7 +11,15 @@ end
 
 post "/items" do 
 
-  ap params["item"]
+  Item.new(
+    {item: params["item"]}
+  ).save 
 
   "You posted to the server!" 
+end 
+
+get "/items" do 
+  content_type :json
+
+  Item.all.to_json  
 end 

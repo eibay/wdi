@@ -1,4 +1,5 @@
 require 'active_record'
+require 'json'
 
 class Item 
   def to_json 
