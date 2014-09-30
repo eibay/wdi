@@ -12,7 +12,17 @@ var MoviesView = Backbone.View.extend({
     this.render();
   },
   render: function(){
-    this.$el.html('<h2>Movies</h2><ul><li>Dog Day Afternoon</li><li>This Is Spinal Tap</li><li>Breakfast at Tiffany</li><li>The Killing of a Chinese Bookie</li><li>The Honeymoon Killers</li></ul>')
+    this.$el.html()
+  }
+});
+
+var MovieView = Backbone.View.extend({
+  initialize: function(){
+    // ***** do i make the ajax call here or in the route? 
+    this.render();
+  },
+  render: function(){
+    this.$el.html()
   }
 });
 
@@ -51,6 +61,7 @@ $(function(){
     routes: {
       "": "index",
       "movies": "movies",
+      "movie/:moviename": "movie",
       "books": "books",
       "hello/:name": "hello",
       ":width/:height": "kittens",
@@ -63,11 +74,17 @@ $(function(){
     var mainContent = $('#main-content');
     var indexView = new IndexView({el: mainContent});
   });
-
+// ***** how do i URI the movie name for the url? 
   router.on('route:movies', function(){
     var mainContent = $('#main-content');
     var moviesView = new MoviesView({el: mainContent});
-    $('h1').hide();
+    mainContent.html('<h2>Movies</h2><ul><li><a href="#movies/dogdayafternoon">Dog Day Afternoon</a></li><li>This Is Spinal Tap</li><li>Breakfast at Tiffany</li><li>The Killing of a Chinese Bookie</li><li>The Honeymoon Killers</li></ul>');
+  });
+// ***** this route thinks it's kittens
+  router.on('route:movie', function(moviename){
+    var mainContent = $('#main-content');
+    var movieView = new MovieView({el: mainContent});
+    mainContent.html('<h2>there will be movie info from omdb ajax call</h2>' + moviename);
   });
 
   router.on('route:books', function(){
