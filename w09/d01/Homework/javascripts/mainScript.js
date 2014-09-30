@@ -1,4 +1,4 @@
-var favMovies = ['The Lord of the Rings', 'Jaws', 'Inception', 'The Departed']
+var favMovies = ['The Lord of the Rings', 'The Terminator', 'Inception', 'The Dark Knight']
 
 var MainView = Backbone.View.extend({
 	initialize: function(){
@@ -21,7 +21,7 @@ var MovieView = Backbone.View.extend({
 		$('.list-title').text('Favorite Movies');
 
 		_.each(favMovies, function(movie) {
-			var listItem = ('<li><a href=#movies/' + movie + '>'+ movie + '</a></li>')
+			var listItem = ('<li><a href=#movies/' + encodeURIComponent(movie) + '>'+ movie + '</a></li>')
 			$('ul').append(listItem);
 		});
 	}
@@ -75,9 +75,7 @@ $(function(){
 
 	appRouter.on('route:sheen', function(width, height) {
 		$('.container').html('');
-		$.get('http://placesheen.com/' + width + '/' + height, function(image) {
-			$('body').append('<img src="' + image + '">')
-		})
+		$('body').append('<img src="http://placesheen.com/' + width + '/' + height + '">')
 
 	})
 
