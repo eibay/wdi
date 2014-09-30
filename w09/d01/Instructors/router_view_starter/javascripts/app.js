@@ -18,7 +18,7 @@ var CreateView = Backbone.View.extend({
   	header.html("<h2>Create stuff here!!</h2>");
 	}
 });
-
+/// this is just like window onLoad!!!!!!!!!!!!!
 $(function(){
 
  	var AppRouter = Backbone.Router.extend({

@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title></title>
+	<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+<script>
+
+// data is an arbitrary variable, there only so you can use it
+function makeCall(){
+	$.ajax({
+		url: "http://127.0.0.1:2000/joke",
+		type: "GET"
+	}).done(function(data){
+		console.log(data);
+
+		// var body = $("body");
+		// var $header = $("header");
+		// $header.text(data);
+		var parsedResponse = JSON.parse(data);
+		var $list = $("ul");
+		for (i = 0; i < parsedResponse.length; i++) {
+			$list.append("<li>" + parsedResponse[i] + "</li>");
+		}
+	});
+};
+
+// $( ".inner" ).append( "<p>Test</p>" );
+
+
+// this is the onload so the button exists before we tell it something
+$(function(){
+
+	$("button").on("click", function() {
+		makeCall();
+	});
+
+});
+
+	// var xhr = new XMLHttpRequest;
+	// xhr.open('GET', 'http://127.0.0.1:2000/joke');
+	// xhr.addEventListener('load', function(){
+	// 	var res = xhr.response;
+	// 	console.log(res);
+	// })
+
+
+
+</script>
+</head>
+<body>
+	<header>enter joke here</header>
+	<button>Do It</button>
+
+<ul></ul>
+
+</body>
+</html>

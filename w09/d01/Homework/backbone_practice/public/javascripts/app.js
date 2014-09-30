@@ -21,8 +21,10 @@ var MovieView = Backbone.View.extend({
     // ***** do i make the ajax call here or in the route? 
     this.render();
   },
+    // ***** i just made up how to use this attribute 
   render: function(){
-    this.$el.html()
+    name = this.moviename;
+    this.$el.html(name)
   }
 });
 
@@ -83,7 +85,7 @@ $(function(){
 // ***** this route thinks it's kittens
   router.on('route:movie', function(moviename){
     var mainContent = $('#main-content');
-    var movieView = new MovieView({el: mainContent});
+    var movieView = new MovieView({el: mainContent, moviename: moviename});
     mainContent.html('<h2>there will be movie info from omdb ajax call</h2>' + moviename);
   });
 
