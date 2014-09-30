@@ -30,18 +30,20 @@ var HelloView = Backbone.View.extend({
     this.render();
   },
   render: function(){
-    this.$el.html('<h1>Hello, name</h1>');
+    this.$el.html();
   }
 });
 
-// var KittensView = Backbone.View.extend({
-//   initialize: function(){
-//     this.render();
-//   },
-//   render: function(){
-//     this.$el.html(<h1>'Kittens'</h1>);
-//   }
-// });
+var KittensView = Backbone.View.extend({
+  initialize: function(){
+    this.render();
+  },
+  render: function(){
+    this.$el.html();
+  }
+});
+
+
 
 $(function(){
 
@@ -50,7 +52,8 @@ $(function(){
       "": "index",
       "movies": "movies",
       "books": "books",
-      "hello": "hello",
+      "hello/:name": "hello",
+      ":width/:height": "kittens",
     }
   });
 
@@ -72,19 +75,19 @@ $(function(){
     var booksView = new BooksView({el: mainContent});
   });
 
-  router.on('route:hello', function(){
+  router.on('route:hello', function(name){
     var mainContent = $('#main-content');
     var helloView = new HelloView({el: mainContent});
+    mainContent.html('<h1>Hello, ' + name + '</h1>');
   });
 
+  router.on('route:kittens', function(width, height){
+    var mainContent = $('#main-content');
+    var kittyView = new KittensView({el: mainContent});
+    mainContent.html('<h3>yes, kittens</h3><img src="http://placekitten.com/g/' + width + '/' + height + '">');
+  });
 
-
-
-
-
-
-
-
+  
 
 
 
