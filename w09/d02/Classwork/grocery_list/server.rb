@@ -27,6 +27,6 @@ post('/item') do
 end
 
 delete('/item') do
-	item = Item.find_by(item: params[:item])
+	item = Item.find_by(id: params[:item])
 	item.destroy()
 end
