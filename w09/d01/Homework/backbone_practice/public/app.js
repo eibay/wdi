@@ -21,23 +21,28 @@ var BookView = Backbone.View.extend({
 	},
 
 	render: function(){
-		// var myFavBooks = ['Zen and the Art of Motorcycle Maintenance', 'Ubik', 'Bleeding Edge'];
-		var savedBooks = localStorage.getItem('myFavBooks');
-		var myFavBooks = $.parseJSON(savedBooks);
-
 		this.$el.html('<h3>My Favorite Books</h3><input type="text" placeholder="Add a Book"><button class="add">Add</button><ul></ul>');
+
+		$.get('http://127.0.0.1:4567/books', function(data){
+			var myFavBooks = JSON.parse(data)
+			console.log(data)
+			// var myFavBooks = ['Zen and the Art of Motorcycle Maintenance', 'Ubik', 'Bleeding Edge'];
+		// var savedBooks = localStorage.getItem('myFavBooks');
+		// var myFavBooks = $.parseJSON(savedBooks);
 		_.each(myFavBooks, function(book){
-			// $.get('http://127.0.0.1/books/' + book, function(data){
-			// 	console.log(data)	
-			// });
-			$('ul').append('<li>' + book + '</li>');
+			$.get('http://127.0.0.1:4567/books/' + book, function(data){
+				$('ul').append('<li>' + book + ' - Average Rating: ' + data["GoodreadsResponse"]["book"]["average_rating"] + '</li>');	
+			});
 		})
+	})
+		
 		$('button.add').on('click', function(){
 			var book = $('input').val();
-			myFavBooks.push(book);
-			console.log(myFavBooks);
-			localStorage.setItem('myFavBooks', $.encodeJSON(myFavBooks));
-			$('ul').append('<li>' + book + '</li>');
+			// myFavBooks.push(book);
+			$.post('http://127.0.0.1:4567/books', book);
+			// console.log(myFavBooks);
+			// localStorage.setItem('myFavBooks', $.encodeJSON(myFavBooks));
+			// $('ul').append('<li>' + book + '</li>');
 			$('input').val('');
 		})
 	}
@@ -82,7 +87,7 @@ $(function(){
 	router.on('route:movies/title', function(title){
 		$.get('http://www.omdbapi.com/?t=' + title, function(data){
 			movie = $.parseJSON(data);
-		header.html('<h3>' + title + ' (' + movie['Year'] + ')</h3><img src=\"' + movie['Poster'] + '\">')
+			header.html('<h3>' + title + ' (' + movie['Year'] + ')</h3><img src=\"' + movie['Poster'] + '\">')
 		});
 	})
 
