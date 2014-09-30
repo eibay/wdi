@@ -24,7 +24,7 @@ Make an ajax call to this endpoint to get the wifi hotspot data - https://data.c
       var xhr = new XMLHttpRequest();
 
       xhr.addEventListener('load', function(){
-        var movieHash = JSON.parse(xhr.response)
+        var Hash = JSON.parse(xhr.response)
 
       });
 
@@ -45,4 +45,64 @@ Make an ajax call to this endpoint to get the wifi hotspot data - https://data.c
       </script>
 
 </body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <button id="1">Hit Me</button><br/>
+
+  <input type="text">
+  <button id="2">Find By Zip</button>
+  <ul></ul>
+</body>
+  <script>
+    xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://data.cityofnewyork.us/api/views/4u6b-frhh/rows.json', true);
+    xhr.send();
+
+    xhr.addEventListener('load', function() {
+
+      var jsonRes = JSON.parse(xhr.response);
+      var wifiHotSpots10 = jsonRes['data'].slice(0,10);
+      var allHotSpots = jsonRes['data']
+
+      var addresses = []
+      function getAddresses(array) {
+        for(i=0;i<array.length;i++) {
+          addresses.push(array[i][10]);
+        }
+      }
+
+      getAddresses(wifiHotSpots10)
+
+      var list = document.querySelector('ul')
+      var button = document.getElementById('1');
+
+      button.addEventListener('click', function() {
+        for(i=0;i<addresses.length;i++) {
+          var listItem = document.createElement('li')
+          listItem.innerText = addresses[i]
+          list.appendChild(listItem)
+        }
+      })
+
+      var button2 = document.getElementById('2');
+      var input = document.querySelector('input').value
+
+      button2.addEventListener('click', function() {
+
+      })
+    })
+
+
+
+
+  </script>
 </html>

@@ -1,6 +1,5 @@
 var IndexView = Backbone.View.extend({
     initialize: function() {
-        console.log("A new index view has been created");
         this.render();
     },
     render: function() {
@@ -10,12 +9,10 @@ var IndexView = Backbone.View.extend({
 
 var CreateView = Backbone.View.extend({
   initialize: function() {
-    console.log("A create index view has been created");
     this.render();
   },
   render: function() {
-    var createheader = $('marquee');
-    createheader.html("<h2>You can create stuff here!</h2>")
+    this.$el.html("<h2>You can create stuff here!</h2>")
   }
 });
 
@@ -31,13 +28,13 @@ $(function(){
   var router = new AppRouter;
 
   router.on('route:index', function() {
-    var header = $('marquee');
+    var header = $('header');
     var indexView = new IndexView({el: header});
-    //indexView.render();
   });
 
   router.on('route:create', function() {
-    var createView = new CreateView;
+     var header = $('header');
+    var createView = new CreateView({el: header});
   });
 
   Backbone.history.start();
