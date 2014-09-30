@@ -51,7 +51,6 @@ get('/deletemovie') do
 	{response: 'Successfully Deleted'}.to_json
 
 
-	# response={hash:{hash:{hash:{hash:{}, hash2:{}, hash3:{}}}}}
 
 end
 

@@ -87,7 +87,7 @@ $(function(){
 				$.post('/movies', {data: JSON.stringify(data)}).done(function(response){
 					$('.awesome').append('<li><a href="#movie/'+response["title"]+'">'+response["title"]+'</a><button class="delete">Delete</button></li>')
 					$('.delete').on('click', function(event){
-						var that=$(this)
+						var that = $(this)
 						$.get('/deletemovie?title='+$(this).prev().text()).done(function(){
 							that.parent().remove()
 						})
