@@ -27,8 +27,28 @@ post '/add' do
   item.to_json
 end
 
-get '/last' do
+delete '/delete' do
+  i = Item.find_by({id: params['id']})
+  i.destroy
 
-  items = Item.all()
-  items.to_json
+end
+
+put '/increase' do
+  content_type :json
+
+  i = Item.find_by({id: params['id']})
+  i.update(quantity: i['quantity']+1)
+
+  i = Item.find_by({id: params['id']})
+  i.to_json
+end
+
+put '/decrease' do
+  content_type :json
+
+  i = Item.find_by({id: params['id']})
+  i.update(quantity: i['quantity']-1)
+
+  i = Item.find_by({id: params['id']})
+  i.to_json
 end
