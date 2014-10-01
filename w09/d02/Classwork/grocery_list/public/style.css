@@ -29,11 +29,10 @@ input.quantity {
 	display: inline-block;
 	height: 20px;
 	width: 30px;
-	margin-left: 10px;
+	margin: 0 10px 0 10px;
 }
 
 .checkbox {
-	margin-right: 50px;
 	display: inline-block;
-	margin: 10px 10px 0 0;
+	margin: 30px 10px 0 0;
 }
