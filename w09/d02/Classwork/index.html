@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Exercises</title>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript">
+		// var xhr = new XMLHttpRequest;
+		// xhr.open('GET', 'http://127.0.0.1:2000/joke');
+		// xhr.addEventListener("load", function(){
+  //   console.log(xhr.response)
+		// });
+
+	// xhr.send();
+
+	function makeCall() {
+		$.ajax({
+			url:'/joke',
+			type:'GET'
+		}).done(function(data){
+			console.log(data);
+			// var body = $('body');
+			var header = $('header');
+			// body.html("<h1>" + data + "</h1>");
+			// header.text(data);
+			var parsedResponse = JSON.parse(data);
+			var ul = $('ul');
+			for (var i = 0; i < parsedResponse.length; i++) {
+				ul.append("<li>" + parsedResponse[i] + "</li>");
+			}
+		});
+	};
+
+	$(function(){
+
+		var button = $('button');
+		
+		button.on("click", function() {
+			makeCall();
+		});
+	
+	});			
+	
+	
+	</script>
+</head>
+<body>
+	<header>
+	Enter joke here
+	</header>
+
+	<button>Press Me</button>
+	<ul>
+	</ul>
+
+</body>
+</html>
