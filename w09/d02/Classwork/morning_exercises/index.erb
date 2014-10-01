@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title></title>
+	<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+	<script type="text/javascript">
+		// var xhr = new XMLHttpRequest;
+		// xhr.open("GET", "http://localhost:2000/joke", "true");  
+		// xhr.addEventListener("load", function(){
+		// console.log(xhr.response)
+		// });
+		// xhr.send()
+		// console.log($("body"))
+	function makeCall(){
+			$.ajax({
+			type: "GET",
+			url: "/joke",
+			}).done(function(data){
+				var data = JSON.parse(data)
+				for (var i = 0; i < data.length; i++) {
+				$("ul").append("<li>" + data[i] + "</li>");
+				};
+			})
+			}
+	$(function(){
+		var $button = $("button")
+		
+		$button.on("click", function(){
+			makeCall();
+		});
+	})
+	</script>
+</head>
+<body>
+	<header>
+		<h1>Enter Joke here</h1>
+		
+	</header>
+	<ul></ul>
+	<button>Joke Button</button>
+</body>
+</html>
+
+
