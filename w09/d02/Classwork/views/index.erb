@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Grocery List</title>
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="/style.css">
+    <script src="/jquery.js"></script>
+  <!--  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+    <script type="javascript" src="app.js" ></script>
+  </head>
+  <body>
+    <main>
+      <div id="wrapper">
+      <h2>Body Fuel</h2>
+      <div id="input" >
+        <input type="text" /><input type="number" name="quantity" min="1" id="num">
+        <button id="add">Add</button>
+      </div>
+      <div id="the_list">
+        <ul  class="btn btn-group btn-group-xs">
+        <% items.each do |i| %>
+        <li><%= i['item'] %>&nbsp;&nbsp;<input type='checkbox' name='check' id='<%= i['id'] %>' class='check'>&nbsp;<button class="del" id="<%= i['id'] %>">X</button></li>
+        <% end %>
+      </ul>
+      </div>
+    </div>
+    </main>
+
+    <script>
+
+    var btn = $('#add');
+    var check = $('.check');
+    btn.click(function(){
+      var input = document.querySelector('input');
+      var quantity = document.querySelector('#num');
+      var grocery_item = input.value;
+      var quantity = quantity.value;
+      $.post('http://localhost:4567/items', {item: grocery_item, quantity: quantity, checked: false}, function(item){
+        console.log(item);
+        item = JSON.parse(item);
+        $('ul').append("<li>"+grocery_item+"</li><button id='"+item['id']+"' class='del'>x</button>&nbsp;<input type='checkbox' id='"+item['id']+"' name='check'>");
+        input.value = "";
+      });
+
+    })
+      var items = $('.del');
+      items.click(function(){
+        $.post('http://localhost:4567/delItems', this.id);
+        this.parentElement.remove();
+      })
+
+      check.click(function(){
+        console.log("i'm in here.");
+        console.log($(this));
+        var item = $(this);
+        item.parent().toggleClass("checked");
+
+      })
+
+
+
+    </script>
+
+  </body>
+</html>
