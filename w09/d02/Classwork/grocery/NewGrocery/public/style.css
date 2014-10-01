@@ -1,0 +1,11 @@
+article {
+	width: 45%;
+	min-height: 20%;
+	border: grey solid 0.5em;
+	margin-top: 1em;
+
+}
+
+ul {
+	min-height: 20px;
+}

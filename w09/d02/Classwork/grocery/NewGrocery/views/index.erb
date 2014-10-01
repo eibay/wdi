@@ -4,32 +4,68 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="../style.css">
 
 </head>
 <body>
 	<header>
 		<h1>Grocery</h1>
+		<input type="text" name="item" placeholder="grocery item" id="input_grocery">
+		<input type="text" name="quantity" placeholder="how many?" id="input_quantity">
+		<button id="btn_grocery">Add</button>
 	</header>
 
-	<input type="text" name="item" placeholder="grocery item" id="input_grocery">
-	<input type="text" name="quantity" placeholder="how many?" id="input_quantity">
-	<button id="btn_grocery">Add</button>
 
-	<ul id="main_list">
-		<%items.each do |item|%>
-		<li><section id='<%=item["id"]%>'>
-			<h5><%=item['name']%></h5>
-			<p>QTY: <%=item['quantity']%></p>
-			<a class="btn_increase" href="#">♠</a>
-			<a class="btn_decrease" href="#">♥</a>
-			<button class="btn_delete">delete</button>
-		</section></li>
-			
-		<%end%>
-	</ul>
+	
+	<article id="section_grocery" style="float: left;">
+		<h2>To Buy</h2>
+		<ul id="ul_toBuy" class='ul_lists'>
+			<%items.each do |item|%>
+				<%if item['list'] == 'list'%>
+					<li><section id='<%=item["id"]%>'>
+						
+							<h5><%=item['name']%></h5>
+							<p>QTY: <%=item['quantity']%></p>
+							<a class="btn_increase" href="#">♠</a>
+							<a class="btn_decrease" href="#">♥</a>
+							<button class="btn_delete">delete</button>
+						
+					</section></li>	
+				<%end%>
+			<%end%>
+		</ul>
+	</article>
+
+	<article id="section_bought" style="float: right;">
+		<h2>Bought</h2>
+		<ul id="ul_bought" class='ul_lists'>
+			<%items.each do |item|%>
+				<%if item['list'] == 'bought'%>
+					<li><section id='<%=item["id"]%>'>
+						
+							<h5><%=item['name']%></h5>
+							<p>QTY: <%=item['quantity']%></p>
+							<a class="btn_increase" href="#">♠</a>
+							<a class="btn_decrease" href="#">♥</a>
+							<button class="btn_delete">delete</button>
+						
+					</section></li>	
+				<%end%>
+			<%end%>
+		</ul>
+	</article>
+	
 
 
 	<script>
+		//sortable stuff
+		
+		$("#ul_toBuy, #ul_bought" ).sortable( {connectWith: ".ul_lists"});
+
+
+		//add button
 		$('#btn_grocery').on('click', function(){
 			console.log('clicked btn grocery?');
 
@@ -65,7 +101,7 @@
 				lastItemList += '<button class="btn_delete">delete</button>'
 			lastItemList += '</section></li>'
 
-			$('#main_list').append(lastItemList);
+			$('#ul_toBuy').append(lastItemList);
 		}
 
 		//add delete event to delete buttons on THIS grocery list item
