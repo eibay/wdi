@@ -38,7 +38,7 @@ var BookView = Backbone.View.extend({
   render: function(bookname){
     $.get("/booknamestuff/"+bookname, function(bookinformation){
       book = JSON.parse(bookinformation)
-      book.GoodreadsResponse.book.average_rating
+      // book.GoodreadsResponse.book.average_rating
       $(".list").text("Rating of "+ book.GoodreadsResponse.book.average_rating)
     })
 
