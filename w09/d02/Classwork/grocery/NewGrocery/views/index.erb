@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+
+</head>
+<body>
+	<header>
+		<h1>Grocery</h1>
+	</header>
+
+	<input type="text" name="item" placeholder="grocery item" id="input_grocery">
+	<input type="text" name="quantity" placeholder="how many?" id="input_quantity">
+	<button id="btn_grocery">Add</button>
+
+	<ul id="main_list">
+		<%items.each do |item|%>
+		<li><section id='<%=item["id"]%>'>
+			<h5><%=item['name']%></h5>
+			<p>QTY: <%=item['quantity']%></p>
+			<button>delete</button>
+		</section></li>
+			
+		<%end%>
+	</ul>
+
+
+	<script>
+		$('#btn_grocery').on('click', function(){
+			console.log('clicked btn grocery?');
+
+
+
+			//ajax post
+			$.post( '/add', {name: $('#input_grocery').val(), quantity: $('#input_quantity').val()} ).done(function(response){
+				
+				console.log('ajax posted'); //#########################\\
+				console.log('ajax got back the following: '); //########@@#>=-
+				console.log(response); //##############################//
+				
+
+				//create grocery list item
+				addLastItem(response);
+
+
+			})
+
+
+			
+
+
+			
+
+
+		});
+
+		//create grocery list item
+		function addLastItem(jQueryParsedResponse){
+
+			var lastItem = jQueryParsedResponse;
+
+			var lastItemList = ""
+			lastItemList += '<li><section id="' + lastItem['id']
+				lastItemList += '"><h5>' + lastItem['name'] + '</h5>'
+				lastItemList += '<p>QTY: ' + lastItem['quantity'] + '</p>'
+				lastItemList += '<button>delete</button>'
+			lastItemList += '</section></li>'
+
+
+			$('#main_list').append(lastItemList);
+		}
+
+
+		
+	</script>
+	
+</body>
+</html>

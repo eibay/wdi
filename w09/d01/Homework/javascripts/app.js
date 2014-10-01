@@ -6,28 +6,39 @@ var IndexView = Backbone.View.extend({
 		this.render();
 	},
 	render: function(){
+		$('ul').html('');
 		this.$el.text('INDEX ARGH');
 		return this;
 	}
 })
+var CageView = Backbone.View.extend({
+	initialize: function(){
+		console.log("But how'd it get burned??!");
+		this.render();
+	},
+	render: function(){
+		$('ul').html('');
 
+		return this;
+	}
+})
 var MovieView = Backbone.View.extend({
 	initialize: function(){
 		console.log(' a new instance of MovieView has been created');
 		this.render();
 	},
 	render: function(){
+		// $('ul').html('');
 		var title = $('h1');
 		title.text("MOVIES!");
-		var favMovies = ["Inception", "Ip Man", "The Prestige", "Dark Knight"];
 
+		var favMovies = ["Inception", "Ip Man", "The Prestige", "Dark Knight"];
 		
 		_.each(favMovies, function(movie){
 
-			$('ul').append('<li>'+ '<a href="movies_specific' + movie + '</a>' + '</li>');
+			$('ul').append('<li>'+ '<a href="movies_specific' + movie + '">' + movie + '</a>' + '</li>');
 		});
-		return this;
-		
+		return this;	
 	}
 });
 
@@ -36,6 +47,8 @@ var MovieShow = Backbone.View.extend({
 		this.render();
 	},
 	render: function(){
+		$('ul').html('');
+
 		var xhr = new XMLHttpRequest();
 
 		xhr.addEventListener('load', function(){
@@ -56,6 +69,7 @@ var BookView = Backbone.View.extend({
 		this.render();
 	},
 	render: function(){
+		$('ul').html('');
 		this.$el.text('Book Page');
 		return this;
 	}
@@ -67,12 +81,11 @@ var HelloView = Backbone.View.extend({
 		this.render();
 	},
 	render: function(){
+		$('ul').html('');
 		this.$el.text('Hello!');
 		return this;
 	}
 })
-
-
 
 
 
@@ -85,7 +98,7 @@ $(function(){
 			"movies": "movies",
 			"books": "books",
 			"hello/NAME": "hello/NAME",
-			"200/200": "nicCage",
+			"c/:width/:length": "nicCage",
 			"movies_specific": 'movies_specific'
 		}
 	})
@@ -99,13 +112,12 @@ $(function(){
 		var indexView = new IndexView({el: title});
 	});
 
-	// appRouter.on('route:nicCage' function(){
-	// 	console.log('nic cage');
-	// 	var pic = document.createElement('img');
-	// 	pic.html('http://www.placecage.com/200/200');
+	appRouter.on('route:nicCage', function(width, length){
+		console.log('nic cage');
+		var cageView = new CageView;
+		$('ul').html('<img src="http://www.placecage.com/c/'+width+'/'+length+'">');
 
-	// })
-
+	});
 
 	appRouter.on('route:movies', function(){
 		console.log('movies');
