@@ -1,19 +1,17 @@
 // add()
 
-// function add(){
-//   getting()
-//   $(".adding").click(function(){
-//   var item = event.target.parentNode.children[0].value
-//   var number = event.target.parentNode.children[1].value
-//   console.log(item)
-//   console.log(number)
-//   writing(item,number)
-//   event.target.parentNode.children[0].value=""
-//   event.target.parentNode.children[1].value = ""
-//   })
-// }
+function add(){
+  getting();
 
-getting();
+  $(".adding").click(function(){
+    var item = event.target.parentNode.children[0].value
+    var number = event.target.parentNode.children[1].value
+    writing(item,number)
+    event.target.parentNode.children[0].value=""
+    event.target.parentNode.children[1].value = ""
+  })
+}
+
 
 var ItemView = Backbone.View.extend({
 
@@ -45,7 +43,6 @@ var ItemView = Backbone.View.extend({
     });
 
     this.render();
-    this.toggleEdit();
   },
 
   toggleEdit: function() {
@@ -80,14 +77,7 @@ function getting(){
       view.render();
 
       $(".list").append(view.el);
-
-      if (items[i].number > 0){
-        //done(items[i].number)
-      } else if (items[i].number < 1) {
-        $("."+ items[i].id).css("text-decoration", "line-through");
-      }
     }
-    //deleting()   
   });
 }
 
@@ -99,9 +89,6 @@ function writing(item,number){
     var view = new ItemView({ id: data, number: number, item: item });
     view.render();
     $(".list").append(view.el);
-    
-    //deleting()
-    //done(number)
   })
 
 }
