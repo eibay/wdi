@@ -17,7 +17,7 @@ nav li {
 }
 
 nav a {
-    display: block;
+    display: inline;
     width: 200px;
     color: white;
     text-decoration: none;
