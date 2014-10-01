@@ -61,7 +61,7 @@ $(document).ready(function(){
 	})
 
 	appRouter.on("route:newBook", function(newBook){
-		console.log(newBook)
+		console.log(this)
 		var title = ""
 		var data = $.ajax({
 			dataType: "json",
