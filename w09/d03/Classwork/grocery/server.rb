@@ -9,10 +9,7 @@ after do
 	ActiveRecord::Base.connection.close
 end
 
-
-
 get('/') do
-	# groceries=Grocery.all.order(id: :asc)
 	erb(:index)
 end
 
@@ -28,9 +25,7 @@ post('/add') do
 	grocery.quantity=quantity
 	grocery.save
 	item=Grocery.last
-	response={id: item.id}
-	response.to_json
-
+	item.to_json
 end
 
 get('/groceries') do
@@ -59,26 +54,26 @@ put('/updateposition')do
 	update.position=position
 	update.bought=params["bought"]
 	update.save
-	{response:'position updates'}.to_json
+	update.to_json
 end
 
 put('/updatequantity') do
 	content_type :json
 	id=params["id"].to_i
-	quantity=params["quantity"].to_i
 	item=Grocery.find_by(id: id)
-	item.quantity=quantity+1
+	item.quantity=item.quantity+1
 	item.save
-	{response:'quantity updated'}.to_json
+
+	item.to_json
 end
+
 put('/lowerquantity') do
 	content_type :json
 	id=params["id"].to_i
-	quantity=params["quantity"].to_i
 	item=Grocery.find_by(id: id)
-	item.quantity=quantity-1
+	item.quantity=item.quantity-1
 	item.save
-	{response:'quantity updated'}.to_json
+	this.to_json
 end
 
 
