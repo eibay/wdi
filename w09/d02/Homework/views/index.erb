@@ -1,20 +1,22 @@
 <html>
 <head>
-	<title>Grocery Shopping App</title>
-	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-	<script src="./scripts.js"></script>
+	<title>Grocery Shopping List App</title>
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+ 		<script src="./scripts.js"></script>
+ 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+ 		<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-	<h1>Shopping List</h1>
+<div class="container">
+	<h1><span class="glyphicon glyphicon-pencil"></span> Grocery Shopping List</h1>
 		<input type="text" id="add" placeholder="Add an item"/>
 		<button id="add">Add</button>
-		<button id="delete">Delete Checked Item</button>	
-		<button id="purchased">Mark as Purchased</button>	
-			<h2>Items</h2>
+			<h2><span class="glyphicon glyphicon-shopping-cart"></span> Items</h2>
 				<ul>
 				</ul>
-				
-
+		<button id="delete">Delete Checked Item</button>	
+		<button id="purchased">Mark as Purchased</button>	
+</div>
 </body>
 </html>
