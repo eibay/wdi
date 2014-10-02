@@ -17,18 +17,13 @@ var ItemView = Backbone.View.extend({
 
 	initialize: function(){
 		this.listenTo(this.model, 'change', this.render)
-		this.listenTo(this.model, 'destroy', this.remove)
+		this.listenTo(this.model, 'destroy remove', this.remove)
 		this.template = _.template($('#need-template').html())
-		this.template2 = _.template($('#bought-template').html())
 	},
 
 	render:function(){
-		if(this.model.attributes.bought == false){
-			var innards = this.template({item: this.model.toJSON()})
-		}	else{
-			var innards = this.template2({item: this.model.toJSON()})
-		}
-		this.$el.html(innards);
+		var compile = this.template({item: this.model.toJSON()})
+		this.$el.html(compile);
 	}
 })
 
@@ -41,75 +36,76 @@ var ItemCollection = Backbone.Collection.extend({
 	model: ItemModel
 });
 
+var ListView = Backbone.View.extend({
+	initialize: function(){
+		this.listenTo(this.collection, "add", this.addOne)
+		this.collection.fetch()
+	},
+	addOne: function(item){
+		var view = new ItemView({model: item, id:item.id})
+		view.render()
+		if(item.attributes.bought==false){
+			$('.list').append(view.el)
+		}else{
+			$('.list2').append(view.el)
+		}
+
+	}
+
+})
+
+var FormView = Backbone.View.extend({
+	events: {
+		'click button.addIt' : 'create',
+	},
+	create: function() {
+		console.log('hello')
+		var itemName = $('#additem').val();
+		var quantity = $('#quantity').val()
+		this.collection.create({item: itemName, quantity: quantity, bought: false});
+	},
+	initialize: function(){
+		console.log(this.collection)
+		console.log(this.events)
+
+	}
+});
+
+
+
 $(function(){
-	myItems = new ItemCollection()
+	var myItems = new ItemCollection()
+	var viewItems = new ListView({collection: myItems})
+	var formView = new FormView({el: $(".form"), collection: myItems})
 
-	myItems.fetch({ success: function() {
-		_.each(myItems.models, function(item){
+$('.list, .list2').sortable({connectWith:'.lists'}).disableSelection();
+$('.list, .list2').on('sortupdate',function(event, ui){
 
-			var addItem = new ItemView({model: item, id:item.attributes.id});
-			addItem.render();
-			if(item.attributes.bought==false){
-				$('.list').append(addItem.el)
-			}else{
-				$('.list2').append(addItem.el)
-			}
+	var need = $('.list').children()
+	var have = $('.list2').children()
+	var which=event.target.className.split(' ')[0]
+
+	if(which == "list"){
+		_.each(need, function(child, index){
+			quantity=parseInt(child.children[0].innerText)
+			var theItem = myItems.get(child.id)
+			theItem.set('position', index)
+			theItem.set('bought', false)
+			theItem.set('quantity', quantity)
+			theItem.save()
 		})
-	}});
+	}
 
-	$('#addIt').on('click', function(){
-		var newItem = new ItemModel()
-		newItem.set('item', $('#additem').val())
-		newItem.set('bought', false)
-		newItem.set('quantity', $('#quantity').val())
-		newItem.save({}, {
-			success: function(response){
-				var renderItem = new ItemView({model: newItem, id:response.id})
-				renderItem.render()
-				$('.list').append(renderItem.el)      
-			}
-		});
-		myItems.add(newItem)
-		
-	})
-	
-	$('.list, .list2').sortable({connectWith:'.lists'}).disableSelection();
-	$('.list, .list2').on('sortupdate',function(event, ui){
-
-		var need = $('.list').children()
-		var have = $('.list2').children()
-		var which=event.target.className.split(' ')[0]
-
-		if(which == "list"){
-			_.each(need, function(child, index){
-
-				quantity=parseInt(child.children[0].innerText)
-				if(child.children[0].innerText == ''){
-					quantity = 1;
-					ui.item.children()[0].innerHTML = '1';
-					ui.item.children()[1].innerHTML = '<i class="fa fa-arrow-up"></i>';
-					ui.item.children()[2].innerHTML = '<i class="fa fa-arrow-down"></i>';
-				}
-				var theItem = myItems.get(child.id)
-				theItem.set('position', index)
-				theItem.set('bought', false)
-				theItem.save()
-			})
-		}
-
-		else if(which == "list2"){
-			ui.item.children()[0].innerHTML = '';
-			ui.item.children()[1].innerHTML = '';
-			ui.item.children()[2].innerHTML = '';
-
-			_.each(have, function(child, index){
-				var theItem = myItems.get(child.id)
-				theItem.set('position', index)
-				theItem.set('bought', true)
-				theItem.save()
-			})
-		}
-	});
+	else if(which == "list2"){
+		_.each(have, function(child, index){
+			var theItem = myItems.get(child.id)
+			theItem.set('position', index)
+			theItem.set('bought', true)
+			theItem.set('quantity', 1)
+			theItem.save()
+		})
+	}
+});
 
 $( ".trash" ).droppable({
 	drop: function(event, ui) {

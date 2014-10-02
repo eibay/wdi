@@ -57,56 +57,33 @@
 	.happy{
 		display:inline;
 	}
+	.bought{
+		display:none;
+	}
 
 	</style>
 	<script type="text/template" id="need-template">
-	<%=item.item%><div class="quantity"><%=item.quantity%></div><label class="addquantity"><i class="fa fa-arrow-up"></i></label><label class="removequantity"><i class="fa fa-arrow-down"></i></label>
+	<%=item.item%><div class="quantity <%=item.bought ? 'bought' : '' %>"><%=item.quantity%></div><label class="addquantity <%=item.bought ? 'bought' : '' %>"><i class="fa fa-arrow-up"></i></label><label class="removequantity <%=item.bought ? 'bought' : '' %>"><i class="fa fa-arrow-down"></i></label>
 	</script>
-	<script type="text/template" id="bought-template">
-	<%=item.item%><div class="quantity"></div><label class="addquantity"></label><label class="removequantity"></label>
-	</script>
+
 </head>
 <body>
 	
-
-	<span class="fa-stack fa-lg">
-		<i class="fa fa-wheelchair fa-stack-1x"></i>
-		<i class="fa fa-bullseye fa-stack-2x text-danger" style="color:red;"></i>
-
-
-
-	</span>
-	<label class="happy">
-
-		<i class="fa fa-truck"></i>
-		=
-		<i class="fa fa-smile-o"></i>
-	</label>
-
 	<div class="container">
-
-
-
-
-
 		<div class="trash lists"><i class="fa fa-trash"></i></div>
+	
 
 		<h1>Grocery List</h1>
+		<div class="form">
 		<input type="text" id="additem" placeholder="Add An Item"><br>
 		<input type="text"id="quantity" placeholder="Quantity"><br>
-		<button id="addIt">Add It</button>
+		<button class="addIt">Add It</button>
+	</div>
 		<h2>Need</h2>
 		<ul class="list lists">
-
 		</ul>
 		<h2>Bought</h2>
 		<ul class="list2 lists">
-
-
-
-
 		</ul>
-
-
 	</body>
 	</html>
