@@ -32,15 +32,14 @@ post ('/create') do
 end
 
 put ('/edit') do
+	content_type :json
 	people_hash = {
 		name: params["name"],
 		age: params["age"].to_i,
-		id: params["id"].to_i
+		id: params["id"]
 	}
-
+# binding.pry
 	person = Person.find_by({id: params[:id]})
 	person.update(people_hash)
 	person.to_json
-
-# binding.pry
 end	
