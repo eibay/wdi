@@ -1,0 +1,89 @@
+<html>
+<head>
+	<title>Grocery List</title>
+	<script src="./jquery.js"></script>
+	<script src='./underscore.js'></script>
+	<script src='./backbone.js'></script>
+	<script src='./app.js'></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<style>
+	li{
+		cursor: pointer;
+	}
+	.addquantity{
+		cursor: pointer;
+	}
+	.removequantity{
+		cursor: pointer;
+	}
+	.quantity{
+		display:inline;
+	}
+	.lists{
+		min-height: 100px;
+		width:30%;
+
+	}
+	.trash{
+		float:right;
+	}
+	.container{
+		width:50%;
+	}
+	.trash{
+		font-size:200px;
+		margin-top:150px;
+		height:300px;
+		width:200px;
+	}
+	.quantity{
+		font-size:20px;
+		font-weight: bold
+	}
+	li{
+		font-size:15px;
+	}
+	.quantity{
+		padding-left:10px;
+	}
+	.fa-stack{
+		font-size:200px;
+	}
+	.happy{
+		font-size:210px;
+	}
+	.happy{
+		display:inline;
+	}
+	.bought{
+		display:none;
+	}
+
+	</style>
+	<script type="text/template" id="need-template">
+	<%=item.item%><div class="quantity <%=item.bought ? 'bought' : '' %>"><%=item.quantity%></div><label class="addquantity <%=item.bought ? 'bought' : '' %>"><i class="fa fa-arrow-up"></i></label><label class="removequantity <%=item.bought ? 'bought' : '' %>"><i class="fa fa-arrow-down"></i></label>
+	</script>
+
+</head>
+<body>
+	
+	<div class="container">
+		<div class="trash lists"><i class="fa fa-trash"></i></div>
+	
+
+		<h1>Grocery List</h1>
+		<div class="form">
+		<input type="text" id="additem" placeholder="Add An Item"><br>
+		<input type="text"id="quantity" placeholder="Quantity"><br>
+		<button class="addIt">Add It</button>
+	</div>
+		<h2>Need</h2>
+		<ul class="list lists">
+		</ul>
+		<h2>Bought</h2>
+		<ul class="list2 lists">
+		</ul>
+	</body>
+	</html>
