@@ -23,7 +23,7 @@ $(function(){
 	var ItemView = Backbone.View.extend({
 
 		tagName: 'li',
-
+		template: _.template($('#grocery_template').html() ),
 // init can take a hash of data in function where you send in id, item, etc
 		initialize: function(){
 			this.listenTo(this.model, 'change', this.render)
@@ -73,8 +73,8 @@ $(function(){
 
 // render view
 		render: function() {
-			var innards = '<input class="checkbox" id="' + this.model.attributes.id + '" type="checkbox"><span>' + this.model.attributes.item + '</span><input class="quantity" id="' + this.model.attributes.id + '" type="text" value="' + this.model.attributes.quantity + '"> <button class="btn del" id="' + this.model.attributes.id + '">X</button>';
-			this.$el.html(innards);
+			// var innards = '<input class="checkbox" id="' + this.model.attributes.id + '" type="checkbox"><span>' + this.model.attributes.item + '</span><input class="quantity" id="' + this.model.attributes.id + '" type="text" value="' + this.model.attributes.quantity + '"> <button class="btn del" id="' + this.model.attributes.id + '">X</button>';
+			this.$el.html( this.template({id: this.model.get('id'), item: this.model.get('item'), quantity: this.model.get('quantity')} ));
 
 			if (this.model.attributes.checked == true) {
 				this.$el.find('input[type="checkbox"]').prop('checked',true)

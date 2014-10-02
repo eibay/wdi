@@ -10,6 +10,9 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
 	<script src="app.js"></script>
+	<script type="text/template" id="grocery_template">
+	<input class="checkbox" id="<%= id %>" type="checkbox"><span><%= item %></span><input class="quantity" id="<%= id %>" type="text" value="<%= quantity %>"> <button class="btn del" id="<%= id %>">X</button>
+	</script>
 </head>
 <body>
 	<div class="container">
