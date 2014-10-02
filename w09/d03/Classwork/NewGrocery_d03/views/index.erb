@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="../style.css">
+	<script src="/underscore.js"></script>
+	<script src="/backbone.js"></script>
+	<script src="/scripts.js"></script>
+
+</head>
+<body>
+	<header>
+		<h1>Grocery</h1>
+		<input type="text" name="item" placeholder="grocery item" id="input_grocery">
+		<input type="text" name="quantity" placeholder="how many?" id="input_quantity">
+		<button id="btn_grocery">Add</button>
+	</header>
+
+
+	
+	<article id="section_grocery" style="float: left;">
+		<h2>To Buy</h2>
+		<ul id="ul_toBuy" class='ul_lists'>
+
+		</ul>
+	</article>
+
+	<article id="section_bought" style="float: right;">
+		<h2>Bought</h2>
+		<ul id="ul_bought" class='ul_lists'>
+
+		</ul>
+	</article>
+	
+
+
+	<script>
+		//sortable stuff
+		$("#ul_toBuy, #ul_bought" ).sortable( {connectWith: ".ul_lists"});
+
+
+		//render all views
+		getAndMakeViews();
+
+		//add button
+		$('#btn_grocery').on('click', function(){
+			console.log('clicked btn grocery?');
+
+
+
+			//ajax post
+			$.post( '/add', {name: $('#input_grocery').val(), quantity: $('#input_quantity').val()} ).done(function(response){
+				
+				console.log('ajax posted'); //#########################\\
+				console.log('ajax got back the following: '); //########@@#>=-
+				console.log(response); //##############################//		
+
+				//create grocery list item
+				addLastItem(response);
+				// addDeleteEvent(); //sometimes works here, i think shoudl work here immediately..
+				// addIncrease();
+				// minusDecrease();	
+			})
+
+
+
+		});
+
+		// //create grocery list item
+		// function addLastItem(jQueryParsedResponse){
+
+		// 	var lastItem = jQueryParsedResponse;
+
+		// 	var lastItemList = ""
+		// 	lastItemList += '<li><section id="' + lastItem['id']
+		// 		lastItemList += '"><h5>' + lastItem['name'] + '</h5>'
+		// 		lastItemList += '<p>QTY: ' + lastItem['quantity'] + '</p>'
+		// 		lastItemList += '<a class="btn_increase" href="#">♠</a><a class="btn_decrease" href="#">♥</a>'
+		// 		lastItemList += '<button class="btn_delete">delete</button>'
+		// 	lastItemList += '</section></li>'
+
+		// 	$('#ul_toBuy').append(lastItemList);
+		// }
+
+		//add delete event to delete buttons on THIS grocery list item
+		// function addDeleteEvent(){
+		// 	$('.btn_delete').on('click', function(){
+		// 		console.log("deleting");
+		// 		$.ajax({
+		// 			url: '/delete',
+		// 			data: {id: event.target.parentNode.id},
+		// 			type: "DELETE"
+		// 		});
+		// 		$(this).parent().parent().remove(); //removes the li assoc with the btn immed
+
+		// 	});
+		// }
+		// addDeleteEvent(); //so i need it both places because when it renders, it doesnt have it, but also, after i create a new item, it's missed the original update
+	
+		// function addIncrease(){
+		// 	$('.btn_increase').on('click', function(){
+		// 		console.log('increasing');
+
+		// 		var this_button = $(this); // oh i'm saving THIS like what neel said!
+		// 		var qty = ""
+		// 		$.ajax({
+		// 			url: '/increase',
+		// 			data: {id: event.target.parentNode.id},
+		// 			type: "PUT"
+		// 		}).done(function(response){
+
+		// 			console.log(response); // see if its working
+		// 			qty = response['quantity'];
+		// 			console.log(qty); // see if its working
+
+		// 			this_button.parent().children('p').text('QTY: '+ qty); //YASS! it works!
+		// 		});
+
+		// 		//$(this).parent().children('p').html(qty); // why can't i do this? >>>>>>>>>!!! actually probably because  it's asynchronous, faster than  the ajax
+		// 	})
+		// }
+		// addIncrease();	
+
+
+		// function minusDecrease(){
+		// 	$('.btn_decrease').on('click', function(){
+		// 		console.log('decreasing');
+
+		// 		var this_button = $(this); // oh i'm saving THIS like what neel said!
+		// 		var qty = ""
+		// 		$.ajax({
+		// 			url: '/decrease',
+		// 			data: {id: event.target.parentNode.id},
+		// 			type: "PUT"
+		// 		}).done(function(response){
+
+		// 			console.log(response); // see if its working
+		// 			qty = response['quantity'];
+		// 			console.log(qty); // see if its working
+
+		// 			this_button.parent().children('p').text('QTY: '+ qty); //YASS! it works!
+		// 		});
+
+		// 		//$(this).parent().children('p').html(qty); // why can't i do this? >>>>>>>>>!!! actually probably because  it's asynchronous, faster than  the ajax
+		// 	})
+		// }
+		// minusDecrease();	
+
+
+
+
+		
+	</script>
+	
+</body>
+</html>

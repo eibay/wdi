@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+
+</head>
+<body>
+	<h3>Grocery list</h3>
+<!-- 	<form action="/add" method="post"> -->
+		<input type="text" name="item" placeholder="grocery item" class="list_sku">
+		<input type="text" name="quantity" placeholder="how many?" class="list_qty">
+		<button class='btn_add'>Add</button> 
+<!-- 	</form> -->
+
+		<h3>List</h3>
+		<ul class="list">
+			<%items.each do |item|%>
+				<li class="ui-sortable-handle">
+					<div class="grocery_item">
+					<p><%=item['name']%></p>
+					<p class='p_qty'> qty: <%=item['quantity']%></p>
+					<button id='<%=item["id"]%>' class="btn_del">delete</button>
+					</div>
+				</li>
+				
+			<%end%>
+		</ul>
+
+		<h3>Delete</h3>
+		<ul class="delete" style="min-height: 20px;"></ul>
+
+
+
+	<script>
+	// $( ".list" ).sortable();
+	$( ".delete").sortable();
+	$( ".list" ).sortable( {connectWith: ".delete"});
+	// $( ".delete, .list" ).sortable({ connectWith: ".list_ul" });
+
+
+	//add button
+	$('.btn_add').on('click', function(){
+		console.log($('input').val()); // shows the grocery item
+
+
+		//ajax post
+		$.post('/add', {item: $('.list_sku').val(), quantity: $('.list_qty').val()}).done(function(response){
+			console.log(response);
+		});
+
+		//making the list
+		var li = document.createElement('li');
+		// li.class = "ui-sortable-handle"
+		li.innerHTML = "<div class='grocery_item'>" + "<p>" + $('.list_sku').val() + "</p>" + "<p> qty: " + $('.list_qty').val() + "</p>" + "</div>"
+		// li.innerText = $('input').val();
+		var ul_list = $('.list');
+		$('.list').append(li); 
+
+
+		$('.list_sku').value = "";
+		$('.list_qty').value = "";
+
+
+		//make button
+		var button = document.createElement('button')
+		button.class = 'btn_del'
+		button.innerText = 'delete';
+		$('li').last().append(button);
+
+		makeDeleteButtonEvent();
+
+	})
+
+
+	function makeDeleteButtonEvent(){
+		$('.btn_del').on('click', function(){
+			console.log("hello");
+			$.ajax({
+				url: '/delete',
+				data: {id: event.target.id},
+				type: "DELETE"
+			});
+		});
+	}
+	makeDeleteButtonEvent();
+
+
+	$('.p_qty').on('dbclick', function(){
+		console.log("hello");
+	})
+
+		
+
+
+	</script>
+</body>
+</html>

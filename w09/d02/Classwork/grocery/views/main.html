@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../grocerylist.js"></script>
+	<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+	<script src='../javascripts/underscore.js'></script>
+	<script src='../javascripts/backbone.js'></script>
+</head>
+<body>
+	<h3>Grocery list</h3>
+<!-- 	<form action="/add" method="post"> -->
+		<input type="text" name="item" placeholder="grocery item">
+		<button>Add</button>
+<!-- 	</form> -->
+	<ul class="list">
+<!-- 		<%data_array.each do |item|%>
+			<li> <%=item%> </li>
+		<%end%> -->
+
+	</ul>
+
+
+	<script>
+		$('button').on('click', function(){
+			console.log($('input')[0].value);
+			var li = document.createElement('li');
+			li.innerText = $('input')[0].value;
+			var ul = document.querySelector('ul');
+			ul.appendChild(li); //dunno how to jquery this
+			$('input')[0].value = "";
+		})
+
+		
+
+
+
+
+
+	</script>
+</body>
+</html>
