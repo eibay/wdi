@@ -6,20 +6,28 @@ require_relative './connection.rb'
 require 'json'
 require 'pry'
 
+after do
+  ActiveRecord::Base.connection.close
+end
+
 get '/' do
 
   erb(:index, locals:{items: Grocery.all()})
 end
 
-get '/app.js' do
-  js = File.read('./app.js')
-  return js
+get '/allItems' do
+  allItems = Grocery.all()
+  allItems.to_json
 end
 
 post '/items' do
+  params = JSON.parse(request.body.read)
   binding.pry
   item = params.keys[0]
-  Grocery.create({item: item})
+  quantity = params.keys[1]
+  strike = params.keys[2]
+
+  Grocery.create({item: item, quantity: quantity, strike: strike})
   getItem = Grocery.where({item: item})[0]
   getItem = getItem.to_json
 end

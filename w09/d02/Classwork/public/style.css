@@ -18,6 +18,14 @@
       text-decoration: line-through;
 }
 
+p {
+  display:inline;
+}
+
+#num {
+  width: 30px;
+}
+
 .btn {
   margin: 0;
   padding: 0;
