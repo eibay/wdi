@@ -22,12 +22,13 @@ $(function(){
 			var currentId = this.id;
 			var $editContainer = $('div#editContainer');
 			$editContainer.append("<h3>edit the person</h3><span>change the name:</span><input class='editName'><span>change the age:</span><input class='editAge'><button id='changeIt'>change it</button>");
-			editPersonAjax();
+			editPersonAjax(currentId);
 		
 		});
 // listen for the change-it button to commit your changes to the database
 
-	function editPersonAjax(){
+	function editPersonAjax(currentId){
+		console.log("id is " + currentId);
 		$('button#changeIt').on("click", function(){
 			var editName = $('input.editName').val();
 			var editAge = $('input.editAge').val();
@@ -39,8 +40,8 @@ $(function(){
 					data: {
 						name: editName,
 						age: editAge,
-						// THIS IS NOT FINDING THE RIGHT ID !!!!!!!!!
-						id: $(this).id
+						// THIS IS NOT FINDING THE RIGHT ID because this is no longer what it was above !!!!!!!!!
+						id: currentId
 						}
 					})
 		})
