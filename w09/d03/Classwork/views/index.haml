@@ -1,0 +1,23 @@
+!!!
+%html{:lang => "en"}
+%head 
+  %meta{:charset => "utf-8"}
+  %title Grocery List App  
+%body
+  %main
+    %h1 Grocery List App 
+    %section.list     
+      %h2 The Grocery List 
+      %ul
+    %section.add
+      %label 
+        %span Item:  
+        %input{:type => "text", :id => "grocery_item"}
+        %input{:type => "number", :id => "grocery_item_quantity"}
+      %button Add Item To List 
+      
+
+  %script{:src => "/jquery-2.1.1.min.js"}
+  %script{:src => "/underscore-min.js"}
+  %script{:src => "/backbone-min.js"}
+  %script{:src => "/script.js"}
