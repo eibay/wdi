@@ -19,9 +19,9 @@ person_hash = {
   age: params["age"]
 }
 
-  Person.create(person_hash)
+  person = Person.create(person_hash)
 
-  person = Person.last
+  # person = Person.last
   person_json = person.to_json
 
 end
@@ -33,8 +33,12 @@ get("/names") do
 
 end
 
-put("/editname/:id") do 
-  person = Person.find_by({id: params["id"]})
+put("/edit") do 
+  binding.pry
+  person = Person.find_by(params["id"])
+
+  person.name == params["name"]
+  person.age == params["age"]
 
   person.save()
 

@@ -40,27 +40,23 @@ $(function(){
 	}
 
 	function appendEditForm() {
-		var personID = this.id;
+		var personID = this.id
 		$(this).after('<form>').after('<input id="name-' + this.id + '" type="text" placeholder="name">').after('<input id="age-' + this.id + '" type="text" placeholder="age">').after('<button class ="update" type="button">Edit Name');
-			       // .on(events, handler) 
-		$('.update').on("click", updateRecord(personID));
+		$('.update').click({id: personID}, updateRecord);
 	}
-   // events) One or more space-separated event types.
-   // handler) 
 
-	function updateRecord(id) {
-		console.log(id); 
-		var newName = $('#name-' + id).val();
-		var newAge = $('#age-' + id).val();
-		console.log("newName");
-		console.log("newAge");
-		console.log("id");
+	function updateRecord(id){
+		var newName = $('#name-' + id.data.id).val();
+		var newAge = $('#age-' + id.data.id).val();
+		console.log(newName);
+		console.log(newAge);
+		console.log(id.data.id);
 		$.ajax({
 		url: "http://127.0.0.1:4567/edit",
 		type: "PUT",
 		data: {"name": newName,
 					"age": newAge,
-					"id": id}
+					"id": id.data.id}
 		}).done(function(data) {
 			console.log(data);
 		})
@@ -68,6 +64,7 @@ $(function(){
 	
 
 
+	
 
 
 
