@@ -1,0 +1,32 @@
+How would one hit this api endpoint in the browser? What do you think the browser will display?
+Localhost:2000/joke
+
+
+Hit this api in the browser. Is it different than what you expected? Why?
+
+Would one be able to make an ajax call to this API? Why or why not?
+Yes, because returns JSON
+
+Make an HTTParty call to /joke in pry.Is this an ajax call? What's the difference between this and what you saw in the browser?
+
+Not an AJAX call
+
+Difference = appears as a string in the browser, JSON in pry. JSON in both, but browser interprets differently.
+
+
+Create an index.html with just html and body tags.
+
+How would you go about viewing this html in the browser? Is your method using a server?
+
+If you run server.js can you access index.html from this server? Why or why not? Either way, figure out how to get to index.html by using and/or modifying server.js.
+
+AJAX call
+var xhr = new XMLHttpRequest;
+
+xhr.open('GET', 'http://127.0.0.1:2000/joke')
+
+xhr.send();
+
+var li = document.createElement("li");
+ 		li.innerText = address;
+ 		ul.appendChild(li);
