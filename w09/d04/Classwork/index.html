@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS exercise</title>
+  <script src="functions.js"></script>
+</head>
+<body>
+
+  <!-- <button>Push for love</button> -->
+
+  <script type="text/javascript">
+
+  var names = ["Mr. Rogers", "Johnny Bananas", "Princess Consuela", "Superman", "Aquaman"]
+
+  var button = document.createElement("button")
+
+  button.innerText = "Search"
+  document.body.appendChild(button)
+
+    button.addEventListener("click", function() {
+
+      var name = randomName(names)
+
+      var ul = document.createElement("ul")
+      var li = document.createElement("li")
+
+        li.innerText = name;
+        ul.appendChild(li)
+        document.body.appendChild(ul)
+
+
+        alert(name)
+
+});
+
+
+  </script>
+
+</body>
+</html>
