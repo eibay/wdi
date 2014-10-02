@@ -11,6 +11,8 @@
 
   <pre></pre>
 
+  <img></img>
+
   <script type="text/javascript">
   // Everytime the button is clicked we are making a new AJAX request because you need new information from the server because otherwise you only go to the page once you only get one name.
 
@@ -27,9 +29,16 @@
       // results at 0 position is user and seed, we want user. Furtherdown we dig into diff attributes and endpoints of each user such as name, first, last, email, location etc.
 
       var data = document.querySelector('pre').textContent = response.results[0]['user']['name']['first'] + " " + response.results[0]['user']['name']['last'] + " " + response.results[0]['user']['email'] + " " + response.results[0]['user']['location']["street"] + " " + response.results[0]['user']['location']["city"] + " " + response.results[0]['user']['location']["state"] + " " + response.results[0]['user']['location']["zip"]
+
+
+      var img = response.results[0].user.picture.medium
+      var picture = document.querySelector("img")
+      picture.setAttribute("src", img)
     });
 
   });
+
+
 
   </script>
 
@@ -37,6 +46,28 @@
 </body>
 </html>
 
+
+
+
+
+<!-- $.ajax({
+  url: 'http://api.randomuser.me/',
+  dataType: 'json',
+  success: function(data){
+    var email = data["results"][0]["user"]["email"];
+  var username = data["results"][0]["user"]["username"];
+  var state = data["results"][0]["user"]["location"]["state"];
+  var array = [email, username, state];
+  for(var i = 0; i < array.length; i++){
+    var ul = $('ul');
+    var li = $("<li>" + array[i] + "</li>");
+    ul.append(li);
+  }
+  }
+}); -->
+
+<!-- Above is the jquery ajax way to do the same thing, but we need two files, the one we have and an html page.
+ -->
 
 <!-- <!DOCTYPE html>
 <html lang="en">
