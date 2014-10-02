@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>thing</title>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	
+	
+
+	<script>
+	function makeCall() {
+		$.ajax({
+		  url: "http://127.0.0.1:2000/joke",
+		  type: "GET"
+		}).done(function(data) {
+			console.log(data)
+			var jokes = JSON.parse(data);
+			var $ul = $("ul");
+			for (var i = 0; i < jokes.length; i++) {
+				$ul.append("<li>" +jokes[i]+ "</li>");
+			}
+		});
+	};
+
+// This is jquery onload so that we wait for the dom to be loaded before doing this 
+// because how can we have a click eventlistener on a button that does not exist yet
+	$(function(){
+		$( "button" ).on( "click", function() {
+	  makeCall();
+		});
+	});
+
+
+
+	</script>
+
+	<!-- .done takes the place of the event listener, data is a variable that catches what gets returned -->
+</head>
+<body>
+
+	<header>
+		<h3>Enter joke here</h3>
+	</header>
+
+	<ul></ul>
+
+	<button type="button">Click Me!</button>
+
+</body>
+</html>
+
