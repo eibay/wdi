@@ -16,13 +16,13 @@ erb(:index)
 end
 
 
-post '/add/:item' do
+post '/items' do
 
 	content_type :json
 
-	item = params["item"]
-
-	newItem = Item.create({item: item, bought: false, quantity: 0})
+	attributes = JSON.parse(request.body.read)
+	item = attributes["item"]
+	newItem = Item.create({item: item, quantity: 0})
 
 	return newItem.to_json
 
@@ -30,7 +30,7 @@ end
 
 
 
-get '/all' do
+get '/items' do
 
 content_type :JSON
 
