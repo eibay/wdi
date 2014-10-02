@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'pry'
 require 'json'
 
@@ -14,32 +15,40 @@ get "/" do
 end
 
 
-get "/gettingitems" do
+get "/items" do
   Item.all().to_json
 end
 
 
-post "/add" do
-  item = params[:item]
-  number = (params[:number]).to_i
+post "/items" do
+  content_type :json
+
+  attributes = JSON.parse(request.body.read)
+
+  item = attributes["item"]
+  number = attributes["number"]
   newItem = {item: item, number:number}
   item = Item.create(newItem)
-  data = (item.id).to_json
+  item.to_json
 end
 
 
-delete "/delete" do
- item = params[:deleting]
- to_delete = Item.find_by({id: item})
+delete "/items/:id" do
+ to_delete = Item.find_by({id: params[:id]})
  to_delete.destroy
 end
 
 
-put "/edit" do
-  item = params[:editing]
-  number = (params[:number]).to_i
-  to_edit = Item.find_by({id: item})
-  newVersion = {item: to_edit.item, number: number}
-  to_edit.update(newVersion)
+put "/items/:id" do
+  content_type :json
 
+  attributes = JSON.parse(request.body.read)
+
+  item = attributes["item"]
+  number = attributes["number"]
+
+  to_edit = Item.find(params[:id])
+  to_edit.update({item: item, number: number})
+
+  to_edit.to_json
 end
