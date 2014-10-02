@@ -9,14 +9,18 @@ after do
 	ActiveRecord::Base.connection.close
 end
 
+
+
+
 get('/') do
-	erb(:index)
+	File.open('./views/index.erb')
 end
 
-post('/add') do
+post('/items') do
+	attributes=JSON.parse(request.body.read)
 	content_type :json
-	item=params["item"]
-	quantity=params["quantity"].to_i
+	item=attributes["item"]
+	quantity=attributes["quantity"].to_i
 	grocery_length=Grocery.all.length
 	grocery=Grocery.new
 	grocery.item=item
@@ -28,16 +32,16 @@ post('/add') do
 	item.to_json
 end
 
-get('/groceries') do
+get('/items') do
 	content_type :json
 	groceries_need=Grocery.where(bought: false).order(position: :asc)
 	groceries_have=Grocery.where(bought: true).order(position: :asc)
-	response={need: groceries_need, have: groceries_have}
+	response=Grocery.all.order(position: :asc)
 
 	response.to_json
 end
 
-delete('/deleteitem') do
+delete('/items/:id') do
 	content_type :json
 	id=params["id"]
 	delete=Grocery.find_by(id: id)
@@ -45,36 +49,17 @@ delete('/deleteitem') do
 	{response: 'deleted'}.to_json
 end
 
-put('/updateposition')do
+put('/items/:id') do
 	content_type :json
-	id=params["id"]
-	position=params["position"].to_i
-	update=Grocery.find_by(id: id)
-	update.quantity=params["quantity"].to_i
-	update.position=position
-	update.bought=params["bought"]
-	update.save
-	update.to_json
-end
-
-put('/updatequantity') do
-	content_type :json
+	attributes=JSON.parse(request.body.read)
 	id=params["id"].to_i
 	item=Grocery.find_by(id: id)
-	item.quantity=item.quantity+1
+	item.quantity=attributes["quantity"]
+	item.bought=attributes["bought"]
+	item.position=attributes["position"]
 	item.save
-
-	item.to_json
 end
 
-put('/lowerquantity') do
-	content_type :json
-	id=params["id"].to_i
-	item=Grocery.find_by(id: id)
-	item.quantity=item.quantity-1
-	item.save
-	this.to_json
-end
 
 
 

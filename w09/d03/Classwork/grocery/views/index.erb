@@ -59,6 +59,12 @@
 	}
 
 	</style>
+	<script type="text/template" id="need-template">
+	<%=item.item%><div class="quantity"><%=item.quantity%></div><label class="addquantity"><i class="fa fa-arrow-up"></i></label><label class="removequantity"><i class="fa fa-arrow-down"></i></label>
+	</script>
+	<script type="text/template" id="bought-template">
+	<%=item.item%><div class="quantity"></div><label class="addquantity"></label><label class="removequantity"></label>
+	</script>
 </head>
 <body>
 	
