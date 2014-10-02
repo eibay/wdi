@@ -19,15 +19,14 @@ get('/first') do
 end
 
 put('/edit') do
-	binding.pry
-	# editPerson = {
-	# 	name: params["name"],
-	# 	age: params["age"],
-	# 	id: params["id"]
-	# }
+	editPerson = {
+		name: params["name"],
+		age: params["age"],
+		id: params["id"]
+	}
 
-	changedPerson = Person.find_by(id: data["id"])
-	changedPerson.update({name: data["name"], age: data["age"]})
+	changedPerson = Person.find_by(id: params["id"])
+	changedPerson.update({name: params["name"], age: params["age"]})
 end
 
 
