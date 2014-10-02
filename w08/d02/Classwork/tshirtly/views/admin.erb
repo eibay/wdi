@@ -1,76 +1,75 @@
-span eye symbol ADMIN ONLY !
-
-Add Products:
-form
-tshirt.name
-tshirt.image
-tshirt.quantity
-tshirt.price
-
-button
-add
-
-add button 
-
-add adds tshirt to inventory
-also adds tshirt to a list on the index
-
-inventory
-tshirt.image 
-
-button
-delete
-
-...
-...
-
-orders
-tshirt.image
-user.email
-user.quantity
-
 <html>
 <head>
 	<title>Tshirt.ly</title>
 <link rel="stylesheet" type="text/css" href="/styles.css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<link rel="stylesheet" href="./styles.css">
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-<h1> Admin Page </h1>
+	<div class="container">
+	<header>
+		<h1> Admin Page </h1>
+	</header>
 
-<form action="/" method="POST">
-	<input type="text" name="name" placeholder="Enter Name"/>
-	<input type="text" name="image" placeholder="img url"/>
-	<input type="text" name="quantity" placeholder="quantity"/>
-	<input type="text" name="price" placeholder="price" />
-	<button>Add</button>
-</form>
+	<div class="form">
 
-<ul> 
-	<% users.each do |user| %>
-	
-		<li>
-			<% binding.pry %>
-			<a href="tshirt/<%= user.tshirt_id %>">
-				<img src="<%= Tshirt.find_by(id: user.tshirt_id)["image"] %>" >
-			</a>
+		<form action="/" method="POST">
+			<input type="text" name="name" placeholder="Enter Name"/>
+			<input type="text" name="image" placeholder="Image URL"/>
+			<input type="text" name="quantity" placeholder="Quantity"/>
+			<input type="text" name="price" placeholder="Price" />
+			<button>Add</button>
+		</form>
+	</div>
 
-			<p>Price: <%= Tshirt.find_by(id: user.tshirt_id)["price"] %></p>
-			<p>Quantity: <%= user.quantity %></p>
-			<p>Email: <%= user.email %></p>
-		</li>
+	<div class="col-md-6 order">
+		<h2>Orders:</h2>
 
-	<form action="/ship/<% Tshirt.find_by(id: user.tshirt_id)["id"] %>" method="POST">
-	    <input type="hidden" name="ship">
-	    <button>SHIP</button>
-	</form>
+		<ul> 
+			<% users.each do |user| %>
+				<li>
+					<a href="tshirt/<%= Tshirt.find_by(id: user.tshirt_id)["id"] %>">
+					<img src="<%= Tshirt.find_by(id: user.tshirt_id)["image"] %>" style="width: 250px; height: 250px">
+					</a>
+					<p>Price: <%= Tshirt.find_by(id: user.tshirt_id)["price"] %></p>
+					<p>Quantity: <%= user.quantity %></p>
+					<p>Email: <%= user.email %></p>
+				</li>
+				<form action="/ship/<%= user.id %>" method="POST">
+			    <button>SHIP</button>
+				</form>
 
-	<form action="/user/<%= user.id %>/remove" method="POST">
-	    <input type="hidden" name="_method" value="DELETE">
-	    <button>REMOVE</button>
-	</form>
+				<form action="/user/<%= user.id %>/remove" method="POST">
+				    <input type="hidden" name="_method" value="DELETE">
+				    <button>REMOVE</button>
+				</form>
+			<% end %> 
+		</ul>
+	</div>
 
-	<% end %>
-
-</ul>
+	<div class="col-md-6 sold-out">
+		<h2>Sold Out</h2>
+		<% soldouts.each do |soldout| %>
+			<li>
+				<a href="tshirt/<%= soldout["id"] %>">
+					<img src="<%= soldout.image %>" style="width: 250px; height: 180px">
+				</a>
+				<p>Price: <%= soldout.price %></p>
+				<p>Quantity: SOLDOUT</p>
+			</li>
+		<% end %>
+	</div>
 </body>
 </html> 

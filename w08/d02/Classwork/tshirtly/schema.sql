@@ -1,15 +1,15 @@
 CREATE TABLE tshirts(
-id serial primary key,
-name varchar(50),
-price integer,
-quantity integer,
-image varchar(200)
-)
+	id serial primary key,
+	name varchar(50),
+	price varchar(50),
+	quantity integer,
+	image varchar(200)
+);
 
 CREATE TABLE users(
-id serial primary key,
-email varchar(200),
-quantity integer,
-tshirt_id integer
-)
+	id serial primary key,
+	tshirt_id integer,
+	quantity integer,
+	email varchar(50)
+);
 

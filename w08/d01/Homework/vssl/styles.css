@@ -16,11 +16,7 @@ main {
 
 header img {
 	width: 100%;
-	padding-top: 1px;
-	padding-left: 1px;
-	padding-right: 5px;
-	margin: 0 auto;
-	display: block;
+  display: block;
 }
 
 nav{
@@ -72,8 +68,9 @@ hr {
 section.thumbnails div {
   display: inline-block;
   width: 25%;
-  margin: 0 auto;
-  padding: 0 10px;
+  margin-left:30px;
+  padding: 10px;
+  float: left;
 }
 
 section.thumbnails img {
@@ -89,7 +86,8 @@ div#photocredit{
 	font-style: italic;
 	display: inline-block;
 	font-size: 10px;
-	margin:30px;
+	margin:100px 175px 0 35px;
+
 }
 
 hr.bottom{
