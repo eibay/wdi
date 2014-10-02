@@ -19,19 +19,22 @@ get('/list') do
 	items.to_json
 end
 
-post('/item') do
+post('/items') do
 	content_type 'json'
+	attributes = JSON.parse(request.body.read)
 	item = []
-	item << Item.create({item: request.body.read, quantity: '1'})
+	item << Item.create({item: attributes["item"], quantity: attributes["quantity"]})
 	item.to_json
 end
 
-put('/item') do
-	item = Item.find_by(id: params[:item])
-	item.update(params[:value] => params[:state])
+put('/items/:id') do
+	content_type 'json'
+	attributes = JSON.parse(request.body.read)
+	item = Item.find_by(id: params[:id])
+	item.update({item: attributes["item"], quantity: attributes["quantity"], checked: attributes["checked"]})
 end
 
-delete('/item') do
-	item = Item.find_by(id: params[:item])
+delete('/items/:id') do
+	item = Item.find_by(id: params[:id])
 	item.destroy()
 end
