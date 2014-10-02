@@ -13,7 +13,7 @@ $(function(){
 
 function constructListItemContents(itemStr, quanityStr, isCompleted) {
   $listItemContents = $("<div></div>");
- 
+
   // have a paragraph naming the list item 
   var $itemName = $("<p></p>");
   $itemName.text(itemStr); 
@@ -23,6 +23,7 @@ function constructListItemContents(itemStr, quanityStr, isCompleted) {
 
   // construct a delete button 
   var $deleteButton = $("<button></button>");
+  $deleteButton.addClass("delete"); 
   $deleteButton.text('X'); 
 
   // eventListener for delete button 
@@ -127,6 +128,12 @@ var ItemView = Backbone.View.extend({
 
   tagName: "li", 
 
+  events: {
+    "click button.delete": destroyItem,
+    "change input[type=checkbox]": toggleCompleted, 
+    "change input[type=number]": updateQuantity 
+  },
+
   initialize: function(itemObj) {
     this.quanityStr = itemObj.quanity;
     this.itemStr = itemObj.item; 
@@ -139,7 +146,8 @@ var ItemView = Backbone.View.extend({
       this.itemStr, 
       this.quanityStr, 
       this.isCompleted);
-    this.$el.attr("id", this.id);
+    // this will be set automatically: 
+    // this.$el.attr("id", this.id);
     this.$el.html(itemListItemContents);
   }
 }); 
