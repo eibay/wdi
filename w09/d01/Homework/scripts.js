@@ -6,6 +6,7 @@ var IndexView = Backbone.View.extend ({
 		this.render();	
 	},
 	render: function(){
+	$("ul").html('');	
 		var header = $('header');
 		header.html('<h2> Welcome Page </h2>');
 		console.log("index.page has been viewed");
@@ -17,6 +18,7 @@ var MovieView = Backbone.View.extend ({
 		this.render();	
 	},
 	render: function(){
+	$("ul").html('');	
 	var favorite_movies = ['Rocky IV', 'Independence Day', 'Catch Me If You Can'];
 
 		var header = $('header');
@@ -28,6 +30,7 @@ var MovieView = Backbone.View.extend ({
 			listItem.text = movie;
 			$('ul').append('<li>'+movie+'</li>');
 
+
 		})
 		console.log("movie.page has been viewed");
 	}
@@ -38,6 +41,7 @@ var BooksView = Backbone.View.extend ({
 		this.render();	
 	},
 	render: function(){
+	$("ul").html('');	
 	var favorite_books = ['Of Mice and Men', 'Catcher and the Rye', 'The Great Gastby'];
 
 		var header = $('header');
@@ -49,6 +53,7 @@ var BooksView = Backbone.View.extend ({
 			listItem.text = book;
 			$('ul').append('<li>'+book+'</li>');
 
+
 		})
 		console.log("books.page has been viewed");
 	}
@@ -59,6 +64,7 @@ var HelloView = Backbone.View.extend ({
 		this.render();	
 	},
 	render: function(){
+	$("ul").html('');	
 		var header = $('header');
 		// header.html('<h3>Hello' + name + '!</h3>');
 		console.log("hello.page has been viewed");
@@ -70,8 +76,8 @@ var CageView = Backbone.View.extend ({
 		this.render();	
 	},
 	render: function(){
+	$("ul").html('');	
 		var header = $('header');
-		// header.html('<img src="http://www.placecage.com/c/500/500">');
 		console.log("cage.page has been viewed");
 	}
 });
@@ -80,7 +86,8 @@ var IndividualMovie = Backbone.View.extend({
 	initialize:function(options){
 		this.render(JSON.parse(data))
 		},
-		render: function(hash){
+	render: function(hash){
+		$("ul").html('');	
 		header.html('<h1>'+hash["Title"]+'</h1><h2>Year:'+hash["Year"]+'</h2><img src="'+hash["Poster"]+'">');
 	}		
 });

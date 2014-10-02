@@ -17,7 +17,7 @@
 //   	console.log("Welcome to our page!");
 //   }); 
 
-//   Backbone.history.start();
+//   Backbone.history.start(); // event listener
 
 // });
 
