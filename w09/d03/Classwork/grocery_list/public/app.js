@@ -1,10 +1,25 @@
 $(function(){
-// Backbone version
 	var ItemModel = Backbone.Model.extend({
 		urlRoot: '/items'
-	})
+	});
 
-	// View
+	var ItemCollection = Backbone.Collection.extend({
+		url: '/items',
+		model: ItemModel
+	});
+
+	collection = new ItemCollection();
+
+	collection.fetch({ success: function() {
+		collection.models.forEach(function(item){
+			var view = new ItemView({model: item});
+
+			view.render();
+
+			$('ul').append(view.el);
+		})
+	}});
+
 	var ItemView = Backbone.View.extend({
 
 		tagName: 'li',
@@ -26,13 +41,13 @@ $(function(){
 			this.model.set('checked', this.$el.children().prop('checked'))
 			this.model.save();
 			// saveState(this.$el.attr('id'), 'checked', this.$el.children().prop('checked'));
-			if (this.$el.children().prop('checked') == true) {
-				this.$el.css('textDecoration', 'line-through');
-				this.$el.animate({color: '#c0c0c0'}, 600)
-			} else {
-				this.$el.css('textDecoration', '');
-				this.$el.animate({color: '#000'}, 600)
-			}
+			// if (this.$el.children().prop('checked') == true) {
+			// 	this.$el.css('textDecoration', 'line-through');
+			// 	this.$el.animate({color: '#c0c0c0'}, 600)
+			// } else {
+			// 	this.$el.css('textDecoration', '');
+			// 	this.$el.animate({color: '#000'}, 600)
+			// }
 			// this.$el.css('textDecoration', function() {
 			// 		return this.checked ? 'line-through' : "";
 			// 	})
@@ -64,7 +79,7 @@ $(function(){
 			if (this.model.attributes.checked == true) {
 				this.$el.find('input[type="checkbox"]').prop('checked',true)
 				this.$el.css('textDecoration', 'line-through');
-				this.$el.css('color', '#c0c0c0');	
+				this.$el.animate({color: '#c0c0c0'}, 600)
 			} else {
 				this.$el.css('textDecoration', '');
 				this.$el.animate({color: '#000'}, 600)
@@ -73,22 +88,22 @@ $(function(){
 	})
 
 // app
-	function lister(list){
-		for (var i = 0; i < list.length; i++) {
-			var model = new ItemModel({
-				id: list[i].id,
-				item: list[i].item,
-				quantity: list[i].quantity,
-				checked: list[i].checked
-			})
+	// function lister(list){
+	// 	for (var i = 0; i < list.length; i++) {
+	// 		var model = new ItemModel({
+	// 			id: list[i].id,
+	// 			item: list[i].item,
+	// 			quantity: list[i].quantity,
+	// 			checked: list[i].checked
+	// 		})
 
-			var view = new ItemView({
-				model: model
-			});
+	// 		var view = new ItemView({
+	// 			model: model
+	// 		});
 
-			view.render();
+	// 		view.render();
 
-			$('ul').append(view.el);
+	// 		$('ul').append(view.el);
 			// $('ul').append('<li class="item"><input class="checkbox" id="' + list[i]["id"] + '" type="checkbox">' + list[i]["item"] + ' <input class="quantity" id="' + list[i]["id"] + 'type="text" value="' + list[i]["quantity"] + '"> <button class="btn del" id="' + list[i]["id"] + '">X</button></li>');
 			
 			// $('input#' + list[i]["id"]).click(function(){
@@ -109,16 +124,16 @@ $(function(){
 			// });
 			// 	$(this).parent().remove();
 			// })
-		}
-	}
+	// 	}
+	// }
 
 	// function saveState(item, value, state){
 	// 	$.ajax({url: '/item', type: 'PUT', data: {item: item, value: value, state: state}})
 	// }
 
-	$.get('http://127.0.0.1:4567/list', function(items){
-		lister(items);
-	});
+	// $.get('http://127.0.0.1:4567/list', function(items){
+	// 	lister(items);
+	// });
 
 	$('button').on('click', function(){	
 		var item = $('input').val()

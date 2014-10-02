@@ -13,7 +13,7 @@ get('/') do
 	File.open('./index.html')
 end
 
-get('/list') do
+get('/items') do
 	content_type 'json'
 	items = Item.all().order(id: :asc)
 	items.to_json
