@@ -17,15 +17,15 @@ $(function(){
 				};
 
 			})
-
-			addFunctions()
+			
+			addListeners()
 
 		})
 		
 	};
 
 
-	function addFunctions(){
+	function addListeners(){
 			$('button.remove').on('click', function(){
 				var itemID = this.id
 				$.post('/remove/'+itemID, function(){
