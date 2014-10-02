@@ -80,6 +80,7 @@ $(function() {
 				url: "http://127.0.0.1:4567/quantity",
 				data: {quantity: quantity, id: id},
 			})
+			$("input.item-entry").focus()
 		}
 	}
 

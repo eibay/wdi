@@ -76,7 +76,7 @@ var ItemCollection = Backbone.Collection.extend({
   model: ItemModel
 });
 
-collection = new ItemCollection();
+var collection = new ItemCollection();
 
 collection.fetch({ success: function() {
   collection.models.forEach(function(item) {

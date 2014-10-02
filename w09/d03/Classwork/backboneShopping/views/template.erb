@@ -1,0 +1,10 @@
+<script type="text/template" id="template">
+	<%%= product %>
+	<input class="quantity" placeholder="<%%= quantity %>">
+	<%% if (checked) { %>
+		<input class="purchased" type="checkbox" checked="checked" />
+	<%% } else { %>
+		<input class="purchased" type="checkbox" />
+	<%% } %>
+	<button class="delete">x</button>
+</script>

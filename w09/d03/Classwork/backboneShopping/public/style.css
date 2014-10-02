@@ -1,0 +1,22 @@
+body {
+	
+}
+
+main {
+	width: 40%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+li {
+	width: 200px;
+	margin: 0 auto;
+}
+
+.quantity {
+	width: 20px;
+}
+
+.done {
+	text-decoration: line-through;
+}

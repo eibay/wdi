@@ -14,7 +14,7 @@ get "/" do
 end
 
 get "/list" do
-	ListItem.all.to_json
+	ListItem.order(:id).to_json
 end
 
 post "/additem" do
@@ -32,6 +32,12 @@ put "/quantity" do
 	item.update({ quantity: params["quantity"].to_i })
 	item
 end
+
+# put "/items/:id" do
+# 	item = ListItem.find(params[:id])
+
+# 	item.update({ quantity: params[:quantity], checked: params[:checked]})
+# end
 
 put "/checkbox" do
 	item = ListItem.find_by({ id: params["id"] })
