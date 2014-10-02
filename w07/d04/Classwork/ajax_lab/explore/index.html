@@ -9,17 +9,20 @@
 
   <script type="text/javascript">
     var pre = document.querySelector('pre');
-
+    // sets pre to the query with pre tags.
     function fetch(title) {
       var xhr = new XMLHttpRequest();
-
+      // initalizes XMLHttpRequest() and sets it to 'xhr'
       xhr.addEventListener('load', function(){ 
         pre.innerText += xhr.response + '\n';
       });
-
+      // creates the function 'fetch', which includes an event
+      // listener that inserts the 'xhr' response inside the 'pre'
+      // tags upon the page 'load' event.
       xhr.open('GET', '/movies?title=' + encodeURIComponent(title));
-
+      // opens the line for the request
       xhr.send()
+      // sends the request and returns a response
     }
   </script>
 </body>

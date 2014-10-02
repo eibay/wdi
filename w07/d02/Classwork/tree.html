@@ -18,4 +18,48 @@
     <li>Apple</li>
   </ul>
 </body>
+  <script type="text/javascript">
+
+  var lis = document.querySelectorAll('li');
+
+  var removeElement = function(elementObj) {
+      elementObj.parentElement.removeChild(elementObj);
+
+      tree = document.querySelector("ul.tree");
+      tree.appendChild(elementObj);
+  }
+
+
+  // var birch = document.querySelector("ul.sapling li");
+  // birch.addEventListener("click", function(event) {
+  //   removeElement(event.target);
+  // });
+
+
+  // var maple = document.querySelector("ul.sapling li")
+
+  // maple.addEventListener("click", function(event) {
+  //   removeElement(event.target);
+  // });
+
+  // for(var i=0; i < lis.length; i++) {
+  //   lis[i].addEventListener('click', function(event) {
+  //     removeElement(event.target);
+  //   })
+  // }
+
+  var sapling = document.querySelector('ul.sapling')
+
+  sapling.addEventListener('click', function(event) {
+    removeElement(event.target);
+  })
+
+
+
+
+
+
+
+  // document.querySelector("ul.sapling li").onclick = move(event);   
+  </script>
 </html>

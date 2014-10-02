@@ -28,13 +28,17 @@
 		
 		<div class="row">
 			<div id="dropdown-1" class="dropdown dropdown-tip col-md-2">
-				<a data-toggle="dropdown" href="#">Counties</a>
-	    		<ul class="dropdown-menu counties" role="menu" aria-labelledby="dLabel"></ul>
+				<a data-toggle="dropdown" href="#" id="cLink">Counties</a>
+	    		<ul class="dropdown-menu counties" role="menu" aria-labelledby="dLabel">
+	    			<li class="nds">No Data to Select</li>
+	    		</ul>
 	    	</div>
 
 	    	<div id="dropdown-2" class="dropdown dropdown-tip col-md-2">
-	    		<a data-toggle="dropdown" href="#">Gender</a>
-	    		<ul class="dropdown-menu genders" role="menu" aria-labelledby="dLabel"></ul>
+	    		<a data-toggle="dropdown" href="#" id="gLink">Gender</a>
+	    		<ul class="dropdown-menu genders" role="menu" aria-labelledby="dLabel">
+	    			<li class="nds">No Data to Select</li>
+	    		</ul>
 	    	</div>
     	</div>
 
@@ -52,6 +56,7 @@
 	<script type="text/javascript">
 
 		function getCounties(array) {
+			$('.counties').children().remove();
 			_.each(array, function(county) {
 				var countyList = $(".counties");
 				var countyItem = document.createElement('li');
@@ -75,6 +80,7 @@
 		}
 
 		function getGenders(array) {
+			$('.genders').children().remove();
 			var genders = $('.genders')
 			var mItem = document.createElement('li')
 			var fItem = document.createElement('li')
@@ -98,6 +104,7 @@
 		}
 
 		function getBabies(year, array) {
+			debugger
 			var xhr = new XMLHttpRequest();
 			xhr.open('GET', 'http://localhost:4567/year?year=' + year, true);
 			xhr.send();
@@ -137,6 +144,8 @@
 				console.log(array);
 				getCounties(array)
  			});
+
+ 			$('.nds').remove()
 		}
 
 		var buttons = $('button')
@@ -153,15 +162,19 @@
 			})
 		}
            
-     
+    	$('#cLink').click(function() {
+	 		$('.counties').fadeIn( "fast" );
+	 	});
+	 	$('#gLink').click(function() {
+	 		$('.genders').fadeIn( "fast" );
+	 	});
 
-
-
-
-
-
-
-
+	 	$('.counties').click(function() {
+  			$('.counties').fadeOut( "fast" );
+		});
+		$('.genders').click(function() {
+  			$('.genders').fadeOut( "fast" );
+		});
 
 	</script>
 </body>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form Adder</title>
+</head>
+<body>
+	<input type="text" name="input" placeholder="Type here." id="user_input">
+	<button id="add">Add</button>
+
+	<button id="delete">Delete</button>
+
+	<h1>List</h1>
+	<div id="rand-list">
+		<ul></ul>
+	</div>
+</body>
+<script type="text/javascript">	
+
+	var div = document.getElementById('rand-list');
+  	var ul = document.querySelector('ul');
+  	var addButton = document.getElementById('add');
+  	var deleteButton = document.getElementById('delete')
+
+	var addInput = function(item) {
+		var li = document.createElement('li');
+		li.innerText = item;
+		ul.appendChild(li);
+		div.appendChild(ul);
+	}
+
+	var deleteInput = function(item) {
+		item.parentElement.removeChild(item);	
+	}
+
+	addButton.addEventListener('click', function() {
+		var input = document.getElementById("user_input");
+		var inputValue = input.value
+		if (inputValue != "") {
+
+			addInput(inputValue);
+
+			input = ""
+		}	
+	})
+
+	deleteButton.addEventListener('click', function() {
+		var input = document.getElementById("user_input");
+		var inputValue = input.value
+		var listItems = ul.children
+		for (i=0; i < listItems.length; i++) {
+			if (listItems[i].innerText == inputValue) {
+				deleteInput(listItems[i]);
+			}
+		}	
+		
+	})
+
+
+
+
+</script>
+</html>

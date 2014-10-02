@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'json'
 require 'httparty'
+require 'uri'
 
 get '/:movie_title' do
   content_type :json
@@ -9,4 +10,5 @@ get '/:movie_title' do
   movie = HTTParty.get(url)
 
   movie.response.body
+
 end

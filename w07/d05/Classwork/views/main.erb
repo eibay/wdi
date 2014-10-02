@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		li {text-decoration: none}
+	</style>
+	<title>Movie Posters</title>
+</head>
+<body>
+	<h1>Type movie title here</h1>
+	<input type="text" placeholder="Movie">
+	<button>Submit</button>
+
+	<div id="posters">
+		<ul></ul>
+	</div>
+
+	<script type="text/javascript">
+		var posters = document.getElementById('posters');
+		var ul = document.querySelector('ul')
+
+		function retrieve(title) {
+			xhr = new XMLHttpRequest();
+
+			xhr.addEventListener('load', function() {
+
+				var jsonRes = JSON.parse(xhr.response);
+				var li = document.createElement('li');
+				li.innerHTML = '<h3>' + jsonRes["Title"] + '</h3><br/>' + '<img src="' + jsonRes["Poster"] + '">';
+
+				ul.appendChild(li);
+			})
+			xhr.open('GET', '/posters?title=' + encodeURIComponent(title));
+			xhr.send();
+		}
+
+		var button = document.querySelector('button');
+
+		button.addEventListener('click', function() {
+			var movie = document.querySelector('input').value;
+			retrieve(movie)
+		})
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Groceries</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<script src='/jquery.js'></script>
+	<script src='/underscore.js'></script>
+	<script src='/backbone.js'></script>
+	<script src='/groceryApp.js'></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<section class="col-md-6 col-md-offset-3 header">
+				<header><h1 class="title">Grocery List</h1></header>
+
+				<input type="text" id="item-name" placeholder="Item">
+				<input type="text" id="item-quant" placeholder="Quantity">
+				<button id="add-button">Add Item</button><br/>
+			</section>
+
+		</div>
+		
+		<div class="row">
+			<section class="col-md-5 col-md-offset-1">
+				<h3>To Buy</h3>
+				<ul class="to-buy list">
+					<% groceries.each do |g| %>
+						<li id=<%= g['id'] %>><%= g['item'] %> <span id=<%= g['id'] %>><%= g['quantity'] %></span> <i class="fa fa-caret-square-o-up up" id=<%= g['id'] %>></i> <i class="fa fa-caret-square-o-down down" id=<%= g['id'] %>></i> <i class="fa fa-trash delete-button" id=<%= g['id'] %>></i>
+						</li>
+						
+					<% end %>
+				</ul>
+			</section>
+		
+			<section class="col-md-5">
+				<h3>Bought</h3>
+				<ul class="bought list">
+				</ul>
+			</section>
+		</div>	
+
+		<div class="row">
+			<section class="col-md-12">
+				<marquee><i class="fa fa fa-bicycle delete-button fa-spin fa-5x" id="eraser"></i></marquee>
+			</section>
+		</div>
+
+		
+	</div>
+
+	<style>
+		ul {
+			min-height: 50px;
+			border: 5px solid black;
+		}
+
+		li {
+			font-size: 30px;
+			cursor: pointer;
+		}
+
+		#eraser {
+			font-size: 350px;
+		}
+		
+		.header {
+			text-align: center;
+		}
+
+	</style>
+	
+</body>	
+</html>

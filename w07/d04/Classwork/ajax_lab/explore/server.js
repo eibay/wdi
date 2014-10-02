@@ -17,6 +17,7 @@ server.on('request', function(request, response) {
     httpClient.get('http://localhost:4567/' + encodeURIComponent(movieTitle), function(err, res2, body) {
       response.end(body);
     });
+
   }
 });
 

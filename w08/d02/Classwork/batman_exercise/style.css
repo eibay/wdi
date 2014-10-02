@@ -1,0 +1,25 @@
+body {
+	background: url('./490809.jpg') no-repeat center center fixed;
+	text-align: center;
+}
+
+.name {
+	text-align: center;
+	color: white;
+}
+
+.number {
+	text-align: right;
+	color: white;
+}
+
+section ul {
+	display: block;
+	text-align: left;
+}
+
+.center-text {
+	text-align: center;
+}
+
+
