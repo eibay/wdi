@@ -19,9 +19,18 @@ get('/first') do
 end
 
 put('/edit') do
-	people = Person.all
-	people.to_json
+	binding.pry
+	# editPerson = {
+	# 	name: params["name"],
+	# 	age: params["age"],
+	# 	id: params["id"]
+	# }
+
+	changedPerson = Person.find_by(id: data["id"])
+	changedPerson.update({name: data["name"], age: data["age"]})
 end
+
+
 
 post('/create') do
 	person_hash = {
