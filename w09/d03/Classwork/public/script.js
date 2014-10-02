@@ -11,6 +11,7 @@ $(function(){
   });   
 });
 
+
 function constructListItemContents(itemStr, quanityStr, isCompleted) {
   $listItemContents = $("<div></div>");
 
@@ -25,25 +26,50 @@ function constructListItemContents(itemStr, quanityStr, isCompleted) {
   var $deleteButton = $("<button></button>");
   $deleteButton.addClass("delete"); 
   $deleteButton.text('X'); 
-
-  // eventListener for delete button 
-  $deleteButton.click(function(e) {
-    var listItemId = e.currentTarget.parentNode.parentNode.id;
-    destroyItem(listItemId); 
-  });
-  $listItemContents.append($deleteButton); 
+  $listItemContents.append($deleteButton);
 
   // construct a completed checkbox 
   var $completedCheckbox = $("<input></input>");
   $completedCheckbox.attr("type", "checkbox");
   $completedCheckbox.attr("checked", isCompleted);
+  $listItemContents.append($completedCheckbox);
 
-  // eventListener for checkbox 
-  $completedCheckbox.change(function(e) {
+  // construct a quanity input 
+  var $quanityInput = $("<input></input>");
+  $quanityInput.attr("type", "number");
+  $quanityInput.attr("min", 1);
+  $quanityInput.val(quanityStr);
+  $listItemContents.append($quanityInput);
+
+  return $listItemContents;  
+}
+
+var ItemView = Backbone.View.extend({
+
+  tagName: "li", 
+
+  events: {
+    "click button.delete": 'destroyItem',
+    "change input[type=checkbox]": 'toggleCompleted', 
+    "change input[type=number]": 'updateQuantity' 
+  },
+
+  updateQuantity: function(e) {
+    var newQuanity = e.currentTarget.value;
+    console.log(newQuanity); 
+    var id = e.currentTarget.parentNode.parentNode.id;
+    console.log(e.currentTarget.parentNode.parentNode);
+    console.log(id)
+    $.ajax({
+      url: "/items", 
+      type: "PUT", 
+      data: {"id": id, "quanity": newQuanity}
+    });
+  }, 
+
+  toggleCompleted: function(e) {
     var listItemId = e.currentTarget.parentNode.parentNode.id;
-    console.log(listItemId);
     var completed = e.currentTarget.checked;
-    console.log(completed);
 
     // toggle the line-through 
     if (completed) {
@@ -57,82 +83,18 @@ function constructListItemContents(itemStr, quanityStr, isCompleted) {
       url: "/items",
       type: "PUT",
       data: {"id": e.currentTarget.parentNode.parentNode.id, "completed": completed}
-    }); 
-  });
-
-  $listItemContents.append($completedCheckbox);
-
-
-  // construct a quanity input 
-  var $quanityInput = $("<input></input>");
-  $quanityInput.attr("type", "number");
-  $quanityInput.attr("min", 1);
-  $quanityInput.val(quanityStr);
-
-  // eventListener for quanity input 
-  $quanityInput.change(function(e) {
-    var newQuanity = e.currentTarget.value;
-    var id = e.currentTarget.parentNode.parentNode.id;
-    console.log(e.currentTarget.parentNode.parentNode);
-    $.ajax({
-      url: "/items", 
-      type: "PUT", 
-      data: {"id": id, "quanity": newQuanity}
     });
-  });
-  $listItemContents.append($quanityInput);
+  }, 
 
-  return $listItemContents;  
-}
-
-function destroyItem(id) {
-  $.ajax({
-    url: "/items",
-    type: "DELETE",
-    data: {"id": id}  
-  });
-  removeItemFromList(id); 
-}
-
-function removeItemFromList(id) {
-  var idStr = '#' + id;
-  var $listItem = $(idStr);
-  $listItem.remove();
-}
-
-function createItem(itemStr, quanityStr) {
-  var params = {"item": itemStr, "quanity": quanityStr}; 
-  $.post("/items", params, function(response){
-    var listItemView = new ItemView(response);
-    listItemView.render(); 
-    $("ul").append(listItemView.$el);
-  });
-}
-
-function assembleList() {
-  $.getJSON("/items", null, function(itemsArray) {
-    if (itemsArray.length != 0)
-      addAllItems(itemsArray); 
-  });
-}
-
-function addAllItems(arr) {
-  $.each(arr, function(idx, item) {
-    var listItemView = new ItemView(item);
-    listItemView.render();
-    $("ul").append(listItemView.$el);
-  });
-}
-
-var ItemView = Backbone.View.extend({
-
-  tagName: "li", 
-
-  events: {
-    "click button.delete": destroyItem,
-    "change input[type=checkbox]": toggleCompleted, 
-    "change input[type=number]": updateQuantity 
-  },
+  destroyItem: function(e) {
+    var id = e.currentTarget.parentNode.parentNode.id;  
+    $.ajax({
+      url: "/items",
+      type: "DELETE",
+      data: {"id": id}
+    });
+    removeItemFromList(id);
+  }, 
 
   initialize: function(itemObj) {
     this.quanityStr = itemObj.quanity;
@@ -151,3 +113,35 @@ var ItemView = Backbone.View.extend({
     this.$el.html(itemListItemContents);
   }
 }); 
+
+
+function removeItemFromList(id) {
+  var idStr = '#' + id;
+  var $listItem = $(idStr);
+  $listItem.remove();
+}
+
+function createItem(itemStr, quanityStr) {
+  var params = {"item": itemStr, "quanity": quanityStr}; 
+  $.post("/items", params, function(response){
+    var listItemView = new ItemView(response);
+    listItemView.render(); 
+    $("ul").append(listItemView.$el);
+  });
+}
+
+function assembleList() {
+  $.getJSON("/items", null, function(itemsArray) {
+    if (itemsArray.length != 0) 
+      addAllItems(itemsArray); 
+  });
+}
+
+function addAllItems(arr) {
+  $.each(arr, function(idx, item) {
+    var listItemView = new ItemView(item);
+    listItemView.render();
+    $("ul").append(listItemView.$el);
+  });
+}
+
