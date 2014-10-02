@@ -21,3 +21,15 @@ end
 get("/view_all") do
 	Person.all.to_json
 end
+
+put("/edit") do
+	people_hash = {
+	name: params["name"],
+	age: params["age"].to_i,
+	id: params["id"].to_i
+	}
+
+	person = Person.find_by({id: params[:id].to_i})
+	person.update(people_hash)
+	people_hash.to_json
+end
