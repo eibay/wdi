@@ -13,6 +13,11 @@ var ItemModel = Backbone.Model.extend({
 
 });
 
+var ItemCollection = Backbone.Collection.extend({
+  url: "/items",
+  model: ItemModel
+});
+
 
 function addItem (item){
   
@@ -83,6 +88,7 @@ var ItemView = Backbone.View.extend({
 		// this.item = opt.item
 		// this.quantity = opt.quantity
 		// this.render()
+		// console.log(this)
 		// this.listenTo(this.model, "change", this.render);
 	},
 	
@@ -91,6 +97,7 @@ var ItemView = Backbone.View.extend({
 		// console.log(this)
 		this.$el.html( this.template(this.model.attributes) );
 		// this.$el.html(this.template({item: this.item, quantity: this.quantity}))
+	// return this
 	}
 
 });
@@ -129,20 +136,7 @@ $(function(){
 	$('input').on('keydown', function(e){
 		if(e.keyCode ==13){
 			var item = $('input.item').val()
-
 			addItem(item)
-			
-			// $.post('/add/'+item, function(data){
-			// 	$('input').val('')
-			// 	var item = data.item;
-			// 	var quantity = data.quantity;
-			// 	var id = data.id
-
-			// 	var itemView = new ItemView({item: item, quantity: quantity, id: id})
-			// 	$('ul').append(itemView.el)
-			// })
-
-		
 	 	}
 	})
 
