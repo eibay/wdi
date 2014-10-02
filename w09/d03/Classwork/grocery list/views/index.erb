@@ -2,19 +2,24 @@
 <head>
 	<title>Grocery List</title>
 	<script src='jquery.js'></script>
-	<script src='underscore.js'></script>
-	<script src="backbone.js"></script>
 	<script src='app.js'></script>
 </head>
 <body>
 	<h1>Grocery List</h1>
+		<ul>
+			<% list.each do |a| %>
+			
+			<li>
+				<input type="checkbox" id="<%= a.item %>"><%= a.item %> <button class="delete" id="<%= a.id %>">Delete Item</button></li>
+			<% end %>
+		
+		</ul>
 		<div>
 			<ul id="list">
 			</ul>
 		</div>
 
-		<input type="text" id="list_item">
-		<input type="text" id="quantity">
+		<input type="text" name="list_item">
 		<button id="add">Add to List</button>
 
 </body>
