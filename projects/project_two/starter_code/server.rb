@@ -45,8 +45,7 @@ get("/contacts") do
 end
 
 get("/contacts/:id") do
-  id = params[:id]
-  Contact.find(id).to_json
+  Contact.find_by(params[:id]).to_json
 end
 
 post("/contacts") do
