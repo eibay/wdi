@@ -1,0 +1,34 @@
+<html>
+<head>
+	<title>Grocery List</title>
+	<script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+	<script src='https://code.jquery.com/ui/1.11.1/jquery-ui.min.js'></script>
+	<script src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js'></script>
+	<script src='//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js'></script>
+
+
+
+	<link href='http://fonts.googleapis.com/css?family=Montserrat|Rock+Salt' rel='stylesheet' type='text/css'>
+	
+	<link rel='stylesheet' href='styles.css'></link>
+
+</head>
+
+<body>
+	
+	<header>
+		<h2>Grocery List</h2>
+		<input class='item' placeholder='item'></input>
+		<!-- <button class='add'>Add</button> -->
+	</header>
+	
+
+	<ul>
+	</ul>
+	
+	<%= erb(:template) %>
+	
+	<script src='app.js'></script>
+
+</body>
+</html>
