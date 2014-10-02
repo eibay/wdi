@@ -1,0 +1,38 @@
+body {
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+}
+
+li {
+	padding: 10px;
+	text-align: left;
+}
+
+.btn {
+	color: #FFF;
+	display: inline-block;
+	padding: 2px 5px;
+}
+
+/*.btn.del{
+	float: right;
+	font-size: 10px;
+	padding: 3px;
+	height: 15px;
+	width: 15px;
+}*/
+
+input.quantity {
+	display: inline-block;
+	height: 20px;
+	width: 30px;
+	margin: 0 10px 0 10px;
+}
+
+.checkbox {
+	display: inline-block;
+	margin: 30px 10px 0 0;
+}
