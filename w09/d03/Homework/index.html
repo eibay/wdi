@@ -9,10 +9,10 @@
 
   <button id="button">Load New Info</button>
 
-  <pre></pre>
+  <!-- <pre></pre>
 
   <img></img>
-
+ -->
   <script type="text/javascript">
   // Everytime the button is clicked we are making a new AJAX request because you need new information from the server because otherwise you only go to the page once you only get one name.
 
@@ -27,13 +27,27 @@
       var response = JSON.parse(xhr.response)
 
       // results at 0 position is user and seed, we want user. Furtherdown we dig into diff attributes and endpoints of each user such as name, first, last, email, location etc.
+        var img = response.results[0].user.picture.medium
+        var data = response.results[0]['user']['name']['first'] + " " + response.results[0]['user']['name']['last']
+        var pre = document.createElement("pre")
+        var image = document.createElement("img")
+        document.body.appendChild(pre)
+        document.body.appendChild(image)
+        pre.innerText = data;
 
-      var data = document.querySelector('pre').textContent = response.results[0]['user']['name']['first'] + " " + response.results[0]['user']['name']['last'] + " " + response.results[0]['user']['email'] + " " + response.results[0]['user']['location']["street"] + " " + response.results[0]['user']['location']["city"] + " " + response.results[0]['user']['location']["state"] + " " + response.results[0]['user']['location']["zip"]
 
 
-      var img = response.results[0].user.picture.medium
-      var picture = document.querySelector("img")
-      picture.setAttribute("src", img)
+
+
+
+      // var data = document.querySelector('pre').textContent = response.results[0]['user']['name']['first'] + " " + response.results[0]['user']['name']['last'] + " " + response.results[0]['user']['email'] + " " + response.results[0]['user']['location']["street"] + " " + response.results[0]['user']['location']["city"] + " " + response.results[0]['user']['location']["state"] + " " + response.results[0]['user']['location']["zip"]
+
+
+      // var img = response.results[0].user.picture.medium
+      // var picture = document.querySelector("img")
+      // picture.setAttribute("src", img)
+
+
     });
 
   });
