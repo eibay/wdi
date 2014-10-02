@@ -70,10 +70,16 @@ $(function(){
 				age: age
 			}
 		}).done(function(data){
+			var newPerson = JSON.parse(data);
+			console.log(typeof(data));
+			console.log("data is " + data);
+			console.log("newPerson is " + newPerson);
+			console.log("newPerson name is " + newPerson["name"])
 			var $ul = $('ul');
-			$ul.append("<li>" + name + "<br>" + age + "</li>");
+			$ul.append("<li>" + newPerson["name"] + "<br>" + newPerson["age"] + "</li>");
 		})
-		})
+	
+	})
 
 
 
@@ -85,5 +91,4 @@ $(function(){
 
 // here is the end of the onLoad function
 });
-
 

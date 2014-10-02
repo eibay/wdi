@@ -27,6 +27,8 @@ put('/edit') do
 
 	changedPerson = Person.find_by(id: params["id"])
 	changedPerson.update({name: params["name"], age: params["age"]})
+
+	changedPerson.to_json
 end
 
 
