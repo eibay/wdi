@@ -1,0 +1,42 @@
+#wrapper {
+  margin: 0 auto;
+  width: 300px;
+  height: 1000px;
+  padding: 30px;
+  border: 1px solid;
+}
+
+#the_list button input {
+  padding-right:10px;
+}
+
+#li {
+  padding: 5px;
+}
+
+.checked {
+      text-decoration: line-through;
+}
+
+p {
+  display:inline;
+}
+
+#num {
+  width: 30px;
+}
+
+.btn {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-group {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-group-xs {
+  margin: 0;
+  padding: 0;
+}
