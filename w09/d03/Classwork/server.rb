@@ -34,12 +34,13 @@ end
 put ('/edit') do
 	people_hash = {
 		name: params["name"],
-		age: params["age"],
-		id: params["id"]
+		age: params["age"].to_i,
+		id: params["id"].to_i
 	}
 
 	person = Person.find_by({id: params[:id]})
 	person.update(people_hash)
+	person.to_json
 
 # binding.pry
 end	
