@@ -17,6 +17,8 @@ var ItemView = Backbone.View.extend({
 
   tagName: "li",
 
+  template: _.template( $("#template").html() ),
+
   events: {
     "click button.delete" : "destroy",
     "click button.edit" : "toggleEdit",
@@ -25,25 +27,11 @@ var ItemView = Backbone.View.extend({
 
   destroy: function() {
     this.model.destroy();
-
-    // $.ajax({
-    //   url: '/delete',
-    //   data: { deleting: this.id } ,
-    //   type: 'DELETE'
-    // });
   },
 
   update: function() {
     this.model.set('number', this.$el.find('input[name="quantity"]').val());
     this.model.save();
-    
-    // $.ajax({
-    //   url:'/edit',
-    //   data: { editing: this.id, number: this.number },
-    //   type: 'PUT'
-    // });
-
-    //this.render();
   },
 
   toggleEdit: function() {
@@ -56,14 +44,7 @@ var ItemView = Backbone.View.extend({
   },
 
   render: function() {
-    var innards = "<h4>" + this.model.get('item') + " " + this.model.get('number') + "</h4>" 
-    innards += "<button class='delete'>DELETE</button> <button class='edit'>Edit</button>"
-    innards += "<div style='display:none;' class='edit-fields'><input name='quantity' placeholder="+this.number+"><button class='update'>UPDATE</button></div>"
-    this.$el.html(innards);
-
-    if (this.number < 1) {
-      this.$el.addClass("done");
-    }
+    this.$el.html( this.template(this.model.attributes) );
   }
 });
 
