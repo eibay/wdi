@@ -49,6 +49,11 @@ $(function(){
 						age: editAge,
 						id: currentId
 						}
+					}).done(function(data){
+						var changedPerson = JSON.parse(data);
+						console.log('heres my new done function for edit person');
+						var $ul = $('ul');
+						$ul.append("<li>" + changedPerson["name"] + "<br>" + changedPerson["age"] + "</li>");
 					})
 		})
 	};
@@ -71,10 +76,10 @@ $(function(){
 			}
 		}).done(function(data){
 			var newPerson = JSON.parse(data);
-			console.log(typeof(data));
-			console.log("data is " + data);
-			console.log("newPerson is " + newPerson);
-			console.log("newPerson name is " + newPerson["name"])
+			// console.log(typeof(data));
+			// console.log("data is " + data);
+			// console.log("newPerson is " + newPerson);
+			// console.log("newPerson name is " + newPerson["name"])
 			var $ul = $('ul');
 			$ul.append("<li>" + newPerson["name"] + "<br>" + newPerson["age"] + "</li>");
 		})
