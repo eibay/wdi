@@ -13,9 +13,10 @@
 
 var arrayOfIntegers = function(array,integer){
 	for(var i = 0; i<array.length; i++){
-		if(parseInt(array)[i].contains(parseInt(integer)){
+		if(array[i].contains(integer)){
 				console.log("true");
 		}
 };
+}
 arrayOfIntegers([4,5,6], 6);
 
