@@ -24,10 +24,10 @@
       </div>
 
       <div>
-        <label for="letter">Guess a Letter:</label>
+<!--         <label for="letter">Guess a Letter:</label>
         <input type="text" name="letter" id="letter" />
       </div>
-        <button class="button" id="guess-button">Guess</button>
+        <button class="button" id="guess-button">Guess</button> -->
     </aside>
   </section>
   
@@ -186,43 +186,43 @@
     var guessButton = document.getElementById("guess-button")
     var giveUpButton = document.getElementsByClassName("button give-up")[0]
     var newGameButton = document.getElementsByClassName("button new-game")[0]
-    var letters = letterList.children
+    var wordLetters = letterList.children
 
     guessesLeft.innerText = wrongGuesses
     guessedLetters.innerText = guesses
 
 
-    guessButton.addEventListener('click', function() {
-      var letter = letterInput.value;
-      guessLetter(letter)
-      fillIn(letter)
+    // guessButton.addEventListener('click', function() {
+    //   var letter = letterInput.value;
+    //   guessLetter(letter)
+    //   fillIn(letter)
 
-      guessesLeft.innerText = wrongGuesses
-      guessedLetters.innerText = guesses
+    //   guessesLeft.innerText = wrongGuesses
+    //   guessedLetters.innerText = guesses
 
-      var status = document.createElement('h1')
+    //   var status = document.createElement('h1')
 
-      if (checkLost() == true) {
-        status.innerText = "LOSER!!"
-        div.insertBefore(status, letterList)
-        losses ++ 
-        lossCount.innerText = losses
-        localStorage.setItem("totalLosses", losses)
+    //   if (checkLost() == true) {
+    //     status.innerText = "LOSER!!"
+    //     div.insertBefore(status, letterList)
+    //     losses ++ 
+    //     lossCount.innerText = losses
+    //     localStorage.setItem("totalLosses", losses)
 
-      } else if (checkWon() == true) {
-        status.innerText = "WINNER!!"
-        div.insertBefore(status, letterList)
-        wins ++
-        winCount.innerText = wins
-        localStorage.setItem("totalWins", wins)
-      }
+    //   } else if (checkWon() == true) {
+    //     status.innerText = "WINNER!!"
+    //     div.insertBefore(status, letterList)
+    //     wins ++
+    //     winCount.innerText = wins
+    //     localStorage.setItem("totalWins", wins)
+    //   }
 
 
-    })
+    // })
 
     giveUpButton.addEventListener('click', function() {
-      for (i=0; i < letters.length; i++) {
-        letters[i].innerHTML = letters[i].className
+      for (i=0; i < wordLetters.length; i++) {
+        wordLetters[i].innerHTML = wordLetters[i].className
       }
 
       message = document.createElement('h1')
@@ -239,7 +239,8 @@
     })
 
     var alphas = letterChoices.children
-    for(a=0; a < alphas.length; a++) {
+    for(var a=0; a < alphas.length; a++) {
+      var ind = a 
       alphas[a].addEventListener('click', function(event) {
         var letter = event.target.innerText
         guessLetter(letter)
@@ -256,6 +257,9 @@
           losses ++ 
           lossCount.innerText = losses
           localStorage.setItem("totalLosses", losses)
+          for (i=0; i < wordLetters.length; i++) {
+            wordLetters[i].innerHTML = wordLetters[i].className
+           }
 
         } else if (checkWon() == true) {
           status.innerText = "WINNER!!"

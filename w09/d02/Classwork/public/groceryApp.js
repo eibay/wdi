@@ -109,6 +109,7 @@ $(function(){
 				}
 			});
 			ui.helper[0].remove()
+			$("#eraser").effect("shake", 500)
 		}
 	});
 

@@ -18,7 +18,7 @@ get '/admin' do
 end
 
 post '/add_shirt' do 
-	binding.pry
+
 	new_shirt = {
 		name: params['name'],
 		price: params['price'],
@@ -30,12 +30,15 @@ post '/add_shirt' do
 end
 
 put '/orders' do 
+binding.pry
+	req_hash = request.body.read
 
-	binding.pry
-	order_quant = params['quantity'].to_i
+	parsed = JSON.parse(req_hash)
 
-	shirt = Shirt.find_by(id: params['id'])
-	new_quant = shirt.quantity - order_quant
+	order_quant = parsed['quantity'].to_i
+
+	shirt = Shirt.find_by(id: parsed['id'])
+	new_quant = shirt['quantity'] - order_quant
 	shirt.quantity = new_quant
 	shirt.save
 

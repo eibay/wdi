@@ -30,9 +30,11 @@
 
 	var addDo = function(item) {
 		var li = document.createElement('li');
-
+		
 		li.addEventListener('dblclick', function(event) {
-			event.target.innerHTML = '<input type="checkbox" class="checkbox">' + '<input type="text" value="'+li.innerText+'">' + '<input type="hidden" id="up"><button>MoveUp</button>' + '<input type="hidden" id="down"><button>MoveDown</button>';
+			event.target.innerHTML = '<input type="checkbox" class="checkbox">' + '<input type="text" value="'+ event.target.innerText+'">' + '<input type="hidden" id="up"><button>MoveUp</button>' + '<input type="hidden" id="down"><button>MoveDown</button>';
+			console.log(li.innerText)
+
 
 			li.addEventListener('keypress', function(event) {
 

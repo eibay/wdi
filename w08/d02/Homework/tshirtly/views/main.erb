@@ -78,18 +78,19 @@
 			orderButton[i].addEventListener('click', function(event){
 
 				var orderId = event.target.id
+				console.log(event.target.id)
 				var modal = document.getElementById(orderId + "-order");
-				modal.innerHTML = '';
-debugger
-				var data = {}
-				data.email = modal.getElementsByClassName("order-email")[0].value;
-				data.quantity = modal.getElementsByClassName("order-quantity")[0].value;
 
+				var data = {}
+				data.email = event.target.parentNode.parentNode.children[1].children[1].value;
+				data.quantity = event.target.parentNode.parentNode.children[1].children[2].value;
+				data['id'] = document.getElementById(orderId + "-id").value
+				console.log(data.email)
 				var xhr = new XMLHttpRequest();
 				xhr.open('PUT','http://localhost:4567/orders', true);
 
 				xhr.addEventListener('load', function() {
-					modal.innerHTML = "<h1>Order Successful.</h1>";
+					modal.innerHTML += "<h1>Order Successful.</h1>";
 				});
 
 				xhr.send(JSON.stringify(data));

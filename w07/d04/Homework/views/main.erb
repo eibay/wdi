@@ -39,25 +39,32 @@
 					var imgURL = data[i]["images"]["low_resolution"]["url"];
 					image = document.createElement('img');
 					image.src = imgURL;
-					photos.appendChild(image);
+					photos.appendChild(image);			
 				}
 			});
 
-			var mapOptions = {
-	          	center: { lat: lat, lng: lng},
-	          	zoom: 8
-	        	};
-	        	var map = new google.maps.Map(document.getElementById('map-canvas'),
-	            mapOptions);
-
-	            var script = document.createElement('script');
-	  			script.type = 'text/javascript';
-	  			script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
-	      		'callback=initialize';
-	  			document.body.appendChild(script);
-
 			xhr.open('GET', '/city-pics?lat=' + encodeURIComponent(lat) + '&lng=' + encodeURIComponent(lng));
 		    xhr.send();
+
+		   
+		// 		  var mapOptions = {
+		// 		    zoom: 8,
+		// 		    center: new google.maps.LatLng(lat, lng)
+		// 		  };
+
+		// 		  var map = new google.maps.Map(document.getElementById('map-canvas'),
+		// 		      mapOptions);
+			
+
+		// 	function loadScript() {
+		// 	  var script = document.createElement('script');
+		// 	  script.type = 'text/javascript';
+		// 	  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&' +
+		// 	      'callback=initialize';
+		// 	  document.body.appendChild(script);
+		// 	}
+
+		// window.onload = loadScript;
 
 		}
 
@@ -93,10 +100,7 @@
 				retrieveTag(tag)
 			
 			} else if (city != '' && tag == '') {
-
 				var geocoder = new google.maps.Geocoder();
-			
-
 				geocoder.geocode( { 'address': city}, function(results, status) {
 
 				if (status == google.maps.GeocoderStatus.OK) {
@@ -110,10 +114,7 @@
 	    	});
 
 			} else if (city != '' && tag != '') {
-
 				var geocoder = new google.maps.Geocoder();
-			
-
 				geocoder.geocode( { 'address': city}, function(results, status) {
 
 				if (status == google.maps.GeocoderStatus.OK) {

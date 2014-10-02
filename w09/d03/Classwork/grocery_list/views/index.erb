@@ -13,22 +13,23 @@
 	<script src='/jquery.js'></script>
 	<script src='/underscore.js'></script>
 	<script src='/backbone.js'></script>
-	<script src='/groceryApp.js'></script>
+
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
-
+	<%= erb(:template) %>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
 			<section class="col-md-6 col-md-offset-3 header">
 				<header><h1 class="title">Grocery List</h1></header>
-
-				<input type="text" id="item-name" placeholder="Item">
-				<input type="text" id="item-quant" placeholder="Quantity">
-				<button id="add-button">Add Item</button><br/>
+				<div class="form">
+					<input type="text" name="item-name" placeholder="Item">
+					<input type="text" name="item-quant" placeholder="Quantity">
+					<button id="add-button">Add Item</button><br/>
+				</div>
 			</section>
 
 		</div>
@@ -36,7 +37,10 @@
 		<div class="row">
 			<section class="col-md-5 col-md-offset-1">
 				<h3>To Buy</h3>
-				<ul class="to-buy list"></ul>
+				<ul class="to-buy list">
+
+				</ul>
+
 			</section>
 		
 			<section class="col-md-5">
@@ -45,26 +49,26 @@
 			</section>
 		</div>	
 
-		<div class="row bomb-field">
+		<div class="row bomb-field delete-button" id="eraser">
 			<section class="col-md-2">
-				<marquee direction="down" scrollamount="10"><i class="fa fa-bomb delete-button fa-5x"></i></marquee>
+				<marquee direction="down" scrollamount="10"><i class="fa fa-bomb delete-button fa-spin fa-5x"></i></marquee>
 			</section>
 			<section class="col-md-2">
-				<marquee direction="down" scrollamount="30"><i class="fa fa-bomb delete-button fa-5x"></i></marquee>
+				<marquee direction="down" scrollamount="30"><i class="fa fa-bomb delete-button fa-spin fa-5x"></i></marquee>
 			</section>
 			<section class="col-md-2">
-				<marquee direction="down" scrollamount="20"><i class="fa fa-bomb delete-button fa-5x"></i></marquee>
+				<marquee direction="down" scrollamount="20"><i class="fa fa-bomb delete-button fa-spin fa-5x"></i></marquee>
+			</section>
+			<section class="col-md-2 ">
+				<marquee direction="down" scrollamount="35"><i class="fa fa-bomb delete-button fa-spin fa-5x"></i></marquee>
 			</section>
 			<section class="col-md-2">
-				<marquee direction="down" scrollamount="35"><i class="fa fa-bomb delete-button fa-5x"></i></marquee>
+				<marquee direction="down" scrollamount="10"><i class="fa fa-bomb delete-button fa-spin fa-5x"></i></marquee>
 			</section>
 			<section class="col-md-2">
-				<marquee direction="down" scrollamount="10"><i class="fa fa-bomb delete-button fa-5x"></i></marquee>
+				<marquee direction="down" scrollamount="30"><i class="fa fa-bomb delete-button fa-spin fa-5x"></i></marquee>
 			</section>
-			<section class="col-md-2">
-				<marquee direction="down" scrollamount="30"><i class="fa fa-bomb delete-button fa-5x"></i></marquee>
-			</section>
-			<section class="col-md-12">
+			<!-- <section class="col-md-12"> -->
 				<!-- <marquee scrollamount="10"><i class="fa fa-bicycle delete-button fa-5x fa-spin" id="eraser"></i></marquee>
 			</section> -->
 		</div>
@@ -81,11 +85,6 @@
 			font-size: 30px;
 			cursor: pointer;
 		}
-
-		#eraser {
-			font-size: 350px;
-			padding: 0px
-		}
 		
 		.header {
 			text-align: center;
@@ -94,8 +93,8 @@
 		.bomb-field {
 			border: 5px solid black;
 		}
-
 	</style>
-	
+
+	<script src='/groceryApp.js'></script>
 </body>	
 </html>
