@@ -19,6 +19,8 @@ post("/create") do
 end
 
 get("/view_all") do
+	content_type :json
+
 	Person.all.to_json
 end
 

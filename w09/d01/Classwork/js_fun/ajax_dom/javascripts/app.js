@@ -8,16 +8,6 @@
 			}	
 	});
 
-	var CreateView = Backbone.View.extend({
-		initialize: function(){
-			console.log("a new Create view has been created");
-			this.render();
-		},
-		render: function(){
-			var header = $('header');
-			header.html("<h1>Create stuff here</h1>");
-		}
-	})
 
 $(function(){
 
@@ -29,18 +19,14 @@ $(function(){
   });
 
   var router = new AppRouter;
-  var header = $('header');
+  var button = $('button');
+  
 
   router.on("route:index", function(){
-
-	console.log("Welcome to our page");
+	console.log("Client reached index");
 	var indexView = new IndexView(header);
 });
 
-  router.on("route:create", function(){
-	console.log("Create route hit");
-	var createView = new CreateView();	
-});
   
 
   Backbone.history.start();
