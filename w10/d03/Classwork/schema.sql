@@ -7,7 +7,7 @@ CREATE TABLE clients(
   id SERIAL PRIMARY KEY, 
   name VARCHAR(100), 
   email VARCHAR(100), 
-  phone VARCHAR(20)
+  phone VARCHAR(20) 
 );
 
 CREATE TABLE photos(
@@ -15,18 +15,18 @@ CREATE TABLE photos(
   album_id INTEGER, 
   taken_on TIMESTAMP, 
   caption TEXT, 
-  photo VARBINARY(MAX)
+  photo BYTEA 
 );
 
 CREATE TABLE albums(
   id SERIAL PRIMARY KEY, 
   title VARCHAR(200), 
-  taken_on DATE,
-  client_id INTEGER,  
-  category_id INTEGER  
+  taken_on DATE, 
+  client_id INTEGER, 
+  category_id INTEGER 
 );
 
 CREATE TABLE categories(
   id SERIAL PRIMARY KEY, 
-  name VARCHAR(150)
+  name VARCHAR(150) 
 ); 
