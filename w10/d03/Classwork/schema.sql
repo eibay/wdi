@@ -8,6 +8,7 @@ CREATE TABLE clients(
 CREATE TABLE photos(
   id SERIAL PRIMARY KEY,
   album_id INTEGER, 
+  taken_on TIMESTAMP, 
   caption TEXT, 
   photo VARBINARY(MAX)
 );
