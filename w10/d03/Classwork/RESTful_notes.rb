@@ -11,6 +11,13 @@ Client.all
 Photo.where(album_id: Album.first.id)
 
 
-Album.all          /albums       GET
+# list all resources
+Album.all          /albums       GET 
+
+# Get one resource
 Album.find(3)      /albums/3     GET
+
+
 Album.create({})   /albums       POST   
+	                 /albums/3     PUT
+	                 /albums/3     DELETE

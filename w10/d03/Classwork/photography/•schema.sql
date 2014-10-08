@@ -16,7 +16,7 @@ CREATE TABLE photos(
   id serial primary key,
   photo_url text,
   taken timestamp,
-  alubum_id integer
+  album_id integer
 );
 
 CREATE TABLE clients(
