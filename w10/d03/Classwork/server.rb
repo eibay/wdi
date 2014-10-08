@@ -29,5 +29,5 @@ delete "/albums/:id" do
 end 
 
 get "/albums/:id/photos" do 
-  Photos.where({album_id: params[:id]}).to_json 
+  Photo.where({album_id: params[:id]}).to_json 
 end 
