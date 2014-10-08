@@ -1,0 +1,26 @@
+CREATE TABLE clients(
+  id SERIAL PRIMARY KEY, 
+  name VARCHAR(100), 
+  email VARCHAR(100), 
+  phone VARCHAR(20)
+);
+
+CREATE TABLE photos(
+  id SERIAL PRIMARY KEY,
+  album_id INTEGER, 
+  caption TEXT, 
+  photo VARBINARY(MAX)
+);
+
+CREATE TABLE albums(
+  id SERIAL PRIMARY KEY, 
+  title VARCHAR(200), 
+  taken_on DATE,
+  client_id INTEGER,  
+  category_id INTEGER  
+);
+
+CREATE TABLE categories(
+  id SERIAL PRIMARY KEY, 
+  name VARCHAR(150)
+); 
