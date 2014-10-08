@@ -27,3 +27,7 @@ delete "/albums/:id" do
   a = Album.find_by_id params[:id] 
   a.destroy 
 end 
+
+get "/albums/:id/photos" do 
+  Photos.where {album_id: params[:id]}.to_json 
+end 
