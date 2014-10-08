@@ -1,3 +1,8 @@
+DROP TABLE clients; 
+DROP TABLE photos;
+DROP TABLE albums; 
+DROP TABLE categories; 
+
 CREATE TABLE clients(
   id SERIAL PRIMARY KEY, 
   name VARCHAR(100), 
