@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var title = "Birthday";
+var client_id = 1;
+var category_id = 2;
+var event_date = 2014-10-08;
+
+$.ajax({
+			url:'/albums',
+			type: 'POST',
+			data: {title: title, client_id: client_id, category_id: category_id, event_date: event_date }
+		}).done(function(data){
+			console.log(data);
+		});
+
+
+			$.ajax({
+				url:'/albums/:id',
+				type:'DELETE',
+				data: {title: title, client_id: client_id, category_id: category_id, event_date: event_date }
+			}).done(function(response){
+				console.log(response);
+		});
+
+		</script>
+</body>
+</html>
