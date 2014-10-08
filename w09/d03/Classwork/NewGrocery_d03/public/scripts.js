@@ -1,20 +1,96 @@
 console.log('scripts.js linked!!');
+//Models
+var Item = Backbone.Model.extend({
+	urlRoot: '/items'	
+});
+
+// function getItems(item, quantity){
+// 	var item = new Item({name: item, quantity: quantity});
+// 	item.save();
+
+// 	var itemView = new Item
+// }
+
+// function createItem(){
+// 	$('#btn_grocery').on('click', function(){
+// 		console.log('clicked #btn_grocery');
+// 	})
+// }
+
+
+
+
+
+
+
+// var ItemCollection = Backbone.Collection.extend({
+// 	url: "/items",
+// 	model: ItemModel
+// });
+// collection = new ItemCollection();
+
+// var ListView = Backbone.View.extend({
+// 	initialize: function() {
+
+// 	}
+// })
+// var item = new Item(
+// 	{ 
+// 		name: params['name'], 
+// 		list: "list", 
+// 		quantity: params['quantity'] 
+// 	}
+// ); // ~<<{{QUESTION}}>>~ where do i put this?
+
+
+// //collection
+// var ItemCollection = Backbone.Collection.extend({
+// 	url: "/items",
+// 	model: ItemModel
+// });
+
+// //views
+// var ListView = Backbone.View.extend({
+// 	initialize: function(){
+// 		this.listenTo(this.collection, "add", this.addOne)
+// 	},
+
+// 	addOne: function(item) {
+// 		var view = new ItemView({model:})
+// 	}
+// });
+// var list = new ListView({ collection: collection, el: $('#ul_toBuy') });
+
+// var FormView = Backbone.View.extend({
+// 	events: {
+
+// 	},
+
+// 	create: function(){
+// 		var itemName = this.$el.find('input[name="item-name"]').val();
+// 		var quantity = this.$el.find('input[name="number"]').val();
+// 		this.collection.create({ item: itemName, number: quantity });
+// 	}
+// });
+// var formView = new FormView({ el: $(".form") });
+
 var ItemView = Backbone.View.extend({
 	tagName: 'li',
 
-	initialize: function(theInitObj){
-		console.log("new ItemView has been created");
-		this.name = theInitObj.name;
-		this.quantity = theInitObj.quantity;
+	// initialize: function(theInitObj){
+
+	// 	console.log("new ItemView has been created");
+	// 	this.name = theInitObj.name;
+	// 	this.quantity = theInitObj.quantity;
 		
-	},
+	// },
 
 	render: function(){
 		
 		var itemHTML = "";
-		itemHTML += '<section id="' + this.id
-		itemHTML += '"><h5>' + this.name + '</h5>'
-		itemHTML += '<p>QTY: ' + this.quantity + '</p>'
+		itemHTML += '<section id="' + this.model.get("id")
+		itemHTML += '"><h5>' + this.model.get("name") + '</h5>'
+		itemHTML += '<p>QTY: ' + this.model.get('quantity') + '</p>'
 		itemHTML += '<a class="btn_increase" href="#">♠</a><a class="btn_decrease" href="#">♥</a>'
 		itemHTML += '<button class="btn_delete">delete</button>'
 		itemHTML += '</section>'
@@ -77,9 +153,30 @@ var ItemView = Backbone.View.extend({
 	}
 });
 
+		//sortable stuff
+		$("#ul_toBuy, #ul_bought" ).sortable( {connectWith: ".ul_lists"});
+
+		//render all views
+		getAndMakeViews();
+		function getAndMakeViews(){
+			$.get('/get_items', function(items){
 
 
-		//create grocery list item
+				_.each(items, function(item){
+					var item = new Item({id: item['id'], name: item['name'], quantity: item['quantity']});
+					
+					// make model instance, then pass into view upon creation
+					// view will have this.model as a property.
+					var view = new ItemView({model: item});
+					view.render();
+
+					$('#ul_toBuy').append(view.el);
+			
+				});
+
+			});
+		}
+		// create grocery list item
 		function addLastItem(jQueryParsedResponse){
 
 			var lastItem = jQueryParsedResponse;
@@ -88,22 +185,39 @@ var ItemView = Backbone.View.extend({
 			view.render();
 			$('#ul_toBuy').append(view.el);
 
-			// var lastItemList = ""
-			// lastItemList += '<li><section id="' + lastItem['id']
-			// 	lastItemList += '"><h5>' + lastItem['name'] + '</h5>'
-			// 	lastItemList += '<p>QTY: ' + lastItem['quantity'] + '</p>'
-			// 	lastItemList += '<a class="btn_increase" href="#">♠</a><a class="btn_decrease" href="#">♥</a>'
-			// 	lastItemList += '<button class="btn_delete">delete</button>'
-			// lastItemList += '</section></li>'
-
-			// $('#ul_toBuy').append(lastItemList);
 		}
 
 
-		var ItemCollection = Backbone.Collection.extend({
-			url: "/items",
-			model: ItemModel
-		})
+
+
+		//add button
+		$('#btn_grocery').on('click', function(){
+			console.log('clicked btn grocery?');
+
+
+
+			//ajax post
+			$.post( '/add', {name: $('#input_grocery').val(), quantity: $('#input_quantity').val()} ).done(function(response){
+				
+				console.log('ajax posted'); //#########################\\
+				console.log('ajax got back the following: '); //########@@#>=-
+				console.log(response); //##############################//		
+
+				//create grocery list item
+				addLastItem(response);
+				// addDeleteEvent(); //sometimes works here, i think shoudl work here immediately..
+				// addIncrease();
+				// minusDecrease();	
+			})
+
+
+
+		});
+
+
+
+
+
 		
 		// function minusDecrease(){
 		// 	$('.btn_decrease').on('click', function(){
@@ -168,20 +282,6 @@ var ItemView = Backbone.View.extend({
 
 
 
-function getAndMakeViews(){
-	$.get('/get_items', function(items){
-
-
-		_.each(items, function(item){
-			var view = new ItemView({id: item['id'], name: item['name'], quantity: item['quantity']})
-			view.render();
-
-			$('#ul_toBuy').append(view.el);
-	
-		});
-
-	});
-}
 
 
 

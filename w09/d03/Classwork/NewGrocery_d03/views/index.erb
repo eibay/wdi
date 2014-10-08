@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="../style.css">
 	<script src="/underscore.js"></script>
 	<script src="/backbone.js"></script>
-	<script src="/scripts.js"></script>
 
 </head>
 <body>
@@ -24,51 +23,23 @@
 	
 	<article id="section_grocery" style="float: left;">
 		<h2>To Buy</h2>
-		<ul id="ul_toBuy" class='ul_lists'>
-
-		</ul>
+		<ul id="ul_toBuy" class='ul_lists'></ul>
 	</article>
 
 	<article id="section_bought" style="float: right;">
 		<h2>Bought</h2>
-		<ul id="ul_bought" class='ul_lists'>
-
-		</ul>
+		<ul id="ul_bought" class='ul_lists'></ul>
 	</article>
-	
+		
 
 
 	<script>
-		//sortable stuff
-		$("#ul_toBuy, #ul_bought" ).sortable( {connectWith: ".ul_lists"});
+		
 
 
-		//render all views
-		getAndMakeViews();
-
-		//add button
-		$('#btn_grocery').on('click', function(){
-			console.log('clicked btn grocery?');
+		
 
 
-
-			//ajax post
-			$.post( '/add', {name: $('#input_grocery').val(), quantity: $('#input_quantity').val()} ).done(function(response){
-				
-				console.log('ajax posted'); //#########################\\
-				console.log('ajax got back the following: '); //########@@#>=-
-				console.log(response); //##############################//		
-
-				//create grocery list item
-				addLastItem(response);
-				// addDeleteEvent(); //sometimes works here, i think shoudl work here immediately..
-				// addIncrease();
-				// minusDecrease();	
-			})
-
-
-
-		});
 
 		// //create grocery list item
 		// function addLastItem(jQueryParsedResponse){
@@ -155,6 +126,6 @@
 
 		
 	</script>
-	
+	<script src="/scripts.js"></script>
 </body>
 </html>
