@@ -7,7 +7,7 @@ end
 
 
 class Person < ActiveRecord::Base
-  self.has_many(:borrowed)
+  self.has_many(:borrows)
 end
 
 

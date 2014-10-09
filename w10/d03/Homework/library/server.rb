@@ -72,3 +72,8 @@ delete "/books/:id" do
   borrow.destroy
 end
 
+get "/person/:id/borrows" do
+  person = People.find(params[:id])
+  borrows= person.borrows.to_json
+end
+
