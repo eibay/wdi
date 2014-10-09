@@ -74,7 +74,7 @@ $(function(){
 		console.log(age);
 		console.log(name);
 		postRequest(name, age);
-		$('.form-inline').trigger("reset");
+		$('#addCharacter').trigger("reset");
 	});
 
 
