@@ -96,6 +96,10 @@ end
 
 post ('/loans') do
 	loan = Loan.create(loan_params(params))
+	# loan = Loan.create({
+	# 	child_id: params[:child_id],
+	# 	book_id: params[:book_id]
+	# 	})
 	loan.to_json
 end
 
@@ -125,5 +129,5 @@ end
 
 def loan_params(params)
 	params.slice(*Loan.column_names)
-
+end
 
