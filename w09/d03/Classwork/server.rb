@@ -43,3 +43,14 @@ people_edit = People.find_by({id: params[:id].to_i})
 people_edit.update(people_hash)
 people_hash.to_json
 end
+
+# delete ("/delete") do 
+# content_type :json
+# 	people_hash = {
+# 		name:params["name"],
+# 		age:params["age"].to_i,
+# 		id:params["id"]
+# 	}
+# people_delete = People.find_by({id: params[:id].to_i})
+# people_delete.destroy(people_hash)
+# end

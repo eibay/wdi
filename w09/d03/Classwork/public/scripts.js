@@ -12,7 +12,7 @@ $(function(){
 			console.log(data);
 			var ul = $('ul');
 				for(i = 0; i < people.length; i++){
-				ul.append("<li id='"+ people[i]["id"]+ "'>" + 'Name: '+ people[i]["name"] + " <br> " + 'Age: ' +people[i]["age"] + '<br>' + "<button class='edit'>Edit</button></li>");
+				ul.append("<li id='"+ people[i]["id"]+ "'>" + 'Name: '+ people[i]["name"] + " <br> " + 'Age: ' +people[i]["age"] + '<br>' + "<button class='edit'>Edit</button>");
 			}
 				editButtonListener();
 		});
@@ -21,10 +21,19 @@ $(function(){
 			var $editButton = $("button.edit");
 			$editButton.on("click", function(){
 				console.log("edit button has been clicked")
-				$(this).parent().append("<input id='newName' placeholder='New Name' </input><input id='newAge' placeholder='New Age' </input><button class='save'>Save</button>");
+				$(this).parent().append("<input id='newName' placeholder='New Name' </input><input id='newAge' placeholder='New Age' </input><button class='save'>Save</button> <button class='delete'>Delete</button></li>");
 				saveButtonListener();
 			});
 	};
+
+	// function deleteButtonListener() {
+	// 		var $deleteButton = $("button.delete");
+	// 		$deleteButton.on("click", function(){
+	// 			console.log("delete button has been clicked")
+	// 			$(this).parent().append("<input id='newName' placeholder='New Name' </input><input id='newAge' placeholder='New Age' </input><button class='save'>Save</button> <button class='delete'>Delete</button></li>");
+	// 			// saveButtonListener();
+	// 		});
+	// };
 
 	function saveButtonListener(){
 			var $saveButton = $("button.save");
@@ -39,8 +48,11 @@ $(function(){
 			var newName = $newNameInput.val();
 			var newAge = $newAgeInput.val();
 
+
 			putRequest(newName, newAge, id)
-			
+			/// $('ul').append("<li id='"+ people[i]["id"]+ "'>" + 'Name: '+ newName + " <br> " + 'Age: ' +newAge);
+			// $('ul').html("<li>" + 'Name: '+ newName + " <br> " + 'Age: ' +newAge);
+
 			});
 	};
 
@@ -49,11 +61,25 @@ $(function(){
 				type: "PUT",
 				url: "/people_edit",
 				data: {"name": name, "age": age, "id": id}
-				}).done(function(response){
-					console.log("Put request sent.")
-					var response = JSON.parse(response);
+				}).done(function(data){
+					console.log(data);
+					var people = JSON(data);
+					var li = people["id"];
+					$('li').html("<li>" + 'Name: '+ newName + " <br> " + 'Age: ' +newAge);
+
 		});
 	}
+
+	// function deleteRequest(name, age, id){
+	// 	$.ajax({
+	// 		type: "DELETE",
+	// 		url: "/delete",
+	// 		data: {"name": name, "age": age, "id": id}
+	// 	}).done(function(response){
+	// 			console.log("Delete request")
+	// 			var response = JSON.parse(response);
+	// 	});
+	// }
 
 // 2nd
 			var button = $('button#submit');
@@ -68,18 +94,6 @@ $(function(){
 				console.log(name + " is " + age);
 
 
-// function postRequest(name, age){
-// 		$.ajax({
-// 		url:"/create",
-// 		type:"POST",
-// 		data:{"name":name, "age":age}
-// 		}).done(function(data){
-// 			console.log("post request");
-// 			var $ul = $("ul");
-// 			var response = JSON.parse(response);
-// 			$ul.append("<li>" + response["name"] + " - " + response["age"] + "<button class='edit' id='"+ response["id"]+ "'>Edit</button></li>");
-// 	})
-// };
 
 
 			$.ajax ({
