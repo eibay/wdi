@@ -38,7 +38,7 @@ post('/albums') do
 
 	album.to_json
 
-# TTParty.post("http://127.0.0.1:4567/albums", {:body => {title: "this title"}}) http://127.0.0.1:4567/albums", {:body => {title: "this title"}})
+TTParty.post("http://127.0.0.1:4567/albums", {:body => {title: "this title"}}) http://127.0.0.1:4567/albums", {:body => {title: "this title"}})
 
 
 end
