@@ -19,8 +19,9 @@ end
 get ("/books/:id") do
 	thisBook = Book.where(id: params[:id])
 	if thisBook[0].kids_id > 0
-		return "This book is out."
+		return { error: "This book is out." }.to_json
 	end
+else return thisBook.to_json
 end
 
 # get a list of members
@@ -59,17 +60,7 @@ delete ("/kids/:id") do
 	deleteKid.delete
 end
 
-# get a list of currently borrowed books
-get ("/books/borrowed")
-borrowed = []
-books = Book.all()
-books.each do |book|
-	if book.kids_id > 0
-		borrowed << book
-	end
-end
-return borrowed.to_json
-end
+
 
 
 
