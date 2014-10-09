@@ -64,23 +64,6 @@ delete '/books/:id' do
 
 end
 
-# TO GET ALL CHILDREN
-get '/children' do
-
-	children = Child.all
-	return children.to_json
-
-end
-
-# TO GET A LIST OF BOOKS A PARTICULAR CHILD HAS
-get '/children/:id/books' do
-
-	id = params['id']
-	books = Books.where({book_id: book_id})
-	return books.to_json
-
-end
-
 
 # TO GET A LIST OF CHILDREN WHO BORROWED A PARTICULAR BOOK
 get '/books/:id/children' do
@@ -98,6 +81,37 @@ get '/books/:id/children' do
 	return children.to_json
 
 end
+
+
+# TO GET ALL CHILDREN
+get '/children' do
+
+	children = Child.all
+	return children.to_json
+
+end
+
+#TO GET A PARTICULAR CHILD
+get '/children/:id' do
+
+	id = params['id']
+	child = Child.find(id)
+	return child.to_json
+
+end
+
+
+# TO GET A LIST OF BOOKS A PARTICULAR CHILD HAS
+get '/children/:id/books' do
+
+	id = params['id']
+	books = Book.where({child_id: id})
+	return books.to_json
+
+end
+
+
+
 
 
 
