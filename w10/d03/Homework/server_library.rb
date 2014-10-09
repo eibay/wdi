@@ -114,13 +114,14 @@ get '/borrowedbooks' do
     borrowed_id_array << borrowed["book_id"]
   end
 
+
   borrowed_books_array = []
   borrowed_id_array.each do |id|
     書 = Book.find(id)
-    borrowed_books_array << 書["name"] + "<br/>"
+    borrowed_books_array << 書
   end
 
-  borrowed_books_array
+  borrowed_books_array.to_json
 
 end
 
@@ -146,10 +147,10 @@ get '/borrowers' do
   borrower_array = []
   borrower_id_array.each do |id|
     孩 = Child.find(id)
-    borrower_array << 孩["name"] + "<br/>"
+    borrower_array << 孩
   end
 
-  borrower_array
+  borrower_array.to_json
 
 end
 
