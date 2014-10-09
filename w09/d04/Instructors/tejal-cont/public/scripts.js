@@ -58,7 +58,10 @@ var ListView = Backbone.View.extend({
   }
 });
 
-var list = new ListView({ collection: collection, el: $("ul") });
+var list = new ListView({ 
+  collection: collection, 
+  el: $("ul") 
+`});
 
 var FormView = Backbone.View.extend({
   events: {
