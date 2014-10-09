@@ -12,6 +12,11 @@ after do
 	ActiveRecord::Base.connection.close
 end
 
+get "/" do
+	erb(:index)
+end
+
+
 get "/borrowers" do
 	Borrower.all.to_json
 end
