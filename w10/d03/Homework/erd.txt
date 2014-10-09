@@ -1,0 +1,8 @@
+User
+-name
+-book_id
+-date borrowed
+
+Book
+- ID
+- Name 
