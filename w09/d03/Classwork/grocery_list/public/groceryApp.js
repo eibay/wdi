@@ -78,6 +78,7 @@ var FormView = Backbone.View.extend({
 });
 
 var formView = new FormView({ el: $(".form"), collection: collection })
+
 $('.to-buy, .bought').sortable({connectWith: '.list'}).disableSelection();
 
 $('#eraser').droppable({

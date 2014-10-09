@@ -2,8 +2,6 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
 require 'nokogiri'
-require 'json'
-
 
 
 get "/" do 
