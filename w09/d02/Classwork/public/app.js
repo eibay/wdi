@@ -12,6 +12,16 @@ function lineThrough(){
 
 ////////////////////////////////////
 
+function changeQuantity(){
+
+	$('input.quantity').keypress(function(){
+		
+	});
+
+}
+
+////////////////////////////////////
+
 // function renderList(items){
 
 // 	for(var i=0;i<items.length;i++) {

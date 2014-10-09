@@ -34,7 +34,7 @@ end
 
 
 delete "/items/:id" do
- to_delete = Item.find_by({id: params[:id]})
+ to_delete = Item.find_by({id: params[:id]}) 
  to_delete.destroy
 end
 
