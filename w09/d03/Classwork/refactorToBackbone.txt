@@ -18,6 +18,7 @@ old jquery in which event listener is created after ADD button:
       var quantity = document.querySelector('#num');
       var grocery_item = input.value;
       var quantity = quantity.value;
+      
       $.post('http://localhost:4567/items', {item: grocery_item, quantity: quantity, checked: false}, function(item){
         console.log(item);
         item = JSON.parse(item);
