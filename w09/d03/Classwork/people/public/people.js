@@ -51,9 +51,18 @@ $(function(){
 						}
 					}).done(function(data){
 						var changedPerson = JSON.parse(data);
-						console.log('heres my new done function for edit person');
 						var $ul = $('ul');
-						$ul.append("<li>" + changedPerson["name"] + "<br>" + changedPerson["age"] + "</li>");
+						var $changedId = changedPerson["id"];
+						var $changedLi = $('button#' + $changedId).parent();
+						console.log(typeof($changedLi));
+						console.log('this list item will change' + $changedLi);
+						// *** but I need to change the existing li instead of appending *** //
+						// $ul.append("<li>" + changedPerson["name"] + "<br>" + changedPerson["age"] + "</li>");
+
+						$changedLi.attr("name", changedPerson["name"]);
+						$changedLi.attr("age", changedPerson["age"]);
+						
+
 					})
 		})
 	};
