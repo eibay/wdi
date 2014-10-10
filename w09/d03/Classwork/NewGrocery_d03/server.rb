@@ -11,6 +11,27 @@ after do
   ActiveRecord::Base.connection.close
 end
 
+post '/items' do 
+  content_type :json
+
+  data = JSON.parse(request.body.read)
+
+  new_item = data['name']
+  quantity = data['quantity']
+
+  new_item_hash = {
+    name: new_item,
+    quantity: quantity,
+    list: "list"
+
+  }
+  i = Item.new(new_item_hash)
+  i.save
+
+  i.to_json
+
+end
+
 get '/' do
   # items = Item.all()
   erb(:index)
@@ -27,6 +48,7 @@ end
 post '/add' do
   content_type :json
 
+  
   i = Item.new({name: params['name'], list: "list", quantity: params['quantity']})
   i.save
   
