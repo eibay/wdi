@@ -1,21 +1,24 @@
 <html>
-<head>
-	<title>Grocery List</title>
-	<script src='jquery.js'></script>
-	<script src='underscore.js'></script>
-	<script src="backbone.js"></script>
-	<script src='app.js'></script>
-</head>
-<body>
-	<h1>Grocery List</h1>
-		<div>
-			<ul id="list">
-			</ul>
-		</div>
+  <head>
+  	<title>Grocery List</title>
+  	<script src='jquery.js'></script>
+  	<script src='underscore.js'></script>
+  	<script src="backbone.js"></script>
 
-		<input type="text" id="list_item">
-		<input type="text" id="quantity">
-		<button id="add">Add to List</button>
+  </head>
+  <body>
+  	<h1>Grocery List</h1>
+  <div class="form">
+  	<input type="text" id="list_item">
+  	<input type="text" id="quantity">
+  	<button class="add">Add to List</button>
+  </div>
+  	<div>
+  		<ul id="list">
+  		</ul>
+  	</div>
 
-</body>
+  	<%= erb(:template) %>
+  	<script src='app.js'></script>
+  </body>
 </html>
