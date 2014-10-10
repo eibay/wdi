@@ -1,0 +1,67 @@
+<!-- Create an index.html with just html and body tags.
+
+How would you go about viewing this html in the browser? Is your method using a server?
+
+If you run server.js can you access index.html from this server? Why or why not? Either way, figure out how to get to index.html by using and/or modifying server.js. -->
+<html>
+<head>
+<title>test</title>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	
+	<button> aksjda </button>
+
+
+<script type="text/javascript">
+
+   function makeCall() {
+		$.ajax({
+			url:'http://localhost:2000/joke',
+			type:'GET'
+		}).done(function(data){
+		
+			console.log(data);
+			var header = $('header');
+			header.text(data) 
+
+			var data = JSON.parse(data) // needed because of JSON.stringfy
+			for(var i = 0; i < data.length; i++){
+				$('ul').append('<li>' +data[i]+ '</li>');
+			}
+
+	});
+};
+		
+		$(function(){
+		var button = $('button');
+
+		button.on("click", function() {
+		makeCall();
+
+	});
+});
+
+
+</script>
+
+
+
+</head>
+
+
+
+<header>
+</header>
+
+<body>
+<ul>
+</ul>
+
+</body>
+</html>
+
+
+<!-- $('input').val()
+ -->
+
+
+ 

@@ -1,0 +1,30 @@
+<html>
+  <head>
+    
+    <title>
+      
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone.js"></script>
+    
+  </head>
+  <body>
+    <input type="checkbox">
+    <input class = "add" placeholder="add">
+    <input class = "number" placeholder="how many">
+    <button class="adding">ADD</button>
+    <ul class="list">
+    </ul>
+    <div id="template" style="display:none;">
+      <h4> <%= item %> </h4>
+      <button class='delete'>DELETE</button> <button class='edit'>Edit</button>
+      <div style='display:none;' class='edit-fields'><input name='quantity' placeholder="<%= number %>"><button class='update'>UPDATE</button></div>
+    </div>
+
+    <script src="./scripts.js"></script>
+  </body>
+</html>
