@@ -1,0 +1,14 @@
+<script id="template" type="text/template">
+  <%% if (number < 1) { %>
+    <h4 class="done"> <%%= item %> <%%= number %> </h4>
+  <%% } else { %>
+    <h4> <%%= item %> <%%= number %> </h4>
+  <%% } %>
+  
+  <button class='delete'>DELETE</button>
+  <button class='edit'>Edit</button>
+  <div style='display:none;' class='edit-fields'>
+    <input name='quantity' placeholder="<%%= number %>">
+    <button class='update'>UPDATE</button>
+  </div>
+</script>
