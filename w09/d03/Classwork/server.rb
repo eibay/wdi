@@ -38,8 +38,16 @@ put ('/edit') do
 		age: params["age"].to_i,
 		id: params["id"]
 	}
-# binding.pry
 	person = Person.find_by({id: params[:id]})
 	person.update(people_hash)
+	# binding.pry
 	person.to_json
+
 end	
+
+delete ("/delete") do
+	content_type :json
+	person = Person.find_by({id: params[:id]})
+	# binding.pry
+	person.destroy
+end
