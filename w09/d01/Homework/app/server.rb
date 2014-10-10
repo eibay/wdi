@@ -6,7 +6,7 @@ require "json"
 require "pry"
 require "httparty"
 
-books = ["Catch-22", "The Fixer", "Neuromancer"]
+books = ["Catch-22", "The Fixer", "Neuromancer", "Absurdistan"]
 
 get "/book/:name" do
 	resp = HTTParty.get("https://www.goodreads.com/book/title.xml?key=ljFH3psJosDLf8SRiABjZQ&title=" + params["name"])
@@ -26,7 +26,7 @@ post "/books/:book" do
 end
 
 post "/book/:book" do
-	books << params["book"]
+	books << params["book"].gsub("+", " ")
 	[200, {"access-control-allow-origin" => "*"}, books.to_json]
 end
 

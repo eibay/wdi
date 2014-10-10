@@ -34,7 +34,6 @@ $(function(){
 			header.empty()
 			header.append("<ul>")
 			movies.forEach(function(movie) {
-				console.log(movie)
 				$("ul").append("<li><a href='#/movies/" + movie + "'>" + movie + "</a></li>")
 			})
 		},
