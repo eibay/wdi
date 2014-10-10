@@ -1,0 +1,10 @@
+require 'pry'
+require 'sinatra'
+require 'sinatra/reloader'
+require 'httparty'
+require_relative  './lib/connection'
+require_relative './lib/album'
+require_relative './lib/category'
+require_relative './lib/client'
+require_relative './lib/photo'
+
