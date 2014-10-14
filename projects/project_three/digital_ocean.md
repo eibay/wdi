@@ -6,8 +6,8 @@
   - in terminal on your mac do `cat ~/.ssh/id_rsa.pub | pbcopy`
   - now create an ssh key for digital ocean and just do a paste in the main text box for the ssh key
 4. Hit the big green Create button
-  * Choose Ubuntu
-  * Choose Rails
+  * Under images select the application tab
+  * Choose Ruby on Rails
   * Select your ssh key that you made before
 5. Copy the ip address of your droplet near the middle-top of the page (e.g 104.131.105.249) and visit this address in your browser.
   * You should see a bare bones rails page
