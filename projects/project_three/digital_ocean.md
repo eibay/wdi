@@ -1,7 +1,7 @@
 #Digital Ocean Deployment
 
 1. Sign up for an account.
-2. Once logged in to your account, go to Billing and add the promo code ALLSSD10
+2. Once logged in to your account, go to Billing and add the promo code ```ALLSSD10```
 3. Go to SSH keys
   - in terminal on your mac do `cat ~/.ssh/id_rsa.pub | pbcopy`
   - now create an ssh key for digital ocean and just do a paste in the main text box for the ssh key
