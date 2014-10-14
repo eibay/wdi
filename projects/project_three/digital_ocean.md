@@ -21,8 +21,11 @@
   * type ```root```
   * hit ```yes``` after the next prompt
 8. ```createdb root```
-9. ```psql``` followed by your all SQL statement to set up your database and tables
-10. ```sudo apt-get install git```
+9. ```psql``` 
+  * paste in your all SQL statement to set up your database and tables and then
+  * ```\q```
+10. type ```exit``` to get back to the user ```root```
+10. ```apt-get install git```
 11. ```cd /home```
 12. ```git clone [your git repo]```
   * cd into your repo
