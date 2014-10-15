@@ -13,8 +13,13 @@ end
 
 get '/' do 
   if cookies[:user]
-    "Hello, " + cookies[:user] + '!'
+    haml :index, { locals: {user: cookies[:user]}}
   else 
     redirect "/sign_in"
   end 
+end 
+
+get "/sign_out" do 
+  response.delete_cookie :user 
+  redirect "/sign_in"
 end 
