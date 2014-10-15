@@ -16,4 +16,3 @@ end
 
 print people
 
-binding.pry

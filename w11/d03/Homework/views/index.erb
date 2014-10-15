@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Fake Bank</title>
+</head>
+<body>
+	<%if(session[:id]==nil)%>
+	<a href="/signup">Sign Up</a><br>
+	<h2>Login</h2>
+
+	
+	<form action ="/login" method="POST">
+		<input type="text" name="email" placeholder="email">
+		<input type="password" name="pass" placeholder="Password">
+		<button>Log In</button>
+	</form>
+	<%else%>
+	<h1>hello <%=session[:name]%></h1><br>
+	<a href="/users/<%=session[:id]%>">Go to your account</a><br>
+	<a href="/logout">Logout</a>
+	<%end%>
+
+</body>
+</html>
