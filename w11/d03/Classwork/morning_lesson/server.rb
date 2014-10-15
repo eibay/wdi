@@ -12,7 +12,7 @@ end
 
 get '/' do 
   if request.header["Cookie"]
-    
+    "Hello, " + cookies[:user] + '!'
   else 
     redirect "/sign_in"
   end 
