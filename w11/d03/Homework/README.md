@@ -12,3 +12,4 @@
   * You should not be able to view a user's account balance or make edits to their balance unless you are signed in as that user.
   * No javascript, everything should be built using Ruby and erb
   * RESTful routes
+  * Use ActiveRecord/database models
