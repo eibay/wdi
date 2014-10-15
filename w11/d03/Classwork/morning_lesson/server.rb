@@ -1,9 +1,10 @@
 require 'sinatra'
+require 'sinatra/cookies'
 require 'haml'
 
 get "/sign_in" do 
   if params["user"] 
-    response.header["Set-Cookie"] = "user=" + params["user"] + "; path=/;"
+    response.headers["Set-Cookie"] = "user=" + params["user"] + "; path=/;"
     redirect '/'
   else 
     haml :sign_in 
@@ -11,7 +12,7 @@ get "/sign_in" do
 end 
 
 get '/' do 
-  if request.header["Cookie"]
+  if cookies[:user]
     "Hello, " + cookies[:user] + '!'
   else 
     redirect "/sign_in"
