@@ -25,11 +25,13 @@ post '/sessions' do
 	user = User.find_by(email: session[:email])
 
 	if user[:password] == session[:password]
+		account = Account.find_by(user_id: user[:id])
 
-		account_id
-		redirect "/accounts/#{params[:id]}"
-binding.pry
-	
+		redirect "/accounts/#{account[:id]}"
+
+	else alert('please try again')
+
+	end	
 
 
 end
@@ -47,7 +49,9 @@ post '/users' do
 end
 
 # this is to edit balance
-put '/accounts/:id' do
+get '/accounts/:id' do
+	account = Account.find_by(id: params[:id])
+	balance = account[:balance]
 
 	erb(:account, { locals: { balance: balance } })
 end
