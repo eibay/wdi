@@ -2,9 +2,13 @@ require 'sinatra'
 require 'sinatra/cookies'
 require 'haml'
 
+use Rack::Session::Cookie, :key => "rack.session",
+                           :path => '/', 
+                           :secret => "tsosttpgtwittfc"
+
 get "/sign_in" do 
   if params["user"] 
-    response.headers["Set-Cookie"] = "user=" + params["user"] + "; path=/;"
+    session[:user] = params["user"]
     redirect '/'
   else 
     haml :sign_in 
@@ -12,14 +16,14 @@ get "/sign_in" do
 end 
 
 get '/' do 
-  if cookies[:user]
-    haml :index, { locals: {user: cookies[:user]}}
+  if session[:user]
+    haml :index, { locals: {user: session[:user]}}
   else 
     redirect "/sign_in"
   end 
 end 
 
 get "/sign_out" do 
-  response.delete_cookie :user 
+  session.clear 
   redirect "/sign_in"
 end 
