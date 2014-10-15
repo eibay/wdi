@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title> 
+    </title>
+  </head>
+  <body>
+
+    <%=user.name%>
+    <%=user.amount%>
+
+  <form action="/users/<%=user.id%>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="text" name="amount" placeholder="<%=user.amount%>">
+  <button>CHANGE</button>
+</form>
+
+<form action ="/logout" method = "GET">
+  <button>LOGOUT</button>
+</form>
+
+
+
+</body>
+
+</html>
