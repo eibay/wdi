@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bank Account</title>
+</head>
+<body>
+	<h1><%= account.email %>'s Account</h1>
+	<a href="/logout">Log Out</a>
+	<h3>Balance:</h3>
+	<p>$<%= account.balance.to_s %></p>
+	<h5>Debit</h5>
+	<form action="/users/<%= account.id %>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="debit">
+		<button>Debit</button>
+	</form>
+	<h5>Credit</h5>
+	<form action="/users/<%= account.id %>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="credit">
+		<button>Credit</button>
+	</form>
+</body>
+</html>
