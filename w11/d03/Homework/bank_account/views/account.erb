@@ -1,0 +1,16 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Your Account Here</title>
+</head>
+
+<body>
+	<h2>Hi, Here's you bank account information</h2>
+	<h3>You can change it:</h3>
+	<form action="accounts/:id" method="POST">
+		<input type="hidden" name="_method" value="PUT"/>
+		Balance: <input type="number" name="balance" value="<%= balance %>">
+				<button>Submit</button>
+	</form>
+</body>
+</html>
