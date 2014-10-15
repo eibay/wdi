@@ -1,4 +1,5 @@
 require 'faker'
+require 'awesome_print'
 
 hash_literal = {}
 
@@ -12,8 +13,8 @@ end
 1000.times do |n| 
   person_name = Faker::Name.name 
   person_number = Faker::PhoneNumber.phone_number 
-  person_object = Person.new person_name, phone_number 
+  person_object = Person.new person_name, person_number  
   hash_literal[n] = person_object   
 end 
 
-p hash_literal 
+ap hash_literal 
