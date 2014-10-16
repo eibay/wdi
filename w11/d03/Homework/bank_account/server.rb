@@ -47,6 +47,8 @@ post '/users' do
 		:password => params[:pwd]
 	}
 
+	# *** some logic goes in here to test that the email is unique before creating the user
+
 	User.create(new_user)
 
 	erb(:index)
