@@ -1,0 +1,13 @@
+<h1>Dogs</h1>
+<h3>Add</h3>
+<form action="/dogs" method="POST">
+	<input type="text" name="name" placeholder="Name">
+	<input type="text" name="breed" placeholder="Breed">
+	<input type="text" name="cuteness" placeholder="Cuteness">
+	<button>Add</button>
+</form>
+<ul>
+	<% @puppies.each do |puppy| %>
+	<li><a href="/dogs/<%= puppy.id %>"><%= puppy.name %></a></li>
+	<% end %>
+</ul>
