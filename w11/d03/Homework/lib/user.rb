@@ -1,3 +1,6 @@
 require 'active_record'
+require 'bcrypt'
 
-User = Class.new ActiveRecord::Base 
+class User < ActiveRecord::Base 
+  has_secure_password 
+end 
