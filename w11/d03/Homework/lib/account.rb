@@ -1,3 +1,3 @@
 require 'active_record'
 
-User = Class.new ActiveRecord::Base 
+Account = Class.new ActiveRecord::Base 
