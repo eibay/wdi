@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bank</title>
+</head>
+<body>
+
+
+<div>
+  <ul>
+    <% posts.each do |post| %>
+      <li>
+        <a href="/posts/<%= post.id %>"><%= post.quote %></a>
+        <h5><%= post.author %> -- <em><%= post.source %></em><br></h5>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<div>
+
+   <form action="/categories/<%= "id" %>/posts" method="GET">
+    <p>View quotes by category.</p>
+    <select name="category_id">
+      <% categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+    <button>Submit</button><br>
+    <h5>-------------------</h5>
+  </form>
+
+
+
+ <form action="/categories/posts/new" method="GET">
+ 		<p>Create a new quote from existing category.</p>
+    <select name="category_id">
+      <% categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+    <button>Submit</button><br>
+    <h5>-------------------</h5>
+  </form>
+
+
+
+   <a href="/categories/new">Create New Category</a>
+ 		
+
+  </div>
+
+
+</body>
+</html>
