@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>User Account</title>
+</head>
+<body>
+	<h2>Email: <%= user.email %> </h2>
+	<h2>Savings: <%= user.savings %> </h2>
+	<form action="/savings/<%= user.id %>" method="POST">
+		<input type="text" name="amount" placeholder="amount">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="hidden" name="user_id" value="<%= user.id %>">
+		<select>
+			<option value="credit">Credit</option>
+			<option value="debit">Debit</option>
+		</select>
+		<button>Update</button>
+	</form>
+	<form action="/logout" method="GET">
+		<button>log out</button>
+	</form>
+</body>
+</html>

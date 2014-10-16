@@ -2,24 +2,29 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
 
-users = Hash.new
+use Rack::Session::Cookie, {
+	:key => 'rack.session',
+	:path => '/',
+	:secret => 'monkeybranins' ##This is just for signing process
+}
+
+Users = Hash.new
 
 get '/' do
 	"Welcome to our page!"
 end
 
 get '/sign_up/:user/:password' do
-	binding.pry
 	users[ params[:user] ] = params[:password]
 
 	"You have signed up!"
-
 	# puts users
 end
 
 get '/login/:user/:password' do
 	if users[ params[:user] ] == params[:password]
-		response.headers["Set-Cookie"] = "user=#{params["user"]}; path=/;"
+		# response.headers["Set-Cookie"] = "user=#{params["user"]}; path=/;"
+		session[:user] = params[:user]
 		"You have logged in!"
 	else
 		"Try again!"
@@ -27,14 +32,14 @@ get '/login/:user/:password' do
 end
 
 get '/logout' do
-	response.delete_cookie("user")
+	response.delete_cookie("rack.session")
 
 	"You have logged out!"
 end
 
 get '/greeting' do
-	if request.cookies["user"]
-		"Hello #{request.cookies["user"]}!"
+	if session[:user]
+		"Hello #{session[:user]}! Your account number is: #{accounts[:user]}"
 	else
 		"Please log in!"
 	end

@@ -1,23 +1,24 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'pry'
 
 users = Hash.new
 
+# class User
+# 	def initialize(user, password)
+# 		@user, @password = user,password
+# 	end
+# end
+
 get '/' do
-	"Welcome to our page!"
+	 "Welcome to our page!"
 end
 
-get '/sign_up/:user/:password' do
-	binding.pry
+get 'sign_up/:user/:password' do
 	users[ params[:user] ] = params[:password]
-
-	"You have signed up!"
-
-	# puts users
+	"You hae signed up!"
 end
 
-get '/login/:user/:password' do
+get 'login/:user/:password' do
 	if users[ params[:user] ] == params[:password]
 		response.headers["Set-Cookie"] = "user=#{params["user"]}; path=/;"
 		"You have logged in!"
@@ -26,18 +27,12 @@ get '/login/:user/:password' do
 	end
 end
 
-get '/logout' do
+get 'logout' do
 	response.delete_cookie("user")
-
 	"You have logged out!"
 end
 
 get '/greeting' do
-	if request.cookies["user"]
-		"Hello #{request.cookies["user"]}!"
-	else
-		"Please log in!"
-	end
-end
 
+end
 
