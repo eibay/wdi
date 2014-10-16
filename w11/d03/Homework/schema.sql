@@ -4,7 +4,7 @@ DROP TABLE accounts;
 CREATE TABLE users(
   id SERIAL PRIMARY KEY, 
   email VARCHAR(100),
-  password_digest VARCHAR(100)
+  password_digest VARCHAR(60)
 );
 
 CREATE TABLE accounts(
