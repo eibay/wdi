@@ -1,12 +1,13 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
+require 'bcrypt'
 require_relative './lib/connection'
 require_relative './lib/user'
 
 use Rack::Session::Cookie, { 
   :key => 'rack.session',
-  :path => '/login_form',
+  :path => '/',
   :secret => 'icouldmakethisanaything'
 }
 
@@ -26,7 +27,7 @@ post('/sign_up') do
 
 	new_user = User.create({
     email: params[:email],
-    password: params[:password],
+    password_digest: params[:password],
     balance: params[:deposit]
   })
 
@@ -37,21 +38,30 @@ get('/login_form')
 	erb(:welcome)
 end
 
-get('/login') do
-session[:email] = params[:email]
-session[:password] = params[:password]
+post('/sessions') do
+
 	the_user = User.find_by(email: params[:email])
 
-	binding.pry
-
-
-
-	if the_user.password == params[:password]
-		session[:email] = params[:email]
-		"You have logged in!"
+	if the_user.authenticate(params[:password]) == true
+		session["email"] = params[:email]
+		erb(:main, { locals: { the_user: the_user } })
 	else
-		"Try again!"
+		return "try again"
 	end
+end
+
+put('/dep_withd') do
+	the_user = User.find_by(email: session["email"])
+
+	if params[:deposit] != nil
+		blah
+	elsif params[:withdrawl] != nil
+		blah
+	else
+		blah
+	end
+
+	binding.pry
 end
 
 get('/logout') do

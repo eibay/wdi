@@ -6,6 +6,18 @@
 </head>
 <body>
 
+  <div>
+    <h3>Hello<%=user.name%></h3>
+    <p>The balance on your account is <%=user.balance%></p>
+
+    <form action="/dep_withd" method="PUT">
+      <h3>What would you like to do?</h3>
+      <input type="text" name="deposit" placeholder="Deposit" /><br>
+      <input type="text" name="withdrawl" placeholder="Withdrawl" /><br>
+      <button>Submit</button>
+    </form>
+  </div>
+
 
 <div>
   <ul>
@@ -21,16 +33,7 @@
 
 <div>
 
-   <form action="/categories/<%= "id" %>/posts" method="GET">
-    <p>View quotes by category.</p>
-    <select name="category_id">
-      <% categories.each do |category| %>
-        <option value="<%= category.id %>"><%= category.name %></option>
-      <% end %>
-    </select>
-    <button>Submit</button><br>
-    <h5>-------------------</h5>
-  </form>
+
 
 
 

@@ -18,7 +18,7 @@ User.delete_all
 # 1.upto(10) do |num|
 
 #   User.create({
-#     email: FFaker::Internet.email,
+#     email: Faker::Internet.email,
 #     password: Faker::Internet.password,
 #     balance: 1000
 #   })

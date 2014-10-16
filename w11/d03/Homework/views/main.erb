@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bank</title>
+</head>
+  <body>
+    <div>
+      <h3>Hello<%=the_user.name%></h3>
+      <p>The balance on your account is <%=the_user.balance%></p>
+
+      <form action="/dep_withd" method="GET">
+        <input type="hidden" name="_method" value="PUT">
+        <h3>What would you like to do?</h3>
+        <input type="number" name="deposit" placeholder="Deposit" /><br>
+        <input type="number" name="withdrawl" placeholder="Withdrawl" /><br>
+        <button>Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
