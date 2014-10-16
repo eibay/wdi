@@ -29,11 +29,15 @@ post '/sessions' do
 
 		redirect "/accounts/#{account[:id]}"
 
-	else alert('please try again')
+	else redirect "/error"
 
 	end	
 
 
+end
+
+get '/error' do
+		erb(:please_try)
 end
 
 # this is for signup
@@ -48,8 +52,16 @@ post '/users' do
 	erb(:index)
 end
 
-# this is to edit balance
+# this is to display balance
 get '/accounts/:id' do
+	account = Account.find_by(id: params[:id])
+	balance = account[:balance]
+
+	erb(:account, { locals: { balance: balance } })
+end
+
+# this is to edit balance
+put '/accounts/:id' do
 	account = Account.find_by(id: params[:id])
 	balance = account[:balance]
 
