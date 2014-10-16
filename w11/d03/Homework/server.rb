@@ -27,7 +27,7 @@ post '/signup' do
 		name: params[:name], 
 		email: params[:email],
 		password: params[:password],
-		savings: params[:savings]
+		savings: 0
 		}
 	User.create(user)
 	session[:name] = params["email"]
@@ -44,6 +44,8 @@ post '/signin' do
 		alert("wrong password, try agin")
 	end
 
+	redirect '/users/#{user.id}'
+
 end
 
 get '/users/:id' do
@@ -57,6 +59,7 @@ end
 
 put '/users/:id' do 
 	user = User.find(params[:id])
+	binding.pry
 	if params["debit"] == ""
 		user.savings = user.savings - params["credit"].to_i
 		user.save
