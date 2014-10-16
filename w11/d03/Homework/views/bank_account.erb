@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title><%= user.email %>'s Bank Account</title>
+</head>
+<body>
+	<%= user.email %><br>
+	<% balance_array.each do |a| %>
+	<%= a.balance %>
+	<% end %>
+
+	<a href="/transactions">Make a Transaction</a>
+	<a href="/logout">Logout</a>
+
+</body>
+</html>
