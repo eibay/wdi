@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>Banking Log-in</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h2>Sign up for online banking</h2>
+		<form action="/users" method="POST">
+			<input type="text" name="name" placeholder="Enter name" /><br><br>
+			<input type="email" name="email_address" placeholder="Enter email address"><br><br>
+			<input type="text" name="balance" placeholder="Starting balance"><br><br>
+			<input type="hidden" name="account_number">
+			<input type="password" name="password" placeholder="Enter password"><br><br>
+			<button>Submit</button>
+		</form>
+
+		<h2>Existing users log in</h2>
+		<form action="/users" method="GET">
+			<input type="email" name="email_address" placeholder="Enter email address"><br><br>
+			<input type="password" name="password" placeholder="Enter password"><br><br>
+			<button>Submit</button>
+		</form>
+	</div>
+</body>
+</html>

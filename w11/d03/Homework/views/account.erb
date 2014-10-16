@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Account Info</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h2> <%= user["name"] %>'s Account Information</h2>
+
+		<p>Email Address: <%= user["email_address"] %></p>
+		<p>Account Number: <%= user["account_number"]%></p>
+		<p>Current Balance: $<%= user["balance"]%></p>
+
+		<form action="/user/<%= user.id %>/account" method="POST">
+			<input type="hidden" name="_method" value="PUT">
+			<input type="text" name="debit" placeholder="Enter amount">
+			<button>Withdraw</button>
+		</form>
+
+		<form action="/user/<%= user.id %>/account" method="POST">
+			<input type="hidden" name="_method" value="PUT">
+			<input type="text" name="credit" placeholder="Enter amount">
+			<button>Deposit</button>
+		</form>
+
+		<form action="/logout" method="GET">
+			<input type="hidden">
+			<button>Log Out</button>
+		</form>
+
+		<form action="/user/<%= user.id %>/account" method="POST">
+			<input type="hidden" name="_method" value="DELETE">
+			<button>Close My Account Permanently</button>
+		</form>
+	</div>
+</body>
+</html>
