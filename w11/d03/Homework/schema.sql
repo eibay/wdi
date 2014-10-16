@@ -3,7 +3,7 @@ DROP TABLE accounts;
 
 CREATE TABLE users(
   id SERIAL PRIMARY KEY, 
-  email VARCHAR(20),
+  email VARCHAR(100),
   password VARCHAR(100)
 );
 
