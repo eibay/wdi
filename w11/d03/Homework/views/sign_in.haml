@@ -1,0 +1,14 @@
+!!!
+%html{:lang => "en"}
+%head 
+  %meta{:charset => "utf-8"}
+  %title Sign In 
+%body 
+  %form{:action => "/sign_in", :method => "GET"} 
+    %label 
+      %span Email:  
+      %input{:type => "text", :name => "email"}
+    %label 
+      %span Password: 
+      %input{:type => "password", :name => "password"}
+    %button Submit 
