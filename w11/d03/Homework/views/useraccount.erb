@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title><%=user.name%>'s Account</title>
+</head>
+<body>
+	<h1><%=user.name%><h1>
+	<h3>Balance:<%=user.savings%><h3>
+
+	<form action="/users/<%=user.id%>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		Deposit:<input type="text" name="debit" placeholder="Enter $ Amount"></br>
+		Withdrawal:<input type="text" name"credit" placeholder="Enter $ Amount">
+		<button>Update</button>
+	</form>
+
+	<a href="/logout">Logout</a>
+
+</body>
+</html>
