@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bank Jawn</title>
+</head>
+<body>
+	<h1>Welcome <%= account.name %>! Your Statement:</h1>
+	
+	<a href="/logout">Log Out</a>
+	<h3>Checking: <p>$<%= account.bank_account.to_s %></p> </h3>
+	
+	<form action="/users/<%= account.id %>" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="credit">
+		<button>Deposit</button>
+	</form>
+
+</body>
+</html>
