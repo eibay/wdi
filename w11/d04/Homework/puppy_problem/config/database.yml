@@ -1,4 +1,4 @@
-default: &default
+default: development 
   adapter: pg
   pool: 5
   timeout: 5000
