@@ -1,0 +1,21 @@
+<%= form_for :puppies, url: puppies_path do |f| %>
+  <p>Add Puppy</p>
+  <p>
+    <%= f.label :Name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :Breed %><br>
+    <%= f.text_field :breed %>
+  </p>
+
+  <p>
+    <%= f.label :Cuteness %><br>
+    <%= f.text_field :cuteness %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
