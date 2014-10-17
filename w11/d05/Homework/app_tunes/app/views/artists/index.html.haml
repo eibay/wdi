@@ -17,3 +17,16 @@
     - @artists.each do |artist| 
       %li
         %a{:href => "/artists/#{artist.id}"}= artist.name
+  %h3 Add a New Artist 
+  %form{:action => "/artists", :method => "POST"}
+    %input{:type => "hidden", :name => "authenticity_token", :value => form_authenticity_token}
+    %label 
+      %span Artist Name: 
+      %input{:name => "name"}
+    %label 
+      %span Genre: 
+      %input{:name => "genre"}
+    %label
+      %span Number of Albums:  
+      %input{:type => "range", :name => "number_of_albums"}
+    %button Submit 
