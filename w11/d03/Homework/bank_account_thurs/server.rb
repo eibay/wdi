@@ -24,14 +24,23 @@ post '/sessions' do
 	
 	user = User.find_by(email: session[:email])
 
-	if user[:password] == session[:password]
+	if user.authenticate(params[:pwd]) == false
+		redirect "/error"
+
+	else 
 		account = Account.find_by(user_id: user[:id])
 
 		redirect "/accounts/#{account[:id]}"
+	end
 
-	else redirect "/error"
+	# if user[:password] == session[:password]
+	# 	account = Account.find_by(user_id: user[:id])
 
-	end	
+		# redirect "/accounts/#{account[:id]}"
+
+	# else redirect "/error"
+
+	# end	
 
 
 end
