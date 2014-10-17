@@ -1,0 +1,10 @@
+  <h3>Dawg</h3>
+<h3>Name: <%= @dog.name %></h3>
+<h3>Breed: <%= @dog.breed %></h3>
+<h3>Cuteness: <%= @dog.cuteness %></h3>
+
+<form action="/dogs/<%=@dog.id%>/delete" method="POST">
+<input type="hidden" name="_method" value="DELETE">
+<button>Delete Dawg</button>
+</form>
+
