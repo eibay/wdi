@@ -1,11 +1,14 @@
 require "pry"
 require "sinatra"
-require_relative "./user"
+require_relative "./connection"
 require "sinatra/reloader"
 
-user = User.new("yo@mama.com", "pass")
 
-users = {user.email => user}
+ActiveRecord::Base.logger = Logger.new(STDOUT)
+
+after do
+	ActiveRecord::Base.connection.close
+end
 
 use Rack::Session::Cookie, {
 	key: "session.rack",
@@ -15,7 +18,8 @@ use Rack::Session::Cookie, {
 
 get "/" do
 	if session[:user]
-		erb(:user, { locals: {user: users[ session[:user] ]} })
+		user = User.find_by( {email: session[:user]})
+		erb(:user, { locals: {user: user} })
 	else
 		erb(:index)
 	end
@@ -23,16 +27,21 @@ end
 
 
 put "/user" do
-	users[ session[:user] ].balance += params["credit"].to_i
-	users[ session[:user] ].balance -= params["debit"].to_i
+	user = User.find_by( {email: session[:user]} )
+	user.balance += params["credit"].to_i
+	user.balance -= params["debit"].to_i
+	user.save
 	redirect("/")
 end
 
 post "/user" do
-	unless users[ params["email"] ]
-		user = User.new(params["email"], params["password"])
-		users[ params["email"] ] = user
-		erb(:account_created)
+	unless User.find_by( {email: params["email"] })
+		if params["password"] == params["password_conf"]
+			user = User.create({email: params["email"], balance: 0, password: params["password"]})
+			erb(:account_created)
+		else
+			erb(:password_conf_failed)
+		end
 	else
 		erb(:bad_login)
 	end
@@ -40,9 +49,10 @@ post "/user" do
 end
 
 get "/user" do
-	if users[ params["email"] ].password == params["password"]
+	if User.find_by( { email: params["email"] } ).authenticate(params["password"])
 		session[:user] = params["email"]
-		erb(:user, { locals: {user: users[ params["email"] ]} })
+		user = User.find_by( { email: params["email"]})
+		erb(:user, { locals: {user: user} })
 	else
 		erb(:bad_login)
 	end

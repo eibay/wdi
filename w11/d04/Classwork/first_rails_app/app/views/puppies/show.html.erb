@@ -1,0 +1,17 @@
+<h1>Puppy</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Breed</th>
+    <th>Cuteness</th>
+  </tr>
+
+  <tr>
+    <td><%= @puppy.name %></td>
+    <td><%= @puppy.breed %></td>
+    <td><center><%= @puppy.cuteness %></center></td>
+  </tr>
+</table>
+
+<%= link_to 'Back', puppies_path %>
