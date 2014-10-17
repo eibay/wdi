@@ -1,0 +1,1 @@
+ArtistsController = Class.new ApplicationController 
