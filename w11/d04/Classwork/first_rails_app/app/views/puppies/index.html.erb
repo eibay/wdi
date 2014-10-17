@@ -1,0 +1,9 @@
+<h1>The Puppy Database</h1>
+<hr />
+<a href="/puppies/create"><button>Add Puppies</button></a>
+<h4>Puppies</h4>
+<ul>
+<% @puppies.each do |p| %>
+<li><span style="font-weight:bold"><%= p.name %></span><br />Breed: <%= p.breed %><br />Cuteness: <%= p.cuteness %>&nbsp;&nbsp;&nbsp;<button>X</button></li>
+<% end %>
+</ul>
