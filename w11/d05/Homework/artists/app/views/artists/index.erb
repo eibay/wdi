@@ -1,0 +1,44 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2>All the artists we know about:</h2>
+	<ul>
+		<% artists.each do |artist| %>
+			<li>
+					<img src="<%= artist.photo_url %>" height="200px">
+				<p><a href="/artists/<%= artist.id %>"><strong><%= artist.name %> -- </strong>
+									<%= artist.genre %> -- 
+									<%= artist.number_of_albums %> albums<br></a></p>
+			</li>
+		<% end %>
+	</ul>
+
+	<h3>Add an Artist</h3>
+	<form action="/artists" method="POST">
+		<label>
+			Artist Name:
+			<input name="name" />
+		</label>
+		<label>
+			Genre:
+			<input name="genre" />
+		</label>
+		<label>
+			Number of Albums:
+			<input name="number_of_albums" />
+		</label>
+		<label>
+			Photo:
+			<input name="photo_url" />
+		</label>
+
+	  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+
+	  <button>Submit</button>
+	</form>
+
+</body>
+</html>
