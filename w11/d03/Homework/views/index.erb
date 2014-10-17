@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bank</title>
+</head>
+<body>
+
+  <div>
+    <h3>Hello<%=user.name%></h3>
+    <p>The balance on your account is <%=user.balance%></p>
+
+    <form action="/dep_withd" method="PUT">
+      <h3>What would you like to do?</h3>
+      <input type="text" name="deposit" placeholder="Deposit" /><br>
+      <input type="text" name="withdrawl" placeholder="Withdrawl" /><br>
+      <button>Submit</button>
+    </form>
+  </div>
+
+
+<div>
+  <ul>
+    <% posts.each do |post| %>
+      <li>
+        <a href="/posts/<%= post.id %>"><%= post.quote %></a>
+        <h5><%= post.author %> -- <em><%= post.source %></em><br></h5>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<div>
+
+
+
+
+
+ <form action="/categories/posts/new" method="GET">
+ 		<p>Create a new quote from existing category.</p>
+    <select name="category_id">
+      <% categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+    <button>Submit</button><br>
+    <h5>-------------------</h5>
+  </form>
+
+
+
+   <a href="/categories/new">Create New Category</a>
+ 		
+
+  </div>
+
+
+</body>
+</html>
