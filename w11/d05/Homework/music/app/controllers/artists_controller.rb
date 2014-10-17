@@ -13,13 +13,19 @@ class ArtistsController < ApplicationController
 	def show
 		@artist = Artist.find(params[:id])
 		@song = Song.new()
-		@songs = Song.all()
+		@songs = Song.where(artist_id: @artist.id)
 	end
 
 	def update
 		@artist = Artist.find(params[:id])
 		@artist.update({name: params[:artist][:name], genre: params[:artist][:genre], number_of_albums: params[:artist][:number_of_albums]})
 		redirect_to request.referrer
+	end
+
+	def destroy
+		@artist = Artist.find(params[:id])
+		@artist.destroy()
+		redirect_to '/'
 	end
 
 end
