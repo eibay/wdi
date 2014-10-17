@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
 require 'pry'
+require 'bcrypt'
 
 ActiveRecord::Base.establish_connection({
 	:adapter => "postgresql",
@@ -20,6 +21,7 @@ use Rack::Session::Cookie, {
 }
 
 class User < ActiveRecord::Base
+	has_secure_password
 end
 
 
@@ -36,25 +38,22 @@ post('/signup') do
 		'You have already signed up'
 	else
 		User.create({name:params[:name], email:params[:email], password: params[:password], balance:0})
+		binding.pry
 		redirect '/'
 	end
 end
 
 post('/login') do
-	if(User.find_by(email: params[:email]) != nil) 
-		user = User.find_by(email: params[:email])
-		if(user.password == params[:password])
+	user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
+	if(user != false)
 			session[:user] = user.email
 			session[:id] = user.id
 			session[:name] = user.name
 			redirect "/users/#{user.id}"
 		else
-			'Incorrect Password'
+			'Incorrect Password/Username'
 		end
-	else
-		'That user does not exist, plese go sign up'
 	end
-end
 
 
 get('/users/:id') do
