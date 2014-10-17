@@ -13,5 +13,5 @@
           %a{:href => "/songs"} Songs
   %h2 All Artists 
   %ul 
-    - artists.each do |artist| 
-      %li artist.name 
+    - @artists.each do |artist| 
+      %li= artist.name
