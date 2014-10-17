@@ -1,0 +1,14 @@
+<html>
+<head>
+	<title><%=user.name%>'s Bank Account</title>
+</head>
+<body>
+
+	<h1>Welcome <%=user.name%></h1>
+	<form action ="/users/<%=user.id%>" method="POST">
+	<input type="hidden" name="_method" value="PUT"/> 
+	<input type="text" name="balance" value="<%=user.balance%>"><br>
+	<button>Update Account Balance</button>
+</form>
+</body>
+</html>

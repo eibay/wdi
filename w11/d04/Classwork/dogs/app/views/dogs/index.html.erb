@@ -1,0 +1,17 @@
+
+<h1>Add a Dog</h1>
+<form action="/dogs" method="POST">
+	<input type="text" name="name">
+	<input type="text" name="breed">
+	<input type="text" name="cuteness">
+	<button>Add Dog</button>
+</form>
+	<ul>
+		<%@puppies.each do |puppy|%>
+			<li><%=puppy.name%>-<%=puppy.breed%>-<%=puppy.cuteness%>
+				<form action="/dogs/<%=puppy.id%>" method="post">
+					<input type="hidden" name="_method" value="DELETE">
+					<button>Kill Dog</button></form>
+					<a href="/dogs/edit/<%=puppy.id%>">Edit Dog</a></li>
+		<%end%>
+	</ul>
