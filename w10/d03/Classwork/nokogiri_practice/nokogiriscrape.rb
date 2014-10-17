@@ -41,5 +41,4 @@ return headlines.to_json
 
 end
 
-
 # U gotta store tha data to ensure that u dont keep making requests to nytimes to scrape their website so do the above instead to make runtime faster. The above way is known as caching. The downside is we set it in a way where it freshes every ten minutes so it isnt as fresh but rather than every time a user comes on bc so we dont bother the user with a slow experience and we dont bother the nytimes api so its a small price to pay.
