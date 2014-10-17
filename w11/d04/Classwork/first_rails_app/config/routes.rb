@@ -7,7 +7,15 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'puppies#index'
 
-  post 'puppies' => 'puppies#create'
+  get '/puppies' => 'puppies#all'
+
+  post '/puppies' => 'puppies#create'
+
+  get '/puppies/:id' => 'puppies#show'
+
+  put '/puppies/:id' => 'puppies#update'
+
+  delete '/puppies/:id' => 'puppies#delete'
 
   # get 'puppies/:id' => 'puppies#'
   # put 'edit' => 'puppies#edit'

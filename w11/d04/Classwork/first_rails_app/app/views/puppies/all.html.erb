@@ -1,0 +1,13 @@
+<h1>Puppies Database</h1>
+		<h2>All Puppies</h2>
+		<ul>
+		<% @puppies.each do |puppy| %>
+			<li>
+				<a href="/puppies/<%= puppy.id %>">
+					<%= puppy.name %>
+				</a>
+			</li>
+		<% end %>
+	</ul>
+
+	<p><a href="/">Back home</a></p>

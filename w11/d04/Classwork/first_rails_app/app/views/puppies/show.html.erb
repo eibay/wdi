@@ -1,0 +1,38 @@
+<h1>Puppies Database</h1>
+		<h2>Puppy Info</h2>
+		
+		<p>Name: <%= @puppy.name %></p>
+		<p>Breed: <%= @puppy.breed %></p>
+		<p>Cuteness Rating: <%= @puppy.cuteness %></p>
+
+
+	
+		<h3>Update Info</h3>
+			<form action="/puppies/<%= @puppy.id %>" method="POST">
+			<input type="hidden" name="_method" value="PUT">
+			<input type="text" name="name" value="<%= @puppy.name %>">
+			<input type="text" name="breed" value="<%= @puppy.breed %>">
+			<select name="cuteness">
+			<option selected="selected"><%= @puppy.cuteness %></option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br><br>
+			<button>Update</button>
+		</form>
+
+
+			<form action="/puppies/<%= @puppy.id %>" method="POST">
+			<input type="hidden" name="_method" value="DELETE">
+			<button>Delete</button>
+		</form>
+
+
+		<p><a href="/">Back home</a></p>
