@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :puppies
   root :to => 'puppies#index'
+  post '/puppies/create' => 'puppies#create'
+  get '/puppies/:id' => 'puppies#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
