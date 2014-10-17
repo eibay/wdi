@@ -1,0 +1,35 @@
+<h1>Editing puppy</h1>
+ 
+<%= form_for :puppy, url: puppy_path(@puppy), method: :patch do |f| %>
+  <% if @puppy.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@puppy.errors.count, "error") %> prohibited
+      this puppy from being saved:</h2>
+    <ul>
+    <% @puppy.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= f.label :breed %><br>
+    <%= f.text_field :breed %>
+  </p>
+
+  <p>
+    <%= f.label :cuteness %><br>
+    <%= f.number_field :cuteness %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Back', puppy_path %>

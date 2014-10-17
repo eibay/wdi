@@ -1,10 +1,7 @@
-class User
+require "active_record"
 
-	attr_accessor(:email, :password, :balance)
+class User < ActiveRecord::Base
 
-	def initialize(email, password)
-		@email = email
-		@password = password
-		@balance = 0
-	end
+	has_secure_password
+
 end
