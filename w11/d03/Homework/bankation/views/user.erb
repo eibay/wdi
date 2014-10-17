@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h2><%= user.email %></h2>
+	<h4>Balance: <%= user.balance %></h4>
+	<form action="/user" method="POST" enctype="json">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="credit" placeholder="Amount to Credit">
+		<button>Credit Your Account</button>
+	</form> 
+	<form action="/user" method="POST" enctype="json">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="debit" placeholder="Amount to Debit">
+		<button>Debit Your Account</button>
+	</form>
+	<form action="/user" method="POST">
+		<input type="hidden" name="_method" value="DELETE">
+		<button>Log Out</button>
+	</form>
+</body>
+</html>
