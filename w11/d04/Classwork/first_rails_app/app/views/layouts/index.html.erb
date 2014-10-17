@@ -1,0 +1,12 @@
+<html>
+<head>
+	<title>Puppies</title>
+</head>
+<body>
+	<ul>
+	<% puppies.each do |puppy| %>
+	<li>Name: <%= puppy.name =%>, Breed: <%=puppy.breed %>, Cuteness: <%=puppy.cuteness%></li>
+	<%end%>
+	</ul>
+</body>
+</html>
