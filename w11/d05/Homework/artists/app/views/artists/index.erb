@@ -7,12 +7,12 @@
 	<h2>All the artists we know about:</h2>
 	<ul>
 		<% artists.each do |artist| %>
-			<li>
+			<a href="/artists/<%= artist.id %>"><li>
 					<img src="<%= artist.photo_url %>" height="200px">
-				<p><a href="/artists/<%= artist.id %>"><strong><%= artist.name %> -- </strong>
+				<p><strong><%= artist.name %> -- </strong>
 									<%= artist.genre %> -- 
-									<%= artist.number_of_albums %> albums<br></a></p>
-			</li>
+									<%= artist.number_of_albums %> albums<br></p>
+			</li></a>
 		<% end %>
 	</ul>
 
