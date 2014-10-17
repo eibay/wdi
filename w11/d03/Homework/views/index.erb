@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Banksy</title>
+</head>
+<body>
+	<h1>Welcome to Banksy</h1>
+	<h2>Where We Get Artistic With Your $$$</h2>
+	<h3>Log In to See Your Account</h3>
+	<form action="/sessions" method="POST">
+		<input name='email' type='text' placeholder='e.g. staxonstax21'>E-mail</input>
+		<input name='password' type='password'>Password</input>
+		<button>Log In</button>
+	</form>
+
+	<h3>Or Create a New Account</h3>
+	<form action="/accounts" method="POST">
+		<input name='email' type='text' placeholder='e.g. staxonstax21@gmail.com'>User Name</input>
+		<input name='password' type='password'>Password</input>
+		<input name='confirm_password' type='password'>Confirm Password</input>
+		<button>Create Account</button>
+	</form>
+</body>
+</html>
