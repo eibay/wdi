@@ -13,5 +13,16 @@
   <h3><%= user.email %></h3>
   <h3><%= user.password %></h3>
 
+  <h3>Your current balance is <%=user.balance%></h3>
+
+  <form action="/user/<%=user.id%>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  Deposit<input type="text" name="deposit" placeholder="$.0.00"></br>
+  Withdraw<input type="text" name="withdraw" placeholder="$.0.00"></br>
+  <button>Submit</button>
+
+  </form>
+
+
 </body>
 </html>

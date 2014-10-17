@@ -28,6 +28,15 @@ get "/" do
   erb(:"bankinfo/clients")
 end
 
+get "/user/:id" do
+  user = User.find_by({username: session["name"]})
+  firstname = user.firstname
+  lastname = user.lastname
+  email = user.email
+  id = user.id
+  erb(:main, {locals: {first_name: firstname, last_name: lastname, email: email, id: id}})
+end
+
 post '/sign_up' do
     new_user = {
     first_name: params[:first_name],
@@ -45,13 +54,16 @@ end
 get '/login' do
   session[:email] = params[:email]
   session[:password] = params[:password]
-  new_user = User.where(email: session[:email])
+  new_user = User.find_by(email: session[:email])
 
-  if session[:email] == new_user[0].email && session[:password] == new_user[0].password
+  if session[:email] == new_user.email && session[:password] == new_user.password
     "You have logged in!"
+
+  erb(:"bankinfo/existing", {locals: {user: new_user }})
   else
     redirect '/'
   end
+
 end
 
 get '/users/:id/account' do
