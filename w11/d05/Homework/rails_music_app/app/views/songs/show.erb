@@ -1,0 +1,24 @@
+<p><%= song.name %></p>
+
+    <form action="/songs/<%= song.id %>" method="POST">
+      <label>
+        Name:
+      <input name="name" value="<%= song.name %>"/>
+      </label>
+
+      <input name="_method" value="PUT" type="hidden" />
+      <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+      <button>Edit a Song</button>
+    </form>
+
+  <br>
+
+   <form action="/songs/<%= song.id %>" method="POST">
+     <input name="_method" value="DELETE" type="hidden" />
+     <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+     <button>Delete a Song</button>
+   </form>
+
+  <br>
+
+<button><a href="/songs">Go Home</a></button>
