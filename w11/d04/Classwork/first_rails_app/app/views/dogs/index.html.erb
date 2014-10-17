@@ -1,0 +1,15 @@
+  <ol>
+
+   <h3>Who Let the Dawgs Out</h3>
+
+    <% @dogs.each do |dog| %>
+
+              <li>
+
+            <a href="/dogs/<%=dog.id %>"><%= dog.name %></a>
+
+      </li>
+
+      <% end %>
+
+  </ol>
