@@ -1,5 +1,5 @@
 require_relative "./connection.rb"
 
 class Account < ActiveRecord::Base
-
-	end
+	has_secure_password
+end
