@@ -1,6 +1,12 @@
 class DogsController < ApplicationController
 
 
+	before_filter :puppy, :except => [:index,:create]
+
+	def puppy
+		@puppy = Puppy.find(params[:id])
+	end
+
 	def index
 		@puppies=Puppy.all
 	end
@@ -9,19 +15,18 @@ class DogsController < ApplicationController
 		redirect_to '/'
 	end
 	def destroy
-		@puppy = Puppy.find(params[:id])
 		@puppy.destroy
 		redirect_to '/'
 	end
-	def edit
-		@puppy = Puppy.find(params[:id])
-	end
+	
 	def update
-		@puppy = Puppy.find(params[:id])
 		@puppy.name = params[:name]
 		@puppy.breed = params[:breed]
 		@puppy.cuteness = params[:cuteness].to_i
 		@puppy.save
 		redirect_to '/'
 	end
+
+
+
 end

@@ -1,0 +1,17 @@
+<h1>Music Artists for Music Lovers</h1>
+
+
+<%= form_tag '/artists/' do %>
+  <%= text_field :name, :attr, :placeholder => "Name" %>
+  <%= text_field :genre, :attr, :placeholder => 'Genre' %>
+  <%= text_field :albums, :attr, :placeholder => 'Number of Albums' %>
+ 
+  <%= submit_tag "Add Artist" %>
+  <% end %>
+
+ <%@artists.each do |artist|%>
+ <a href="/artists/<%=artist.id%>"><%=artist.name%></a>
+ <%end%>
+
+
+

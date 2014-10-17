@@ -24,3 +24,5 @@
 - *Views*
   - Be sure to have all of the appropriate views that a CRUD application will require
   - Bonus: Use Rails' [view partials](http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials) to DRY up your views
+
+
