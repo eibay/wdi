@@ -1,14 +1,28 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-  
-  resources :puppies
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+
+  get 'puppies/index'
+
+
+  resources :puppies
+
+
+  root 'puppies#index'
+
+  get '/puppies' => 'puppies#all'
+
   post '/puppies' => 'puppies#create'
+
+  get '/puppies/:id' => 'puppies#show'
+
+  put '/puppies/:id' => 'puppies#update'
+
+  delete '/puppies/:id' => 'puppies#delete'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
