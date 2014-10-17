@@ -1,0 +1,22 @@
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Genre</th>
+		<th>Album Count</th>
+	</tr>
+	<tr>
+		<td><%= artist.name %></td>
+		<td><%= artist.genre %></td>
+		<td><%= artist.number_of_albums %></td>
+	</tr>
+</table>
+
+<div>Edit</div>
+<form action="/artists/<%= artist.id %>" method="POST">
+	<input type="hidden" name="_method" value="PUT">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input name="name" value="<%= artist.name %>">
+	<input name="genre" value="<%= artist.genre %>">
+	<input type="number" name="number" value="<%= artist.number_of_albums %>">
+	<button>Change</button>
+</form>

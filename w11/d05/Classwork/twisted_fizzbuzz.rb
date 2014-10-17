@@ -12,4 +12,4 @@ def twisted_fizzbuzz(num)
 	end
 end
 
-twisted_fizzbuzz(327)
+twisted_fizzbuzz(921)

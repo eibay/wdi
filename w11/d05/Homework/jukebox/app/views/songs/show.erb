@@ -1,0 +1,29 @@
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Artist</th>
+	</tr>
+	<tr>
+		<td><%= song.name %></td>
+		<td><a href="/artists/<%= song.get_artist.id %>"><%= song.get_artist.name %></a></td>
+		<td>
+			<form action="/songs/<%= song.id %>" method="POST">
+				<input type="hidden" name="_method" value="DELETE">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			</form>
+		</td>
+	</tr>
+</table>
+
+<h2>Edit this song</h2>
+<form action="/songs/<%= song.id %>" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<input type="hidden" name="_method" value="PUT">
+	<input name="name" value="<%= song.name %>">
+	<select name="artist_id">
+		<% artists.each do |artist| %>
+		<option value="<%= artist.id %>" <%= "selected='true'" if artist.id == song.artist_id %>><%= artist.name %></option>
+		<% end %>
+	</select>
+	<button>Submit</button>
+</form>

@@ -1,25 +1,26 @@
 Rails.application.routes.draw do
+
+
+  # Artist routes
+  get "artists" => "artists#index"
+  get "artists/:id" => "artists#show"
+  put "artists/:id" => "artists#update"
+  post "artists" => "artists#create"
+  delete "artists/:id" => "artists#destroy"
+
+
+  # Song routes  
+  get "songs" => "songs#index"
+  get "songs/:id" => "songs#show"
+  post "songs" => "songs#create"
+  put "songs/:id" => "songs#update"
+  delete "songs/:id" => "songs#destroy"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
-  # resources :puppies
-
-  get "puppies" => "puppies#index"
-
-  get "puppies/new" => "puppies#new"
-
-  get "puppies/:id" => "puppies#show"
-
-  get "puppies/delete/:id" => "puppies#destroy"
-
-  get "puppies/edit/:id" => "puppies#edit"
-
-  post "puppies" => "puppies#create"
-
-  put "puppies/edit/:id" => "puppies#update"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
