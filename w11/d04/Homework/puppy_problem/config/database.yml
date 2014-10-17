@@ -1,0 +1,6 @@
+development: 
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  database: puppy_problem_development
+  username: clayreed
