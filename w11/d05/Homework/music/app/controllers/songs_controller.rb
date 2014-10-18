@@ -12,13 +12,13 @@ class SongsController < ApplicationController
 	def destroy
 		@song = Song.find(params[:id])
 		@song.destroy()
-		redirect_to request.referrer
+		redirect_to "/artists/#{@song.artist_id}"
 	end
 
 	def update
 		@song = Song.find(params[:id])
-		@song.update(name: params[:name])
-		redirect_to request.referrer
+		@song.update(name: params[:song][:name])
+		redirect_to "/artists/#{@song.artist_id}"
 	end
 	
 end
