@@ -5,12 +5,36 @@
 </head>
 <body>
 
-	<h1><%= artist.name %></h1>
-	<h3>Genre: <%= artist.genre %></h3>
-	<h4>Number of Albums: <%= artist.number_of_albums %></h4>
+	<div style="float: left">
+		<h1><%= artist.name %></h1>
+		<h3>Genre: <%= artist.genre %></h3>
+		<h4>Number of Albums: <%= artist.number_of_albums %></h4>
 		<img src="<%= artist.photo_url %>" height="300px">
+	</div>
 
-	<h3>Make a Change to this Artist</h3>
+		<h2>Songs by this artist</h2>
+		<ul>
+			<% songs = Song.where(artist_id: artist.id) %>
+			<% songs.each do |song| %>
+				<li><%= song.name %></li>
+			<% end %>
+		</ul>
+
+		<h2>Add songs by this artist</h2>
+		<form action="/songs" method="POST">
+
+			<label>
+				Song Name:
+				<input name="name" />
+				<input name="artist_id" type="hidden" value="<%= artist.id %>"/>
+			</label>
+
+		  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+
+			<button>Submit</button>
+		</form>
+
+	<h3 style="clear: both">Make a Change to this Artist</h3>
 		<form action="/artists/<%= artist.id %>" method="POST">
 			<input name="_method" value="PUT" type="hidden" />
 			
@@ -43,7 +67,6 @@
 	  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
 	  <button>Delete</button>
 	</form>
-
 
 </body>
 </html>
