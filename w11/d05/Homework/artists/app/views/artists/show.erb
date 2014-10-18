@@ -26,7 +26,7 @@
 			<label>
 				Song Name:
 				<input name="name" />
-				<input name="artist_id" type="hidden" value="<%= artist.id %>"/>
+				<input name="artist_id" value="<%= artist.id %>" type="hidden"/>
 			</label>
 
 		  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
