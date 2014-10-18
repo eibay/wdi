@@ -1,0 +1,1 @@
+class Puppies < ActiveRecord::Base; end
