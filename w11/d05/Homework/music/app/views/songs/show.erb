@@ -1,0 +1,39 @@
+<h1>Song Info: <%= song.name %></h1>
+<ul>
+	<li>
+		Artist: <%= song.artist[:name] %>
+	</li>
+</ul>
+
+<h3>Update Info</h3>
+
+<form action="/songs/<%= song.id %>" method="POST">
+	<input type="hidden" name="_method" value="PUT">
+	<p><label>
+		Name: 
+		<input type="text" name="name" value="<%= song.name %>">
+	</label></p>
+	<p>
+		<label>
+			Artist:
+
+			<select name="artist_id">	
+				<option selected="selected">Select an artist</option>
+
+				<% @artists.each do |artist| %>
+				<option value="<%= artist[:id] %>"><%= artist[:name] %></option>
+				<% end %>
+			</select></p>
+			<button>Update</button>
+			<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+		</form>
+
+		<form action="/artists/<%= song.artist[:id] %>" method="POST">
+			<input type="hidden" name="_method" value="DELETE">
+			<button>Delete</button>
+			<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+		</form>
+
+		<p><a href="/songs">All Songs</a></br>
+		<a href="/">Back Home</a></p>
+

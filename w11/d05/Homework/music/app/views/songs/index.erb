@@ -1,0 +1,39 @@
+<h1>Songs</h1>
+<ul>
+	<% @songs.each do |song| %>
+	<li>
+		<a href="/songs/<%= song.id %>">
+			<%= song.name %>
+		</a>
+	</li>
+	<% end %>
+</ul>
+
+<h3>Add a New Song</h3>
+<form action="/songs" method="POST">
+	<p><label>
+		Name:
+		<input name="name" />
+	</label>
+</p>
+<p>
+	<label>
+		Artist:
+		<select name="artist_id">
+			<option selected="selected">Select an artist</option>
+			<% @artists.each do |artist| %>
+			<option value="<%= artist.id %>"><%= artist.name %></option>
+			<% end %>
+		</select>
+	</p>
+	<button>Add</button>
+	<p>
+	<a href="/artists">Add New Artist</a>
+	</p>
+	
+</label>
+<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+</form>
+
+<p><a href="/">Back Home</a></p>
+

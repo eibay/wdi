@@ -67,6 +67,11 @@ get ("/children/:id") do
 	child.to_json
 end
 
+get ("/children/:id/status") do
+	child = Child.find(params[:id])
+	status = child.statuses.to_json
+	end
+
 post ("/children") do
 	children = Child.create(child_params(params))
 	child.to_json
