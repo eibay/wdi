@@ -1,1 +1,0 @@
-WelcomeController = Class.new ApplicationController 
