@@ -11,5 +11,6 @@ class ArtistsController < ApplicationController
   def create 
     Artist.create :name => params["name"], :genre => params["genre"], :number_of_albums => 0 
     redirect_to :index 
+     # undefined method `index_url' for ArtistsController upon create 
   end 
 end 
