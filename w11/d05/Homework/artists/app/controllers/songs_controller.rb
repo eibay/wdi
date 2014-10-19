@@ -29,16 +29,4 @@ class SongsController < ApplicationController
 
 end
 
-response = HTTParty.get("http://musicbrainz.org/ws/2/artist/?query=artist:the%20fall&inc=recordings&fmt=json", headers: {"User-Agent" => "Httparty"})
-
-response["artists"][0]["name"]                                                                             
-response["artists"][0]["id"]                                                                               
-# the fall d5da1841-9bc8-4813-9f89-11098090148e
-
-recordings = HTTParty.get("http://musicbrainz.org/ws/2/artist/d5da1841-9bc8-4813-9f89-11098090148e?inc=release-groups&fmt=json", headers: {"User-Agent" => "Httparty"})
-
-recordings["release-groups"][0]["title"]
-
-
-
 
