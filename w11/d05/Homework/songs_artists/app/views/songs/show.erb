@@ -3,6 +3,21 @@
     <%=@artist.name%>
     <%=@song.name%>
 
+
+
+  <form action ="/artists/<%=@artist.id%>/songs/<%=@song.id%>" method="POST">
+    <input name="_method" value="DELETE" type="hidden" />
+    <button>DELETE</button>
+  </form>
+
+  <form action ="/artists/<%=@artist.id%>/songs/<%=@song.id%>/edit" method="GET">
+   
+    <button>EDIT</button>
+  </form>
+
+
+
+
     
 
 

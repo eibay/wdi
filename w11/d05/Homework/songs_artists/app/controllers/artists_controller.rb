@@ -9,7 +9,9 @@ class ArtistsController < ApplicationController
 
   def create
     name = params[:name]
-    Artist.create({name: name})
+    genre = params[:genre]
+    num = params[:number]
+    Artist.create({name: name, genre: genre, number_of_albums: num})
     redirect_to "/artists"
   end
 
@@ -19,12 +21,20 @@ class ArtistsController < ApplicationController
   end
 
   def edit
+    @artist = Artist.find(params[:id])
   end
 
   def update
+    @artist = Artist.find(params[:id])
+    @artist.update(name: params[:name], genre: params[:genre], number_of_albums: params[:number])
+    redirect_to '/artists'
+
   end
 
   def destroy
+    @artist = Artist.find(params[:id])
+    @artist.destroy
+    redirect_to "/artists"
   end
 
 end

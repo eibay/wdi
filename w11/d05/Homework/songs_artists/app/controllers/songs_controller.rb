@@ -18,4 +18,22 @@ def show
 end
 
 
+
+def edit
+  @song = Song.find([params[:id]])[0]
+  @artist = Artist.find(params[:artist_id])
+end
+
+def update
+  @song = Song.find(params[:id])
+  @song.update(name: params[:name])
+  redirect_to '/artists'
+  
+end
+
+def destroy
+  @song = Song.find(params[:id])
+  @song.destroy
+  redirect_to '/artists'
+  end
 end
