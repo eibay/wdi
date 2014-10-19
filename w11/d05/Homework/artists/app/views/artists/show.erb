@@ -12,13 +12,8 @@
 		<img src="<%= artist.photo_url %>" height="300px">
 	</div>
 
-		<h2>Songs by this artist</h2>
-		<ul>
-			<% songs = Song.where(artist_id: artist.id) %>
-			<% songs.each do |song| %>
-				<li><%= song.name %><form name="edit_song" action="/songs/<%= song.id %>" method="GET"><button >Edit Song</button></form></li>
-			<% end %>
-		</ul>
+	<!-- render songs by artist partial	 -->
+			<%= render partial: "songs_by_artist", locals: { artist: Artist.find(params[:id])} %>
 
 		<h2>Add songs by this artist</h2>
 		<form action="/songs" method="POST">

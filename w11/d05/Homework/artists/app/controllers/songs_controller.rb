@@ -3,8 +3,6 @@ class SongsController < ApplicationController
 	def create
 		Song.create(name: params[:name], artist_id: params[:artist_id])
 
-		# artist = Artist.where(id = params[:artist_id])
-
 		redirect_to :back
 	end
 
@@ -25,6 +23,7 @@ class SongsController < ApplicationController
 
 		song.destroy
 
+		# artist = Artist.where(id = params[:artist_id])
 		redirect_to '/artists'
 	end
 
