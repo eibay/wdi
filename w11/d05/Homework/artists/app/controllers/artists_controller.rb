@@ -11,6 +11,7 @@ class ArtistsController < ApplicationController
 	end
 
 	def show
+		
 		render(:show, { locals: { artist: Artist.find(params[:id]) } })
 	end
 

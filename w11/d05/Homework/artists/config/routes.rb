@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'artists/:id' => 'artists#destroy'
 
   post 'songs' => 'songs#create'
+  get 'songs/:id' => 'songs#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

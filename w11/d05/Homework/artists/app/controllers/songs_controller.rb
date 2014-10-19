@@ -1,12 +1,14 @@
 class SongsController < ApplicationController
 
-def create
+	def create
+		Song.create(name: params[:name], artist_id: params[:artist_id])
 
-	# artist = Artist.find_by(params[:id])
-	Song.create(name: params[:name], artist_id: params[:artist_id])
-# binding.pry
-	redirect_to '/artists'
-end
+		redirect_to '/artists'
+	end
 
+	def show
+		binding.pry
+		render(:show, { locals: { song: Song.find(params[:id]) } })
+	end
 
 end
