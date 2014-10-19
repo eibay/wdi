@@ -15,7 +15,15 @@ class SongsController < ApplicationController
 
 		song.update(name: params[:name])
 
-		render(:show, { locals: { song: Song.find(params[:id]) } })
+		render(:show, { locals: { song: song } })
+	end
+
+	def destroy
+		song = Song.find(params[:id])
+
+		song.destroy
+
+		redirect_to '/artists'
 	end
 
 end

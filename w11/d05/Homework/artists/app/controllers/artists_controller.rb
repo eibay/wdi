@@ -11,7 +11,7 @@ class ArtistsController < ApplicationController
 	end
 
 	def show
-		
+
 		render(:show, { locals: { artist: Artist.find(params[:id]) } })
 	end
 
@@ -25,6 +25,11 @@ class ArtistsController < ApplicationController
 
 	def destroy
 		artist = Artist.find(params[:id])
+		songs = Song.where(artist_id: artist.id)
+
+		songs.each do |song|
+			song.destroy
+		end
 		
 		artist.destroy
 
