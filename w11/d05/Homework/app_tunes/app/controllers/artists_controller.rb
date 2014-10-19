@@ -5,6 +5,7 @@ class ArtistsController < ApplicationController
 
   def view 
     @artist = Artist.find_by_id params[:id]
+    @albums = Album.find_by :artist_id, params[:id] 
   end 
 
   def create 
