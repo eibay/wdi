@@ -13,55 +13,17 @@
 	</div>
 
 	<!-- render songs by artist partial	 -->
-			<%= render partial: "songs_by_artist", locals: { artist: Artist.find(params[:id])} %>
+		<%= render partial: "songs_by_artist", locals: { artist: Artist.find(params[:id])} %>
 
-		<h2>Add songs by this artist</h2>
-		<form action="/songs" method="POST">
+	<!-- render add song by artist partial	 -->
+		<%= render partial: "add_songs", locals: { artist: Artist.find(params[:id])} %>
 
-			<label>
-				Song Name:
-				<input name="name" />
-				<input name="artist_id" value="<%= artist.id %>" type="hidden"/>
-			</label>
+	<!-- render edit artist partial	 -->
+		<%= render partial: "edit_artist", locals: { artist: Artist.find(params[:id])} %>
 
-		  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+	<!-- render delete artist partial	 -->
+		<%= render partial: "delete_artist", locals: { artist: Artist.find(params[:id])} %>
 
-			<button>Submit</button>
-		</form>
-
-	<h3 style="clear: both">Make a Change to this Artist</h3>
-		<form action="/artists/<%= artist.id %>" method="POST">
-			<input name="_method" value="PUT" type="hidden" />
-			
-			<label>
-				Artist Name:
-				<input name="name" value="<%= artist.name %>"/>
-			</label>
-			<label>
-				Genre:
-				<input name="genre"  value="<%= artist.genre %>"/>
-			</label>
-			<label>
-				Number of Albums:
-				<input name="number_of_albums"  value="<%= artist.number_of_albums %>"/>
-			</label>
-			<label>
-				Photo:
-				<input name="photo_url"  value="<%= artist.photo_url %>"/>
-			</label>
-
-			  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-		  <button>Submit</button>
-
-		</form>
-
-	<h3>Delete this Artist</h3>
-
-	<form action="/artists/<%= artist.id %>" method="POST">
-	  <input name="_method" value="DELETE" type="hidden" />
-	  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
-	  <button>Delete</button>
-	</form>
 
 </body>
 </html>
