@@ -14,3 +14,8 @@
           %a{:href => "/songs"} Songs
   %h2= @artist.name
   %h3= @artist.genre 
+  %h4= "All Albums by #{@artist.name}:"
+  %ul  
+    - @albums.each do 
+    %li 
+      %a{:href => "/artist/#{@artist.id}/album/"}= @album.name  
