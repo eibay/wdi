@@ -3,7 +3,9 @@ class SongsController < ApplicationController
 	def create
 		Song.create(name: params[:name], artist_id: params[:artist_id])
 
-		redirect_to '/artists'
+		# artist = Artist.where(id = params[:artist_id])
+
+		redirect_to :back
 	end
 
 	def show
