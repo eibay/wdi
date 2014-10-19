@@ -1,13 +1,24 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>This artist's songs</title>
+	<title>This one song</title>
 </head>
 <body>
 
-<p>this is the song show page</p>
+<h1><%= song.name %></h1>
 
+<h3>Make a Change to this Song</h3>
+<form action"/songs/<%= song.id %>" method="POST">
+	<input name="_method" value="PUT" type="hidden" />
+	
+	<label>
+		Song Name:
+		<input name="name" value="<%= song.name %>" />
+	</label>
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  <button>Submit</button>
 
+</form>
 
 
 

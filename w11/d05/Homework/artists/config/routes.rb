@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   post 'songs' => 'songs#create'
   get 'songs/:id' => 'songs#show'
+  put 'songs/:id' => 'songs#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

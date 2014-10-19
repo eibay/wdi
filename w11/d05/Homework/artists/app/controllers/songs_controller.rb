@@ -7,7 +7,14 @@ class SongsController < ApplicationController
 	end
 
 	def show
-		binding.pry
+		render(:show, { locals: { song: Song.find(params[:id]) } })
+	end
+
+	def update
+		song = Song.find(params[:id])
+
+		song.update(name: params[:name])
+
 		render(:show, { locals: { song: Song.find(params[:id]) } })
 	end
 
