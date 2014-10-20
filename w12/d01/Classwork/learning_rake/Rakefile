@@ -6,6 +6,6 @@ namespace :driving do
 
   desc "Write driver name to driver file" 
   task :name do 
-    sh "cat #{ENV["NAME"]}| cat >> driver.md"
+    sh "cat #{ENV["NAME"]}| cat > driver.md"
   end   
 end 
