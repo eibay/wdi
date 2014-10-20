@@ -1,0 +1,24 @@
+<h1>Edit <%= artist.name %></h1>
+<form action="/artists/<%= artist.id %>/update" method="POST">
+<input name="_method" value="PUT" type="hidden" />
+	<label>
+		<input name="name" placeholder="<%= artist.name %>">
+	</label>
+	<label>
+		<input name="genre" placeholder="<%= artist.genre %>">
+	</label>
+	<label>
+		<input name="number_of_albums" placeholder="<%= artist.number_of_albums %>">
+	</label>
+	<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+	<button>Edit</button>
+</form>
+<%= form_tag("/artists/<%= artist.id %>/update", method: "post") do %>
+	<%= hidden_field_tag(:_method, "PUT") %>
+  	<%= label_tag %>
+  	<%= artist.name %>: <%= text_field_tag(:name) %>
+  	<%= artist.genre %>: <%= text_field_tag(:genre) %>
+  	<%= artist.number_of_albums %>: <%= text_field_tag(:album) %>
+  	<%= submit_tag("Edit") %>
+<% end %>
+<a href="/artists">Go Back</a>

@@ -1,0 +1,6 @@
+<h3><%= song.name %> / <a href="artists/<%= Artist.find(song.artist_id).id %>"><%= Artist.find(song.artist_id).name %></a></h3>
+
+<%= form_tag do %>
+  Form contents
+<% end %>
+<a href="/artists">Go Back</a>

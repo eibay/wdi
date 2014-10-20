@@ -3,11 +3,11 @@ def twisted_fizzbuzz(num)
 		if (i%3 == 0 && i<num) && (i%5 == 0 && i<num)
 			i = i + 1
 	    elsif i%3 == 0 && i<num
-	     	print i
+	     	puts i
 	    elsif i%5 == 0 && i<num
-	    	print i
+	    	puts i
 	    end
 	end
 end
 
-twisted_fizzbuzz(100)
+twisted_fizzbuzz(50)
