@@ -24,3 +24,10 @@
 - *Views*
   - Be sure to have all of the appropriate views that a CRUD application will require
   - Bonus: Use Rails' [view partials](http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials) to DRY up your views
+
+**Bonus**:
+- Use Rails [Form Helpers](http://guides.rubyonrails.org/form_helpers.html) instead of standard HTML forms
+- Use the [MusicBrainz](https://musicbrainz.org/) API to get Artist information.
+  - You can choose whether to use the MusicBrainz gem or HTTParty
+- Add a 3rd model for Albums.
+  - How does this relate to songs and artists?
