@@ -14,11 +14,12 @@ class SuperherosController < ApplicationController
 	#Bad input
 	#HTTParty.post('http://localhost:3000/superheros.json', :body => {name: "sean"})  
 	def create
-		superhero = Superhero.create(name: params["name"], age: params["age"], real_identity: params["real_identity"], powers: params["powers"], city_id: params["city_id"])
+		superhero = Superhero.new(name: params["name"], age: params["age"], real_identity: params["real_identity"], powers: params["powers"], city_id: params["city_id"])
 
 		respond_to do |format|
 			format.json do
-				if superhero.valid_superhero?
+				if superhero.valid?
+					superhero.save
 					render :json => superhero
 				else
 					render :json => "Bad input!".to_json
@@ -33,11 +34,16 @@ class SuperherosController < ApplicationController
 	#HTTParty.put('http://localhost:3000/superheros/1.json', :body => {name: "sean"})  
 	def update
 		superhero = Superhero.find(params[:id])
-		superhero.update(name: params["name"], age: params["age"], real_identity: params["real_identity"], powers: params["powers"], city_id: params["city_id"])
+		superhero.name = params["name"]
+		superhero.age = params["age"]
+		superhero.real_identity = params["real_identity"]
+		superhero.powers = params["powers"]
+		superhero.city_id = params["city_id"]
 
 		respond_to do |format|
 			format.json do
-				if superhero.valid_superhero?
+				if superhero.valid?
+					superhero.save
 					render :json => superhero
 				else
 					render :json => "Bad input!".to_json
