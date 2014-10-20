@@ -1,0 +1,43 @@
+namespace :driving do 
+  desc "open the door"
+  task :open_door do
+    puts "Car door has opened"
+  end
+
+  desc "seatbelt on"
+  task :seatbelt do
+    puts "Seat belt on"
+  end
+
+  desc "enter destination into GPS"
+  task :destination do
+  end
+
+
+  desc "creates a driver file"
+  task :driver do
+    sh "touch driver.md"
+    sh "echo #{ENV["NAME"]} >> driver.md"
+  end
+ 
+end
+
+
+namespace :instruction do
+  desc "making all files with directory [NAME]"
+  task :makingFiles do
+    #could of make something equal to ENV["NAME"]
+    sh "mkdir #{ENV["NAME"]}"
+    sh "touch #{ENV["NAME"]}/server.rb"
+    sh "echo 'require \"sinatra\"' >> #{ENV["NAME"]}/server.rb"
+    sh "echo 'require \"sinatra/reloader\"' >> #{ENV["NAME"]}/server.rb"
+    sh "echo 'require \"pry\"' >> #{ENV["NAME"]}/server.rb"
+    sh "echo 'require \"HTTParty\"' >> #{ENV["NAME"]}/server.rb"
+    sh "mkdir #{ENV["NAME"]}/public #{ENV["NAME"]}/views #{ENV["NAME"]}/lib"
+    sh "touch #{ENV["NAME"]}/lib/connection.rb"
+    sh "touch #{ENV["NAME"]}/public/styles.css #{ENV["NAME"]}/public/scripts.js"
+    sh "touch #{ENV["NAME"]}/views/index.erb #{ENV["NAME"]}/views/show.erb #{ENV["NAME"]}/views/edit.erb #{ENV["NAME"]}/views/new.erb"
+  end
+   
+
+end
