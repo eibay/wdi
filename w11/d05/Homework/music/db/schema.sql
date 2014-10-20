@@ -17,4 +17,4 @@ artist_id integer
 
 INSERT INTO artists (name, genre, number_of_albums) VALUES ('Blondie', 'New Wave/Punk', 40);
 
-INSERT INTO songs (name, artist_id) VALUES ('Heart of Glass', 1);
+DELETE FROM songs WHERE id = 10;

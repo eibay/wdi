@@ -1,0 +1,13 @@
+<label>
+			Artist:
+
+			<select name="artist_id">	
+				<option selected="selected" value="<%= song.artist[:id]%>"><%= song.artist[:name]%></option>
+
+				<% @artists.each do |artist| %>
+				<option value="<%= artist[:id] %>"><%= artist[:name] %></option>
+				<% end %>
+			</select></p>
+			<button>Update</button>
+			<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+		</form>
