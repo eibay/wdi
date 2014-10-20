@@ -1,0 +1,15 @@
+hd = <<HERE_DOCUMENT 
+Far-seeing as the crow; 
+  Concentrated as the stalking crane; 
+Light-sleeping as the hound; 
+  In control of the appetites; 
+Unecumbered by desires or a household. 
+HERE_DOCUMENT
+
+
+namespace :test do 
+  desc "write hd to stdout" 
+  task :write do 
+    sh "echo '#{hd}'"
+  end 
+end 
