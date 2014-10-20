@@ -1,0 +1,27 @@
+<h1>Hello, here are the songs:</h1>
+<ul>
+  <% songs.each do |song| %>
+    <li>
+      <a href="/songs/<%= song.id %>">
+        <%= song.name %>
+      </a>
+    </li>
+  <% end %>
+</ul> 
+
+<form action="/songs" method="POST">
+	<h3>create a new song</h3>
+  <label>
+    Song Name:
+    <input name="name" />
+  </label>
+
+  <label>
+    Artist Name:
+    <input name="artist_name" />
+  </label>
+
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+
+  <button>Submit</button>
+</form>
