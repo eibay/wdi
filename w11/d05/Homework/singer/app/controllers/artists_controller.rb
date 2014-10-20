@@ -32,6 +32,7 @@ class ArtistsController < ApplicationController
 	
 
 	def edit
+		@artist = Artist.find(params[:id])
 	end
 
 
@@ -45,13 +46,10 @@ class ArtistsController < ApplicationController
 		# Find an existing object using form parameters
 		@artist = Artist.find(params[:id])
 		# Update the object
-		if @artist.update_attributes(artist_params)
-		# If update succeeds, redirect to the index action
-			redirect_to(:action => 'show', :id => @artist.id)
-		else
-		# If update fails, redisplay the form so use can fix problems
-			render('edit')
-		end
+		@artist.update(name: params[:name], genre: params[:genre], number_of_albums: params[:number_of_albums])
+		
+		redirect_to '/artists'
+		
 	end
 
 	def destroy

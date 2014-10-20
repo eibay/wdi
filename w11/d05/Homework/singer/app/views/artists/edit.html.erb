@@ -3,7 +3,7 @@
 <div class="artists edit">
 	<h2> Update Artist: </h2>
 
-	<%= form_tag('/artists', method: 'post') do %>
+	<%= form_tag("/artists/#{@artist.id}", method: 'put') do %>
 
 		<table summary="Artist form fields">
 			<tr>
