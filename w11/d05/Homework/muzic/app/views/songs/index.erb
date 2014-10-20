@@ -1,0 +1,19 @@
+<%= render "shared/navbar" %>
+
+
+<% @songs.each do |song| %>
+<%= song.name %> by <%= song.artist.name %> <a href="songs/<%=song.id %>">Edit</a><br>
+<% end %>
+
+<h2>Add New Song to Collection</h2>
+<form method="POST" action="/songs">
+	<input type="text" name="name">
+	Song: <select name="artist_id">
+		<% @artists.each do |artist| %>
+			<option value="<%= artist.id %>" ><%= artist.name%></option>
+		<% end %>
+	</select>
+	<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+	<button>Add Song</button>
+</form>
+
