@@ -22,7 +22,7 @@ class SuperherosController < ApplicationController
 					superhero.save
 					render :json => superhero
 				else
-					render :json => "Bad input!".to_json
+					render :json => superhero.errors.messages.to_json
 				end
 			end
 		end
@@ -46,7 +46,7 @@ class SuperherosController < ApplicationController
 					superhero.save
 					render :json => superhero
 				else
-					render :json => "Bad input!".to_json
+					render :json => superhero.errors.messages.to_json
 				end
 			end
 		end
