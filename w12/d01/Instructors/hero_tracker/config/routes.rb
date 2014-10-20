@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'cars' => 'cars#monkey'
-  post 'cars' => 'cars#create'
+  root 'superheros#index'
+
+  resources :superheros
+
+#           Prefix Verb   URI Pattern                    Controller#Action
+#           root GET    /                              superheros#index
+#     superheros GET    /superheros(.:format)          superheros#index
+#                POST   /superheros(.:format)          superheros#create
+#  new_superhero GET    /superheros/new(.:format)      superheros#new
+# edit_superhero GET    /superheros/:id/edit(.:format) superheros#edit
+#      superhero GET    /superheros/:id(.:format)      superheros#show
+#                PATCH  /superheros/:id(.:format)      superheros#update
+#                PUT    /superheros/:id(.:format)      superheros#update
+#                DELETE /superheros/:id(.:format)      superheros#destroy
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -57,10 +69,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  get 'cars' => 'cars#index'
-  post 'cars' => 'cars#create'
-  get 'cars/:id' => 'cars#show'
-  put 'cars/:id' => 'cars#update'
-  delete 'cars/:id' => 'cars#destroy'
 end

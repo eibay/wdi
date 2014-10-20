@@ -1,0 +1,44 @@
+# rake driving:open_door
+# rake driving:seatbelt
+# rake driving:destination
+
+
+namespace :driving do
+
+	desc "opens the car door"
+	task :open_door do 
+
+		puts "car door has been opened"
+	end
+
+	desc "put on your seatbelt"
+	task :seatbelt do
+
+		puts "put on your fucking seatbelt!!!!"
+	end
+
+#passing in arguments into Rakefile
+	desc "enter destination into GPS - enter the name of the place as such 'PLACE=destination'"
+	task :destination do 
+		
+		puts "Entering #{ENV["PLACE"]} into GPS"
+	end
+
+#running shell commands via rake
+	desc "creates driver file"
+	task :driver do 
+
+		sh "touch driver.md"
+	end
+
+#creating new file, writing name into new file passing in arguments
+	desc "writes in driver file"
+	task :write_driver do 
+
+		sh "touch driver_name.md"
+		sh "echo #{ENV["NAME"]} >>driver_name.md"
+
+	end
+
+end
+

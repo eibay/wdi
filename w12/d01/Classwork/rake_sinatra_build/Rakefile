@@ -1,0 +1,36 @@
+namespace :sinatra_deploy do
+	desc "creates folders/files for sinatra"
+	task :create_folders do
+
+		sh "mkdir db"
+		sh "mkdir lib"
+		sh "mkdir public"
+		sh "mkdir views"
+		sh "mkdir model"
+
+		sh "touch ./db/schema.sql"
+		sh "touch ./lib/connection.rb"
+		sh "touch ./public/style.css"
+		sh "touch ./views/index.html.erb"
+		sh "touch server.rb"
+		sh "touch Gemfile"
+	end
+
+
+	desc "writing to files"
+	task :file_write do 
+
+		sh "echo 'source \"https://www.rubygems.org\"' >> Gemfile"	
+		sh "echo 'gem \"nokogiri\"' >> Gemfile"
+		sh "echo 'gem \"sinatra\"' >> Gemfile"
+		sh "echo 'gem \"activerecord\"' >> Gemfile"
+		sh "echo 'gem \"sinatra-activerecord\"' >> Gemfile"
+		sh "echo 'gem \"sinatra-contrib\"' >> Gemfile"
+		sh "echo 'gem \"rake\"' >> Gemfile"
+		sh "echo 'gem \"pg\"' >> Gemfile"
+		sh "echo 'gem \"pry\"' >> Gemfile"
+		sh "echo 'gem \"rack-parser\"' >> Gemfile"
+		sh "echo 'gem \"activesupport\"' >> Gemfile"
+	end
+
+end
