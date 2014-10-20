@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bankers and Mash</title>
+</head>
+<body>
+	<h1>How can I help you?</h1>
+	<p><%= msg %></p>
+	<p>Please enter a positive or negative amount to credit or debit your account</p>
+	<form action="/transaction" method="POST">
+		<input type="hidden" name="_method" value="PUT">
+		<input type="text" name="amount" placeholder="amount">
+		<button>Transact!</button>
+	</form>
+	<form action="/logout" method="GET">
+		<button>Log out</button>
+	</form>
+</body>
+</head>

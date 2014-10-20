@@ -14,13 +14,12 @@ use Rack::Session::Cookie, {
 
 
 get ('/') do
-	error = ""
+	signerror = ""
 	logerror = ""
-	erb(:index, locals: {signerror: error, logerror: logerror})
+	erb(:index, locals: {signerror: signerror, logerror: logerror})
 end
 
 post ('/users') do
-
 	logerror = ""
 	if User.find_by(email: params[:email]) != nil
 		signerror = "email already in use, please try again"
@@ -31,8 +30,7 @@ post ('/users') do
 		email: params[:email],
 		password: params[:password],
 		balance: params[:balance])
-	singerror="congrats!  you're signed up!"
-erb(:index, locals: {signerror: singerror, logerror: logerror})
+redirect "/"
 end
 end
 
@@ -52,9 +50,9 @@ end
 
 get ('/transaction') do 
 	if session[:user]
-		x = "Hello #{session[:user]}, your balance is $#{session[:balance]}."
+		msg = "Hello #{session[:user]}, your balance is $#{session[:balance]}."
 	end
-	erb(:transaction, locals: {msg: x})
+	erb(:transaction, locals: {msg: msg})
 end
 
 put ('/transaction') do 

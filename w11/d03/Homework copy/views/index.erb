@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bankers and Mash</title>
+</head>
+<body>
+	<h1>$$$$$</h1>
+
+	<h2>login:</h2><p><%= logerror %></p>
+	<form action="/login" method="GET">
+		<input type="text" name="email" placeholder="email please">
+		<input type="text" name="password" placeholder="password">
+		<button>Log in!</button>
+	</form>
+
+	<h2>Sign up!</h2><p><%= signerror %></p>
+	<form action="/users" method="POST">
+		<input type="text" name="name" placeholder="name">
+		<input type="text" name="email" placeholder="email">
+		<input type="text" name="password" placeholder="password">
+		<input type="text" name="balance" placeholder="initial deposit amount">
+		<button>Sign me up!</button>
+	</form>
+</body>
+</html>

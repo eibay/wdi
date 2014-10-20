@@ -1,0 +1,21 @@
+<h1>ARTISTS</h1>
+<ul>
+  <% artists.each do |artist| %>
+    <li>
+      <a href="/artists/<%= artist.id %>">
+        <%= artist.name %> <%= artist.genre %> <%= artist.number_of_albums %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_tag("/artists", method: "POST") do %>
+  <%= label_tag(:name, "Name:") %>
+  <%= text_field_tag(:name) %>
+  <%= label_tag(:genre, "Genre:") %>
+  <%= text_field_tag(:genre) %>
+  <%= label_tag(:number_of_albums, "Number of albums:") %>
+  <%= text_field_tag(:number_of_albums) %>
+  <%= submit_tag("Add artist") %>
+<% end %>
+
