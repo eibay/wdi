@@ -18,11 +18,11 @@ class SuperherosController < ApplicationController
 
 		respond_to do |format|
 			format.json do
-				if superhero.valid_superhero?
+				if superhero.valid?
 					superhero.save
 					render :json => superhero
 				else
-					render :json => "Bad input!".to_json
+					render :json => superhero.errors.messages.to_json
 				end
 			end
 		end
@@ -42,11 +42,11 @@ class SuperherosController < ApplicationController
 
 		respond_to do |format|
 			format.json do
-				if superhero.valid_superhero?
+				if superhero.valid?
 					superhero.save
 					render :json => superhero
 				else
-					render :json => "Bad input!".to_json
+					render :json => superhero.errors.messages.to_json
 				end
 			end
 		end
