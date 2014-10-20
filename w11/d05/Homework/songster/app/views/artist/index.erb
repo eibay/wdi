@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>SONGSTER</title>
+  </head>
+  <body>
+    <h1>Songster</h1>
+    <span style="font-style=italic"><p>Find teh songz</p></span>
+    <hr />
+    <h4>Add an artist</h4><br />
+
+    <form action="/artist" method="POST">
+      <label>Artist: </label>
+      <input type="text" name="artist_name"> ::
+      <label>Genre: </label>
+      <input type="text" name="genre"> ::
+      <label>Albums: </label>
+      <input type="number" name="albums" min="1"> ::
+      <label>Artist pic: </label>
+      <input type="text" name="pic"> ::
+      <button>Submit</button>
+    </form>
+    <hr />
+    <h4>Add songs</h4>
+    <form action="/artist/<%= params['artist.id'] %>/song/create" method="POST">
+      <label>Artist: </label>
+      <select>
+        <% artists.each do |artist| %>
+        <option value="<%= artist.id %>"><%= artist.name %></option>
+        <% end %>
+      </select> ::
+      <label>Song title: </label>
+      <input type="text" name="song_title">
+      <button>Submit</button>
+    </form>
+
+    <h4>Teh Artists</h4>
+    <ul>
+      <% artists.each do |artist| %>
+      <li><a href="/artist/<%= artist.id %>"><%= artist.name %></a></li>
+      <% end %>
+    </ul>
+
+
+  </body>
+</html>
