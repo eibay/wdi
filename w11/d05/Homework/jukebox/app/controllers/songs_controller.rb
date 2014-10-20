@@ -8,12 +8,12 @@ class SongsController < ApplicationController
 			
 			render(:index, { locals: {songs: songs, artists: artist} })
 		else
-			render(:index, { locals: {songs: Song.all, artists: Artist.all} })
+			render(:index, { locals: {songs: Song.all, albums: Album.all} })
 		end
 	end
 
 	def create
-		song = {name: params[:name], artist_id: params[:artist_id]}
+		song = {name: params[:name], album_id: params[:album_id]}
 		Song.create(song)
 		redirect_to "/songs"
 	end

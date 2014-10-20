@@ -3,7 +3,7 @@ class Song < ActiveRecord::Base
 
 
 	def get_artist
-		return Artist.find(self.artist_id)
+		return Artist.find(Album.find(self.album_id).artist_id)
 	end
 
 end

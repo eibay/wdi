@@ -1,0 +1,30 @@
+<h1>Albums</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Artist</th>
+	</tr>
+
+	<% albums.all.each do |album| %>
+	<tr>
+		<td><%= album.name %></td>
+		<td><%= Artist.find(album.artist_id).name %></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= form_for :album do |f| %>
+<p>
+	<%= f.label :name %><br>
+	<%= text_field :name, "Name" %>
+</p>
+
+<p>
+	<%= collection_select(:artist, :artist_id, Artist.all, :id, :name) %>
+</p>
+
+<p>
+	<%= submit_tag("Add Album") %>
+</p>
+<% end %>
