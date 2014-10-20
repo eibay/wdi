@@ -1,20 +1,25 @@
 Rails.application.routes.draw do
 
 
-  # Artist routes
-  get "artists" => "artists#index"
-  get "artists/:id" => "artists#show"
-  put "artists/:id" => "artists#update"
-  post "artists" => "artists#create"
-  delete "artists/:id" => "artists#destroy"
+  # # Artist routes
+  # get "artists" => "artists#index"
+  # get "artists/:id" => "artists#show"
+  # put "artists/:id" => "artists#update"
+  # post "artists" => "artists#create"
+  # delete "artists/:id" => "artists#destroy"
 
 
-  # Song routes  
-  get "songs" => "songs#index"
-  get "songs/:id" => "songs#show"
-  post "songs" => "songs#create"
-  put "songs/:id" => "songs#update"
-  delete "songs/:id" => "songs#destroy"
+  # # Song routes  
+  # get "songs" => "songs#index"
+  # get "songs/:id" => "songs#show"
+  # post "songs" => "songs#create"
+  # put "songs/:id" => "songs#update"
+  # delete "songs/:id" => "songs#destroy"
+  resources :songs
+  resources :artists do
+    resources :songs
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,7 +1,15 @@
 class SongsController < ApplicationController
 
 	def index
-		render(:index, { locals: {songs: Song.all, artists: Artist.all} })
+		if params[:artist_id]
+			artist = Artist.where({id: params[:artist_id]})
+
+			songs = Song.where({artist_id: params[:artist_id]})
+			
+			render(:index, { locals: {songs: songs, artists: artist} })
+		else
+			render(:index, { locals: {songs: Song.all, artists: Artist.all} })
+		end
 	end
 
 	def create
