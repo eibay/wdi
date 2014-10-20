@@ -16,7 +16,13 @@ class SuperherosController < ApplicationController
 		end
 	end
 
-	
+	def update
+		superhero = Superhero.find(params[:id])
+		superhero.update(name: params["name"], age: params["age"], real_identity: params["real_identity"], powers: params["powers"], city_id: params["city_id"])
 
+		respond_to do |format|
+			format.json { render :json => superhero }
+		end
+	end
 
 end
