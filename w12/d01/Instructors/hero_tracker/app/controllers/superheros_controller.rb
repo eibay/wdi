@@ -18,7 +18,7 @@ class SuperherosController < ApplicationController
 
 		respond_to do |format|
 			format.json do
-				if superhero.valid_superhero?
+				if superhero.valid?
 					superhero.save
 					render :json => superhero
 				else
@@ -42,7 +42,7 @@ class SuperherosController < ApplicationController
 
 		respond_to do |format|
 			format.json do
-				if superhero.valid_superhero?
+				if superhero.valid?
 					superhero.save
 					render :json => superhero
 				else
