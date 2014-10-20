@@ -36,15 +36,25 @@ post '/signup' do
 	puts "Welcome!"
 end
 
-get '/login' do 
+get '/login' do
+	email = params["email"]
+	password = params["password"]
+
+	if Account.find_by({email: params["email"]})
+		this_account = Account.find_by({email: params["email"]})
+		this_account.authenticate(params[:password])
+
+ 	end
+	
 	erb(:index)
+
 end
 
 get '/users' do
 	accounts = Account.all()
 
 	accounts.each do |person|
-		if person.email == params[:email] && person.password == params[:password]
+		if person.email == params[:email]
 			session[:name] = person.email
 			redirect "/users/#{person.id}"
 		else
@@ -53,6 +63,7 @@ get '/users' do
 	end
 	redirect '/'
 end
+
 
 get '/users/:id' do
 	account = Account.find(params[:id])
@@ -72,6 +83,7 @@ put '/users/:id' do
 	
 	redirect "/users/#{account.id}"
 end
+
 
 get '/logout' do
 	response.delete_cookie('rack.session')
