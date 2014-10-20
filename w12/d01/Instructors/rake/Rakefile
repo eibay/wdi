@@ -1,0 +1,44 @@
+
+namespace :driving do
+
+	desc "opens the car door"
+	task :open_door do
+		puts "Car door has been opened" 
+	end
+
+	desc "put on my seatbelt"
+	task :seatbelt do
+		puts "Seatbelt has been put on"
+	end
+
+	desc "enter destination into GPS - enter the name of the place as such 'PLACE=destination'"
+	task :destination do
+		puts "Entering #{ENV["PLACE"]} into the GPS"
+	end
+
+	desc "creates driver file with a drivers name written to it"
+	task :driver do
+		sh "touch driver.md"
+		sh "echo #{ENV["NAME"]} >> driver.md"
+	end
+
+end
+
+namespace :rat_pack do
+
+  desc "Builds Sinatra application structure"
+  task :build do
+    base_dir = ENV["FOLDER"]
+
+    sh "mkdir ./#{base_dir}"
+
+    sh "touch ./#{base_dir}/server.rb"
+
+    sh "mkdir ./#{base_dir}/public"
+    sh "mkdir ./#{base_dir}/public/javascripts"
+    sh "touch ./#{base_dir}/public/javascripts/scripts.js"
+    sh "touch ./#{base_dir}/Gemfile"
+    sh "mkdir ./#{base_dir}/lib"
+  end
+
+end
