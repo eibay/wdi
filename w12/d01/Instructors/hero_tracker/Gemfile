@@ -38,3 +38,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+<<<<<<< HEAD
+=======
+gem 'pry-rails'
+
+>>>>>>> 3a689f257e9f8c7e7ba303a0358d69a62effe06b
