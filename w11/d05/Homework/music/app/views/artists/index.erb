@@ -8,10 +8,11 @@
  
   <%= submit_tag "Add Artist" %>
   <% end %>
-
+  <ul>
  <%@artists.each do |artist|%>
- <a href="/artists/<%=artist.id%>"><%=artist.name%></a>
+<li> <a href="/artists/<%=artist.id%>"><%=artist.name%></a></li>
  <%end%>
+</ul>
 
 
 

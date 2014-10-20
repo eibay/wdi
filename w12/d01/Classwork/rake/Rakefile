@@ -1,0 +1,36 @@
+namespace :driving do
+	desc "opens the car door"
+	task :open_door do
+
+		puts 'the car door has been opened'
+	end
+
+	desc "put on seatbelt"
+	task :seatbelt do
+		puts 'put on seatbelt'
+	end
+
+	desc "enter destination into GPS"
+	task :destination do 
+		puts "Enterting #{ENV['place']} into GPS"
+	end
+	desc "creates driver file, takes drivers name as argument name=name"
+	task :driverdo do
+		sh 'touch driver.md'
+		sh "echo #{ENV['name']} >> driver.md"
+	end
+end
+
+namespace :sinatra do
+	desc 'barbones sinatra app, pass app name'
+	task :make_sinatra do
+		sh "mkdir #{ENV['app']}"
+		sh "touch #{ENV['app']}/server.rb"
+		sh "echo require 'sinatra' >> #{ENV['app']}/server.rb"
+		sh "mkdir #{ENV['app']}/public"
+		sh "mkdir #{ENV['app']}/views"
+		sh "mkdir #{ENV['app']}/models"
+	end
+
+end
+

@@ -1,3 +1,3 @@
 class Song < ActiveRecord::Base
-	self.has_one(:artist)
+	self.belongs_to(:artist)
 end
