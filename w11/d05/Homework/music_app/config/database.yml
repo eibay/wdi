@@ -1,0 +1,7 @@
+development: 
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  host: localhost
+  username: Trish
+  database: music_app
