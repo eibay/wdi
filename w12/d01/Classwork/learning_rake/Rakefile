@@ -1,0 +1,11 @@
+namespace :driving do
+  desc "Create a driver file"
+  task :driver do
+    sh "touch driver.md" 
+  end
+
+  desc "Write driver name to driver file" 
+  task :name do 
+    sh "cat #{ENV["NAME"]}| cat >> driver.md"
+  end   
+end 
