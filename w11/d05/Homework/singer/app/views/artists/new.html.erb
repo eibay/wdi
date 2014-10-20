@@ -1,0 +1,28 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="artists new">
+	<h2> Add Artist: </h2>
+
+	<%= form_for(@artist, :url => {:action => 'create'}) do |f| %>
+
+		<table summary="Artist form fields">
+			<tr>
+				<th>Name:</th>
+				<td><%= f.text_field(:name) %></td>
+			</tr>
+			<tr>
+				<th>Genre:</th>
+				<td><%= f.text_field(:genre) %></td>
+			</tr>
+			<tr>
+				<th>Number of Albums:</th>
+				<td><%= f.text_field(:number_of_albums) %></td>
+			</tr>
+		</table>
+
+		<div class="form-buttons">
+			<%= submit_tag("Add Artist") %>
+		</div>
+
+	<%end%>
+</div>

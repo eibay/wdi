@@ -1,0 +1,22 @@
+<div class="artists index">
+<h1>Artists</h1>
+
+
+<%= form_tag('/artists', method: 'post') do %>
+  <%= text_field(:name, :attr, :placeholder => 'Name')%><br/>
+  <%= text_field(:genre, :attr, :placeholder => 'Genre')%><br/>
+  <%= text_field(:number_of_albums, :attr, :placeholder => '# of Albums')%><br/>
+  <%= submit_tag('Add')%>
+<% end %>
+
+<ul>
+	<h3>Artist List:</h3>
+	<% @artists.each do |artist| %>
+		<li><a href="/artists/<%= artist.id %>"><%= artist.name %></a>
+			<%= link_to("Show", {:action => 'show', :id => artist.id}, :class => 'action show') %>
+			<%= link_to("Edit", {:action => 'edit', :id => artist.id}, :class => 'action edit') %>
+			<%= button_to("Delete", { :action => 'destroy', :id => artist.id}, :method => :delete, :class => 'action delete') %>
+		</li>
+	<% end %>
+</ul>
+

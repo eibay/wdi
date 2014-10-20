@@ -1,0 +1,28 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="artists edit">
+	<h2> Update Artist: </h2>
+
+	<%= form_tag('/artists', method: 'post') do %>
+
+		<table summary="Artist form fields">
+			<tr>
+				<th>Name:</th>
+				<td><%= text_field_tag(:name) %></td>
+			</tr>
+			<tr>
+				<th>Genre:</th>
+				<td><%= text_field_tag(:genre) %></td>
+			</tr>
+			<tr>
+				<th>Number of Albums:</th>
+				<td><%= text_field_tag(:number_of_albums) %></td>
+			</tr>
+		</table>
+
+		<div class="form-buttons">
+			<%= submit_tag("Update Artist") %>
+		</div>
+
+	<%end%>
+</div>
