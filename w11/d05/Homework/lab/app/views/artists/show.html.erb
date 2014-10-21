@@ -1,0 +1,40 @@
+<h1><%= artist.name %></h1>
+<h3 style="display: inline">Genre: <%= artist.genre %>, Album: <%= artist.number_of_albums %></h3>
+<ul>
+	<li>Country: <%= country %></li>
+	<li>Disambiguation: <%= disambiguation %>
+</ul>	
+<form action="/artists/<%= artist.id %>/edit" method="GET" style="display: inline"> 
+  <input name="_method" value="PUT" type="hidden" />
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  <button>Edit Artist</button>
+</form>
+<form action="/artists/<%= artist.id %>" method="POST" style="display: inline"> 
+  <input name="_method" value="DELETE" type="hidden" />
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  <button>Delete Artist</button>
+</form>
+<h2>Songs</h2>
+<ul>
+<% songs.each do |song| %>
+	<li><%= song.name %>
+	<form action="/songs/<%= song.id %>" method="POST" style="display: inline"> 
+  		<input name="_method" value="DELETE" type="hidden" />
+  		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  		<input name="artist_id" value="<%= artist.id %>" type="hidden">
+  		<button>Delete Song</button>
+	</form>
+	</li>
+<% end %>
+</ul>
+<h2>Add Songs</h2>
+<form action="/artists/<%= artist.id %>/song" method="POST">
+	<label>
+		<input name="name" placeholder="Song Name">
+	</label>
+	<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+	<input name="artist_id" value="<%= artist.id %>" type="hidden">
+	<button>Submit</button>
+</form>
+<br />
+<a href="/artists">Go Back</a>

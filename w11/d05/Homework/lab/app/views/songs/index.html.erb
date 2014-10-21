@@ -1,0 +1,6 @@
+<h1>Your Favorite Songs</h1>
+<ul>
+<% songs.each do |song| %>
+	<li><h2><%= song.name %> / <a href="artists/<%= Artist.find(song.artist_id).id %>"><%= Artist.find(song.artist_id).name %></a></h2></li>
+<% end %>
+</ul>

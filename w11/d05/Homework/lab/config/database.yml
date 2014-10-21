@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  username: shotaro
+  host: localhost
+  database: lab
+  pool: 5
+  timeout: 5000

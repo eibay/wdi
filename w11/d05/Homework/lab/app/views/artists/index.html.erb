@@ -1,0 +1,34 @@
+<h1>Welcome</h1>
+<h2>Your Favorite Artists</h2>
+<!-- <form action="/artists" method="POST">
+	<label>
+		<input name="name" placeholder="Artist">
+	</label>
+	<label>
+		<input name="genre" placeholder="Genre">
+	</label>
+	<label>
+		<input name="album" placeholder="The Number of Album">
+	</label>
+	<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+	<button>Submit</button>
+</form> -->
+<%= form_tag("/artists", method: "post") do %>
+  <%= label_tag %>
+  Artist: <%= text_field_tag(:name) %>
+  Genre: <%= text_field_tag(:genre) %>
+  Number of Albums: <%= text_field_tag(:album) %>
+  <%= submit_tag("Submit") %>
+<% end %>
+<ul>
+<% artists.each do |artist| %>
+	<a href="artists/<%= artist.id%>">
+	<li><h3><%= artist.name %></h3></a>Genre: <%= artist.genre %>, Albums: <%= artist.number_of_albums %></li>
+<% end %>
+</ul><br />
+<h2>Your Favorite Songs</h2>
+<ul>
+<% songs.each do |song| %>
+	<li><h3><%= song.name %> / <a href="artists/<%= Artist.find(song.artist_id).id %>"><%= Artist.find(song.artist_id).name %></a></h3></li>
+<% end %>
+</ul>
