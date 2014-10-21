@@ -1,0 +1,21 @@
+class Superhero < ActiveRecord::Base
+	belongs_to :city
+	validates :name, :real_identity, presence: true
+end
+
+
+
+	def create
+		superhero = Superhero.new(name: params["name"], age: params["age"], real_identity: params["real_identity"], powers: params["powers"], city_id: params["city_id"])
+
+		respond_to do |format|
+			format.json do
+				if superhero.valid?
+					superhero.save
+					render :json => superhero
+				else
+					render :json => "Bad input!".to_json
+				end
+			end
+		end
+	end

@@ -32,3 +32,7 @@
 # $ rake db:migrate
 
 # $ rails g migration AddCityIDToSuperheroesTable
+
+# $ rake db:drop db:create db:migrate
+# $ rake db:drop db:create db:migrate
+# $ rake db:drop db:create db:migrate

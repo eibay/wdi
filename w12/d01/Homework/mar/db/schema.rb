@@ -11,25 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020162451) do
+ActiveRecord::Schema.define(version: 20141020235222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cities", force: true do |t|
-    t.string   "name"
+  create_table "actors", force: true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.text     "picture_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "superheros", force: true do |t|
-    t.string   "name"
-    t.string   "real_identity"
+  create_table "movies", force: true do |t|
+    t.string   "title"
+    t.integer  "year"
+    t.text     "poster_url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "powers"
-    t.integer  "age"
-    t.integer  "city_id"
+  end
+
+  create_table "roles", force: true do |t|
+    t.string  "character_name"
+    t.integer "movie_id"
+    t.integer "actor_id"
   end
 
 end

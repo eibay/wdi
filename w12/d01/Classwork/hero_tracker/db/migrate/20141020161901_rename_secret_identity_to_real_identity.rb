@@ -1,5 +1,5 @@
 class RenameSecretIdentityToRealIdentity < ActiveRecord::Migration
   def change
-  	remane_column :superheroes, :secret_identity, :real_identity
+  	rename_column :superheros, :secret_identity, :real_identity
   end
 end
