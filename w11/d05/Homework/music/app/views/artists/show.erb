@@ -1,0 +1,17 @@
+<h1><%= artist.name %></h1>
+<p><%= artist.genre %>, <%= artist.number_of_albums %></p>
+
+
+<%= form_tag("/artists/#{artist.id}", method: "DELETE") do %>
+  <%= submit_tag("Delete") %>
+<% end %>
+
+<%= form_tag("/artists/#{artist.id}", method: "PUT") do %>
+  <%= label_tag(:name, "Name:") %>
+  <%= text_field_tag(:name, "#{artist.name}") %>
+  <%= label_tag(:genre, "Genre:") %>
+  <%= text_field_tag(:genre, "#{artist.genre}") %>
+  <%= label_tag(:number_of_albums, "Number of albums:") %>
+  <%= text_field_tag(:number_of_albums, "#{artist.number_of_albums}") %>
+  <%= submit_tag("Submit") %>
+<% end %>

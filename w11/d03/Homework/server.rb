@@ -2,6 +2,7 @@ require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
+require 'bcrypt'
 require_relative './db/connection.rb'
 require_relative './db/models.rb'
 
@@ -13,12 +14,13 @@ use Rack::Session::Cookie, {
 
 
 get ('/') do
-	signerror = ""
+	error = ""
 	logerror = ""
-	erb(:index, locals: {signerror: signerror, logerror: logerror})
+	erb(:index, locals: {signerror: error, logerror: logerror})
 end
 
 post ('/users') do
+
 	logerror = ""
 	if User.find_by(email: params[:email]) != nil
 		signerror = "email already in use, please try again"
@@ -29,14 +31,15 @@ post ('/users') do
 		email: params[:email],
 		password: params[:password],
 		balance: params[:balance])
-redirect "/"
+	singerror="congrats!  you're signed up!"
+erb(:index, locals: {signerror: singerror, logerror: logerror})
 end
 end
 
 get ('/login') do 
 	signerror = ""
 	user = User.find_by(email: params[:email])
-	if user.password != params[:password]
+	if user.authenticate(params[:password]) == false
 		logerror = "login not correct"
 		erb(:index, locals: {signerror: signerror, logerror: logerror})
 	else
@@ -49,9 +52,9 @@ end
 
 get ('/transaction') do 
 	if session[:user]
-		msg = "Hello #{session[:user]}, your balance is $#{session[:balance]}."
+		x = "Hello #{session[:user]}, your balance is $#{session[:balance]}."
 	end
-	erb(:transaction, locals: {msg: msg})
+	erb(:transaction, locals: {msg: x})
 end
 
 put ('/transaction') do 

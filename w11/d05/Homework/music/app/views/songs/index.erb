@@ -1,0 +1,19 @@
+<h1>SONGS!</h1>
+<ul>
+  <% songs.each do |song| %>
+    <li>
+      <a href="/songs/<%= song.id %>">
+        <%= song.name %> <%= song.artist %> 
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= form_tag("/songs", method: "POST") do %>
+  <%= label_tag(:name, "Name:") %>
+  <%= text_field_tag(:name) %>
+  <%= label_tag(:artist, "Artist:") %>
+  <%= text_field_tag(:artist) %>
+  <%= submit_tag("Add song!") %>
+<% end %>
