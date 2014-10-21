@@ -1,0 +1,32 @@
+<h1><%= artist.name %></h1>
+<p><%= artist.genre %>, <%= artist.number_of_albums %> albums produced</p>
+
+<form action="/artists/<%= artist.id %>" method="POST" > 
+
+  <input name="_method" value="DELETE" type="hidden" />
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  <button>Delete</button>
+</form>
+
+<form action="/artists/<%= artist.id %>" method="POST">
+  <h3>Revise this artist</h3>
+  <label>
+    Name:
+    <input name="name" />
+  </label>
+
+  <label>
+    Genre:
+    <input name="genre" />
+  </label>
+
+  <label>
+    Number of Albums:
+    <input name="number_of_albums" />
+  </label>
+
+  <input name="_method" value="PUT" type="hidden" />
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+
+  <button>Update</button>
+</form>
