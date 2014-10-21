@@ -12,10 +12,8 @@ class ActorsController < ApplicationController
     respond_to do |format|
       format.json { render :json => actors }
     end 
-end 
-
-
-def create 
+    
+    def create 
   actor = Actor.new(
     fname: params["fname"],
     lname: params["lname"],
@@ -51,3 +49,6 @@ def update
     end 
   end 
 end 
+end 
+
+
