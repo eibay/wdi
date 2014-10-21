@@ -1,8 +1,15 @@
 #!/usr/bin/env ruby 
 
 require 'themoviedb' 
+require 'awesome_print'
 
 puts ARGV.last 
 
 Tmdb::Api.key "1b8968d4b4eaa99937e2f4cb47dbbabe"
-puts Tmdb::Movie.find ARGV.last 
+movie_array = Tmdb::Movie.find ARGV.last 
+
+first_result = movie_array[0] 
+
+ap first_result.title 
+ap first_result.poster_path 
+ap first_result.release_date 
