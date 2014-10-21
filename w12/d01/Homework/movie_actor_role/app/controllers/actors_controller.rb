@@ -9,6 +9,7 @@ class ActorsController < ApplicationController
 	end
 
 	def create
+		params = JSON.parse(request.body.read)[0]
 		@actor = Actor.create({fname: params[:fname], lname: params[:lname], picture_url: params[:picture_url]})
 		
 		respond_to do |format|
@@ -23,5 +24,5 @@ class ActorsController < ApplicationController
 			format.json { render :json => @actor, :include => [:movies, :roles]}
 		end
 	end
-	
+
 end

@@ -9,7 +9,8 @@ class MoviesController < ApplicationController
 	end
 
 	def create
-		@movie = Movie.create({title: params[:title], year: params[:year], poster_url: params[:poster_url]})
+		params = JSON.parse(request.body.read)[0]
+		@movie = Movie.create({title: params["title"], year: params["year"], poster_url: params["poster_url"] })
 
 		respond_to do |format|
 			format.json {render :json => @movie }

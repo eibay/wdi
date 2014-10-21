@@ -9,6 +9,7 @@ class RolesController < ApplicationController
 	end
 
 	def create
+		params = JSON.parse(request.body.read)[0]
 		@role = Role.create({character_name: params[:character_name], actor_id: params[:actor_id], movie_id: params[:movie_id]})
 
 		respond_to do |format|
