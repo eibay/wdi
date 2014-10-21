@@ -16,7 +16,4 @@ class ActorsController < ApplicationController
 		end
 	end
 
-	def show
-		
-
 end
