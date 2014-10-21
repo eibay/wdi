@@ -1,4 +1,4 @@
-class PuppiesController < ActionController::Base
+class PuppiesController < ActionController::ApplicationController
 
 	def new
 	end
@@ -7,18 +7,19 @@ class PuppiesController < ActionController::Base
 		@puppy = Puppy.find(params[:id])
 		@puppy.destroy
 
-		redirect_to puppies_path
+		redirect_to "/puppies"
 	end
 
 	def create
 		@puppy = Puppy.new(puppy_params)
 
 		@puppy.save
-		redirect_to @puppy
+		redirect_to "/puppies"
 	end
 
 	def show
 		@puppy = Puppy.find(params[:id])
+		# redirect_to "/puppies/edit/" + params[:id]
 	end
 
 	def index
@@ -33,7 +34,7 @@ class PuppiesController < ActionController::Base
 	  @puppy = Puppy.find(params[:id])
 	 
 	  if @puppy.update(puppy_params)
-	    redirect_to @puppy
+	    redirect_to "/puppies"
 	  else
 	    render 'edit'
 	  end

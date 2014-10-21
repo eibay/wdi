@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  user: grampus
+  host: localhost
+  database: jukebox
+  pool: 5

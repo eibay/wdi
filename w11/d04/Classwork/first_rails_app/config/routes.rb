@@ -4,9 +4,22 @@ Rails.application.routes.draw do
   
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  resources :puppies
 
-  delete "puppies/:id" => "puppies#destroy"
+  # resources :puppies
+
+  get "puppies" => "puppies#index"
+
+  get "puppies/new" => "puppies#new"
+
+  get "puppies/:id" => "puppies#show"
+
+  get "puppies/delete/:id" => "puppies#destroy"
+
+  get "puppies/edit/:id" => "puppies#edit"
+
+  post "puppies" => "puppies#create"
+
+  put "puppies/edit/:id" => "puppies#update"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

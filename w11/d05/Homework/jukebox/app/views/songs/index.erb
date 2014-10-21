@@ -1,0 +1,38 @@
+<h1>SONGS</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Album</th>
+		<th>Artist</th>
+		<th></th>
+	</tr>
+	<% songs.each do |song| %>
+	<tr>
+		<td><a href="/songs/<%= song.id %>"><%= song.name %></a></td>
+		<td><%= Album.find(song.album_id).name %> </td>
+		<td><a href="/artists/<%= song.get_artist.id %>"><%= song.get_artist.name %></a></td>
+		<td>
+			<form action="/songs/<%= song.id %>" method="POST">
+				<input type="hidden" name="_method" value="DELETE">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+				<button>Delete</button>
+			</form>
+		</td>
+	</tr>
+	<% end %>
+</table>
+
+<h2>Enter a new song</h2>
+<form action="/songs" method="POST">
+	<input type="hidden" name="authenticity_token" value="form_authenticity_token">
+	<input name="name" placeholder="Name">
+	<select name="album_id">
+		<% albums.each do |album| %>
+		<option value="<%= album.id %>"><%= album.name %></option>
+		<% end %>
+	</select>
+	<button>Submit</button>
+</form>
+
+

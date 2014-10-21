@@ -12,12 +12,11 @@
       <td><a href="/puppies/<%= puppy.id %>"><%= puppy.name %></a></td>
       <td><%= puppy.breed %></td>
       <td><center><%= puppy.cuteness %></center></td>
-			<td><%= link_to 'Show', puppy_path(puppy) %></td>
-    	<td><%= link_to 'Edit', edit_puppy_path(puppy) %></td>
-    	<td><%= link_to "Delete", puppy_path(puppy), method: :delete %></td>
-    	</td>
+      <td><a href="/puppies/edit/<%= puppy.id %>">Edit</a></td>
+      <td><form action="/puppies/delete/<%= puppy.id %>" method="DELETE">
+      	<button>KILL THIS PUPPY</button>
+      </form></td>
     </tr>
   <% end %>
 </table>
 
-<%= link_to 'New Puppy', new_puppy_path %>
