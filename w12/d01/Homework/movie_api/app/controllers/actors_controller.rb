@@ -3,10 +3,10 @@ class ActorsController < ApplicationController
     def index 
       actors = Actor.all 
 
-      # list roles an actor has had, like this 
-      actors.each do |actor|
-        actor["roles"] = Role.where actor_id: actor.id 
-      end 
+      # # list roles an actor has had, like this 
+      # actors.each do |actor|
+      #   actor["roles"] = Role.where actor_id: actor.id 
+      # end 
     end 
 
     respond_to do |format|

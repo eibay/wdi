@@ -4,10 +4,10 @@ class MoviesController < ApplicationController
   def index
     movies = Movie.all
 
-    # prolly a better way to do this but for now I'm just gonna... 
-    movies.each do |movie|
-      movie["roles"] = Role.where movie_id: movie.id 
-    end  
+    # # prolly a better way to do this but for now I'm just gonna... 
+    # movies.each do |movie|
+    #   movie["roles"] = Role.where movie_id: movie.id 
+    # end  
 
     respond_to do |format|
       format.json { render :json => movies }
