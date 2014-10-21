@@ -9,7 +9,6 @@ function ourParseTime(time){
 ourParseTime("12:00pm");
 // { hours: 12, minutes: 0, meridian: 'pm' }
 
-
 function minutesFromMidnight(time) {
   var totalMinutes = (time['hours'] % 12 * 60) + time['minutes'];
 
@@ -20,12 +19,10 @@ function minutesFromMidnight(time) {
   return totalMinutes;
 }
 
-
 minutesFromMidnight({ hours: 12, minutes: 0, meridian: 'am' })
 // 0
 minutesFromMidnight({ hours: 12, minutes: 0, meridian: 'pm' })
 // 720
-
 
 function countingMinutes(timeSpan) {
   startTime = ourParseTime( timeSpan.split('-')[0] );
@@ -40,9 +37,7 @@ function countingMinutes(timeSpan) {
   return totalMinutes;
 };
 
-
 countingMinutes("12:30pm-01:00pm")
 // 30
-
 countingMinutes("01:30am-01:15am")
 // 1425
