@@ -1,0 +1,8 @@
+
+development:
+  adapter: postgresql
+  host: localhost
+  username: medusa
+  database: songster
+  pool: 5
+  timeout: 5000

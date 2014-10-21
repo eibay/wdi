@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Songster::Artist</title>
+  </head>
+  <body>
+    <h1>Songster</h1>
+    <span style="font-style=italic"><p>Find teh songz</p></span>
+    <hr />
+    <a href="/">Home</a>
+    <h2><%= artist.name %></h2>
+    <p><span style="font-weight:bold">Genre:</span> <%= artist.genre %><br />
+      <span style="font-weight:bold">Album count:</span> <%= artist.number_of_albums %><br />
+      <img src="<%= artist.picture %>" width="200" height="200">
+    </p>
+  </body>
+</html>
