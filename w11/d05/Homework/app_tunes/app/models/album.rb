@@ -1,0 +1,1 @@
+Album = Class.new ActiveRecord::Base 

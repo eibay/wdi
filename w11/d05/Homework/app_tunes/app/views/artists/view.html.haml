@@ -1,0 +1,23 @@
+!!! 
+%html{:lang => "en"}
+%head 
+  %meta{:charset => "utf-8"}
+  %title The Right Track | A Rails App
+%body
+  %header  
+    %h1 The Right Track 
+  %h2= @artist.name
+  %h3= @artist.genre 
+  %h4= "All Albums by #{@artist.name}:"
+  %ul  
+    - @albums.each do |album| 
+      %li 
+        %a{:href => "/albums/#{album.id}"}= album.name
+  %h4 Add an Album For This Artist
+  %form{:action => "/albums", :method => "POST"}
+    %input{:type => "hidden", :name => "authenticity_token", :value => form_authenticity_token}
+    %input{:type => "hidden", :name => "artist_id", :value => @artist.id}
+    %label 
+      %span Album Name: 
+      %input{:name => "name"}
+    %button Submit

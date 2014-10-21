@@ -1,0 +1,77 @@
+jquery_document_load = <<JQUERY_FUNCTION
+$(function(){
+  console.log("jquery loaded, js file is connected, window has loaded the document!"); 
+});
+JQUERY_FUNCTION
+
+haml_index = <<ROOT_INDEX_VIEW
+!!! 
+%html{:lang => "en"}
+%head 
+  %meta{:charset => "uft-8"}
+  %title My Fancy Sinatra App
+  %link{rel => "stylesheet", :type => "text/css", :href => "/css/styles.css"}
+  %script{:src => "/js/jquery-1.11.1.min.js"}
+  %script{:src => "/js/script.js"}
+%body
+  %h1 My Fancy Sinatra App  
+ROOT_INDEX_VIEW
+
+css_reset = <<POOR_MANS_RESET
+* {
+  margin: 0;
+  padding: 0;
+}
+POOR_MANS_RESET
+
+server_dot_rb = <<SERVER
+require 'sinatra'
+require 'haml'
+
+get '/' do 
+  haml :index
+end
+SERVER
+
+connection_dot_rb = <<CONNECTION
+require 'active_record'
+
+ActiveRecord::Base.establish_connection
+
+CONNECTION
+
+namespace :directories do 
+  task :first_level do
+    sh "mkdir views lib public" 
+  end
+
+  task :second_level do 
+    sh "mkdir public/js public/css public/img"
+  end 
+end 
+
+namespace :files do 
+  task :lib do 
+    sh "touch lib/connection.rb"
+  end 
+
+  task :server do 
+    sh "touch server.rb console.rb"
+  end 
+
+  task :root_view do
+    sh "touch views/index.haml"
+    sh "echo '#{haml_index}' > views/index.haml"   
+  end 
+
+  task :public_javascript do 
+    sh "wget http://code.jquery.com/jquery-1.11.1.min.js -P public/js"
+    sh "touch public/js/script.js"
+    sh "echo '#{jquery_document_load}' > public/js/script.js"
+  end 
+
+  task :public_css do 
+    sh "touch public/css/styles.css"
+    sh "echo '#{css_reset}' > public/css/styles.css"
+  end 
+end 

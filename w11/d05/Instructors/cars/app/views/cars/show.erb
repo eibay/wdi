@@ -1,0 +1,31 @@
+<h1><%= car.make %></h1>
+<p><%= car.model %>, <%= car.year %></p>
+
+<form action="/cars/<%= car.id %>" method="POST" > 
+
+  <input name="_method" value="DELETE" type="hidden" />
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  <button>Delete</button>
+</form>
+
+<form action="/cars/<%= car.id %>" method="POST">
+  <label>
+    Make:
+    <input name="make" value="<%= car.make %>"/>
+  </label>
+
+  <label>
+    Model:
+    <input name="model" value="<%= car.model %>"/>
+  </label>
+
+  <label>
+    Year:
+    <input name="year" value="<%= car.year %>" />
+  </label>
+
+  <input name="_method" value="PUT" type="hidden" />
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+
+  <button>Submit</button>
+</form>

@@ -1,0 +1,1 @@
+Artist = Class.new ActiveRecord::Base 

@@ -1,0 +1,1 @@
+Song = Class.new ActiveRecord::Base 
