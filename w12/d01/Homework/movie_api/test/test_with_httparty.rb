@@ -16,5 +16,5 @@ r = HTTParty.post 'http://localhost:3000/roles.json',
 :body => {
   character_name: "Kaori",
   movie_id: m.id, 
-  actor_id: a.id l
+  actor_id: a.id
 }
