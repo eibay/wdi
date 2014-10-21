@@ -1,0 +1,46 @@
+namespace :driving do
+	desc "opens car door"
+	task :door do
+		puts "You've open the door and planted your butt in the Corinthian leather seat"
+	end
+
+	desc "puts on seatbelt"
+	task :seatbelt do
+		puts "Click. All buckled up!"
+	end
+
+	desc "enter destination into GPS"
+		task :destination do
+			puts "Entering #{ENV['PLACE']} into GPS"
+		end
+
+	desc "creates driver file"
+	task :driver do
+	sh "touch driver.md"
+	sh "echo #{ENV["NAME"]} >> driver.md"
+	end
+
+end
+
+namespace :sinatra do
+	desc "builds a sinatra app"
+	task :sinatra_builder do
+		sh "touch server.rb console.rb seed.rb schema.sql"
+		sh "echo require \'sinatra\' >> server.rb"
+		sh "echo require \'sinatra/reloader\' >> server.rb"
+		sh "echo require \'pry\' >> server.rb"
+		sh "mkdir lib views public"
+		sh "touch ./public/javascripts.js"
+		sh "touch ./public/styles.css"
+		sh "touch ./views/index.erb"
+		sh "touch ./lib/connection.rb"
+	end
+
+
+
+
+
+
+
+
+end
