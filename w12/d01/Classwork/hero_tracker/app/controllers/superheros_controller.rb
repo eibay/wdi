@@ -11,24 +11,24 @@ class SuperherosController < ApplicationController
 	end
 
 	def create
-		if params["name"] == " " || if params["real_identity"] == " "
-			respond_to.do |format|
-			format.json { render :json => "BAD FORMAT!".to_json }
-		end
+		# if params["name"] == " " || if params["real_identity"] == " "
+		# 	respond_to.do |format|
+		# 	format.json { render :json => "BAD FORMAT!".to_json }
+		# end
 
-		else
+		# else
 			new_superhero = Superhero.create(
 				name: params["name"],
 				real_identity: params["real_identity"],
 				powers: params["powers"],
 				age: params["age"],
 				city_id: params["city_id"]
-			)
+			).valid?
 			respond_to do |format|
 				format.json { render :json => new_superhero }
 		 end
 	 	end
- 	end
+ 	# end
 
 	def update
 		superhero = Superhero.find(params[:id])
