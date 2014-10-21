@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  root "superheros#index"
+resources :movies
+resources :actors
+resources :roles
 
-  resources :superheros
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
