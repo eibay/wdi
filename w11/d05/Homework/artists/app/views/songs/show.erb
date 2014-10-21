@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>This one song</title>
+</head>
+<body>
+
+<h1><%= song.name %></h1>
+
+<h3>Make a Change to this Song</h3>
+<form action"/songs/<%= song.id %>" method="POST">
+	<input name="_method" value="PUT" type="hidden" />
+	
+	<label>
+		Song Name:
+		<input name="name" value="<%= song.name %>" />
+	</label>
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  <button>Submit</button>
+
+</form>
+
+<h3>Delete this Song</h3>
+
+<form action="/songs/<%= song.id %>" method="POST">
+  <input name="_method" value="DELETE" type="hidden" />
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  <button>Delete</button>
+</form>
+
+
+</body>
+</html>

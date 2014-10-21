@@ -1,0 +1,22 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2>All the artists we know about:</h2>
+	<ul>
+		<% artists.each do |artist| %>
+			<a href="/artists/<%= artist.id %>"><li>
+					<img src="<%= artist.photo_url %>" height="200px">
+				<p><strong><%= artist.name %> -- </strong>
+									<%= artist.genre %> -- 
+									<%= artist.number_of_albums %> albums<br></p>
+			</li></a>
+		<% end %>
+	</ul>
+
+<%= render "add_artist" %>
+
+</body>
+</html>

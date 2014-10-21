@@ -1,0 +1,29 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>All the artists</title>
+</head>
+<body>
+
+	<div style="float: left">
+		<h1><%= artist.name %></h1>
+		<h3>Genre: <%= artist.genre %></h3>
+		<h4>Number of Albums: <%= artist.number_of_albums %></h4>
+		<img src="<%= artist.photo_url %>" height="300px">
+	</div>
+
+	<!-- render songs by artist partial	 -->
+		<%= render partial: "songs_by_artist", locals: { artist: Artist.find(params[:id])} %>
+
+	<!-- render add song by artist partial	 -->
+		<%= render partial: "add_songs", locals: { artist: Artist.find(params[:id])} %>
+
+	<!-- render edit artist partial	 -->
+		<%= render partial: "edit_artist", locals: { artist: Artist.find(params[:id])} %>
+
+	<!-- render delete artist partial	 -->
+		<%= render partial: "delete_artist", locals: { artist: Artist.find(params[:id])} %>
+
+
+</body>
+</html>

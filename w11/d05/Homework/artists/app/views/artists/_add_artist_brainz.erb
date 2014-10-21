@@ -1,0 +1,11 @@
+	<h3>Add an Artist from MusicBrainz</h3>
+	<form action="/artists" method="POST">
+		<label>
+			Artist Name:
+			<input name="brainz_name" />
+		</label>
+
+	  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+
+	  <button>Submit</button>
+	</form>
