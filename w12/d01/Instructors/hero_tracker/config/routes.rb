@@ -1,28 +1,25 @@
 Rails.application.routes.draw do
 
+  root 'superheros#index'
+
+  resources :superheros
+
+#           Prefix Verb   URI Pattern                    Controller#Action
+#           root GET    /                              superheros#index
+#     superheros GET    /superheros(.:format)          superheros#index
+#                POST   /superheros(.:format)          superheros#create
+#  new_superhero GET    /superheros/new(.:format)      superheros#new
+# edit_superhero GET    /superheros/:id/edit(.:format) superheros#edit
+#      superhero GET    /superheros/:id(.:format)      superheros#show
+#                PATCH  /superheros/:id(.:format)      superheros#update
+#                PUT    /superheros/:id(.:format)      superheros#update
+#                DELETE /superheros/:id(.:format)      superheros#destroy
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
-  # get 'puppies/index'
-
-
-  resources :puppies
-
-
-  root 'puppies#index'
-
-  get '/puppies' => 'puppies#all'
-
-  post '/puppies' => 'puppies#create'
-
-  get '/puppies/:id' => 'puppies#show'
-
-  put '/puppies/:id' => 'puppies#update'
-
-  delete '/puppies/:id' => 'puppies#delete'
+  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

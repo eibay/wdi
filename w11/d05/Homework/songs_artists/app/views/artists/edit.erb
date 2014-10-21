@@ -1,0 +1,22 @@
+<form action="/artists/<%=@artist.id %>" method="POST">
+  <input name="_method" value="PUT" type="hidden" />
+  <label>
+    Name:
+    <input name="name" value="<%= @artist.name %>"/>
+  </label>
+
+  <label>
+    Genre:
+    <input name="genre" value="<%= @artist.genre %>"/>
+  </label>
+
+  <label>
+    Number Of Albums:
+    <input name="number" value="<%= @artist.number_of_albums%>" />
+  </label>
+
+  
+
+
+  <button>Submit</button>
+</form>
