@@ -1,0 +1,82 @@
+# namespace :driving do
+
+# 	desc "opens the car door"
+# 	task :open_door do
+# 		puts "Car door has been opened"
+# 	end
+
+# 	desc "put on my seatbelt"
+# 	task :seatbelt do
+# 		puts "Seatbelts has been put on"
+# 	end
+
+# 	desc "enter destination into GPS - enter the name of the place as such 'PLACE=destionation'"
+# 	task :destination do
+# 		puts "Entering into #{ENV["PLACE"]} the GPS"
+# 	end
+
+# 	desc "creates driver file with a drivers name written to it"
+# 	task :driver do
+# 		sh "echo #{ENV["NAME"] >> driver.mb}"
+# 	end
+
+# end
+
+# namespace :rails do
+
+# 	desc "make a file with a file name"
+# 	task :file do
+# 		sh "rake new echo#{ENV["NAME"]}"
+# 	end
+
+# end
+
+namespace :sinatra do
+
+	desc "make a sinatra folder - FOLDER=foldername USERNAME=username DATABASE=database"
+	task :folder do
+		sh "mkdir echo#{ENV["FOLDER"]}"
+		sh "cd echo#{ENV["FOLDER"]}"
+		sh "touch schema.sql"
+		sh "mkdir db lib views"
+		sh "cd db"
+		sh "touch connection.rb"
+		sh "echo #{require 'active_record'
+
+		ActiveRecord::Base.establish_connection({
+  		:adapter => "postgresql",
+  		:host => "localhost",
+  		:username => "echo#{ENV["USERNAME"]}",
+  		:database => "echo#{ENV["DATABASE"]}"
+		})
+
+		ActiveRecord::Base.logger = Logger.new(STDOUT)} >> connection.rb"
+		sh "cd .."
+		sh "cd lib"
+		sh "touch models.rb"
+		sh "cd .."
+		sh "cd views"
+		sh "touch index.html.erb"
+	end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
