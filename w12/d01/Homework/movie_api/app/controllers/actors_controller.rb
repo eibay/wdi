@@ -1,7 +1,7 @@
 class ActorsController < ApplicationController 
 
-    def index 
-      actors = Actor.all 
+  def index 
+    actors = Actor.all 
 
       # # list roles an actor has had, like this 
       # actors.each do |actor|
@@ -12,43 +12,55 @@ class ActorsController < ApplicationController
     respond_to do |format|
       format.json { render :json => actors }
     end 
-    
+
     def create 
-  actor = Actor.new(
-    fname: params["fname"],
-    lname: params["lname"],
-    picture_url: params["picture_url"]
-  )
+      actor = Actor.new(
+        fname: params["fname"],
+        lname: params["lname"],
+        picture_url: params["picture_url"]
+        )
 
-  respond_to do |format|
-    format.json do 
-      if actor.valid? 
-        actor.save 
-        render :json => actor 
-      else 
-        render :json => actor.errors.messages.to_json 
+      respond_to do |format|
+        format.json do 
+          if actor.valid? 
+            actor.save 
+            render :json => actor 
+          else 
+            render :json => actor.errors.messages.to_json 
+          end 
+        end 
+      end 
+    end 
+
+    def show
+      actor = Actor.find_by_id params[:id]
+      respond_to do |format|
+        format.json { render :json => actor }
+      end  
+    end 
+
+    def delete
+      actor = Actor.find_by_id params[:id]
+      actor.destroy  
+    end 
+
+    def update 
+      actor = Actor.find_by_id params[:id]
+      actor.fname = params["fname"],
+      actor.lname = params["lname"],
+      actor.picture_url = params["picture_url"]
+
+      respond_to do |format|
+        format.json do 
+          if actor.valid?
+            actor.save
+            render :json => actor 
+          else 
+            render :json => actor.errors.messages.to_json
+          end 
+        end 
       end 
     end 
   end 
-end 
-
-def update 
-  actor = Actor.find_by_id params[:id]
-  actor.fname = params["fname"],
-  actor.lname = params["lname"],
-  actor.picture_url = params["picture_url"]
-
-  respond_to do |format|
-    format.json do 
-      if actor.valid?
-        actor.save
-        render :json => actor 
-      else 
-        render :json => actor.errors.messages.to_json
-      end 
-    end 
-  end 
-end 
-end 
 
 

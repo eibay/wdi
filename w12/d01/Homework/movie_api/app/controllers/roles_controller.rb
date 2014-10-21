@@ -30,6 +30,18 @@ class RolesController < ApplicationController
     end 
   end
 
+  def show
+    role = Role.find_by_id params[:id]
+    respond_to do |format|
+      format.json { render :json => role }
+    end  
+  end 
+
+  def delete
+    role = Role.find_by_id params[:id]
+    role.destroy  
+  end 
+
   def update
     role = Role.find_by_id params[:id]
     role.character_name = params["character_name"],

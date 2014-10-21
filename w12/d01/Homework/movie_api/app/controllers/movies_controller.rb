@@ -58,4 +58,16 @@ class MoviesController < ApplicationController
       end
     end
   end
+
+  def show
+    movie = Movie.find_by_id params[:id]
+    respond_to do |format|
+      format.json { render :json => movie }
+    end  
+  end 
+
+  def delete
+    movie = Movie.find_by_id params[:id]
+    movie.destroy 
+  end 
 end
