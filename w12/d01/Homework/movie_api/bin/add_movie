@@ -1,4 +1,6 @@
-#!/usr/bin/env ruby  
+#!/usr/bin/env ruby 
+
+require 'themoviedb' 
 
 puts ARGV.last 
 
