@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Puppies</title>
+</head>
+<body>
+	<h2> Puppies and shit. I hate rails. </h2>
+
+	<form action="/puppies" method="GET">
+		<input type="text" name="name" placeholder="Name">
+		<br>
+		<input type="text" name="breed" placeholder="Breed">
+		<br>
+		Cuteness (1 is the ugliest, 5 is the cutest):
+		<br>
+		<select name="cuteness">	
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+    </select>	
+    <br>
+    <br>
+		<button>Submit</button>
+
+		<ul>
+			<% puppies.each do |x| %>
+			 <li> <%=puppy.breed%> </li>
+			<%end%>
+		</ul>
+</body>
+</html>

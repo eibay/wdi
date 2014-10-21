@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Artists</title>
+</head>
+<body>
+<h3> Add Artist: </h3>
+
+<form action="/artists" method="POST">
+  <label>
+    Name:
+    <input name="name" />
+  </label>
+
+  <label>
+    Genre
+    <input name="genre" />
+  </label>
+
+  <label>
+    Number of Albums
+    <input name="number_of_albums" />
+  </label>
+
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+
+  <button>Submit</button>
+</form>
+
+<h3> Artists: </h3>
+<ul>
+  <% artists.each do |artist| %>
+    <li>
+      <a href="/artists/<%= artist.id %>">
+        <%= artist.name %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+</body>
+</html>

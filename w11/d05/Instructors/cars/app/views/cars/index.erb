@@ -1,0 +1,31 @@
+<h1>Hello, here are the cars:</h1>
+<ul>
+  <% cars.each do |car| %>
+    <li>
+      <a href="/cars/<%= car.id %>">
+        <%= car.make %> <%= car.model %> <%= car.year %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<form action="/cars" method="POST">
+  <label>
+    Make:
+    <input name="make" />
+  </label>
+
+  <label>
+    Model:
+    <input name="model" />
+  </label>
+
+  <label>
+    Year:
+    <input name="year" />
+  </label>
+
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+
+  <button>Submit</button>
+</form>

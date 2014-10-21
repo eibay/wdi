@@ -1,0 +1,29 @@
+<h1>Song: <%= song.name %></h1>
+<p> Artist: <%=artist.name%> </p>
+<p> Genre: <%=artist.genre%> </p>
+	
+<form action="/songs/<%= song.id %>" method="POST" > 
+
+  <input name="_method" value="DELETE" type="hidden" />
+  <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+  <button>Delete</button>
+</form>
+
+
+	<form action="/songs/<%=song.id%>" method="POST">
+		  <label>
+		   	Name of song:
+		    <input name="name" />
+		  </label>
+
+		  <select name ="artist_id">
+		  		<% artists.each do |artist| %>
+		      	<option value="<%= artist.id %>"><%=artist.name%> </option>
+		  		<% end %>
+		  </select>
+
+	  	<input name="_method" value="PUT" type="hidden" />
+  		<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+
+	  	<button>Submit</button>
+	</form>
