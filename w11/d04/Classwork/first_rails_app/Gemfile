@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'pry-rails'
 
 gem 'pg'
+
+gem 'awesome_print'

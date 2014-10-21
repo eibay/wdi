@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
 
-  root "dog#index"
+ 
+  get '/' => 'dogs#index'
 
-  # get 'dog/index' 
-  match ':controller(/:action(/:id))', :via => :get
+  get '/dogs/:id' => 'dogs#show'
+
+  get '/dogs/:id/edit' => 'dogs#edit'
+
+  post '/dogs' => 'dogs#create'
+
+  put '/dogs/:id' => 'dogs#update'
+
+  delete '/dogs/:id' => 'dogs#delete'
   #this line needs to be at the end of the code - a "catch all" route
 
 

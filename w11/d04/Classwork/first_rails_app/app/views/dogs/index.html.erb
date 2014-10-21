@@ -1,0 +1,14 @@
+<h1>Puppies!</h1>
+<h3>Add New Puppy</h3>
+
+<form action="/dogs" mehtod="POST">
+	<input type="text" name="name" placeholder="Name">
+	<input type="text" name="breed" placeholder="Breed">
+	<input type="text" name="cuteness" placeholder="Cuteness 1-10">
+	<button>Add</button>
+</form>
+<ul>
+	<% @puppies.each do |puppy| %>
+	<li><a href="/dogs/<%= puppy.id %>"><%= puppy.name %></a></li>
+	<% end %>
+</ul>
