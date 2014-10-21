@@ -3,7 +3,7 @@ require 'httparty'
 m = HTTParty.post 'http://localhost:3000/movies.json', 
 :body => {title: "Love Exposure", 
   year: "2013", 
-  poster_url: "http://content7.flixster.com/movie/11/15/93/11159353_800.jpg"}) 
+  poster_url: "http://content7.flixster.com/movie/11/15/93/11159353_800.jpg"}
 
 a = HTTParty.post 'http://localhost:3000/actors.json',
   :body => {
@@ -16,5 +16,5 @@ r = HTTParty.post 'http://localhost:3000/roles.json',
 :body => {
   character_name: "Kaori",
   movie_id: m.id, 
-  actor_id: a.id 
+  actor_id: a.id l
 }
