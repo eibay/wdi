@@ -1,0 +1,8 @@
+{ 
+	"name": "add_movie",
+  "description": "command line script to add movie to app",
+  "version": "0.0.1",
+  "preferGlobal": "true",
+  "bin":{ "add_movie": "/Users/Conor/dev/wdi/rosencrantz/w12/d01/Homework/movie_app.js" }
+  
+}
