@@ -16,4 +16,12 @@ class ActorsController < ApplicationController
 		end
 	end
 
+	def show
+		@actor = Actor.find(params[:id])
+
+		respond_to do |format|
+			format.json { render :json => @actor, :include => [:movies, :roles]}
+		end
+	end
+	
 end
