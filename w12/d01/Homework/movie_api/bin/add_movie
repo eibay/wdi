@@ -1,1 +1,6 @@
+#!/usr/bin/ruby 
+
+puts ARGV.last 
+
 Tmdb::Api.key "1b8968d4b4eaa99937e2f4cb47dbbabe"
+puts Tmdb::Movie.find ARGV.last 
