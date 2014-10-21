@@ -1,0 +1,9 @@
+<h1><%= @song.name %></h1>
+<%= form_for(:song, :method => :put) do |f| %>
+	<%= f.text_field(:name, :value => @song.name) %>
+	<%= f.submit('Update') %>
+<% end %>
+
+<%= form_for(:song, :method => :delete) do |f| %>
+	<%= f.submit('Delete') %>
+<% end %>

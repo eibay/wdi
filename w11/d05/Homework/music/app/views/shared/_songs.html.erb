@@ -1,0 +1,7 @@
+<% @songs.each do |song| %>
+	<li><a href="/artists/<%= @artist.id %>/songs/<%= song.id %>"><%= song.name %></a>
+	<%= form_for([@artist, song], :method => :delete) do |f| %>
+	<%= f.submit('Delete') %>
+	<% end %>
+	</li>
+<% end %>

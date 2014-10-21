@@ -1,0 +1,18 @@
+<% content_for :title, 'Artists' %>
+
+<h1>Artists</h1>
+
+<%= form_tag('/artists', method: 'post') do %>
+  <%= text_field(:name, :attr, :placeholder => 'Name')%>
+  <%= text_field(:genre, :attr, :placeholder => 'Genre')%>
+  <%= text_field(:number_of_albums, :attr, :placeholder => '# of Albums')%>
+  <%= submit_tag('Add')%>
+<% end %>
+
+<ul>
+	<% @artists.each do |artist| %>
+		<li><a href="/artists/<%= artist.id %>"><%= artist.name %></a></li>
+	<% end %>
+</ul>
+
+

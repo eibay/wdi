@@ -1,0 +1,25 @@
+<% content_for :title, @artist.name %>
+
+<h1><%= @artist.name %></h1>
+<h3>Genre: <%= @artist.genre %></h3>
+<h3>Number of Albums: <%= @artist.number_of_albums %></h3>
+
+<%= form_for(@artist, :method => :put) do |f| %>
+<%= f.text_field(:name, :value => @artist.name) %>
+<%= f.text_field(:genre, :value => @artist.genre) %>
+<%= f.text_field(:number_of_albums, :value => @artist.number_of_albums) %>
+<%= f.submit('Update') %>
+<% end %>
+
+<%= form_for(@artist, :method => :delete) do |f| %>
+<%= f.submit('Delete') %>
+<% end %>
+
+<h3>Songs</h3>
+<%= form_for [@artist, @song] do |f| %>
+<%= f.text_field(:name, :placeholder => 'Song Name') %>
+<%= f.submit('Add Song') %>
+<% end %>
+<ul>
+	<%= render 'shared/songs' %>
+</ul>
