@@ -1,0 +1,36 @@
+<h1>Artists</h1>
+<ul>
+	<% @artists.each do |artist| %>
+	<li>
+		<a href="/artists/<%= artist.id%>">
+			<%= artist.name %>
+		</a>
+	</li>
+	<% end %>
+</ul>
+
+<h3>Add a New Artist</h3>
+<form action="/artists" method="POST">
+	<p><label>
+		Name:
+		<input name="name" required />
+	</label>
+	</p>
+	<p>
+	<label>
+		Genre:
+	<input name="genre" required />
+	</label>
+</p>
+	<p>
+	<label>
+		Number of Albums:
+		<input name="number_of_albums" required />
+	</label>
+
+	 <input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+</p>
+	 <p><button>Add</button></p>
+	</form>
+
+	<a href="/songs">View &amp; Add Songs</a>

@@ -9,7 +9,7 @@
 <body>
 	<div class="container">
 		<h2>Sign up for online banking</h2>
-		<form action="/users" method="POST">
+		<form action="/user" method="POST">
 			<input type="text" name="name" placeholder="Enter name" /><br><br>
 			<input type="email" name="email_address" placeholder="Enter email address"><br><br>
 			<input type="text" name="balance" placeholder="Starting balance"><br><br>
@@ -19,7 +19,7 @@
 		</form>
 
 		<h2>Existing users log in</h2>
-		<form action="/users" method="GET">
+		<form action="/users" method="POST">
 			<input type="email" name="email_address" placeholder="Enter email address"><br><br>
 			<input type="password" name="password" placeholder="Enter password"><br><br>
 			<button>Submit</button>

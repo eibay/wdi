@@ -1,0 +1,45 @@
+<h1>Artist Info: <%= @artist.name %></h1>
+<ul>
+	<li>
+		Genre: <%= artist.genre %><br>
+		Number of Albums: <%= artist.number_of_albums %>
+	</li>
+</ul>
+<h3>Songs</h3>
+<ul>
+	<% @songs.each do |song| %>
+	<li>
+		<%= song.name %>
+	</li>
+	<% end %>
+</ul>
+
+<h3>Update Info</h3>
+<form action="/artists/<%= @artist.id %>" method="POST">
+	<input type="hidden" name="_method" value="PUT">
+	<p><label>
+		Name: 
+		<input type="text" name="name" value="<%= @artist.name %>">
+	</label></p>
+	<p><label>
+		Genre: 
+		<input type="text" name="genre" value="<%= @artist.genre %>">
+	</label></p>
+	<p><label>
+		Number of Albums: 
+		<input type="text" name="number_of_albums" value="<%= @artist.number_of_albums %>">
+	</label></p>
+	<button>Update</button>
+	<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+</form>
+
+
+<form action="/artists/<%= @artist.id %>" method="POST">
+	<input type="hidden" name="_method" value="DELETE">
+	<button>Delete</button>
+	<input name="authenticity_token" value="<%= form_authenticity_token() %>" type="hidden">
+</form>
+
+</li>
+<p><a href="/songs">All Songs</a></br>
+	<a href="/">Back Home</a></p>
