@@ -2,7 +2,7 @@
 
 The teachers are getting frustrated at managing house points, and this magic thing just isn't cutting it. Let's use Ruby to help them out.
 
-Create three classes: `Student`, `House`, and `Hogwarts`.
+Create three classes: `Student`, `House`, and `Hogwarts`. The code examples below demostrate the features of these objects.
 
 ## Student
 
