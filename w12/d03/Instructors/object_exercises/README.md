@@ -28,4 +28,16 @@
     * Instantiate a single ```Comedian2Client```
     * call the ```add_joke``` method
     * call the ```print_joke``` method
+5. Create a class ```ActiveComedian``` backed by Comedian table with one field for a joke.
+  * Add a method on this class ```say_joke``` that prints the ```ActiveComedian```'s joke to the terminal
+  * Create a command line app that creates 3 ```ActiveComedian```s and then calls each ones ```say_joke``` method
+6. Create a class ```ReallyActiveComedian``` backed by a different table that again has only one field for a joke
+  * ```ReallyActiveComedian``` should inherit from ```ActiveComedian```
+  * Add a method ```say_joke_twice``` that calls the comedians ```say_joke``` method twice. You should not rewrite the ```say_joke``` method
+  * Create a command line app that creates 3 ```ReallyActiveComedians```s and calls each one's ```say_joke_twice``` method
+7. Create a ```Numbers``` class in ```numbers.rb```
+  * all methods in the ```Numbers``` class you can test out right in the ```numbers.rb``` file
+  * Create a *class* method ```sort``` that takes an array of numbers and sorts them in ascending order, returning the result. Be sure to write your own algorithm and not use an existing sorting method.
+  * Create a *class* method ```reverse``` that takes an array of numbers and reverses the order, returning the result
+  * Create a *class* method ```reverse_sort``` that calls the previously written methods ```reverse``` and ```sort``` on an array of numbers and returns the result.
 
