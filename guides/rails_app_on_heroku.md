@@ -8,7 +8,7 @@
 
 
 ####Push to Heroku
-- Add the Rails 12factor gem to your Gemfile.
+- Add the `rails_12factor` gem to your Gemfile.
 	- `bundle install`
 - Start with your basic Terminal and Heroku commands, you should know these from pushing Sinatra appications to Heroku
 	- `git init`
